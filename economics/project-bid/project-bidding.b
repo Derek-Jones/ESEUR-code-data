@@ -1,0 +1,19 @@
+Bid submitted,Company size
+97500,Medium
+559500,Medium
+168750,Small
+21000,Small
+232000,Medium
+206510,Small
+39780,Medium
+231600,Medium
+133000,Large
+268200,Large
+70000,Medium
+39000,Medium
+266000,Large
+207872,Medium
+160000,Large
+94500,Small
+35000,Small
+160140,Small

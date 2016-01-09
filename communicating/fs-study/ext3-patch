@@ -1,0 +1,1235 @@
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.0
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.1 
+	[PATCH] ext3: bd_claim for journal device		
+		. (1):(super):(c:fun_ck):(rep:permission_check) 1 8 0	
+	[PATCH] Fix ext3 space accounting bug on ENOSPC		
+		. (1):(balloc):(b:mem->re->err):(s:leak->fo):(r:fail):(rep:leak_on_err) 1 1 1 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.2 
+	[PATCH] ext3: s_next_generation fixes
+		. (2):(inode,super):(b:concurrency->ato):(s:corruption):(rep:lock_inode_update) 3 8 2 
+	[PATCH] ext3: fix determination of inode journaling mode	
+		. (2):(other):(b:sem->state->inode):(s:corruption):(note:wrong_state_check_inode) 1 14 3 
+	[PATCH] ext3: update a_ops when running `chattr +j'
+		. (2):(xattr):(b:sem->state->inode):(s:corruption):(note:wrong_state_update_inode) 1 1 0 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.3
+	[PATCH] ext2/3: incorrect increment of i_blocks when keeping the same xattr block
+		. (3):(xattr):(b:sem->state->inode):(s:corruption):(note:wrong_state_update_inode) 1 17 17
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.4 
+	[PATCH] ext3: fix scheduling-in-spinlock bug
+		. (4):(balloc):(b:concurrency->deadlock):(s:deadlock->bs):(r:fail):(rep:lock_sleep) 1 4 3 
+	[PATCH] d_alloc_root() fixes: ext3	
+		. (4):(super):(b:mem->re->err):(s:leak->vo):(r:fail):(rep:leak_on_err)  1 12 10 
+	[PATCH] ext2/ext3 -ENOSPC bug		
+		. (4):(inode):(b:sem->wlog):(s:error->wr_err):(note:wrong_logic) 1 2 2 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.5
+	[PATCH] Remove arbitrary #acl entries limits on ext[23] when reading
+		. (5):(xattr):(b:sem->wlog):(s:error->op_fail):(note:wrong_logic) 1 12 10 
+	[PATCH] ext2&3: use the right i_flags in find_group_orlov()
+		. (5):(inode):(b:sem->state->inode):(s:wb):(note:wrong_state_check_inode) 1 1 1 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.6 
+	[PATCH] ext3 fsync() and fdatasync() speedup
+		. (6):(file):(p:acce):(s:performance->io):(rep:avoid_redun_write) 4 65 18 
+	[PATCH] Add commit=0 to ext3, meaning "set commit to default"
+		. (6):(super):(f)  3 10 1 
+	[PATCH] ext3fs sb= mount option fix
+		. (6):(super):(b:sem->conf):(s:error->op_fail):(rep:forget_config)  1 4 1 
+	[PATCH] Fix ext3 add_nondir d_instantiate()	
+		. (6):(dir):(b:sem->state->dir):(s:corruption):(r:fail):(note:wrong_state_update_dir) 1 3 5 
+	[PATCH] ext3: journalled quotas
+		. (6):(inode,dir,super):(f)	 12 768 261
+	[PATCH] Minor fixes for ext3 journalled quotas
+		. (6):(super):(b:mem->re):(s:leak->go):(rep:leak_on_exit) 1 10 2 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.7 
+	[PATCH] Fix deadlock in journalled quota
+		. (7):(super):(b:concurrency->deadlock):(s:deadlock->in):(rep:wrong_lock_in_transaction) 3 44 2 
+	[PATCH] Fix ext3 bogus ENOSPC
+		. (7):(inode):(b:sem->wlog):(s:error->wr_err):(r:fail):(rep:early_enospc)	1 15 2 
+	[PATCH] ext3 error handling fixes
+		. (7):(dir):(b:error_handling->ms_err):(s:wb):(r:fail):(rep:miss_read_err) 1 22 13 
+	[PATCH] use-before-uninitialized value in ext3(2)_find_ goal
+		. (7):(inode):(p:loca):(s:performance->io):(rep:bad_alloc_local) 1 1 0 
+	[PATCH] ext3: remove duplicated ext3_std_error() call
+		. (7):(misc->code)									
+	[PATCH] fix possible NULL pointer in fs/ext3/super.c.
+		. (7):(super):(b:mem->null):(s:crash->null):(r:fail):(t:coverity):(rep:deref_after_check) 1 1 0 
+	[PATCH] ext3_orphan_del may double-decrement bh->b_count
+		. (7):(dir):(b:error_handling->wr_err):(s:corruption):(r:fail) 1 0 2 
+	[PATCH] ext3: htree rename fix
+		. (7):(dir):(b:sem->state->dir):(s:corruption):(note:miss_state_check_dir) 1 9 5 
+	[PATCH] ext3: journal_flush() needs journal_lock_updates()
+		. (7):(super):(b:concurrency->ato):(s:corruption):(rep:lock_journal_update) 1 5 1 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.8 
+	[PATCH] Ext3: Retry allocation after transaction commit (v2)
+		. (8):(xattr,balloc,inode,dir):(b:sem->wlog):(s:deadlock):(r:fail):(ff):(rep:early_enospc) 8 107 27 
+	[PATCH] ext3: htree readdir fix
+		. (8):(dir):(b:sem->state->dir):(s:corruption):(note:miss_state_check_dir) 1 2 0 
+	[PATCH] ext3: direct-io transaction extending fix
+		. (8):(inode):(b:sem->state->journal):(s:crash->BUG):(note:miss_state_check_journaling) 1 22 6 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.9 
+	[PATCH] ext3 barrier support
+		. (9):(super):(f):(barrier) 4 55 9 
+	[PATCH] vprintk for ext3 errors
+		. (9):(misc->code)									
+	[PATCH] ext3 documentation
+		. (9):(misc->doc)									
+	[PATCH] ext3 dreference of sb preceeds check.
+		. (9):(inode):(b:mem->null):(s:crash->null):(rep:deref_before_check) 1 2 1 
+	[PATCH] fix for fsync ignoring writing errors
+		. (9):(inode):(b:error_handling->ms_err):(s:corruption):(r:fail):(rep:miss_write_err) 1 5 5 
+	[PATCH] ext3 endianness annotations and bugfixes
+		. (9):(balloc,inode,dir,super,xattr):(c:an)  10 145 145 
+	[PATCH] ext3: journalled data fsync fix
+		. (9):(file):(b:sem->io):(s:corruption):(ff):(rep:sync_to_async) 1 0 4    
+	[PATCH] ext3 direct io assert fix
+		. (9):(inode):(b:mem->dp):(s:crash->BUG):(rep:use_after_free) 1 6 0 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.10 
+	[PATCH] unreachable code in ext3_direct_IO()
+		. (10):(misc->code)			
+	[PATCH] xattr consolidation v3 - ext3
+		. (10):(misc->code)			
+	[PATCH] ext3 directio block leak fix	
+		. (10):(inode):(b:sem->state->inode):(s:leak->fo):(r:fail):(note:miss_state_check_inode) 1 1 1 
+	[PATCH] ext3 block reservation patch set -- ext3 preallocation cleanup
+		. (10):(misc->code)						
+	[PATCH] ext3 block reservations
+		. (10):(balloc,file,inode,ioctl,super):(f):(block_reservation) 9 835 102 
+	[PATCH] ext3 reservation: default to on
+		. (10):(misc->code)						
+	[PATCH] ext3: online resizing
+		. (10):(balloc,inode,ioctl,resize,super):(f) 10 1153 42 
+	[PATCH] ext3_bread() cleanup
+		. (10):(misc->code)						
+	[PATCH] don't divide by 0 when trying to mount ext3
+		. (10):(super):(b:sem->gene):(s:crash->af):(r:fail):(rep:divide_by_zero) 1 18 12 
+	[PATCH] EXT3 compiler warning fix
+		. (10):(misc->compile)								
+	[PATCH] "Bad" naming of structures and functions in ext3 reservation code
+		. (10):(misc->code)				
+	Revert recent ext3_dx_readdir changes
+		. (10):(dir):(b:sem->wlog):(s:corruption):(ff):(2.6.8):(note:wrong_logic) 1 5 8 
+	[PATCH] reduce ext3 log spamming (blank lines)
+		. (10):(misc->code)							
+	[PATCH] fix ext2/ext3 memory leak
+		. (10):(super):(b:mem->re):(s:leak->go):(rep:leak_on_exit) 1 3 0 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.11 
+	[PATCH] Fix of quota deadlock on pagelock: ext3
+		. (11):(super):(b:concurrency->deadlock):(s:deadlock->in):(rep:wrong_lock_in_transaction) 3 135 32 
+	[PATCH] ext3: cleanup handling of aborted transactions.
+		. (11):(super):(c:err_ck):(rep:grace) 1 9 4 
+	[PATCH] ext3: handle attempted delete of bitmap blocks.
+		. (11):(inode):(c:err_ck):(rep:grace) 4 28 13 
+	[PATCH] ext3: support for EA in inode
+		. (11):(xattr):(f)  6 625 38 
+	[PATCH] Ext(23): apply umask to symlinks with ACLs configured out	
+		. (11):(misc->code)									
+	[PATCH] remove dead ext3_put_inode prototype
+		. (11):(misc->code)									
+	[PATCH] ext3 htree telldir() fix
+		. (11):(dir):(b:sem->wlog):(s:corruption):(note:wrong_logic) 1 6 2 
+	[PATCH] sched: ext3: fix scheduling latencies in ext3
+		. (11):(balloc,inode,dir,super):(p:sche):(s:performance->cpu) 7 38 8 
+	[PATCH] ext3: use generic_open_file to fix possible preemption bugs
+		. (11):(file):(b:concurrency->ato):(s:corruption) 1 1 15 
+	[PATCH] ext3 cleanups
+		. (11):(misc->code)							
+	[PATCH] ext3/ea: revert old ea-in-inode patch
+		. (11):(xattr):(f)	6 67 646 
+	[PATCH] ext3/EA: mbcache cleanup
+		. (11):(misc->code)								
+	[PATCH] ext3/EA: Race in ext(23) xattr sharing code
+		. (11):(xattr):(b:concurrency->ato):(s:crash) 3 90 37 
+	[PATCH] ext3/EA: Ext3: do not use journal_release_buffer
+		. (11):(xattr):(b:concurrency->ato):(s:error->op_fail) 1 67 75 
+	[PATCH] ext3/EA: Ext3: factor our common xattr code; unnecessary lock
+		. (11):(misc->code)					
+	[PATCH] ext3/EA: Ext[23]: no spare xattr handler slots needed
+		. (11):(misc->code)					
+	[PATCH] ext3/EA: Cleanup and prepare ext3 for in-inode xattrs
+		. (11):(xattr):(f)			1 353 362 
+	[PATCH] ext3/EA: Hide ext3_get_inode_loc in_mem option
+		. (11):(misc->code)					
+	[PATCH] ext3/EA: In-inode extended attributes for ext3
+		. (11):(xattr):(f)  6 448 174 
+	[PATCH] Minor ext3 speedup
+		. (11):(balloc):(p:rest):(s:performance->cpu) 1 9 11 
+	[PATCH] ext3: commit superblock before panicking
+		. (11):(super):(b:sem->state->journal):(s:crash):(r:fail):(note:wrong_state_update_journaling) 1 3 3 
+	[PATCH] ext2/ext3: block allocator startup fix
+		. (11):(balloc):(p:loca):(s:performance->io):(rep:bad_alloc_local) 1 1 1 
+	[PATCH] ext3/ea: no lock needed when freeing inode
+		. (11):(xattr):(p:sync->rm_lock):(s:performance->cpu):(rep:remove_lock) 1 0 2 
+	[PATCH] ext3/ea: set the EXT3_FEATURE_COMPAT_EXT_ATTR for in-inode xattrs
+		. (11):(xattr):(b:sem->state->super):(s:corruption):(note:miss_state_update_super) 1 1 1 
+	[PATCH] ext3/ea: documentation fix
+		. (11):(misc->doc)					
+	[PATCH] ext3/ea: ix i_extra_isize check				
+		. (11):(xattr):(b:sem->state->inode):(s:corruption):(note:miss_state_check_inode) 1 4 6 
+	[PATCH] ext3/ea: disallow in-inode attributes for reserved inodes
+		. (11):(inode):(c:cor_ck):(rep:inode_check) 1 24 9 
+	[PATCH] ext3: fix ea-in-inode default ACL creation
+		. (11):(xattr):(b:sem->state->inode):(s:corruption):(note:miss_state_check_inode) 1 7 0 
+	[PATCH] ext2/ext3 ACLs: remove the number of acl entries limit
+		. (11):(misc->code)
+	[PATCH] fix ext3 quota allocation bug on error path ...
+		. (11):(xattr):(b:mem->re->err):(s:leak->fo):(r:fail):(rep:leak_on_err) 1 6 2 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.12 
+	[PATCH] Avoid console spam with ext3 aborted journal.
+		. (12):(super):(c:err_ck) 1 9 1 
+	[PATCH] revert ext3-writepages-support-for-writeback-mode
+		. (12):(inode):(b:concurrency->deadlock):(s:deadlock->in):(ff):(2.6.10-mm)		3 1 60 
+	[PATCH] ext3: remove unnecessary race then retry in ext3_get_block
+		. (12):(misc->code)								   
+	[PATCH] Fix acl Oops
+		. (12):(xattr):(b:error_handling->ms_err):(s:crash->af):(r:fail):(rep:miss_read_err) 1 2 0 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.13 
+	[PATCH] ext3: drop quota references before releasing inode	
+		. (13):(inode):(b:mem->re->err):(s:leak->fo):(r:fail):(r:fail):(rep:leak_on_err)	1  2   0
+	[PATCH] ext3: fix options parsing	
+		. (13):(super):(b:sem->state->super):(s:corruption):(r:fail):(note:miss_state_update_super)	2  74   10
+	[PATCH] ext3 xattr: Don't write to the in-inode xattr space of reserved inodes	
+		. (13):(inode):(c:cor_ck):(rep:inode_check)	1  1   1
+	[PATCH] ext3: reduce allocate-with-reservation lock latencies	
+		. (13):(balloc,file):(p:sync->rm_lock):(s:performance->cpu):(rep:remove_lock)		2  67   72
+	[PATCH] coverity: fs/ext3/super.c: match_int return check	
+		. (13):(super):(b:sem->gene):(s:wb):(t:coverity):(rep:simple_typo)	1  2   1
+	[PATCH] quota: ext3: Improve quota credit estimates	
+		. (13):(inode,dir,super,xattr):(f)						7  60   36
+	[PATCH] Support for dx directories in ext3_get_parent (NFSD)	
+		. (13):(dir):(b:sem->state->dir):(s:error->wr_err):(real):(note:miss_state_check_dir)	1  10   2
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.14 
+	[PATCH] Fix ext3_new_inode() failure paths	
+		. (14):(inode):(b:mem->re->err):(s:leak->fo):(r:fail):(rep:leak_on_err)	1  14   15
+	[PATCH] ext3: EXT3_DEBUG build fixes	
+		. (14):(misc->compile)								   	2  6   6
+	[PATCH] ext3: ext3_show_options fix	
+		. (14):(super):(b:sem->gene):(s:corruption):(rep:simple_typo)	1  5   6
+	[PATCH] ext3: Enable atomic inode security labeling	
+		. (14):(inode,xattr):(f)		3  38   0
+	[PATCH] disk quotas fail when /etc/mtab is symlinked to /proc/mounts 	
+		. (14):(super):(f)		2  83   11
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.15 
+	[PATCH] ext3: fix mount options documentation	
+		. (15):(misc->doc)					    	1  13   13
+	[PATCH] ext3: Wrong return value for EXT3_IOC_GROUP_ADD	
+		. (15):(resize):(b:error_handling->wr_err):(s:crash->null):(r:fail)	1  1   0
+	[PATCH] ext3: journal handling on error path in ext3_journalled_writepage()	
+		. (15):(inode):(b:sem->state->journal):(s:corruption):(r:fail):(note:miss_state_update_journaling)	1  3   1
+	[PATCH] remove CONFIG_EXT{2,3}_CHECK	
+		. (15):(misc->code)					7  2   260
+	[PATCH] Test for sb_getblk return value 	
+		. (15):(inode,resize):(b:mem->null):(s:crash->null):(r:fail):(rep:deref_before_check)	2  18   1
+	[PATCH] ext3: sparse fixes	
+		. (15):(misc->compile)								8  29   6
+	[PATCH] Locking problems while EXT3FS_DEBUG on	
+		. (15):(balloc,inode):(b:concurrency->deadlock):(s:deadlock)	3  3   6
+	[PATCH] Fix ext3 warning for unused var	
+		. (15):(misc->compile)		1  16   10		 	
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.16 
+	[PATCH] ext3: fix nobh mode for chattr +j inodes	
+		. (16):(inode):(b:sem->conf):(s:wb):(rep:forget_config)	1  8   9
+	[PATCH] ext3: ext3_symlink should use GFP_NOFS allocations inside	
+		. (16):(dir):(b:concurrency->inter):(s:crash->assert):(r:fail):(real):(rep:wrong_kmalloc_flag)	3  15   3
+	[PATCH] Fix two ext\[23\] uninitialized warnings	
+		. (16):(misc->compile)				2  2   2
+	[PATCH] ext3: remove d_splice_alias NULL check from ext3_lookup	
+		. (16):(misc->code)		1  1   4
+	[PATCH] ext3: fix documentation of online resizing	
+		. (16):(misc->doc)				  	1  2   2
+	[PATCH] fs/ext3/: small cleanups 	 	
+		. (16):(misc->code)		  	4  7   12
+	[PATCH] Docs update: small spelling, formating etc fixes for filesystems/ext3.txt	
+		. (16):(misc->doc)		  	1  90   88
+	[PATCH] remove ext3 xattr permission checks	
+		. (16):(misc->code)			3  0   23
+	[PATCH] ext3: use sbi instead of EXT3_SB() in resize code.	
+		. (16):(misc->api)				    	1  5   5
+	[PATCH] ext3: remove trailing newlines from ext3_warning() calls	
+		. (16):(misc->code)				3  15   15
+	[PATCH] ext3: external journal device as a mount option	
+		. (16):(super):(f):(journal_device)	2  49   10
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.17 
+	[PATCH] ext3 resize: fix double unlock_super()	
+		. (17):(resize):(b:concurrency->d_unlock):(s:wb):(r:fail)	1  0   1
+	[PATCH] Update ext2/ext3/jbd MAINTAINERS entries	
+		. (17):(misc->doc)					    				1  7   1
+	[PATCH] ext3: multile block allocate little endian fixes	
+		. (17):(inode):(b:sem->gene):(s:corruption):(rep:wrong_endianess)	1  8   5
+	[PATCH] protect ext3 ioctl modifying append_only, immutable, etc. with i_mutex	
+		. (17):(ioctl):(b:concurrency->ato):(s:corruption):(rep:lock_inode_update)	1  14   4
+	[PATCH] forgotten ->b_data in memcpy() call in ext3/resize.c (oopsable)	
+		. (17):(resize):(b:sem->gene):(s:corruption):(rep:simple_typo)	1  1   1
+	[PATCH] ext3: Fix missed mutex unlock	
+		. (17):(resize):(b:concurrency->m_unlock):(s:deadlock->re):(r:fail)	1  1   0
+	[PATCH] ext3: "nobh" writeback support for filesystems blocksize < pagesize					
+		. (17):(super):(b:sem->wlog):(s:error->warning):(note:wrong_logic)	1  0   6  
+	[PATCH] ext3: multi-block get_block()	
+		. (17):(misc->api)				1  4   12
+	[PATCH] ext3: cleanups and WARN_ON()	
+		. (17):(misc->code)			1  114   125
+	[PATCH] ext3_get_blocks: Adjust reservation window size for mblocks	
+		. (17):(balloc):(f)					    		1  31   1
+	[PATCH] ext3_get_blocks: Adjust accounting info in ext3_new_blocks()	
+		. (17):(balloc):(f)				    			1  19   12
+	[PATCH] ext3_get_blocks: support multiple blocks allocation in ext3_new_block()	
+		. (17):(balloc):(f)					    		2  40   11
+	[PATCH] ext3_get_blocks: multiple block allocation	
+		. (17):(inode):(f)					    		1  193   77
+	[PATCH] ext3_get_blocks: Mapping multiple blocks at a once	
+		. (17):(dir,inode):(f):(multiple_block_allocation)		3  82   34
+	[PATCH] ext3: Fix debug logging-only compilation error	
+		. (17):(misc->compile)							    		1  3   3
+	[PATCH] ext3: Properly report backup block present in a group	
+		. (17):(balloc):(b:sem->conf):(s:corruption):(rep:forget_config)	1  33   7
+	[PATCH] fast ext3_statfs	
+		. (17):(super):(p:acce):(s:performance->io):(rep:stat_caching)	1  4   3
+	[PATCH] convert ext3's truncate_sem to a mutex  		
+		. (17):(misc->api)							    		5  16   15
+	[PATCH] ext3_readdir: use generic readahead	
+		. (17):(dir):(p:sche):(s:performance->io)	4  32   32
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.18 
+	[PATCH] ext3 sequential read regression fix	
+		. (18):(inode):(p:acce):(s:performance->io):(ff)	1  1   1
+	[PATCH] knfsd: Make ext3 reject filehandles referring to invalid inode number	
+		. (18):(super):(c:cor_ck):(rep:inode_check)	1  42   0
+	[PATCH] ext3_getblk() should handle HOLE correctly	
+		. (18):(inode):(b:error_handling->wr_err):(s:error->wr_err):(r:fail)	1  7   4
+	[PATCH] ext3 filesystem bogus ENOSPC with reservation fix	
+		. (18):(balloc):(b:sem->wlog):(s:error->wr_err):(r:fail):(rep:early_enospc)	1  3   3
+	[PATCH] ext3 -nobh option causes oops	
+		. (18):(inode):(b:sem->conf):(s:crash):(rep:forget_config)	1  3   3
+	[PATCH] ext3: avoid triggering ext3_error on bad NFS file handle	
+		. (18):(dir,inode):(c:cor_ck)	3  29   8
+	[PATCH] Remove leftover ext3 acl declarations	
+		. (18):(misc->code)			1  0   3
+	[PATCH] lockdep: annotate the quota code				    		
+		. (18):(super):(c:an->lock)	1  1  1
+	[PATCH] ext3: Add "-o bh" option	
+		. (18):(super):(f)						    		2  13  1
+	[PATCH] ext3: cleanup dead code in ext3_add_entry()	
+		. (18):(misc->code)							    		1  1   3
+	[PATCH] ext3_fsblk_t: the rest of in-kernel filesystem blocks conversion	
+		. (18):(misc->api)							    		8  96   88
+	[PATCH] ext3_fsblk_t: filesystem, group blocks and bug fixes	
+		. (18):(balloc,inode,resize,super,xattr):(f):(16TB)	8  177   149
+	[PATCH] ext3: remove inconsistent space before exclamation point in mount code	
+		. (18):(misc->code)							    		1  1   1
+	[PATCH] Avoid disk sector_t overflow for >2TB ext3 filesystem	
+		. (18):(resize,super):(c:fun_ck):(rep:limit_check)	2  20   0
+	[PATCH] percpu counter data type changes to suppport more than 2**31 ext3 free blocks counter	
+		. (18):(misc->api)						    		5  58  53
+	[PATCH] ext3_clear_inode(): avoid kfree(NULL)	
+		. (18):(misc->code)					1  12   11
+	Remove private struct dx_hash_info from public view in <linux/ext3_fs.h>	
+		. (18):(misc->code)					1  2   1
+	Don't include private headers from user-visible part of linux/ext3_fs.h	
+		. (18):(misc->code)					1  2   5
+	\[RBTREE\] Update ext3 to use rb_parent() accessor macro.	
+		. (18):(misc->api)		1  1   1
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.19 
+	[PATCH] ext3: errors behaviour fix	
+		. (19):(super):(b:sem->conf):(s:error->wr_err):(r:fail):(ss):(rep:forget_config)	1  2   0
+	[PATCH] BLOCK: Move the Ext3 device ioctl compat stuff to the Ext3 driver (try #6)	
+		. (19):(misc->code)							    		5  66  28
+	[PATCH] ext3: make meta data reads use READ_META	
+		. (19):(misc->code)							    		2  5   3
+	[PATCH] more ext3 16T overflow fixes	
+		. (19):(balloc,resize):(c:fun_ck):(rep:limit_check)		2  23   6
+	[PATCH] ext3: Fix sparse warnings	
+		. (19):(misc->code)							    		4  14   15
+	[PATCH] ext3: More whitespace cleanups	
+		. (19):(misc->code)							    		14  48   48
+	[PATCH] ext3: wrong error behavior	
+		. (19):(super):(b:sem->conf):(s:error->op_fail):(r:fail):(rep:forget_config)	1  6   5
+	[PATCH] ext3: more comments about block allocation/reservation code	
+		. (19):(misc->code)							    		1  247   45
+	[PATCH] ext3: turn on reservation dump on block allocation errors	
+		. (19):(balloc):(c:db)	1  8   4
+	[PATCH] ext3: inode numbers are unsigned long	
+		. (19):(dir,inode,super,xattr):(b:sem->gene):(s:corruption):(rep:wrong_type)	5  27   26
+	[PATCH] fix ext3 mounts at 16T	
+		. (19):(super):(b:sem->gene):(s:error->op_fail):(rep:wrong_type)	1  19   15
+	[PATCH] ext3 and jbd cleanup: remove whitespace	
+		. (19):(misc->code)			17  307   307						
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.20 
+	[PATCH] ext3: change uses of f_{dentry, vfsmnt} to use f_path	
+		. (20):(misc->api)							    		4  8   8
+	[PATCH] ext3 balloc: fix _with_rsv freeze	
+		. (20):(balloc):(b:sem->gene):(s:wb):(ss):(rep:simple_typo)	1  1   1
+	[PATCH] ext3 balloc: use io_error label	
+		. (20):(misc->code)			1  2   4
+	[PATCH] ext3 balloc: say rb_entry not list_entry	
+		. (20):(misc->api)							    		1  3   3
+	[PATCH] ext3 balloc: fix off-by-one against rsv_end	
+		. (20):(balloc):(b:sem->gene):(s:wb):(ss):(rep:off_by_one)	1  1   1
+	[PATCH] ext3 balloc: fix off-by-one against grp_goal	
+		. (20):(balloc):(b:sem->gene):(s:wb):(ff):(ss):(rep:off_by_one)	1  2   2
+	[PATCH] ext3 balloc: reset windowsz when full	
+	    . (20):(balloc):(b:sem->wlog):(s:error->wr_err):(ss):(note:wrong_logic)	1  1   0
+	[PATCH] ext3/4: don't do orphan processing on readonly devices	
+		. (20):(super):(b:sem->conf):(s:crash->assert):(ss):(rep:forget_config)	1  6   0
+	[PATCH] ext3: fix reservation extension	
+		. (20):(balloc):(b:sem->wlog):(s:wb):(ss):(note:wrong_logic)	1  8   4
+	[PATCH] retries in ext3_prepare_write() violate ordering requirements	
+		. (20):(inode):(b:sem->io):(s:corruption):(r:fail):(ss):(rep:meta_data_order)	1  75   10
+	[PATCH] ext3: uninline large functions	
+		. (20):(misc->api)					    				3  77   60
+	[PATCH] handle ext3 directory corruption better	
+		. (20):(dir):(c:cor_ck):(ss):(rep:dir_check)	2  12   0
+	[PATCH] Remove superfluous lock_super() in extN xattr code 	
+		. (20):(xattr):(p:sync->rm_lock):(s:performance->cpu):(ss):(rep:remove_lock)	1  1   4 
+	[PATCH] ext3: fsid for statvfs	
+		. (20):(super):(b:sem->state->other):(s:corruption):(real):(ss):(note:wrong_state_update_other)	1  5   0
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.21 
+	[PATCH] revert "retries in ext3_prepare_write() violate ordering requirements"
+		. (21):(inode):(b:sem->io):(s:corruption):(r:fail):(ff):(ss):(2.6.20):(rep:meta_data_order) 1 10 75 
+	[PATCH] "ext[34]: EA block reference count racing fix" performance fix
+		. (21):(xattr):(p:sche):(s:performance->io):(ff):(rep:async_to_sync) 1 2 1 
+	[PATCH] ext[34]: EA block reference count racing fix
+		. (21):(xattr):(b:concurrency->ato):(s:corruption,leak->fo):(ss) 1 25 16 
+	[PATCH] ext[234]: update documentation 
+		. (21):(misc->doc) 1 1 1 
+	[PATCH] remove ext[34]_inc_count and _dec_count
+		. (21):(misc->api)								1 3 18 	
+	[PATCH] return ENOENT from ext3_link when racing with unlink
+		. (21):(dir):(c:cor_ck):(ss) 1 6 0 
+	[PATCH] fix umask when noACL kernel meets extN tuned for ACLs
+		. (21):(super):(b:sem->conf):(s:wb):(ss):(rep:forget_config) 1 4 0 
+	[PATCH] ext3: refuse ro to rw remount of fs with orphan inodes
+		. (21):(super):(b:sem->state->super):(s:corruption):(r:fail):(ss):(note:miss_state_check_super) 1 16 0 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.22 
+	ext3: lost brelse in ext3_read_inode()
+		. (22):(inode):(b:mem->re->err):(s:leak->vo):(r:fail):(ss):(rep:leak_on_err) 1 3 1 
+	ext3: use zero_user_page
+		. (22):(misc->api)			1 2 10 				    	
+	ext3: copy i_flags to inode flags on write
+		. (22):(inode,ioctl):(b:sem->state->inode):(s:corruption):(ss):(note:miss_state_update_inode) 3 32 0 
+	ext3: dirindex error pointer issues
+		. (22):(dir):(b:error_handling->ms_err):(s:error->wr_err):(r:fail):(ss)	2 30 22 
+	ext2/3/4: fix file date underflow on ext2 3 filesystems on 64 bit systems 
+		. (22):(inode):(b:sem->gene):(s:corruption):(real):(ss):(rep:wrong_type)  1 3 3 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.23 
+	ext34: ensure do_split leaves enough free space in both blocks 
+		. (23):(dir):(b:sem->wlog):(s:corruption):(real):(ss):(note:wrong_logic) 1 35 4
+	dir_index: error out instead of BUG on corrupt dx dirs 
+		. (23):(dir):(c:err_ck):(ss):(rep:grace) 2 60 8 
+	quota: fix infinite loop 
+		. (23):(super):(b:mem->re->err):(s:leak->fo,hang):(r:fail):(ss):(rep:leak_on_err)	1 10 1 
+	fix inode_table test in ext234_check_descriptors
+		. (23):(super):(b:sem->gene):(s:error->op_fail):(ss):(rep:off_by_one) 1 1 1 
+	readahead: convert ext3/ext4 invocations
+		. (23):(dir):(p:sche):(s:performance->io):(ss)		1 8 6 	
+	ext3: statfs speed up
+		. (23):(super):(p:acce):(s:performance->io):(ss):(rep:stat_caching) 2 17 10 
+	ext3: fix error handling in ext3_create_journal()
+		. (23):(misc->code)	 1 5 2 
+	is_power_of_2: ext3/super.c
+		. (23):(misc->api)					1 2 1 				
+	ext3: remove extra IS_RDONLY() check
+		. (23):(misc->code) 1 1 1 
+	ext3: fix deadlock in ext3_remount() and orphan list handling
+		. (23):(super):(b:concurrency->deadlock):(s:deadlock->re):(ss):(rep:wrong_lock_in_transaction) 1 8 0 
+	ext3/ext4: orphan list corruption due bad inode
+		. (23):(dir):(b:sem->state->inode):(s:corruption):(r:fail):(ss):(note:miss_state_check_inode) 1 10 0 
+	ext3/ext4: orphan list check on destroy_inode
+		. (23):(super):(c:cor_ck):(ss) 1 8 0 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.24 
+	ext3, ext4: avoid divide by zero
+		. (24):(super):(b:sem->gene):(s:crash->af):(real):(ss):(rep:divide_by_zero) 1 1 1 
+	Fix 64KB blocksize in ext3 directories	  	
+		. (24):(dir):(b:sem->gene):(s:corruption):(ss):(rep:wrong_type) 3 70 52 
+	Forbid user to change file flags on quota files
+		. (24):(ioctl):(c:fun_ck):(ss):(rep:permission_check)		    	1 5 0 
+	Revert "ext2/ext3/ext4: add block bitmap validation"
+		. (24):(balloc):(p:acce):(s:performance->cpu):(ff):(ss):(2.6.24)	    1 4 44   
+	ext3: new export ops
+		. (24):(misc->api)							    	
+	documentation/ext3: grammar fixes
+		. (24):(misc->doc)							    	
+	JBD/ext3 cleanups: convert to kzalloc
+		. (24):(misc->api)							    	
+	ext3: fix setup_new_group_blocks locking
+		. (24):(resize):(b:concurrency->wr_lock):(s:wb):(ss) 1 3 3 
+	ext3: support large blocksize up to PAGESIZE
+		. (24):(super):(f)						    	2 7 3 
+	ext3: lighten up resize transaction requirements
+		. (24):(resize):(c:fun_ck):(ss):(rep:lightup_trans)  1 49 2 
+	ext3: remove #ifdef CONFIG_EXT3_INDEX
+		. (24):(misc->code)			
+	Fix f_version type: should be u64 instead of unsigned long 
+		. (24):(dir):(b:sem->gene):(s:wb):(ss):(rep:wrong_type) 1 1 1 
+	ext2/ext3/ext4: add block bitmap validation
+		. (24):(balloc):(c:cor_ck):(ss)	 1 42 13
+	remove unused bh in calls to ext234_get_group_desc 
+		. (24):(misc->code)
+	ext3: show all mount options
+		. (24):(super):(f) 2 71 0 
+	lib: percpu_counter_init error handling 
+		. (24):(super):(b:error_handling->ms_err):(s:crash->null):(r:fail):(ss):(rep:miss_mem_err) 1 15 6 
+	lib: percpu_counter_sum_positive 
+		. (24):(misc->api)
+	lib: percpu_counter_sub 
+		. (24):(super):(b:sem->gene):(s:corruption):(ss):(rep:wrong_type)	1 1 1 
+	lib: percpu_counter_add 
+		. (24):(misc->api)	    	
+	ext3: convert to new aops
+		. (24):(misc->code)		
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.25 
+	ext3: don't export ext3_fs.h and jbd.h
+		. (25):(misc->code)					    			
+	ext3: fix wrong gfp type under transaction
+		. (25):(resize,xattr):(b:concurrency->inter):(s:crash->assert,deadlock->bs):(ss):(rep:wrong_kmalloc_flag)  3 8 8 
+	ext3: fix mount option parsing
+		. (25):(super):(b:sem->gene):(s:error->op_fail):(ss):(rep:simple_typo)  1 1 1 
+	ext3: replace all adds to little endians variables with le*_add_cpu
+		. (25):(misc->api)							    	
+	iget: stop EXT3 from using iget() and read_inode()
+		. (25):(inode,dir,resize,super):(c:err_ck):(ss) 6 89 72 
+	ext3: fix lock inversion in direct IO
+		. (25):(inode):(b:concurrency->deadlock):(s:deadlock->cl):(ss):(rep:wrong_lock_in_transaction)  1 52 54 	
+	ext3: remove unused code from ext3_find_entry()
+		. (25):(misc->code)			
+	ext[234]: cleanup ext[234]_bg_num_gdb() 
+		. (25):(misc->api)
+	ext[234]: remove unused argument for ext[234]_find_goal() 
+		. (25):(misc->api)
+	ext[234]: use ext[234]_get_group_desc() 
+		. (25):(misc->code)
+	ext[234]: fix comment for nonexistent variable 
+		. (25):(misc->code)	
+	ext3: change the default behaviour on error
+		. (25):(super):(c:cor_ck):(ss)     1 8 8 
+	ext3: return after ext3_error in case of failures
+		. (25):(balloc):(b:sem->conf):(s:corruption):(r:fail):(ss):(rep:forget_config) 1 6 2 
+	ext3: add block bitmap validation
+		. (25):(balloc):(c:cor_ck):(ff):(ss) 1 70 8 
+	ext3: Fix the max file size for ext3 file system.
+		. (25):(super):(b:sem->conf):(s:corruption):(rep:forget_config) 1 28 4 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.26 
+	ext3: add missing unlock to error path in ext3_quota_write()
+		. (26):(super):(b:concurrency->m_unlock):(s:deadlock->re):(r:fail):(ss) 1 3 1 
+	ext3: fix online resize bug
+		. (26):(resize):(b:sem->wlog):(s:error->op_fail):(ss):(note:wrong_logic) 1 2 1 
+	ext3/4: fix uninitialized bs in ext3/4_xattr_set_handle()
+		. (26):(xattr):(b:sem->state->inode):(s:corruption):(ss):(note:miss_state_update_inode) 1 5 0 
+	ext3: fix test ext_generic_write_end() copied return value
+		. (26):(inode):(b:sem->gene):(s:wb):(ss):(rep:wrong_type) 1 8 6 
+	ext3: replace remaining __FUNCTION__ occurrences
+		. (26):(misc->code)					    			
+	ext3: fix mount messages when quota disabled
+		. (26):(misc->code)							    	
+	ext3: retry block allocation if new blocks are allocated from system zone
+		. (26):(balloc):(b:sem->wlog):(s:error->wr_err):(r:fail):(ss):(rep:early_enospc) 1 10 5 
+	ext3: fix hang on umount with quotas when journal is aborted
+		. (26):(super):(b:mem->re->err):(s:leak->fo,hang):(r:fail):(ss):(rep:leak_on_err)	1 7 1 
+	ext3: fix update of mtime and ctime on rename
+		. (26):(dir):(b:sem->state->inode):(s:corruption):(ss):(rep:update_time) 1 2 0 
+	fs/ext3: use BUG_ON
+		. (26):(misc->api)							    	
+	ext3: check ext3_journal_get_write_access() errors
+		. (26):(dir):(b:error_handling->ms_err):(s:corruption):(r:fail):(ss) 1 7 2 
+	ext3: use ext3_get_group_desc()
+		. (26):(misc->api)							    	
+	ext3: add missing ext3_journal_stop()
+		. (26):(resize):(b:sem->state->journal):(s:corruption):(r:fail):(ss):(note:miss_state_update_journaling) 1 1 0 
+	ext3: use ext3_group_first_block_no()
+		. (26):(misc->api)							    	
+	make ext3_xattr_list() static
+		. (26):(misc->api)					    			
+	ext3: convert byte order of constant instead of variable
+		. (26):(misc->code)							    	
+	ext3: fdatasync should skip metadata writeout when overwriting
+		. (26):(file):(p:acce):(s:performance->io):(ss):(rep:avoid_redun_write)		1 3 0 	
+	quota: ext3: make ext3 handle quotaon on remount
+		. (26):(misc->code)  
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.27 
+	ext3: validate directory entry data before use
+		. (27):(dir):(b:sem->state->dir):(s:hang):(r:fail):(real):(ss):(note:miss_state_check_dir) 1 12 10 
+	ext3: kill 2 useless magic numbers				
+		. (27):(misc->code)							    	
+	ext3: handle deleting corrupted indirect blocks
+		. (27):(inode):(b:sem->state->bh):(s:crash):(r:fail):(real):(ss):(note:miss_state_check_bh) 1 15 1 
+	ext3: don't read inode block if the buffer has a write error
+		. (27):(inode):(b:error_handling->ms_err):(s:corruption):(r:fail):(ss):(rep:miss_write_err) 1 10 0 
+	ext3: handle corrupted orphan list at mount
+		. (27):(inode):(b:sem->state->inode):(s:hang):(r:fail):(real):(ss):(note:miss_state_check_inode) 3 24 6 
+	ext3: remove double definitions of xattr macros
+		. (27):(misc->code)							    	
+	ext3: improve some code in rb tree part of dir.c
+		. (27):(misc->code)						    		
+	ext3: correct mount option parsing to detect when quota options can be changed
+		. (27):(super):(b:sem->conf):(s:corruption):(ss):(rep:forget_config) 1 22 7 
+	ext3: fix typos in messages and comments (journalled -> journaled)
+		. (27):(misc->code)							    	
+	ext3: fix synchronization of quota files in journal=data mode
+		. (27):(super):(b:sem->io):(s:corruption):(ss):(rep:sync_to_async) 1 27 8 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.28 
+	ext3: Clean up outdated and incorrect comment for ext3_write_super()	
+		. (28):(misc->code)										1  2   5
+	ext3: wait on all pending commits in ext3_sync_fs	
+		. (28):(super):(b:sem->io):(s:corruption):(ss):(rep:sync_to_async)		1  5   6
+	ext3: fix a bug accessing freed memory in ext3_abort	
+		. (28):(super):(b:mem->dp):(s:crash->null):(ss):(rep:use_after_free):(t:kmemcheck)	1  7   3
+	ext3: Fix duplicate entries returned from getdents() system call	
+		. (28):(dir):(b:sem->state->dir):(s:corruption):(real):(ff):(ss):(note:miss_state_update_dir)	1  8   12  
+	ext3 quota support: fix compile failure	
+		. (28):(misc->compile):(ff)								1  1   1
+	ext3: add checks for errors from jbd	
+		. (28):(ioctl,super):(b:error_handling->ms_err):(s:corruption):(r:fail):(ss):(rep:miss_write_err) 2  27   8
+	[PATCH] get rid of on-stack fake dentry in ext3_get_parent()	
+		. (28):(dir):(c:fun_ck):(ss)	1  33   37
+	ext3: avoid printk floods in the face of directory corruption	
+		. (28):(dir):(c:err_ck):(ss) 	1  7   3
+	ext3: truncate block allocated on a failed ext3_write_begin	
+		. (28):(inode):(b:sem->state->inode):(s:leak->fo):(r:fail):(ss):(note:miss_state_update_inode)	1  7   0
+	ext3: fix ext3_dx_readdir hash collision handling	
+		. (28):(dir):(b:sem->state->dir):(s:corruption):(ss):(note:miss_state_update_dir) 		1  15   5
+	ext3: add an option to control error handling on file data	
+		. (28):(super):(f)						5  28   0
+	ext3: fix ext3 block reservation early ENOSPC issue	
+		. (28):(balloc):(b:sem->wlog):(s:error->wr_err):(r:fail):(ss):(rep:early_enospc)	1  2   1
+	ext3: don't try to resize if there are no reserved gdt blocks left	
+		. (28):(resize):(c:db):(ss)	1  2   1
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.29 
+	trivial: fix bad links in the ext2 and ext3 documentation
+		. (29):(misc->doc)							    	
+	ext3: revert "ext3: wait on all pending commits in ext3_sync_fs"
+		. (29):(super):(p:sche):(s:performance->io):(real):(ss):(rep:async_to_sync):(ff):(2.6.28) 1 6 5 
+	ext3: Add sanity check to make_indexed_dir
+		. (29):(dir):(b:sem->state->dir):(s:crash):(r:fail):(real):(ss):(note:miss_state_check_dir) 1 14 6 
+	generic swap(): ext3: remove local swap() macro
+		. (29):(misc->api)							    	
+	ext3: tighten restrictions on inode flags
+		. (29):(inode,ioctl):(c:cor_ck):(ss)    	3 20 8 
+	ext3: don't inherit inappropriate inode flags from parent
+		. (29):(inode):(b:sem->state->inode):(s:corruption):(real):(ss):(note:wrong_state_update_inode) 2 8 1 
+	ext3: allocate ->s_blockgroup_lock separately
+		. (29):(super):(p:scal):(s:performance->mem):(ss):(rep:save_struct_mem) 2 11 3 
+	ext3: Add default allocation routines for quota structures
+		. (29):(misc->code)				    	
+	ext3: Use sb_any_quota_loaded() instead of sb_any_quota_enabled()
+		. (29):(misc->api)							    	
+	ext3: provide function to release metadata pages under memory pressure
+		. (29):(super):(c:fun_ck) 1 21 0 
+	nfsd race fixes: ext3
+		. (29):(inode,dir):(b:concurrency->ato):(s:corruption):(r:fail):(ss):(rep:nfs_race_inode) 2 19 2 
+	ext3: ensure fast symlinks are NUL-terminated
+		. (29):(inode):(c:cor_ck):(ss):(rep:inode_check) 1 5 2 
+	ext3/4: Fix loop index in do_split() so it is signed
+		. (29):(misc->compile)							    	
+	ext3: Add support for non-native signed/unsigned htree hash algorithms
+		. (29):(dir,super):(f):(ss)					5 114 11     		
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.30 
+	ext3: Try to avoid starting a transaction in writepage for data=writepage
+		. (30):(inode):(p:acce):(s:performance->io):(rep:avoid_redun_write) 1 18 5 
+	ext3: make default data ordering mode configurable
+		. (30):(misc->code)				    	
+	ext3: Add replace-on-rename hueristics for data=writeback mode
+		. (30):(dir):(c:cor_ck) 1 5 1 
+	ext3: Add replace-on-truncate hueristics for data=writeback mode
+		. (30):(file,inode):(c:cor_ck) 3 8 0 
+	ext3: avoid false EIO errors
+		. (30):(inode):(b:sem->state->bh):(s:error->wr_err,leak->fo):(r:fail):(ff):(note:miss_state_update_bh) 1 74 65 
+	ext3: return -EIO not -ESTALE on directory traversal through deleted inode
+		. (30):(dir):(b:error_handling->wr_err):(s:error->wr_err):(r:fail):(ss) 1 10 2 
+	ext3: use unsigned instead of int for type of blocksize in fs/ext3/namei.c
+		. (30):(misc->api)						
+	ext3: remove the BKL in ext3/ioctl.c
+		. (30):(ioctl):(p:sync->rm_lock):(s:performance->cpu):(ss):(rep:remove_lock)	4 24 44 
+	trivial: document ext3 semantics of 'ro' option a bit better
+		. (30):(misc->doc)				
+	ext3: Avoid starting a transaction in writepage when not necessary
+		. (30):(inode):(p:acce):(s:performance->io):(rep:avoid_redun_write) 1 13 5 
+	ext3: Use lowercase names of quota functions
+		. (30):(misc->api)							    	
+	ext3: Remove unnecessary quota functions
+		. (30):(misc->code)							    	
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.31 
+	ext3: Improve error message that changing journaling mode on remount is not possible
+		. (31):(super):(c:db)	1 27 13 
+	ext3: Update Kconfig description of EXT3_DEFAULTS_TO_ORDERED
+		. (31):(misc->doc)									
+	ext3: Get rid of extenddisksize parameter of ext3_get_blocks_handle()
+		. (31):(misc->api)						
+	ext3: Fix truncation of symlinks after failed write
+		. (31):(inode):(b:sem->state->inode):(s:leak->fo):(r:fail):(ss):(note:miss_state_update_inode) 1 10 9 
+	switch ext3 to inode->i_acl
+		. (31):(misc->code)	
+	ext3: make sure inode is deleted from orphan list after truncate
+		. (31):(inode):(b:sem->state->inode):(s:crash->assert):(note:miss_state_update_inode) 1 11 9 
+	ext3: fix chain verification in ext3_get_blocks()
+		. (31):(inode):(b:sem->wlog):(s:wb):(note:wrong_logic) 1 1 1 
+	ext3: avoid unnecessary spinlock in critical POSIX ACL path
+		. (31):(xattr):(p:sync->rm_lock):(s:performance->cpu):(ss):(rep:remove_lock)	1 8 5 
+	ext3: remove ->write_super and stop maintaining ->s_dirt
+		. (31):(misc->code)									
+	ext3: Fix memory leak in ext3_fill_super() in case of a failed mount
+		. (31):(super):(b:mem->re->err):(s:leak->fo):(r:fail):(ss):(rep:leak_on_err)	1 1 0 		
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.32
+	ext3: Wait for proper transaction commit on fsync
+		. (32):(file,inode,super):(b:sem->io):(s:corruption):(ss):(rep:sync_to_async) 4 57 21 
+	ext3: retry failed direct IO allocations
+		. (32):(inode):(b:sem->wlog):(s:error->wr_err):(r:fail):(ss):(rep:early_enospc)   1 4 0 
+	ext3: Update documentation about ext3 quota mount options
+		. (32):(misc->doc)								    
+	ext3: Don't update superblock write time when filesystem is read-only
+		. (32):(super):(b:sem->conf):(s:corruption):(ss):(rep:forget_config) 1 12 1 
+	ext3: Flush disk caches on fsync when needed
+		. (32):(file):(b:sem->io):(s:corruption):(rep:sync_to_async) 1 11 1 
+	ext3: Add locking to ext3_do_update_inode
+		. (32):(inode):(b:concurrency->ato):(s:corruption):(rep:lock_inode_update) 1 9 0 
+	ext3: Fix possible deadlock between ext3_truncate() and ext3_get_blocks()
+		. (32):(inode):(b:concurrency->deadlock):(s:deadlock->re):(ss):(rep:wrong_lock_in_transaction) 1 15 4 
+	ext3: Update MAINTAINERS for ext3 and JBD
+		. (32):(misc->doc)								    
+	ext3: Remove syncing logic from ext3_file_write
+		. (32):(misc->code)    	
+	ext[234]: move over to 'check_acl' permission model
+		. (32):(misc->api)
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.33
+	ext3: Replace lock/unlock_super() with an explicit lock for resizing
+		. (33):(resize,super):(p:sync->sm_lock):(s:performance->cpu):(ss) 3 20 17 
+	ext3: Replace lock/unlock_super() with an explicit lock for the orphan list
+		. (33):(dir,super):(p:sync->sm_lock):(s:performance->cpu):(ss) 3 13 9 
+	ext3: ext3_mark_recovery_complete() doesn't need to use lock_super
+		. (33):(super):(p:sync->rm_lock):(s:performance->cpu):(ss):(rep:remove_lock)	1 0 8 
+	ext3: Remove outdated comment about lock_super()
+		. (33):(misc->code)	
+	ext3: quota macros cleanup (V2)
+		. (33):(misc->code)		
+	ext3: PTR_ERR return of wrong pointer in setup_new_group_blocks()
+		. (33):(resize):(b:sem->gene):(s:error->wr_err):(r:fail):(ss):(rep:simple_typo) 1 1 1 
+	ext3: Fix data / filesystem corruption when write fails to copy data
+		. (33):(inode):(b:sem->state->inode):(s:corruption):(r:fail):(ss):(note:miss_state_update_inode)    1 14 4 
+	ext3: Support for vfsv1 quota format
+		. (33):(super):(f)					  1 24 6   
+	ext3: Unify log messages in ext3
+		. (33):(misc->code)								    
+	ext3: make "norecovery" an alias for "noload"
+		. (33):(misc->code)								    
+	ext3: Don't update the superblock in ext3_statfs()
+		. (33):(super):(b:sem->state->super):(s:corruption):(real):(ff):(ss):(note:wrong_state_update_super) 1 0 2 
+	ext3: journal all modifications in ext3_xattr_set_handle
+		. (33):(xattr):(b:sem->state->journal):(s:corruption):(real):(ss):(rep:forget_journaling)  1 4 3 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.34
+	ext3: symlink must be handled via filesystem specific operation
+		. (34):(misc->api)								    
+	ext3: fix broken handling of EXT3_STATE_NEW 
+		. (34):(inode):(b:sem->wlog):(s:error->op_fail):(real):(ff):(note:wrong_logic) 4 8 6 
+	ext3: add writepage sanity checks
+		. (34):(inode):(b:sem->conf):(s:corruption):(rep:forget_config) 1 7 0 
+	ext3: Truncate allocated blocks if direct IO write fails to update i_size	 	
+		. (34):(inode):(b:mem->re->err):(s:leak->fo):(r:fail):(rep:leak_on_err) 1 3 2 
+	ext3: quota_write cross block boundary behaviour
+		. (34):(super):(b:sem->wlog):(s:crash->BUG):(ss):(note:wrong_logic) 1 34 35 
+	ext3: trivial quota cleanup
+		. (34):(misc->code)								    
+	ext3: mount flags manipulation cleanup
+		. (34):(misc->api)								    
+	ext3: Use bitops to read/modify EXT3_I(inode)->i_state
+		. (34):(file,inode,xattr):(b:concurrency->ato):(s:corruption):(ss):(rep:lock_inode_update) 5 44 27 
+	fix ext3/ext4 comment typo compain -> complain
+		. (34):(misc->code)				    
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.35
+	ext3: update ctime when changing the file's permission by setfacl
+		. (35):(xattr):(b:sem->state->inode):(s:corruption):(ss):(rep:update_time) 1 1 0 
+	ext3 uses rb_node = NULL; to zero rb_root.	    
+		. (35):(misc->code)
+	ext3: replace inode uid,gid,mode init with helper
+		. (35):(misc->api)								    
+	ext3: constify xattr handlers 
+		. (35):(misc->api)								    
+	ext3: make barrier options consistent with ext4
+		. (35):(super):(f):(barrier)  2 39 9 
+	ext3: Fix waiting on transaction during fsync
+		. (35):(file):(b:sem->io):(s:corruption):(rep:sync_to_async) 2 10 12 
+	ext3: init statistics after journal recovery v2
+		. (35):(super):(b:sem->state->super):(s:corruption):(real):(ss):(note:wrong_state_update_super) 1 21 23 
+	ext3: Avoid loading bitmaps for full groups during block allocation
+		. (35):(balloc):(p:acce):(s:performance->io,performance->mem):(real):(rep:check_before_work) 1 6 0 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.36
+	convert ext3 to ->evict_inode()
+		. (36):(misc->api)								    
+	ext3: Fix dirtying of journalled buffers in data=journal mode
+		. (36):(inode):(b:sem->wlog):(s:error->warning):(ss):(note:wrong_logic)    1 17 1 
+	ext3: default to ordered mode
+		. (36):(misc->code)			    
+	ext3: Avoid filesystem corruption after a crash under heavy delete load
+		. (36):(inode):(b:sem->state->inode):(s:corruption):(r:fail):(ss):(note:wrong_state_update_inode) 1 25 21 
+	ext3: remove vestiges of nobh support
+		. (36):(misc->code)					    
+	ext3: Fix set but unused variables
+		. (36):(misc->compile)								    
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.37
+	ext3: Update kernel-doc comments
+		. (37):(misc->doc)								  
+	ext3: Fix debug messages in ext3_group_extend()
+		. (37):(misc->code)								    
+	ext3: Remove misplaced BUFFER_TRACE() in ext3_truncate()
+		. (37):(misc->code)								    
+	ext3: Use DIV_ROUND_UP() on group desc block counting
+		. (37):(misc->api)								    
+	ext3: Return proper error code on ext3_fill_super()
+		. (37):(super):(b:error_handling->wr_err):(s:error->wr_err):(r:fail):(rep:over_written_err) 1 2 0 
+	ext3: Remove unnecessary casts on bh->b_data
+		. (37):(misc->code)								    
+	ext3: Cleanup ext3_setup_super()
+		. (37):(misc->code)						
+	ext3/jbd: Avoid WARN() messages when failing to write the superblock
+		. (37):(super):(b:sem->state->bh):(s:error->warning):(r:fail):(ss):(note:miss_state_update_bh) 1 23 1 
+	ext3: Fix lost extented attributes for inode with ino == 11
+		. (37):(inode):(b:sem->state->inode):(s:corruption):(real):(note:miss_state_check_inode) 1 8 3 
+	BKL: Remove BKL from ext3_put_super() and ext3_remount()
+		. (37):(super):(p:sync->rm_lock):(s:performance->cpu):(ss):(rep:remove_lock) 1 0 9 
+	BKL: Remove BKL from ext3 fill_super()
+		. (37):(super):(p:sync->rm_lock):(s:performance->cpu):(ss):(rep:remove_lock) 1 1 12
+	BKL: Explicitly add BKL around get_sb/fill_super 
+		. (37):(misc->code)
+	ext3/ext4: Factor out disk addressability check
+		. (37):(misc->api)									
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.38
+	ext3: Remove redundant unlikely()
+		. (38):(misc->code)
+	ext3: speed up file creates by optimizing rec_len functions
+		. (38):(dir):(p:rest):(s:performance->cpu):(ss) 2 17 7 
+	ext3: Add more journal error check
+		. (38):(dir,inode):(b:error_handling->ms_err):(s:corruption):(r:fail):(rep:miss_write_err) 2 7 3 
+	ext3: Add journal error check in resize.c
+		. (38):(resize):(b:error_handling->ms_err):(s:corruption):(r:fail):(rep:miss_write_err) 1 51 14 
+	ext3: Add FITRIM handling
+		. (38):(ioctl):(f):(trim)				1 22 0 
+	ext3: Add batched discard support for ext3
+	 	. (38):(balloc):(f):(trim)   2 267 0 
+	ext2,ext3,ext4: clarify comment for extN_xattr_set_handle
+		. (38):(misc->code)
+	ext2,3,4: provide simple rcu-walk ACL implementation
+		. (38):(xattr):(c:fun_ck):(ss) 1 5 2 
+	ext3: Add journal error check into ext3_rename()
+		. (38):(dir):(b:error_handling->ms_err):(s:corruption):(r:fail):(ss):(rep:miss_write_err) 1 15 4 
+	ext3: Use search_dirblock() in ext3_dx_find_entry()
+		. (38):(misc->api)								 
+	ext3: Avoid uninitialized memory references with a corrupted htree directory
+		. (38):(dir):(b:mem->unread):(s:error->warning):(ss):(rep:use_before_init) 1 15 15 
+	ext3: Return error code from generic_check_addressable
+	    . (38):(super):(b:error_handling->ms_err):(s:error->wr_err):(r:fail) 1 4 2 
+	ext3: Add journal error check into ext3_delete_entry()
+		. (38):(dir):(b:error_handling->ms_err):(s:corruption):(r:fail):(rep:miss_write_err) 1 12 2 
+	ext3: Add error check in ext3_mkdir()
+		. (38):(dir):(b:error_handling->ms_err):(s:corruption):(r:fail):(ss):(rep:miss_write_err) 1 22 14 
+	fs/ext3/super.c: Use printf extension %pV
+		. (38):(misc->api)								    
+	ext3: don't update sb journal_devnum when RO dev
+	    . (38):(super):(b:sem->conf):(s:crash->BUG):(ss):(rep:forget_config) 1 1 1 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.39
+	ext3: Fix writepage credits computation for ordered mode
+		. (39):(inode):(b:sem->state->journal):(s:error->op_fail):(rep:wrong_journal_credit) 1 1 1 
+	ext3: use little-endian bitops
+		. (39):(misc->api)								  
+	ext3: Copy fs UUID to superblock.
+		. (39):(misc->code)				
+	fs: Remove i_nlink check from file system link callback				    
+		. (39):(misc->code)				
+	ext3: Always set dx_node's fake_dirent explicitly.
+		. (39):(dir):(c:cor_ck):(ss):(rep:dir_check) 1 1 1 
+	ext3: Fix an overflow in ext3_trim_fs.
+    	. (39):(balloc):(b:sem->gene):(s:wb):(rep:wrong_type) 1 8 3 
+	ext3: skip orphan cleanup on rocompat fs
+    	. (39):(super):(b:sem->conf):(s:corruption):(ss):(rep:forget_config) 1 7 0 
+	ext3: speed up group trim with the right free block count.
+		. (39):(balloc):(p:acce):(s:performance->cpu):(rep:check_before_work) 1 2 1 
+	ext3: Adjust trim start with first_data_block.
+		. (39):(misc->code)								 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.0
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.1 
+	[PATCH] JBD: b_committed_data locking fix
+		. (1):(journal->commit):(b:concurrency->ato):(s:corruption):(rep:lock_journal_update) 1 8 2 
+	[PATCH] ext3 scheduling latency fix
+		. (1):(journal->commit):(p:sche):(s:performance->cpu) 1 11 2 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.2 
+	[PATCH] jbd: start_this_handle() return value fix
+		. (2):(journal->transaction):(b:error_handling->wr_err):(s:crash->null):(r:fail):(rep:over_written_err) 1 2 2 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.3
+ChangeLog-2.6.4
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.5 
+	[PATCH] JBD: avoid panic on corrupted journal superblock
+		. (5):(journal->recovery):(c:err_ck):(rep:grace) 1 4 1 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.6 
+	[PATCH] jbd: fix ordered-data writeout logic
+		. (6):(journal->commit):(b:sem->state->bh):(s:corruption):(r:fail):(note:miss_state_update_bh) 1 1 2 
+	[PATCH] JBD: ordered-data commit cleanup
+		. (6):(journal->commit,journal->transaction):(p:sync->sm_lock):(s:performance->cpu) 3 95 70 
+	[PATCH] jbd: fix I/O error handling
+		. (6):(journal->commit):(b:error_handling->ms_err):(s:corruption):(r:fail):(rep:miss_write_error) 1 6 4 
+	[PATCH] jbd: do_get_write_access lock contention reduction
+		. (6):(journal->transaction):(p:sync->sm_lock):(s:performance->cpu) 1 29 29 
+	[PATCH] jbd: b_transaction zeroing cleanup
+		. (6):(journal->commit,journal->transaction):(b:concurrency->ato):(s:corruption):(rep:lock_journal_update) 2 6 21 
+	[PATCH] JBD: BH_Revoke cleanup
+		. (6):(misc->code)									
+	[PATCH] jbd copyout fix
+		. (6):(journal->journal):(b:sem->state->other):(s:corruption):(note:wrong_state_update_other) 1 6 7 
+	[PATCH] jbd: journal_dirty_metadata locking speedup
+		. (6):(journal->transaction):(p:sync->sm_lock):(s:performance->cpu) 1 3 10 
+	[PATCH] ext3 avoid writing kernel memory to disk
+		. (6):(journal->journal):(b:sem->state->bh):(s:wb):(note:miss_state_update_bh) 1 1 0 
+	[PATCH] Fix ext3 transaction batching
+		. (6):(journal->transaction):(p:sche):(s:performance->cpu) 1 2 2 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.7 
+	[PATCH] jbd: descriptor buffer state fix
+		. (7):(journal->commit,journal->journal,journal->revoke):(b:concurrency->ato):(s:corruption) 3 15 7 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.8 
+	[PATCH] jbd needs to wait for locked buffers
+		. (8):(journal->commit):(b:concurrency->inter):(s:corruption):(note:io_race_endio) 1 1 1 
+	[PATCH] jbd: journal_head unmapping race fix
+		. (8):(journal->transaction):(b:concurrency->ato):(s:crash->null) 1 8 7 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.9 
+	[PATCH] jbd endianness annotations
+		. (9):(journal->commit,journal->journal,journal->recovery,journal->revoke):(c:an)					5 75 75 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.10 
+	[PATCH] jbd wakeup fix
+		. (10):(journal->commit,journal->transaction):(b:sem->wlog):(s:error->wr_err):(note:wrong_logic) 5 8 14 
+	[PATCH] remove journal callback code from jbd
+		. (10):(misc->code)	
+	[PATCH] ext3 umount hang
+		. (10):(journal->journal):(b:sem->state->journal):(s:hang):(note:miss_state_check_journaling)	 1 6 4 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.11
+	[PATCH] BUG on error handlings in Ext3 under I/O failure condition
+		. (11):(journal->commit):(b:error_handling->ms_err):(s:corruption):(r:fail):(rep:miss_write_err) 4 19 9 
+	[PATCH] ext3: handle attempted double-delete of metadata.
+		. (11):(journal->revoke):(c:err_ck):(rep:grace) 1 6 1 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.12 
+	[PATCH] jbd dirty buffer leak fix
+		. (12):(journal->transaction):(b:sem->state->journal):(s:leak->vo):(ff):(note:miss_state_check_journaling) 1 11 2 
+	[PATCH] ext3: fix list scanning in __cleanup_transaction
+		. (12):(journal->checkpoint):(b:sem->gene):(s:corruption):(rep:simple_typo) 1 1 1 
+	[PATCH] ext3: fix log_do_checkpoint() assertion failure
+		. (12):(journal->checkpoint):(b:sem->state->journal):(s:crash->assert):(note:miss_state_check_journaling) 1 3 1 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.13
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.14 
+	[PATCH] Fix race in do_get_write_access() 
+		. (14):(journal->transaction):(b:concurrency->ato):(s:corruption) 1 21 18 
+	[PATCH] Change ll_rw_block() calls in JBD
+		. (14):(journal->checkpoint,journal->commit,journal->journal,journal->revoke):(b:sem->io):(s:corruption):(rep:sync_to_async)  4 5 5 
+	[PATCH] Fix JBD race in t_forget list handling
+		. (14):(journal->commit):(b:concurrency->ato):(s:corruption) 1 24 10   
+	[PATCH] kjournald: missing JFS_UNMOUNT check
+		. (14):(journal->journal):(b:sem->state->journal):(s:hang):(note:miss_state_check_journaling) 1 2 0 
+	[PATCH] fs/jbd/: cleanups
+		. (14):(misc->code)								    
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.15 
+	[PATCH] jbd doc: fix some kernel-doc warnings
+		. (15):(misc->doc)					
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.16 
+	[PATCH] jbd: revert checkpoint list changes
+		. (16):(journal->checkpoint):(b:sem->wlog):(s:wb):(ff):(2.6.16):(note:wrong_logic)	3  179   250
+	[PATCH] jbd: fix transaction batching
+		. (16):(journal->transaction):(p:sche):(s:performance->cpu):(rep:wasted_wait) 2 13 1 
+	[PATCH] jbd: remove_transaction fix			
+		. (16):(journal->commit):(b:sem->state->journal):(s:crash->assert):(note:miss_state_check_journaling) 1 2 1 
+	[PATCH] jbd: log_do_checkpoint fix
+		. (16):(journal->checkpoint):(b:sem->state->journal):(s:corruption):(note:wrong_state_check_journaling) 1 1 1 
+	[PATCH] jbd: split checkpoint lists
+		. (16):(journal->checkpoint):(p:acce):(s:performance->cpu) 2  248   178 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.17 
+	[PATCH] Update ext2/ext3/jbd MAINTAINERS entries
+		. (17):(misc->doc)							
+	[PATCH] jbd: convert kjournald to kthread API
+		. (17):(misc->code)						
+	[PATCH] jbd: embed j_commit_timer in journal struct
+		. (17):(misc->code)				
+	[PATCH] sem2mutex: jbd, j_checkpoint_mutex	    
+		. (17):(misc->api)									
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.18 
+	[PATCH] manage-jbd-its-own-slab fix
+		. (18):(journal->transaction):(b:mem->re):(s:leak->vo):(ff):(rep:leak_on_exit) 1 1 1 
+	[PATCH] Manage jbd allocations from its own slabs
+		. (18):(journal->commit,journal->journal,journal->transaction):(b:sem->wlog):(s:error->op_fail):(real):(note:wrong_logic) 4 97 13 
+	[PATCH] ext3: fix memory leak when the journal file is corrupted
+		. (18):(journal->recovery):(b:mem->re->err):(s:leak->vo):(r:fail):(rep:leak_on_exit) 1 1 0 
+	[PATCH] JBD: split checkpoint lists
+		. (18):(journal->checkpoint):(p:acce):(s:performance->cpu):(ff) 2 246 181 
+	[PATCH] jbd: avoid kfree(NULL)
+		. (18):(misc->code)					    
+	[PATCH] jbd: fix BUG in journal_commit_transaction()
+		. (18):(journal->commit,journal->transaction):(b:sem->wlog):(s:crash->assert):(note:wrong_logic) 2 18 6 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.19 
+	[PATCH] jbd: journal_dirty_data re-check for unmapped buffers
+		. (19):(journal->transaction):(b:concurrency->ato):(s:crash->BUG):(ss) 1 14 1 
+	[PATCH] ext3/4: fix J_ASSERT(transaction->t_updates > 0) in journal_stop()
+		. (19):(journal->transaction):(b:sem->state->journal):(s:crash->assert):(r:fail):(ss):(note:wrong_state_check_journaling) 1 3 2   
+	[PATCH] null dereference in fs/jbd/journal.c
+		. (19):(journal->journal):(b:mem->null):(s:crash->null):(r:fail):(t:coverity):(ff):(ss):(rep:deref_after_check) 1 2 1 
+	[PATCH] JBD: memory leak in "journal_init_dev()"
+		. (19):(journal->journal):(b:mem->re):(s:leak->vo):(r:fail) 1 10 11 
+	[PATCH] JBD: Make journal_brelse_array() static
+		. (19):(misc->api)								    
+	[PATCH] JBD: 16T fixes
+		. (19):(journal):(b:sem->gene):(s:error->op_fail):(rep:wrong_type) 2 5 5 
+	[PATCH] jbd: use BUILD_BUG_ON in journal init
+		. (19):(misc->api)						
+	[PATCH] jbd: add lock annotation to jbd_sync_bh
+		. (19):(journal->checkpoint):(c:an->lock) 1 1 0 
+	[PATCH] jbd: fix commit of ordered data buffers
+		. (19):(journal->commit):(b:sem->io):(s:corruption):(rep:sync_to_async) 1 113 69 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.20 
+	[PATCH] jbd: wait for already submitted t_sync_datalist buffer to complete
+		. (20):(journal->commit):(b:sem->io):(s:corruption):(ss):(rep:sync_to_async) 1 6 2 
+	[PATCH] user of the jiffies rounding code: JBD
+		. (20):(misc->api)					
+	[PATCH] make fs/jbd/transaction.c:__journal_temp_unlink_buffer() static
+		. (20):(misc->api)					
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.21 
+	[PATCH] jbd layer function called instead of fs specific one
+		. (21):(misc->api)									
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.22 
+	jbd: check for error returned by kthread_create on creating journal thread
+		. (22):(journal):(b:error_handling->ms_err):(s:hang):(r:fail):(ss) 2 18 8 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.23 
+	is_power_of_2(): jbd
+		. (23):(misc->api)								
+	jbd commit: fix transaction dropping
+		. (23):(journal->commit):(b:sem->state->journal):(s:crash->assert):(ss):(note:wrong_state_check_journaling) 1 2 1 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.24 
+	jbd: do not try lock_acquire after handle made invalid
+		. (24):(journal->transaction):(b:mem->dp):(s:crash->null):(r:fail):(real):(rep:use_after_free)		1 2 0 
+	jbd: Fix assertion failure in fs/jbd/checkpoint.c
+		. (24):(journal->checkpoint):(b:sem->state->journal):(s:crash->assert):(ss):(note:wrong_state_check_journaling) 3 12 10 
+	JBD: Fix JBD warnings when compiling with CONFIG_JBD_DEBUG
+		. (24):(misc->compile)								    
+	jbd: fix commit code to properly abort journal
+		. (24):(journal->commit):(b:error_handling->ms_err):(s:corruption):(r:fail):(ss) 1 4 4 
+	jbd: config_jbd_debug cannot create /proc entry
+		. (24):(misc->code)				
+	jbd: remove printk() from J_ASSERT macros
+		. (24):(misc->code)								    
+	JBD: replace jbd_kmalloc with kmalloc directly
+		. (24):(misc->api)								    
+	JBD: JBD slab allocation cleanups
+		. (24):(misc->api)				
+	lockdep: annotate journal_start() 
+		. (24):(journal->transaction):(c:an->lock):(ss) 2 14 0 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.25 
+	jbd/jbd2 NULL noise	
+		. (25):(misc->code)									
+	jbd: correctly unescape journal data blocks
+		. (25):(journal->recovery):(b:sem->gene):(s:corruption):(ss):(rep:simple_typo) 1 1 1 
+	jbd: fix jbd kernel-doc notation
+		. (25):(misc->doc)		
+	jbd.h: hide kernel only code
+		. (25):(misc->code)				
+	make jbd/journal.c:__journal_abort_hard() static
+		. (25):(misc->api)				
+	[PATCH] jbd: Remove useless loop when writing commit record
+		. (25):(misc->code)				
+	ext3 can fail badly when device stops accepting BIO_RW_BARRIER requests
+		. (25):(journal->commit):(b:sem->conf):(s:error->op_fail):(ss):(rep:forget_config) 1 2 1 
+	make jbd/journal.c:__journal_abort_hard() static 
+		. (25):(misc->api)				
+	BKL-removal: remove incorrect comment refering to lock_kernel() from jbd/jbd2 
+		. (25):(misc->code)				
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.26 
+	jbd: need to hold j_state_lock to updates to transaction t_state to T_COMMIT
+		. (26):(journal->commit):(b:concurrency->ato):(s:corruption):(ss) 1 2 0 
+	jbd: replace remaining __FUNCTION__ occurrences
+		. (26):(misc->api)								
+	jbd: fix possible journal overflow issues
+		. (26):(journal->transaction):(b:sem->state->journal):(s:error->op_fail):(ss):(note:wrong_state_update_journaling) 2 21 3 
+	jbd: fix the way the b_modified flag is cleared
+		. (26):(journal->commit,journal->transaction):(b:concurrency->ato):(s:corruption):(ss):(rep:lock_journal_update) 2 13 16 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.27 
+	jbd: don't abort if flushing file data failed
+		. (27):(journal->commit):(c:err_ck):(ss) 1 28 7 
+	jbd: positively dispose the unmapped data buffers in journal_commit_transaction()
+		. (27):(journal->commit):(b:sem->state->bh):(s:wb):(note:wrong_state_update_bh) 1 20 9 
+	jbd: unexport journal_update_superblock
+		. (27):(misc->code)								
+	jbd: fix race between free buffer and commit transaction
+		. (27):(journal->transaction):(b:concurrency->inter):(s:error->op_fail):(ss):(note:free_race_commit) 2 56 4 
+	jbd: tidy up revoke cache initialisation and destruction
+		. (27):(misc->code)			
+	jbd: eliminate duplicated code in revocation table init/destroy functions
+		. (27):(misc->code)									
+	jbd: replace potentially false assertion with if block
+		. (27):(journal->journal):(b:sem->state->journal):(s:crash->assert):(r:fail):(ss):(note:wrong_state_check_journaling) 1 4 3 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.28 
+	jbd: don't give up looking for space so easily in __log_wait_for_space
+		. (28):(journal->checkpoint):(b:sem->wlog):(s:error->op_fail):(r:fail):(real):(ff):(ss):(rep:early_enospc) 1 24 7 
+	fs: remove excess kernel-doc
+		. (28):(misc->doc)									
+	jbd: abort instead of waiting for nonexistent transactions
+		. (28):(journal->checkpoint):(b:sem->state->journal):(s:hang):(real):(ss):(note:miss_state_check_journaling) 1 17 2 
+	jbd: test BH_Write_EIO to detect errors on metadata buffers
+		. (28):(misc->code)								    
+	jbd: fix error handling for checkpoint io
+		. (28):(journal->checkpoint,journal->journal,journal->recovery):(b:error_handling->ms_err):(s:corruption):(r:fail):(ss):(rep:miss_write_err) 4 65 21 
+	jbd: ordered data integrity fix
+		. (28):(journal->transaction):(b:error_handling->ms_err):(s:corruption):(r:fail):(rep:miss_write_err) 1 13 3 
+	jbd: don't dirty original metadata buffer on abort
+		. (28):(journal->commit):(b:sem->state->journal):(s:corruption):(r:fail):(ss):(rep:forget_journaling) 1 4 1 
+	jbd: abort when failed to log metadata buffers
+		. (28):(journal->commit):(b:error_handling->ms_err):(s:corruption):(r:fail):(ss):(rep:miss_write_err) 1 3 0 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.29 
+	jbd: fix return value of journal_start_commit()
+		. (29):(journal->journal):(b:sem->wlog):(s:corruption):(real):(ss):(note:wrong_logic) 1 11 6 
+	jbd: fix missing kernel-doc
+		. (29):(misc->doc)							
+	jbd: remove excess kernel-doc notation
+		. (29):(misc->doc)								 
+	jbd: improve fsync batching
+		. (29):(journal->commit,journal->transaction):(p:sche):(s:performance->cpu):(ss):(rep:wasted_wait) 3 63 5 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.30 
+	jbd: fix race in buffer processing in commit code
+		. (30):(journal->commit):(b:concurrency->ato):(s:corruption,crash->assert) 1 4 2 
+	jbd: use SWRITE_SYNC_PLUG when writing synchronous revoke records
+		. (30):(journal->revoke):(p:sche):(s:performance->io):(ss):(rep:batch_more_writes) 3 14 11 
+	jbd: update locking coments
+		. (30):(misc->code)								 
+	jbd: use WRITE_SYNC_PLUG instead of WRITE_SYNC
+		. (30):(journal->commit):(p:sche):(s:performance->io):(ss):(rep:batch_more_writes) 1 6 1 
+	jbd: fix oops in jbd_journal_init_inode() on corrupted fs
+		. (30):(journal->journal):(b:mem->null):(s:crash->null):(r:fail):(real):(ss):(rep:deref_before_check) 1 24 10 
+	ext3: Use WRITE_SYNC for commits which are caused by fsync()
+		. (30):(journal->commit,journal->transaction):(b:sem->io):(s:corruption):(ss):(rep:sync_to_async) 3 22 8 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.31 
+	jbd: fix race between write_metadata_buffer and get_write_access
+		. (31):(journal->journal):(b:concurrency->ato):(s:corruption):(ss) 1 11 9 
+	jbd: Fix a race between checkpointing code and journal_get_write_access()
+		. (31):(journal->transaction):(b:concurrency->ato):(s:corruption):(ss) 1 35 33 
+	jbd: Fail to load a journal if it is too short
+		. (31):(journal->journal):(c:cor_ck):(ss):(rep:journal_check)			1 6 0 
+	jbd: clean up journal_try_to_free_buffers()
+		. (31):(misc->code) 1 0 48 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.32
+	fs/jbd: Export log_start_commit to fix ext3 build.
+		. (32):(misc->compile)								
+	JBD/JBD2: free j_wbuf if journal init fails.
+		. (32):(journal->journal):(b:mem->re->err):(s:leak->fo):(r:fail):(ss):(rep:leak_on_err) 1 2 0 
+	jbd.h: bitfields should be unsigned
+		. (32):(misc->compile)							
+	jbd: Annotate transaction start also for journal_restart()
+		. (32):(journal->transaction):(c:an->lock):(ss) 1 3 3 
+	jbd: Journal block numbers can ever be only 32-bit use unsigned int for them	
+		. (32):(misc->api)						    
+	JBD: round commit timer up to avoid uncommitted transaction
+		. (32):(journal->transaction):(b:sem->wlog):(s:corruption):(ss):(note:wrong_logic) 1 2 1 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.33
+	jbd: jbd-debug and jbd2-debug should be writable
+		. (33):(misc->code)								    
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.34
+	jbd: Delay discarding buffers in journal_unmap_buffer
+		. (34):(journal->commit,journal->transaction):(b:sem->io):(s:corruption):(ss):(rep:sync_to_async) 2 36 17 
+	jbd[2]: remove references to BUFFER_DEBUG
+		. (34):(misc->code)								    
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.35
+	jbd: Provide function to check whether transaction will issue data barrier
+		. (35):(misc->code)						
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.36
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.37
+	jbd/2: fixed typos
+		. (37):(misc->code)		
+	jbd: Convert atomic_inc() to get_bh()
+		. (37):(misc->api)								    
+	jbd: Fix debug message in do_get_write_access()
+		. (37):(misc->code)								    
+	jbd: Check return value of __getblk()
+		. (37):(journal->journal):(b:mem->null):(s:crash->null):(r:fail):(rep:deref_before_check) 1 2 0 
+	jbd: Convert bitops to buffer fns
+		. (37):(misc->api)					
+	ext3/jbd: Avoid WARN() messages when failing to write the superblock
+		. (37):(journal->journal):(c:err_ck):(ss) 1 28 2 
+	jbd: Use offset_in_page() instead of manual calculation
+		. (37):(misc->api)								    
+	jbd: Remove unnecessary goto statement
+		. (37):(misc->code)								    
+	jbd: Use printk_ratelimited() in journal_alloc_journal_head()
+		. (37):(misc->api)								    
+	jbd: Move debug message into #ifdef area
+		. (37):(misc->code)								    
+	jbd: replace barriers with explicit flush / FUA usage
+		. (37):(misc->code)						    
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.38
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.39
+	jbd: finish conversion from WRITE_SYNC_PLUG to WRITE_SYNC and explicit plugging   
+		. (39):(misc->code)									
+	jbd: Remove one to many n's in a word.
+		. (39):(misc->code)								   
+--------------------------------------------------------------------------------------------
+

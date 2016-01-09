@@ -1,0 +1,974 @@
+struct
+struct
+struct
+*
+*
+struct
+*
+*
+struct
+*
+*
+struct
+3
+4
+2
+5
+9
+15
+10
+12
+12
+8
+field-info 9 distance 28 36
+diff 9 possibilities 3606
+probability 0.99372  77.778
+struct
+1
+6
+7
+*
+7
+*
+14
+field-info 4 distance 6 6
+diff 1 possibilities 1
+probability 4.16667  100.000
+struct
+1
+5
+8
+*
+2
+field-info 4 distance 4 6
+diff 3 possibilities 5
+probability 20.83333  66.667
+struct
+3
+4
+6
+7
+field-info 4 distance 6 6
+diff 1 possibilities 1
+probability 4.16667  100.000
+struct
+struct
+*
+1
+10
+*
+field-info 2 distance 1 1
+diff 1 possibilities 1
+probability 50.00000  100.000
+struct
+*
+*
+*
+*
+struct
+13
+*
+2
+3
+4
+5
+6
+7
+8
+11
+12
+9
+14
+field-info 12 distance 54 66
+diff 13 possibilities 330121
+probability 0.06892  81.818
+struct
+struct
+*
+3
+5
+6
+8
+field-info 4 distance 6 6
+diff 1 possibilities 1
+probability 4.16667  100.000
+struct
+*
+1
+4
+7
+9
+field-info 4 distance 6 6
+diff 1 possibilities 1
+probability 4.16667  100.000
+struct
+2
+12
+11
+14
+*
+*
+19
+field-info 5 distance 9 10
+diff 2 possibilities 4
+probability 3.33333  90.000
+struct
+1
+16
+9
+*
+*
+field-info 3 distance 2 3
+diff 2 possibilities 2
+probability 33.33333  66.667
+struct
+15
+struct
+22
+*
+*
+*
+struct
+13
+18
+3
+*
+25
+*
+*
+field-info 4 distance 4 6
+diff 3 possibilities 5
+probability 20.83333  66.667
+struct
+6
+*
+*
+struct
+*
+17
+struct
+10
+4
+*
+*
+*
+field-info 2 distance 0 1
+diff 2 possibilities 1
+probability 50.00000  0.000
+struct
+6
+1
+1
+*
+17
+5
+13
+13
+14
+field-info 6 distance 10 15
+diff 6 possibilities 71
+probability 9.86111  66.667
+struct
+*
+*
+16
+9
+field-info 2 distance 0 1
+diff 2 possibilities 1
+probability 50.00000  0.000
+struct
+*
+*
+struct
+*
+*
+struct
+*
+*
+struct
+8
+struct
+2
+*
+*
+*
+struct
+*
+*
+struct
+*
+*
+*
+struct
+struct
+struct
+struct
+*
+*
+*
+*
+*
+struct
+1
+5
+7
+8
+10
+3
+11
+12
+field-info 8 distance 24 28
+diff 5 possibilities 174
+probability 0.43155  85.714
+struct
+6
+14
+17
+15
+12
+5
+field-info 6 distance 6 15
+diff 10 possibilities 90
+probability 12.50000  40.000
+struct
+*
+struct
+3
+20
+8
+7
+11
+field-info 5 distance 6 10
+diff 5 possibilities 20
+probability 16.66667  60.000
+struct
+*
+1
+23
+16
+field-info 3 distance 2 3
+diff 2 possibilities 2
+probability 33.33333  66.667
+struct
+*
+18
+9
+field-info 2 distance 0 1
+diff 2 possibilities 1
+probability 50.00000  0.000
+struct
+4
+13
+24
+21
+11
+field-info 5 distance 6 10
+diff 5 possibilities 20
+probability 16.66667  60.000
+struct
+struct
+*
+5
+14
+2
+1
+field-info 4 distance 1 6
+diff 6 possibilities 3
+probability 12.50000  16.667
+struct
+*
+*
+3
+6
+8
+12
+13
+9
+15
+10
+4
+11
+7
+field-info 11 distance 33 55
+diff 23 possibilities 1729808
+probability 4.33353  60.000
+struct
+*
+1
+2
+3
+4
+5
+6
+7
+8
+9
+field-info 9 distance 36 36
+diff 1 possibilities 1
+probability 0.00028  100.000
+struct
+*
+2
+4
+5
+6
+7
+field-info 5 distance 10 10
+diff 1 possibilities 1
+probability 0.83333  100.000
+struct
+*
+8
+3
+field-info 2 distance 0 1
+diff 2 possibilities 1
+probability 50.00000  0.000
+struct
+struct
+*
+*
+*
+struct
+*
+2
+1
+4
+3
+11
+5
+6
+9
+8
+*
+field-info 9 distance 29 36
+diff 8 possibilities 2191
+probability 0.60378  80.556
+struct
+*
+12
+7
+*
+14
+field-info 3 distance 2 3
+diff 2 possibilities 2
+probability 33.33333  66.667
+struct
+*
+*
+*
+struct
+13
+10
+*
+*
+field-info 2 distance 0 1
+diff 2 possibilities 1
+probability 50.00000  0.000
+struct
+struct
+struct
+1
+4
+2
+5
+7
+8
+*
+11
+12
+13
+field-info 9 distance 35 36
+diff 2 possibilities 8
+probability 0.00220  97.222
+struct
+struct
+*
+1
+2
+*
+5
+6
+8
+22
+11
+14
+15
+18
+19
+25
+field-info 12 distance 61 66
+diff 6 possibilities 2640
+probability 0.00055  92.424
+struct
+3
+10
+*
+20
+field-info 3 distance 3 3
+diff 1 possibilities 1
+probability 16.66667  100.000
+struct
+*
+*
+12
+13
+15
+16
+17
+21
+23
+24
+field-info 8 distance 28 28
+diff 1 possibilities 1
+probability 0.00248  100.000
+struct
+*
+3
+7
+8
+12
+10
+*
+4
+5
+11
+13
+15
+*
+2
+field-info 11 distance 35 55
+diff 21 possibilities 1289718
+probability 3.23102  63.636
+struct
+1
+6
+9
+*
+field-info 3 distance 3 3
+diff 1 possibilities 1
+probability 16.66667  100.000
+struct
+*
+*
+*
+*
+struct
+*
+*
+*
+5
+6
+field-info 2 distance 1 1
+diff 1 possibilities 1
+probability 50.00000  100.000
+struct
+*
+18
+16
+21
+field-info 3 distance 2 3
+diff 2 possibilities 2
+probability 33.33333  66.667
+struct
+*
+3
+4
+5
+7
+8
+9
+25
+field-info 7 distance 21 21
+diff 1 possibilities 1
+probability 0.01984  100.000
+struct
+struct
+struct
+struct
+struct
+struct
+struct
+*
+*
+struct
+*
+*
+struct
+*
+*
+struct
+3
+4
+2
+5
+9
+15
+10
+12
+12
+8
+field-info 9 distance 28 36
+diff 9 possibilities 3606
+probability 0.99372  77.778
+struct
+1
+6
+7
+*
+7
+*
+14
+field-info 4 distance 6 6
+diff 1 possibilities 1
+probability 4.16667  100.000
+struct
+1
+5
+8
+*
+2
+field-info 4 distance 4 6
+diff 3 possibilities 5
+probability 20.83333  66.667
+struct
+3
+4
+6
+7
+field-info 4 distance 6 6
+diff 1 possibilities 1
+probability 4.16667  100.000
+struct
+struct
+*
+1
+10
+*
+field-info 2 distance 1 1
+diff 1 possibilities 1
+probability 50.00000  100.000
+struct
+*
+*
+*
+*
+struct
+13
+*
+2
+3
+4
+5
+6
+7
+8
+11
+12
+9
+14
+field-info 12 distance 54 66
+diff 13 possibilities 330121
+probability 0.06892  81.818
+struct
+struct
+*
+3
+5
+6
+8
+field-info 4 distance 6 6
+diff 1 possibilities 1
+probability 4.16667  100.000
+struct
+*
+1
+4
+7
+9
+field-info 4 distance 6 6
+diff 1 possibilities 1
+probability 4.16667  100.000
+struct
+2
+12
+11
+14
+*
+*
+19
+field-info 5 distance 9 10
+diff 2 possibilities 4
+probability 3.33333  90.000
+struct
+1
+16
+9
+*
+*
+field-info 3 distance 2 3
+diff 2 possibilities 2
+probability 33.33333  66.667
+struct
+15
+struct
+22
+*
+*
+*
+struct
+13
+18
+3
+*
+25
+*
+*
+field-info 4 distance 4 6
+diff 3 possibilities 5
+probability 20.83333  66.667
+struct
+6
+*
+*
+struct
+*
+17
+struct
+10
+4
+*
+*
+*
+field-info 2 distance 0 1
+diff 2 possibilities 1
+probability 50.00000  0.000
+struct
+6
+1
+1
+*
+17
+5
+13
+13
+14
+field-info 6 distance 10 15
+diff 6 possibilities 71
+probability 9.86111  66.667
+struct
+*
+*
+16
+9
+field-info 2 distance 0 1
+diff 2 possibilities 1
+probability 50.00000  0.000
+struct
+*
+*
+struct
+*
+*
+struct
+*
+*
+struct
+8
+struct
+2
+*
+*
+*
+struct
+*
+*
+struct
+*
+*
+*
+struct
+struct
+struct
+struct
+*
+*
+*
+*
+*
+struct
+1
+5
+7
+8
+10
+3
+11
+12
+field-info 8 distance 24 28
+diff 5 possibilities 174
+probability 0.43155  85.714
+struct
+6
+14
+17
+15
+12
+5
+field-info 6 distance 6 15
+diff 10 possibilities 90
+probability 12.50000  40.000
+struct
+*
+struct
+3
+20
+8
+7
+11
+field-info 5 distance 6 10
+diff 5 possibilities 20
+probability 16.66667  60.000
+struct
+*
+1
+23
+16
+field-info 3 distance 2 3
+diff 2 possibilities 2
+probability 33.33333  66.667
+struct
+*
+18
+9
+field-info 2 distance 0 1
+diff 2 possibilities 1
+probability 50.00000  0.000
+struct
+4
+13
+24
+21
+11
+field-info 5 distance 6 10
+diff 5 possibilities 20
+probability 16.66667  60.000
+struct
+struct
+*
+5
+14
+2
+1
+field-info 4 distance 1 6
+diff 6 possibilities 3
+probability 12.50000  16.667
+struct
+*
+*
+3
+6
+8
+12
+13
+9
+15
+10
+4
+11
+7
+field-info 11 distance 33 55
+diff 23 possibilities 1729808
+probability 4.33353  60.000
+struct
+*
+1
+2
+3
+4
+5
+6
+7
+8
+9
+field-info 9 distance 36 36
+diff 1 possibilities 1
+probability 0.00028  100.000
+struct
+*
+2
+4
+5
+6
+7
+field-info 5 distance 10 10
+diff 1 possibilities 1
+probability 0.83333  100.000
+struct
+*
+8
+3
+field-info 2 distance 0 1
+diff 2 possibilities 1
+probability 50.00000  0.000
+struct
+struct
+*
+*
+*
+struct
+*
+2
+1
+4
+3
+11
+5
+6
+9
+8
+*
+field-info 9 distance 29 36
+diff 8 possibilities 2191
+probability 0.60378  80.556
+struct
+*
+12
+7
+*
+14
+field-info 3 distance 2 3
+diff 2 possibilities 2
+probability 33.33333  66.667
+struct
+*
+*
+*
+struct
+13
+10
+*
+*
+field-info 2 distance 0 1
+diff 2 possibilities 1
+probability 50.00000  0.000
+struct
+struct
+struct
+1
+4
+2
+5
+7
+8
+*
+11
+12
+13
+field-info 9 distance 35 36
+diff 2 possibilities 8
+probability 0.00220  97.222
+struct
+struct
+*
+1
+2
+*
+5
+6
+8
+22
+11
+14
+15
+18
+19
+25
+field-info 12 distance 61 66
+diff 6 possibilities 2640
+probability 0.00055  92.424
+struct
+3
+10
+*
+20
+field-info 3 distance 3 3
+diff 1 possibilities 1
+probability 16.66667  100.000
+struct
+*
+*
+12
+13
+15
+16
+17
+21
+23
+24
+field-info 8 distance 28 28
+diff 1 possibilities 1
+probability 0.00248  100.000
+struct
+*
+3
+7
+8
+12
+10
+*
+4
+5
+11
+13
+15
+*
+2
+field-info 11 distance 35 55
+diff 21 possibilities 1289718
+probability 3.23102  63.636
+struct
+1
+6
+9
+*
+field-info 3 distance 3 3
+diff 1 possibilities 1
+probability 16.66667  100.000
+struct
+*
+*
+*
+*
+struct
+*
+*
+*
+5
+6
+field-info 2 distance 1 1
+diff 1 possibilities 1
+probability 50.00000  100.000
+struct
+*
+18
+16
+21
+field-info 3 distance 2 3
+diff 2 possibilities 2
+probability 33.33333  66.667
+struct
+*
+3
+4
+5
+7
+8
+9
+25
+field-info 7 distance 21 21
+diff 1 possibilities 1
+probability 0.01984  100.000
+struct
+struct
+struct
+struct

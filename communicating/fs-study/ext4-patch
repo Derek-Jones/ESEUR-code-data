@@ -1,0 +1,2433 @@
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.0
+ChangeLog-2.6.1
+ChangeLog-2.6.2
+ChangeLog-2.6.3
+ChangeLog-2.6.4
+ChangeLog-2.6.5
+ChangeLog-2.6.6
+ChangeLog-2.6.7
+ChangeLog-2.6.8
+ChangeLog-2.6.9
+ChangeLog-2.6.10
+ChangeLog-2.6.11
+ChangeLog-2.6.12
+ChangeLog-2.6.13
+ChangeLog-2.6.14
+ChangeLog-2.6.15
+ChangeLog-2.6.16
+ChangeLog-2.6.17
+ChangeLog-2.6.18
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.19
+    [PATCH] ext4: fix printk format warnings
+		. (19):(misc->compile)
+    [PATCH] Documentation/filesystems/ext4.txt
+		. (19):(misc->doc)
+    [PATCH] ext4 whitespace cleanups
+		. (19):(misc->code)
+    [PATCH] ext4: errors behaviour fix
+		. (19):(super):(b:sem->conf):(s:error->wr_err)(r:fail):(rep:forget_config) 1 2 0 
+    [PATCH] ext4: rename logic_sb_block
+		. (19):(misc->code)
+    [PATCH] ext4 64 bit divide fix
+		. (19):(misc->compile)
+    [PATCH] ext4 uninline ext4_get_group_no_and_offset()
+		. (19):(misc->api)
+    [PATCH] ext4: move block number hi bits
+		. (19):(misc->code)
+    [PATCH] ext4: allow larger descriptor size
+		. (19):(balloc,inode,super):(f) 5 31 11 
+    [PATCH] ext4: removesector_t bits check
+		. (19):(misc->code)
+    [PATCH] ext4: blk_type from sector_t to unsigned long long
+		. (19):(misc->api)
+    [PATCH] ext4: 64bit metadata
+		. (19):(balloc,inode,resize,super):(f) 6 201 97 
+    [PATCH] ext4: 48bit i_file_acl
+		. (19):(xattr):(f) 2 14 2 
+    [PATCH] ext4: clean up comments in ext4-extents patch
+		. (19):(misc->code)
+    [PATCH] ext4: uninitialised extent handling
+		. (19):(extent):(f) 2 18 0 
+    [PATCH] ext4: 48bit physical block number support in extents
+		. (19):(extent):(f) 3 116 81 
+	[PATCH] ext3: add extent map support
+		. (19):(extent):(f)		    12 2368 18 
+    [PATCH] ext4: switch fsblk to sector_t
+		. (19):(misc->code)
+    [PATCH] ext4: enable building of ext4
+		. (19):(misc->compile)
+    [PATCH] ext4: rename ext4 symbols to avoid duplication of ext3 symbols
+		. (19):(misc->code)
+    [PATCH] ext4: initial copy of files from ext3
+		. (19):(misc->code)
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.20
+    [PATCH] ext4: change uses of f_{dentry, vfsmnt} to use f_path
+		. (20):(misc->api)
+    [PATCH] ext4 calls journal_stop
+		. (20):(misc->api)
+    [PATCH] ext4: Eliminate inline functions
+		. (20):(misc->api)
+    [PATCH] ext4: kmalloc to kzalloc
+		. (20):(misc->api)
+    [PATCH] ext4: if expression format
+		. (20):(misc->code)
+    [PATCH] ext4: fix credit calculation in ext4_ext_calc_credits_for_insert
+		. (20):(extent):(b:sem->state->journal):(s:error->op_fail):(r:fail):(rep:wrong_journal_credit)	1 4 3 
+    [PATCH] ext3/4: don't do orphan processing on readonly devices
+		. (20):(super):(b:sem->conf):(s:crash->assert):(rep:forget_config)	 1 6 0 
+    [PATCH] ext4 balloc: fix _with_rsv freeze
+		. (20):(balloc):(b:sem->gene):(s:wb):(rep:simple_typo) 1 1 1 
+    [PATCH] ext4 balloc: use io_error label
+		. (20):(misc->code)
+    [PATCH] ext4 balloc: say rb_entry not list_entry
+		. (20):(misc->api)
+    [PATCH] ext4 balloc: fix off-by-one against rsv_end
+		. (20):(balloc):(b:sem->gene):(s:wb):(rep:off_by_one) 1 1 1 
+    [PATCH] ext4 balloc: fix off-by-one against grp_goal
+		. (20):(balloc):(b:sem->gene):(s:wb):(ff):(rep:off_by_one) 1 2 2 
+    [PATCH] ext4 balloc: reset windowsz when full
+		. (20):(balloc):(b:sem->wlog):(s:error->wr_err):(note:wrong_logic)   1 1 0 
+    [PATCH] ext4: fix reservation extension
+		. (20):(balloc):(b:sem->wlog):(s:wb):(note:wrong_logic) 1 8 4 
+    [PATCH] retries in ext4_prepare_write() violate ordering requirements
+		. (20):(inode):(b:sem->io):(s:corruption):(r:fail):(rep:meta_data_order) 1 75 10 
+    [PATCH] ext4_ext_split(): remove dead code
+		. (20):(misc->code)
+    [PATCH] ext4: uninline large functions
+		. (20):(misc->api)
+    [PATCH] handle ext4 directory corruption better
+		. (20):(dir):(c:cor_ck):(rep:dir_check) 2 12 0 
+	[PATCH] Remove superfluous lock_super() in extN xattr code 
+		. (20):(xattr):(p:sync->rm_lock):(s:performance->cpu):(rep:remove_lock) 3 3 12 
+    [PATCH] ext4: fsid for statvfs
+		. (20):(super):(b:sem->state->other):(s:corruption):(real):(note:wrong_state_update_other) 1 5 0 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.21
+    [PATCH] revert "retries in ext4_prepare_write() violate ordering requirements"
+		. (21):(inode):(b:sem->io):(s:corruption):(r:fail):(2.6.20):(ff):(rep:meta_data_order) 1 10 75 
+	[PATCH] ext[34]: EA block reference count racing fix
+		. (21):(xattr):(b:concurrency->ato):(s:corruption,leak->fo) 1 25 16 
+	[PATCH] ext[234]: update documentation 
+		. (21):(misc->doc)
+	[PATCH] Mark struct super_operations const
+		. (21):(misc->api)
+	[PATCH] mark struct inode_operations const 1
+		. (21):(misc->api)
+	[PATCH] jbd layer function called instead of fs specific one
+		. (21):(misc->api)
+	[PATCH] remove ext[34]_inc_count and _dec_count
+    	. (21):(misc->api)
+	[PATCH] return ENOENT from ext3_link when racing with unlink 
+		. (21):(dir):(c:cor_ck) 1 6 0 
+	[PATCH] fix umask when noACL kernel meets extN tuned for ACLs
+		. (21):(super):(b:sem->conf):(s:wb):(rep:forget_config) 3 12 0 
+	[PATCH] ext4: refuse ro to rw remount of fs with orphan inodes
+		. (21):(super):(b:sem->state->super):(s:corruption):(r:fail):(note:miss_state_check_super)  1 16 0 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.22
+    ext4: lost brelse in ext4_read_inode()
+		. (22):(inode):(b:mem->re->err):(s:leak->vo):(r:fail):(rep:leak_on_err) 1 3 1 
+	When ext4_ext_insert_extent() fails to insert new blocks	
+		. (22):(extent):(b:mem->re->err):(s:leak->fo):(r:evn):(rep:leak_on_err) 1 5 1 
+    ext4: Extent overlap bugfix
+		. (22):(extent):(b:sem->state->extent):(s:corruption):(note:miss_state_check_extent) 2 59 2 
+	Remove unnecessary exported symbols. 
+    	. (22):(misc->code)
+	EXT4: Fix whitespace 
+    	. (22):(misc->code)
+	ext3: dirindex error pointer issues 
+		. (22):(dir):(b:error_handling->ms_err):(s:error->wr_err):(r:fail)	1 15 11 
+	ext2/3/4: fix file date underflow on ext2 3 filesystems on 64 bit systems 
+		. (22):(inode):(b:sem->gene):(s:corruption):(real):(rep:wrong_type) 1 3 3 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.23
+    ext34: ensure do_split leaves enough free space in both blocks
+        . (23):(dir):(b:sem->wlog):(s:corruption):(real):(note:wrong_logic)  1 35 4 
+    dir_index: error out instead of BUG on corrupt dx dirs
+        . (23):(dir):(c:err_ck):(rep:grace)  2  60   8 
+    quota: fix infinite loop
+        . (23):(super):(b:mem->re->err):(s:leak->fo,hang):(r:fail):(rep:leak_on_err)  3  31   4 
+    "ext4_ext_put_in_cache" uses __u32 to receive physical block number
+        . (23):(extent):(b:sem->gene):(s:corruption):(rep:wrong_type) 1 1 1    
+    fix inode_table test in ext234_check_descriptors
+        . (23):(super):(b:sem->gene):(s:error->op_fail):(rep:off_by_one)  1 1 1  
+    fix ext4/JBD2 build warnings
+        . (23):(misc->compile)  2  4   4 
+    readahead: convert ext3/ext4 invocations
+        . (23):(dir):(p:sche):(s:performance->io)  1 8 6  
+    ext4: extent macros cleanup
+        . (23):(misc->code)  1  9   4 
+    Fix compilation with EXT_DEBUG, also fix leXX_to_cpu conversions.
+        . (23):(misc->compile)  1  10   8 
+    ext4: remove extra IS_RDONLY() check b
+        . (23):(misc->code)
+    ext4: Use is_power_of_2()
+        . (23):(misc->api)  1  2   3  
+    Use zero_user_page() in ext4 where possible
+        . (23):(misc->api)  1  2   9 
+    ext4: Remove 65000 subdirectory limit
+        . (23):(dir):(f)  2  49   15 
+    ext4: Expand extra_inodes space per the s_{want,min}_extra_isize fields
+        . (23):(inode,xattr):(f)  4  347   8 
+    ext4: Add nanosecond timestamps
+        . (23):(inode,ioctl,dir,super,xattr):(f)  9  147   25 
+    ext4: Set the journal JBD2_FEATURE_INCOMPAT_64BIT on large devices
+        . (23):(super):(b:sem->conf):(s:corruption):(r:fail):(rep:forget_config)  1  7   0 
+    ext4: Make extents code sanely handle on-disk corruption
+        . (23):(extent):(c:cor_ck,gh)  1  86   58 
+    ext4: copy i_flags to inode flags on write
+        . (23):(inode,ioctl):(b:sem->state->inode):(s:corruption):(note:miss_state_update_inode)  3  22   0 
+    ext4: Enable extents by default
+        . (23):(misc->code)  1  11   1 
+    Change on-disk format to support 2^15 uninitialized extents
+        . (23):(extent):(f)  2  52   7 
+    write support for preallocated blocks
+        . (23):(extent):(f)  2  225   32 
+    fallocate support in ext4
+        . (23):(extent):(f)  4  232   41 
+    ext4: statfs speed up
+        . (23):(super):(p:acce):(s:performance->io):(rep:stat_caching)  2  17   10 
+    ext4: fix error handling in ext4_create_journal
+        . (23):(misc->code)  1  5   2 
+    mistaken ext4_inode_bitmap for ext4_block_bitmap
+        . (23):(misc->code)  1  1   1 
+    ext4: fix deadlock in ext4_remount() and orphan list handling
+        . (23):(super):(b:concurrency->deadlock):(s:deadlock->re):(rep:wrong_lock_in_transaction) 1  8   0 
+    ext3/ext4: orphan list corruption due bad inode
+        . (23):(dir):(b:sem->state->inode):(s:corruption):(r:fail):(note:miss_state_check_inode)  1 10   0 
+    ext3/ext4: orphan list check on destroy_inode
+        . (23):(super):(c:cor_ck)  1 8   0 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.24
+    ext3, ext4: avoid divide by zero
+        . (24):(super):(b:sem->gene):(s:crash->af):(real):(rep:divide_by_zero)  1 1 1 
+    Forbid user to change file flags on quota files
+        . (24):(ioctl):(c:fun_ck):(rep:permission_check)  5  21   0 
+    Revert "ext2/ext3/ext4: add block bitmap validation"
+        . (24):(balloc):(p:acce):(s:performance->cpu):(ff):(2.6.24) 	1 0 41 
+    ext4: new export ops
+        . (24):(misc->api)  1  20   15 
+    ext4: lighten up resize transaction requirements
+        . (24):(resize):(c:fun_ck):(rep:lightup_trans)  1  43   3 
+    ext4: fix setup_new_group_blocks locking
+        . (24):(resize):(b:concurrency->wr_lock):(s:wb)  1  3   3 
+    ext4: sparse fixes
+        . (24):(file,inode,xattr):(b:sem->gene):(s:crash->assert,corruption):(rep:wrong_type):(t:sparse)  6  24   18  
+    ext4: Convert ext4_extent_idx.ei_leaf to ext4_extent_idx.ei_leaf_lo
+        . (24):(misc->api)  2  3   3 
+    ext4: Convert ext4_extent.ee_start to ext4_extent.ee_start_lo
+        . (24):(misc->api)  2  4   6 
+    ext4: Convert s_r_blocks_count and s_free_blocks_count
+        . (24):(misc->api)  2  7   7 
+    ext4: Convert s_blocks_count to s_blocks_count_lo
+        . (24):(misc->api)  2  5   5 
+    ext4: Convert bg_inode_bitmap and bg_inode_table
+        . (24):(misc->api)  3  9   9 
+    ext4: Convert bg_block_bitmap to bg_block_bitmap_lo
+        . (24):(misc->api)  2  4   4 
+    ext4: FLEX_BG Kernel support v2.
+        . (24):(super):(f)  2  10   3 
+    ext4: Fix sparse warnings
+        . (24):(misc->code)  2  11   9 
+    Ext4: Uninitialized Block Groups
+        . (24):(balloc,inode,resize,super):(f)  7  335   35 
+    ext4: remove #ifdef CONFIG_EXT4_INDEX
+        . (24):(misc->code)  3  2   39 
+    ext4: Remove (partial, never completed) fragment support
+        . (24):(misc->code)  6  6   67 
+    JBD2/Ext4: Convert kmalloc to kzalloc in jbd2/ext4
+        . (24):(misc->api)  3  3   6 
+    Fix f_version type: should be u64 instead of unsigned long
+        . (24):(dir):(b:sem->gene):(s:wb):(rep:wrong_type)  6  11   11 
+    ext2/4: use is_power_of_2()
+        . (24):(misc->api)   1 1 1  
+    ext2/ext3/ext4: add block bitmap validation
+        . (24):(balloc):(c:cor_ck)  1 47 15 
+    remove unused bh in calls to ext234_get_group_desc
+        . (24):(misc->code)  4  23   37 
+    ext4: show all mount options
+        . (24):(super):(f)  2  73   0 
+    convert ill defined log2() to ilog2()
+        . (24):(misc->api)  4  9   18 
+    fs: mark nibblemap const
+        . (24):(misc->api)  5  5   5 
+    lib: percpu_counter_init error handling
+        . (24):(super):(b:error_handling->ms_err):(s:crash->null):(r:fail):(rep:miss_mem_err)  1 15 6 
+    lib: percpu_counter_sum_positive
+        . (24):(misc->api)  5  9   9 
+    lib: percpu_counter_sub
+        . (24):(super):(b:sem->gene):(s:corruption):(rep:wrong_type)  4  8   3 
+    lib: percpu_counter_add
+        . (24):(misc->api)  8  17   17 
+    ext4: convert to new aops
+        . (24):(misc->code)  1  120   54 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.25
+    ext4: add missing ext4_journal_stop()
+        . (25):(resize):(b:sem->state->journal):(s:corruption):(r:fail):(note:miss_state_update_journaling)  1  1   0 
+    ext4: ext4_find_next_zero_bit needs an aligned address on some arch
+        . (25):(balloc):(b:sem->gene):(s:crash->af):(real):(rep:wrong_type)  1  40   22  
+    ext4: set EXT4_EXTENTS_FL only for directory and regular files
+        . (25):(inode):(b:sem->conf):(s:corruption):(rep:forget_config)  2  15   8 
+    ext4: Don't mark filesystem error if fallocate fails
+        . (25):(extent):(c:err_ck) 1  6   5 
+    ext4: Fix BUG when writing to an unitialized extent
+        . (25):(inode):(b:sem->state->bh):(s:crash->BUG):(note:miss_state_check_bh)  2  57   3 
+    ext4: Don't use ext4_dec_count() if not needed
+        . (25):(misc->code)  1  3   3 
+    ext4: modify block allocation algorithm for the last group
+        . (25):(extent,inode):(p:loca):(s:performance->io):(rep:bad_alloc_local)  2  14   2 
+    ext4: Don't claim block from group which has corrupt bitmap
+        . (25):(balloc):(c:cor_ck)  1  15   1 
+    ext4: Get journal write access before modifying the extent tree
+        . (25):(extent):(b:sem->state->journal):(s:corruption):(rep:forget_journaling)  1  8   3 
+    ext4: Fix memory and buffer head leak in callers to ext4_ext_find_extent()
+        . (25):(extent):(b:mem->re):(s:leak->fo):(r:fail):(rep:leak_on_err)  3  9   3 
+    ext4: Don't leave behind a half-created inode if ext4_mkdir() fails
+        . (25):(dir):(b:sem->state->inode):(s:corruption):(r:fail):(note:wrong_state_update_inode)  1  4   7 
+    ext4: Fix kernel BUG at fs/ext4/mballoc.c:910!
+        . (25):(balloc):(b:sem->conf):(s:crash->BUG):(rep:forget_config)  1  1   1 
+    ext4: Fix locking hierarchy violation in ext4_fallocate()
+        . (25):(extent):(b:concurrency->deadlock):(s:deadlock->in)  1  3   7 
+    Remove incorrect BKL comments in ext4
+        . (25):(misc->code)  2  1   2 
+    ext4: Add new "development flag" to the ext4 filesystem
+        . (25):(misc->code)
+    ext4: Don't panic in case of corrupt bitmap
+        . (25):(balloc):(c:err_ck):(rep:grace)  1  21   14 
+    ext4: allocate struct ext4_allocation_context from a kmem cache
+        . (25):(balloc):(p:rest):(s:performance->mem)  1  82   45 
+    ext4: Fix Direct I/O locking
+        . (25):(inode):(b:concurrency->deadlock):(s:deadlock->cl):(rep:wrong_lock_in_transaction)  1  53   54 
+    ext4: Fix circular locking dependency with migrate and rm.
+        . (25):(extent):(b:concurrency->deadlock):(s:deadlock->cl) 1  74   43 
+    allow in-inode EAs on ext4 root inode
+        . (25):(inode):(b:sem->state->inode):(s:corruption):(note:wrong_state_update_inode)  1  1   7 
+    ext4: Fix null bh pointer dereference in mballoc
+        . (25):(balloc):(b:mem->null):(s:crash->null):(r:fail):(t:coverity):(rep:deref_after_check)  1  1   1 
+    ext4: Don't set EXTENTS_FL flag for fast symlinks
+        . (25):(extent,dir):(b:sem->state->inode):(s:error->op_fail):(note:wrong_state_update_inode)  2  7   0 
+    iget: stop EXT4 from using iget() and read_inode()
+        . (25):(inode,dir,resize,super):(c:err_ck)  6  87   70 
+    ext[234]: cleanup ext[234]_bg_num_gdb()
+        . (25):(misc->api)
+    ext[234]: remove unused argument for ext[234]_find_goal()
+        . (25):(misc->api)
+    ext[234]: use ext[234]_get_group_desc()
+        . (25):(misc->code)  1  5   18   
+    ext[234]: fix comment for nonexistent variable
+        . (25):(misc->code)
+    ext4: Use the ext4_ext_actual_len() helper function
+        . (25):(extent):(b:sem->state->extent):(s:crash->BUG):(real):(note:wrong_state_check_extent)  1  13   11 
+    ext4: fix uniniatilized extent splitting error
+        . (25):(extent):(b:error_handling->ms_err):(s:error->wr_err):(r:fail):(real)  1  3   2 
+    ext4: Check for return value from sb_set_blocksize
+        . (25):(super):(b:error_handling->ms_err):(s:corruption):(r:fail)  1  5   10 
+    ext4: Add stripe= option to /proc/mounts
+        . (25):(misc->code)  1  2   0 
+    ext4: Enable the multiblock allocator by default
+        . (25):(misc->code)  1  7   0 
+    ext4: Add multi block allocator for ext4
+        . (25):(balloc):(f)  13  4900   38 
+    ext4: Add new functions for searching extent tree
+        . (25):(extent):(f)  2  146   0 
+    ext4: Add ext4_find_next_bit()
+        . (25):(misc->code)  9  62   0 
+    ext4: fix up EXT4FS_DEBUG builds
+        . (25):(misc->compile)  3  12   12 
+    ext4: Fix ext4_show_options to show the correct mount options.
+        . (25):(super):(b:sem->wlog):(s:wb):(note:wrong_logic)  1  15   11 
+    ext4: Add EXT4_IOC_MIGRATE ioctl
+        . (25):(extent,ioctl):(f)  6  572   3 
+    ext4: Add inode version support in ext4
+        . (25):(inode,super):(f)  5  45   22 
+    ext4: Take read lock during overwrite case.
+        . (25):(inode):(p:sync->rw_lock):(s:performance->cpu)  1  24   8 
+    ext4: Convert truncate_mutex to read write semaphore.
+        . (25):(extent,file,inode,ioctl,super):(p:sync->rw_lock):(s:performance->cpu)  8  53   43 
+    ext4: Make ext4_get_blocks_wrap take the truncate_mutex early.
+        . (25):(extent,inode):(b:concurrency->ato):(s:corruption):(rep:lock_inode_update)  3  16   64 
+    ext4: remove unused code from ext4_find_entry()
+        . (25):(misc->code)  1  0   4 
+    ext4: Check for the correct error return from
+        . (25):(extent):(b:error_handling->wr_err):(s:wb):(r:fail):(rep:bad_ac)  1  5   5 
+    ext4: add block bitmap validation
+        . (24):(balloc):(c:cor_ck):(ff)  1  81   18  
+    ext4: Change the default behaviour on error
+        . (25):(super):(c:cor_ck)  1  8   8 
+    ext4: fix oops on corrupted ext4 mount
+        . (25):(super):(c:cor_ck):(rep:super_check)  1  11   0 
+    ext4/super.c: fix #ifdef's (CONFIG_EXT4_* -> CONFIG_EXT4DEV_*)
+        . (25):(misc->code)
+    ext4: Return after ext4_error in case of failures
+        . (25):(balloc):(b:sem->conf):(s:corruption):(r:fail):(rep:forget_config)  1  6   2 
+    ext4: sync up block group descriptor with e2fsprogs.
+        . (25):(misc->code)  1  5   0 
+    ext4: export iov_shorten from kernel for ext4's use
+        . (25):(misc->code)  1  1   0 
+    ext4: store maxbytes for bitmapped  files and return EFBIG as appropriate
+        . (25):(file,inode):(c:fun_ck):(rep:limit_check)  4  35   2 
+    ext4: different maxbytes functions for bitmap & extent	files
+        . (25):(misc->code)  1  42   3 
+    ext4: Support large files
+        . (25):(super,inode):(f)  3  33   11 
+    ext4: Add support for 48 bit inode i_blocks.
+        . (25):(super,inode):(f)  3  119   11 
+    ext4: Rename i_dir_acl to i_size_high
+        . (25):(misc->api)  4  34   38 
+    ext4: Rename i_file_acl to i_file_acl_lo
+        . (25):(misc->api)  2  3   3 
+    ext4: Fix sparse warnings.
+        . (25):(misc->code)
+    ext4: Introduce ext4_update_*_feature
+        . (25):(misc->api)
+    ext4: fixes block group number being set to a negative value
+        . (25):(misc->code)  1  53   48 
+    ext4: add ext4_group_t, and change all group variables to this type.
+        . (25):(balloc,inode,resize,super):(f)  9  91   87 
+    ext4 extents: remove unneeded casts
+        . (25):(misc->code)  1  22   27 
+    ext4: Introduce ext4_lblk_t
+        . (25):(dir,extent,inode,dir,super):(f)  8  143   226 
+    ext4: Avoid rec_len overflow with 64KB block size
+        . (25):(dir):(b:sem->gene):(s:corruption):(rep:wrong_type)  3  63   46 
+    ext4: Support large blocksize up to PAGESIZE
+        . (25):(super):(f) 2 7 2 
+--------------------------------------------------------------------------------------------  
+ChangeLog-2.6.26
+    ext4: add missing unlock to an error path in ext4_quota_write()
+        . (26):(super):(b:concurrency->m_unlock):(s:deadlock->re):(r:fail)  1  3   1 
+    Ext4: Fix online resize block group descriptor corruption
+        . (26):(resize):(b:sem->gene):(s:corruption):(rep:wrong_type)  1  2   1 
+    ext4: enable barriers by default
+        . (26):(misc->code)  2  19   4 
+    ext4: Display the journal_async_commit mount option in /proc/mounts
+        . (26):(misc->code)  1  2   0 
+    ext4: fix online resize bug
+        . (26):(resize):(b:sem->wlog):(s:error->op_fail):(note:wrong_logic)  1  2   1 
+    ext4: Fix uninit block group initialization with FLEX_BG
+        . (26):(balloc):(b:sem->conf):(s:corruption):(rep:forget_config)  1  62   9 
+    ext4: Fix use of uninitialized data with debug enabled.
+        . (26):(misc->code)  1  4   4 
+    ext4: Retry block allocation if new blocks are allocated from system zone.
+        . (26):(balloc):(b:sem->wlog):(s:error->wr_err):(r:fail):(rep:early_enospc)  2  47   17 
+    ext3/4: fix uninitialized bs in ext3/4_xattr_set_handle()
+        . (26):(xattr):(b:sem->state->inode):(s:corruption):(note:miss_state_update_inode)  1 5   0 
+    ext4: mballoc fix mb_normalize_request algorithm for 1KB block size filesystems
+        . (26):(balloc):(p:acce):(s:performance->io):(rep:check_before_work)  1  9   10 
+    ext4: fix typos in messages and comments (journalled -> journaled)
+        . (26):(misc->code)  1  7   7 
+    ext4: fix synchronization of quota files in journal=data mode
+        . (26):(super):(b:sem->io):(s:corruption):(rep:sync_to_async)  1  27   8 
+    ext4: Fix mount messages when quota disabled
+        . (26):(misc->code)  1  4   1 
+    ext4: correct mount option parsing to detect when quota options can be changed
+        . (26):(super):(b:sem->conf):(s:corruption):(rep:forget_config)  1  20   6 
+    ext4: fix hot spins in mballoc after err_freebuddy and err_freemeta
+        . (26):(balloc):(b:sem->gene):(s:hang):(r:fail):(rep:wrong_type)  1  3   5 
+    ext4: fix test ext_generic_write_end() copied return value
+        . (26):(inode):(b:sem->gene):(s:wb):(rep:wrong_type)  1  8   6 
+    ext4: Move mballoc headers/structures to a seperate header file mballoc.h
+        . (26):(misc->code)  2  305   295 
+    ext4: cleanup for compiling mballoc with verification and debugging #defines
+        . (26):(misc->compile)  1  6   6 
+    ext4: don't use ext4_error in ext4_check_descriptors
+        . (26):(super):(b:mem->unread):(s:crash->null):(r:fail):(rep:use_before_init)  1  13   16 
+    ext4: mark inode dirty after initializing the extent tree
+        . (26):(inode):(b:mem->re):(s:leak->fo):(r:fail):(rep:leak_on_err)  1  7   6 
+    ext4: update ctime and mtime for truncate with extents.
+        . (26):(extent):(b:sem->state->inode):(s:corruption):(rep:update_time)  1  2   0 
+    ext4: Don't do GFP_NOFS allocations after taking ext4_lock_group
+        . (26):(balloc):(b:concurrency->deadlock):(s:deadlock->bs,crash->BUG):(rep:lock_sleep)  1  15   14 
+    ext4: move headers out of include/linux
+        . (26):(misc->code)  32  2021   2024 
+    ext4: fix wrong gfp type under transaction
+        . (26):(extent,resize,xattr):(b:concurrency->inter):(s:crash->assert,deadlock->bs):(rep:wrong_kmalloc_flag)  4  9   9 
+    ext4: Fix hang on umount with quotas when journal is aborted
+        . (26):(super):(b:mem->re->err):(s:leak->fo,hang):(r:fail):(rep:leak_on_err)  1  7   1 
+    ext4: Fix update of mtime and ctime on rename
+        . (26):(dir):(b:sem->state->inode):(s:corruption):(rep:update_time)  1  3   0 
+    ext4: replace remaining __FUNCTION__ occurrences
+        . (26):(misc->code)  10  97   97 
+    ext4: remove duplicate include of ext4_fs_i.h header file
+        . (26):(misc->code)  1  0   2 
+    ext4: make ext4_xattr_list() static
+        . (26):(misc->api)  2  3   8 
+    ext4: remove extra define of ext4_new_blocks_old from mballoc.c
+        . (26):(misc->code)  1  0   2 
+    ext4: check ext4_journal_get_write_access() errors
+        . (26):(dir):(b:error_handling->ms_err):(s:corruption,crash->null):(r:fail)  1  7   2 
+    ext4: use ext4_get_group_desc()
+        . (26):(misc->api)  1  3   17 
+    ext4: use ext4_group_first_block_no()
+        . (26):(misc->api)  2  5   7 
+    ext4: convert byte order of constant instead of variable
+        . (26):(misc->code)  1  1   1 
+    ext4: le*_add_cpu conversion
+        . (26):(misc->api)
+    ext4:  Convert list_for_each_rcu() to list_for_each_entry_rcu()
+        . (26):(misc->api)  1  5   13 
+    ext4: reduce mballoc stack usage with noinline_for_stack
+        . (26):(misc->api)  1  29   16 
+    Convert ext4 to use unlocked_ioctl
+        . (26):(ioctl):(p:sync->rm_lock):(s:performance->cpu):(rep:remove_lock)  4  6   13 
+    ext4: Cache the correct extent length for uninit extents
+        . (26):(extent):(b:sem->wlog):(s:corruption):(r:fail):(ff):(note:wrong_logic)  1  43   5 
+    ext4: Return unwritten buffer head when trying to read from prealloc space.
+        . (26):(extent):(b:sem->state->bh):(s:corruption):(ff):(note:miss_state_update_bh)  1  2   0 
+    ext4: make ext4_ext_get_blocks always return <= max_blocks
+        . (26):(extent):(b:sem->wlog):(s:wb):(note:wrong_logic)  1  11   1 
+    ext4: Fix fallocate to update the file size in each transaction
+        . (26):(extent):(b:sem->state->inode):(s:corruption):(r:fail):(rep:forget_journaling)  1  38   51 
+    ext4: Fix race between migration and mmap write
+        . (26):(extent,inode):(b:concurrency->ato):(s:error->op_fail)  3  47   6 
+    ext4: zero out small extents when writing to prealloc area.
+        . (26):(extent):(p:loca):(s:performance->io)  1  63   0 
+    ext4: ENOSPC error handling for writing to an uninitialized extent
+        . (26):(extent):(c:fun_ck):(ff)  1  99   7 
+    ext4: Enable extent format for symlinks.
+        . (26):(misc->code)  2  4   2 
+    ext4: Fix fallocate error path
+        . (26):(extent):(b:sem->state->extent):(s:corruption):(r:fail):(note:miss_state_update_extent)  1  24   2 
+    ext4: fix mount option parsing
+        . (26):(super):(b:sem->gene):(s:error->op_fail):(rep:simple_typo)  1  1   1 
+    ext4: fdatasync should skip metadata writeout when overwriting
+        . (26):(file):(p:acce):(s:performance->io):(rep:avoid_redun_write)  1  3   0 
+    ext4: check return of ext4_orphan_get properly
+        . (26):(super):(b:error_handling->wr_err):(s:crash):(r:fail):(rep:bad_ac) 1 2 2 
+    ext4: use non-racy method for proc entries creation
+        . (26):(balloc):(b:concurrency->ato):(s:corruption)  1  4   11 
+    quota: ext4: make ext4 handle quotaon on remount
+        . (26):(misc->code)  1  8   7 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.27
+    ext4: remove write-only variables from ext4_ordered_write_end
+        . (27):(misc->code)  1  0   4 
+    ext4: Update documentation to remind users to update mke2fs.conf
+        . (27):(misc->doc)  1  6   0 
+    ext4: Fix small file fragmentation
+        . (27):(balloc,inode):(p:loca):(s:performance->io):(rep:bad_alloc_local)  2  61   13 
+    ext4: Initialize writeback_index to 0 when allocating a new inode
+        . (27):(inode):(b:sem->state->other):(s:corruption):(note:miss_state_update_other)  1  1   0 
+    ext4: make sure ext4_has_free_blocks returns 0 for ENOSPC
+        . (27):(balloc):(p:acce):(s:performance->io):(rep:check_before_work)  1  3   0 
+    ext4: journal credit fix for the delayed allocation's writepages() function
+        . (27):(extent,inode):(c:fun_ck):(rep:lightup_trans)  2  58   24 
+    ext4: Rework the ext4_da_writepages() function
+        . (27):(inode):(c:fun_ck):(rep:lightup_trans)  1  113   88 
+    ext4: journal credits reservation fixes for DIO, fallocate
+        . (27):(extent,inode):(b:sem->state->journal):(s:error->op_fail):(rep:wrong_journal_credit)  3  30   27 
+    ext4: journal credits reservation fixes for extent file writepage
+        . (27):(extent):(c:fun_ck):(rep:lightup_trans)  3  49   62 
+    ext4: journal credits calulation cleanup and fix for non-extent writepage
+        . (27):(inode):(b:sem->state->journal):(s:wb):(rep:wrong_journal_credit)  3  108   34 
+    ext4: Fix bug where we return ENOSPC even though we have plenty of inodes
+        . (27):(inode):(b:sem->wlog):(s:error->wr_err):(note:wrong_logic)  1  1   1 
+    ext4: don't try to resize if there are no reserved gdt blocks left
+        . (27):(resize):(c:db)  1  2   1 
+    ext4: Use ext4_discard_reservations instead of mballoc-specific call
+        . (27):(misc->api)  1  1   1 
+    ext4: Fix ext4_dx_readdir hash collision handling
+        . (27):(dir):(b:sem->state->dir):(s:corruption):(note:miss_state_update_dir)  1  15   5 
+    ext4: Fix delalloc release block reservation for truncate
+        . (27):(inode):(b:sem->state->inode):(s:crash->BUG):(note:miss_state_check_inode)  1  21   0
+    ext4: Fix potential truncate BUG due to i_prealloc_list being non-empty
+        . (27):(inode):(b:sem->state->inode):(s:crash->BUG):(note:wrong_state_update_inode)  1  3   2 
+    ext4: Handle unwritten extent properly with delayed allocation
+        . (27):(inode):(b:sem->state->bh):(s:corruption):(note:miss_state_update_bh)  1  10   2   
+    ext4: unexport jbd2_journal_update_superblock
+        . (27):(misc->code)  1  0   1 
+    ext4: Cleanup whitespace and other miscellaneous style issues
+        . (27):(misc->code)  6  277   282 
+    ext4: improve ext4_fill_flex_info() a bit
+        . (27):(misc->code)  1  3   4 
+    ext4: Cleanup the block reservation code path
+        . (27):(misc->code)  2  67   42 
+    ext4: don't assume extents can't cross block groups when truncating
+        . (27):(extent):(b:sem->conf):(s:crash->BUG):(rep:forget_config)  1  7   3 
+    ext4: Fix lack of credits BUG() when deleting a badly fragmented inode
+        . (27):(inode):(b:sem->state->journal):(s:crash->BUG):(r:fail):(rep:wrong_journal_credit)  1  29   1 
+    ext4: Fix ext4_ext_journal_restart()
+        . (27):(extent):(b:error_handling->wr_err):(s:wb):(r:fail)  1  1   1  
+    ext4: fix ext4_da_write_begin error path
+        . (27):(inode):(b:sem->state->journal):(s:corruption):(r:fail):(note:miss_state_update_journaling)  1  5   2 
+    ext4: don't read inode block if the buffer has a write error
+        . (27):(inode):(b:error_handling->ms_err):(s:corruption):(r:fail):(rep:miss_write_err)  1  10   0 
+    ext4: Don't allow lg prealloc list to be grow large.
+        . (27):(balloc):(p:scal):(s:performance->cpu):(rep:hash_for_list)  2  193   30 
+    ext4: Convert the usage of NR_CPUS to nr_cpu_ids.
+        . (27):(misc->code)  1  2   2 
+    ext4: Improve error handling in mballoc
+        . (27):(balloc):(c:err_ck):(rep:grace)  1  23   11 
+    ext4: lock block groups when initializing
+        . (27):(balloc,inode,super):(b:concurrency->ato):(s:corruption):(rep:lock_bg_update)  4  12   1 
+    ext4: sync up block and inode bitmap reading functions
+        . (27):(misc->code)  2  33   26 
+    ext4: Allow read/only mounts with corrupted block group checksums
+        . (27):(super):(c:cor_ck):(rep:super_check)  1  23   1 
+    ext4: Fix data corruption when writing to prealloc area
+        . (27):(extent):(b:sem->wlog):(s:corruption):(note:wrong_logic)  1  23   18
+    ext4: Documention update for new ordered mode and delayed allocation
+        . (27):(misc->doc)  1  14   7 
+    ext4: do not set extents feature from the kernel
+        . (27):(inode,super):(c:fun_ck)  2  18   9 
+    ext4: Don't allow nonextenst mount option for large filesystem
+        . (27):(super):(c:fun_ck)  1  15   0 
+    ext4: Enable delalloc by default.
+        . (27):(misc->code)  1  22   1 
+    ext4: delayed allocation i_blocks fix for stat
+        . (27):(inode):(b:sem->state->other):(s:corruption):(note:miss_state_update_other)  3  29   0 
+    ext4: fix delalloc i_disksize early update issue
+        . (27):(inode):(b:sem->state->inode):(s:corruption):(note:wrong_state_update_inode)  1  47   16 
+    ext4: Handle page without buffers in ext4_*_writepage()
+        . (27):(inode):(c:fun_ck) 1 124 45 
+    ext4: Add ordered mode support for delalloc
+        . (27):(inode):(f)  2  58   10 
+    ext4: Invert lock ordering of page_lock and transaction start in delalloc
+        . (27):(extent,inode):(b:concurrency->deadlock):(s:deadlock->in)  2  152   59 
+    ext4: delayed allocation ENOSPC handling
+        . (27):(balloc,dir,extent,inode,super):(f)  9  257   50 
+    percpu_counter: new function percpu_counter_sum_and_set
+        . (27):(misc->api)  3  6   17   
+    ext4: Add delayed allocation support in data=writeback mode
+        . (27):(inode):(f)  3  700   6 
+    ext4: Use new framework for data=ordered mode in JBD2
+        . (27):(inode,super):(f)  4  59   112 
+    ext4: Fix lock inversion in ext4_ext_truncate()
+        . (27):(extent):(b:concurrency->deadlock):(s:deadlock->in)  1  4   3 
+    ext4: Invert the locking order of page_lock and transaction start
+        . (27):(extent,inode):(b:concurrency->deadlock):(s:deadlock->cl):(rep:wrong_lock_in_transaction)  3  155   156 
+    ext4: Use page_mkwrite vma_operations to get mmap write notification.
+        . (27):(file,inode):(b:sem->wlog):(s:corruption):(r:fail):(note:wrong_logic)  3  80   1 
+    ext4: Documentation updates.
+        . (27):(misc->doc)  1  62   44 
+    ext4: fix online resize with mballoc
+        . (27):(balloc,resize):(b:sem->conf):(s:corruption):(rep:forget_config)  3  234   56 
+    ext4: use atomic functions to set bh_state
+        . (27):(extent):(b:concurrency->ato):(s:corruption)  1  3   4 
+    ext4: Set journal pointer to NULL when journal is released
+        . (27):(super):(b:sem->state->super):(s:crash->af):(r:fail):(note:miss_state_update_super)  1  2   0 
+    ext4: mballoc avoid use root reserved blocks for non root allocation
+        . (27):(balloc):(b:sem->state->super):(s:wb):(note:miss_state_check_super)  3  41   19 
+    ext4: call blkdev_issue_flush on fsync
+        . (27):(file):(b:sem->io):(s:corruption):(rep:sync_to_async)  1  4   0 
+    ext4: cleanup block allocator
+        . (27):(misc->code)  5  84   59 
+    ext4: Use inode preallocation with -o noextents
+        . (27):(balloc,extent,inode,xattr):(p:loca):(s:performance->io):(rep:bad_alloc_local)  5  95   24 
+    ext4: fix ext4_init_block_bitmap() for metablock block group
+        . (27):(balloc):(b:sem->conf):(s:corruption):(rep:forget_config)  1  1   6 
+    ext4: Fix sparse warning
+        . (27):(misc->code)  7  23   23   
+    ext4: cleanup never-used magic numbers from htree code
+        . (27):(misc->code)  1  2   2 
+    ext4: Fix ext4_ext_journal_restart() to reflect errors up to the caller
+        . (27):(extent):(b:error_handling->ms_err):(s:error->op_fail):(r:fail)  1  8   11 
+    ext4: Make ext4_ext_find_extent fills ext_path completely
+        . (27):(extent):(b:sem->state->other):(s:wb):(note:miss_state_update_other)  1  4   1 
+    ext4: return error when calling ext4_ext_split failed
+        . (27):(extent):(b:error_handling->ms_err):(s:wb):(r:fail):(note:miss_mem_disk_err)  1  2   0 
+    ext4: Update i_disksize properly when allocating from fallocate area.
+        . (27):(extent):(b:sem->state->inode):(s:corruption):(note:wrong_state_update_inode)  1  3   3 
+    ext4: remove quota allocation when ext4_mb_new_blocks fails
+        . (27):(balloc):(b:mem->re->err):(s:leak->fo):(r:fail):(rep:leak_on_err)  1  6   4 
+    ext4: remove redundant code in ext4_fill_super()
+        . (27):(misc->code)  1  0   5 
+    ext4: New inode allocation for FLEX_BG meta-data groups.
+        . (27):(balloc,inode,super):(f)  6  209   1 
+    ext4: replace __FUNCTION__ occurrences
+        . (27):(misc->code)  2  9   9 
+    ext4: fix error processing in mb_free_blocks
+        . (27):(balloc):(b:concurrency->deadlock):(s:deadlock->bs):(r:fail):(rep:lock_sleep)  1  5   8 
+    ext4: error proc entry creation when the fs/ext4 is not correctly created
+        . (27):(balloc):(b:mem->null):(s:crash->null):(rep:deref_before_check)  1  4   0 
+    ext4: fix build failure if DX_DEBUG is enabled
+        . (27):(misc->compile)  1  10   9 
+    ext4: Remove unused variable from ext4_show_options
+        . (27):(misc->code)  1  0   1 
+    ext4: Rename read_block_bitmap() to ext4_read_block_bitmap()
+        . (27):(misc->api)  4  13   13 
+    ext4: remove double definitions of xattr macros
+        . (27):(misc->code)  2  2   6 
+    ext4: miscellaneous error checks and coding cleanups for mballoc
+        . (27):(misc->code)  1  7   7 
+    ext4: add error processing when calling ext4_mb_init_cache in mballoc
+        . (27):(balloc):(b:error_handling->ms_err):(s:wb):(r:fail)  1  20   7 
+    ext4: Fix ext4_mb_init_cache return error
+        . (27):(balloc):(b:error_handling->wr_err):(s:error->wr_err):(r:fail)  1  1   0 
+    ext4: improve some code in rb tree part of dir.c
+        . (27):(misc->code)  1  4   10 
+    ext4: switch to seq_files
+        . (27):(misc->code)  1  34   34 
+    ext4: Use BUG_ON() instead of BUG()
+        . (27):(misc->api)  1  1   2 
+    ext4: start searching for the right extent from the goal group.
+        . (27):(balloc):(b:sem->wlog):(s:wb):(note:wrong_logic)  1  6   4 
+    ext4: fix comments to say "ext4"
+        . (27):(misc->code)
+    ext4: Fix mb_find_next_bit not to return larger than max
+        . (27):(balloc):(b:sem->wlog):(s:corruption):(real):(note:wrong_logic)  1  12   8 
+    ext4: validate directory entry data before use
+        . (27):(dir):(b:sem->state->dir):(s:hang):(r:fail):(real):(note:miss_state_check_dir)  1  12   10 
+    ext4: handle deleting corrupted indirect blocks
+        . (27):(inode):(b:sem->state->bh):(s:crash):(r:fail):(real):(note:miss_state_check_bh)  1  15   1 
+    ext4: handle corrupted orphan list at mount
+        . (27):(inode):(b:sem->state->inode):(s:hang):(r:fail):(real):(note:miss_state_check_inode)  3  24   6 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.28
+    revert "percpu_counter: new function percpu_counter_sum_and_set"
+        . (28):(balloc):(b:concurrency->ato):(s:corruption):(ff) 3 6 17 
+    ext4: add checksum calculation when clearing UNINIT flag in ext4_new_inode
+        . (28):(inode):(b:concurrency->ato):(s:corruption)  1  2   0 
+    ext4: Mark the buffer_heads as dirty and uptodate after prepare_write
+        . (28):(inode):(b:sem->state->bh):(s:corruption):(note:miss_state_update_bh)  1  2   0 
+    ext4: calculate journal credits correctly
+        . (28):(inode):(b:sem->state->journal):(s:error->op_fail):(real):(ff):(rep:wrong_journal_credit)  1  3   2 
+    ext4: wait on all pending commits in ext4_sync_fs()
+        . (28):(super):(b:sem->io):(s:corruption):(rep:sync_to_async)   1  8   11 
+    ext4: Convert to host order before using the values.
+        . (28):(super):(b:sem->gene):(s:corruption):(rep:wrong_endianess)  1  2   3 
+    ext4: fix missing ext4_unlock_group in error path
+        . (28):(balloc):(b:concurrency->m_unlock):(s:deadlock->re):(r:fail)  1  1   0 
+    delay capable() check in ext4_has_free_blocks()
+        . (28):(balloc):(b:sem->wlog):(s:error->op_fail):(note:wrong_logic)  1  14   12 
+    merge ext4_claim_free_blocks & ext4_has_free_blocks
+        . (28):(misc->api)  2  17   43 
+    ext4: fix a bug accessing freed memory in ext4_abort
+        . (28):(super):(b:mem->dp):(s:crash->null):(rep:use_after_free):(t:kmemcheck)  1  7   4 
+    ext4: Fix duplicate entries returned from getdents() system call
+        . (28):(dir):(b:sem->state->dir):(s:corruption):(real):(ff):(note:miss_state_update_dir)  1  8   12 
+    ext4: remove unused variable in ext4_get_parent
+        . (28):(misc->code)  1  0   1 
+    ext4: Remove automatic enabling of the HUGE_FILE feature flag
+        . (28):(inode,super):(b:sem->conf):(s:corruption):(rep:forget_config):(r:fail)  2  21   88 
+    ext4: Replace hackish ext4_mb_poll_new_transaction with commit callback
+        . (28):(misc->code)  6  29   75 
+    ext4: Update Documentation/filesystems/ext4.txt
+        . (28):(misc->doc)  1  15   17 
+    ext4: Remove unused mount options: nomballoc, mballoc, nocheck
+        . (28):(misc->code)  2  2   10 
+    ext4: Remove compile warnings when building w/o CONFIG_PROC_FS
+        . (28):(misc->compile)  1  6   1 
+    ext4: Add missing newlines to printk messages
+        . (28):(misc->code)  1  3   3 
+    ext4: Fix file fragmentation during large file write.
+        . (28):(inode):(p:local):(s:performance->io):(rep:bad_alloc_local)  1  57   34 
+    ext4: Use tag dirty lookup during mpage_da_submit_io
+        . (28):(misc->code)  1  13   17 
+    ext4: let the block device know when unused blocks can be discarded
+        . (28):(misc->code)  2  9   0 
+    ext4: fix kconfig typo and extra whitespace
+        . (28):(misc->code)  1  2   2 
+    ext4: fix build failure without procfs
+        . (28):(misc->compile)  1  2   0 
+    ext4: add an option to control error handling on file data
+        . (28):(super):(f)  5  28   0 
+    ext4: add checks for errors from jbd2
+        . (28):(ioctl,super):(b:error_handling->ms_err):(s:corruption):(r:fail):(rep:miss_write_err)  2  27   8 
+    ext4: Don't reuse released data blocks until transaction commits
+        . (28):(balloc):(b:sem->wlog):(s:corruption):(note:wrong_logic)  1  10   2 
+    ext4: Use an rbtree for tracking blocks freed during transaction.
+        . (28):(balloc):(p:scal):(s:performance->cpu):(rep:tree_for_list)  2  133   77 
+    ext4: Do mballoc init before doing filesystem recovery
+        . (28):(super):(b:mem->unread):(s:crash->af):(rep:use_before_init)  1  15   15 
+    ext4: Free ext4_prealloc_space using kmem_cache_free
+        . (28):(balloc):(b:mem->re):(s:leak->fo)  1  1   1 
+    ext4: Fix Kconfig typo for ext4dev
+        . (28):(misc->code)  1  1   1 
+    ext4: Remove an old reference to ext4dev in Makefile comment
+        . (28):(misc->code)  1  1   1 
+    ext4: Rename ext4dev to ext4
+        . (28):(misc->code)  13  123   88 
+    ext4: Avoid double dirtying of super block in ext4_put_super()
+        . (28):(misc->code)  1  0   2 
+    Hook ext4 to the vfs fiemap interface.
+        . (28):(extent):(f)  5  271   2 
+    ext4: fix xattr deadlock
+        . (28):(xattr):(b:concurrency->deadlock):(s:deadlock->re) 1  6   0 
+    ext4: Add debugging markers that can be used by systemtap
+        . (28):(file,super):(c:db)  4  16   0 
+    ext4: fix initialization of UNINIT bitmap blocks
+        . (28):(balloc,inode):(b:sem->conf):(s:error->op_fail):(rep:forget_config)  3  9   3 
+    ext4: Remove old legacy block allocator
+        . (28):(misc->code)  12  40   1528 
+    ext4: Use readahead when reading an inode from the inode table
+        . (28):(inode,super):(f)  6  101   72 
+    ext4: Improve the documentation for ext4's /proc tunables
+        . (28):(misc->doc)  1  33   37 
+    ext4: Combine proc file handling into a single set of functions
+        . (28):(misc->code)  4  70   69 
+    ext4: move /proc setup and teardown out of mballoc.c
+        . (28):(misc->code)  5  42   56 
+    ext4: Don't use 'struct dentry' for internal lookups
+        . (28):(dir):(p:scal):(s:performance->mem)  1  33   35 
+    ext4: use percpu data structures for lg_prealloc_list
+        . (28):(balloc):(p:sync):(s:performance->cpu):(rep:per_CPU_struct)  1  5   8 
+    ext4: Renumber EXT4_IOC_MIGRATE
+        . (28):(misc->code)  1  4   3 
+    ext4: hook the ext3 migration interface to the EXT4_IOC_SETFLAGS ioctl
+        . (28):(misc->code)  2  17   2 
+    ext4: elevate write count for migrate ioctl
+        . (28):(extent,ioctl):(b:sem->state->other):(s:wb):(note:miss_state_update_other)  3  22   12 
+    ext4: add missing unlock in ext4_check_descriptors() on error path
+        . (28):(super):(b:concurrency->m_unlock):(s:crash,deadlock->re):(r:fail)  1  3   1 
+    ext4: fix #11321: create /proc/ext4/*/stats more carefully
+        . (28):(balloc):(b:sem->state->other):(s:error->warning):(real):(note:wrong_state_update_other) 1 13 3 
+    Update flex_bg free blocks and free inodes counters when resizing.
+        . (28):(resize,super):(b:sem->conf):(s:corruption):(rep:forget_config)  2  14   2 
+    ext4: Avoid printk floods in the face of directory corruption
+        . (28):(dir):(c:err_ck)  1  8   3 
+    ext4: Properly update i_disksize.
+        . (28):(extent,inode):(b:concurrency->ato):(s:corruption):(rep:lock_inode_update)  3  46   28 
+    ext4: truncate block allocated on a failed ext4_write_begin
+        . (28):(inode):(b:sem->state->inode):(s:leak->fo):(r:fail):(note:miss_state_update_inode)  1  14   0 
+    ext4: Retry block allocation if we have free blocks left
+        . (28):(balloc):(b:sem->wlog):(s:error->wr_err):(r:fail):(rep:early_enospc)  1  57   24 
+    ext4: Don't add the inode to journal handle until after the block is allocated
+        . (28):(balloc,inode):(b:sem->state->inode):(s:corruption):(r:fail):(note:wrong_state_update_inode)  2  16   22 
+    ext4: Fix ext4 nomballoc allocator for ENOSPC
+        . (28):(balloc):(b:sem->wlog):(s:error->wr_err):(r:fail):(rep:early_enospc)  1  10   8 
+    ext4: Signed arithmetic fix
+        . (28):(misc->code)  2  12   12 
+    ext4: Switch to non delalloc mode when we are low on free blocks count.
+        . (28):(inode):(c:fun_ck)  1  50   2 
+    ext4: Add percpu dirty block accounting.
+        . (28):(balloc,inode,super):(f)  5  73   51 
+    ext4: Retry block reservation
+        . (28):(balloc):(b:sem->wlog):(s:error->wr_err):(r:fail):(rep:early_enospc)  3  24   5 
+    ext4: Make sure all the block allocation paths reserve blocks
+        . (28):(balloc,inode):(b:sem->wlog):(s:corruption,error->wr_err):(rep:early_enospc)  4  69   30 
+    ext4: invalidate pages if delalloc block allocation fails.
+        . (28):(inode):(b:error_handling->ms_err):(s:corruption,hang):(r:fail)  1  73   12 
+    ext4: Fix whitespace checkpatch warnings/errors
+        . (28):(misc->code)  18  350   350 
+    ext4: Fix long long checkpatch warnings
+        . (28):(misc->compile)  1  4   4 
+    ext4: Add printk priority levels to clean up checkpatch warnings
+        . (28):(misc->code)  7  71   54 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.29
+    ext4: fix bb_prealloc_list corruption due to wrong group locking
+        . (29):(balloc):(b:concurrency->ato):(s:corruption,crash):(real):(rep:lock_bg_update)  1  7   2 
+    ext4: fix bogus BUG_ONs in in mballoc code
+        . (29):(balloc):(b:sem->state->extent):(s:crash->BUG):(note:wrong_state_check_extent)  1  2   2
+    ext4: Print the find_group_flex() warning only once
+        . (29):(inode):(c:err_ck)  1  3   1 
+    ext4: fix header check in ext4_ext_search_right() for deep extent trees.
+        . (29):(extent):(b:sem->wlog):(s:error->wr_err):(real):(note:wrong_logic)  1  4   2 
+    ext4: fix ext4_free_inode() vs. ext4_claim_inode() race
+        . (29):(inode):(b:concurrency->ato):(s:corruption):(ff):(rep:acc_alloc_race)  1  5   3 
+    ext4: don't call jbd2_journal_force_commit_nested without journal
+        . (29):(balloc,inode):(b:sem->conf):(s:crash):(rep:forget_config)  2  4   2 
+    ext4: Reorder fs/Makefile so that ext2 root fs's are mounted using ext2
+        . (29):(misc->code)  1  4   2 
+    ext4: Remove duplicate call to ext4_commit_super() in ext4_freeze()
+        . (29):(super):(p:acce):(s:performance->io):(ff):(rep:avoid_redun_write)  1  0   1 
+    ext4: Fix deadlock in ext4_write_begin() and ext4_da_write_begin()
+        . (29):(inode):(b:concurrency->deadlock):(s:crash->BUG,deadlock->re):(real):(rep:wrong_kmalloc_flag)  1  8   1 
+    ext4: Add fallback for find_group_flex
+        . (29):(inode):(b:sem->wlog):(s:error->wr_err):(r:fail):(rep:early_enospc)  1  7   0 
+    ext4: Fix NULL dereference in ext4_ext_migrate()'s error handling
+        . (29):(extent):(b:mem->null):(s:crash->null):(r:fail):(t:smatch):(rep:deref_after_check)  1  3   5 
+    ext4: Implement range_cyclic in ext4_da_writepages instead of write_cache_pages
+        . (29):(inode):(b:concurrency->deadlock):(s:deadlock->cl):(real):(note:wrong_lock_page_da)  1  19   2 
+    ext4: Initialize preallocation list_head's properly
+        . (29):(balloc):(b:mem->unread):(s:error->warning):(rep:use_before_init)  1  3   0 
+    ext4: Fix lockdep warning
+        . (29):(balloc):(b:concurrency->deadlock):(s:deadlock->re):(real)  1  16   13 
+    ext4: Fix to read empty directory blocks correctly in 64k
+        . (29):(misc->code)  1  1   1 
+    Revert "ext4: wait on all pending commits in ext4_sync_fs()"
+        . (29):(super):(p:sche):(s:performance->io):(2.6.28):(real):(rep:async_to_sync):(ff) 1 7 4 
+    ext4: Remove bogus BUG() check in ext4_bmap()
+        . (29):(inode):(b:sem->conf):(s:crash->BUG):(real):(rep:forget_config)  1  0   3 
+    ext4: Fix building with EXT4FS_DEBUG
+        . (29):(misc->compile):(ff)  3  5   5 
+    ext4: Initialize the new group descriptor when resizing the filesystem
+        . (29):(resize):(b:sem->state->other):(s:crash):(real):(note:wrong_state_update_other)  1  2   1 
+    ext4: Fix ext4_free_blocks() w/o a journal when files have indirect blocks
+        . (29):(inode):(b:sem->conf):(s:error->wr_err):(rep:forget_config)  1  1   1 
+    ext4: Add sanity check to make_indexed_dir
+        . (29):(dir):(b:sem->state->dir):(s:crash):(r:fail):(real):(note:miss_state_check_dir) 1  15   6 
+    ext4: only use i_size_high for regular files
+        . (29):(inode):(b:sem->state->inode):(s:error->warning):(real):(note:wrong_state_update_inode)  2  7   4 
+    generic swap(): ext4: remove local swap() macro
+        . (29):(misc->api)  1  0   4 
+    ext4: Remove "extents" mount option
+        . (29):(misc->code)
+    ext4: Make printk's consistently prefixed with "EXT4-fs: "
+        . (29):(misc->code)
+    ext4: Add sanity checks for the superblock before mounting the filesystem
+        . (29):(super):(b:sem->state->super):(s:crash->null):(r:fail):(real):(note:miss_state_check_super)  1  20   10 
+    ext4: Add mount option to set kjournald's I/O priority
+        . (29):(super):(f)  4  36   5 
+    ext4: Add default allocation routines for quota structures
+        . (29):(misc->code)  1  3   1 
+    ext4: Use sb_any_quota_loaded() instead of sb_any_quota_enabled()
+        . (29):(misc->api)  1  4   7 
+    ext4: Add markers for better debuggability
+        . (29):(balloc,inode):(c:db)  3  116   3 
+    ext4: Remove code to create the journal inode
+        . (29):(misc->code)  4  4   141 
+    ext4: provide function to release metadata pages under memory pressure
+        . (29):(super):(c:fun_ck)  1  20   0 
+    ext4: Fix s_dirty_blocks_counter if block allocation failed with nodelalloc
+        . (29):(balloc):(b:sem->conf):(s:corruption):(r:fail):(rep:forget_config)  1  8   1 
+    ext4: Init the complete page while building buddy cache
+        . (29):(balloc):(b:sem->state->other):(s:corruption):(note:wrong_state_update_other)  1  2   1 
+    ext4: Don't allow new groups to be added during block allocation
+        . (29):(balloc):(b:concurrency->ato):(s:corruption)  2  18   3 
+    ext4: mark the blocks/inode bitmap beyond end of group as used
+        . (29):(inode,balloc,resize):(c:cor_ck)  3  5   7 
+    ext4: Use new buffer_head flag to check uninit group bitmaps initialization
+        . (29):(balloc,inode):(b:sem->conf):(s:corruption):(rep:forget_config) 4  85   6 
+    ext4: Fix the race between read_inode_bitmap() and ext4_new_inode()
+        . (29):(inode):(b:concurrency->ato):(s:corruption):(rep:acc_alloc_race)  1  86   60 
+    ext4: code cleanup
+        . (29):(misc->code)  1  3   2   
+    ext4: Use high 16 bits of the block group descriptor's free counts fields
+        . (29):(misc->code)  7  149   62 
+    ext4: Fix race between read_block_bitmap() and mark_diskspace_used()
+        . (29):(balloc):(b:concurrency->ato):(s:corruption):(rep:acc_alloc_race)  1  10   5 
+    ext4: fix BUG when calling ext4_error with locked block group
+        . (29):(balloc,super):(b:concurrency->deadlock):(s:deadlock->bs):(r:fail):(rep:lock_sleep)  4  105   64 
+    nfsd race fixes: ext4
+        . (29):(inode,dir):(b:concurrency->ato):(s:corruption):(r:fail):(rep:nfs_race_inode)  2  18   2 
+    ext4: ensure fast symlinks are NUL-terminated
+        . (29):(inode):(c:cor_ck):(rep:inode_check)  1  5   2 
+    ext4: Fix lockdep recursive locking warning
+        . (29):(balloc):(b:concurrency->deadlock):(s:deadlock->re):(note:recursive_lockdep)  1  1   1 
+    ext4: don't use blocks freed but not yet committed in buddy cache init
+        . (29):(balloc):(b:sem->wlog):(s:corruption):(note:wrong_logic)  1  60   22 
+    CRED: Wrap task credential accesses in the Ext4 filesystem
+        . (29):(misc->api)  2  3   3 
+    ext4: cleanup mballoc header files
+        . (29):(misc->code)  2  20   21 
+    ext4: Use EXT4_GROUP_INFO_NEED_INIT_BIT during resize
+        . (29):(misc->code)  5  230   111 
+    ext4: Add blocks added during resize to bitmap
+        . (29):(balloc,resize):(f)  3  34   118 
+    ext4: sparse fixes
+        . (29):(misc->code)  6  24   18  
+    ext4: Change unsigned long to unsigned int
+        . (29):(balloc,dir,extent,inode):(p:rest):(s:performance->mem)  9  77   79 
+    ext4: Make ext4_group_t be an unsigned int
+        . (29):(balloc,super,resize,inode):(p:rest):(s:performance->mem)  7  49   49 
+    ext4: Remove i_ext_generation from ext4_inode_info structure
+        . (29):(misc->code)  3  0   8 
+    ext4: add fsync batch tuning knobs
+        . (29):(super):(f)  7  91   8 
+    ext4: Don't overwrite allocation_context ac_status
+        . (29):(balloc):(b:concurrency->deadlock):(s:deadlock->re)  1  2   0 
+    ext4: remove extraneous newlines from calls to ext4_error() and ext4_warning()
+        . (29):(misc->code)  5  19   20 
+    ext4: Allow ext4 to run without a journal
+        . (29):(balloc,extent,inode,ioctl,dir,resize,super,xattr):(f)  13  452   224 
+    ext4: Widen type of ext4_sb_info.s_mb_maxs()
+        . (29):(balloc):(b:sem->gene):(s:crash):(real):(rep:wrong_type) 2 4 1 
+    ext4: When resizing set the EXT4_BG_INODE_ZEROED flag for new block groups
+        . (29):(misc->code)  1  1   0 
+    ext4: Use simple_strtol() instead of simple_strtoul() in ext4_ui_proc_open
+        . (29):(misc->api)  1  3   6 
+    ext4: fix build warning
+        . (29):(misc->compile)  1  1   1  
+    ext4: avoid ext4_error when mounting a fs with a single bg
+        . (29):(super):(b:sem->wlog):(s:error->wr_err):(note:wrong_logic)  1  0   4 
+    ext4: Fix the delalloc writepages to allocate blocks at the right offset.
+        . (29):(inode):(b:sem->state->bh):(s:wb):(note:miss_state_update_bh)  1  39   17 
+    ext4: tone down ext4_da_writepages warnings
+        . (29):(inode):(c:err_ck)  1  15   1 
+    ext4: remove do_blk_alloc()
+        . (29):(misc->code)  3  17   38 
+    ext4: remove ext4_new_meta_block()
+        . (29):(misc->code)  4  5   22 
+    ext4: remove ext4_new_blocks() and call ext4_mb_new_blocks() directly
+        . (29):(misc->code)  3  13   28 
+    ext3/4: Fix loop index in do_split() so it is signed
+        . (29):(misc->compile)  1 2 2  
+    ext4: Add support for non-native signed/unsigned htree hash algorithms
+        . (29):(dir,super):(f)  5  90   10 
+    ext4: fix printk format warning
+        . (29):(misc->compile)  2  3   3 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.30
+    ext4: Fix race in ext4_inode_info.i_cached_extent
+        . (30):(extent):(b:concurrency->ato):(s:corruption)  1  12   5 
+    ext4: Clear the unwritten buffer_head flag after the extent is initialized
+        . (30):(inode):(b:sem->state->bh):(s:wb):(note:miss_state_update_bh)  1  13   0   
+    ext4: Use a fake block number for delayed new buffer_head
+        . (30):(misc->code)  1  5   1 
+    ext4: Fix sub-block zeroing for writes into preallocated extents
+        . (30):(extent,inode):(b:sem->state->bh):(s:corruption):(note:miss_state_update_bh)  2  9   0 
+    ext4: Do not try to validate extents on special files
+        . (30):(inode):(b:sem->state->inode):(s:error->wr_err):(note:wrong_state_check_inode)  1  6   2 
+    ext4: Ignore i_file_acl_high unless EXT4_FEATURE_INCOMPAT_64BIT is present
+        . (30):(inode):(c:fun_ck)  1  1   3 
+    ext4: Fix softlockup caused by illegal i_file_acl value in on-disk inode
+        . (30):(inode):(b:sem->state->inode):(s:hang):(r:fail):(note:miss_state_check_inode)  1  11   1 
+    ext4: Fix potential inode allocation soft lockup in Orlov allocator
+        . (30):(inode):(b:sem->wlog):(s:hang):(note:wrong_logic)  1  2   1 
+    ext4: Make the extent validity check more paranoid
+        . (30):(extent):(c:cor_ck)  1  12   6 
+    ext4: Remove code handling bio_alloc failure with __GFP_WAIT
+        . (30):(misc->code)  1  0   2 
+    ext4: really print the find_group_flex fallback warning only once
+        . (30):(misc->code)  1  2   1 
+    ext4: check block device size on mount
+        . (30):(super):(c:cor_ck):(rep:super_check)  1  9   0 
+    ext4: Fix off-by-one-error in ext4_valid_extent_idx()
+        . (30):(extent):(b:sem->gene):(s:error->wr_err):(r:fail):(rep:off_by_one)  1  1   1 
+    ext4: Fix big-endian problem in __ext4_check_blockref()
+        . (30):(inode):(b:sem->gene):(s:error->wr_err):(r:fail):(ff):(rep:wrong_endianess)  1  4   4 
+    ext4: Regularize mount options
+        . (30):(misc->code)  2  45   10 
+    ext4: fix locking typo in mballoc which could cause soft lockup hangs
+        . (30):(balloc):(b:concurrency->m_unlock):(s:deadlock->re):(t:smatch)  1  1   1 
+    ext4: fix typo which causes a memory leak on error path
+        . (30):(balloc):(b:mem->re->err):(s:leak->go):(r:fail):(t:smatch):(rep:leak_on_err)  1  1   1 
+    ext4: Rename pa_linear to pa_type
+        . (30):(misc->code)  2  17   11 
+    ext4: add checks of block references for non-extent inodes
+        . (30):(inode):(c:cor_ck):(rep:inode_check)  1  52   7 
+    ext4: Check for an valid i_mode when reading the inode from disk
+        . (30):(inode):(c:cor_ck):(rep:inode_check)  1  9   1 
+    ext4: Use lowercase names of quota functions
+        . (30):(misc->api)  7  20   20 
+    ext4: quota reservation for delayed allocation
+        . (30):(inode,malloc,super):(f)  4  65   21 
+    ext4: Remove unnecessary quota functions
+        . (30):(misc->code)  1  2   42 
+    ext4: Add auto_da_alloc mount option
+        . (30):(inode,dir,super):(f)  4  17   15 
+    ext4: Use struct flex_groups to calculate get_orlov_stats()
+        . (30):(inode,super):(p:acce):(s:performance->io,performance->cpu):(rep:stat_caching)  3  31   17 
+    ext4: Use atomic_t's in struct flex_groups
+        . (30):(balloc,inode,resize,super):(p:sync->rm_lock):(s:performance->cpu):(rep:atomic_for_lock)  6  30   37 
+    ext4: remove /proc tuning knobs
+        . (30):(misc->code)  5  30   177 
+    ext4: Add sysfs support
+        . (30):(super):(f)  3  290   0 
+    ext4: Track lifetime disk writes
+        . (30):(super):(f)  3  13   1 
+    ext4: Fix discard of inode prealloc space with delayed allocation.
+        . (30):(file,inode):(b:sem->state->inode):(s:wb):(note:wrong_state_update_inode)  2  10   2 
+    ext4: Automatically allocate delay allocated blocks on rename
+        . (30):(dir):(b:sem->io):(s:corruption):(r:fail):(rep:meta_data_order) 1  4   1 
+    ext4: Automatically allocate delay allocated blocks on close
+        . (30):(file,inode):(b:sem->io):(s:corruption):(r:fail):(rep:meta_data_order)   3  8   0 
+    ext4: add EXT4_IOC_ALLOC_DA_BLKS ioctl
+        . (30):(inode,ioctl):(f)  3  59   0 
+    ext4: Simplify delalloc code by removing mpage_da_writepages()
+        . (30):(misc->code)  1  32   42 
+    ext4: Save stack space by removing fake buffer heads
+        . (30):(inode):(p:rest):(s:performance->mem)  1  39   44 
+    ext4: Simplify delalloc implementation by removing mpd.get_block
+        . (30):(misc->code)  1  58   67 
+    ext4: Add fine print for the 32000 subdirectory limit
+        . (30):(misc->code)  1  4   1 
+    ext4: Validate extent details only when read from the disk
+        . (30):(extent,inode):(p:acce):(s:performance->cpu):(ff):(rep:check_before_work)  3  29   7 
+    ext4: Add checks to validate extent entries.
+        . (30):(extent):(c:cor_ck) 1  71   10 
+    ext4: return -EIO not -ESTALE on directory traversal through deleted inode
+        . (30):(dir):(b:error_handling->wr_err):(s:error->wr_err):(r:fail)  1  10   2 
+    ext4: New inode/block allocation algorithms for flex_bg filesystems
+        . (30):(extent,inode,balloc):(f):(flex_bg_allocation)  6  216   58 
+    ext4: tighten restrictions on inode flags
+        . (30):(inode,ioctl):(c:cor_ck)  3  23   11 
+    ext4: don't inherit inappropriate inode flags from parent
+        . (30):(inode):(b:sem->state->inode):(s:corruption):(real):(note:wrong_state_update_inode)  2  8   1 
+    ext4: allocate ->s_blockgroup_lock separately
+        . (30):(super):(p:scal):(s:performance->mem):(rep:save_struct_mem)  2  11   3 
+    ext4: New rec_len encoding for very large blocksizes
+        . (30):(dir):(f)  3  98   69 
+    ext4: Use unsigned int for blocksize in dx_make_map() and dx_pack_dirents()
+        . (30):(misc->code)  1  8   8 
+    ext4: remove call to ext4_group_desc() in ext4_group_used_meta_blocks()
+        . (30):(balloc):(b:mem->null):(s:crash->null):(rep:deref_before_check)  1  3   6 
+    ext4: Remove stale block allocator references from ext4.h
+        . (30):(misc->code)  4  0   18 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.31
+    ext4: Fix ext4_mb_initialize_context() to initialize all fields
+        . (31):(balloc):(b:mem->unread):(s:corruption):(rep:use_before_init):(t:kmemcheck)  1  2   18 
+    ext4: fix null handler of ioctls in no journal mode
+        . (31):(ioctl):(b:mem->null):(s:crash->null):(rep:deref_before_check)  1  12   8 
+    ext4: Fix buffer head reference leak in no-journal mode
+        . (31):(inode,other):(b:mem->re):(s:leak->vo)  3  8   4 
+    switch ext4 to inode->i_acl
+        . (31):(misc->code)  5  10   40 
+    ext4: Don't update ctime for non-extent-mapped inodes
+        . (31):(inode):(b:sem->state->inode):(s:corruption):(rep:update_time)  1  1   5 
+    ext4: Move __ext4_journalled_writepage() to avoid forward declaration
+        . (31):(misc->code)  1  54   58 
+    ext4: Fix mmap/truncate race when blocksize < pagesize && !nodellaoc
+        . (31):(misc->code)  2  58   221 
+    ext4: Fix mmap/truncate race when blocksize < pagesize && delayed allocation
+        . (31):(inode):(b:concurrency->inter):(s:corruption):(note:truncate_race_mmap)  1  8   15 
+    ext4: Fix up whitespace issues in fs/ext4/inode.c
+        . (31):(misc->code)  1  103   97 
+    ext4: Fix 64-bit block type problem on 32-bit platforms
+        . (31):(balloc):(b:sem->gene):(s:corruption):(rep:wrong_type)  2  5   5 
+    ext4: teach the inode allocator to use a goal inode number
+        . (31):(inode,extent,dir,super):(f)  6  36   10 
+    ext4: Use a hash of the topdir directory name for the Orlov parent group
+        . (31):(misc->code)  4  22   13 
+    ext4: document the "abort" mount option
+        . (31):(misc->doc)
+    ext4: move the abort flag from s_mount_opts to s_mount_flags
+        . (31):(misc->code)  3  9   16 
+    ext4: update the s_last_mounted field in the superblock
+        . (31):(misc->code)  2  42   1 
+    ext4: change s_mount_opt to be an unsigned int
+        . (31):(misc->code)  3  3   3 
+    ext4: online defrag -- Add EXT4_IOC_MOVE_EXT ioctl
+        . (31):(extent):(f)  6  1378   3 
+    ext4: Avoid corrupting the uninitialized bit in the extent during truncate
+        . (31):(extent):(b:sem->state->extent):(s:corruption):(note:wrong_state_update_extent)  1  6   2 
+    ext4: Don't treat a truncation of a zero-length file as replace-via-truncate
+        . (31):(misc->code)  1  2   1 
+    ext4: fix dx_map_entry to support 256k directory blocks
+        . (31):(dir):(f)  1  3   2 
+    ext4: truncate the file properly if we fail to copy data from userspace
+        . (31):(inode):(b:sem->state->inode):(s:leak->fo):(r:fail):(note:miss_state_update_inode)  1  102   26 
+    ext4: Avoid leaking blocks after a block allocation failure
+        . (31):(inode):(b:sem->state->inode):(s:leak->fo):(r:fail):(note:miss_state_update_inode)  1  22   2 
+    ext4: Change all super.c messages to print the device
+        . (31):(misc->code)  2  235   229 
+    ext4: Get rid of EXTEND_DISKSIZE flag of ext4_get_blocks_handle()
+        . (31):(misc->code)  3  5   33 
+    ext4: Don't look at buffer_heads outside i_size.
+        . (31):(inode):(b:sem->wlog):(s:corruption):(note:wrong_logic)  1  16   12 
+    ext4: Fix goal inum check in the inode allocator
+        . (31):(inode):(b:sem->gene):(s:wb):(rep:off_by_one)  1  1   1 
+    ext4: fix no journal corruption with locale-gen
+        . (31):(other):(b:sem->wlog):(s:corruption):(note:wrong_logic)  1  2   2 
+    ext4: Calculate required journal credits for inserting an extent properly
+        . (31):(extent):(b:sem->state->journal):(s:error->op_fail):(rep:wrong_journal_credit)  1  1   0 
+    ext4: Fix truncation of symlinks after failed write
+        . (31):(inode):(b:sem->state->inode):(s:leak->fo):(r:fail):(note:miss_state_update_inode)  1  13   13 
+    ext4: Use rcu_barrier() on module unload.
+        . (31):(balloc):(b:concurrency->inter):(s:crash->af)  1  5   1 
+    ext4: naturally align struct ext4_allocation_request
+        . (31):(other):(p:scal):(s:performance->mem):(rep:save_struct_mem)  1  7   7 
+    ext4: mark several more functions in mballoc.c as noinline
+        . (31):(misc->api)  1  16   8 
+    ext4: Fix potential reclaim deadlock when truncating partial block
+        . (31):(inode):(b:concurrency->deadlock):(s:deadlock->re):(rep:wrong_kmalloc_flag)  1  2   1  
+    ext4: Fix type warning on 64-bit platforms in tracing events header
+        . (31):(misc->compile)  1  2   1 
+    ext4: super.c whitespace cleanup
+        . (31):(misc->code)  1  61   56 
+    ext4: Clean up calls to ext4_get_group_desc()
+        . (31):(misc->code)  2  2   4 
+    ext4: remove unused function __ext4_write_dirty_metadata
+        . (31):(misc->code)  1  0   19 
+    ext4: Fix memory leak in ext4_fill_super() in case of a failed mount
+        . (31):(super):(b:mem->re->err):(s:leak->fo):(r:fail):(rep:leak_on_err)  1  1   0 
+    ext4: down i_data_sem only for read when walking tree for fiemap
+        . (31):(extent):(p:sync->rw_lock):(s:performance->cpu)  1  2   2 
+    ext4: Add a comprehensive block validity check to ext4_get_blocks()
+        . (31):(balloc,extent,inode,super):(f)  7  332   39 
+    ext4: Clean up ext4_get_blocks() so it does not depend on bh_result->b_state
+        . (31):(misc->code)  2  41   30 
+    ext4: Merge ext4_da_get_block_write() into mpage_da_map_blocks()
+        . (31):(misc->code)  1  43   67 
+    ext4: Add BUG_ON debugging checks to noalloc_get_block_write()
+        . (31):(inode):(c:fun_ck)  1  3   0 
+    ext4: Add documentation to the ext4_*get_block* functions
+        . (31):(misc->code)
+    ext4: Define a new set of flags for ext4_get_blocks()
+        . (31):(misc->code)  4  57   46 
+    ext4: Rename ext4_get_blocks_wrap() to be ext4_get_blocks()
+        . (31):(misc->api)  4  25   27 
+    ext4: Rename ext4_get_blocks_handle() to be ext4_ind_get_blocks()
+        . (31):(misc->api)  1  6   6 
+    ext4: Simplify function signature for ext4_da_get_block_write()
+        . (31):(misc->api)  1  3   3 
+    ext4: Fix spinlock assertions on UP systems
+        . (31):(balloc):(b:sem->conf):(s:crash->BUG):(rep:forget_config)  2  5   11 
+    ext4: Convert ext4_lock_group to use sb_bgl_lock
+        . (31):(misc->code)  5  59   92 
+    ext4: fix the length returned by fiemap for an unallocated extent
+        . (31):(extent):(b:sem->conf):(s:corruption):(rep:forget_config)  1  8   1 
+    ext4: fix for fiemap last-block test
+        . (31):(extent):(b:sem->wlog):(s:wb):(note:wrong_logic)  1  3   3 
+    ext4: hook fiemap operation for directories
+        . (31):(misc->code)  1  1   0 
+    ext4: Make the length of the mb_history file tunable
+        . (31):(balloc,super):(f)  2  24   7 
+    ext4: Move fs/ext4/group.h into ext4.h
+        . (31):(misc->code)  7  17   34 
+    ext4: Move fs/ext4/namei.h into ext4.h
+        . (31):(misc->code)  4  1   10 
+    ext4: Move the ext4_sb.h header file into ext4.h
+        . (31):(misc->code)  2  140   167 
+    ext4: Move the ext4_i.h header file into ext4.h
+        . (31):(misc->code)  2  121   141 
+    ext4: Don't avoid using BLOCK_UNINIT block groups in mballoc
+        . (31):(balloc):(p:loca):(s:performance->io):(rep:bad_alloc_local)  1  1   8 
+    ext4: avoid unnecessary spinlock in critical POSIX ACL path
+        . (31):(xattr):(p:sync->rm_lock):(s:performance->cpu):(rep:remove_lock)  1  9   6 
+    ext4: convert instrumentation from markers to tracepoints
+        . (31):(misc->api)  7  774   121 
+    ext4: Replace lock/unlock_super() with an explicit lock for resizing
+        . (31):(resize,super):(p:sync->sm_lock):(s:performance->cpu)  3  20   17 
+    ext4: Replace lock/unlock_super() with an explicit lock for the orphan list
+        . (31):(dir,super):(p:sync->sm_lock):(s:performance->cpu)  3  13   9 
+    ext4: ext4_mark_recovery_complete() doesn't need to use lock_super
+        . (31):(super):(p:sync->rm_lock):(s:performance->cpu):(rep:remove_lock)  1  1   10 
+    ext4: Remove outdated comment about lock_super()
+        . (31):(misc->code)  1  0   8 
+    ext4: Avoid races caused by on-line resizing and SMP memory reordering
+        . (31):(balloc,inode,super):(b:concurrency->inter):(s:corruption) 6  67   55 
+    ext4: Use separate super_operations structure for no_journal filesystems
+        . (31):(misc->code)  1  57   51 
+    ext4: Fix and simplify s_dirt handling
+        . (31):(super):(p:acce):(s:performance->io):(rep:avoid_redun_write)  1  3   11 
+    ext4: Simplify ext4_commit_super()'s function signature
+        . (31):(misc->api)  1  16   17 
+    ext4: Use is_power_of_2() for clarity
+        . (31):(misc->api)  1  2   3 
+    ext4: Fallback to vmalloc if kmalloc can't allocate s_flex_groups array
+        . (31):(super):(c:err_ck)  1  19   3 
+    ext4: Mark the unwritten buffer_head as mapped during write_begin
+        . (31):(inode,extent):(p:acce):(s:performance->io)  2  54   32 
+    ext4: Properly initialize the buffer_head state
+        . (31):(inode,extent):(b:sem->state->bh):(s:corruption):(note:wrong_state_update_bh)  3  19   3 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.32
+    ext4: partial revert to fix double brelse WARNING()
+        . (32):(dir):(b:sem->wlog):(s:error->warning):(2.6.?):(r:fail):(ff):(funny):(note:wrong_logic)  1  4   12 
+    ext4: Fix return value of ext4_split_unwritten_extents() to fix direct I/O
+        . (32):(extent):(b:sem->wlog):(s:corruption):(note:wrong_logic) 1  7   6 
+    ext4: code clean up for dio fallocate handling
+        . (32):(misc->code)  1  4   5 
+    ext4: skip conversion of uninit extents after direct IO if there isn't any
+        . (32):(misc->code)  3  21   6 
+    ext4: fix ext4_ext_direct_IO()'s return value after converting uninit extents
+        . (32):(inode):(b:sem->wlog):(s:corruption):(note:wrong_logic)  2  8   3 
+    ext4: discard preallocation when restarting a transaction during truncate
+        . (32):(inode):(b:mem->re):(s:leak->fo)  1  2   1 
+    Revert "ext4: Remove journal_checksum mount option and enable it by default"
+        . (32):(super):(b:sem->wlog):(s:corruption):(ff):(real):(2.6.32):(note:wrong_logic) 3 22 7 
+    [PATCH] ext4: retry failed direct IO allocations
+        . (32):(inode):(b:sem->wlog):(s:error->wr_err):(r:fail):(rep:early_enospc)  1 4 0 
+    ext4: Fix build warning in ext4_dirty_inode()
+        . (32):(misc->compile)  1  0   2 
+    ext4: drop ext4dev compat
+        . (32):(misc->code)  2  0   45 
+    ext4: fix a BUG_ON crash by checking that page has buffers attached to it
+        . (32):(inode):(b:sem->state->other):(s:crash->BUG):(note:miss_state_check_other)  1  11   11 
+    ext4: Fix time encoding with extra epoch bits
+        . (32):(other):(b:sem->state->inode):(s:corruption):(note:wrong_state_update_inode)  1  3   3 
+    ext4: Add a stub for mpage_da_data in the trace header
+        . (32):(misc->code)  1  1   0 
+    ext4: Use tracepoints for mb_history trace file
+        . (32):(balloc,super):(p:scal):(s:performance->mem,performance->cpu)  6  182   348 
+    ext4, jbd2: Drop unneeded printks at mount and unmount time
+        . (32):(misc->code)  5  10   22 
+    ext4: Handle nested ext4_journal_start/stop calls without a journal
+        . (32):(dir,super):(b:sem->conf):(s:wb):(rep:forget_config)  3  38   13 
+    ext4: Make sure ext4_dirty_inode() updates the inode in no journal mode
+        . (32):(inode):(b:sem->conf):(s:corruption):(rep:forget_config)  1  4   15 
+    ext4: Avoid updating the inode table bh twice in no journal mode
+        . (32):(misc->code)  1  16   21 
+    ext4: EXT4_IOC_MOVE_EXT: Check for different original and donor inodes first
+        . (32):(extent):(b:sem->state->inode):(s:deadlock->re):(ff):(note:miss_state_check_inode)  1  8   8 
+    ext4: async direct IO for holes and fallocate support
+        . (32):(extent,file,inode,super):(f)  5  234   41 
+    ext4: Use end_io callback to avoid direct I/O fallback to buffered I/O
+        . (32):(inode,super):(f)  3  210   1 
+    ext4: Split uninitialized extents for direct I/O
+        . (32):(extent,inode):(c:err_ck)  6  419   42 
+    ext4: release reserved quota when block reservation for delalloc retry
+        . (32):(inode):(b:mem->re):(s:leak->vo):(r:fail):(rep:leak_on_err)  1  1   1 
+    ext4: Adjust ext4_da_writepages() to write out larger contiguous chunks
+        . (32):(inode,super):(f)  4  107   16 
+    ext4: Fix hueristic which avoids group preallocation for closed files
+        . (32):(balloc):(b:sem->state->super):(s:wb):(note:wrong_state_check_super)  1  1   1 
+    ext4: Use ext4_msg() for ext4_da_writepage() errors
+        . (32):(inode):(c:db)  1  25   25 
+    ext4: Update documentation about quota mount options
+        . (32):(misc->doc)  1  10   3   
+    ext4: replace MAX_DEFRAG_SIZE with EXT_MAX_BLOCK
+        . (32):(misc->api)  3  7   7 
+    ext4: Fix the alloc on close after a truncate hueristic
+        . (32):(inode):(b:sem->state->inode):(s:corruption):(note:wrong_state_check_inode)  1  1   2 
+    ext4: Add a tracepoint for ext4_alloc_da_blocks()
+        . (32):(inode):(c:db)  2  29   0 
+    ext4: store EXT4_EXT_MIGRATE in i_state instead of i_flags
+        . (32):(misc->code)  3  13   15 
+    ext4: limit block allocations for indirect-block files to < 2^32
+        . (32):(balloc,inode,super,xattr):(b:sem->wlog):(s:corruption):(real):(note:wrong_logic)  5  38   3 
+    ext4: Fix different block exchange issue in EXT4_IOC_MOVE_EXT
+        . (32):(extent):(b:sem->state->extent):(s:corruption):(note:miss_state_check_extent)   1  37   9 
+    ext4: Add null extent check to ext_get_path
+        . (32):(misc->code)  1  16   18 
+    ext4: Replace BUG_ON() with ext4_error() in move_extents.c
+        . (32):(extent):(c:err_ck):(rep:grace)  1  109   40 
+    ext4: Replace get_ext_path macro with an inline funciton
+        . (32):(misc->api)  1  34   21 
+    ext4: Fix include/trace/events/ext4.h to work with Systemtap
+        . (32):(misc->code)  2  5   2 
+    ext4: Remove syncing logic from ext4_file_write
+        . (32):(misc->code)  1  2   51 
+    ext4: Fix initalization of s_flex_groups
+        . (32):(super):(p:loca):(s:performance->io):(rep:bad_alloc_local)  1  6   6 
+    ext4: Always set dx_node's fake_dirent explicitly.
+        . (32):(dir):(c:cor_ck):(rep:dir_check)  1  1   1 
+    ext4: Don't update superblock write time when filesystem is read-only
+        . (32):(super):(b:sem->conf):(s:corruption):(rep:forget_config)  1  12   1 
+    ext4: Clarify the locking details in mballoc
+        . (32):(resize):(p:sync->rm_lock):(s:performance->cpu):(rep:remove_lock)  2  6   8 
+    ext4: check for need init flag in ext4_mb_load_buddy
+        . (32):(balloc):(b:concurrency->ato):(s:corruption) 1  18   21 
+    ext4: move ext4_mb_init_group() function earlier in the mballoc.c
+        . (32):(misc->code)  1  91   91 
+    ext4: Make non-journal fsync work properly
+        . (32):(inode):(b:sem->conf):(s:corruption):(rep:forget_config)  1  40   14 
+    ext4: Assure that metadata blocks are written during fsync in no journal mode
+        . (32):(file):(b:sem->conf):(s:corruption):(rep:forget_config)  2  11   3 
+    ext4: Use bforget() in no journal mode for ext4_journal_{forget,revoke}()
+        . (32):(other):(b:sem->conf):(s:corruption):(rep:forget_config)  1  2   2 
+    ext[234]: move over to 'check_acl' permission model
+        . (32):(misc->api)
+    ext4: print more sysadmin-friendly message in check_block_validity()
+        . (32):(misc->code)  1  8   8 
+    ext4: Take page lock before looking at attached buffer_heads flags
+        . (32):(inode):(b:concurrency->ato):(s:corruption)  1  11   2 
+    ext4: Fix small typo for move_extent_per_page()
+        . (32):(misc->code)  1  2   2 
+    ext4: Return exchanged blocks count to user space in failure
+        . (32):(ioctl):(b:error_handling->wr_err):(s:wb):(r:fail)  1  3   4 
+    ext4: Remove unneeded BUG_ON() in ext4_move_extents()
+        . (32):(extent):(b:sem->state->other):(s:crash->BUG):(note:wrong_state_check_other)  1  0   3 
+    ext4: Fix wrong comparisons in mext_check_arguments()
+        . (32):(extent):(b:sem->wlog):(s:crash->BUG):(note:wrong_logic)  1  27   19 
+    ext4: fix cache flush in ext4_sync_file
+        . (32):(file):(b:sem->io):(s:corruption):(rep:sync_to_async) 1  2   2 
+    ext4: fix tracepoint format string warnings
+        . (32):(misc->compile)  2  41   36 
+    ext4: Remove journal_checksum mount option and enable it by default
+        . (32):(misc->code)  3  22   7   
+    ext4: Declare seq_operations and file_operations structures as const
+        . (32):(misc->api)  1  4   4 
+    ext4: Add new tracepoint: trace_ext4_da_write_pages()
+        . (32):(inode):(c:db)  3  50   12 
+    ext4: Restore wbc->range_start in ext4_da_writepages()
+        . (32):(inode):(b:sem->wlog):(s:corruption):(note:wrong_logic)  1  2   0 
+    ext4: Fix spelling typo in the trace format for trace_ext4_da_writepages()
+        . (32):(misc->code)  1  1   1 
+    ext4: Limit number of links that can be created by ext4_link()
+        . (32):(misc->code)  1  1   1 
+    ext4: Allow rename to create more than EXT4_LINK_MAX subdirectories
+        . (32):(misc->api)  1  1   1 
+    ext4: fix extent sanity checking code with AGGRESSIVE_TEST
+        . (32):(extent):(b:sem->conf):(s:error->op_fail):(rep:forget_config)  1  34   26 
+    ext4: use ext4_grpblk_t more extensively
+        . (32):(misc->code)  3  19   16 
+    ext4: use variables not types in sizeofs() for allocations
+        . (32):(misc->code)  1  4   3 
+    ext4: Add missing unlock_new_inode() call in extent migration code
+        . (32):(extent):(b:concurrency->m_unlock):(s:error->warning):(r:fail)  1  1   1 
+    ext4: Add feature set check helper for mount & remount paths
+        . (32):(super):(b:sem->conf):(s:error->op_fail):(real):(rep:forget_config)  1  49   42 
+    simplify some logic in ext4_mb_normalize_request
+        . (32):(misc->code)  1  4   9 
+    ext4: open-code ext4_mb_update_group_info
+        . (32):(misc->code)  3  1   12 
+    ext4: reject too-large filesystems on 32-bit kernels
+        . (32):(super):(c:fun_ck):(rep:limit_check)  1  10   3 
+    ext4: Fix possible deadlock between ext4_truncate() and ext4_get_blocks()
+        . (32):(extent,inode):(b:concurrency->deadlock):(s:deadlock->re):(rep:wrong_lock_in_transaction)  3  32   7 
+    ext4: Show unwritten extent flag in ext4_ext_show_leaf()
+        . (32):(extent):(c:db) 2  23   11 
+    ext4: Compile warning fix when EXT_DEBUG enabled
+        . (32):(misc->compile)  1  4   4 
+    ext4: Avoid group preallocation for closed files
+        . (32):(balloc):(p:loca):(s:performance->io):(rep:bad_alloc_local)  2  38   2 
+    ext4: Fix bugs in mballoc's stream allocation mode
+        . (32):(balloc):(b:sem->wlog):(s:wb):(note:wrong_logic)  2  12   13 
+    ext4: Display the mballoc flags in mb_history in hex instead of decimal
+        . (32):(misc->code)  2  13   13 
+    ext4: Add configurable run-time mballoc debugging
+        . (32):(balloc):(f)  3  80   26 
+    ext4: fix journal ref count in move_extent_par_page
+        . (32):(extent):(b:sem->state->journal):(s:hang):(note:miss_state_update_journaling)  1  1   0 
+    ext4: remove redundant test on unsigned
+        . (32):(misc->code)  1  1   3 
+    ext4: fix build warning when EXT4FS_DEBUG is on
+        . (32):(misc->compile)  1  1   1 
+    ext4: Fix compile warnings with MB_DEBUG
+        . (32):(misc->compile)  1  4   4 
+    ext4: Remove unnecessary semicolons in mballoc.c
+        . (32):(misc->code)  1  1   1 
+    ext4: More buffer head reference leaks
+        . (32):(inode,dir):(b:mem->re->err):(s:leak->vo):(r:fail):(rep:leak_on_err)  2  14   5 
+    ext4: Avoid null pointer dereference when decoding EROFS w/o a journal
+        . (32):(super):(b:mem->null):(s:crash->null):(rep:deref_before_check)  1  2   1 
+    ext4: Fix typo in ext4/Kconfig
+        . (32):(misc->code)  1  1   1 
+    ext4: Fix memory leak fix when mounting an ext4 filesystem
+        . (32):(balloc):(b:mem->re):(s:leak->fo):(ff)  1  0   19 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.33
+    ext4: Drop EXT4_GET_BLOCKS_UPDATE_RESERVE_SPACE flag
+        . (33):(misc->code)  3  8   11 
+    ext4: Fix quota accounting error with fallocate
+        . (33):(extent,inode):(b:sem->conf):(s:leak->fo):(rep:forget_config)  3  54   13 
+    ext4: Handle -EDQUOT error on write
+        . (33):(inode):(b:concurrency->deadlock):(s:deadlock->re):(r:fail)  1  18   14 
+    ext4: Calculate metadata requirements more accurately
+        . (33):(extent,inode):(b:sem->wlog):(s:wb):(ff):(note:wrong_logic)  5  73   44 
+    ext4: Fix accounting of reserved metadata blocks
+        . (33):(inode):(b:sem->gene):(s:corruption):(ff):(rep:simple_typo)  1  4   4 
+    ext4: Patch up how we claim metadata blocks for quota purposes
+        . (33):(inode):(b:sem->wlog):(s:crash->BUG):(real):(ff):(note:wrong_logic)  1  82   71 
+    ext4: Ensure zeroout blocks have no dirty metadata
+        . (33):(extent):(b:sem->state->bh):(s:corruption):(note:miss_state_update_bh)  1  20   0 
+    ext4: return correct wbc.nr_to_write in ext4_da_writepages
+        . (33):(inode):(b:sem->state->other):(s:corruption):(note:wrong_state_update_other)  1  1   2 
+    ext4: Update documentation to correct the inode_readahead_blks option name
+        . (33):(misc->doc)  1  1   1 
+    ext4: flush delalloc blocks when space is low
+        . (33):(inode):(b:sem->wlog):(s:error->wr_err):(r:fail):(rep:early_enospc)  1  9   2 
+    ext4: Eliminate potential double free on error path
+        . (33):(xattr):(b:mem->df):(s:crash->af):(r:fail):(t:coccinelle)  1  2   0 
+    ext4: fix unsigned long long printk warning in super.c
+        . (33):(misc->compile)  1  2   2 
+    ext4: fix sleep inside spinlock issue with quota and dealloc (#14739)
+        . (33):(inode):(b:concurrency->inter):(s:crash->BUG):(real):(rep:lock_sleep)  1  5   6 
+    ext4: Fix potential quota deadlock
+        . (33):(balloc,inode):(b:concurrency->deadlock):(s:deadlock->cl)  2  7   8 
+    ext4: Convert to generic reserved quota's space management.
+        . (33):(misc->api)  3  17   10 
+    ext4: replace BUG() with return -EIO in ext4_ext_get_blocks
+        . (33):(extent):(b:sem->conf):(s:crash->BUG):(r:fail):(real):(rep:forget_config)  1  7   1 
+    ext4: add module aliases for ext2 and ext3
+        . (33):(misc->code)  1  2   0 
+    ext4: Don't ask about supporting ext2/3 in ext4 if ext4 is not configured
+        . (33):(misc->code)  1  1   0 
+    ext4: remove unused #include <linux/version.h>
+        . (33):(misc->code)  2  0   2 
+    ext4: Support for 64-bit quota format
+        . (33):(super):(f)  1  24   6 
+    ext4: Fix potential fiemap deadlock (mmap_sem vs. i_data_sem)
+        . (33):(extent):(b:concurrency->deadlock):(s:deadlock->cl)  1  2   2 
+    ext4: Do not override ext2 or ext3 if built they are built as modules
+        . (33):(misc->code)  2  3   3 
+    ext4: Fix insufficient checks in EXT4_IOC_MOVE_EXT
+        . (33):(ioctl,extent):(b:sem->wlog):(s:wb):(note:wrong_logic)  2  25   12 
+    ext4: Wait for proper transaction commit on fsync
+        . (33):(other):(b:sem->io):(s:corruption):(rep:sync_to_async)  6  80   31 
+    ext4: fix incorrect block reservation on quota transfer.
+        . (33):(inode):(b:sem->state->journal):(s:error->op_fail):(r:fail):(rep:wrong_journal_credit)  1  1   1 
+    ext4: quota macros cleanup
+        . (33):(misc->code)  5  14   10 
+    ext4: ext4_get_reserved_space() must return bytes instead of blocks
+        . (33):(inode):(b:sem->gene):(s:corruption):(rep:simple_typo)  1  1   1 
+    ext4: remove blocks from inode prealloc list on failure
+        . (33):(balloc):(b:mem->re->err):(s:leak->fo):(r:fail):(rep:leak_on_err)  1  19   0 
+    ext4: wait for log to commit when umounting
+        . (33):(super):(b:concurrency->ato):(s:crash->null)  1  6   4 
+    ext4: Avoid data / filesystem corruption when write fails to copy data
+        . (33):(inode):(b:sem->state->inode):(s:corruption):(r:fail):(note:miss_state_update_inode) 1  15   5 
+    ext4: Use ext4 file system driver for ext2/ext3 file system mounts
+        . (33):(super):(f)  2  68   0 
+    ext4: Return the PTR_ERR of the correct pointer in setup_new_group_blocks()
+        . (33):(resize):(b:sem->gene):(s:error->wr_err):(r:fail):(rep:simple_typo)  1  1   1 
+    ext4: remove unused parameter wbc from __ext4_journalled_writepage()
+        . (33):(misc->code)  1  1   2 
+    ext4: remove encountered_congestion trace
+        . (33):(misc->code)  1  2   4 
+    ext4: move_extent_per_page() cleanup
+        . (33):(misc->code)  1  9   21 
+    ext4: initialize moved_len before calling ext4_move_extents()
+        . (33):(misc->code)  2  4   11 
+    ext4: Fix double-free of blocks with EXT4_IOC_MOVE_EXT
+        . (33):(extent):(b:sem->state->inode):(s:wb):(note:wrong_state_update_inode)  1  5   4 
+    ext4: use ext4_data_block_valid() in ext4_free_blocks()
+        . (33):(misc->api)  1  1   3 
+    ext4: add check for wraparound in ext4_data_block_valid()
+        . (33):(misc->code)  1  1   0 
+    ext4: print i_mode in octal in ext4 tracepoints
+        . (33):(misc->code)  1  4   4 
+    ext4: call ext4_forget() from ext4_free_blocks()
+        . (33):(extent):(b:sem->state->inode):(s:corruption):(r:fail):(note:miss_state_update_inode)  7  109   88 
+    ext4: fold ext4_free_blocks() and ext4_mb_free_blocks()
+        . (33):(misc->code)  3  26   49 
+    ext4: fold ext4_journal_forget() into ext4_forget()
+        . (33):(misc->code)  3  19   25 
+    ext4: fold ext4_journal_revoke() into ext4_forget()
+        . (33):(misc->code)  2  12   30 
+    ext4: move ext4_forget() to ext4_jbd2.c
+        . (33):(misc->code)  4  63   55 
+    ext4: make "norecovery" an alias for "noload"
+        . (33):(misc->code)
+    ext4: make trim/discard optional (and off by default)
+        . (33):(block,super):(f):(trim)  4  33   9 
+    ext4: fix error handling in ext4_ind_get_blocks()
+        . (33):(inode):(b:error_handling->ms_err):(s:corruption):(r:fail):(note:complex_err_chain)  1  1   1 
+    ext4: avoid issuing unnecessary barriers
+        . (33):(file):(p:sche):(s:performance->io):(ff)  1  3   5 
+    ext4: fix block validity checks so they work correctly with meta_bg
+        . (33):(balloc,inode):(b:sem->conf):(s:error->wr_err):(r:fail):(rep:forget_config)  2  2   5 
+    ext4: fix uninit block bitmap initialization when s_meta_first_bg is non-zero
+        . (33):(balloc):(b:sem->conf):(s:corruption):(rep:forget_config)  1  7   1   
+    ext4: don't update the superblock in ext4_statfs()
+        . (33):(super):(b:sem->state->super):(s:corruption):(real):(ff):(note:wrong_state_update_super)  1  0   2 
+    ext4: journal all modifications in ext4_xattr_set_handle
+        . (33):(xattr):(b:sem->state->journal):(s:corruption):(real):(rep:forget_journaling)  1  4   3 
+    ext4: fix i_flags access in ext4_da_writepages_trans_blocks()
+        . (33):(inode):(b:sem->state->inode):(s:wb):(note:wrong_state_check_inode)  1  1   1 
+    ext4: make sure directory and symlink blocks are revoked
+        . (33):(inode,extent):(b:sem->state->inode):(s:corrpution):(r:fail):(note:miss_state_update_inode)  2  5   3 
+    ext4: add tracepoint for ext4_forget()
+        . (33):(inode):(c:db)  2  27   0 
+    ext4: remove failed journal checksum check
+        . (33):(misc->code)  1  0   20 
+    ext4: plug a buffer_head leak in an error path of ext4_iget()
+        . (33):(inode):(b:mem->re->err):(s:leak->vo):(r:fail):(rep:leak_on_err)  1  3   8 
+    ext4: fix spelling typos in move_extent.c
+        . (33):(misc->code)  1  2   2 
+    ext4: fix possible recursive locking warning in EXT4_IOC_MOVE_EXT
+        . (33):(extent):(b:concurrency->deadlock):(s:error->warning->lockdep):(real):(note:lockdep)  1  1   1 
+    ext4: fix lock order problem in ext4_move_extents()
+        . (33):(extent):(b:concurrency->ato):(s:corrpution,deadlock->cl) 1  53   64  
+    ext4: fix the returned block count if EXT4_IOC_MOVE_EXT fails
+        . (33):(extent):(b:sem->wlog):(s:corruption):(r:fail):(note:wrong_logic)  1  73   66 
+    ext4: avoid divide by zero when trying to mount a corrupted file system
+        . (33):(super):(b:sem->gene):(s:crash->af):(r:fail):(real):(rep:wrong_type)  1  4   4 
+    ext4: fix potential buffer head leak when add_dirent_to_buf() returns ENOSPC
+        . (33):(dir):(b:mem->re->err):(s:leak->vo):(r:fail):(rep:leak_on_err)  1  12   18 
+-------------------------------------------------------------------------------------------- 
+ChangeLog-2.6.34
+    ext4: Issue the discard operation *before* releasing the blocks to be reused
+        . (34):(balloc):(b:sem->state->super):(s:corruption):(real):(note:wrong_state_update_super) 1 11 10 
+    ext4: Fix buffer head leaks after calls to ext4_get_inode_loc()
+        . (34):(extent,inode):(b:mem->re):(s:leak->vo):(real)  2  2   0 
+    ext4: Fix possible lost inode write in no journal mode
+        . (34):(inode):(b:sem->state->inode):(s:corruption):(real):(note:wrong_state_update_inode)  1  1   1 
+    ext4: Fixed inode allocator to correctly track a flex_bg's used_dirs
+        . (34):(inode):(b:sem->state->super):(s:corruption):(note:wrong_state_update_super)  1  2   2 
+    ext4: Don't use delayed allocation by default when used instead of ext3
+        . (34):(misc->code)  1  16   9 
+    ext4: Fix spelling of CONTIG_FS_EXT3 to CONFIG_FS_EXT3
+        . (34):(misc->code)  1  2   2 
+    ext4: Fix estimate of # of blocks needed to write indirect-mapped files
+        . (34):(inode):(b:sem->wlog):(s:corruption):(real):(note:wrong_logic)  1  2   2 
+    ext4: fix up rb_root initializations to use RB_ROOT
+        . (34):(misc->api)  3  4   4 
+    ext4: Code cleanup for EXT4_IOC_MOVE_EXT ioctl
+        . (34):(misc->code)  2  3   4 
+    ext4: Fix the NULL reference in double_down_write_data_sem()
+        . (34):(extent):(b:mem->null):(s:crash->null):(rep:deref_before_check)  1  8   8 
+    ext4: Fix insertion point of extent in mext_insert_across_blocks()
+        . (34):(extent):(b:sem->wlog):(s:corruption):(note:wrong_logic)  1  4   0 
+    ext4: consolidate in_range() definitions
+        . (34):(misc->code)  4  4   7 
+    ext4: cleanup to use ext4_grp_offs_to_block()
+        . (34):(misc->api)  1  2   6 
+    ext4: cleanup to use ext4_group_first_block_no()
+        . (34):(misc->api)  4  14   28 
+    ext4: Release page references acquired in ext4_da_block_invalidatepages
+        . (34):(inode):(b:mem->re):(s:leak->vo)  1  3   4 
+    Get rid of mnt_mountpoint abuses in ext4
+        . (34):(misc->code)  1  2   4 
+    ext4: Fix ext4_quota_write cross block boundary behaviour
+        . (34):(super):(b:sem->wlog):(s:crash->BUG):(note:wrong_logic)  1  34   35 
+    ext4: Convert BUG_ON checks to use ext4_error() instead
+        . (34):(extent,inode,super):(c:err_ck):(rep:grace)  4  209   44 
+    ext4: Use direct_IO_no_locking in ext4 dio read
+        . (34):(inode):(p:sync->rm_lock):(s:performance->cpu):(rep:remove_lock)  1  8   1 
+    ext4: use ext4_get_block_write in buffer write
+        . (34):(extent,inode,super):(p:sync->rm_lock):(s:performance->cpu):(rep:remove_lock)  5  256   55 
+    ext4: mechanical rename some of the direct I/O get_block's identifiers
+        . (34):(misc->code)  5  61   69 
+    ext4: make "offset" consistent in ext4_check_dir_entry()
+        . (34):(misc->code)
+    ext4: Handle non empty on-disk orphan link
+        . (34):(dir):(b:sem->state->inode):(s:corrpution):(r:fail):(note:miss_state_check_inode)  1  8   0 
+    ext4: explicitly remove inode from orphan list after failed direct io
+        . (34):(inode):(b:sem->state->inode):(s:corruption):(r:fail):(note:miss_state_update_inode)   1  3   0 
+    ext4: fix error handling in migrate
+        . (34):(extent):(b:error_handling->ms_err):(s:leak->vo):(r:fail)  1  14   15 
+    ext4: deprecate obsoleted mount options
+        . (34):(misc->code)  1  13   1 
+    ext4: Fix fencepost error in chosing choosing group vs file preallocation.
+        . (34):(balloc):(p:loca):(s:performance->io):(rep:bad_alloc_local)  1  1   1 
+    ext4: trivial quota cleanup
+        . (34):(misc->code)  1  69   54 
+    ext4: mount flags manipulation cleanup
+        . (34):(misc->api)  1  13   18 
+    ext4: Add flag to files with blocks intentionally past EOF
+        . (34):(extent,inode,ioctl):(b:sem->conf):(s:corruption):(rep:forget_config)  4  41   4 
+    ext4: Fix BUG_ON at fs/buffer.c:652 in no journal mode
+        . (34):(inode,dir):(b:sem->conf):(s:crash->BUG):(real):(rep:forget_config)  4  7   7 
+    ext4: correctly calculate number of blocks for fiemap
+        . (34):(extent):(b:sem->wlog):(s:corruption):(note:wrong_logic)  1  7   2 
+    ext4: add missing error checking to ext4_expand_extra_isize_ea()
+        . (34):(xattr):(b:error_handling->ms_err):(s:corruption):(r:fail)  1  2   0 
+    ext4: move __func__ into a macro for ext4_warning, ext4_error
+        . (34):(misc->api)  13  146   210 
+    fix ext3/ext4 comment typo compain -> complain
+        . (34):(misc->code)  2  2   2 
+    ext4: Reserve INCOMPAT_EA_INODE and INCOMPAT_DIRDATA feature codepoints
+        . (34):(misc->code)  1  3   0 
+    ext4: Use bitops to read/modify EXT4_I(inode)->i_state
+        . (34):(extent,inode,xattr):(b:concurrency->ato):(s:corruption):(rep:lock_inode_update)  7  71   51 
+    ext4: Use slab allocator for sub-page sized allocations
+        . (34):(misc->api)  2  134   9 
+    ext4: Add new tracepoints to debug delayed allocation space functions
+        . (34):(inode):(c:db)  2  103   0 
+    ext4: Add block validity check when truncating indirect block mapped inodes
+        . (34):(balloc,inode):(b:sem->state->other):(s:crash->af):(r:fail):(real):(note:miss_state_check_other) 3  35   12 
+    ext4: Fix optional-arg mount options
+        . (34):(super):(b:sem->conf):(s:error->op_fail):(rep:forget_config)  1  15   8 
+    ext4: fix async i/o writes beyond 4GB to a sparse file
+        . (34):(extent,inode):(b:sem->gene):(s:error->op_fail):(rep:wrong_type)  3  5   5 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.35
+    ext4: Fix remaining racy updates of EXT4_I(inode)->i_flags
+        . (35):(inode):(b:concurrency->ato):(s:corrpution):(rep:lock_inode_update)  1  23   17 
+    ext4: Make sure the MOVE_EXT ioctl can't overwrite append-only files
+        . (35):(extent):(b:sem->conf):(s:corruption):(rep:forget_config)  1  3   0 
+    ext4: replace inode uid,gid,mode init with helper
+        . (35):(misc->api)  1  4   8 
+    ext4: constify xattr_handler
+        . (35):(misc->api)  6  16   16 
+    ext4: Make fsync sync new parent directories in no-journal mode
+        . (35):(file,dir):(b:sem->io):(s:corruption):(real):(rep:sync_to_async) 3  32   2 
+    ext4: Drop whitespace at end of lines
+        . (35):(misc->code)  9  23   23 
+    ext4: Fix compat EXT4_IOC_ADD_GROUP
+        . (35):(misc->code)  2  39   2 
+    ext4: Conditionally define compat ioctl numbers
+        . (35):(misc->code)  1  2   0 
+    ext4: Add new tracepoints to track mballoc's buddy bitmap loads
+        . (35):(balloc):(c:db) 2  35   0 
+    ext4: Add a missing trace hook
+        . (35):(inode):(c:db) 1  1   0 
+    ext4: restart ext4_ext_remove_space() after transaction restart
+        . (35):(extent):(b:concurrency->ato):(s:corruption):(real)  1  9   7 
+    ext4: Clear the EXT4_EOFBLOCKS_FL flag only when warranted
+        . (35):(extent):(b:sem->state->inode):(s:corruption):(note:wrong_state_update_inode)  1  15   3 
+    ext4: Avoid crashing on NULL ptr dereference on a filesystem error
+        . (35):(extent):(b:mem->null):(s:crash->null):(r:fail):(real):(rep:deref_before_check)  1  5   4 
+    ext4: Use bitops to read/modify i_flags in struct ext4_inode_info
+        . (35):(other,extent,file,inode,balloc,dir,xattr):(b:concurrency->ato):(s:crash):(real):(rep:lock_inode_update)  13  136   56 
+    ext4: Convert calls of ext4_error() to EXT4_ERROR_INODE()
+        . (35):(dir,extent,inode,xattr):(c:db):(real)  7  86   103 
+    ext4: Convert callers of ext4_get_blocks() to use ext4_map_blocks()
+        . (35):(misc->api)  3  151   230 
+    ext4: Add new abstraction ext4_map_blocks() underneath ext4_get_blocks()
+        . (35):(extent,inode):(p:scal):(s:performance->mem):(rep:save_struct_mem)  3  199   170 
+    ext4: Use our own write_cache_pages()
+        . (35):(misc->api)  1  119   22 
+    ext4: Show journal_checksum option
+        . (35):(misc->code)  1  2   0 
+    ext4: Fix for ext4_mb_collect_stats()
+        . (35):(balloc):(b:sem->state->other):(s:corruption):(note:wrong_state_check_other)  1  1   1 
+    ext4: check for a good block group before loading buddy pages
+        . (35):(balloc):(p:acce):(s:performance->io,performance->mem,performance->cpu):(real):(rep:check_before_work)  2  58   13 
+    ext4: Prevent creation of files larger than RLIMIT_FSIZE using fallocate
+        . (35):(extent):(c:fun_ck):(rep:limit_check)  1  5   0 
+    ext4: Remove extraneous newlines in ext4_msg() calls
+        . (35):(misc->code)  2  4   4 
+    ext4: Print mount options in when mounting and add a remount message
+        . (35):(misc->code)  1  10   1 
+    ext4: don't use quota reservation for speculative metadata
+        . (35):(misc->code)  2  26   48 
+    ext4: init statistics after journal recovery
+        . (35):(super):(b:sem->state->super):(s:corruption):(real):(note:wrong_state_update_super)  1  18   22 
+    ext4: clean up inode bitmaps manipulation in ext4_free_inode
+        . (35):(misc->code)  1  37   44 
+    ext4: Do not zero out uninitialized extents beyond i_size
+        . (35):(extent):(b:sem->wlog):(s:error->wr_err):(real):(note:wrong_logic)  1  51   16 
+    ext4: don't scan/accumulate more pages than mballoc will allocate
+        . (35):(inode):(p:acce):(s:performance->io):(real)  1  9   0 
+    ext4: stop issuing discards if not supported by device
+        . (35):(balloc):(c:fun_ck) 1  7   1 
+    ext4: don't return to userspace after freezing the fs with a mutex held
+        . (35):(super):(b:concurrency->m_unlock):(s:deadlock->re):(real)  1  10   10 
+    ext4: symlink must be handled via filesystem specific operation
+        . (35):(misc->api)  1  2   0 
+    ext4: check s_log_groups_per_flex in online resize code
+        . (35):(resize):(b:sem->state->super):(s:crash->null):(real):(note:wrong_state_check_super)  1  2   1 
+    ext4: fix quota accounting in case of fallocate
+        . (35):(inode):(b:sem->state->inode):(s:corruption):(note:wrong_state_update_inode)  1  2   1 
+    ext4: allow defrag (EXT4_IOC_MOVE_EXT) in 32bit compat mode
+        . (35):(misc->code)  1  2   0 
+    ext4: rename ext4_mb_release_desc() to ext4_mb_unload_buddy()
+        . (35):(misc->api)  1  12   12 
+    ext4: Remove unnecessary call to ext4_get_group_desc() in mballoc
+        . (35):(misc->code)  1  0   2 
+    ext4: fix memory leaks in error path handling of ext4_ext_zeroout()
+        . (35):(extent):(b:mem->re->err):(s:leak->vo):(r:fail):(rep:leak_on_err)  1  8   7 
+    ext4: Fix coding style in fs/ext4/move_extent.c
+        . (35):(misc->code)  1  1   0 
+    ext4: check missed return value in ext4_sync_file()
+        . (35):(file):(b:error_handling->ms_err):(s:error->wr_err):(r:fail):(rep:miss_write_err)  1  1   1 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.36
+    ext4: clean up compiler warning in start_this_handle()
+        . (36):(misc->compile)  1  27   19 
+    convert ext4 to ->evict_inode()
+        . (36):(misc->api)  4  16   10 
+    ext4: Adding error check after calling ext4_mb_regular_allocator()
+        . (36):(balloc):(b:error_handling->ms_err):(s:hang):(r:fail):(real):(rep:miss_read_err)  1  17   17 
+    ext4: Fix dirtying of journalled buffers in data=journal mode
+        . (36):(inode):(b:sem->wlog):(s:error->warning):(note:wrong_logic)  1  17   1
+    ext4: re-inline ext4_rec_len_(to|from)_disk functions
+        . (36):(dir):(p:rest):(s:performance->cpu):(ff)  2  37   26 
+    ext4: Add mount options in superblock
+        . (36):(super):(f)  2  30   8 
+    ext4: force block allocation on quota_off
+        . (36):(super):(b:sem->state->super):(s:corruption):(note:miss_state_update_super)  1  14   1 
+    ext4: fix freeze deadlock under IO
+        . (36):(super):(b:concurrency->deadlock):(s:deadlock):(ff)  1  2   2 
+    ext4: drop inode from orphan list if ext4_delete_inode() fails
+        . (36):(inode):(b:sem->state->inode):(s:crash->BUG):(r:fail):(note:miss_state_update_inode)  1  1   0 
+    ext4: check to make make sure bd_dev is set before dereferencing it
+        . (36):(super):(b:mem->null):(s:crash->null):(real):(rep:deref_before_check)  1  13   4 
+    ext4: don't print scary messages for allocation failures post-abort
+        . (36):(misc->code)  2  17   11 
+    ext4: fix EFBIG edge case when writing to large non-extent file
+        . (36):(file):(b:sem->state->super):(s:error->wr_err):(r:fail):(note:wrong_state_check_super)  1  2   1 
+    ext4: fix ext4_get_blocks references
+        . (36):(misc->code)  2  6   9 
+    ext4: Always journal quota file modifications
+        . (36):(super):(b:sem->state->journal):(s:error->warning):(rep:forget_journaling)   1  5   14 
+    ext4: Fix potential memory leak in ext4_fill_super
+        . (36):(super):(b:mem->re->err):(s:leak->go):(r:fail):(rep:leak_on_err)  1  5   3 
+    ext4: Don't error out the fs if the user tries to make a file too big
+        . (36):(inode):(c:err_ck):(rep:grace)  1  2   4 
+    ext4: allocate stripe-multiple IOs on stripe boundaries
+        . (36):(balloc):(p:loca):(s:performance->io)  1  3   4 
+    ext4: move aio completion after unwritten extent conversion
+        . (36):(misc->code)  2  15   6 
+    ext4: Support discard requests when running in no-journal mode
+        . (36):(balloc):(f):(discard)  1  21   16 
+    ext4: Fix block bitmap inconsistencies after a crash when deleting files
+        . (36):(inode):(b:sem->wlog):(s:corruption):(r:fail):(note:wrong_logic)  1  13   22 
+    ext4: Remove unnecessary casts of private_data
+        . (36):(misc->code)  2  2   2 
+    ext4: fix potential NULL dereference while tracing
+        . (36):(balloc):(b:mem->null):(s:crash->null):(rep:deref_before_check)  2  14   10 
+    ext4: Define s_jnl_backup_type in superblock
+        . (36):(misc->code)  1  2   2 
+    ext4: Once a day, printk file system error information to dmesg
+        . (36):(super):(c:db)  2  62   0 
+    ext4: Save error information to the superblock for analysis
+        . (36):(balloc,inode,super):(c:db)  5  90   22 
+    ext4: Pass line numbers to ext4_error() and friends
+        . (36):(misc->code)  8  98   80 
+    ext4: Cleanup ext4_check_dir_entry so __func__ is now implicit
+        . (36):(misc->api)  3  17   16 
+    ext4: Pass line number to ext4_journal_abort_handle()
+        . (36):(misc->code)  3  53   47 
+    ext4: Enhance ext4_grp_locked_error() to take block and function numbers
+        . (36):(misc->api)  4  45   32 
+    ext4: clean up ext4_abort() so __func__ is now implicit
+        . (36):(misc->code)  3  10   9 
+    ext4: Add new superblock fields reserved for the Next3 snapshot feature
+        . (36):(misc->code)  1  7   1 
+    ext4: update ctime when changing the file's permission by setfacl
+        . (36):(xattr):(b:sem->state->inode):(s:corruption):(rep:update_time)  1  1   0 
+    ext4: remove vestiges of nobh support
+        . (36):(misc->code)  4  15   44 
+    ext4: remove initialized but not read variables
+        . (36):(misc->code)  7  10   50 
+    ext4: Convert more i_flags references to use accessor functions
+        . (36):(misc->api)  3  5   4 
+    ext4: Clean up s_dirt handling
+        . (36):(misc->code)  9  36   16 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.37
+    ext4: fix on-line resizing regression
+        . (37):(resize):(b:sem->state->other):(s:corruption):(real):(ff):(note:miss_state_update_other)  1  5   0 
+    ext4: fix typo which broke '..' detection in ext4_find_entry()
+        . (37):(misc->code)  1  1   1 
+    ext4: Turn off multiple page-io submission by default
+        . (37):(misc->code)  3  17   3 
+    ext4: Add EXT4_IOC_TRIM ioctl to handle batched discard
+        . (37):(ioctl):(f):(trim)  1  24   0 
+    ext4: ext4_fill_super shouldn't return 0 on corruption
+        . (37):(super):(b:error_handling->wr_err):(s:crash):(r:fail):(ff):(rep:over_written_err)  1  3   2 
+    ext4: missing unlock in ext4_clear_request_list()
+        . (37):(super):(b:concurrency->m_unlock):(s:deadlock->re)  1  0   3 
+    ext4: fix setting random pages PageUptodate
+        . (37):(file):(b:mem->dp):(s:crash->BUG):(rep:use_after_free)  1  2   2 
+    ext4: Add new ext4 inode tracepoints
+        . (37):(inode,super):(c:db)  3  110   0 
+    ext4: Don't call sb_issue_discard() in ext4_free_blocks()
+        . (37):(balloc):(b:concurrency->deadlock):(s:deadlock->bs):(ff):(real):(rep:lock_sleep)  1  0   2 
+    ext4: do not try to grab the s_umount semaphore in ext4_quota_off
+        . (37):(super):(p:sync->rm_lock):(s:performance->cpu):(rep:remove_lock)  1  3   5 
+    ext4: fix potential race when freeing ext4_io_page structures
+        . (37):(file):(b:concurrency->ato):(s:corruption)  2  16   24 
+    ext4: handle writeback of inodes which are being freed
+        . (37):(file,super):(b:sem->io):(s:crash->BUG):(rep:meta_data_order)  3  38   25 
+    ext4: initialize the percpu counters before replaying the journal
+        . (37):(misc->code)  1  39   26 
+    ext4: "ret" may be used uninitialized in ext4_lazyinit_thread()
+        . (37):(misc->compile)
+    ext4: fix lazyinit hang after removing request
+        . (37):(super):(p:sche):(s:performance->cpu)  1  2   1 
+    ext4: Remove useless spinlock in ext4_getattr()
+        . (37):(inode):(p:sync->rm_lock):(s:performance->cpu):(rep:remove_lock)  1  0   2 
+    ext4: BUG_ON fix: check if page has buffers before calling page_buffers()
+        . (37):(inode):(b:sem->state->other):(s:crash->BUG):(note:miss_state_check_other)  1  5   7 
+    ext4: fix compile with CONFIG_EXT4_FS_XATTR disabled
+        . (37):(misc->compile):(ff)  1  1   1 
+    ext4: optimize orphan_list handling for ext4_setattr
+        . (37):(inode):(p:acce):(s:performance->cpu):(rep:check_before_work)  1  7   3 
+    ext4: fix unbalanced mutex unlock in error path of ext4_li_request_new
+        . (37):(super):(b:concurrency->d_unlock):(s:wb):(r:fail)  1  8   14 
+    ext4: fix compile error in ext4_fallocate()
+        . (37):(misc->compile)  1  1   1 
+    ext4: move ext4_mb_{get,put}_buddy_cache_lock and make them static
+        . (37):(misc->api)  2  79   81 
+    ext4: rename mark_bitmap_end() to ext4_mark_bitmap_end()
+        . (37):(misc->api)  4  9   7 
+    ext4: move flush_completed_IO to fs/ext4/fsync.c and make it static
+        . (37):(misc->api)  3  83   84 
+    ext4: rename {ext,idx}_pblock and inline small extent functions
+        . (37):(misc->api)  4  121   118 
+    ext4: make various ext4 functions be static
+        . (37):(misc->api)  7  27   44 
+    ext4: rename {exit,init}_ext4_*() to ext4_{exit,init}_*()
+        . (37):(misc->api)
+    ext4: fix kernel oops if the journal superblock has a non-zero j_errno
+        . (37):(super):(b:mem->unread):(s:crash->null):(r:fail):(real):(ff):(rep:use_before_init)  2  15   2 
+    ext4: update writeback_index based on last page scanned
+        . (37):(inode):(b:sem->wlog):(s:corruption):(note:wrong_logic)  1  9   5 
+    ext4: implement writeback livelock avoidance using page tagging
+        . (37):(inode):(p:acce):(s:performance->io):(rep:avoid_redun_write)  2  17   3 
+    ext4: tidy up a void argument in inode.c
+        . (37):(misc->code)  1  2   2 
+    ext4: add batched_discard into ext4 feature list
+        . (37):(misc->code)  1  2   0 
+    ext4: Add batched discard support for ext4
+        . (37):(balloc):(f):(trim)  3  188   0 
+    ext4: Use return value from sb_issue_discard()
+        . (37):(balloc):(c:err_ck) 1  2   1 
+    ext4: Check return value of sb_getblk() and friends
+        . (37):(balloc,inode):(b:mem->null):(s:crash->null):(r:fail):(rep:deref_before_check)  2  7   0 
+    ext4: use bio layer instead of buffer layer in mpage_da_submit_io
+        . (37):(extent,inode,file,super):(f):(page-io)  6  489   109 
+    ext4: move mpage_put_bnr_to_bhs()'s functionality to mpage_da_submit_io()
+        . (37):(misc->code)  1  38   101 
+    ext4: inline walk_page_buffers() into mpage_da_submit_io
+        . (37):(misc->api)  1  13   11 
+    ext4: inline ext4_writepage() into mpage_da_submit_io()
+        . (37):(misc->code)  1  59   11 
+    ext4: simplify ext4_writepage()
+        . (37):(misc->code)  1  25   48 
+    ext4: call mpage_da_submit_io() from mpage_da_map_blocks()
+        . (37):(misc->code)  1  33   33 
+    ext4: use KMEM_CACHE instead of kmem_cache_create
+        . (37):(misc->api)  2  7   14 
+    ext4: use search_dirblock() in ext4_dx_find_entry()
+        . (37):(misc->api)  1  12   21 
+    ext4: avoid uninitialized memory references in ext3_htree_next_block()
+        . (37):(dir):(b:mem->unread):(s:error->warning):(rep:use_before_init)  1  15   15 
+    ext4: remove unused ext4_sb_info members
+        . (37):(misc->code)  1  0   5 
+    ext4: queue conversion after adding to inode's completed IO list
+        . (37):(inode):(b:concurrency->inter):(s:crash->af)  1  3   3 
+    ext4: don't use ext4_allocation_contexts for tracing
+        . (37):(misc->code)  2  41   91 
+    ext4: fix oops in trace_ext4_mb_release_group_pa
+        . (37):(other):(b:mem->unread):(s:crash->af):(rep:use_before_init)  1  0   3 
+    ext4: fix potential infinite loop in ext4_da_writepages()
+        . (37):(inode):(b:sem->gene):(s:hang):(rep:wrong_type)  1  1   1 
+    ext4: improve llseek error handling for overly large seek offsets
+        . (37):(file):(c:err_ck)  3  45   2 
+    ext4: don't update sb journal_devnum when RO dev
+        . (37):(super):(b:sem->conf):(s:crash->BUG):(rep:forget_config)  1  1   1 
+    ext4: use sb_issue_zeroout in ext4_ext_zeroout
+        . (37):(misc->api)  1  7   62 
+    ext4: use sb_issue_zeroout in setup_new_group_blocks
+        . (37):(misc->api)  1  13   33 
+    ext4: add interface to advertise ext4 features in sysfs
+        . (37):(inode,super):(f)  3  65   11 
+    ext4: add support for lazy inode table initialization
+        . (37):(inode,super):(f):(lazyitable)  4  611   3 
+    ext4: fix NULL pointer dereference in print_daily_error_info()
+        . (37):(super):(b:sem->state->super):(s:crash->null):(r:fail):(real):(note:miss_state_update_super)  1  1   0 
+    ext4: don't hold spinlock while calling ext4_issue_discard()
+        . (37):(balloc):(b:concurrency->deadlock):(s:deadlock->bs):(real):(rep:lock_sleep)  1  2   2 
+    ext4: check for negative error code from sb_issue_discard
+        . (37):(balloc):(b:error_handling->wr_err):(s:wb):(r:fail):(rep:wrong_signedness)  1  1   1 
+    ext4: don't bump up LONG_MAX nr_to_write by a factor of 8
+        . (37):(inode):(b:sem->wlog):(s:wb):(note:wrong_logic)  1  6   3 
+    ext4: stop looping in ext4_num_dirty_pages when max_pages reached
+        . (37):(inode):(p:acce):(s:performance->cpu)  1  3   1 
+    ext4: use dedicated slab caches for group_info structures
+        . (37):(balloc):(p:scal):(s:performance->mem):(real):(rep:save_struct_mem)  2  78   21 
+    ext4: avoid null dereference in trace_ext4_mballoc_discard
+        . (37):(other):(b:mem->null):(s:crash->null):(rep:deref_after_check)  1  3   2 
+    ext4: fix EOFBLOCKS_FL handling
+        . (37):(extent):(b:sem->state->inode):(s:corruption):(real):(note:wrong_state_update_inode)  1  69   29 
+    BKL: Remove BKL from ext4 filesystem
+        . (37):(super):(p:sync->rm_lock):(s:performance->cpu):(rep:remove_lock)  1  0   15 
+    BKL: Explicitly add BKL around get_sb/fill_super
+        . (37):(misc->code)  28  187   25 
+    ext3/ext4: Factor out disk addressability check
+        . (37):(misc->api)  4  36   7 
+    ext4: do not send discards as barriers
+        . (37):(misc->code)  1  1   1 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.38
+    ext4: serialize unaligned asynchronous DIO
+        . (38):(extent,file,super):(b:concurrency->ato):(s:corruption)  5  100   18 
+    ext4: make grpinfo slab cache names static
+        . (38):(misc->api)  1  60   40 
+    ext4: Fix data corruption with multi-block writepages support
+        . (38):(file):(b:sem->state->bh):(s:corruption):(ff):(note:wrong_state_update_bh)  1  6   5 
+    ext4: fix up ext4 error handling
+        . (38):(super):(b:error_handling->ms_err):(s:wb):(r:fail)  1  10   4 
+    ext4: unregister features interface on module unload
+        . (38):(super):(b:sem->state->other):(s:wb):(note:miss_state_update_other)  1  10   2 
+    ext4: fix panic on module unload when stopping lazyinit thread
+        . (38):(super):(b:sem->wlog):(s:crash->null):(real):(note:wrong_logic)  1  14   13 
+    make the feature checks in ->fallocate future proof
+        . (38):(misc->code)  5  8   3 
+    fs/ext4/inode.c: use pr_warn_ratelimited()
+        . (38):(misc->api)  1  2   1 
+    Ext4: fail if we try to use hole punch
+        . (38):(extent):(c:fun_ck)  1  4   0 
+    ext4: fix trimming starting with block 0 with small blocksize
+        . (38):(balloc):(b:sem->gene):(s:error->wr_err):(rep:wrong_type)  1  6   0 
+    ext4: revert buggy trim overflow patch
+        . (38):(balloc):(b:sem->gene):(s:corruption):(2.6.38):(ff):(rep:wrong_type)  1  0  6
+    ext4: don't pass entire map to check_eofblocks_fl
+        . (38):(misc->code)  1  7   6 
+    ext4: fix memory leak in ext4_free_branches
+        . (38):(inode):(b:mem->re):(s:leak->vo):(ff)  1  1   0 
+    ext4: remove ext4_mb_return_to_preallocation()
+        . (38):(balloc):(b:sem->wlog):(s:crash->BUG):(real):(note:wrong_logic)   1  0   14 
+    ext4: flush the i_completed_io_list during ext4_truncate
+        . (38):(extent,file):(b:concurrency->ato):(s:corruption)  3  9   2 
+    ext4: add error checking to calls to ext4_handle_dirty_metadata()
+        . (38):(inode,dir,resize):(b:error_handling->ms_err):(s:corruption):(r:fail):(rep:miss_write_err)  3  89   28 
+    ext4: fix trimming of a single group
+        . (38):(balloc):(p:rest):(s:performance->io)  1  1   1 
+    ext4: fix uninitialized variable in ext4_register_li_request
+        . (38):(super):(b:mem->unread):(s:wb):(rep:use_before_init)  1  1   1 
+    ext4: dynamically allocate the jbd2_inode in ext4_inode_info as necessary
+        . (38):(file,inode,super):(p:scal):(s:performance->mem):(rep:save_struct_mem)  7  74   25 
+    ext4: drop i_state_flags on architectures with 64-bit longs
+        . (38):(inode):(p:scal):(s:performance->mem):(rep:save_struct_mem)  3  25   9 
+    ext4: reorder ext4_inode_info structure elements to remove unneeded padding
+        . (38):(other):(p:scal):(s:performance->mem):(rep:save_struct_mem)  1  4   3 
+    ext4: drop ec_type from the ext4_ext_cache structure
+        . (38):(extent):(p:scal):(s:performance->mem):(rep:save_struct_mem)  3  18   28 
+    ext4: use ext4_lblk_t instead of sector_t for logical blocks
+        . (38):(extent,inode):(p:scal):(s:performance->mem):(rep:save_struct_mem)  4  5   5 
+    ext4: replace i_delalloc_reserved_flag with EXT4_STATE_DELALLOC_RESERVED
+        . (38):(misc->code)  5  9   8 
+    ext4: fix 32bit overflow in ext4_ext_find_goal()
+        . (38):(extent):(p:loca):(s:performance->io):(rep:bad_alloc_local)  1  26   4 
+    ext4: add more error checks to ext4_mkdir()
+        . (38):(dir):(b:error_handling->ms_err):(s:corruption):(r:fail):(rep:miss_write_err)  1  14   7 
+    ext4: ext4_ext_migrate should use NULL not 0
+        . (38):(misc->code)  1  1   1 
+    ext4: Use ext4_error_file() to print the pathname to the corrupted inode
+        . (38):(misc->code)  4  49   34 
+    ext4: use IS_ERR() to check for errors in ext4_error_file
+        . (38):(super):(b:error_handling->wr_err):(s:wb):(r:fail):(rep:bad_ac)  1  1   1 
+    ext4: test the correct variable in ext4_init_pageio()
+        . (38):(file):(b:error_handling->ms_err):(s:crash->null):(r:fail)  1  1   1 
+    ext2,ext3,ext4: clarify comment for extN_xattr_set_handle
+        . (38):(misc->code)  3  3   3 
+    ext4: clean up ext4_xattr_list()'s error code checking and return strategy
+        . (38):(misc->code)  1  13   13 
+    ext4: remove warning message from ext4_issue_discard helper
+        . (38):(balloc):(b:error_handling->wr_err):(s:error->warning):(r:fail)  1  10   12 
+    ext4: fix possible overflow in ext4_trim_fs()
+        . (38):(balloc):(b:sem->gene):(s:wb):(rep:wrong_type)  1  6   0 
+    ext2,3,4: provide simple rcu-walk ACL implementation
+        . (38):(xattr):(c:fun_ck)  1 5 2  
+    ext4: Add error checking to kmem_cache_alloc() call in ext4_free_blocks()
+        . (38):(balloc):(b:error_handling->ms_err):(s:crash->null):(r:fail):(rep:miss_mem_err)  1  5   1 
+    ext4: Use printf extension %pV
+        . (38):(misc->api)  1  23   17 
+    ext4: Use vzalloc in ext4_fill_flex_info()
+        . (38):(misc->api)  1  7   8 
+    ext4: zero out nanosecond timestamps for small inodes
+        . (38):(other):(b:mem->unread):(s:corruption):(rep:use_before_init)  1  4   0 
+    ext4: optimize ext4_check_dir_entry() with unlikely() annotations
+        . (38):(dir):(p:rest):(s:performance->cpu)  3  33   26 
+    ext4: use kmem_cache_zalloc() in ext4_init_io_end()
+        . (38):(misc->api)  1  1   4 
+    ext4: Remove redundant unlikely()
+        . (38):(misc->code)  1  1   1 
+    ext4: Use pr_warning_ratelimited() instead of printk_ratelimit()
+        . (38):(misc->api)  1  2   2 
+    ext4: Fix up comments in inode.c
+        . (38):(misc->code)  1  13   4 
+    ext4: Add second mount options field since the s_mount_opt is full up
+        . (38):(misc->api)  2  13   2 
+    ext4: Move struct ext4_mount_options from ext4.h to super.c
+        . (38):(misc->code)  2  15   16 
+    ext4: Simplify the usage of clear_opt() and set_opt() macros
+        . (38):(misc->api)  3  86   84 
+    ext4: fix redirty_page_for_writepage() typo in comment
+        . (38):(misc->code)  1  1   1 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.39
+    ext4: fix data corruption regression by reverting commit 6de9843dab3f
+        . (39):(inode):(b:sem->state->bh):(s:corruption):(real):(2.6.39):(ff):(note:miss_state_update_bh)  1  1   0 
+    ext4: Allow indirect-block file to grow the file size to max file size
+        . (39):(inode):(b:sem->wlog):(s:error->warning):(note:wrong_logic)  1  17   6 
+    ext4: allow an active handle to be started when freezing
+        . (39):(super):(b:concurrency->deadlock):(s:deadlock->in):(note:freeze_truncate)  1  33   11 
+    ext4: sync the directory inode in ext4_sync_parent()
+        . (39):(file):(b:sem->io):(s:corruption):(real):(rep:sync_to_async) 1  14   3 
+    ext4: init timer earlier to avoid a kernel panic in __save_error_info
+        . (39):(super):(b:mem->unread):(s:crash->af):(r:fail):(real):(rep:use_before_init)  1  5   3 
+    ext4: fix a double free in ext4_register_li_request
+        . (39):(super):(b:mem->re):(s:wb):(r:fail)  1  6   0 
+    ext4: fix credits computing for indirect mapped files
+        . (39):(inode):(b:sem->state->journal):(s:error->op_fail):(rep:wrong_journal_credit)  1  5   6 
+    ext4: remove unnecessary (cm)time update of quota file
+        . (39):(super):(p:acce):(s:performance->io) 2 16  4 
+    ext4: use little-endian bitops
+        . (39):(misc->api)  1  6   6 
+    ext4: fix a BUG in mb_mark_used during trim.
+        . (39):(balloc):(b:sem->wlog):(s:crash->BUG):(note:wrong_logic)  1  8   3 
+    ext4: remove redundant set_buffer_mapped() in ext4_da_get_block_prep()
+        . (39):(misc->code)  1  0   1 
+    ext4: unused variables cleanup in fs/ext4/extents.c
+        . (39):(misc->code)  1  1   4 
+    ext4: add more tracepoints and use dev_t in the trace buffer
+        . (39):(balloc,extent,file,inode,dir):(c:db)  8  658   253 
+    ext4: don't kfree uninitialized s_group_info members
+        . (39):(balloc):(b:mem->unread):(s:crash->af):(r:fail):(real):(rep:use_before_init)  1  1   1 
+    ext4: add missing space in printk's in __ext4_grp_locked_error()
+        . (39):(misc->code)  1  1   1 
+    ext4: add FITRIM to compat_ioctl.
+        . (39):(misc->code)  1  1   0
+    ext4: handle errors in ext4_clear_blocks()
+        . (39):(inode):(b:error_handling->ms_err):(s:corruption):(r:fail):(rep:miss_write_err)  1  26   20 
+    ext4: unify the ext4_handle_release_buffer() api
+        . (39):(misc->api)  3  5   12 
+    ext4: handle errors in ext4_rename
+        . (39):(dir):(b:error_handling->ms_err):(s:corruption):(r:fail):(rep:miss_write_err)  1  7   3 
+    ext4: Initialize fsync transaction ids in ext4_new_inode()
+        . (39):(inode):(b:sem->state->inode):(s:crash->BUG):(note:miss_state_update_inode)  1  5   0 
+    ext4: Copy fs UUID to superblock
+        . (39):(misc->code)  1  2   0 
+    fs: Remove i_nlink check from file system link callback
+        . (39):(misc->code)  6  0   42 
+    ext4: Use single thread to perform DIO unwritten convertion
+        . (39):(super):(p:sche):(s:performance->cpu)  1  1   1 
+    ext4: optimize ext4_bio_write_page() when no extent conversion is needed
+        . (39):(file):(p:sche):(s:performance->cpu):(rep:wasted_wait)  1  5   0 
+    ext4: skip orphan cleanup if fs has unknown ROCOMPAT features
+        . (39):(super):(b:sem->conf):(s:corruption):(rep:forget_config)  1  8   0 
+    ext4: use the nblocks arg to ext4_truncate_restart_trans()
+        . (39):(misc->code)  1  1   1 
+    ext4: fix missing iput of root inode for some mount error paths
+        . (39):(super):(b:mem->re->err):(s:crash->af,leak->vo):(r:fail):(real):(rep:leak_on_err)  1  3   2 
+    ext4: make FIEMAP and delayed allocation play well together
+        . (39):(extent):(b:sem->wlog):(s:corruption):(note:wrong_logic)  1  148   39 
+    ext4: suppress verbose debugging information if malloc-debug is off
+        . (39):(misc->code)  1  2   1 
+    ext4: don't leave PageWriteback set after memory failure
+        . (39):(file):(b:sem->state->other):(s:hang):(r:fail):(note:wrong_state_update_other)  1  2   2 
+    ext4: move setup of the mpd structure to write_cache_pages_da()
+        . (39):(misc->code)  1  7   22 
+    ext4: don't lock the next page in write_cache_pages if not needed
+        . (39):(inode):(p:sync->rm_lock):(s:performance->cpu):(rep:remove_lock)  1  10   17 
+    ext4: remove page_skipped hackery in ext4_da_writepages()
+        . (39):(misc->code)  1  0   10 
+    ext4: clear the dirty bit for a page in writeback at the last minute
+        . (39):(misc->code)  1  11   17 
+    ext4: simple cleanups to write_cache_pages_da()
+        . (39):(misc->code)  1  48   67 
+    ext4: fold __mpage_da_writepage() into write_cache_pages_da()
+        . (39):(misc->code)  1  91   115 
+    ext4: enable mblk_io_submit by default
+        . (39):(misc->code)  1  3   2 
+    ext4: fix ext4_da_block_invalidatepages() to handle page range properly
+        . (39):(inode):(b:sem->state->other):(s:hang):(r:fail):(note:wrong_state_update_other)  1  4   7 
+    ext4: mark multi-page IO complete on mapping failure
+        . (39):(inode):(b:sem->state->other):(s:crash->BUG):(r:fail):(note:miss_state_update_other)  1  3   0 
+    ext4: mballoc: don't replace the current preallocation group unnecessarily
+        . (39):(misc->code)  1  1   1 
+    ext4: clarify description of ac_g_ex in struct ext4_allocation_context
+        . (39):(misc->code)  1  1   1 
+    mballoc: add comments to ext4_mb_mark_free_simple()
+        . (39):(misc->code)  1  6   1 
+    ext4: remove unncessary call mb_find_buddy() in debugging code
+        . (39):(misc->code)  1  0   1 
+    ext4: code cleanup in mb_find_buddy()
+        . (39):(misc->code)  1  3   2 
+    ext4: enable acls and user_xattr by default
+        . (39):(misc->code)  1  5   9 
+    ext4: Adjust minlen with discard_granularity in the FITRIM ioctl
+        . (39):(ioctl):(c:fun_ck)  1  2   0 
+    ext4: check if device support discard in FITRIM ioctl
+        . (39):(ioctl):(b:sem->conf):(s:wb):(r:fail):(rep:forget_config)  1  4   0 
+    ext4: mark file-local functions and variables as static
+        . (39):(misc->api)  2  5   4 
+    ext4: allow inode_readahead_blks=0 (linux-2.6.37)
+        . (39):(misc->code)  1  2   2 
+    ext4: Fix sparse warning: Using plain integer as NULL pointer
+        . (39):(misc->code)  7  23   23 
+    ext4: fix compile warnings with EXT4FS_DEBUG enabled
+        . (39):(misc->compile)  1  2   2 
+    ext4: update ext4 documentation
+        . (39):(misc->doc)  2  216   4 
+    ext4: fix comment typo uninitized
+        . (39):(misc->code)  1  1   1 
+    ext4: convert to alloc_workqueue()
+        . (39):(misc->api)  1  6   1 
+    ext4: Fix comment typo "especiially".
+        . (39):(misc->code)
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.0
+ChangeLog-2.6.1
+ChangeLog-2.6.2
+ChangeLog-2.6.3
+ChangeLog-2.6.4
+ChangeLog-2.6.5
+ChangeLog-2.6.6
+ChangeLog-2.6.7
+ChangeLog-2.6.8
+ChangeLog-2.6.9
+ChangeLog-2.6.10
+ChangeLog-2.6.11
+ChangeLog-2.6.12
+ChangeLog-2.6.13
+ChangeLog-2.6.14
+ChangeLog-2.6.15
+ChangeLog-2.6.16
+ChangeLog-2.6.17
+ChangeLog-2.6.18
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.19
+    [PATCH] jbd2: journal_dirty_data re-check for unmapped buffers
+		. (19):(journal->transaction):(b:concurrency->ato):(s:crash->BUG) 1 14 1 
+	[PATCH] ext3/4: fix J_ASSERT(transaction->t_updates > 0) in journal_stop()
+		. (19):(journal->transaction):(b:sem->state->journal):(s:crash->assert):(r:fail):(note:wrong_state_check_journaling) 1 3 2 
+    [PATCH] null dereference in fs/jbd2/journal.c
+		. (19):(journal->journal):(b:mem->null):(s:crash->null):(r:fail):(t:coverity):(ff):(rep:deref_after_check) 1 2 1 
+    [PATCH] jbd2: switch blks_type from sector_t to ull
+		. (19):(misc->api)
+    [PATCH] jbd2: sector_t conversion
+		. (19):(misc->api)
+    [PATCH] 64-bit jbd2 core
+		. (19):(journal->commit,journal->journal,journal->recovery,journal->revoke):(f) 5 77 22 
+    [PATCH] jbd2: cleanup ext4_jbd.h
+		. (19):(misc->code)
+    [PATCH] jbd2: enable building of jbd2 and have ext4 use it rather than jbd
+		. (19):(misc->compile)
+    [PATCH] jbd2: rename slab
+		. (19):(misc->code)
+    [PATCH] jbd2: rename jbd2 symbols to avoid duplication of jbd symbols
+		. (19):(misc->code)
+    [PATCH] jbd2: initial copy of files from jbd
+		. (19):(misc->code)
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.20
+    [PATCH] jbd2: wait for already submitted t_sync_datalist buffer to complete
+		. (20):(journal->commit):(b:sem->io):(s:corruption):(rep:sync_to_async) 1 6 2 
+    [PATCH] make fs/jbd2/transaction.c:__kbd2_journal_temp_unlink_buffer() static
+		. (20):(misc->api)
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.21
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.22
+	jbd: check for error returned by kthread_create on creating journal thread
+		. (22):(journal->journal):(b:error_handling->ms_err):(s:hang):(r:fail) 2 18 8 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.23
+	fix ext4/JBD2 build warnings 
+		. (23):(misc->compile)
+    jbd2: Move jbd2-debug file to debugfs
+		. (23):(misc->code)
+    jbd2: Fix CONFIG_JBD_DEBUG ifdef to be CONFIG_JBD2_DEBUG
+		. (23):(misc->code)
+	is_power_of_2(): jbd 
+		. (23):(misc->api)					
+	jbd2 commit: fix transaction dropping 
+		. (23):(journal->commit):(b:sem->state->journal):(s:crash->assert):(note:wrong_state_check_journaling) 1 2 1 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.24
+	JBD2: debug code cleanup.
+		. (24):(misc->code)
+    jbd2: fix commit code to properly abort journal
+		. (24):(journal->commit):(b:error_handling->ms_err):(s:corruption):(r:fail)	 1 4 4 
+    jbd2: JBD_XXX to JBD2_XXX naming cleanup
+		. (24):(misc->api)
+	JBD2/Ext4: Convert kmalloc to kzalloc in jbd2/ext4
+		. (24):(misc->api)
+	JBD2: replace jbd_kmalloc with kmalloc directly.
+		. (24):(misc->api)
+	JBD2: jbd2 slab allocation cleanups
+		. (24):(misc->code)
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.25
+	jbd/jbd2 NULL noise	
+		. (25):(misc->code)			
+    jbd2: correctly unescape journal data blocks
+		. (25):(journal->recovery):(b:sem->gene):(s:corruption):(rep:simple_typo) 1 1 1 
+	JBD2: Clear buffer_ordered flag for barried IO request on success
+		. (25):(journal->commit):(b:sem->conf):(s:error->op_fail):(rep:forget_config) 1 2 1 
+	BKL-removal: remove incorrect comment refering to lock_kernel() from jbd/jbd2 
+		. (25):(misc->code)				
+	JBD2: Use the incompat macro for testing the incompat feature.
+		. (25):(misc->api)
+    jbd2: Fix reference counting on the journal commit block's buffer head
+		. (25):(journal->commit):(b:mem->re):(s:leak->vo) 1 1 1 
+    jbd2: Add error check to journal_wait_on_commit_record to avoid oops
+		. (25):(journal->commit):(b:error_handling->ms_err):(s:crash->null):(r:fail):(real):(rep:miss_write_err)   1 2 1 
+    jbd2: sparse pointer use of zero as null
+		. (25):(misc->code)
+    jbd2: Use round-jiffies() function for the "5 second" ext4/jbd2 wakeup
+		. (25):(misc->api)
+    jbd2: Mark jbd2 slabs as SLAB_TEMPORARY
+		. (25):(misc->code)
+    jbd2: add lockdep support
+		. (25):(journal->transaction):(c:an->lock) 2 15 0 
+	ext4: Add the journal checksum feature 
+		. (25):(journal->commit,journal->journal,journal->recovery):(f):(journal_checksum) 8  388   62
+    jbd2: jbd2 stats through procfs
+		. (25):(journal->commit,journal->journal,journal->checkpoint,journal->transaction):(f) 5 481 2 
+    jbd2: Fix assertion failure in fs/jbd2/checkpoint.c
+		. (25):(journal->checkpoint):(b:sem->state->journal):(s:crash->assert):(note:wrong_state_check_journaling) 3 12 10 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.26
+    jbd2: Fix barrier fallback code to re-lock the buffer head
+		. (26):(journal->commit):(b:sem->state->bh):(s:crash->BUG):(r:fail):(note:miss_state_update_bh) 1 1 0   
+    jbd2: If a journal checksum error is detected, propagate the error to ext4
+		. (26):(journal->recovery):(c:err_ck) 3 30 7 
+    jbd2: Fix memory leak when verifying checksums in the journal
+		. (26):(journal->recovery):(b:mem->re):(s:leak->vo) 1 1 0 
+    jbd2: update transaction t_state to T_COMMIT fix
+		. (26):(journal->commit):(b:concurrency->ato):(s:corruption):(rep:lock_journal_update) 1 2 0 
+	jdb2: replace remaining __FUNCTION__ occurrences 
+		. (26):(misc->api)								
+    jbd2: only create debugfs and stats entries if init is successful
+		. (26):(journal->journal):(b:mem->re):(s:leak->fo):(r:fail):(rep:leak_on_err) 1 5 3 
+    jbd2: fix kernel-doc notation
+		. (26):(misc->doc)
+    jbd2: replace potentially false assertion with if block
+		. (26):(journal->journal):(b:sem->state->journal):(s:crash->assert):(r:fail):(note:wrong_state_check_journaling) 1 4 3 
+    jbd2: eliminate duplicated code in revocation table init/destroy functions
+		. (26):(misc->code)
+    jbd2: tidy up revoke cache initialisation and destruction
+		. (26):(misc->code)
+    jbd2: fix possible journal overflow issues
+		. (26):(journal->transaction):(b:sem->state->journal):(s:error->op_fail):(note:wrong_state_update_journaling) 2 21 3 
+    jbd2: fix the way the b_modified flag is cleared
+		. (26):(journal->commit,journal->transaction):(b:concurrency->ato):(s:corruption):(rep:lock_journal_update) 2 13 16 
+	jbd2: use non-racy method for proc entries creation 
+		. (26):(journal->journal):(b:concurrency->ato):(s:corruption) 1 4 13 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.27
+	ext4: unexport jbd2_journal_update_superblock
+		. (27):(misc->code)
+    jbd2: don't abort if flushing file data failed
+		. (27):(journal->commit):(c:err_ck) 1 20 4 
+    jbd2: Remove data=ordered mode support using jbd buffer heads
+		. (27):(misc->code)
+    jbd2: Implement data=ordered mode handling via inodes
+		. (27):(journal->commit,journal->journal,journal->transaction):(f)  4 270 0 
+    jbd2: fix race between jbd2_journal_try_to_free_buffers() and jbd2 commit transaction
+		. (27):(journal->transaction):(b:concurrency->inter):(s:error->op_fail):(note:free_race_commit) 1 58 4 
+    jbd2: Add commit time into the commit block
+		. (27):(journal->commit):(f) 2 5 0 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.28
+    jbd2: deregister proc on failure in jbd2_journal_init_inode
+		. (28):(journal->journal):(b:mem->re->err):(s:leak->vo,error->op_fail):(r:fail):(real):(rep:leak_on_err) 1 2 0 
+    jbd2: don't give up looking for space so easily in __jbd2_log_wait_for_space
+		. (28):(journal->checkpoint):(b:sem->wlog):(s:error->op_fail):(r:fail):(real):(ff):(rep:early_enospc) 1 25 7 
+    jbd2: Call the commit callback before the transaction could get dropped
+		. (28):(journal->commit):(b:sem->wlog):(s:crash->af):(real):(note:wrong_logic) 1 4 4 
+    jbd2: don't dirty original metadata buffer on abort
+		. (28):(journal->commit):(b:sem->state->journal):(s:corruption):(r:fail):(rep:forget_journaling) 1 4 1 
+    jbd2: fix error handling for checkpoint io
+		. (28):(journal->checkpoint,journal->journal,journal->recovery):(b:error_handling->ms_err):(s:corruption):(r:fail):(rep:miss_write_err) 4 65 21 
+    jbd2: abort when failed to log metadata buffers
+		. (28):(journal->commit):(b:error_handling->ms_err):(s:corruption):(r:fail):(rep:miss_write_err)	 1 3 0 
+    jbd2: Fix buffer head leak when writing the commit block
+		. (28):(journal->commit):(b:mem->re):(s:leak->vo) 1 2 3 
+    jbd2: abort instead of waiting for nonexistent transaction
+		. (28):(journal->checkpoint):(b:sem->state->journal):(s:hang):(real):(note:miss_state_check_journaling) 1 17 2 
+	ext4/jbd2: Avoid WARN() messages when failing to write to the superblock 
+		. (28):(journal->journal):(c:err_ck):(real) 1 25 2 
+    jbd2: clean up how the journal device name is printed
+		. (28):(misc->code)
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.29
+    jbd2: Avoid possible NULL dereference in jbd2_journal_begin_ordered_truncate()
+		. (29):(journal->transaction):(b:concurrency->ato):(s:crash->null):(rep:del_commit_race) 4 41 16 
+    jbd2: Fix return value of jbd2_journal_start_commit()
+		. (29):(journal->journal):(b:sem->wlog):(s:corruption):(real):(note:wrong_logic)    1 11 6 
+    jbd2: On a __journal_expect() assertion failure printk "JBD2", not "EXT3-fs"
+		. (29):(misc->code)
+	ext4: fix wrong use of do_div
+		. (29):(misc->code)
+    jbd2: Fix oops in jbd2_journal_init_inode() on corrupted fs
+		. (29):(journal->journal):(b:mem->null):(s:crash->null):(r:fail):(real):(rep:deref_before_check) 1 27 13 
+    jbd2: Add buffer triggers
+		. (29):(journal->commit,journal->journal,journal->transaction):(f):(buffer_trigger) 5 114 0 
+    jbd2: Submit writes to the journal using WRITE_SYNC
+		. (29):(journal->commit):(b:sem->io):(s:corruption):(rep:sync_to_async) 1 2 2 
+    jbd2: Add pid and journal device name to the "kjournald2 starting" message
+		. (29):(misc->code)
+    jbd2: Call journal commit callback without holding j_list_lock
+		. (29):(journal->commit,journal->checkpoint):(p:sync->rm_lock):(s:performance->cpu):(rep:remove_lock) 3 11 8 
+    jbd2: Remove a large array of bh's from the stack of the checkpoint routine
+		. (29):(misc->code)
+	ext4: display average commit time 
+		. (29):(misc->code)
+    jbd2: improve jbd2 fsync batching
+		. (29):(journal->commit,journal->transaction):(p:sche):(s:performance->cpu):(rep:wasted_wait)	 3 73 14 
+    jbd2: Add barrier not supported test to journal_wait_on_commit_record
+		. (29):(journal->commit):(b:sem->conf):(s:error->op_fail):(r:fail):(rep:forget_config) 1 25 2 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.30
+    jbd2: use SWRITE_SYNC_PLUG when writing synchronous revoke records
+		. (30):(journal->revoke):(p:sche):(s:performance->io):(rep:batch_more_writes) 3 16 11 
+    jbd2: use WRITE_SYNC_PLUG instead of WRITE_SYNC
+		. (30):(journal->commit):(p:sche):(s:performance->io):(rep:batch_more_writes) 1 9 4 
+    jbd2: Update locking coments
+		. (30):(misc->code)								   
+	ext4: Use WRITE_SYNC for commits which are caused by fsync()
+		. (30):(journal->commit,journal->transaction):(b:sem->io):(s:corruption):(rep:sync_to_async)  3 12 1 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.31
+    jbd2: fix race between write_metadata_buffer and get_write_access
+		. (31):(journal->journal):(b:concurrency->ato):(s:corruption) 1 11 9 
+    jbd2: clean up jbd2_journal_try_to_free_buffers()
+		. (31):(misc->code)	1 0 49 
+    jbd2: Fix a race between checkpointing code and journal_get_write_access()
+		. (31):(journal->transaction):(b:concurrency->ato):(s:corruption) 1 35 33 
+    jbd2: Remove GFP_ATOMIC kmalloc from inside spinlock critical region
+		. (31):(journal->journal):(b:concurrency->deadlock):(s:deadlock->bs):(rep:lock_sleep) 1 6 5 
+    jbd2: Fix minor typos in comments in fs/jbd2/journal.c
+		. (31):(misc->code)								    
+    jbd2: convert instrumentation from markers to tracepoints
+		. (31):(misc->api)								    
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.32
+	JBD/JBD2: free j_wbuf if journal init fails.
+		. (32):(journal->journal):(b:mem->re->err):(s:leak->fo):(r:fail):(rep:leak_on_err) 1 2 0 
+    jbd2: Use tracepoints for history file
+		. (32):(misc->api)						    
+    jbd2: bitfields should be unsigned
+		. (32):(misc->compile)	
+    ext4, jbd2: Drop unneeded printks at mount and unmount time
+		. (32):(misc->code)								    	
+    ext4: Fix async commit mode to be safe by using a barrier
+		. (32):(journal->commit):(p:sche):(s:performance->io):(rep:wasted_wait)		1 7 4 				    
+    jbd2: Annotate transaction start also for jbd2_journal_restart()
+		. (32):(journal->transaction):(c:an->lock) 1 3 2 
+    jbd2: round commit timer up to avoid uncommitted transaction
+		. (32):(journal->transaction):(b:sem->wlog):(s:corruption):(note:wrong_logic) 1 1 1 
+    jbd2: Fail to load a journal if it is too short
+		. (32):(journal->journal):(c:cor_ck):(rep:journal_check)			1 6 0 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.33
+    jbd2: don't use __GFP_NOFAIL in journal_init_common()
+		. (33):(journal->journal):(b:sem->wlog):(s:error->warning):(real):(note:wrong_logic) 1 1 1 
+	jbd: jbd-debug and jbd2-debug should be writable
+		. (33):(misc->code)								    
+    ext4, jbd2: Add barriers for file systems with exernal journals
+		. (33):(journal->checkpoint,journal->commit):(b:sem->io):(s:corruption):(rep:meta_data_order) 3 27 8 
+    jbd2: Export jbd2_log_start_commit to fix ext4 build
+		. (33):(misc->compile)								    
+    jbd2: Add ENOMEM checking in and for jbd2_journal_write_metadata_buffer()
+		. (33):(journal->commit,journal->journal):(b:mem->null):(s:crash->null):(r:fail):(rep:deref_before_check) 2 8 0 
+    jbd2: don't wipe the journal on a failed journal checksum
+		. (33):(journal->journal):(c:cor_ck) 1 7 0 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.34
+    jbd2: clean up an assertion in jbd2_journal_commit_transaction()
+		. (34):(misc->code)								    
+    jbd2: delay discarding buffers in journal_unmap_buffer
+		. (34):(journal->commit,journal->transaction):(b:sem->io):(s:corruption):(rep:sync_to_async) 2 36 17 
+	ext4: Use slab allocator for sub-page sized allocations 
+		. (34):(journal->journal):(f):(slab)								    2 134 9 
+	ext4: Add new tracepoint for jbd2_cleanup_journal_tail 
+		. (34):(journal->journal):(c:db) 2 29 0 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.35
+    jbd2: Improve scalability by not taking j_state_lock in jbd2_journal_stop()
+		. (35):(journal->transaction):(p:sync->rm_lock):(s:performance->cpu):(rep:remove_lock) 1 1 4 
+    jbd2: use NULL instead of 0 when pointer is needed
+		. (35):(misc->code)								    
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.36
+	ext4: clean up compiler warning in start_this_handle() 
+		. (36):(misc->compile)								    
+    jbd2: Remove t_handle_lock from start_this_handle()
+		. (36):(journal->commit,journal->transaction):(p:sync->rm_lock):(s:performance->cpu):(rep:remove_lock) 3 25 13 
+    jbd2: Change j_state_lock to be a rwlock_t
+		. (36):(journal->checkpoint,journal->commit,journal->journal,journal->transaction):(p:sync->rw_lock):(s:performance->cpu) 5 108 104 
+    jbd2: Use atomic variables to avoid taking t_handle_lock in jbd2_journal_stop
+		. (36):(journal->checkpoint,journal->commit,journal->transaction):(p:sync->rm_lock):(s:performance->cpu):(rep:atomic_for_lock) 4 51 41 
+    jbd2: Make barrier messages less scary
+		. (36):(misc->code)							    
+    jbd2: Remove __GFP_NOFAIL from jbd2 layer
+		. (36):(misc->code)					
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.37
+    jbd2: fix /proc/fs/jbd2/<dev> when using an external journal
+		. (37):(journal->journal):(b:mem->unread):(s:wb):(rep:use_before_init) 1 8 8 
+    jbd2: Convert jbd2_slab_create_sem to mutex
+		. (37):(misc->api)							
+    ext4,jbd2: convert tracepoints to use major/minor numbers
+		. (37):(misc->api)			
+    jbd2: Add sanity check for attempts to start handle during umount
+		. (37):(journal->trancation):(c:db) 2 11 0 
+    jbd2: Fix I/O hang in jbd2_journal_release_jbd_inode
+		. (37):(journal->commit):(b:concurrency->inter):(s:hang) 3 12 6 
+	JBD2: Allow feature checks before journal recovery
+		. (37):(journal->journal):(c:fun_ck) 1 4 0 
+    jbd2: replace barriers with explicit flush / FUA usage
+		. (37):(misc->code)							
+    jbd2: Modify ASYNC_COMMIT code to not rely on queue draining on barrier
+		. (37):(misc->code)							
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.38
+    jbd2: call __jbd2_log_start_commit with j_state_lock write locked
+		. (38):(journal->journal,journal->transaction):(b:concurrency->ato):(s:crash->assert) 2 21 9 
+    jbd2: simplify return path of journal_init_common
+		. (38):(misc->code)							
+    jbd2: move debug message into debug #ifdef
+		. (38):(misc->code)							
+    jbd2: remove unnecessary goto statement
+		. (38):(misc->code)							
+    jbd2: use offset_in_page() instead of manual calculation
+		. (38):(misc->api)							
+    jbd2: Fix a debug message in do_get_write_access()
+		. (38):(misc->code)							
+    jbd2: Use pr_notice_ratelimited() in journal_alloc_journal_head()
+		. (38):(misc->api)							
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.39
+    jbd2: fix potential memory leak on transaction commit
+		. (39):(journal->commit):(b:mem->re->err):(s:leak->fo):(r:fail):(rep:leak_on_err) 1 3 1 
+    jbd2: move bdget out of critical section
+		. (39):(journal->journal):(b:concurrency->deadlock):(s:deadlock->bs):(rep:lock_sleep) 1 2 1 
+    jbd2: add COW fields to struct jbd2_journal_handle
+		. (39):(misc->code)						
+    jbd2: add the b_cow_tid field to journal_head struct
+		. (39):(misc->code)							
+    jbd2: finish conversion from WRITE_SYNC_PLUG to WRITE_SYNC and explicit plugging
+		. (39):(misc->code)		
+	jbd: Remove one to many n's in a word.
+		. (39):(misc->code)								   					
+--------------------------------------------------------------------------------------------

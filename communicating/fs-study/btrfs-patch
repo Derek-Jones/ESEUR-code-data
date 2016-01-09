@@ -1,0 +1,1671 @@
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.0
+ChangeLog-2.6.1
+ChangeLog-2.6.2
+ChangeLog-2.6.3
+ChangeLog-2.6.4
+ChangeLog-2.6.5
+ChangeLog-2.6.6
+ChangeLog-2.6.7
+ChangeLog-2.6.8
+ChangeLog-2.6.9
+ChangeLog-2.6.10
+ChangeLog-2.6.11
+ChangeLog-2.6.12
+ChangeLog-2.6.13
+ChangeLog-2.6.14
+ChangeLog-2.6.15
+ChangeLog-2.6.16
+ChangeLog-2.6.17
+ChangeLog-2.6.18
+ChangeLog-2.6.19
+ChangeLog-2.6.20
+ChangeLog-2.6.21
+ChangeLog-2.6.22
+ChangeLog-2.6.23
+ChangeLog-2.6.24
+ChangeLog-2.6.25
+ChangeLog-2.6.26
+ChangeLog-2.6.27
+ChangeLog-2.6.28
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.29
+    Btrfs: Clear space_info full when adding new devices
+        . (29):(volume):(b:sem->state->other):(s:error->op_fail):(note:miss_state_update_other)  1  6   0 
+    Btrfs: Fix locking around adding new space_info
+        . (29):(balloc,volume):(b:concurrency->ato):(s:corruption)  3  53   3 
+    Btrfs: fix spinlock assertions on UP systems
+        . (29):(misc->api)  5  13   13 
+    Btrfs: try committing transaction before returning ENOSPC
+        . (29):(balloc):(b:sem->wlog):(s:error->wr_err):(r:fail):(rep:early_enospc)  1  47   10 
+    Btrfs: add better -ENOSPC handling
+        . (29):(balloc,file,inode,ioctl):(c:fun_ck)  6  271   76 
+    Btrfs: check file pointer in btrfs_sync_file
+        . (29):(file):(b:mem->null):(s:crash->null):(rep:deref_before_check)  1  4   4 
+    Btrfs: hold trans_mutex when using btrfs_record_root_in_trans
+        . (29):(balloc,journal->transaction,journal->log):(b:concurrency->ato):(s:corruption)  3  6   0 
+    Btrfs: make a lockdep class for the extent buffer locks
+        . (29):(tree,file,balloc,volume):(c:an->lock)  7  99   32 
+    Btrfs: fs/btrfs/volumes.c: remove useless kzalloc
+        . (29):(misc->code)  1  0   4 
+    Btrfs: remove unused code in split_state()
+        . (29):(misc->code)  1  0   2 
+    Btrfs: remove btrfs_init_path
+        . (29):(misc->code)  4  2   13 
+    Btrfs: balance_level checks !child after access
+        . (29):(tree):(b:sem->state->extent):(s:crash->BUG):(note:wrong_state_check_extent)  1  1   1 
+    Btrfs: Avoid using __GFP_HIGHMEM with slab allocator
+        . (29):(inode):(c:fun_ck)  1  1   1 
+    Btrfs: don't clean old snapshots on sync(1)
+        . (29):(super):(p:acce):(s:performance->io)  1  0   1 
+    Btrfs: use larger metadata clusters in ssd mode
+        . (29):(balloc):(p:loca):(s:performance->io)  1  2   1 
+    Btrfs: process mount options on mount -o remount,
+        . (29):(super):(b:sem->conf):(s:error->op_fail):(rep:forget_config)  1  4   0 
+    Btrfs: make sure all pending extent operations are complete
+        . (29):(balloc):(c:fun_ck)  1  42   29 
+    Btrfs: don't use spin_is_contended
+        . (29):(misc->compile)  3  1   26 
+    Btrfs: Make sure dir is non-null before doing S_ISGID checks
+        . (29):(inode):(b:mem->null):(s:crash->null):(rep:deref_before_check)  1  1   1 
+    Btrfs: Fix memory leak in cache_drop_leaf_ref
+        . (29):(balloc):(b:mem->re):(s:leak->go)  1  1   0 
+    Btrfs: don't return congestion in write_cache_pages as often
+        . (29):(extent):(p:sche):(s:performance->cpu)  1  0   5 
+    Btrfs: Only prep for btree deletion balances when nodes are mostly empty
+        . (29):(tree):(p:acce):(s:performance->cpu):(rep:check_before_work)  1  6   3             
+    Btrfs: fix btrfs_unlock_up_safe to walk the entire path
+        . (29):(tree):(b:concurrency->m_unlock):(s:deadlock->re)  1  2   2 
+    Btrfs: change btrfs_del_leaf to drop locks earlier
+        . (29):(tree):(p:sync->rm_lock):(s:performance->cpu):(rep:remove_lock)  1  9   2 
+    Btrfs: Change btrfs_truncate_inode_items to stop when it hits the inode
+        . (29):(inode):(p:acce):(s:performance->cpu):(rep:check_before_work)  1  5   1 
+    Btrfs: Don't try to compress pages past i_size
+        . (29):(inode):(p:acce):(s:performance->cpu):(rep:check_before_work)  1  14   0 
+    Btrfs: join the transaction in __btrfs_setxattr
+        . (29):(xattr):(p:sche):(s:performance->io):(rep:wasted_wait)  1  1   1 
+    Btrfs: Handle SGID bit when creating inodes
+        . (29):(inode):(b:sem->state->inode):(s:corruption):(note:wrong_state_update_inode)  1  8   1 
+    Btrfs: Make btrfs_drop_snapshot work in larger and more efficient chunks
+        . (29):(balloc):(p:sche):(s:performance->io):(rep:batch_processing)  4  265   45 
+    Btrfs: Change btree locking to use explicit blocking points
+        . (29):(tree,file,balloc,extent,journal->log):(p:sync->sm_lock):(s:performance->cpu);(!!)  11  470   39 
+    Btrfs: hash_lock is no longer needed
+        . (29):(file,tree):(p:sync->rm_lock):(s:performance->cpu):(rep:remove_lock)  3  1   11 
+    Btrfs: disable leak debugging checks in extent_io.c
+        . (29):(extent):(p:sync->rm_lock):(s:performance->cpu):(rep:remove_lock)  1  8   8 
+    Btrfs: sort references by byte number during btrfs_inc_ref
+        . (29):(balloc):(p:sche):(s:performance->io)  1  79   6 
+    Btrfs: async threads should try harder to find work
+        . (29):(file,other):(p:sche):(s:performance->cpu)  2  46   6 
+    Btrfs: selinux support
+        . (29):(xattr):(f):(selinux)  3  53   4 
+    Btrfs: make btrfs acls selectable
+        . (29):(misc->code)  1  13   0 
+    Btrfs: Catch missed bios in the async bio submission thread
+        . (29):(misc->code)  2  18   3 
+    Btrfs: fix readdir on 32 bit machines
+        . (29):(inode):(b:sem->gene):(s:wb):(rep:wrong_type)  1  1   1 
+    Btrfs: do less aggressive btree readahead
+        . (29):(tree):(p:sche):(s:performance->io)  1  5   16 
+    Btrfs: fiemap support
+        . (29):(extent):(f):(fiemap)  3  101   0 
+    Btrfs: stop providing a bmap operation to avoid swapfile corruptions
+        . (29):(inode):(b:sem->wlog):(s:corruption):(note:wrong_logic)  1  12   6 
+    Btrfs: fix tree logs parallel sync
+        . (29):(file,balloc,file,journal->log):(b:sem->io):(s:corruption):(rep:sync_to_async)  6  248   210 
+    Btrfs: open_ctree() error handling can oops on fs_info
+        . (29):(file):(b:mem->null):(s:crash->null):(r:fail):(rep:deref_after_check)  1  3   2 
+    Btrfs: fix stop searching test in replace_one_extent
+        . (29):(balloc):(b:sem->conf):(s:wb):(rep:forget_config)  1  7   6 
+    Btrfs: change/remove typedef
+        . (29):(misc->code)  1  2   8 
+    Btrfs: remove duplicated #include
+        . (29):(misc->code)  1  0   1 
+    Btrfs: Fix infinite loop in btrfs_extent_post_op
+        . (29):(balloc):(b:sem->wlog):(s:hang):(note:wrong_logic)  1  3   1 
+    Btrfs: fix locking issue in btrfs_remove_block_group
+        . (29):(balloc):(b:concurrency->ato):(s:corruption):(rep:lock_bg_update)  1  3   1 
+    Btrfs: simplify iteration codes
+        . (29):(misc->api)  6  19   52 
+    Btrfs: check return value for kthread_run() correctly
+        . (29):(file):(b:error_handling->wr_err):(s:crash->af):(r:fail):(rep:bad_ac)  1  2   2 
+    Btrfs: Remove extra KERN_INFO in the middle of a line
+        . (29):(misc->code)  1  1   1 
+    Btrfs: removed unused #include <version.h>'s
+        . (29):(misc->code)  11  0   11 
+    Btrfs: cleanup xattr code
+        . (29):(misc->code)  1  12   2 
+    Btrfs: MAINTAINERS entry
+        . (29):(misc->doc)  1  8   0 
+    Btrfs: cleanup fs/btrfs/super.c::btrfs_control_ioctl()
+        . (29):(super):(b:error_handling->ms_err):(s:crash->null):(r:fail):(rep:miss_mem_err)  1  3   2 
+    Btrfs: fix ioctl arg size (userland incompatible change!)
+        . (29):(misc->code)  2  10   7 
+    Btrfs: Clear the device->running_pending flag before bailing on congestion
+        . (29):(volume):(p:sche):(s:performance->cpu):(rep:wasted_wait)  1  1   0 
+    btrfs: fix for write_super_lockfs/unlockfs error handling
+        . (29):(misc->compile)  1  6   4 
+    Btrfs: explicitly mark the tree log root for writeback
+        . (29):(journal->log):(b:sem->io):(s:corruption):(rep:sync_to_async)  1  13   0 
+    Btrfs: Drop the hardware crc32c asm code
+        . (29):(misc->code)  1  3   94 
+    Btrfs: Add Documentation/filesystem/btrfs.txt, remove old COPYING
+        . (29):(misc->doc)  3  91   404 
+    Btrfs: kmap_atomic(KM_USER0) is safe for btrfs_readpage_end_io_hook
+        . (29):(inode):(p:sync->rm_lock):(s:performance->cpu):(ff)  1  3   3 
+    Btrfs: Don't use kmap_atomic(..., KM_IRQ0) during checksum verifies
+        . (29):(misc->code)  1  3   7 
+    Btrfs: tree logging checksum fixes
+        . (29):(misc->code)  4  131   233 
+    Btrfs: don't change file extent's ram_bytes in btrfs_drop_extents
+        . (29):(file):(b:sem->state->extent):(s:corruption):(note:wrong_state_update_extent)  1  0   4 
+    Btrfs: Use btrfs_join_transaction to avoid deadlocks during snapshot creation
+        . (29):(inode,journal->transaction):(b:concurrency->deadlock):(s:deadlock->cl):(rep:wrong_lock_in_transaction)  2  2   2 
+    Btrfs: drop remaining LINUX_KERNEL_VERSION checks and compat code
+        . (29):(misc->code)  2  0   29 
+    Btrfs: drop EXPORT symbols from extent_io.c
+        . (29):(misc->code)  1  0   56 
+    Btrfs: Fix checkpatch.pl warnings
+        . (29):(misc->compile)  33  770   898 
+    Btrfs: Fix free block discard calls down to the block layer
+        . (29):(balloc):(b:sem->wlog):(s:corruption):(note:wrong_logic)  1  48   51 
+    Btrfs: avoid orphan inode caused by log replay
+        . (29):(journal->log):(b:sem->state->inode):(s:corruption):(note:wrong_state_update_inode)   1  6   1 
+    Btrfs: avoid potential super block corruption
+        . (29):(file):(b:sem->state->super):(s:corruption):(note:miss_state_update_super)  1  3   1 
+    Btrfs: do not call kfree if kmalloc failed in btrfs_sysfs_add_super
+        . (29):(misc->code)  1  1   2 
+    Btrfs: fix a memory leak in btrfs_get_sb
+        . (29):(super):(b:mem->re->err):(s:leak->go):(r:fail):(rep:leak_on_err)  1  4   5 
+    Btrfs: Fix typo in clear_state_cb
+        . (29):(extent):(b:sem->gene):(s:crash->null):(rep:simple_typo)  1  1   1 
+    Btrfs: Fix memset length in btrfs_file_write
+        . (29):(file):(b:sem->gene):(s:corruption):(rep:simple_typo)  1  1   1 
+    Btrfs: update directory's size when creating subvol/snapshot
+        . (29):(ioctl,journal->transaction):(b:sem->state->inode):(s:corruption):(note:miss_state_update_inode)  2  8   0 
+    Btrfs: add permission checks to the ioctls
+        . (29):(ioctl,super):(c:fun_ck):(rep:permission_check)  2  26   2 
+    Btrfs: Fix compile warning around num_online_cpus() in a min statement
+        . (29):(misc->compile)  1  2   1 
+    Btrfs: set EXTENT_BOUNDARY bit before marking extent delalloc.
+        . (29):(balloc):(b:concurrency->ato):(s:corruption)  1  2   3 
+    Btrfs: properly update block accounting for metadata
+        . (29):(balloc):(b:concurrency->ato):(s:corruption)  1  13   3 
+    Btrfs: Add missing mnt_drop_write in ioctl.c
+        . (29):(ioctl):(b:sem->state->other):(s:wb):(r:fail):(note:miss_state_update_other)  1  7   2 
+    Btrfs: fix return value from btrfs_listxattr when buffer size is too small
+        . (29):(xattr):(b:error_handling->wr_err):(s:error->wr_err):(r:fail):(rep:over_written_err)  1  1   1 
+    Btrfs: shift all end_io work to thread pools
+        . (29):(file,extent,inode):(b:concurrency->deadlock):(s:deadlock->in)  4  57   46 
+    Btrfs: properly check free space for tree balancing
+        . (29):(tree,file,journal->log):(b:sem->wlog):(s:wb):(note:wrong_logic)  3  32   33 
+    Btrfs: delete checksum items before marking blocks free
+        . (29):(tree):(b:concurrency->ato):(s:corruption)  2  7   3 
+    Btrfs: Don't use spin*lock_irq for the delalloc lock
+        . (29):(misc->api)
+    Btrfs: Fix compressed writes on truncated pages
+        . (29):(inode,tree):(b:sem->wlog):(s:crash):(note:wrong_logic)  2  6   4 
+    Btrfs: fix nodatasum handling in balancing code
+        . (29):(balloc,file,inode):(c:fun_ck)  7  226   35 
+    Btrfs: shared seed device
+        . (29):(volume):(f):(share_seed_device)  5  156   134 
+    Btrfs: fix leaking block group on balance
+        . (29):(balloc,inode):(b:sem->wlog):(s:leak->fo):(note:wrong_logic)  7  88   118 
+    Btrfs: mnt_drop_write in ioctl_trans_end
+        . (29):(ioctl):(b:sem->state->other):(s:wb):(note:miss_state_update_other)  1  2   0 
+    Btrfs: Add checking of csum tree in balancing code
+        . (29):(misc->code)  2  6   4 
+    Btrfs: Delete csum items when freeing extents
+        . (29):(misc->code)  4  335   41 
+    Btrfs: Fix compressed checksum fsync log copies
+        . (29):(file,journal->log):(b:sem->conf):(s:corruption):(rep:forget_config)  2  7   1 
+    Btrfs: Add inode sequence number for NFS and reserved space in a few structs
+        . (29):(tree,file,inode,volume):(f):(inode_sequence)  5  34   4 
+    Btrfs: Use map_private_extent_buffer during generic_bin_search
+        . (29):(tree):(b:concurrency->ato):(s:corruption)  3  9   2 
+    Btrfs: superblock duplication
+        . (29):(file,balloc,journal->log,journal->transaction,volume):(f):(super_duplication)  8  279   119 
+    Btrfs: move data checksumming into a dedicated tree
+        . (29):(other,file,inode,ioctl,journal->log):(p:acce):(s:performance->cpu,performance->io)  11  387   241   
+    Btrfs: Fix sparse endian warnings in struct-funcs.c
+        . (29):(misc->code)  1  12   5 
+    Btrfs: rev the disk format for the inode compat and csum selection changes
+        . (29):(misc->code)  1  1   1 
+    Btrfs: delete unused function: btrfs_invalidate_dcache_root
+        . (29):(misc->code)  1  0   25 
+    Btrfs: add support for multiple csum algorithms
+        . (29):(tree,file,ioctl,journal->log):(f):(multi_checksum)  5  81   38 
+    Btrfs: fix panic on error during mount
+        . (29):(file):(b:error_handling->wr_err):(s:crash):(r:fail)  1  4   4 
+    Btrfs: add support for compat flags to btrfs
+        . (29):(file):(f)  2  42   7 
+    Btrfs: btrfs: pass void __user * to btrfs_ioctl_clone_range
+        . (29):(misc->code)
+    Btrfs: clean up btrfs_ioctl a little bit
+        . (29):(misc->code)  1  6   5 
+    Btrfs: corret fmode_t annotations
+        . (29):(super,volume):(c:an)  3  20   16 
+    Btrfs: fix shadowed variable declarations
+        . (29):(misc->code)  2  4   5 
+    Btrfs: make things static and include the right headers
+        . (29):(misc->code)  13  68   67 
+    Btrfs: remove unneeded btrfs_start_delalloc_inodes call
+        . (29):(misc->code)  1  0   1 
+    Btrfs: remove unneeded total_trans
+        . (29):(misc->code)  1  0   4 
+    Btrfs: sparse lock verification annotations for wait_on_state
+        . (29):(extent):(c:an->lock)  1  2   0 
+    Btrfs: Fix for lockdep warnings with alloc_mutex and pinned_mutex
+        . (29):(balloc):(b:concurrency->deadlock):(s:deadlock->in)  2  19   14 
+    Btrfs: only flush down bios for writeback pages
+        . (29):(extent):(p:acce):(s:performance->io):(rep:check_before_work)  1  2   1 
+    Btrfs: Fix cow semantic in run_delalloc_nocow()
+        . (29):(inode):(b:sem->gene):(s:wb):(rep:simple_typo)  1  2   2 
+    Btrfs: Drop dirty roots created by log replay immediately when
+        . (29):(file):(b:sem->conf):(s:corruption):(rep:forget_config)  1  5   0 
+    Btrfs: compat code fixes
+        . (29):(misc->compile)  8  14   4 
+    Btrfs: Use current_fsuid/gid
+        . (29):(misc->compile)  1  2   2 
+    Btrfs: Fixes for 2.6.28-rc API changes
+        . (29):(misc->api)  7  74   46 
+    Btrfs: fix free space accounting when unpinning extents
+        . (29):(balloc):(b:sem->wlog):(s:error->wr_err):(rep:early_enospc)  1  2   4 
+    Btrfs: Do fsync log replay when mount -o ro, except when on readonly media
+        . (29):(file):(b:sem->conf):(s:corruption):(r:fail):(rep:forget_config)  1  23   8 
+    Btrfs: Avoid writeback stalls
+        . (29):(file,extent,inode):(p:sche):(s:performance->cpu)  3  23   20 
+    Btrfs: switch back to wait_on_page_writeback to wait on metadata writes
+        . (29):(journal->transaction):(p:acce):(s:performance->cpu):(ff)  1  1   28 
+    Btrfs: Update the disk format for the seed device and new root code
+        . (29):(misc->code)  1  1   1 
+    Btrfs: unplug all devices in the unplug call back
+        . (29):(misc->code)  1  1   1 
+    Btrfs: Some fixes for batching extent insert.
+        . (29):(balloc):(b:sem->wlog):(s:corruption):(note:wrong_logic)  2  7   5
+    Btrfs: prevent loops in the directory tree when creating snapshots
+        . (29):(file,ioctl,tree):(c:fun_ck)  4  73   1 
+    Btrfs: Add backrefs and forward refs for subvols and snapshots
+        . (29):(tree,inode,ioctl,journal->transaction):(f):(backref_forwardref)  5  172   32 
+    Btrfs: Give each subvol and snapshot their own anonymous devid
+        . (29):(misc->code)  5  34   6 
+    Btrfs: Allow subvolumes and snapshots anywhere in the directory tree
+        . (29):(tree,file,inode,ioctl,super,journal->transaction):(f):(subvolume_snapshot_anywhere)  8  162   65 
+    Btrfs: Add some debugging around the ENOSPC bugs
+        . (29):(balloc):(c:db)  1  3   0 
+    Btrfs: fix free space leak
+        . (29):(balloc):(b:sem->wlog):(s:leak->fo,error->wr_err):(rep:early_enospc)  1  8   0 
+    Btrfs: Add a missing return pointer check
+        . (29):(volume):(b:error_handling->ms_err):(s:crash->null):(r:fail):(rep:miss_mem_err)  1  2   0 
+    Btrfs: Check kthread_should_stop() before schedule() in worker_loop
+        . (29):(other):(b:concurrency->inter):(s:hang):(note:schedule)  1  2   1 
+    Btrfs: Fix race in btrfs_mark_extent_written
+        . (29):(file):(b:concurrency->ato):(s:corruption)  1  14   4 
+    Btrfs: Seed device support
+        . (29):(tree,file,balloc,ioctl,super,volume):(f):(seed_device)  8  932   315 
+    Btrfs: mount ro and remount support
+        . (29):(tree,file,balloc,inode,ioctl,super):(f):(ro_remount)  7  163   58 
+    Btrfs: batch extent inserts/updates/deletions on the extent root
+        . (29):(balloc,tree):(p:sche):(s:performance->io):(rep:batch_processing)  3  909   93    
+    Btrfs: allow clone of an arbitrary file range
+        . (29):(ioctl):(f):(clone_range)  2  221   41 
+    Btrfs: Fix handling of space info full during allocations
+        . (29):(balloc):(b:sem->wlog):(s:error->wr_err,deadlock):(r:fail):(rep:early_enospc)  1  3   2 
+    Btrfs: Improve metadata read latencies
+        . (29):(file,tree):(p:acce):(s:performance->io)  2  7   7 
+    Btrfs: Fix compile warnings on 32 bit machines
+        . (29):(misc->compile)  4  12   8 
+    Btrfs: Fix starting search offset inside btrfs_drop_extents
+        . (29):(file):(p:acce):(s:performance->cpu):(rep:check_before_work)  1  1   1
+    Btrfs: empty_size allocation fixes again
+        . (29):(balloc):(b:sem->wlog):(s:wb):(ff):(note:wrong_logic)  1  4   3 
+    Btrfs: tune btrfs unplug functions for a small number of devices
+        . (29):(file):(p:acce):(s:performance->cpu):(rep:check_before_work)  1  10   0 
+    Btrfs: Turn off extent state leak debugging
+        . (29):(extent):(p:sync->rm_lock):(s:performance->cpu):(rep:remove_lock)  1  1   1 
+    Btrfs: Fix usage of struct extent_map->orig_start
+        . (29):(misc->code)  2  6   1 
+    Btrfs: Use invalidatepage when writepage finds a page outside of i_size
+        . (29):(misc->api)  2  2   5 
+    Btrfs: Try harder while searching for free space
+        . (29):(balloc):(b:sem->wlog):(s:error->wr_err):(note:wrong_logic)  1  30   8 
+    Btrfs: Fix use after free during compressed reads
+        . (29):(other):(b:mem->dp):(s:crash->af):(rep:use_after_free)  1  6   1 
+    Btrfs: Fix csum error for compressed data
+        . (29):(file,inode,other):(b:sem->state->extent):(s:corruption):(note:miss_state_update_extent)  4  8   4 
+    Btrfs: Make sure pages are dirty before doing delalloc for them
+        . (29):(extent):(b:sem->state->other):(s:corruption):(r:fail):(note:miss_state_check_other_page)  1  2   1 
+    Btrfs: Don't substract too much from the allocation target (avoid wrapping)
+        . (29):(misc->code)  1  5   5 
+    Btrfs: Avoid unplug storms during commit
+        . (29):(journal->transaction,volume):(p:sche):(s:performance->cpu,performance->io)  2  31   2 
+    Btrfs: Fix more false enospc errors and an oops from empty clustering
+        . (29):(balloc):(b:sem->wlog):(s:error->wr_err,crash):(rep:early_enospc)  1  14   5 
+    Btrfs: make sure compressed bios don't complete too soon
+        . (29):(other):(b:concurrency->ato):(s:crash->af)  1  15   2 
+    Btfs: More metadata allocator optimizations
+        . (29):(balloc):(p:loca):(s:performance->io)  1  18   10 
+    Btrfs: enforce metadata allocation clustering
+        . (29):(balloc):(p:loca):(s:performance->io):(rep:bad_alloc_local)  2  17   7 
+    Btrfs: Optimize compressed writeback and reads
+        . (29):(other,file,extent,inode):(p:acce):(s:performance->io)  11  849   207 
+    Btrfs: Add ordered async work queues
+        . (29):(other,file,inode):(f)  5  158   31 
+    Btrfs: rev the disk format for fallocate
+        . (29):(misc->code)  1  1   1 
+    Btrfs: Compression corner fixes
+        . (29):(other,extent,file,inode):(c:fun_ck)  4  35   9 
+    Btrfs: Add fallocate support v2
+        . (29):(tree,balloc,extent,file,inode,ioctl,log):(f):(fallocate)  10  563   117 
+    Btrfs: update nodatacow code v2
+        . (29):(misc->code)  7  158   217 
+    Btrfs: Fix bookend extent race v2
+        . (29):(balloc,extent,file,inode):(b:concurrency->ato):(s:corruption)  4  43   32 
+    Btrfs: update hole handling v2
+        . (29):(misc->code)  4  108   124 
+    Btrfs: Fix logic to avoid reading checksums for -o nodatasum,compress
+        . (29):(inode):(b:sem->conf):(s:wb):(rep:forget_config)  1  11   10 
+    Btrfs: walk compressed pages based on the nr_pages count instead of bytes
+        . (29):(misc->code)  2  6   3 
+    Btrfs: prevent looping forever in finish_current_insert and del_pending_extents
+        . (29):(balloc,journal->transaction):(b:sem->wlog):(s:hang):(note:wrong_logic)  2  42   24 
+    Btrfs: Rev the disk format for compression and root pointer generation fields
+        . (29):(misc->code)  1  1   1 
+    Btrfs: Add root tree pointer transaction ids
+        . (29):(misc->code)  6  39   7 
+    Btrfs: nuke fs wide allocation mutex V2
+        . (29):(balloc,extent,tree,journal->log):(p:sync->sm_lock):(s:performance->cpu)  11  250   216 
+    Btrfs: fix enospc when there is plenty of space
+        . (29):(balloc):(b:sem->wlog):(s:error->wr_err):(r:fail):(rep:early_enospc) 2  132   191 
+    Btrfs: Improve space balancing code
+        . (29):(balloc,tree):(p:acce):(s:performance->cpu,performance->io):(rep:shared_cache)  5  277   199 
+    Btrfs: Add zlib compression support
+        . (29):(other):(f):(compression)  22  2315   379 
+    Btrfs: make tree_search_offset more flexible in its searching
+        . (29):(balloc):(p:acce):(s:performance->io)  1  2   2 
+    Btrfs: Don't call security_inode_mkdir during subvol creation
+        . (29):(misc->code)  1  0   5 
+    Btrfs: Fix subvolume creation locking rules
+        . (29):(inode,ioctl):(b:concurrency->ato):(s:corruption)  3  100   14 
+    Btrfs: Rev the disk format for the new back reference format
+        . (29):(misc->code)  1  1   1 
+    Btrfs: Fix makefile for builing btrfs static
+        . (29):(misc->compile)  1  2   2 
+    Btrfs: Fix leaf reference cache miss
+        . (29):(inode):(p:acce):(s:performance->io)  2  31   3 
+    Btrfs: Remove offset field from struct btrfs_extent_ref
+        . (29):(misc->code)  8  115   144 
+    Btrfs: Count space allocated to file in bytes
+        . (29):(misc->code)  6  33   39 
+    Btrfs: cast bio->bi_sector to a u64 before shifting
+        . (29):(inode,volume):(b:sem->gene):(s:corruption):(rep:wrong_type)  2  2   2 
+    Btrfs: remove last_log_alloc allocator optimization
+        . (29):(misc->code):(ff)  3  0   9 
+    Btrfs: O_DIRECT writes via buffered writes + invaldiate
+        . (29):(misc->code)  3  38   31 
+    Btrfs: don't read leaf blocks containing only checksums during truncate
+        . (29):(inode,tree):(p:acce):(s:performance->io)  3  193   32 
+    Btrfs: fix deadlock between alloc_mutex/chunk_mutex
+        . (29):(balloc):(b:concurrency->deadlock):(s:deadlock->in):(note:recur_alloc)  1  13   2   
+    Btrfs: disk-io.c (open_ctree): avoid leaks upon allocation failure
+        . (29):(file):(b:mem->re->err):(s:leak->fo):(r:fail):(rep:leak_on_err)  1  2   0 
+    Btrfs: disk-io.c (open_ctree): Don't deref. NULL upon failed kzalloc
+        . (29):(file):(b:error_handling->ms_err):(s:crash->null):(r:fail):(rep:miss_mem_err)  1  2   1 
+    Btrfs: fix multi-device code to use raid policies set by mkfs
+        . (29):(balloc):(b:sem->state->other):(s:corruption):(note:miss_state_update_other)  2  15   1 
+    Btrfs: fix seekiness due to finding the wrong block group
+        . (29):(balloc):(p:loca):(s:performance->io):(rep:bad_alloc_local)  1  7   2 
+    Btrfs: add and improve comments
+        . (29):(misc->code)  25  653   277 
+    Btrfs: drop WARN_ON from btrfs_add_leaf_ref
+        . (29):(misc->code)  1  0   1 
+    Btrfs: Wait for IO on the block device inodes of newly added devices
+        . (29):(file,inode,volume):(b:concurrency->inter):(s:corruption):(note:wait_dev_io)  4  22   4 
+    Btrfs: update space balancing code
+        . (29):(tree,file,balloc,journal->transaction):(p:acce):(s:performance->io):(rep:shared_cache)  7  1828   425 
+    Btrfs: extent_map and data=ordered fixes for space balancing
+        . (29):(ioctl):(p:sync->rm_lock):(s:performance->cpu):(rep:remove_lock)  10  108   49 
+    Btrfs: Add shared reference cache
+        . (29):(tree):(f):(share_ref_cache)  6  71   34 
+    Btrfs: allocator fixes for space balancing update
+        . (29):(balloc):(b:sem->wlog):(s:corruption):(note:wrong_logic)  2  67   71 
+    Btrfs: Raise thresholds for metadata writeback
+        . (29):(file):(p:sche):(s:performance->io):(rep:batch_more_writes)  1  2   2 
+    Btrfs: fix sleep with spinlock held during unmount
+        . (29):(balloc):(b:concurrency->deadlock):(s:deadlock->bs):(rep:lock_sleep)  1  4   0 
+    Remove Btrfs compat code for older kernels
+        . (29):(misc->code)  12  10   368 
+    Btrfs: Fix allocation completions in tree log replay
+        . (29):(balloc):(b:sem->wlog):(s:wb):(note:wrong_logic)  1  34   0 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.30
+    Btrfs: Fix oops and use after free during space balancing
+        . (30):(balloc):(b:concurrency->ato):(s:crash->null):(rep:acc_alloc_race)  1  48   3 
+    Btrfs: set device->total_disk_bytes when adding new device
+        . (30):(volume):(b:sem->state->other->device):(s:corruption):(note:miss_state_update_other_device)  1  1   0 
+    Btrfs: Spelling fix in btrfs_lookup_first_block_group comments
+        . (30):(misc->code)  1  1   1 
+    Btrfs: make show_options result match actual option names
+        . (30):(misc->code)  1  2   2 
+    Btrfs: remove outdated comment in btrfs_ioctl_resize()
+        . (30):(misc->code)  1  0   4 
+    Btrfs: remove some WARN_ONs in the IO failure path
+        . (30):(misc->code)  2  0   3 
+    Btrfs: Don't loop forever on metadata IO failures
+        . (30):(tree):(b:error_handling->ms_err):(s:hang):(r:fail)  1  36   3 
+    Btrfs: init inode ordered_data_close flag properly
+        . (30):(inode):(b:sem->state->inode):(s:corruption):(note:miss_state_update_inode)  1  1   0 
+    Btrfs: look for acls during btrfs_read_locked_inode
+        . (30):(inode):(p:acce):(s:performance->cpu):(rep:check_before_work)  1  62   0 
+    Btrfs: fix acl caching
+        . (30):(inode,xattr):(p:acce):(s:performance->cpu):(r:fail):(rep:check_before_work)  2  15   7 
+    Btrfs: Fix a bunch of printk() warnings.
+        . (30):(misc->compile)  5  40   23 
+    Btrfs: Fix a trivial warning using max() of u64 vs ULL.
+        . (30):(misc->code)  1  1   1 
+    Btrfs: remove unused btrfs_bit_radix slab
+        . (30):(misc->code)  1  0   8 
+    Btrfs: ratelimit IO error printks
+        . (30):(file,inode):(c:db)  2  31   17 
+    Btrfs: remove #if 0 code
+        . (30):(misc->code)  3  1   188 
+    Btrfs: When shrinking, only update disk size on success
+        . (30):(volume):(b:sem->state->device):(s:corruption):(r:fail):(note:wrong_state_update_device)  2  27   11 
+    Btrfs: fix deadlocks and stalls on dead root removal
+        . (30):(journal->transaction):(b:concurrency->deadlock):(s:deadlock)  1  6   0 
+    Btrfs: fix fallocate deadlock on inode extent lock
+        . (30):(file,inode):(b:concurrency->deadlock):(s:deadlock->in):(r:fail):(note:alloc_del_same_lock)  5  29   17 
+    Btrfs: kill btrfs_cache_create
+        . (30):(misc->api)  3  28   43 
+    Btrfs: don't export symbols
+        . (30):(misc->code)  1  0   6 
+    Btrfs: simplify makefile
+        . (30):(misc->compile)  1  2   17 
+    Btrfs: try to keep a healthy ratio of metadata vs data block groups
+        . (30):(balloc):(f):(metadata_data_ratio)  4  42   2 
+    Btrfs: fix btrfs fallocate oops and deadlock
+        . (30):(file,inode):(b:concurrency->deadlock):(s:crash->assert,deadlock->in):(r:fail):(rep:wrong_lock_in_transaction)  2  31   9
+    btrfs: use memdup_user()
+        . (30):(misc->api)  2  16   46 
+    Btrfs: use the right node in reada_for_balance
+        . (30):(tree):(p:acce):(s:performance->io)  1  12   5 
+    Btrfs: fix oops on pamapping->host during writepage
+        . (30):(extent):(b:concurrency->ato):(s:crash->null):(r:fail):(rep:lock_page_update)  1  32   8 
+    Btrfs: add a priority queue to the async thread helpers
+        . (30):(other,file,extent,file):(p:sche):(s:performance->io):(rep:io_order)  5  56   15 
+    Btrfs: use WRITE_SYNC for synchronous writes
+        . (30):(extent,volume,file,inode):(p:sche):(s:performance->cpu):(rep:io_order)  5  141   46 
+    Btrfs: BUG to BUG_ON changes
+        . (30):(misc->api)  3  3   6 
+    Btrfs: remove dead code
+        . (30):(misc->code)  1  0   1 
+    Btrfs: remove dead code
+        . (30):(misc->code)   1  0   2   
+    Btrfs: fix typos in comments
+        . (30):(misc->code)  3  14   12 
+    Btrfs: remove unused ftrace include
+        . (30):(misc->code)  2  0   2 
+    Btrfs: fix __ucmpdi2 compile bug on 32 bit builds
+        . (30):(misc->compile)  1  5   11 
+    Btrfs: free inode struct when btrfs_new_inode fails
+        . (30):(inode):(b:mem->re->err):(s:leak->vo):(r:fail):(rep:leak_on_err)  1  4   1 
+    Btrfs: fix race in worker_loop
+        . (30):(other):(b:concurrency->inter):(s:hang):(note:wrong_schedule)  1  5   1 
+    Btrfs: add flushoncommit mount option
+        . (30):(journal->transaction):(f):(notreelog)  3  15   5 
+    Btrfs: notreelog mount option
+        . (30):(journal->log):(f):(notreelog);(!)  3  15   1 
+    Btrfs: introduce btrfs_show_options
+        . (30):(misc->code)  1  33   1 
+    Btrfs: rework allocation clustering
+        . (30):(tree,file,balloc,journal->transaction):(p:loca):(s:performance->io):(rep:bad_alloc_local)  6  509   74 
+    Btrfs: Optimize locking in btrfs_next_leaf()
+        . (30):(tree):(p:sync->sm_lock):(s:performance->cpu)  1  65   23 
+    Btrfs: break up btrfs_search_slot into smaller pieces
+        . (30):(misc->code)  1  131   90 
+    Btrfs: kill the pinned_mutex
+        . (30):(file,balloc,journal->log):(p:sync->rm_lock):(s:performance->cpu):(rep:remove_lock)  4  1   16 
+    Btrfs: kill the block group alloc mutex
+        . (30):(balloc):(p:sync->sm_lock):(s:performance->cpu)  3  83   157 
+    Btrfs: clean up find_free_extent
+        . (30):(misc->code)  1  96   170 
+    Btrfs: free space cache cleanups
+        . (30):(misc->code)  2  44   51 
+    Btrfs: unplug in the async bio submission threads
+        . (30):(volume):(p:sche):(s:performance->io)  1  13   1 
+    Btrfs: keep processing bios for a given bdev if our proc is batching
+        . (30):(volume):(p:sche):(s:performance->io):(rep:batch_processing)  1  27   0 
+    Btrfs: try to free metadata pages when we free btree blocks
+        . (30):(tree):(p:scal):(s:performance->mem)  1  4   0 
+    Btrfs: add extra flushing for renames and truncates
+        . (30):(inode,tree,file,journal->transaction):(b:sem->io):(s:corruption):(rep:meta_data_order)  8  288   7 
+    btrfs: get rid of current_is_pdflush() in btrfs_btree_balance_dirty
+        . (30):(misc->code)  1  1   1 
+    Btrfs: make sure btrfs_update_delayed_ref doesn't increase ref_mod
+        . (30):(balloc):(b:sem->state->tree):(s:wb):(note:wrong_state_update_tree)  2  8   3 
+    Btrfs: optimize fsyncs on old files
+        . (30):(journal->log):(p:acce):(s:performance->io):(rep:check_before_work) 1  44   1 
+    Btrfs: tree logging unlink/rename fixes
+        . (30):(inode,file,journal->log):(c:cor_ck)  7  372   98 
+    Btrfs: Make sure i_nlink doesn't hit zero too soon during log replay
+        . (30):(journal->log):(b:sem->state->inode):(s:crash->null):(note:miss_state_update_inode)  1  11   0 
+    Btrfs: limit balancing work while flushing delayed refs
+        . (30):(tree):(c:fun_ck)  1  9   3 
+    Btrfs: readahead checksums during btrfs_finish_ordered_io
+        . (30):(inode):(p:acce):(s:performance->io)  1  33   2 
+    Btrfs: leave btree locks spinning more often
+        . (30):(tree,file,balloc,extent,inode):(p:sync->sm_lock):(s:performance->cpu) 14  172   96 
+    Btrfs: Only let very young transactions grow during commit
+        . (30):(journal->transaction):(p:sche):(s:performance->io)  1  10   3 
+    Btrfs: Check for a blocking lock before taking the spin
+        . (30):(tree):(p:sync->sm_lock):(s:performance->cpu)  1  8   2 
+    Btrfs: reduce stack in cow_file_range
+        . (30):(misc->code)  1  7   8 
+    Btrfs: reduce stalls during transaction commit
+        . (30):(inode,journal->transaction,balloc):(p:sche):(s:performance->cpu):(rep:io_order)  4  80   8 
+    Btrfs: process the delayed reference queue in clusters
+        . (30):(balloc,file,journal->transaction):(p:sche):(s:performance->cpu):(rep:batch_processing)  6  226   113 
+    Btrfs: try to cleanup delayed refs while freeing extents
+        . (30):(misc->code)  3  87   3 
+    Btrfs: reduce stack usage in some crucial tree balancing functions
+        . (30):(misc->code)  1  278   180 
+    Btrfs: do extent allocation and reference count updates in the background
+        . (30):(tree,balloc,file,journal->transaction):(p:sche):(s:performance->io)  11  1234   1140 
+    Btrfs: don't preallocate metadata blocks during btrfs_search_slot
+        . (30):(tree,journal->transaction):(p:sync->rm_lock):(s:performance->cpu):(rep:remove_lock)  3  21   85 
+    Btrfs: stop spinning on mutex_trylock and let the adaptive code spin for us
+        . (30):(misc->code)  1  0   10 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.31
+    btrfs: fix inode rbtree corruption
+        . (31):(inode):(b:sem->wlog):(s:corruption):(note:wrong_logic)  1  14   7 
+    Btrfs: fix balancing oops when invalidate_inode_pages2 returns EBUSY
+        . (31):(tree):(b:sem->wlog):(s:crash):(r:fail):(note:wrong_logic)   1  7   2 
+    Btrfs: correct error-handling zlib error handling
+        . (31):(other):(b:error_handling->wr_err):(s:crash->af):(r:fail):(t:coccinelle):(rep:bad_ac)  1  3   3 
+    Btrfs: remove superfluous NULL pointer check in btrfs_rename()
+        . (31):(misc->code)  1  1   2 
+    Btrfs: make sure the async caching thread advances the key
+        . (31):(balloc):(b:concurrency->deadlock):(s:deadlock->cl):(r:fail)  1  17   4 
+    Btrfs: fix btrfs_remove_from_free_space corner case
+        . (31):(tree):(b:sem->wlog):(s:error->wr_err):(r:fail):(note:wrong_logic)  1  64   9 
+    Btrfs: be more polite in the async caching threads
+        . (31):(balloc):(p:sync->sm_lock):(s:performance->cpu)  3  14   2 
+    Btrfs: preserve commit_root for async caching
+        . (31):(misc->code)  4  14   10 
+    Btrfs: Fix async caching interaction with unmount
+        . (31):(balloc,file):(b:concurrency->ato):(s:corruption)  2  6   1 
+    Btrfs: change how we unpin extents
+        . (31):(balloc):(b:concurrency->ato):(s:corruption)  4  46   113 
+    Btrfs: Correct redundant test in add_inode_ref
+        . (31):(misc->code)  1  1   1 
+    Btrfs: find smallest available device extent during chunk allocation
+        . (31):(volume):(c:fun_ck)  1  10   2 
+    Btrfs: clear all space_info->full after removing a block group
+        . (31):(balloc):(b:sem->state->other):(s:error->wr_err):(note:miss_state_update_other)  1  2   1 
+    Btrfs: make flushoncommit mount option correctly wait on ordered_extents
+        . (31):(journal->transaction):(b:sem->io):(s:corruption):(rep:sync_to_async)  1  5   3 
+    Btrfs: Avoid delayed reference update looping
+        . (31):(tree):(b:sem->wlog):(s:hang):(note:wrong_logic)  1  1   4 
+    Btrfs: Fix ordering of key field checks in btrfs_previous_item
+        . (31):(misc->code)  1  2   2 
+    Btrfs: find_free_dev_extent doesn't handle holes at the start of the device
+        . (31):(volumne):(b:sem->wlog):(s:error->wr_err):(r:fail):(note:wrong_logic)  1  7   3 
+    Btrfs: Remove code duplication in comp_keys
+        . (31):(misc->code)  1  1   13 
+    Btrfs: async block group caching
+        . (31):(tree,balloc,journal->transaction):(p:acce):(s:performance->io)  6  439   124 
+    Btrfs: use hybrid extents+bitmap rb tree for free space
+        . (31):(balloc,tree):(p:scal):(s:performance->mem)  4  826   216 
+    Btrfs: Fix crash on read failures at mount
+        . (31):(file):(b:error_handling->ms_err):(s:crash):(r:fail):(rep:miss_read_err)  1  10   0 
+    Btrfs: remove of redundant btrfs_header_level
+        . (31):(misc->code)  1  3   3 
+    Btrfs: adjust NULL test
+        . (31):(inode):(b:mem->null):(s:crash->null):(rep:deref_before_check)  1  1   1 
+    Btrfs: Remove broken sanity check from btrfs_rmap_block()
+        . (31):(misc->code)  1  0   20 
+    Btrfs: convert nested spin_lock_irqsave to spin_lock
+        . (31):(misc->api)  1  2   2 
+    Btrfs: make sure all dirty blocks are written at commit time
+        . (31):(balloc,journal->transaction):(b:sem->io):(s:corruption):(r:fail):(rep:sync_to_async)  2  42   37 
+    Btrfs: fix locking issue in btrfs_find_next_key
+        . (31):(tree):(b:concurrency->ato):(s:corruption):(r:fail)  2  65   33 
+    Btrfs: fix double increment of path->slots[0] in btrfs_next_leaf
+        . (31):(misc->code)
+    Btrfs: properly update space information after shrinking device.
+        . (31):(volume):(b:sem->state->device):(s:corruption):(note:miss_state_update_device)  1  2   2 
+    Btrfs: fix definition of struct btrfs_extent_inline_ref
+        . (31):(misc->code)  1  1   1 
+    Btrfs: fix error message formatting
+        . (31):(misc->code)  1  1   1 
+    Btrfs: fix use after free in btrfs_start_workers fail path
+        . (31):(other):(b:mem->dp):(s:crash->af):(r:fail):(rep:use_after_free)  1  1   1 
+    Btrfs: honor nodatacow/sum mount options for new files
+        . (31):(inode):(b:sem->conf):(s:corruption):(rep:forget_config)  1  7   6 
+    Btrfs: update backrefs while dropping snapshot
+        . (31):(balloc,tree,journal->transaction):(b:sem->state->tree):(s:corruption):(note:miss_state_update_tree)  4  395   181 
+    Btrfs: account for space we may use in fallocate
+        . (31):(inode):(b:sem->wlog):(s:crash):(r:fail):(rep:early_enospc)  1  11   1 
+    Btrfs: fix the file clone ioctl for preallocated extents
+        . (31):(ioctl):(b:sem->conf):(s:wb):(rep:forget_config)  1  4   2 
+    Btrfs: don't log the inode in file_write while growing the file
+        . (31):(file):(p:acce):(s:performance->io):(rep:avoid_redun_write)  1  4   1 
+    switch btrfs to inode->i_acl
+        . (31):(misc->api)  4  9   27 
+    btrfs: properly register fs backing device
+        . (31):(file):(b:error_handling->ms_err):(s:corruption):(r:fail)  1  21   5 
+    Btrfs: always update root items for fs trees at commit time
+        . (31):(journal->transaction):(b:sem->state->tree):(s:corruption):(note:miss_state_update_tree)  1  6   6 
+    btrfs: remove ->write_super and stop maintaining ->s_dirt
+        . (31):(misc->code)  2  0   15 
+    Btrfs: fix extent_buffer leak during tree log replay
+        . (31):(journal->log):(b:mem->re):(s:leak->fo)  1  1   0 
+    Btrfs: fix oops when btrfs_inherit_iflags called with a NULL dir
+        . (31):(ioctl):(b:mem->null):(s:crash->null):(rep:deref_before_check)  1  6   1 
+    Btrfs: fix -o nodatasum printk spelling
+        . (31):(misc->code)  1  1   1 
+    Btrfs: check duplicate backrefs for both data and metadata
+        . (31):(balloc):(c:fun_ck)  1  4   11 
+    Btrfs: init worker struct fields before kthread-run
+        . (31):(other):(b:concurrency->inter):(s:crash->af):(note:init_before_use)  1  1   1 
+    Btrfs: pin buffers during write_dev_supers
+        . (31):(file):(b:concurrency->ato):(s:crash->null):(r:fail)  1  29   14 
+    Btrfs: avoid races between super writeout and device list updates
+        . (31):(file,volume):(b:concurrency->ato):(s:corruption):(r:fail)  3  45   2 
+    Fix btrfs when ACLs are configured out
+        . (31):(xattr):(b:sem->conf):(s:wb):(rep:forget_config)  2  4   5 
+    Btrfs: fdatasync should skip metadata writeout
+        . (31):(file):(p:acce):(s:performance->io):(rep:avoid_redun_write)  1  2   0 
+    Btrfs: remove crc32c.h and use libcrc32c directly.
+        . (31):(misc->api)  4  7   37 
+    Btrfs: implement FS_IOC_GETFLAGS/SETFLAGS/GETVERSION
+        . (31):(misc->code)  5  200   21 
+    Btrfs: autodetect SSD devices
+        . (31):(tree,file,super,volume):(f):(auto_detect_ssd)  5  24   0 
+    Btrfs: add mount -o ssd_spread to spread allocations out
+        . (31):(balloc,super):(f):(ssd_spread)  5  22   6 
+    Btrfs: avoid allocation clusters that are too spread out
+        . (31):(balloc):(p:loca):(s:performance->io)  1  2   1 
+    Btrfs: Add mount -o nossd
+        . (31):(super):(f):(nossd)  1  7   2 
+    Btrfs: avoid IO stalls behind congested devices in a multi-device FS
+        . (31):(volume):(p:sche):(s:performance->cpu):(rep:io_order)  1  4   1 
+    Btrfs: don't allow WRITE_SYNC bios to starve out regular writes
+        . (31):(volume):(p:sche):(s:performance->cpu):(rep:io_order)  1  15   7 
+    Btrfs: fix metadata dirty throttling limits
+        . (31):(misc->code) 1  2   5 
+    Btrfs: reduce mount -o ssd CPU usage
+        . (31):(balloc):(p:acce):(s:performance->cpu)  1  1   1 
+    Btrfs: balance btree more often
+        . (31):(misc->code)  1  2   2 
+    Btrfs: stop avoiding balancing at the end of the transaction.
+        . (31):(misc->code)  1  4   7 
+    Btrfs: Mixed back reference  (FORWARD ROLLING FORMAT CHANGE)
+        . (31):(tree):(f):(mixed_backref)  20  6927   2042 
+    btrfs: Fix set/clear_extent_bit for 'end == (u64)-1'
+        . (31):(extent):(b:sem->gene):(s:wb):(rep:wrong_type)  1  14   4 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.32
+    Btrfs: fix panic when trying to destroy a newly allocated
+        . (32):(inode):(b:concurrency->ato):(s:crash->null):(r:fail):(real):(rep:acc_alloc_race)  1  10   0   
+    Btrfs: allow more metadata chunk preallocation
+        . (32):(balloc):(b:sem->wlog):(s:error->wr_err):(rep:early_enospc)  1  2   2    
+    Btrfs: fallback on uncompressed io if compressed io fails
+        . (32):(inode):(c:err_ck)  1  23   8 
+    Btrfs: find ideal block group for caching
+        . (32):(balloc):(p:acce):(s:performance->io)  1  86   23 
+    Btrfs: avoid null deref in unpin_extent_cache()
+        . (32):(extent):(b:mem->null):(s:crash->null):(r:fail):(t:smatch):(rep:deref_before_check)  1  1   1 
+    Btrfs: skip btrfs_release_path in btrfs_update_root and btrfs_del_root
+        . (32):(misc->code)  1  0   2 
+    Btrfs: fix some metadata enospc issues
+        . (32):(inode):(b:sem->wlog):(s:error->op_fail):(r:fail):(rep:early_enospc)  1  31   5 
+    Btrfs: fix how we set max_size for free space clusters
+        . (32):(balloc):(b:sem->wlog):(s:error->wr_err):(note:wrong_logic)  1  1   1 
+    Btrfs: cleanup transaction starting and fix journal_info usage
+        . (32):(misc->code)  1  13   6 
+    Btrfs: fix data allocation hint start
+        . (32):(inode):(p:loca):(s:performance->io):(rep:bad_alloc_local)  1  16   2 
+    Btrfs: always pin metadata in discard mode
+        . (32):(balloc):(p:sche):(s:performance->io):(rep:batch_processing)  1  8   0 
+    Btrfs: enable discard support
+        . (32):(misc->code)  1  0   6 
+    Btrfs: add -o discard option
+        . (32):(block,super):(f):(discard)  3  10   1 
+    Btrfs: properly wait log writers during log sync
+        . (32):(journal->log):(b:sem->io):(s:corruption):(ff):(rep:sync_to_async):(fsync)  1  6   5 
+    Btrfs: fix possible ENOSPC problems with truncate
+        . (32):(inode):(b:sem->wlog):(s:crash):(r:fail):(rep:early_enospc)  1  24   3 
+    Btrfs: fix btrfs acl #ifdef checks
+        . (32):(misc->code)  4  6   6 
+    Btrfs: streamline tree-log btree block writeout
+        . (32):(journal->log,journal->transaction):(p:sche):(s:performance->io):(rep:batch_more_writes)  3  53   4 
+    Btrfs: avoid tree log commit when there are no changes
+        . (32):(inode,file,journal->log):(p:acce):(s:performance->io):(rep:avoid_redun_write)  8  71   16 
+    Btrfs: only write one super copy during fsync
+        . (32):(journal->log):(p:acce):(s:performance->io):(rep:avoid_redun_write)  1  1   1 
+    Btrfs: fix file clone ioctl for bookend extents
+        . (32):(ioctl):(b:sem->wlog):(s:corruption):(note:wrong_logic)  1  4   2 
+    Btrfs: fix uninit compiler warning in cow_file_range_nocow
+        . (32):(misc->compile)  1  1   0 
+    Btrfs: constify dentry_operations
+        . (32):(misc->api)  2  2   2 
+    Btrfs: optimize back reference update during btrfs_drop_snapshot
+        . (32):(balloc):(p:acce):(s:performance->cpu) 1  53   29 
+    Btrfs: remove negative dentry when deleting subvolumne
+        . (32):(inode,ioctl):(b:sem->state->dir):(s:error->op_fail):(note:miss_state_update_dir)  2  8   5 
+    Btrfs: optimize fsync for the single writer case
+        . (32):(journal->log):(p:sche):(s:performance->io):(rep:wasted_wait)  2  13   1 
+    Btrfs: async delalloc flushing under space pressure
+        . (32):(balloc,file):(p:sche):(s:performance->io)  3  88   11 
+    Btrfs: release delalloc reservations on extent item insertion
+        . (32):(misc->code) 8  107   37 
+    Btrfs: delay clearing EXTENT_DELALLOC for compressed extents
+        . (32):(misc->code)  1  4   2 
+    Btrfs: cleanup extent_clear_unlock_delalloc flags
+        . (32):(misc->code)  3  51   37 
+    Btrfs: fix possible softlockup in the allocator
+        . (32):(balloc):(b:sem->wlog):(s:hang):(r:fail):(note:wrong_logic)  1  17   6 
+    Btrfs: fix deadlock on async thread startup
+        . (32):(other,file,tree):(b:concurrency->deadlock):(s:deadlock->cl):(note:async_thread)  5  106   32 
+    Btrfs: fix data space leak fix
+        . (32):(inode):(b:sem->state->inode):(s:leak->fo):(r:fail):(note:miss_state_update_inode)  1  11   0 
+    Btrfs: remove duplicates of filemap_ helpers
+        . (32):(misc->api)  4  10   102 
+    Btrfs: take i_mutex before generic_write_checks
+        . (32):(file):(b:concurrency->ato):(s:corruption):(r:fail):(rep:lock_inode_update)  1  17   8 
+    Btrfs: fix arguments to btrfs_wait_on_page_writeback_range
+        . (32):(file):(b:sem->gene):(s:wb):(rep:simple_typo)  1  3   1 
+    Btrfs: fix deadlock with free space handling and user transactions
+        . (32):(balloc):(b:concurrency->deadlock):(s:deadlock->re):(r:fail)  1  1   1 
+    Btrfs: fix error cases for ioctl transactions
+        . (32):(ioctl):(b:mem->re->err):(s:leak->vo):(r:fail):(rep:leak_on_err)  1  22   19 
+    Btrfs: Use CONFIG_BTRFS_POSIX_ACL to enable ACL code
+        . (32):(misc->code)  3  5   5 
+    Btrfs: introduce missing kfree
+        . (32):(volume):(b:mem->re->err):(s:leak->fo):(t:coccinelle):(r:fail):(rep:leak_on_err)  1  3   1 
+    Btrfs: Fix setting umask when POSIX ACLs are not enabled
+        . (32):(super):(b:sem->conf):(s:corruption):(rep:forget_config)  1  2   0 
+    Btrfs: proper -ENOSPC handling
+        . (32):(file,balloc,extent,file,inode):(c:fun_ck):(rep:lightup_trans)  10  678   115 
+    Btrfs: hash the btree inode during  fill_super
+        . (32):(file):(b:sem->state->inode):(s:corruption):(note:miss_state_update_inode)  1  1   0 
+    Btrfs: relocate file extents in clusters
+        . (32):(tree):(p:sche):(s:performance->io):(rep:batch_processing)  1  148   89 
+    Btrfs: don't rename file into dummy directory
+        . (32):(inode):(b:sem->state->inode):(s:corruption):(note:wrong_state_update_inode)  1  3   0
+    Btrfs: check size of inode backref before adding hardlink
+        . (32):(inode,tree):(b:sem->state->inode):(s:crash):(r:fail):(note:miss_state_check_inode)   3  37   24 
+    Btrfs: fix releasepage to avoid unlocking extents we haven't locked
+        . (32):(extent):(b:sem->state->extent):(s:wb):(note:wrong_state_update_extent)  1  7   2 
+    Btrfs: Fix test_range_bit for whole file extents
+        . (32):(extent):(b:sem->state->extent):(s:corruption):(note:miss_state_check_extent)  1  4   0 
+    Btrfs: fix errors handling cached state in set/clear_extent_bit
+        . (32):(extent):(b:sem->wlog):(s:wb):(r:fail):(note:wrong_logic)  1  8   8 
+    Btrfs: fix early enospc during balancing
+        . (32):(balloc):(b:sem->wlog):(s:error->wr_err):(r:fail):(rep:early_enospc)  1  7   13 
+    Btrfs: deal with NULL space info
+        . (32):(balloc):(b:mem->null):(s:crash->null):(r:fail):(rep:deref_before_check)  1  16   2 
+    Btrfs: account for space used by the super mirrors
+        . (32):(balloc):(b:sem->state->other):(s:error->wr_err):(note:wrong_state_udpate_other)  2  20   2 
+    Btrfs: fix extent entry threshold calculation
+        . (32):(balloc):(p:scal):(s:performance->io)  1  21   14 
+    Btrfs: remove dead code
+        . (32):(misc->code)    1  0   1 
+    Btrfs: fix bitmap size tracking
+        . (32):(balloc):(b:sem->state->other):(s:crash->BUG):(note:miss_state_update_other)  1  1   0 
+    Btrfs: don't keep retrying a block group if we fail to allocate a cluster
+        . (32):(balloc):(b:sem->wlog):(s:hang):(r:fail):(note:wrong_logic)  1  17   8 
+    Btrfs: make balance code choose more wisely when relocating
+        . (32):(balloc,volume):(b:sem->wlog):(s:crash):(r:fail):(note:wrong_logic)  4  148   18 
+    Btrfs: fix arithmetic error in clone ioctl
+        . (32):(ioctl):(b:sem->wlog):(s:corruption):(note:wrong_logic)  1  1   2 
+    Btrfs: add snapshot/subvolume destroy ioctl
+        . (32):(tree,file,other,balloc,inode,ioctl,super,journal->log,journal->transaction):(f):(snapshot_subvolume_destroy)  12  605   233 
+    Btrfs: change how subvolumes are organized
+        . (32):(misc->code)  9  459   168 
+    Btrfs: do not reuse objectid of deleted snapshot/subvol
+        . (32):(misc->code)  6  31   116 
+    Btrfs: speed up snapshot dropping
+        . (32):(balloc,journal->transaction):(p:acce):(s:performance->io):(rep:check_before_work)  2  207   49 
+    Btrfs: search for an allocation hint while filling file COW
+        . (32):(extent,inode):(p:loca):(s:performance->io):(rep:bad_alloc_local)  3  59   1 
+    Btrfs: properly honor wbc->nr_to_write changes
+        . (32):(extent):(b:sem->wlog):(s:corruption):(note:wrong_logic)  1  27   11 
+    Btrfs: improve async block group caching
+        . (32):(tree,file,balloc,journal->transaction,journal->log):(p:acce):(s:performance->io)  5  382   259 
+    Btrfs: Fix async thread shutdown race
+        . (32):(other):(b:concurrency->ato):(s:crash->null)  1  10   6 
+    Btrfs: fix worker thread double spin_lock_irq
+        . (32):(other):(b:concurrency->wr_lock):(s:wb)  1  2   2 
+    Btrfs: fix async worker startup race
+        . (32):(other):(b:concurrency->ato):(s:corruption)  1  11   3 
+    Btrfs: zero page past end of inline file items
+        . (32):(inode):(b:sem->state->other->page):(s:corruption):(note:miss_state_update_other_page)  1  5   0 
+    Btrfs: fix btrfs page_mkwrite to return locked page
+        . (32):(inode):(b:concurrency->ato):(s:corruption):(r:fail)  1  3   0 
+    Btrfs: Fix extent replacment race
+        . (32):(extent,file,inode):(b:concurrency->ato):(s:corruption)  7  80   13 
+    Btrfs: Use PagePrivate2 to track pages in the data=ordered code.
+        . (32):(extent,inode):(p:sync->rm_lock):(s:performance->cpu):(rep:remove_lock)  5  62   55 
+    Btrfs: use a cached state for extent state operations during delalloc
+        . (32):(extent,inode,tree):(p:acce):(s:performance->io)  5  40   24 
+    Btrfs: don't lock bits in the extent tree during writepage
+        . (32):(extent):(p:sync->rm_lock):(s:performance->cpu):(rep:remove_lock)  1  0   21 
+    Btrfs: cache values for locking extents
+        . (32):(extent):(p:acce):(s:performance->io)  3  100   36 
+    Btrfs: reduce CPU usage in the extent_state tree
+        . (32):(extent,file):(p:acce):(s:performance->cpu)  3  28   68 
+    Btrfs: Fix new state initialization order
+        . (32):(misc->code)  1  2   2 
+    Btrfs: switch extent_map to a rw lock
+        . (32):(other,file,balloc,extent,inode,volume):(p:sync->rwlock):(s:performance->cpu)  10  57   60 
+    Btrfs: tweak congestion backoff
+        . (32):(volume):(p:sche):(s:performance->io):(rep:io_order)  1  1   1 
+    Btrfs: use larger nr_to_write for larger extents
+        . (32):(extent):(p:loca):(s:performance->io)  1  9   5 
+    Btrfs: reduce worker thread spin_lock_irq hold times
+        . (32):(other):(p:sync->sm_lock):(s:performance->cpu)  1  60   14 
+    Btrfs: keep irqs on more often in the worker threads
+        . (32):(misc->code)  2  16   10 
+    Btrfs: optimize set extent bit
+        . (32):(extent,file):(p:acce):(s:performance->cpu):(rep:check_before_work)  2  13   4 
+    Btrfs: Allow worker threads to exit when idle
+        . (32):(file,other):(p:scal):(s:performance->mem)  3  132   32 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.33
+    Btrfs: btrfs_mark_extent_written uses the wrong slot
+        . (33):(file):(b:sem->wlog):(s:corruption):(ff):(note:wrong_logic)  1  4   2 
+    Btrfs: apply updated fallocate i_size fix
+        . (33):(inode):(b:sem->state->inode):(s:corruption):(note:wrong_state_update_inode)  1  3   1 
+    Btrfs: do not try and lookup the file extent when finishing ordered io
+        . (33):(inode):(p:acce):(s:performance->io)  1  2   44 
+    Btrfs: Fix oopsen when dropping empty tree.
+        . (33):(balloc):(b:sem->state->tree):(s:crash->BUG):(note:miss_state_check_tree)  1  4   4 
+    Btrfs: remove BUG_ON() due to mounting bad filesystem
+        . (33):(file,tree):(b:sem->wlog):(s:crash->BUG):(r:fail):(note:wrong_logic)  2  8   2 
+    Btrfs: make error return negative in btrfs_sync_file()
+        . (33):(file):(b:error_handling->wr_err):(s:error->wr_err):(r:fail):(rep:wrong_signedness)  1  1   1 
+    Btrfs: fix race between allocate and release extent buffer.
+        . (33):(extent):(b:concurrency->ato):(s:corruption):(rep:acc_alloc_race)  1  1   2 
+    Btrfs: check total number of devices when removing missing
+        . (33):(volume):(b:sem->state->device):(s:error->op_fail):(r:fail):(note:wrong_state_check_device)   1  2   2    
+    Btrfs: check return value of open_bdev_exclusive properly
+        . (33):(volume):(b:error_handling->wr_err):(s:crash->af):(r:fail):(rep:bad_ac)  1  2   2 
+    Btrfs: do not mark the chunk as readonly if in degraded mode
+        . (33):(volume):(b:sem->conf):(s:error->op_fail):(rep:forget_config)  1  5   0 
+    Btrfs: run orphan cleanup on default fs root
+        . (33):(inode,file):(b:sem->conf):(s:crash):(ff):(rep:forget_config)  2  6   6 
+    Btrfs: fix a memory leak in btrfs_init_acl
+        . (33):(xattr):(b:mem->re):(s:leak->vo)  1  1   0 
+    Btrfs: Use correct values when updating inode i_size on fallocate
+        . (33):(inode):(b:sem->state->inode):(s:corruption):(note:wrong_state_update_inode)  1  9   4 
+    Btrfs: remove tree_search() in extent_map.c
+        . (33):(misc->code)  1  0   14 
+    Btrfs: Add mount -o compress-force
+        . (33):(super):(f):(compress_force)  3  11   2 
+    Btrfs: fix possible panic on unmount
+        . (33):(balloc):(b:concurrency->ato):(s:crash):(rep:lock_bg_update)  1  19   13 
+    Btrfs: deal with NULL acl sent to btrfs_set_acl
+        . (33):(xattr):(b:mem->null):(s:crash->null):(rep:deref_before_check)  1  7   5 
+    Btrfs: fix regression in orphan cleanup
+        . (33):(inode):(b:sem->conf):(s:crash):(real):(ff):(rep:forget_config)  1  6   0 
+    Btrfs: Fix race in btrfs_mark_extent_written
+        . (33):(file):(b:concurrency->ato):(s:corruption)  1  80   20  
+    Btrfs, fix memory leaks in error paths
+        . (33):(tree,volume):(b:mem->re->err):(s:leak->fo):(r:fail):(rep:leak_on_err)  2  6   2 
+    Btrfs: align offsets for btrfs_ordered_update_i_size
+        . (33):(inode):(b:sem->wlog):(s:corruption):(note:wrong_logic)  1  2   0 
+    Btrfs: fix missing last-entry in readdir(3)
+        . (33):(inode):(b:sem->gene):(s:corruption):(rep:wrong_type)  1  5   1 
+    Btrfs: make sure fallocate properly starts a transaction
+        . (33):(inode):(b:sem->state->journal):(s:crash->null):(r:fail):(ff):(note:wrong_state_update_journaling)  1  9   4 
+    Btrfs: make metadata chunks smaller
+        . (33):(misc->code)  2  2   11 
+    Btrfs: Show discard option in /proc/mounts
+        . (33):(super):(b:sem->conf):(s:corruption):(rep:forget_config)  1  2   0 
+    Btrfs: deny sys_link across subvolumes.
+        . (33):(super):(c:fun_ck):(rep:permission_check)  1  4   0 
+    Btrfs: fail mount on bad mount options
+        . (33):(super):(c:fun_ck)  1  8   1 
+    Btrfs: don't add extent 0 to the free space cache v2
+        . (33):(balloc):(b:sem->state->tree):(s:corruption):(note:wrong_state_update_tree) 1  9   1 
+    Btrfs: Fix per root used space accounting
+        . (33):(misc->code)  5  47   27 
+    Btrfs: Fix btrfs_drop_extent_cache for skip pinned case
+        . (33):(file):(b:sem->state->extent):(s:wb):(note:wrong_state_check_extent)   1  3   7 
+    Btrfs: Add delayed iput
+        . (33):(file,balloc,inode,journal->transaction):(b:concurrency->deadlock):(s:deadlock->re):(rep:wrong_lock_in_transaction)  9  90   18 
+    Btrfs: Pass transaction handle to security and ACL initialization functions
+        . (33):(misc->code)  6  96   63 
+    Btrfs: Make truncate(2) more ENOSPC friendly
+        . (33):(inode,tree):(c:fun_ck):(rep:lightup_trans)  2  212   137 
+    Btrfs: Make fallocate(2) more ENOSPC friendly
+        . (33):(inode):(c:fun_ck):(rep:lightup_trans)  1  32   33 
+    Btrfs: Avoid orphan inodes cleanup during committing transaction
+        . (33):(misc->code)  2  17   16 
+    Btrfs: Avoid orphan inodes cleanup while replaying log
+        . (33):(misc->code)  5  55   36 
+    Btrfs: Fix disk_i_size update corner case
+        . (33):(inode):(b:concurrency->ato):(s:corruption):(rep:lock_inode_update)  4  127   56 
+    Btrfs: Rewrite btrfs_drop_extents
+        . (33):(file,tree,journal->log):(p:sync->rm_lock):(s:performance->cpu):(rep:remove_lock)  5  277   423 
+    Btrfs: Add btrfs_duplicate_item
+        . (33):(tree):(p:sync->rm_lock):(s:performance->cpu):(rep:remove_lock)  2  143   59 
+    Btrfs: Avoid superfluous tree-log writeout
+        . (33):(file,balloc,journal->transaction,journal->log):(p:acce):(s:performance->io):(rep:avoid_redun_write)  5  47   31 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.34
+    Btrfs: check for read permission on src file in the clone ioctl
+        . (34):(ioctl):(c:fun_ck):(rep:permission_check)  1  5   0 
+    btrfs: convert to using bdi_setup_and_register()
+        . (34):(misc->api)  1  1   11 
+    Btrfs: make sure the chunk allocator doesn't create zero length chunks
+        . (34):(volume):(b:sem->wlog):(s:wb):(ff):(note:wrong_logic)  1  6   0 
+    Btrfs: fix data enospc check overflow
+        . (34):(balloc):(b:sem->gene):(s:crash):(rep:wrong_type):(enospc)  1  15   5 
+    Btrfs: add check for changed leaves in setup_leaf_for_split
+        . (34):(tree):(b:sem->state->tree):(s:crash->null):(r:fail):(note:miss_state_check_tree)  1  4   0 
+    Btrfs: create snapshot references in same commit as snapshot
+        . (34):(journal->transaction):(c:fun_ck)  1  31   66 
+    Btrfs: fix small race with delalloc flushing waitqueue's
+        . (34):(balloc):(b:concurrency->ato):(s:crash)  1  4   5 
+    Btrfs: use add_to_page_cache_lru, use __page_cache_alloc
+        . (34):(misc->api)  2  5   32 
+    Btrfs: fix chunk allocate size calculation
+        . (34):(volume):(b:sem->wlog):(s:error->wr_err):(note:wrong_logic)  1  3   1 
+    Btrfs: kill max_extent mount option
+        . (34):(misc->code):(ff)  6  13   81 
+    Btrfs: fail to mount if we have problems reading the block groups
+        . (34):(balloc,file):(b:error_handling->ms_err):(s:crash->null):(r:fail):(rep:miss_read_err)  2  12   4 
+    Btrfs: check btrfs_get_extent return for IS_ERR()
+        . (34):(ioctl):(b:error_handling->wr_err):(s:crash->af):(r:fail):(rep:bad_ac)  1  1   1 
+    Btrfs: handle kmalloc() failure in inode lookup ioctl
+        . (34):(ioctl):(b:error_handling->ms_err):(s:crash->null):(r:fail):(rep:miss_mem_err)  1  3   0 
+    Btrfs: dereferencing freed memory
+        . (34):(ioctl):(b:mem->dp):(s:crash->af):(r:fail):(rep:use_after_free)  1  1   0 
+    Btrfs: Simplify num_stripes's calculation logical for __btrfs_alloc_chunk()
+        . (34):(misc->code)  1  2   2 
+    Btrfs: Add error handle for btrfs_search_slot() in btrfs_read_chunk_tree()
+        . (34):(volume):(b:error_handling->ms_err):(s:corruption):(r:fail)  1  2   0 
+    Btrfs: Remove unnecessary finish_wait() in wait_current_trans()
+        . (34):(misc->code)  1  5   10 
+    Btrfs: add NULL check for do_walk_down()
+        . (34):(balloc):(b:mem->null):(s:crash->null):(r:fail):(rep:deref_before_check)  1  4   1 
+    Btrfs: remove duplicate include in ioctl.c
+        . (34):(misc->code)  1  0   1 
+    Btrfs: fix the inode ref searches done by btrfs_search_path_in_tree
+        . (34):(ioctl):(b:mem->re->err):(s:leak->fo):(r:fail):(rep:leak_on_err)  1  6   3 
+    Btrfs: allow treeid==0 in the inode lookup ioctl
+        . (34):(misc->code)  1  3   0 
+    Btrfs: return keys for large items to the search ioctl
+        . (34):(misc->code)  1  1   1 
+    Btrfs: fix key checks and advance in the search ioctl
+        . (34):(misc->code)  1  25   14 
+    Btrfs: buffer results in the space_info ioctl
+        . (34):(misc->code)  1  46   11 
+    Btrfs: use __u64 types in ioctl.h
+        . (34):(misc->code)  1  5   5 
+    Btrfs: fix search_ioctl key advance
+        . (34):(ioctl):(b:sem->gene):(s:corruption):(rep:wrong_type)  1  1   1 
+    Btrfs: fix gfp flags masking in the compression code
+        . (34):(other):(b:sem->wlog):(s:wb):(note:wrong_logic)  1  1   1 
+    Btrfs: don't look at bio flags after submit_bio
+        . (34):(volume):(b:mem->dp):(s:crash->af):(rep:use_after_free)  1  3   3 
+    btrfs: using btrfs_stack_device_id() get devid
+        . (34):(misc->api)  1  3   3 
+    btrfs: use memparse
+        . (34):(misc->api)  3  4   30 
+    Btrfs: add a "df" ioctl for btrfs
+        . (34):(ioctl):(f):(df) 2 58 1 
+    Btrfs: cache the extent state everywhere we possibly can V2
+        . (34):(file,balloc,extent,inode):(p:sync->sm_lock):(s:performance->cpu)  9  148   90 
+    Btrfs: cache ordered extent when completing io
+        . (34):(inode):(p:acce):(s:performance->io):(rep:check_before_work)  3  10   5 
+    Btrfs: cache extent state in find_delalloc_range
+        . (34):(extent):(p:acce):(s:performance->io)  1  8   3 
+    Btrfs: change the ordered tree to use a spinlock instead of a mutex
+        . (34):(balloc):(p:sync->sm_lock):(s:performance->cpu)  2  19   19 
+    Btrfs: finish read pages in the order they are submitted
+        . (34):(misc->code)  1  4   3 
+    btrfs: fix btrfs_mkdir goto for no free objectids
+        . (34):(inode):(b:sem->state->journal):(s:corruption):(r:fail):(note:miss_state_update_journaling)  1  1   1 
+    Btrfs: flush data on snapshot creation
+        . (34):(journal->transaction):(c:fun_ck)  1  1   4 
+    Btrfs: make df be a little bit more understandable
+        . (34):(misc->code)  1  26   3 
+    btrfs: Update existing btrfs_device for renaming device
+        . (34):(volume):(b:sem->state->device):(s:error->op_fail):(note:miss_state_update_device)  1  7   0 
+    Btrfs: add new defrag-range ioctl.
+        . (34):(ioctl):(f):(defrag_range)  5  117   14 
+    Btrfs: be more selective in the defrag ioctl
+        . (34):(ioctl):(b:sem->state->other):(s:corruption):(note:wrong_state_update_other)  1  140   10 
+    Btrfs: run the backing dev more often in the submit_bio helper
+        . (34):(volume):(p:sche):(s:performance->cpu):(rep:io_order)  1  10   10 
+    Btrfs: make subvolid=0 mount the original default root
+        . (34):(misc->code)  1  9   3 
+    Btrfs: add ioctl and incompat flag to set the default mount subvol
+        . (34):(ioctl):(f):(subvol_mount)  3  80   1 
+    Btrfs: change how we mount subvolumes
+        . (34):(tree,other,inode,super,journal->log):(f):(subvolid)  6  158   34 
+    Btrfs: make set/get functions for the super compat_ro flags use compat_ro
+        . (34):(tree):(b:sem->gene):(s:corruption):(rep:simple_typo)  1  1   1 
+    Btrfs: add search and inode lookup ioctls
+        . (34):(ioctl):(f):(inode_search_lookup)  2  299   16 
+    Btrfs: add a function to lookup a directory path by following backrefs
+        . (34):(misc->code)  1  92   0 
+    Btrfs: kfree correct pointer during mount option parsing
+        . (34):(super):(b:sem->wlog):(s:crash->af):(note:wrong_logic)  1  3   2 
+    Btrfs: use RB_ROOT to intialize rb_trees instead of setting rb_node to NULL
+        . (34):(file,extent,balloc,tree,journal->transaction):(b:sem->state->tree):(s:crash->null):(note:wrong_state_update_tree)  8  12   12 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.35
+    Btrfs: fix checks in BTRFS_IOC_CLONE_RANGE
+        . (35):(ioctl):(b:sem->gene):(s:corruption):(r:fail):(rep:wrong_type)  1  2   2 
+    Btrfs: fix CLONE ioctl destination file size expansion to block boundary
+        . (35):(ioctl):(b:sem->state->inode):(s:corruption):(ff):(note:wrong_state_update_inode)  1  13   3 
+    Btrfs: fix split_leaf double split corner case
+        . (35):(tree):(p:rest):(s:performance->io)  1  111   18 
+    Btrfs: The file argument for fsync() is never null
+        . (35):(misc->code)  1  1   1 
+    Btrfs: handle ERR_PTR from posix_acl_from_xattr()
+        . (35):(xattr):(b:error_handling->ms_err):(s:crash->af):(r:fail)  1  2   0 
+    Btrfs: avoid BUG when dropping root and reference in same transaction
+        . (35):(tree):(b:sem->wlog):(s:crash->BUG):(note:wrong_logic)  1  0   3 
+    Btrfs: prohibit a operation of changing acl's mask when noacl mount option used
+        . (35):(xattr):(b:sem->conf):(s:wb):(r:fail):(rep:forget_config)  1  3   0 
+    Btrfs: should add a permission check for setfacl
+        . (35):(xattr):(b:sem->state->inode):(s:wb):(r:fail):(note:miss_state_check_inode)  1  3   0 
+    Btrfs: btrfs_lookup_dir_item() can return ERR_PTR
+        . (35):(ioctl):(b:error_handling->wr_err):(s:crash->af):(r:fail):(rep:bad_ac)  1  1   1 
+    Btrfs: btrfs_read_fs_root_no_name() returns ERR_PTRs
+        . (35):(file):(b:error_handling->wr_err):(s:crash->af):(r:fail):(rep:bad_ac)  1  4   0 
+    Btrfs: unwind after btrfs_start_transaction() errors
+        . (35):(ioctl):(b:mem->re->err):(s:leak->vo):(r:fail):(ff):(rep:leak_on_err)  1  1   1 
+    Btrfs: btrfs_iget() returns ERR_PTR
+        . (35):(super):(b:error_handling->wr_err):(s:crash->af):(r:fail):(rep:bad_ac)  1  2   2 
+    Btrfs: handle kzalloc() failure in open_ctree()
+        . (35):(file):(b:error_handling->ms_err):(s:crash->null):(r:fail):(rep:miss_mem_err)  1  5   2 
+    Btrfs: handle error returns from btrfs_lookup_dir_item()
+        . (35):(super):(b:error_handling->ms_err):(s:crash->af):(r:fail)  1  2   0 
+    Btrfs: Fix BUG_ON for fs converted from extN
+        . (35):(balloc):(b:sem->state->tree):(s:crash->BUG):(r:fail):(note:wrong_state_check_tree)  1  2   1 
+    Btrfs: Fix null dereference in relocation.c
+        . (35):(tree):(b:mem->null):(s:crash->null):(rep:deref_before_check)  1  4   3 
+    Btrfs: fix remap_file_pages error
+        . (35):(file):(b:sem->state->other):(s:error->wr_err):(note:miss_state_update_other)  1  8   1 
+    Btrfs: uninitialized data is check_path_shared()
+        . (35):(inode):(b:mem->unread):(s:wb):(rep:use_before_init)  1  1   1 
+    Btrfs: fix fallocate regression
+        . (35):(inode):(b:sem->wlog):(s:error->op_fail):(ff):(note:wrong_logic)  1  1   1 
+    Btrfs: fix loop device on top of btrfs
+        . (35):(misc->code)  1  1   0 
+    Btrfs: add more error checking to btrfs_dirty_inode
+        . (35):(inode):(b:error_handling->ms_err):(s:corruption):(r:fail):(rep:miss_write_err)  1  13   2 
+    Btrfs: allow unaligned DIO
+        . (35):(misc->code)  1  35   3 
+    Btrfs: drop verbose enospc printk
+        . (35):(misc->code)  1  2   0 
+    Btrfs: Fix block generation verification race
+        . (35):(tree):(b:concurrency->ato):(s:corruption):(r:fail)  1  1   1 
+    Btrfs: fix preallocation and nodatacow checks in O_DIRECT
+        . (35):(inode):(b:sem->conf):(s:wb):(rep:forget_config)  1  140   16 
+    Btrfs: avoid ENOSPC errors in btrfs_dirty_inode
+        . (35):(inode):(c:err_ck)  1  11   3 
+    Btrfs: move O_DIRECT space reservation to btrfs_direct_IO
+        . (35):(file,inode):(b:mem->re->err):(s:leak->fo):(r:fail):(rep:leak_on_err) 2  8   6 
+    Btrfs: rework O_DIRECT enospc handling
+        . (35):(extent,file,inode):(c:err_ck)  4  49   30 
+    Btrfs: use async helpers for DIO write checksumming
+        . (35):(file,extent,inode):(p:sche):(s:performance->cpu)  5  52   17 
+    Btrfs: don't walk around with task->state != TASK_RUNNING
+        . (35):(other,journal->transaction):(b:sem->state->other):(s:wb):(note:miss_state_update_other)  2  4   3 
+    Btrfs: do aio_write instead of write
+        . (35):(misc->code)  2  104   83 
+    Btrfs: add basic DIO read/write support
+        . (35):(file,inode):(f):(dio)  6  631   36 
+    Btrfs: Metadata ENOSPC handling for balance
+        . (35):(tree,balloc,journal->transaction):(f)  5  1163   747 
+    Btrfs: Pre-allocate space for data relocation
+        . (35):(inode,tree):(c:err_ck)  3  92   45 
+    Btrfs: Metadata ENOSPC handling for tree log
+        . (35):(journal->log):(c:err_ck)  5  156   128 
+    Btrfs: Metadata reservation for orphan inodes
+        . (35):(tree,file,balloc,inode,ioctl,super,journal->transaction):(f):(metadata_reservation_orphan)  9  365   66 
+    Btrfs: Introduce global metadata reservation
+        . (35):(tree,file,balloc,inode,ioctl,journal->transaction):(f):(metadata_reservation)  8  241   76 
+    Btrfs: Update metadata reservation for delayed allocation
+        . (35):(tree,balloc,extent,file,inode,ioctl):(f):(delay_alloc_reservation)  9  232   415 
+    Btrfs: Integrate metadata reservation with start_transaction
+        . (35):(misc->code)  15  678   528 
+    Btrfs: Introduce contexts for metadata reservation
+        . (35):(tree,file,balloc,journal->transaction):(f):(metadata_reservation)  7  853   385 
+    Btrfs: Kill init_btrfs_i()
+        . (35):(misc->api)  1  28   36 
+    Btrfs: Shrink delay allocated space in a synchronized
+        . (35):(misc->code)  4  88   121 
+    Btrfs: Kill allocate_wait in space_info
+        . (35):(balloc):(p:sync->rm_lock):(s:performance->cpu):(rep:remove_lock)  2  58   76 
+    Btrfs: Link block groups of different raid types
+        . (35):(balloc,super):(b:sem->wlog):(s:corruption):(note:wrong_logic)  3  121   55 
+    btrfs: replace inode uid,gid,mode initialization with helper function
+        . (35):(misc->api)  1  1   10 
+    btrfs: constify xattr_handler
+        . (35):(misc->api)  3  6   6 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.36
+    btrfs: remove junk sb_dirt change
+        . (36):(misc->code)  1  0   1 
+    convert btrfs to ->evict_inode()
+        . (36):(misc->api)  3  8   4 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.37
+    Btrfs: prevent RAID level downgrades when space is low
+        . (37):(balloc):(c:fun_ck)  1  19   1 
+    Btrfs: account for missing devices in RAID allocation profiles
+        . (37):(balloc,volume):(b:sem->wlog):(s:corruption):(note:wrong_logic)  3  36   3 
+    Btrfs: EIO when we fail to read tree roots
+        . (37):(file):(b:error_handling->ms_err):(s:crash):(r:fail):(rep:miss_read_err)  1  4   1 
+    Btrfs: fix compiler warnings
+        . (37):(misc->compile)  2  5   7 
+    Btrfs: Make async snapshot ioctl more generic
+        . (37):(misc->api)  2  36   22 
+    Btrfs: pwrite blocked when writing from the mmaped buffer of the same page
+        . (37):(file):(b:concurrency->deadlock):(s:deadlock->re):(r:fail):(real):(note:recursive_lock_pagefault)  1  60   32 
+    Btrfs: Fix a crash when mounting a subvolume
+        . (37):(super):(b:sem->state->dir):(s:crash->BUG):(r:fail):(note:wrong_state_update_dir)  1  1   1 
+    Btrfs: fix sync subvol/snapshot creation
+        . (37):(ioctl):(b:sem->io):(s:corruption):(rep:sync_to_async)  1  11   9 
+    Btrfs: Fix page leak in compressed writeback path
+        . (37):(inode):(b:sem->wlog):(s:leak->vo):(note:wrong_logic)  1  1   1 
+    Btrfs: do not BUG if we fail to remove the orphan item for dead snapshots
+        . (37):(balloc):(b:sem->wlog):(s:crash->BUG):(note:wrong_logic)  1  7   3 
+    Btrfs: fixup return code for btrfs_del_orphan_item
+        . (37):(misc->code)  1  5   1 
+    Btrfs: do not do fast caching if we are allocating blocks for tree_root
+        . (37):(balloc):(b:concurrency->deadlock):(s:deadlock->re):(note:tree_recursive_lock)  1  12   6 
+    Btrfs: deal with space cache errors better
+        . (37):(balloc):(c:err_ck)  2  13   9 
+    Btrfs: fix use after free in O_DIRECT
+        . (37):(inode):(b:mem->dp):(s:crash->af):(rep:use_after_free)  1  1   2 
+    Btrfs: don't use migrate page without CONFIG_MIGRATION
+        . (37):(misc->compile)  1  6   1 
+    Btrfs: deal with DIO bios that span more than one ordered extent
+        . (37):(misc->code)  3  89   4 
+    Btrfs: setup blank root and fs_info for mount time
+        . (37):(file,super):(b:sem->wlog):(s:crash->null):(note:wrong_logic)  2  33   7
+    Btrfs: fix fiemap
+        . (37):(extent):(b:sem->wlog):(s:corruption):(note:wrong_logic)  1  54   9 
+    Btrfs - fix race between btrfs_get_sb() and umount
+        . (37):(misc->code)  1  6   0 
+    Btrfs: update inode ctime when using links
+        . (37):(inode):(b:sem->state->inode):(s:corruption):(rep:update_time)  1  1   0 
+    Btrfs: make sure new inode size is ok in fallocate
+        . (37):(inode):(c:fun_ck):(rep:limit_check)  1  4   0 
+    Btrfs: fix typo in fallocate to make it honor actual size
+        . (37):(inode):(b:sem->gene):(s:corruption):(rep:simple_typo)  1  5   4 
+    Btrfs: avoid NULL pointer deref in try_release_extent_buffer
+        . (37):(extent):(b:mem->null):(s:crash->null):(r:fail):(rep:deref_after_check)  1  4   2 
+    Btrfs: make btrfs_add_nondir take parent inode as an argument
+        . (37):(misc->api)  1  16   22 
+    Btrfs: hold i_mutex when calling btrfs_log_dentry_safe
+        . (37):(file):(b:concurrency->ato):(s:corruption):(r:fail)  1  7   0 
+    Btrfs: use dget_parent where we can UPDATED
+        . (37):(inode,ioctl,journal->transaction,journal->log):(b:concurrency->ato):(s:corruption):(r:fail)  4  43   12 
+    Btrfs: fix more ESTALE problems with NFS
+        . (37):(inode):(b:sem->conf):(s:error->wr_err):(rep:forget_config)  1  1   0 
+    Btrfs: handle NFS lookups properly
+        . (37):(other):(b:sem->conf):(s:error->wr_err):(rep:forget_config)  1  76   0 
+    btrfs: make 1-bit signed fileds unsigned
+        . (37):(misc->code)  1  3   3 
+    btrfs: Show device attr correctly for symlinks
+        . (37):(misc->api)  1  1   0 
+    btrfs: Set file size correctly in file clone
+        . (37):(ioctl):(b:sem->state->inode):(s:corruption):(note:wrong_state_update_inode)  1  2   2 
+    btrfs: Check if dest_offset is block-size aligned before cloning file
+        . (37):(ioctl):(b:sem->wlog):(s:corruption):(note:wrong_logic)  1  3   4 
+    Btrfs: handle the space_cache option properly
+        . (37):(super):(b:sem->gene):(s:corruption):(rep:simple_typo)  1  1   0 
+    btrfs: Fix early enospc because 'unused' calculated with wrong sign.
+        . (37):(balloc):(b:sem->gene):(s:error->wr_err):(rep:simple_typo)   1  1   1 
+    btrfs: fix panic caused by direct IO
+        . (37):(inode):(b:sem->wlog):(s:crash->BUG):(note:wrong_logic)  1  184   21 
+    btrfs: cleanup duplicate bio allocating functions
+        . (37):(misc->code)  3  8   18 
+    btrfs: fix free dip and dip->csums twice
+        . (37):(misc->code)  1  3   6 
+    Btrfs: add migrate page for metadata inode
+        . (37):(file):(f):(metadata_migrate)  1  25   2 
+    Btrfs: deal with errors from updating the tree log
+        . (37):(inode):(c:err_ck)  1  2   1 
+    Btrfs: allow subvol deletion by unprivileged user with -o user_subvol_rm_allowed
+        . (37):(ioctl,super):(f):(user_subvol_rm)  3  116   5 
+    Btrfs: make SNAP_DESTROY async
+        . (37):(ioctl):(p:sche):(s:performance->io)  1  1   1 
+    Btrfs: add SNAP_CREATE_ASYNC ioctl
+        . (37):(ioctl):(f):(snap_create_async)  2  93   25 
+    Btrfs: add START_SYNC, WAIT_SYNC ioctls
+        . (37):(ioctl,journal->transaction):(f):(start_wait_sync)  4  89   0 
+    Btrfs: async transaction commit
+        . (37):(journal->transaction,file):(f):(async_commit)  4  124   0 
+    Btrfs: fix deadlock in btrfs_commit_transaction
+        . (37):(journal->transaction):(b:concurrency->ato):(s:deadlock)  1  5   8 
+    Btrfs: fix lockdep warning on clone ioctl
+        . (37):(ioctl):(b:concurrency->deadlock):(s:deadlock->in):(note:nested_lock)  1  4   4 
+    Btrfs: fix clone ioctl where range is adjacent to extent
+        . (37):(ioctl):(b:sem->gene):(s:corruption):(rep:off_by_one)  1  1   1 
+    Btrfs: fix delalloc checks in clone ioctl
+        . (37):(ioctl):(b:sem->state->inode):(s:corruption):(note:wrong_state_check_inode)  1  5   3 
+    Btrfs: drop unused variable in block_alloc_rsv
+        . (37):(misc->code)  1  0   4 
+    Btrfs: cleanup warnings from gcc 4.6 (nonbugs)
+        . (37):(misc->compile)  15  4   94 
+    Btrfs: Fix variables set but not read (bugs found by gcc 4.6)
+        . (37):(dir,extent,inode,tree,journal->log):(b:error_handling->wr_err):(s:error->wr_err):(r:fail):(rep:over_written_err)  5  10   6 
+    Btrfs: Use ERR_CAST helpers
+        . (37):(misc->api)  2  3   3 
+    Btrfs: use memdup_user helpers
+        . (37):(misc->api)  1  6   14 
+    Btrfs: fix raid code for removing missing drives
+        . (37):(volume):(c:err_ck)  1  1   2 
+    Btrfs: Switch the extent buffer rbtree into a radix tree
+        . (37):(extent):(p:scal):(s:performance->cpu)  2  49   69 
+    Btrfs: restructure try_release_extent_buffer()
+        . (37):(misc->code)  1  37   11 
+    Btrfs: use the flusher threads for delalloc throttling
+        . (37):(balloc):(p:sche):(s:performance->cpu)  1  15   18 
+    Btrfs: tune the chunk allocation to 5% of the FS as metadata
+        . (37):(balloc):(b:sem->wlog):(s:error->wr_err):(ff):(note:wrong_logic)  1  18   4 
+    Add new functions for triggering inode writeback
+        . (37):(misc->api)  2  44   10 
+    Btrfs: don't loop forever on bad btree blocks
+        . (37):(tree):(b:sem->wlog):(s:hang):(r:fail):(note:wrong_logic)  1  28   9      
+    Btrfs: let the user know space caching is enabled
+        . (37):(misc->code)  1  2   0 
+    Btrfs: Add a clear_cache mount option
+        . (37):(tree,balloc,super):(f):(clear_cache)  4  8   3 
+    Btrfs: add support for mixed data+metadata block groups
+        . (37):(balloc):(f):(mixed_data_metadata)  2  28   4 
+    Btrfs: check cache->caching_ctl before returning if caching has started
+        . (37):(balloc):(b:concurrency->ato):(s:crash->null)  1  6   0 
+    Btrfs: load free space cache if it exists
+        . (37):(misc->code)  3  345   3 
+    Btrfs: write out free space cache
+        . (37):(misc->code)  6  420   13 
+    Btrfs: create special free space cache inode
+        . (37):(tree,file,balloc,inode,super,journal->transaction):(f):(free_space_cache_inode)  10  668   46 
+    Btrfs: remove warn_on from use_block_rsv
+        . (37):(balloc):(b:sem->wlog):(s:error->warning):(r:fail):(note:wrong_logic)  1  0   5 
+    Btrfs: set trans to null in reserve_metadata_bytes if we commit the transaction     
+        . (37):(balloc):(b:mem->dp):(s:crash->af):(r:fail):(rep:use_after_free)  1  6   3 
+    Btrfs: fix error handling in btrfs_get_sb
+        . (37):(super):(b:sem->state->device):(s:crash->null):(r:fail):(note:wrong_state_update_device)  1  3   4 
+    Btrfs: rework how we reserve metadata bytes
+        . (37):(balloc,tree,journal->transaction):(b:sem->wlog):(s:error->wr_err):(r:fail):(ff):(rep:early_enospc)  4  136   127 
+    Btrfs: don't allocate chunks as aggressively
+        . (37):(balloc):(c:fun_ck)  1  5   2 
+    Btrfs: re-work delalloc flushing
+        . (37):(balloc,inode):(c:fun_ck)  3  38   15 
+    Btrfs: fix reservation code for mixed block groups
+        . (37):(balloc):(b:sem->conf):(s:wb):(ff):(rep:forget_config)  1  6   2 
+    Btrfs: fix df regression
+        . (37):(balloc,super):(b:sem->wlog):(s:corruption):(ff):(note:wrong_logic)  3  23   3 
+    Btrfs: fix the df ioctl to report raid types
+        . (37):(ioctl):(b:sem->conf):(s:wb):(ff):(rep:forget_config)  1  76   24 
+    Btrfs: stop trying to shrink delalloc if there are no inodes to reclaim
+        . (37):(ballo):(b:sem->wlog):(s:hang):(r:fail):(note:wrong_logic)  1  5   0 
+    btrfs: replace barriers with explicit flush / FUA usage
+        . (37):(misc->code)  4  5   21 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.38
+    Btrfs: break out of shrink_delalloc earlier
+        . (38):(balloc):(b:sem->wlog):(s:hang):(note:wrong_logic):(ff)  2  32   12 
+    btrfs: fix not enough reserved space
+        . (38):(inode):(b:sem->state->journal):(s:error->op_fail):(rep:wrong_journal_credit) 1  3   2 
+    btrfs: fix dip leak
+        . (38):(inode):(b:mem->re->err):(s:leak->fo):(r:fail):(rep:leak_on_err)  1  1   0 
+    Btrfs: make sure not to return overlapping extents to fiemap
+        . (38):(extent):(b:sem->wlog):(s:corruption):(note:wrong_logic)  1  27   6 
+    Btrfs: deal with short returns from copy_from_user
+        . (38):(file):(b:sem->wlog):(s:corruption):(note:wrong_logic)  1  13   0 
+    Btrfs: fix regressions in copy_from_user handling
+        . (38):(file):(b:sem->wlog):(s:hang,leak->fo):(ff):(note:wrong_logic)  1  59   42 
+    Btrfs: fix fiemap bugs with delalloc
+        . (38):(misc->code)  3  224   42 
+    Btrfs: set FMODE_EXCL in btrfs_device->mode
+        . (38):(volume):(b:sem->state->device):(s:corruption):(ff):(note:wrong_state_update_device)  1  1   1 
+    Btrfs: make btrfs_rm_device() fail gracefully
+        . (38):(volume):(c:err_ck):(rep:grace)  1  9   2 
+    Btrfs: Avoid accessing unmapped kernel address
+        . (38):(other):(b:sem->wlog):(s:crash->af):(note:wrong_logic)  1  14   7 
+    Btrfs: Fix BTRFS_IOC_SUBVOL_SETFLAGS ioctl
+        . (38):(ioctl):(b:sem->state->inode):(s:error->wr_err):(r:fail):(note:miss_state_check_inode)  1  5   2 
+    Btrfs: allow balance to explicitly allocate chunks as it relocates
+        . (38):(misc->code)  3  21   1 
+    Btrfs: put ENOSPC debugging under a mount option
+        . (38):(misc->code)  3  8   2 
+    Btrfs: check return value of alloc_extent_map()
+        . (38):(balloc,extent,file,inode):(b:mem->null):(s:crash->null):(r:fail):(rep:deref_before_check)  4  7   3 
+    Btrfs - Fix memory leak in btrfs_init_new_device()
+        . (38):(volume):(b:mem->re->err):(s:leak->go):(r:fail):(rep:leak_on_err)  1  2   0 
+    btrfs: prevent heap corruption in btrfs_ioctl_space_info()
+        . (38):(ioctl):(b:sem->gene):(s:corruption,crash->null):(ff):(rep:wrong_type)  1  8   2 
+    Btrfs: Fix balance panic
+        . (38):(tree):(b:sem->state->tree):(s:crash):(note:miss_state_update_tree)  1  1   0 
+    Btrfs: don't release pages when we can't clear the uptodate bits
+        . (38):(extent):(b:error_handling->ms_err):(s:corruption):(r:fail):(rep:miss_mem_err)  1  9   1 
+    Btrfs: fix paprivate races
+        . (38):(file,extent):(b:concurrency->ato):(s:corruption):(r:fail):(rep:acc_alloc_race)  2  41   5 
+    Btrfs: Fix page count calculation
+        . (38):(file):(b:sem->wlog):(s:corruption):(note:wrong_logic)  1  4   4 
+    btrfs: Drop __exit attribute on btrfs_exit_compress
+        . (38):(misc->code)  1  1   1 
+    btrfs: cleanup error handling in btrfs_unlink_inode()
+        . (38):(misc->code)  1  1   1 
+    Btrfs: exclude super blocks when we read in block groups
+        . (38):(balloc):(b:sem->wlog):(s:crash->BUG):(note:wrong_logic)  1  18   8 
+    Btrfs: make sure search_bitmap finds something in remove_from_bitmap
+        . (38):(balloc):(b:sem->wlog):(s:crash->BUG):(note:wrong_logic)  1  1   0 
+    btrfs: fix return value check of btrfs_start_transaction()
+        . (38):(balloc,ioctl,tree,super,volume):(b:error_handling->ms_err):(s:crash->af):(r:fail)  7  37   6 
+    btrfs: checking NULL or not in some functions
+        . (38):(balloc,extent,journal->log):(b:error_handling->ms_err):(s:crash->null):(r:fail):(rep:miss_mem_err)  3  10   0 
+    Btrfs: avoid uninit variable warnings in ordered-data.c
+        . (38):(misc->compile)  1  1   1 
+    Btrfs: catch errors from btrfs_sync_log
+        . (38):(journal->log):(b:error_handling->wr_err):(s:error->wr_err):(r:fail):(rep:over_written_err)  1  2   1 
+    Btrfs: make shrink_delalloc a little friendlier
+        . (38):(balloc):(b:sem->wlog):(s:hang):(note:wrong_logic)  1  14   3 
+    Btrfs: handle no memory properly in prepare_pages
+        . (38):(file):(c:err_ck):(rep:grace)  1  6   2 
+    Btrfs: do error checking in btrfs_del_csums
+        . (38):(file):(b:error_handling->ms_err):(s:crash->null):(r:fail):(rep:miss_write_err)  1  3   0 
+    Btrfs: use the global block reserve if we cannot reserve space
+        . (38):(balloc):(b:sem->wlog):(s:error->wr_err):(r:fail):(rep:early_enospc)  1  27   1 
+    Btrfs: do not release more reserved bytes to the global_block_rsv than we need
+        . (38):(balloc):(p:rest):(s:performance->io)  1  14   2 
+    Btrfs: fix check_path_shared so it returns the right value
+        . (38):(inode):(b:mem->unread):(s:error->wr_err):(rep:use_before_init)  1  3   2 
+    btrfs: check return value of btrfs_start_ioctl_transaction() properly
+        . (38):(ioctl):(b:error_handling->wr_err):(s:crash->af):(r:fail):(rep:bad_ac)  1  1   1 
+    btrfs: fix return value check of btrfs_join_transaction()
+        . (38):(file,balloc,inode,tree,journal->transaction):(b:error_handling->ms_err):(s:crash->af):(r:fail)  6  51   13 
+    fs/btrfs/inode.c: Add missing IS_ERR test
+        . (38):(inode):(b:error_handling->ms_err):(s:crash->af):(r:fail):(t:coccinelle):(rep:miss_read_err)  1  1   1 
+    btrfs: fix missing break in switch phrase
+        . (38):(tree):(b:sem->gene):(s:corruption):(rep:simple_typo)  1  1   0 
+    btrfs: fix several uncheck memory allocations
+        . (38):(file,journal->log):(b:error_handling->ms_err):(s:crash->null):(r:fail):(rep:miss_mem_err)  4  33   0 
+    btrfs: fix uncheck memory allocation in btrfs_submit_compressed_read
+        . (38):(extent,other):(b:error_handling->ms_err):(s:crash->null):(r:fail):(rep:miss_mem_err)  2  25   4 
+    Btrfs: Fix file clone when source offset is not 0
+        . (38):(ioctl):(b:sem->wlog):(s:corruption):(note:wrong_logic)  1  4   1 
+    Btrfs: Fix memory leak in writepage fixup work
+        . (38):(inode):(b:mem->re):(s:leak->fo):(r:fail)  1  1   0 
+    Btrfs: Don't return acl info when mounting with noacl option
+        . (38):(xattr):(b:sem->conf):(s:corruption):(rep:forget_config)  1  6   0 
+    Btrfs: Free correct pointer after using strsep
+        . (38):(super):(b:sem->wlog):(s:leak->go):(r:fail):(note:wrong_logic)  1  3   2 
+    Btrfs: Fix memory leak on finding existing super
+        . (38):(super):(b:mem->re):(s:leak->fo):(ff)  1  2   0 
+    Btrfs: Fix memory leak at umount
+        . (38):(file):(b:mem->re):(s:leak->fo):(rep:leak_on_exit)  1  2   0 
+    btrfs: Check mergeable free space when removing a cluster
+        . (38):(misc->code)  1  20   6 
+    btrfs: Add a helper try_merge_free_space()
+        . (38):(misc->api)  1  43   32 
+    btrfs: Update stats when allocating from a cluster
+        . (38):(balloc):(b:sem->state->other):(s:corruption):(note:miss_state_update_other)  1  14   3 
+    btrfs: Free fully occupied bitmap in cluster
+        . (38):(misc->code)  1  2   0 
+    btrfs: Add helper function free_bitmap()
+        . (38):(misc->api)  1  16   21 
+    btrfs: Fix threshold calculation for block groups smaller than 1GB
+        . (38):(balloc):(p:scal):(s:performance->cpu)  1  6   2 
+    Btrfs: forced readonly mounts on errors
+        . (38):(tree,file,balloc,super,journal->transaction):(c:err_ck):(rep:grace)  7  523   2 
+    fs/btrfs: Fix build of ctree
+        . (38):(misc->compile)  1  1   0    
+    btrfs: Require CAP_SYS_ADMIN for filesystem rebalance
+        . (38):(volume):(c:fun_ck)  1  4   0 
+    Btrfs: don't warn if we get ENOSPC in btrfs_block_rsv_check
+        . (38):(balloc):(c:err_ck)  1  0   5 
+    btrfs: Fix memory leak in btrfs_read_fs_root_no_radix()
+        . (38):(file):(b:mem->re->err):(s:leak->fo):(r:fail):(rep:leak_on_err)  1  1   0 
+    btrfs: check NULL or not
+        . (38):(tree,file,extent):(b:error_handling->ms_err):(s:crash->null):(r:fail):(rep:miss_mem_err)  3  16   0 
+    btrfs: Don't pass NULL ptr to func that may deref it.
+        . (38):(tree):(b:mem->null):(s:crash->null):(r:fail):(rep:deref_after_check)  1  2   0 
+    btrfs: mount failure return value fix
+        . (38):(file,volume):(b:error_handling->wr_err):(s:crash):(r:fail)  2  8   4 
+    btrfs: Mem leak in btrfs_get_acl()
+        . (38):(xattr):(b:mem->re->err):(s:leak->go):(r:fail):(rep:leak_on_err)  1  3   1 
+    btrfs: fix wrong free space information of btrfs
+        . (38):(misc->code)  5  286   7 
+    btrfs: make the chunk allocator utilize the devices better
+        . (38):(misc->code)  2  300   103 
+    btrfs: restructure find_free_dev_extent()
+        . (38):(misc->code)  2  91   68 
+    btrfs: fix wrong calculation of stripe size
+        . (38):(misc->code)  1  8   2 
+    btrfs: try to reclaim some space when chunk allocation fails
+        . (38):(balloc):(b:sem->wlog):(s:error->wr_err):(r:fail):(rep:early_enospc)  1  7   2 
+    btrfs: fix wrong data space statistics
+        . (38):(misc->code)  1  3   4 
+    fs/btrfs: Fix build of ctree
+        . (38):(misc->compile)  1  1   0   
+    Btrfs: fail if we try to use hole punch
+        . (38):(inode):(c:fun_ck)  1  4   0 
+    switch btrfs, close races
+        . (38):(other,inode,super):(b:concurrency->ato):(s:corruption)  3  3   12 
+    btrfs: provide simple rcu-walk ACL implementation
+        . (38):(misc->code)  2  12   12 
+    Btrfs: fix off by one while setting block groups readonly
+        . (38):(balloc):(b:sem->gene):(s:corruption):(rep:off_by_one)  1  2   1 
+    Btrfs: Add BTRFS_IOC_SUBVOL_GETFLAGS/SETFLAGS ioctls
+        . (38):(ioctl):(f):(set_subvol)  2  85   0 
+    Btrfs: Add readonly snapshots support
+        . (38):(tree,inode,ioctl,journal->transaction,xattr):(f):(readonly_snapshot)  7  75   10 
+    Btrfs: Refactor btrfs_ioctl_snap_create()
+        . (38):(misc->code)  1  40   44 
+    btrfs: Extract duplicate decompress code
+        . (38):(misc->code)  4  115   194 
+    btrfs: Allow to specify compress method when defrag
+        . (38):(ioctl):(f):(defrag_compress)  2  26   2 
+    btrfs: Add lzo compression support
+        . (38):(tree,file,other,super):(f):(lzo_compression)  8  527   8 
+    btrfs: Allow to add new compression algorithm
+        . (38):(other,tree,extent,file,inode,ioctl,super):(f):(new_compression)  15  473   282 
+    btrfs: Fix error handling in zlib
+        . (38):(other):(b:error_handling->ms_err):(s:crash->null):(r:fail):(rep:miss_mem_err)  1  8   0 
+    btrfs: Fix bugs in zlib workspace
+        . (38):(other):(b:concurrency->ato):(s:wb)  1  5   2 
+    btrfs: close_bdev_exclusive() should use the same @flags as the matching open_bdev_exclusive()
+        . (38):(volume):(b:sem->wlog):(s:wb):(r:fail):(note:wrong_logic)  1  1   1 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.39
+    Btrfs: fix FS_IOC_SETFLAGS ioctl
+        . (39):(ioctl):(b:sem->state->inode):(s:corruption):(note:miss_state_update_inode)  1  2   0 
+    Btrfs: fix FS_IOC_GETFLAGS ioctl
+        . (39):(misc->code)  1  7   0 
+    fs: remove FS_COW_FL
+        . (39):(misc->code)  2  6   10 
+    Btrfs: fix easily get into ENOSPC in mixed case
+        . (39):(balloc):(b:sem->conf):(s:error->wr_err):(ff):(rep:forget_config) 1  26   11 
+    Prevent oopsing in posix_acl_valid()
+        . (39):(xattr):(b:error_handling->ms_err):(s:crash->af):(r:fail)  1  3   2 
+    Btrfs: cleanup error handling in inode.c
+        . (39):(misc->code)  1  9   6 
+    Btrfs: put the right bio if we have an error
+        . (39):(inode):(b:mem->re->err):(s:leak->vo):(r:fail):(rep:leak_on_err)  1  1   1 
+    Btrfs: free bitmaps properly when evicting the cache
+        . (39):(balloc):(b:sem->state->other):(s:crash):(note:miss_state_update_other)  1  7   4 
+    Btrfs: Free free_space item properly in btrfs_trim_block_group()
+        . (39):(balloc):(b:mem->re):(s:leak->fo):(ff)  1  1   1 
+    btrfs: add missing spin_unlock to a rare exit path
+        . (39):(file):(b:concurrency->m_unlock):(s:deadlock->re):(r:fail)  1  1   0 
+    Btrfs: check return value of kmalloc()
+        . (39):(balloc,inode):(b:error_handling->ms_err):(s:crash->null):(r:fail):(rep:miss_mem_err)  2  7   0 
+    btrfs: fix wrong allocating flag when reading page
+        . (39):(extent):(b:concurrency->deadlock):(s:deadlock->re):(rep:wrong_kmalloc_flag)  1  1   1 
+    Btrfs: fix missing mutex_unlock in btrfs_del_dir_entries_in_log()
+        . (39):(journal->log):(b:concurrency->m_unlock):(s:deadlock->re):(r:fail)  1  5   2 
+    Btrfs: do some plugging in the submit_bio threads
+        . (39):(volume):(p:sche):(s:performance->io):(rep:batch_processing)  1  10   0 
+    Btrfs: fix free space cache leak
+        . (39):(balloc):(b:sem->gene):(s:leak->vo):(ff):(rep:simple_typo)  1  1   1 
+    Btrfs: avoid taking the chunk_mutex in do_chunk_alloc
+        . (39):(balloc):(p:sync->rm_lock):(s:performance->cpu):(rep:remove_lock)  2  28   6 
+    Btrfs end_bio_extent_readpage should look for locked bits
+        . (39):(extent):(b:sem->wlog):(s:error->op_fail):(ff):(note:wrong_logic)  1  1   1 
+    Btrfs: don't force chunk allocation in find_free_extent
+        . (39):(balloc):(p:loca):(s:performance->io):(rep:bad_alloc_local)  1  73   22 
+    Btrfs: Check validity before setting an acl
+        . (39):(xattr):(c:cor_ck)  1  5   4 
+    Btrfs: Fix incorrect inode nlink in btrfs_link()
+        . (39):(inode):(b:sem->state->inode):(s:corruption):(r:fail):(rep:update_time)  1  3   3 
+    Btrfs: Check if btrfs_next_leaf() returns error in btrfs_real_readdir()
+        . (39):(inode):(b:error_handling->ms_err):(s:wb):(r:fail)  1  10   18 
+    Btrfs: Check if btrfs_next_leaf() returns error in btrfs_listxattr()
+        . (39):(xattr):(b:error_handling->ms_err):(s:wb):(r:fail)  1  12   21 
+    Btrfs: make uncache_state unconditional
+        . (39):(extent):(b:sem->state->extent):(s:leak->fo):(ff):(note:wrong_state_update_extent)  1  3   5 
+    btrfs: using cached extent_state in set/unlock combinations
+        . (39):(extent,inode):(p:acce):(s:performance->io)  3  55   19 
+    Btrfs: avoid taking the trans_mutex in btrfs_end_transaction
+        . (39):(journal->transaction):(p:sync->rm_lock):(s:performance->cpu):(rep:remove_lock)  3  19   24 
+    Btrfs: fix subvolume mount by name problem when default mount subvolume is set
+        . (39):(super):(b:sem->wlog):(s:error->op_fail):(r:fail):(real):(note:wrong_logic)  1  33   9 
+    btrfs: properly handle overlapping areas in memmove_extent_buffer
+        . (39):(extent):(b:sem->state->other):(s:crash->BUG,corruption):(real):(note:miss_state_check_other)  1  11   3 
+    Btrfs: fix memory leaks in btrfs_new_inode()
+        . (39):(inode):(b:mem->re->err):(s:leak->fo):(r:fail):(rep:leak_on_err)  1  4   1 
+    Btrfs: check for duplicate iov_base's when doing dio reads
+        . (39):(inode):(b:sem->wlog):(s:error->wr_err):(note:wrong_logic)  1  16   1  
+    Btrfs: reuse the extent_map we found when calling btrfs_get_extent
+        . (39):(inode):(p:acce):(s:performance->cpu)  1  28   8 
+    Btrfs: do not use async submit for small DIO io's
+        . (39):(inode):(p:sche):(s:performance->io):(ff)  1  19   5 
+    Btrfs: don't split dio bios if we don't have to
+        . (39):(misc->code)  1  13   7 
+    Btrfs: do not call btrfs_update_inode in endio if nothing changed
+        . (39):(inode):(p:acce):(s:performance->io):(rep:check_before_work)  1  10   5 
+    Btrfs: map the inode item when doing fill_inode_item
+        . (39):(inode):(p:sche):(s:performance->io):(rep:batch_processing)  1  12   0 
+    Btrfs: only retry transaction reservation once
+        . (39):(journal->transaction):(b:sem->wlog):(s:hang):(r:fail):(note:wrong_logic)  1  10   1 
+    Btrfs: deal with the case that we run out of space in the cache
+        . (39):(misc->code)  3  69   74 
+    Btrfs: don't warn in btrfs_add_orphan
+        . (39):(inode):(b:sem->state->inode):(s:error->warning):(r:fail):(note:wrong_state_check_inode)  1  0   2 
+    Btrfs: fix free space cache when there are pinned extents and clusters V2
+        . (39):(balloc):(b:sem->state->other):(s:leak->fo,error->wr_err):(note:miss_state_update_other)  1  78   4 
+    Btrfs: Fix uninitialized root flags for subvolumes
+        . (39):(tree,file,ioctl,journal->transaction):(b:mem->unread):(s:wb):(rep:use_before_init)  5  30   1 
+    btrfs: clear __GFP_FS flag in the space cache inode
+        . (39):(balloc,inode):(b:sem->state->inode):(s:corruption):(note:wrong_state_update_inode)  2  2   2 
+    Btrfs: fix memory leak in start_transaction()
+        . (39):(journal->transaction):(b:mem->re->err):(s:leak->fo):(r:fail):(rep:leak_on_err)  1  1   0 
+    Btrfs: fix memory leak in btrfs_ioctl_start_sync()
+        . (39):(ioctl):(b:sem->state->journal):(s:leak->fo):(r:fail):(note:miss_state_update_jouornaling)  1  3   1 
+    Btrfs: fix subvol_sem leak in btrfs_rename()
+        . (39):(inode):(b:concurrency->m_unlock):(s:deadlock->re):(r:fail)  1  5   3 
+    Btrfs: Fix oops for defrag with compression turned on
+        . (39):(inode):(b:sem->conf):(s:crash):(rep:forget_config)  1  8   9 
+    Btrfs: fix /proc/mounts info.
+        . (39):(misc->code)  1  17   2 
+    Btrfs: fix compiler warning in file.c
+        . (39):(misc->compile)  1  1   1 
+    Btrfs: fix __btrfs_map_block on 32 bit machines
+        . (39):(misc->compile)  1  20   6 
+    btrfs: fix possible deadlock by clearing __GFP_FS flag
+        . (39):(file,inode):(b:concurrency->deadlock):(s:deadlock->re):(rep:wrong_kmalloc_flag)  2  4   1 
+    btrfs: check link counter overflow in link(2)
+        . (39):(inode):(c:fun_ck)  1  3   0 
+    btrfs: don't mess with i_nlink of unlocked inode in rename()
+        . (39):(inode):(b:concurrency->ato):(s:corruption)  1  25   11 
+    Btrfs: check return value of btrfs_alloc_path()
+        . (39):(other,dir,file,inode):(b:mem->null):(s:crash->null):(r:fail):(rep:deref_before_check) 4  27   14 
+    Btrfs: fix OOPS of empty filesystem after balance
+        . (39):(file,balloc):(b:mem->unread):(s:crash):(rep:use_before_init)   3  30   0 
+    Btrfs: fix memory leak of empty filesystem after balance
+        . (39):(balloc):(b:sem->state->tree):(s:leak->fo):(ff):(note:miss_state_update_tree)  1  6   0 
+    Btrfs: fix return value of setflags ioctl
+        . (39):(ioctl):(b:error_handling->wr_err):(s:error->wr_err):(r:fail):(rep:over_written_err)  1  3   1 
+    Btrfs: fix uncheck memory allocations
+        . (39):(other,balloc,inode):(b:error_handling->ms_err):(s:crash->null):(r:fail):(rep:miss_mem_err)  3  12   0 
+    btrfs: make inode ref log recovery faster
+        . (39):(journal->log):(p:acce):(s:performance->cpu):(rep:check_before_work)  1  11   24 
+    Btrfs: add btrfs_trim_fs() to handle FITRIM
+        . (39):(balloc,ioctl):(f):(fitrim)  5  190   1 
+    Btrfs: adjust btrfs_discard_extent() return errors and trimmed bytes
+        . (39):(misc->code)  3  31   19 
+    Btrfs: make btrfs_map_block() return entire free extent for each device of RAID0/1/10/DUP
+        . (39):(misc->code)  2  129   22 
+    Btrfs: make update_reserved_bytes() public
+        . (39):(misc->api)  2  9   9 
+    btrfs: return EXDEV when linking from different subvolumes
+        . (39):(inode):(b:error_handling->wr_err):(s:error->wr_err):(r:fail)  1  1   1 
+    Btrfs: Per file/directory controls for COW and compression
+        . (39):(tree,file,inode,ioctl):(f):(file_dir_cow_compression)  4  72   7 
+    Btrfs: add datacow flag in inode flag
+        . (39):(misc->code)  1  2   0 
+    btrfs: use GFP_NOFS instead of GFP_KERNEL
+        . (39):(balloc):(b:concurrency->inter):(s:hang):(rep:wrong_kmalloc_flag)  1  2   2 
+    Btrfs: check return value of read_tree_block()
+        . (39):(tree,balloc):(b:error_handling->ms_err):(s:crash->null):(r:fail):(rep:miss_read_err)  3  15   0 
+    btrfs: properly access unaligned checksum buffer
+        . (39):(misc->code)  1  2   1 
+    Btrfs: cleanup some BUG_ON()
+        . (39):(tree,file,balloc,inode,ioctl,journal->transaction,journal->log):(c:err_ck):(rep:grace)  9  54   23 
+    Btrfs: add initial tracepoint support for btrfs
+        . (39):(tree,balloc,extent,file,inode,super,volume,journal->transaction):(c:db)  13  727   11 
+    Btrfs: use RCU instead of a spinlock to protect the root node
+        . (39):(tree):(p:sync->rcu):(s:performance->cpu)  1  8   19 
+    Btrfs: mark the bio with an error if we have a failure in dio
+        . (39):(inode):(b:error_handling->ms_err):(s:corruption):(r:fail):(rep:miss_write_err)  1  8   0 
+    Btrfs: don't allocate dip->csums when doing writes
+        . (39):(misc->code)  1  5   2 
+    Btrfs: cleanup how we setup free space clusters
+        . (39):(misc->code)  2  182   185 
+    Btrfs: don't be as aggressive about using bitmaps
+        . (39):(balloc):(p:acce):(s:performance->cpu)  1  16   3 
+    Btrfs: deal with min_bytes appropriately when looking for a cluster
+        . (39):(misc->code)  1  4   5 
+    Btrfs: check free space in block group before searching for a cluster
+        . (39):(balloc):(p:acce):(s:performance->cpu):(rep:check_before_work)  1  10   0 
+    Btrfs: add checks to verify dir items are correct
+        . (39):(tree,dir,inode,journal->log,xattr):(c:cor_ck):(rep:dir_check)  5  50   0 
+    Btrfs: check return value of btrfs_search_slot properly
+        . (39):(file):(b:error_handling->ms_err):(s:corruption):(r:fail)  1  2   0 
+    Btrfs: check items for correctness as we search
+        . (39):(tree,file,balloc):(c:cor_ck)  4  95   124 
+    Btrfs: return error if the range we want to map is bogus
+        . (39):(extent):(b:error_handling->ms_err):(s:error->wr_err):(r:fail)  1  1   0 
+    Btrfs: add a comment explaining what btrfs_cont_expand does
+        . (39):(misc->code)  1  6   0 
+    Btrfs: use mark_inode_dirty when expanding the file
+        . (39):(misc->code)  1  1   15 
+    Btrfs: only add orphan items when truncating
+        . (39):(misc->code)  1  18   27 
+    Btrfs: make sure to remove the orphan item from the in-memory list
+        . (39):(inode):(b:sem->state->inode):(s:error->wr_err):(r:fail):(note:miss_state_update_inode)  1  6   0 
+    Btrfs: handle errors in btrfs_orphan_cleanup
+        . (39):(inode):(b:error_handling->ms_err):(s:hang):(r:fail)  6  50   23 
+    Btrfs: cleanup error handling in the truncate path
+        . (39):(inode):(c:err_ck):(rep:grace)  1  45   19 
+    Btrfs: convert to the new truncate sequence
+        . (39):(misc->api)  3  40   47 
+    Btrfs: use a slab for the free space entries
+        . (39):(inode,balloc):(p:rest):(s:performance->cpu)  3  29   16 
+    Btrfs: change reserved_extents to an atomic_t
+        . (39):(inode,balloc):(p:sync->rm_lock):(s:performance->cpu):(rep:atomic_for_lock)  3  29   21 
+    Btrfs: fix how we deal with the pages array in the write path
+        . (39):(misc->code)  1  5   4 
+    Btrfs: simplify our write path
+        . (39):(misc->code)  1  180   175 
+    Btrfs: fix formatting in file.c
+        . (39):(misc->code)  1  8   8 
+--------------------------------------------------------------------------------------------

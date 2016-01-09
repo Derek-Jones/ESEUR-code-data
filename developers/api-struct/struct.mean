@@ -1,0 +1,42 @@
+> t <- read.table("Agstruct.num")
+> sd(T)
+[1] NA
+> mean(T)
+[1] 1
+> mean(t)
+      V1 
+5.363636 
+> sd(t)
+      V1 
+2.421048 
+> t <- read.table("Restruct.num")
+> mean(t)
+V1 
+ 2 
+> sd(t)
+V1 
+ 0 
+> t <- read.table("Trstruct.num")
+> mean(t)
+      V1 
+2.583333 
+> sd(t)
+      V1 
+1.240112 
+>
+> t <- read.table("Allstruct.num")
+> mean(t)
+  V1 
+4.25 
+> sd(t)
+     V1 
+2.45386 
+>
+> s <- read.table("Ststruct.num")
+> mean(s)
+      V1 
+4.090909 
+> sd(s)
+      V1 
+1.972539 
+

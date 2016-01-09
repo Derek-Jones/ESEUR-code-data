@@ -1,0 +1,1 @@
+grep -E "((RAS LINKCARD FATAL .+ (port disconnected|pap failed|iap failed|bll_clear_port failed))|RAS KERNEL FATAL (rts: kernel terminated|no ethernet link|.+ connection lost to node/link/service card|Lustre mount FAILED|rts panic\! - stopping execution|Power deactivated|Power Good signal deactivated|rts internal error|Error: unable to mount filesystem))"

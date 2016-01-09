@@ -1,0 +1,5 @@
+agreed price,scheduled days,actual days,project manager,user representative,technical support,LOC
+20000,55,87,42,37,11,7937
+45380,73,90,61, 6,21,14549
+8750,41,79,73,68,14,7208
+56000,62,65,41,30,14,8293

@@ -1,0 +1,636 @@
+*/ </viewvc>[mediawiki] </viewvc/mediawiki/>/trunk
+</viewvc/mediawiki/trunk/>/phase3
+</viewvc/mediawiki/trunk/phase3/>/maintenance
+</viewvc/mediawiki/trunk/phase3/maintenance/>/tables.sql* 	
+
+Wikimedia   <http://www.wikimedia.org/>ViewVC logotype
+<http://www.viewvc.org/>
+
+
+  Log of /trunk/phase3/maintenance/tables.sql
+
+Parent Directory Parent Directory
+</viewvc/mediawiki/trunk/phase3/maintenance/> | Revision Log Revision
+Log </viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?view=log>
+
+------------------------------------------------------------------------
+Links to HEAD: 	(view
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?view=markup>)
+(download
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?view=co>)
+(annotate
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?view=annotate>)
+Sticky Revision: 	
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+Revision *4925* </viewvc/mediawiki?view=revision&revision=4925> - (view
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=4925&view=markup>)
+(download
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=4925&view=co>)
+(annotate
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?annotate=4925>) -
+[select for diffs]
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=4925&view=log>
+Modified /Tue Aug 24 20:41:07 2004 UTC/ (6 years, 6 months ago) by /jeluf/
+File length: 10181 byte(s)
+Diff to previous 4919
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=4919&r2=4925>
+
+Split user table into two parts: user and user_rights, for single login. BUG#57
+
+------------------------------------------------------------------------
+Revision *4919* </viewvc/mediawiki?view=revision&revision=4919> - (view
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=4919&view=markup>)
+(download
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=4919&view=co>)
+(annotate
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?annotate=4919>) -
+[select for diffs]
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=4919&view=log>
+Modified /Tue Aug 24 08:11:46 2004 UTC/ (6 years, 6 months ago) by /vibber/
+File length: 10071 byte(s)
+Diff to previous 4619
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=4619&r2=4919>
+
+Special:Log and the logging table -- unified logging scariness!
+
+Replaces the ugly, often breaking, manually archived log pages with
+a nice clean table which can be sorted, trimmed, viewed in pieces, etc.
+You can see all logged actions by some user, or affecting some page,
+and can combine the views of all all logs in one.
+
+There are probably still some broken things in here, but I want this
+committed before the patch gets any bigger.
+
+recentchanges table is altered to make rc_namespace signed so Special:
+links can be listed in it.
+
+------------------------------------------------------------------------
+Revision *4619* </viewvc/mediawiki?view=revision&revision=4619> - (view
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=4619&view=markup>)
+(download
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=4619&view=co>)
+(annotate
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?annotate=4619>) -
+[select for diffs]
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=4619&view=log>
+Modified /Mon Aug 9 05:38:11 2004 UTC/ (6 years, 7 months ago) by /timwi/
+File length: 9146 byte(s)
+Diff to previous 4571
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=4571&r2=4619>
+
+New feature: Recent Changes Patrol. All edits and new pages are now highlighted on
+Special:Recentchanges and Special:Newpages until someone "marks" them as
+"patrolled" using a special link. For new pages, this link appears at the bottom
+of the article if the link in Recent Changes or New Pages is followed. For all
+other edits, this link appears only in the diff and only if the diff link is
+followed from Recent Changes. (Might need to add this functionality to Watchlist
+too; haven't done that yet.)
+
+------------------------------------------------------------------------
+Revision *4571* </viewvc/mediawiki?view=revision&revision=4571> - (view
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=4571&view=markup>)
+(download
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=4571&view=co>)
+(annotate
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?annotate=4571>) -
+[select for diffs]
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=4571&view=log>
+Modified /Sat Aug 7 04:03:15 2004 UTC/ (6 years, 7 months ago) by /timwi/
+File length: 9092 byte(s)
+Diff to previous 4570
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=4570&r2=4571>
+
+primary key.
+
+------------------------------------------------------------------------
+Revision *4570* </viewvc/mediawiki?view=revision&revision=4570> - (view
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=4570&view=markup>)
+(download
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=4570&view=co>)
+(annotate
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?annotate=4570>) -
+[select for diffs]
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=4570&view=log>
+Modified /Sat Aug 7 03:59:20 2004 UTC/ (6 years, 7 months ago) by
+/timstarling/
+File length: 9091 byte(s)
+Diff to previous 4332
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=4332&r2=4570>
+
+Added primary key for the recentchanges table. Patch already committed. Not in config/index.php yet.
+
+------------------------------------------------------------------------
+Revision *4332* </viewvc/mediawiki?view=revision&revision=4332> - (view
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=4332&view=markup>)
+(download
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=4332&view=co>)
+(annotate
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?annotate=4332>) -
+[select for diffs]
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=4332&view=log>
+Modified /Mon Jul 19 17:21:11 2004 UTC/ (6 years, 8 months ago) by
+/magnus_manske/
+File length: 9023 byte(s)
+Diff to previous 4321
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=4321&r2=4332>
+
+Article validation, now with comments
+
+------------------------------------------------------------------------
+Revision *4321* </viewvc/mediawiki?view=revision&revision=4321> - (view
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=4321&view=markup>)
+(download
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=4321&view=co>)
+(annotate
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?annotate=4321>) -
+[select for diffs]
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=4321&view=log>
+Modified /Sun Jul 18 20:45:28 2004 UTC/ (6 years, 8 months ago) by
+/magnus_manske/
+File length: 8973 byte(s)
+Diff to previous 4318
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=4318&r2=4321>
+
+Article validation code (a start)
+
+------------------------------------------------------------------------
+Revision *4318* </viewvc/mediawiki?view=revision&revision=4318> - (view
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=4318&view=markup>)
+(download
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=4318&view=co>)
+(annotate
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?annotate=4318>) -
+[select for diffs]
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=4318&view=log>
+Modified /Sun Jul 18 08:48:43 2004 UTC/ (6 years, 8 months ago) by
+/timstarling/
+File length: 8603 byte(s)
+Diff to previous 4139
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=4139&r2=4318>
+
+* Support for table name prefixes throughout the code. No support yet for converting static SQL, which also means no installation. But it has been tested by creating the tables in the ordinary way and then renaming them
+* DB_WRITE now called DB_MASTER, DB_READ now called DB_SLAVE
+* Converted to use SQL wrapper functions instead of direct SQL in various places
+* Experimental method for preserving the chronological order of events when slave servers are used. Untested.
+* Fixes to the new post-parse existence test feature
+* Some.. other stuff
+
+------------------------------------------------------------------------
+Revision *4139* </viewvc/mediawiki?view=revision&revision=4139> - (view
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=4139&view=markup>)
+(download
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=4139&view=co>)
+(annotate
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?annotate=4139>) -
+[select for diffs]
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=4139&view=log>
+Modified /Mon Jun 21 20:22:59 2004 UTC/ (6 years, 8 months ago) by /timwi/
+File length: 8569 byte(s)
+Diff to previous 4083
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=4083&r2=4139>
+
+SQL syntax error
+
+------------------------------------------------------------------------
+Revision *4083* </viewvc/mediawiki?view=revision&revision=4083> - (view
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=4083&view=markup>)
+(download
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=4083&view=co>)
+(annotate
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?annotate=4083>) -
+[select for diffs]
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=4083&view=log>
+Modified /Tue Jun 15 15:18:50 2004 UTC/ (6 years, 9 months ago) by
+/timstarling/
+File length: 8570 byte(s)
+Diff to previous 4073
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=4073&r2=4083>
+
+* Moved content from liveCmdLine.inc into commandLine.inc, obsoleting the former.
+* Put some option handling code in commandLine.inc which is untested and unused (for the moment).
+* Converted all existing command line scripts to use the standard header and argument array.
+* Did a quick test of compressOld.php, rebuildall.php and rebuildMessages.php to check for breakage.
+* rebuildall.php was broken due to the unmaintained rebuildlinks.php, so I converted it to use refreshLinks instead. Required splitting into refreshLinks.inc and refreshLinks.php
+
+------------------------------------------------------------------------
+Revision *4073* </viewvc/mediawiki?view=revision&revision=4073> - (view
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=4073&view=markup>)
+(download
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=4073&view=co>)
+(annotate
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?annotate=4073>) -
+[select for diffs]
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=4073&view=log>
+Modified /Mon Jun 14 10:40:24 2004 UTC/ (6 years, 9 months ago) by
+/timstarling/
+File length: 8385 byte(s)
+Diff to previous 3626
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=3626&r2=4073>
+
+Storing IP in RC. Off by default. Tested:
+* Installation
+* Edit when switched off
+* Edit when switched on
+
+------------------------------------------------------------------------
+Revision *3626* </viewvc/mediawiki?view=revision&revision=3626> - (view
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=3626&view=markup>)
+(download
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=3626&view=co>)
+(annotate
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?annotate=3626>) -
+[select for diffs]
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=3626&view=log>
+Modified /Wed May 19 22:04:44 2004 UTC/ (6 years, 10 months ago) by
+/vibber/
+File length: 8347 byte(s)
+Diff to previous 3582
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=3582&r2=3626>
+
+Ensure searchindex table is created as MyISAM
+
+------------------------------------------------------------------------
+Revision *3582* </viewvc/mediawiki?view=revision&revision=3582> - (view
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=3582&view=markup>)
+(download
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=3582&view=co>)
+(annotate
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?annotate=3582>) -
+[select for diffs]
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=3582&view=log>
+Modified /Sat May 15 00:29:39 2004 UTC/ (6 years, 10 months ago) by
+/vibber/
+File length: 8335 byte(s)
+Diff to previous 3516
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=3516&r2=3582>
+
+Add categorylinks table to separately list category relationships. Actual
+_page_ links to category pages like [[:category:Some cat]] will stay in
+links/brokenlinks and not be listed in the category page list anymore.
+
+A link can optionally specify a sort key like this: [[category:cat|Sort me]].
+The page will then be sorted in category lists according to the given text
+instead of the page name; thus categories may be sorted arbitrarily, by
+last name or whatever.
+
+There is also a timestamp field included on gwicke's request; this is not
+used yet. Also it will currently be updated at every edit of the page,
+this can be changed by implementing differential updating for the cat links.
+
+TODO:
+* Make sure that automatic sort keys are updated on page rename.
+* Make sure cateory pages get cache-invalidated and purged
+* Use proper text sorting instead of raw binary sort
+* Allow specification of the display style on category pages: comma list
+  or bullet list or number list; by sortkey or by timestamp; etc
+
+------------------------------------------------------------------------
+Revision *3516* </viewvc/mediawiki?view=revision&revision=3516> - (view
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=3516&view=markup>)
+(download
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=3516&view=co>)
+(annotate
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?annotate=3516>) -
+[select for diffs]
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=3516&view=log>
+Modified /Sun May 9 05:12:55 2004 UTC/ (6 years, 10 months ago) by /vibber/
+File length: 7755 byte(s)
+Diff to previous 3513
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=3513&r2=3516>
+
+Add an objectcache table for limited caching when memcached isn't
+available. Currently using for the message cache to avoid reading
+every message separately. This now is only slightly slower than
+memcached in my tests when $wgUseDatabaseMessages is enabled, so
+it's a bit of a speedup for common hosts.
+
+------------------------------------------------------------------------
+Revision *3513* </viewvc/mediawiki?view=revision&revision=3513> - (view
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=3513&view=markup>)
+(download
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=3513&view=co>)
+(annotate
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?annotate=3513>) -
+[select for diffs]
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=3513&view=log>
+Modified /Sun May 9 01:30:34 2004 UTC/ (6 years, 10 months ago) by /vibber/
+File length: 7535 byte(s)
+Diff to previous 3204
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=3204&r2=3513>
+
+Replace ugly abuse of log pages to store cached results of query pages
+with a table that stores up to 1000 rows for each 'expensive' special
+page. This can be paged through, reducing the annoyingness of 50 result
+limits on the old system.
+
+Rebuilding the cache can be forced by adding "recache=1" URL parameter,
+but this will need to be refined with some sort of controls to prevent
+abuse.
+
+Added the user realname update to the installer's updater list, also.
+
+------------------------------------------------------------------------
+Revision *3204* </viewvc/mediawiki?view=revision&revision=3204> - (view
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=3204&view=markup>)
+(download
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=3204&view=co>)
+(annotate
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?annotate=3204>) -
+[select for diffs]
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=3204&view=log>
+Modified /Sun Apr 18 02:28:35 2004 UTC/ (6 years, 11 months ago) by
+/evanprodromou/
+File length: 7251 byte(s)
+Diff to previous 2830
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=2830&r2=3204>
+
+Added a user_real_name column to the user table, and added a patch SQL file
+to add this field.
+
+User.php stores and fetches the field, and has accessors for it.
+
+User login allows setting the field on account creation.
+
+The Preferences page allows changing the real name.
+
+The labels are available for the real name, and the explanation of the email
+field on login has been expanded to include an explanation of the real name
+field, too.
+
+Update script checks for the field, and adds it if it's missing.
+
+------------------------------------------------------------------------
+Revision *2830* </viewvc/mediawiki?view=revision&revision=2830> - (view
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=2830&view=markup>)
+(download
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=2830&view=co>)
+(annotate
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?annotate=2830>) -
+[select for diffs]
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=2830&view=log>
+Modified /Wed Mar 24 07:52:25 2004 UTC/ (6 years, 11 months ago) by
+/vibber/
+File length: 7193 byte(s)
+Diff to previous 2687
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=2687&r2=2830>
+
+Remove dangerous DROP statements from table creation. If accidentally
+overwriting an existing database this destroys all data without warning...
+better to let it fail with an error message and let the rare cases where
+this is intended be dealt with manually by dropping them yourself.
+
+------------------------------------------------------------------------
+Revision *2687* </viewvc/mediawiki?view=revision&revision=2687> - (view
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=2687&view=markup>)
+(download
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=2687&view=co>)
+(annotate
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?annotate=2687>) -
+[select for diffs]
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=2687&view=log>
+Modified /Thu Mar 11 09:06:13 2004 UTC/ (7 years ago) by /vibber/
+File length: 7779 byte(s)
+Diff to previous 2685
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=2685&r2=2687>
+
+Some changes to the link tables. They now all use a key on cur_id for the *_from column instead of strings, and have a unique index to force prevent any duplicate entries. There's not yet a clean step in the update script, so just clear out your links tables (patch-linktables.sql) and rebuild them with refreshLinks.php.
+
+This saves trouble in a number of places where we can now do joins with the link tables to get other info (such as cur_is_redirect!) as well as the name, and fewer bits need to be juggled on page renaming, as outgoing links no longer have to be changed (cur_id remains the same when a page is renamed).
+
+rebuildLinks.inc and some of the tools in the 'maintenance page' still need to be updated to work with the new setup. (Special:Maintenance needs a *lot* of cleanup in general. It's kind of a catch-all of vaguely defined features which suck performance like a hydroelectric dam.)
+
+Also I've slipped in some extra debug code. And, I think 'indexes.sql' is a big waste of time and should all be moved into tables.sql. Building indexes separately doesn't help on InnoDB and won't do anything on MyISAM either if you're just going to replace the table after it's built with an imported one from a dump which creates it with indexes.
+
+------------------------------------------------------------------------
+Revision *2685* </viewvc/mediawiki?view=revision&revision=2685> - (view
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=2685&view=markup>)
+(download
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=2685&view=co>)
+(annotate
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?annotate=2685>) -
+[select for diffs]
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=2685&view=log>
+Modified /Wed Mar 10 23:43:54 2004 UTC/ (7 years ago) by /e23/
+File length: 7594 byte(s)
+Diff to previous 2493
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=2493&r2=2685>
+
+Made linkscc title column case sensitive
+
+------------------------------------------------------------------------
+Revision *2493* </viewvc/mediawiki?view=revision&revision=2493> - (view
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=2493&view=markup>)
+(download
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=2493&view=co>)
+(annotate
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?annotate=2493>) -
+[select for diffs]
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=2493&view=log>
+Modified /Sat Feb 21 08:31:30 2004 UTC/ (7 years ago) by /vibber/
+File length: 7587 byte(s)
+Diff to previous 2473
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=2473&r2=2493>
+
+Extra comma breaks install
+
+------------------------------------------------------------------------
+Revision *2473* </viewvc/mediawiki?view=revision&revision=2473> - (view
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=2473&view=markup>)
+(download
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=2473&view=co>)
+(annotate
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?annotate=2473>) -
+[select for diffs]
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=2473&view=log>
+Modified /Sat Feb 14 12:37:25 2004 UTC/ (7 years, 1 month ago) by
+/timstarling/
+File length: 7588 byte(s)
+Diff to previous 2294
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=2294&r2=2473>
+
+Two blocking features: IP range blocks, and expiry times configurable block-by-block.
+Possible issue: uses strtotime(), which is very handy but in English
+
+------------------------------------------------------------------------
+Revision *2294* </viewvc/mediawiki?view=revision&revision=2294> - (view
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=2294&view=markup>)
+(download
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=2294&view=co>)
+(annotate
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?annotate=2294>) -
+[select for diffs]
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=2294&view=log>
+Modified /Sat Jan 17 05:49:39 2004 UTC/ (7 years, 2 months ago) by
+/timstarling/
+File length: 7538 byte(s)
+Diff to previous 2190
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=2190&r2=2294>
+
+* Recent Changes improvements: object oriented back end, move page annotation and (untested) message queue feed.
+* Misc. bugs fixed in DatabaseFunctions.php and Skin.php.
+* install-utils, install and update utilise Database objects instead of handling their own connections
+* schema change for RC improvement -- added rc_type, rc_moved_to_title and rc_moved_to_ns
+
+------------------------------------------------------------------------
+Revision *2190* </viewvc/mediawiki?view=revision&revision=2190> - (view
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=2190&view=markup>)
+(download
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=2190&view=co>)
+(annotate
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?annotate=2190>) -
+[select for diffs]
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=2190&view=log>
+Modified /Sat Dec 13 21:32:32 2003 UTC/ (7 years, 3 months ago) by /e23/
+File length: 7365 byte(s)
+Diff to previous 1911
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=1911&r2=2190>
+
+Article.php:
+* Made updating of page view stats faster my buffering them in a
+  HEAP table until many pages can be updated at once.
+
+tables.sql:
+* hitcounter table
+
+patch-hitcounter.sql:
+* hitcounter table
+
+update.php:
+* Creating hitcounter table when necessary
+
+------------------------------------------------------------------------
+Revision *1911* </viewvc/mediawiki?view=revision&revision=1911> - (view
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=1911&view=markup>)
+(download
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=1911&view=co>)
+(annotate
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?annotate=1911>) -
+[select for diffs]
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=1911&view=log>
+Modified /Sat Nov 8 15:32:28 2003 UTC/ (7 years, 4 months ago) by /e23/
+File length: 7243 byte(s)
+Diff to previous 1695
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=1695&r2=1911>
+
+Further link-cache related stuff.
+
+------------------------------------------------------------------------
+Revision *1695* </viewvc/mediawiki?view=revision&revision=1695> - (view
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=1695&view=markup>)
+(download
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=1695&view=co>)
+(annotate
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?annotate=1695>) -
+[select for diffs]
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=1695&view=log>
+Modified /Sun Sep 21 13:10:10 2003 UTC/ (7 years, 5 months ago) by
+/timstarling/
+File length: 7045 byte(s)
+Diff to previous 1640
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=1640&r2=1695>
+
+MediaWiki namespace
+
+------------------------------------------------------------------------
+Revision *1640* </viewvc/mediawiki?view=revision&revision=1640> - (view
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=1640&view=markup>)
+(download
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=1640&view=co>)
+(annotate
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?annotate=1640>) -
+[select for diffs]
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=1640&view=log>
+Modified /Sun Sep 7 13:56:25 2003 UTC/ (7 years, 6 months ago) by
+/timstarling/
+File length: 7036 byte(s)
+Diff to previous 1589
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=1589&r2=1640>
+
+Autoblocker privacy protection
+
+------------------------------------------------------------------------
+Revision *1589* </viewvc/mediawiki?view=revision&revision=1589> - (view
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=1589&view=markup>)
+(download
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=1589&view=co>)
+(annotate
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?annotate=1589>) -
+[select for diffs]
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=1589&view=log>
+Modified /Thu Aug 21 11:20:38 2003 UTC/ (7 years, 6 months ago) by /vibber/
+File length: 6753 byte(s)
+Diff to previous 1308
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=1308&r2=1589>
+
+Move interwiki management from big ugly array into the database, with
+memcached backing. Second 'wikipedia-interwiki.sql' has Wikipedia's
+local interlanguage URLs.
+
+------------------------------------------------------------------------
+Revision *1308* </viewvc/mediawiki?view=revision&revision=1308> - (view
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=1308&view=markup>)
+(download
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=1308&view=co>)
+(annotate
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?annotate=1308>) -
+[select for diffs]
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=1308&view=log>
+Modified /Tue May 6 22:58:49 2003 UTC/ (7 years, 10 months ago) by
+/lcrocker/
+File length: 6571 byte(s)
+Diff to previous 1307
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=1307&r2=1308>
+
+Removing "random" table.
+
+------------------------------------------------------------------------
+Revision *1307* </viewvc/mediawiki?view=revision&revision=1307> - (view
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=1307&view=markup>)
+(download
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=1307&view=co>)
+(annotate
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?annotate=1307>) -
+[select for diffs]
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=1307&view=log>
+Modified /Fri May 2 22:55:37 2003 UTC/ (7 years, 10 months ago) by
+/lcrocker/
+File length: 6754 byte(s)
+Diff to previous 1284
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=1284&r2=1307>
+
+Completed several maintenance scripts for index rebuilding.
+
+------------------------------------------------------------------------
+Revision *1284* </viewvc/mediawiki?view=revision&revision=1284> - (view
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=1284&view=markup>)
+(download
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?revision=1284&view=co>)
+(annotate
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?annotate=1284>) -
+[select for diffs]
+</viewvc/mediawiki/trunk/phase3/maintenance/tables.sql?r1=1284&view=log>
+Added /Mon Apr 14 23:10:40 2003 UTC/ (7 years, 11 months ago) by /lcrocker/
+File length: 6766 byte(s)
+
+Initial revision
+
+------------------------------------------------------------------------
+
+------------------------------------------------------------------------
+
+This form allows you to request diffs between any two revisions of this
+file. For each of the two "sides" of the diff, enter a numeric revision.
+
+  	Diffs between and
+  	Type of Diff should be a
+
+------------------------------------------------------------------------
+Bug the devs <http://bugzilla.wikimedia.org/> 	*ViewVC Help
+</viewvc/*docroot*/help_log.html>*
+ 
+
+Powered by ViewVC 1.1.8-dev <http://viewvc.tigris.org/>
+

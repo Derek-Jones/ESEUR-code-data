@@ -1,0 +1,14 @@
+** Not all of the files compile.  Some are just waaay too messed up.
+** Here are a list of the files:
+
+scan0032.cpp - Can't figure out what's wrong with this one.
+               I'm not very well versed in C++, so I need some help.
+
+scan0018.cpp - The original scan file (SCAN0018.jpg) is a mess.
+               Put that with my limited C++ knowledge and it makes
+               it very difficult.
+
+scan0022.c   - This is by far the most difficult file I've had to read.
+               The code starts on SCAN0023.jpg.  This one's really screwed up.
+
+** The rest should compile :)

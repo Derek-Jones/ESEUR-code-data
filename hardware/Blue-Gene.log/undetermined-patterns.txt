@@ -1,0 +1,166 @@
+33887	ciod: Error loading .*: invalid or missing program image, No such file or directory
+14247	ciod: LOGIN chdir.* failed: No such file or directory
+5983	ciod: failed to read message prefix on control stream \(CioStream socket to .*
+541	data TLB error interrupt
+228	machine check status register: 
+253	instruction plb error\.+\d+
+252	data read plb error\.+\d+
+252	data write plb error\.+\d+
+251	tlb error\.+\d+
+251	i-cache parity error\.+\d+
+250	d-cache search parity error\.+\d+
+250	d-cache flush parity error\.+\d+
+6492	machine state register:
+6388	core configuration register: 
+6417	disable store gathering\.+\d+
+2331	force load/store alignment\.+\d+
+2289	general purpose registers:
+18447	(([0-9a-f])+:([0-9a-f]){8} *){4}
+2287	special purpose registers:
+2306	lr:[0-9a-f]{8} cr:[0-9a-f]{8} xer:[0-9a-f]{8} ctr:[0-9a-f]{8}
+47	machine check interrupt .* L2 dcache unit data parity error
+216	LOGIN chdir\(.*\) failed: Permission denied
+46	machine check interrupt .* L3 major internal error
+26	L3 global control register: 
+26	close EDRAM pages as soon as possible\.+\d+
+26	disable all access to cache directory\.+\d+
+26	disable write lines
+26	L3 ecc control register:
+26	capture first directory correctable error address\.+\d+
+25	capture first EDRAM correctable error address\.+\d+
+25	capture first directory uncorrectable error address\.+\d+
+25	capture first EDRAM uncorrectable error address\.+\d+
+25	capture first EDRAM parity error address\.+\d+
+25	capture first DDR uncorrectable error address\.+\d+
+25	disable flagging of DDR UE.s as major internal error
+25	L3 ecc status register: 
+22529	data storage interrupt
+6155	exception syndrome register: 
+6158	program interrupt: illegal instruction\.+\d+
+6155	program interrupt: privileged instruction\.+\d+
+6155	program interrupt: trap instruction\.+\d+
+6155	data store interrupt caused by dcbf\.+\d+
+6155	data store interrupt caused by icbi\.+\d+
+6155	program interrupt: unimplemented operation\.+\d+
+6155	byte ordering exception\.+\d+
+6155	program interrupt: imprecise exception\.+\d+
+6155	program interrupt: fp cr update\.+\d+
+6155	program interrupt: fp compare\.+\d+
+6155	program interrupt: fp cr field \.+\d+
+1065	external input interrupt .*: torus sender .* retransmission error was corrected
+320	Error creating node map from file .*: No child processes
+824	ciod: Error loading .*: program image too big
+144	Error creating node map from file .*: Cannot allocate memory
+26546	ciod: Error reading message prefix on CioStream socket to .* Link has been severed
+1424	Error creating node map from file .*: Bad file descriptor
+1536	ciod: Error creating node map from file .*: Resource temporarily unavailable
+512	ciod: Error creating node map from file .*: Device or resource busy
+744	ciod: Error creating node map from file .*: Block device required
+2576	ciod: Error loading .*: invalid or missing program image, Exec format error
+408	ciod: Error creating node map from file .*: Permission denied
+1040	ciod: Error creating node map from file .*: Bad address
+15273	ciod: Error reading message prefix after LOAD_MESSAGE on CioStream socket to .*: Link has been severed
+960	 Microloader Assertion
+33024	ciod: Error loading .*: invalid or missing program image, Permission denied
+596	rts tree/torus link training failed: wanted: .* got: .*
+7832	ciod: Error reading message prefix after .* on CioStream socket to .*: Link has been severed
+114	ciod: Error reading message prefix after .* on CioStream socket to .*: Connection reset by peer
+816	ciod: LOGIN chdir.* failed: Input/output error
+619	rts: bad message header: cpu .* invalid
+6144	Error receiving packet on tree network, expecting type .* instead of type .*
+1991	ciod: Error reading message prefix on CioStream socket to .*, Connection timed out
+2256	ciod: Error reading message prefix on CioStream socket to .*, Connection reset by peer
+121	monitor caught java.lang.IllegalStateException: while executing I2C Operation caught java.net.SocketException: Broken pipe and is stopping
+1518	fpr\d+=0x([0-9a-f]{8} *){4}
+306	Kill job \d+ timed out.
+1146	rts: bad message header: expecting type .* instead of type .*
+238	rts: bad message header: index .* greater than total .*
+114	rts: bad message header: packet index .* greater than max .*
+32	ciod: LOGIN open.* failed: Permission denied
+90	lib_ido_error: .* socket closed
+1024	ciod: Error loading .*: not a CNK program image
+379	(r[0-9a-f]+=0x[0-9a-f]{8}\s*){4}
+130	DCR 0x.* : 0x[0-9a-f]{8}
+61	Hardware monitor caught java.net.SocketException: Broken pipe and is stopping
+43	General Purpose Registers:
+42	Special Purpose Registers:
+50	 correctable error detected in directory \d+\.+\d+
+50	uncorrectable error detected in directory \d+\.+\d+
+50	 correctable error detected in EDRAM bank \d+\.+\d+
+50	uncorrectable error detected in EDRAM bank \d+\.+\d+
+50	parity error in bank \d+\.+\d+
+25	uncorrectable error detected in external DDR\.+\d+
+75	parity error in read queue .*\d+
+48	FATAL (0x[0-9a-f]{8} *)*\n
+25	parity error in write buffer
+25	number of correctable errors detected in L3 directories
+25	number of correctable errors detected in L3 EDRAMs
+25	number of lines with parity errors written to L3 EDRAMs
+25	DDR machine check register:
+25	memory manager uncorrectable error\.+\d+
+25	memory manager strobe gate\.+\d+
+25	memory manager address parity error\.+\d+
+25	memory manager miscompare\.+\d+
+25	memory manager address error\.+\d+
+25	memory manager store buffer parity\.+\d+
+25	memory manager RMW buffer parity
+25	memory manager refresh\.+\d+
+25	memory manager refresh counter timeout\.+\d+
+25	memory manager refresh contention\.+\d+
+25	memory manager / command manager address parity
+25	regctl scancom interface\.+\d+
+25	DDR failing info register:
+25	capture valid\.+\d+
+25	miscompare\.+\d+
+25	uncorrectable error\.+\d+
+25	address parity error\.+\d+
+25	correctable error\.+\d+
+25	qw trapped\.+\d+
+26	DDR failing data registers: 
+26	DDR failing address register
+2	machine check interrupt .*: L2 DCU read error
+2	Target=.* Message=Pll failed to lock
+2	Target=.* Message=ScomError
+7	Target=.* Message=Invalid JtagId = .*
+3	mmcs_server exited normally with exit code \d+
+1	 port disconnected: .*
+2	machine check interrupt .*: Torus/Tree/GI read error
+7	VALIDATE_LOAD_IMAGE_CRC_IN_DRAM
+8	ciod: Error loading .*: invalid or missing program image, No such device
+10	external input interrupt .*: uncorrectable torus error
+30	Machine Check Status Register:
+10	Torus non-recoverable error DCRs follow
+1	parity error\.+\d+
+4	program interrupt
+1	MailboxMonitor::.* lib_ido_error: .* unexpected socket error: Broken pipe
+1	ciodb exited normally with exit code 0
+6	MailboxMonitor::.* lib_ido_error: .*BGLERR_IDO_PKT_TIMEOUT connection lost to node/link/service card
+1	mmcs_server exited abnormally due to signal: Segmentation fault
+2	While inserting monitor info into DB caught java.lang.NullPointerException
+1	idoproxy exited normally with exit code \d+
+1	ciodb exited normally with exit code \d+
+1	Target=.* Message=JtagId All all zeros, power good may be low
+1	external input interrupt .*: tree header with no target waiting
+1	floating point unavailable interrupt
+1	Error sending packet on tree network, packet at address .* is not aligned
+1	ddr: redundant bit steering failed, sequencer timeout
+14	idoproxy communication failure: socket closed
+44	Machine State Register:
+44	Core Configuration Register \d+:
+134	FATAL (.*=0x[0-9a-f]{8})+\n
+44	Floating Point Status and Control Register:
+170	 exception\.+\d+
+379	FATAL invalid.*\.+\d+
+42	fraction rounded\.+\d+
+43	fraction inexact
+42	Floating Point Registers:
+1	monitor caught java.lang.IllegalStateException: while executing CONTROL Operation caught java.io.EOFException and is stopping
+4	Exception Syndrome Register:
+2	idoproxy communication failure: .* connection lost to node/link/service card
+1	machine check interrupt .*: L2 dcache unit read return parity error
+15	machine check interrupt .*: L2 dcache unit write data parity error
+1	MidplaneSwitchController::clearPort\(\) bll_clear_port failed: .*
+8	ciod: Error creating node map from file .*: No such file or directory
+8	ciod: Error creating node map from file my_map.txt: Argument list too long
+1	instruction TLB error interrupt
+1	Error receiving packet on tree network, packet index .* greater than max .*

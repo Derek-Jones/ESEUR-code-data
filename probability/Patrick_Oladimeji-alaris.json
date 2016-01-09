@@ -1,0 +1,165 @@
+{
+  "device name":"Alaris Infusion Pump",
+  "start state":"Off",
+  "device spec":[
+    {
+      "stateName":"Off",
+      "stateType":"single",
+      "neighbours":[{"stateName":"SetRate","button":"Power"}]
+    },	
+    {
+    	"stateName":"Infusing",
+    	"stateType":"single",
+    	"neighbours":[{"stateName":"SetRate","button":"Finished"},
+    	{"stateName":"On_Hold","button":"Hold"}]
+    },
+    {
+    	"stateName":"On_Hold",
+    	"stateType":"single",
+    	"neighbours":[{"stateName":"Infusing","button":"Run"}]
+    },
+    {
+        "stateName":"SetRate",
+        "stateType":"single",
+        "neighbours":[{"stateName":"Set_VTBI","button":"Opt2"},
+                      {"stateName":"Show_Volume_Infused","button":"Opt1"},
+                      {"stateName":"L2","button":"Pressure"},
+                      {"stateName":"Off","button":"Power"},
+                      {"stateName":"Infusing","button":"Run"},
+                      {"stateName":"Rate_Lock","button":"Option"}
+         ]
+    },
+
+    {
+        "stateName":"Set_VTBI",
+        "stateType":"single",
+        "neighbours":[{"stateName":"SetRate","button":"Opt1"},
+                      {"stateName":"500ml_tbi","button":"Opt2"},
+						 {"stateName":"Off","button":"Power"},
+                      {"stateName":"SetRate","button":"Opt3"}
+        ]   
+    },
+
+    {
+        "stateName":"Show_Volume_Infused",
+        "stateType":"single",
+        "neighbours":[{"stateName":"SetRate","button":"Opt3"}, 
+        			  {"stateName":"Off","button":"Power"},
+                      {"stateName":"SetRate","button":"Opt2"}]
+    },
+    {
+        "stateName":"L2",
+        "stateType":"single",
+        "neighbours":[{"stateName":"SetRate","button":"Opt1"},{"stateName":"L5","button":"UP"}, {"stateName":"SetRate","button":"Pressure"},{"stateName":"Off","button":"Power"},
+                      {"stateName":"L5","button":"up"}]
+
+    },
+    {
+        "stateName":"L5",
+        "stateType":"single",
+        "neighbours":[{"stateName":"SetRate","button":"Opt1"},{"stateName":"L2","button":"DN"}, {"stateName":"Off","button":"Power"},
+                      {"stateName":"L2","button":"dn"},
+                      {"stateName":"L8","button":"UP"},
+                      {"stateName":"L8","button":"up"}]
+    },
+
+    {
+        "stateName":"L8",
+        "stateType":"single",
+        "neighbours":[{"stateName":"SetRate","button":"Opt1"},{"stateName":"L5","button":"DN"}, {"stateName":"Off","button":"Power"},
+                      {"stateName":"L5","button":"dn"}]
+    },
+    {
+        "stateName":"Rate_Lock",
+        "stateType":"single",
+        "neighbours":[{"stateName":"SetRate","button":"Opt3"}, {"stateName":"Off","button":"Power"},
+                      {"stateName":"Dosing_Summary","button":"dn"},
+                      {"stateName":"Pump_Details","button":"DN"}]
+    },
+
+    {
+        "stateName":"Dosing_Summary",
+        "stateType":"single",
+        "neighbours":[{"stateName":"Off","button":"Power"},
+                      {"stateName":"Infusion_Setup","button":"dn"},
+                      {"stateName":"Rate_Lock","button":"up"},
+                      {"stateName":"Rate_Lock","button":"UP"},
+                      {"stateName":"Pump_Details","button":"DN"},
+                      {"stateName":"SetRate","button":"Opt3"}]
+    },
+    {
+        "stateName":"Infusion_Setup",
+        "stateType":"single",
+        "neighbours":[{"stateName":"Dosing_Summary","button":"up"}, {"stateName":"Off","button":"Power"},
+                      {"stateName":"Rate_Lock","button":"UP"},
+                      {"stateName":"Set_VTBI_Over_Time","button":"dn"},
+                      {"stateName":"ml/hr","button":"Opt1"},
+                      {"stateName":"Pump_Details","button":"DN"},{"stateName":"SetRate","button":"Opt3"}]       
+    },
+    {
+        "stateName":"Set_VTBI_Over_Time",
+        "stateType":"single",
+        "neighbours":[{"stateName":"Infusion_Setup","button":"up"}, {"stateName":"Off","button":"Power"},
+                      {"stateName":"Rate_Lock","button":"UP"},
+                      {"stateName":"Adjust_Alarm_Volume","button":"dn"},
+                      {"stateName":"Pump_Details","button":"DN"},{"stateName":"SetRate","button":"Opt3"}]
+    },
+    {
+        "stateName":"Adjust_Alarm_Volume",
+        "stateType":"single",
+        "neighbours":[{"stateName":"Set_VTBI_Over_Time","button":"up"}, {"stateName":"Off","button":"Power"},
+                      {"stateName":"Rate_Lock","button":"UP"},
+                      {"stateName":"Pump_Details","button":"DN"},{"stateName":"SetRate","button":"Opt3"}]
+       
+    },
+    {
+        "stateName":"Pump_Details",
+        "stateType":"single",
+        "neighbours":[ {"stateName":"Off","button":"Power"},
+                      {"stateName":"Rate_Lock","button":"UP"},{"stateName":"SetRate","button":"Opt3"}]
+    },
+    {
+        "stateName":"500ml_tbi",
+        "stateType":"single",
+        "neighbours":[{"stateName":"Off","button":"Power"},{"stateName":"Set_VTBI","button":"Opt1"}]
+    },
+    
+  {
+    "stateName":"ml/hr",
+    "stateType":"single",
+    "neighbours":[{"stateName":"Dosing_Only","button":"dn"},{"stateName":"Dosing_Only","button":"DN"}, {"stateName":"Off","button":"Power"},{"stateName":"SetRate","button":"Opt1"}]
+  },
+  {
+    "stateName":"Dosing_Only",
+    "stateType":"single",
+    "neighbours":[{"stateName":"ml/hr","button":"up"},{"stateName":"ml/hr","button":"UP"}, {"stateName":"Off","button":"Power"},{"stateName":"Dosing_Units_Selection","button":"Opt1"}]
+  },
+  {
+    "stateName":"Dosing_Units_Selection",
+    "stateType":"single",
+    "neighbours":[{"stateName":"Set_Weight","button":"Opt1"}, {"stateName":"Off","button":"Power"},{"stateName":"Dosing_Only","button":"Opt3"}]
+    /*"children":["ug/kg/min","ug/kg/h","mg/kg/min","mg/kg/h","u/kg/h","mmol/kg/min","mmol/kg/h","ug/min","ug/h","mg/h","g/h","u/h","mmol/h","ng/kg/min"],*/
+    /*"default":{"stateName":"ug/kg/min","button":"Opt1"}*/
+  },
+  {
+    "stateName":"Set_Weight",
+    "stateType":"single",
+    "neighbours":[{"stateName":"Dosing_Units_Selection","button":"Opt3"}, {"stateName":"Off","button":"Power"},{"stateName":"Set_Volume","button":"Opt1"}]
+  },
+  {
+    "stateName":"Set_Volume",
+    "stateType":"single",
+    "neighbours":[{"stateName":"Set_Weight","button":"Opt3"}, {"stateName":"Off","button":"Power"},{"stateName":"Set_Drug_Amount","button":"Opt1"}]
+  },
+  {
+    "stateName":"Set_Drug_Amount",
+    "stateType":"single",
+    "neighbours":[{"stateName":"Set_Volume","button":"Opt3"}, {"stateName":"Off","button":"Power"},{"stateName":"Confirm_DosingOnly_Setup","button":"Opt1"}]
+  },
+  {
+    "stateName":"Confirm_DosingOnly_Setup",
+    "stateType":"single",
+    "neighbours":[{"stateName":"Set_Drug_Amount","button":"Opt3"}, {"stateName":"Off","button":"Power"},{"stateName":"SetRate","button":"Opt1"}]
+  }      
+  ]
+}

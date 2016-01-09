@@ -1,0 +1,18 @@
+              (post > 3) ~ pre+
+                            NOF_avg+
+                            PAR_avg,
+    precision, recall,    accuracy,  defects
+[1] 0.25000000 0.06451613 0.99556288 0.00393002
+[1] 0.70000000 0.22580645 0.99657708 0.00393002
+
+              (post > 3) ~ pre+
+                            NBD_max+NBD_sum+
+                            NOF_avg+
+                            PAR_avg,
+    precision, recall,    accuracy,  defects
+[1] 0.57142857 0.12903226 0.99619675 0.00393002
+[1] 0.70000000 0.22580645 0.99657708 0.00393002
+
+Warning message:
+glm.fit: fitted probabilities numerically 0 or 1 occurred 
+

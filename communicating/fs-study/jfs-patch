@@ -1,0 +1,463 @@
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.0
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.1
+	[PATCH] JFS fix for NFS on little-endian systems
+		. (1):(dir):(b:sem->gene):(s:corruption):(rep:wrong_endianess) 1 8 4 
+	[PATCH] don't clear i_sb
+		. (1):(inode):(b:sem->state->inode):(s:crash->null):(r:fail):(note:wrong_state_update_inode) 1 0 2 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.2
+	JFS: Avoid segfault when dirty inodes are written on readonly mount
+		. (2):(journal):(b:mem->null):(s:crash->null):(rep:deref_before_check) 1 4 0 
+	JFS: Fix broken return code checking in ACL code
+		. (2):(xattr):(b:error_handling->wr_err):(s:crash->af):(r:fail):(rep:bad_ac) 1 3 2 
+	[JFS] allow resize option with no parameter
+		. (2):(super):(b:sem->conf):(s:error->op_fail):(rep:forget_config) 1 13 10 
+	JFS: Creating large xattr lists may cause BUG
+		. (2):(xattr):(b:sem->state->other->xattr):(s:crash->BUG):(note:wrong_state_update_other_xattr) 1 1 1 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.3
+	JFS: rename should update mtime on source and target directories
+		. (3):(dir):(b:sem->state->inode):(s:corruption):(rep:update_time) 1 2 2 
+	JFS: Threads should exit with complete_and_exit
+		. (3):(journal):(b:sem->wlog):(s:wb):(note:wrong_logic) 2 3 6 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.4
+	JFS: get_UCSname does not need nls_tab argument
+		. (4):(misc->api)
+	JFS: Don't do filename translation by default
+		. (4):(misc->code)
+	JFS: Error path accessed uninitialized variables
+		. (4):(inode):(b:mem->unread):(s:crash->af):(r:fail):(rep:use_before_init) 1 1 3 
+	JFS: Support sharing of journal by multiple volumes
+		. (4):(journal,super):(f) 7 317 211 
+	JFS: setting xattr should update ctime
+		. (4):(xattr):(b:sem->state->inode):(s:corruption):(rep:update_time) 1 1 0 
+	JFS: warn users of inaccessible file names
+		. (4):(other):(c:db) 1 18 2 
+	JFS: Avoid incrementing i_count on file create
+		. (4):(inode,journal,dir):(b:sem->state->inode):(s:error->op_fail):(note:wrong_state_update_inode) 5 26 26 
+	JFS: Add lots of missing statics and remove dead code
+		. (4):(misc->code)
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.5
+	JFS: zero new log pages, etc.
+		. (5):(file,journal,super):(c:cor_ck) 3 6 2 
+	JFS: Prevent hang in __lock_metapage
+		. (5):(inode,tree,journal,balloc):(b:concurrency->m_unlock):(s:hang):(r:fail) 5 147 109 
+	JFS: don't use global lock in lmLogSync when local lock is sufficient
+		. (5):(journal):(p:sync->sm_lock):(s:performance->cpu) 1 6 2 
+	JFS: initialize log->bp before calling lmNextPage
+		. (5):(journal):(b:mem->unread):(s:crash->null):(rep:use_before_init) 1 3 4 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.6
+	JFS: Fix race in jfs_sync
+		. (6):(journal):(b:concurrency->ato):(s:crash->null) 1 12 5 
+	JFS: Fix non-ascii file name problem
+		. (6):(other):(b:sem->gene):(s:corruption):(r:fail):(rep:wrong_type) 1 2 3 
+	JFS: [CHECKER] Fix a possible null-pointer dereference
+		. (6):(tree->dir):(b:mem->null):(s:crash->null):(rep:deref_before_check) 1 6 1 
+	JFS: [CHECKER] Memory leak in jfs_link
+		. (6):(dir):(b:mem->re):(s:leak->fo):(r:fail):(rep:leak_on_err) 1 5 2 
+	JFS: [CHECKER] get rid of txAbortCommit
+		. (4):(misc->code)
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.7
+	JFS: Avoid race invalidating metadata page
+		. (7):(file):(b:concurrency->ato):(s:corruption):(rep:lock_page_update) 2 68 40 
+	JFS: reduce stack usage
+		. (7):(misc->code)
+	JFS: [CHECKER] More robust error recovery in add_index
+		. (7):(tree->dir):(b:error_handling->wr_err):(s:corruption):(r:fail) 1 16 12  
+	JFS: module unload was not removing /proc/fs/jfs/
+		. (7):(misc->code)
+	JFS: error in __get_metapage caused by invalid size from ea_get
+		. (7):(xattr):(b:sem->wlog):(s:error->wr_err):(note:wrong_logic) 1 2 1 
+	JFS: Don't return -EPERM for system xattrs.
+		. (7):(misc->code)
+	JFS: Implement multiple commit threads
+		. (7):(journal,super):(f):(commit_thread) 7 182 130 
+	JFS: set GFP_NOFS to avoid recursing back into file system code
+		. (7):(super):(b:concurrency->deadlock):(s:deadlock->re):(rep:wrong_kmalloc_flag) 2 12 1 
+	JFS: [CHECKER] Memory leak on commonly executed path
+		. (7):(log):(b:mem->re):(s:leak->fo):(rep:leak_on_exit) 1 3 0 
+	JFS: [CHECKER] if txCommit fails, don't call d_instantiate
+		. (7):(dir):(b:concurrency->inter):(s:crash->null):(r:fail):(note:init_race_commit) 1 11 9 
+	JFS: check default acl for correctness before setting it
+		. (7):(xattr):(c:cor_ck) 1 16 9 
+	JFS: fix hang in __get_metapage
+		. (7):(file):(b:concurrency->inter):(s:hang):(ff):(note:call_yield) 1 1 0 
+	JFS: Handle out of space errors more gracefully
+		. (7):(dir,journal,tree):(c:err_ck):(rep:grace) 3 71 88 
+	JFS: Better RAS when btstack is overrun
+		. (7):(balloc,tree->dir):(c:db) 4 31 11 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.8
+	JFS: Don't allow reading beyond the inode map's EOF
+		. (8):(file):(b:sem->state->inode):(s:corruption):(note:miss_state_check_inode) 1 9 1 
+	[PATCH] jfs build fix
+		. (8):(misc->compile)
+	[PATCH] jfs warning fix
+		. (8):(misc->compile)
+	[PATCH] jfs_setattr() fix
+		. (8):(xattr):(b:error_handling->wr_err):(s:error->wr_err):(r:fail) 1 2 2 
+	JFS: Error path released metadata page it shouldn't have
+		. (8):(tree->extent):(b:mem->df):(s:crash->null):(r:fail) 1 8 17 
+	JFS: Updated field isn't always written to disk during truncate
+		. (8):(tree->extent):(b:sem->state->journal):(s:corruption):(rep:forget_journaling) 1 11 1 
+	JFS: Protect active_ag with a spinlock
+		. (8):(file,extent,super):(b:concurrency->ato):(s:corruption):(rep:lock_inode_update) 4 11 0 
+	JFS: prevent concurrent calls to txCommit on the imap inode
+		. (8):(inode):(b:concurrency->ato):(s:corruption) 1 6 0 
+	JFS: Check for dmap corruption before using leafidx
+		. (8):(balloc):(c:cor_ck) 1 34 0 
+	JFS: jfs_dmap build fix
+		. (8):(misc->compile)
+	[PATCH] sparse: NULL noise in jfs
+		. (8):(misc->code)
+	JFS: Add d_hash and d_compare operations for case-insensitive names
+		. (8):(misc->code)
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.9
+	JFS: disk quota support
+		. (9):(xattr,inode,tree,extent,journal,dir,resize):(f):(quota) 11 210 105 
+	JFS: Trivial: remove dead code
+		. (9):(misc->code)
+	JFS: fix memory leak in __invalidate_metapages
+		. (9):(file):(b:mem->re):(s:leak->vo) 1 1 0 
+	[PATCH] fix for fsync ignoring writing errors
+		. (9):(inode):(b:error_handling->ms_err):(s:corruption):(r:fail):(rep:miss_write_err) 2 7 5 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.10
+	JFS: Fix extent overflow bugs
+		. (10):(tree->extent):(b:sem->wlog):(s:corruption):(note:wrong_logic) 1 26 34 
+	JFS: avoid assert in lbmfree
+		. (10):(journal):(b:sem->state->journal):(s:crash->assert):(r:fail):(note:miss_state_update_journaling) 1 2 0 
+	JFS: endian annotations
+		. (10):(inode,balloc,tree,journal,other):(c:an) 16 276 220 
+	JFS: use alloc_metapage for consistency
+		. (10):(misc->code)
+	JFS: make some symbols static
+		. (10):(misc->api)
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.11
+	JFS: fix race in jfs_commit_inode
+		. (11):(inode):(b:concurrency->ato):(s:corruption):(rep:del_commit_race) 1 8 3 
+	JFS: add security and trusted xattrs
+		. (11):(xattr):(f) 2 67 4 
+	JFS: speed up nointegrity mount
+		. (11):(journal):(p:acce):(s:performance->io):(rep:avoid_redun_write) 1 4 0 
+	JFS: flush new iag from bd_inode's mapping
+		. (11):(inode,file):(b:sem->state->other):(s:corruption):(note:miss_state_update_other) 2 7 8 
+	JFS: delete unused file
+		. (11):(misc->code)
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.12
+	JFS: Endian errors
+		. (12):(tree->extent):(c:an) 1 3 3 
+    [PATCH] JFS: Don't allocate extents that overlap existing extents
+		. (12):(inode,tree):(b:sem->wlog):(s:corruption):(note:wrong_logic) 3 46 25 
+    [PATCH] JFS: Write journal sync points more often
+		. (12):(journal,super):(c:cor_ck) 4 27 9 
+    [PATCH] JFS: Support page sizes greater than 4K
+		. (12):(inode,balloc,journal,file,super,resize):(f) 13 809 465  
+    [PATCH] JFS: Changes for larger page size
+		. (12):(misc->code)
+    [PATCH] JFS: Simplify creation of new iag
+		. (12):(inode):(p:acce):(s:performance->io) 1 36 34 
+    [PATCH] JFS: reduce number of synchronous transactions
+		. (12):(journal):(p:sche):(s:performance->io):(rep:batch_more_writes) 1 40 23 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.13
+    JFS: Fix race in txLock
+        . (13):(journal):(b:concurrency->ato):(s:corruption):(rep:lock_inode_update)  2  4   0 
+    JFS: Check for invalid inodes in jfs_delete_inode
+        . (13):(inode):(b:sem->state->inode):(s:wb):(note:wrong_state_update_inode)  1  4   0 
+    JFS: Improve sync barrier processing
+        . (13):(journal,super):(p:sche):(s:performance->io)  4  26   24 
+    JFS: Fix i_blocks accounting when allocation fails
+        . (13):(tree->dir):(b:mem->re):(s:corruption):(r:fail):(rep:leak_on_err)  1  9   4 
+    JFS: Don't set log_SYNCBARRIER when log->active == 0
+        . (13):(journal):(b:sem->state->journal):(s:hang):(note:miss_state_update_journaling)  1  2   1 
+    JFS: Fix typo in last patch
+        . (13):(file):(b:sem->gene):(s:crash->null):(r:fail):(ff):(rep:simple_typo)  1  1   1 
+    JFS: fsync wrong behavior when I/O failure occurs
+        . (13):(file):(b:sem->state->other->page):(s:corruption):(r:fail):(note:miss_state_check_other_page)  1  1   1 
+    JFS: Remove assert statement in dbJoin & return -EIO instead
+        . (13):(balloc):(c:err_ck):(rep:grace)  1  30   16 
+    JFS: Remove bogus WARN_ON statement and some dead code
+        . (13):(misc->code)  1  0   9 
+    JFS: Need to be root to create files with security context
+        . (13):(xattr):(b:sem->gene):(s:error->wr_err):(rep:simple_typo)  1  2   2 
+    JFS: Allow security.* xattrs to be set on symlinks
+        . (13):(xattr):(b:sem->state->inode):(s:error->wr_err):(r:fail):(note:wrong_state_check_inode)  1  1   1 
+    JFS: Code cleanup - getting rid of never-used debug code
+        . (13):(misc->code)  6  8   947 
+    JFS: performance patch
+        . (13):(other):(p:rest):(s:performance->cpu)  1  4   3 
+    JFS: Fix compiler warning in jfs_logmgr.c
+        . (13):(misc->compile)  1  3   2 
+    JFS: kernel BUG at fs/jfs/jfs_txnmgr.c:859
+        . (13):(tree->dir):(b:sem->state->journal):(s:crash->BUG):(note:miss_state_update_journaling)  1  3   0 
+    JFS: Remove redundant kfree() NULL pointer checks
+        . (13):(misc->code)  2  4   8 
+    JFS: Fix sparse warning
+        . (13):(misc->code)    1  1   1 
+    JFS: cleanup - remove unneeded sanity check
+        . (13):(misc->code)  1  0   9 
+    JFS: fix sparse warnings by moving extern declarations to headers
+        . (13):(misc->code)  18  89   181 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.14
+    JFS: don't dereference tlck->ip from txUpdateMap
+        . (14):(journal):(b:mem->null):(s:crash->null):(rep:deref_before_check)  2  9   1 
+    JFS: Fix sparse warnings, including endian error
+        . (14):(inode):(b:sem->gene):(s:corruption):(t:sparse):(rep:wrong_endianess)  3  5   6 
+    JFS: Implement jfs_init_security
+        . (14):(dir,xattr):(f)  3  68   0 
+    JFS: allow extended attributes to be set within a existing transaction
+        . (14):(dir,xattr):(f)  5  112   49 
+    JFS: jfs_delete_inode should always call clear_inode.
+        . (14):(inode):(b:mem->re):(s:leak->vo)  1  12   12 
+    JFS: Initialize dentry->d_op for negative dentries too
+        . (14):(misc->code)  1  2   3 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.15
+    JFS: set i_ctime & i_mtime on target directory when creating links
+        . (15):(dir):(b:sem->state->inode):(s:corruption):(rep:update_time)  1  3   0 
+    JFS: make sure right-most xtree pages have header.next set to zero
+        . (15):(tree->extent):(b:sem->state->tree):(s:corruption):(note:wrong_state_update_tree)  1  9   9 
+    JFS: Corrupted block map should not cause trap
+        . (15):(balloc):(c:err_ck):(rep:grace)  1  14   5 
+    JFS: make special inodes play nicely with page balancing
+        . (15):(balloc,inode,file,journal,super):(b:sem->wlog):(s:corruption):(note:wrong_logic)  5  15   5 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.16
+    [PATCH] JFS: Take logsync lock before testing mp->lsn
+        . (16):(balloc,inode):(b:concurrency->ato):(s:corruption) 2 4 9 
+    [PATCH] remove jfs xattr permission checks
+        . (16):(misc->code)
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.17
+    JFS: Fix multiple errors in metapage_releasepage
+        . (17):(file):(b:sem->wlog):(s:error->wr_err):(note:wrong_logic)  1  5   15 
+    JFS: add uid, gid, and umask mount options
+        . (17):(xattr,inode,super):(f)  5  93   10 
+    JFS: kzalloc conversion
+        . (17):(misc->api)  3  5   10 
+    JFS: Add missing file from fa3241d24cf1182b0ffb6e4d412c3bc2a2ab7bf6
+        . (17):(misc->code):(funny!)  1  107   0 
+    JFS: Use the kthread_ API
+        . (17):(misc->api)  4  38   72 
+    JFS: Fix regression.  fsck complains if symlinks do not have INLINEEA attribute
+        . (17):(inode):(b:sem->state->inode):(s:corruption):(ff):(note:wrong_state_update_inode)  1  4   4 
+    JFS: ext2 inode attributes for jfs
+        . (17):(file,inode,dir):(f)  7  69   8 
+    JFS: semaphore to mutex conversion.
+        . (17):(misc->api)  15  103   101 
+    JFS: make buddy table static
+        . (17):(misc->api)  1  1   1 
+    JFS: Add back directory i_size calculations for legacy partitions
+        . (17):(misc->code)  1  12   1 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.18
+    JFS: Fix bug in quota code.  tmp_bh.b_size must be initialized
+        . (18):(super):(b:mem->unread):(s:corruption):(ff):(rep:use_before_init)  1  1   0 
+    JFS: Quota support broken, no quota_read and quota_write
+        . (18):(misc->code)  3  119   15 
+    JFS: commit_mutex cleanups
+        . (18):(dir):(b:concurrency->m_unlock):(s:deadlock->re):(r:fail)  2  17   18 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.19
+    JFS: Remove redundant xattr permission checking
+        . (19):(misc->code)  1  5   4 
+    jfs: Add splice support
+        . (19):(misc->code)  1  2   0 
+    JFS: pageno needs to be long
+        . (19):(inode):(b:sem->gene):(s:corruption):(rep:wrong_type)  1  2   2 
+    JFS: White space cleanup
+        . (19):(misc->code)  41  508   510 
+    [PATCH] JFS: return correct error when i-node allocation failed
+        . (19):(inode,dir,super,tree):(b:error_handling->wr_err):(s:error->wr_err):(r:fail) 5 17 17 
+    JFS: Remove shadow variable from fs/jfs/jfs_txnmgr.c:xtLog()
+        . (19):(misc->code)  1  0   2 
+    [PATCH] fs/jfs: Conversion to generic boolean
+        . (19):(misc->api)
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.20
+    [PATCH] Fix JFS after clear_page_dirty() removal
+        . (20):(misc->code)
+    [PATCH] struct path: convert jfs
+        . (20):(misc->code)
+    JFS: Fix conflicting superblock flags
+        . (20):(other):(b:sem->gene):(s:wb):(rep:simple_typo)  1  21   21 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.21
+    JFS: Get rid of "may be used uninitialized" warnings
+        . (21):(misc->compile)
+    JFS: Remove incorrect kgdb define
+        . (21):(misc->code)  1  0   5 
+    JFS: call io_schedule() instead of schedule() to avoid deadlock
+        . (21):(file,journal):(b:concurrency->deadlock):(s:deadlock->cl):(note:call_schedule)  3  3   3 
+    JFS: Add lockdep annotations
+        . (21):(inode,balloc,dir):(c:an->lock)  5  74   41 
+    JFS: Avoid BUG() on a damaged file system
+        . (21):(tree->extent):(c:err_ck):(rep:grace)  1  15   0 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.22
+    JFS: Fix race waking up jfsIO kernel thread
+        . (22):(journal):(b:concurrency->ato):(s:wb)  1  2   1 
+    JFS: use __set_current_state()
+        . (22):(misc->api)  3  6   6 
+    Copy i_flags to jfs inode flags on write
+        . (22):(inode,ioctl):(b:sem->state->inode):(s:corruption):(note:miss_state_update_inode)  5  23   1 
+    JFS: document uid, gid, and umask mount options in jfs.txt
+        . (22):(misc->doc)  1  7   1 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.23
+    JFS: Update print_hex_dump() syntax
+        . (23):(misc->code)  5  28   29 
+    JFS: use print_hex_dump() rather than private dump_mem() function
+        . (23):(misc->api)  7  29   45 
+    JFS: Whitespace cleanup and remove some dead code
+        . (23):(misc->code)  23  1066   1098 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.24
+    Forbid user to change file flags on quota files
+        . (24):(ioctl):(c:fun_ck):(rep:permission_check)  5  21   0 
+    jfs: new export ops
+        . (24):(misc->api)  3  27   18 
+    jfs: convert to new aops
+        . (24):(misc->api)  1  10   7 
+    JFS: Bio cleanup: Replace missing return statements
+        . (24):(journal):(b:sem->gene):(s:wb):(ff):(rep:simple_typo)  1  3   0 
+    JFS: fix bio-related build breakage
+        . (24):(misc->compile)  1  1   6 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.25
+    BKL-removal: Implement a compat_ioctl handler for JFS
+        . (25):(misc->code)  5  27   0 
+    BKL-removal: Use unlocked_ioctl for jfs
+        . (25):(ioctl):(p:sync->sm_lock):(s:performance->cpu)  4  13   7 
+    iget: stop JFS from using iget() and read_inode()
+        . (25):(inode,dir,super):(c:err_ck)  4  40   31 
+    mount options: fix jfs
+        . (25):(misc->code)  1  6   0 
+    JFS: simplify types to get rid of sparse warning
+        . (25):(misc->code)  1  14   14 
+    JFS: FIx one more plain integer as NULL pointer warning
+        . (25):(misc->code)  1  1   1 
+    JFS: Remove defconfig ptr comparison to 0
+        . (25):(misc->code)  5  15   14 
+    JFS: use DIV_ROUND_UP where appropriate
+        . (25):(misc->api)  2  3   3 
+    Remove unnecessary kmalloc casts in the jfs filesystem
+        . (25):(misc->code)  1  2   6 
+    JFS is missing a memory barrier
+        . (25):(file):(b:concurrency->ato):(s:corruption)  1  2   2 
+    JFS: Make sure special inode data is written after journal is flushed
+        . (25):(journal,super):(b:sem->io):(s:corruption):(rep:sync_to_async)  2  17   19 
+    JFS: clear PAGECACHE_TAG_DIRTY for no-write pages
+        . (25):(file):(p:acce):(s:performance->io):(rep:avoid_redun_write)    1  8   3 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.26
+    jfs: replace __inline with inline
+        . (26):(misc->api)  1  1   1 
+    jfs: le*_add_cpu conversion
+        . (26):(misc->api)
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.27
+    jfs: remove DIRENTSIZ
+        . (27):(misc->code)  1  0   3 
+    JFS: diAlloc() should return -EIO rather than EIO
+        . (27):(inode):(b:error_handling->wr_err):(s:error->wr_err):(r:fail):(rep:wrong_signedness)  1  1   1 
+    JFS: skip bad iput() call in error path
+        . (27):(super):(b:error_handling->wr_err):(s:crash->af):(r:fail):(rep:bad_ac)  1  3   4 
+    JFS: switch to seq_files
+        . (27):(misc->code)  6  114   133 
+    JFS: 0 is not valid errno value so return NULL from jfs_lookup
+        . (27):(dir):(b:error_handling->wr_err):(s:error->wr_err):(r:fail)  1  1   1 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.28
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.29
+    fix the treatment of jfs special inodes
+        . (29):(inode):(b:concurrency->ato):(s:corruption)  1  7   3 
+    nfsd race fixes: jfs
+        . (29):(dir,inode):(b:concurrency->ato):(s:corruption):(r:fail):(rep:nfs_race_inode)  2  37   16 
+    jfs: ensure symlinks are NUL-terminated
+        . (29):(inode):(c:cor_ck):(rep:inode_check)  1  7   1 
+    CRED: Wrap task credential accesses in the JFS filesystem
+        . (29):(misc->api)  1  2   2 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.30
+    constify dentry_operations: JFS
+        . (30):(misc->api)  2  3   3 
+    jfs: Use lowercase names of quota functions
+        . (30):(misc->code)  8  36   36 
+    jfs: needs crc32_le
+        . (30):(misc->compile)  1  1   0 
+    jfs: Fix error handling in metapage_writepage()
+        . (30):(file):(c:err_ck)  1  13   5 
+    jfs: return f_fsid for statfs(2)
+        . (30):(misc->code)  1  4   0 
+    jfs: remove xtLookupList()
+        . (30):(misc->code)  4  25   332 
+    jfs: clean up a dangling comment
+        . (30):(misc->code)  1  3   7 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.31
+    jfs: Fix early release of acl in jfs_get_acl
+        . (31):(xattr):(b:mem->dp):(s:crash->null):(r:fail):(real):(ff):(rep:use_after_free)  1  1   3 
+    another race fix in jfs_check_acl()
+        . (31):(xattr):(b:concurrency->ato):(s:corruption)  1  7   6 
+    switch jfs to inode->i_acl
+        . (31):(misc->api)  4  15   41 
+    jfs: fix regression preventing coalescing of extents
+        . (31):(extent):(b:sem->state->tree):(s:error->op_fail):(ff):(note:miss_state_update_tree)  1  1   0 
+    jfs: Add missing mutex_unlock call to error path
+        . (31):(inode):(b:concurrency->m_unlock):(s:deadlock->re):(r:fail)  1  1   0 
+    missing unlock in jfs_quota_write()
+        . (31):(super):(b:concurrency->m_unlock):(s:deadlock->re):(r:fail):(t:smatch)  1  3   1 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.32
+    jffs2/jfs/xfs: switch over to 'check_acl' rather than 'permission()'
+        . (32):(misc->api)  10  14   32 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.33
+    jfs: Fix 32bit build warning
+        . (33):(misc->compile)  1  1   1 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.34
+    JFS: Free sbi memory in error path
+        . (34):(super):(b:mem->re->err):(s:leak->fo):(r:fail):(rep:leak_on_err)  1  6   7 
+    jfs: add jfs specific ->setattr call
+        . (34):(misc->api)  4  17   4 
+    jfs: fix diAllocExt error in resizing filesystem
+        . (34):(resize):(b:sem->state->other):(s:error->wr_err):(r:fail):(note:wrong_state_check_other)  1  5   1 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.35
+    jfs: replace inode uid,gid,mode init with helper
+        . (35):(misc->api)  1  2   10 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.36
+    jfs: don't allow os2 xattr namespace overlap with others
+        . (36):(xattr):(c:fun_ck)  1  38   49 
+    switch jfs to ->evict_inode()
+        . (36):(misc->api)  3  20   25 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.37
+    BKL: Remove BKL from JFS
+        . (37):(super):(p:sync->rm_lock):(s:performance->cpu):(rep:remove_lock)  1  7   28 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.38
+    jfs: fix d_revalidate oopsen on NFS exports
+        . (38):(dir):(b:mem->null):(s:crash->null):(r:fail):(rep:deref_before_check)  1  1   1 
+    switch jfs to ->s_d_op, close exportfs races
+        . (38):(dir,super):(b:concurrency->ato):(s:wb) 2  4   12 
+    jfs: dont overwrite dentry name in d_revalidate
+        . (38):(misc->code)  1  35   8 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.39
+--------------------------------------------------------------------------------------------

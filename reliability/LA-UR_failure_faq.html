@@ -1,0 +1,234 @@
+
+Frequently Asked Questions for LANL Failure data for all machines data
+
+Q: What is the data format?
+A: A failure record contains the time when the failure started (start time), the time 
+   when it was resolved (end time), the system and node affected, the type of workload 
+   running on the node and the root cause.
+
+Q: How does failure reporting work at LANL?
+A: Failure reporting at LANL follows the following protocol.
+   Failures are detected by an automated monitoring system that
+   pages operations staff whenever a node is down.
+   The operations staff then create a failure record in the database
+   specifying the start time of the failure, and the system and node affected,
+   then turn the node over to a system administrator for repair.
+   Upon repair, the system administrator notifies the operations
+   staff who then put the node back into the job mix and fill in the end time of
+   the failure record. If the system administrator
+   was able to identify the root cause of the problem he provides operations staff
+   with the appropriate information for the ``root cause'' field of the failure record.
+   Otherwise the root cause is specified as ``Unknown''.
+
+Q: Are there common guidelines/procedures that your staff 
+   follow to classify the root cause of a problem (e.g.what is a 
+   hardware vs a software problem), or is this left to the individuals discretion?
+A: LANL has developed a scheme for classifying failures and assigning failures to root
+   cause categories. The scheme was developed jointly by hardware engineers, 
+   administrators and operations staff at LANL, and is used by all staff.  
+
+Q:  How is the timestamp for the start time of a problem generated?
+   Is it the time when the monitoring software first recorded an error, or
+   is it the time when a sys admin first started looking at the problem?
+A: It is the time that an operator enters into a system shortly after
+   they have been notified by a monitor that a node is unavailable.
+
+Q: What is the reason for the cause of a failure to be classified as
+  "Unknown"? Is it that the sys admin taking care of the problem didn't
+   make an entry, or is it that the cause of the problem was never figured
+   out?
+A: It is that the cause was not figured out through a weekly follow up meeting.
+ It could be of course that the operator got frustrated and just booted a node
+ and didnt follow up as much as they should, but it is not a non entry.
+ There is a weekly meeting where all of this stuff is brought up and the
+ operators, sysads and hardware engineers look at their logs and try to
+ classify everything they can.
+
+Q: Is there a way to determine
+   from the data whether a fault was transient or permanent. E.g. a
+   hardware failure classified as "Memory" could either be a permanent
+   failure requiring replacement of the faulty dimm, or a transient
+   failure, such as a parity check problem, that only requires rebooting.
+A: The data does not contain this information. What was done to fix the node 
+   is not really recorded, just the cause if it can be determined.
+
+Q: Almost all systems are clusters of multiple nodes. Only four systems
+   are non-clusters (three non-cluster SMPs and one non-cluster NUMA). Are those
+   non-cluster machines also used for scientific computing or do they serve a different purpose?
+A: Yes, but the non cluster SMP's really pre-date clusters for the most part, so this would be
+   highly vectorized codes, few numbers of processors, but I/O every few hours and very cpu intensive
+
+Q: Does the data span only the production time of a system or also the testing period
+   before the system went into production?
+A: We dont keep for long period the failures before production, so the data is really
+   basically from production time. The install date, production date, and decommission 
+   date for each set of nodes (not cluster) is given in the table on the web page.
+   One thing to note is that some clusters grew in the middle etc. so the data has 
+   these dates for each node, some clusters grew during their lives. Again there are 
+   no records previous to production really.
+
+Q: Does the new field for the type of CPU/memory distinguish
+  only different architectures (e.g. Alpha vs Mips) or also different
+  series of the same architecture (e.g. MIPS R4000 vs MIPS R12000)?
+A: In this data number 3 might be an alpha ev67 and an ev68 would be a different number.
+
+Q: Suppose a field replacable node is put to use, is there a way to
+   identify it in the data as a new node, or would it just take over the
+   "identity" (node number etc) of the old node that it replaces? 
+A: Correct, the number would just be assumed by the new hardware, sorry.  No way to track old
+   nodes to new nodes.
+
+Q: Possible problems with failure data are underreporting of failures 
+   and misreporting of root cause. Do you think the accuracy of this data 
+   might be significantly affected by these problems?
+A: We don't consider underreporting (i.e. a failure does not get
+   reported at all) a serious concern, since failure detection is initiated by
+   automatic monitoring and failure reporting involves
+   several people from different administrative domains (operations staff and
+   system administrators). While misdiagnosis can never be ruled out completely,
+   its frequency depends on the skills of the system administrator. LANL employs
+   highly-trained staff backed by a well-funded cutting edge technology integration team, often
+   pulling new technology into existence in collaboration with vendors.
+
+Q: Does root cause information get amended if more information about a failure becomes 
+   available later on?
+A: Yes. Operations staff and system administrators often have follow-up meetings for
+   failures with ``Unknown'' root cause. If through those meetings or other ways the
+   root cause becomes clear later on, the corresponding failure record
+   gets amended accordingly.
+
+Q: What is the reason for the cause of a failure to be classified as "Unknown"? 
+A: Unknown root causes are most common during the early life of a system, mostly because
+   at this time the staff's experience in running this system and experience in problem 
+   diagnosis for this system are limited. As time goes on, the fraction of failures
+   with root cause classified as unknown usually drops.
+
+Q: The single most common root cause for hardware problems is memory. Do you know what 
+   the most common cause for memory related failures is?
+A: Dual non corrected error or Dual corrected errors above a certain threshold
+
+Q: Do systems auto-reboot if certain types of failures are automatically detected and if
+   so would there be a corresponding entry in the failure log?
+A: Not really, systems go down and monitors find that and tell operators, operators make logs
+   and decide what to do, they run diags or something like that before they enter the job
+   scheduler mix.
+
+Q: Do all nodes have some locally attached disks, or do some of the systems rely entirely
+ on remote storage servers? (I assume the data does not include failures of remotely
+ accessed storage?).
+A: All nodes on machines you have data for have disks, but the 2 processor machines
+   do not use the disk for system, they dont use it for much, all access is via in memory fs
+   or remote fs for those machines this does not include remote storage failures
+
+Q: For the non-cluster (single-node) SMP systems (systems 7, 22, 24) more than half of all
+ failures have a root cause categorized as "Unknown". Is the reason that those system are
+ less important and hence not as much effort is spent diagnosing the root cause? Or is
+ there another reason?
+A: Well, those systems were of course were sort of hand made systems, cooled by immersion
+   techniques, lots of boards, extremely complex.  That company sold maybe 50 of those systems
+   worldwide.  There might have even been on site soldering involved.
+   That was a while ago as well.  Additionally those systems were of an era where we had 10 of
+   them
+   on site, (unlike today where we have 10's of thousands of commodity machines).   So I guess
+   if you have 10 of them machines over a decade, you dont so much care about root causes as
+   you do
+   if you have 3 orders of magnitude more of a particular part.  Additionally, we had on site
+   hardware
+   service for those type machines, where parts were actually fixed on site.  Current machines
+   use the entire node as the fru.  Those machines may be less important to your study unless
+   your study
+   is somewhat historical in nature.  It is interesting that those machines were the machine
+   that
+   had no commodity parts in them.
+
+Q: Do you know why system 21 was decommissioned only a few month after its introduction?
+A: It was installed in our open environment and then the parts were picked up and moved
+   into our secure environment and became parts of other clusters under different names.
+
+Q: Is it possible to determine from the data whether a hardware-related failure
+   was permanent (i.e. required replacement of hardware) or not?
+A: No. The data contains information on which part of hardware (e.g. memory,
+   CPU, etc.) was involved, but not whether the failure actually required
+   hardware replacement. For example, a hardware failure classified as "Memory" 
+   could either be due to a faulty dimm, requiring replacement of the faulty dimm, 
+   or a transient failure, such as a parity check problem, that only requires rebooting.
+
+Q: Does the data contain information on disk failures?
+A: The data does contain entries for failures of disks located on the nodes. However, 
+   many applications load their data from remote storage and after that work only 
+   from main memory, without using on-node disks. Some nodes do not even have local
+   disks. Therefore, the number of reported disk failures is low.
+
+Q: How would you describe the workloads run on the systems?
+   And are the workloads typically more IO-intensive or more CPU-intensive?
+A: The majority of the workloads are  large-scale scientific simulations, 
+   such as simulations of nuclear stockpile stability.
+   These applications perform long periods (often months) of CPU computation, interrupted
+   every few hours by a few minutes of I/O for check-pointing. Simulation workloads are 
+   often accompanied by scientific visualization of large-scale data. Visualization workloads 
+   are also CPU-intensive, but exhibit more reading of data from storage than compute workloads.
+   Finally, some nodes are used purely as front-end nodes, and others run more than one type 
+   of workload, for instance, graphics nodes often run compute workloads as well.
+
+Q: What is the mechanism commonly used by applications to minimize lost work
+   in the case of a failure? 
+A: Applications typically create checkpoints at regular intervals that are
+   written back to stable storage. In the case of a failure, an application
+   restarts from its most recent checkpoint. Most commonly, coordinated
+   checkpointing is used, i.e. all nodes that an application is running on
+   write a checkpoint at the same time. If only one node fails all nodes
+   roll back to their most recent checkpoint.
+
+Q: What is roughly the number of system administrators employed per system (or if that
+   information is not available what is the total number of system administrators)?
+A: For the systems (not for operations, storage, network, archive, etc.), roughly 8-10 system
+   admins for everything.
+
+Q: Does each of the 8-10 admins work on all systems, or does each
+ admin specialize in a subset of systems?
+A: That has changed from time to time, right now they all work on all of them.
+Q: Do any of the newer systems have multi-core CPUs?
+                                                                                               
+A: No systems in this list have multicore cpu's  we have some of those now
+but they were not in production when we did this data dump.
+Q: Why did system E experience such a high percentage (more than 50\% of all failures) 
+   of CPU related failures?
+A: This was due to a major flaw  in the design of the type of CPU used in systems of type E.
+Q: The percentage of human error is much lower than in other published 
+   data. What would be your explanation?
+
+Q: Do you know why system 21 was decommissioned only a few month after 
+   its introduction?
+A: The system wasn't actually decommissioned. Its nodes were added to another
+   system, for which no failure data is available.
+
+Q: Can several jobs timeshare a node, or are jobs always run in isolation?
+A: On the large 64-128 processor nodes, jobs did share nodes, on the smaller machines
+   jobs never shared nodes.
+
+Q: Do any of the newer systems have multi-core CPUs?
+A: No.
+
+Q: Can you give us any information on the hardware vendors?
+A: No, we are not able to release any vendor specific information.
+
+Q: The failure rate during the first months of a system's lifetime
+   are often much higher than during the rest of the system's lifetime. Why?
+A: The failure rate drops during the early age of a system, as initial hardware 
+   and software bugs are detected and fixed and administrators gain experience in running the system.
+   One might wonder why the initial problems  were not solved during the 1-2 months of testing 
+   before production time. The reason is that many problems in hardware, software and configuration 
+   are only exposed by real user code in the production workloads.
+
+Q: Sometimes it takes the first 1-2 *years* of a system's lifetime before
+   failure rates drop. Why?
+A: Some systems were unprecedented in scale or the type of configuration, when they were introduced. 
+   As a result, the first years still involved a lot of development 
+   work among the administrators of the system, the vendors, and the users. Administrators
+   had to develop new software for managing the system and providing the infrastructure
+   to run large parallel applications. Users developed new large-scale applications that 
+   wouldn't have been feasible to run on any of the previous systems.
+   With the slower development process it took longer until the systems were
+   running the full variety of production workloads and the majority of the initial
+   bugs were exposed and fixed.
+

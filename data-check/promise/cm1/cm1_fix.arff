@@ -1,0 +1,97 @@
+%%-*- text -*-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This is a PROMISE Software Engineering Repository data set made publicly
+% available in order to encourage repeatable, verifiable, refutable, and/or
+% improvable predictive models of software engineering.
+%
+% If you publish material based on PROMISE data sets then, please
+% follow the acknowledgment guidelines posted on the PROMISE repository
+% web page http://promise.site.uottawa.ca/SERepository .
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% 1. Title/Topic: CM1/fix hours
+ 
+% 2. Sources:
+% 
+%    -- Creators:  NASA, then the NASA Metrics Data Program,
+%       -- http://mdp.ivv.nasa.gov. Contacts: Mike Chapman, 
+%          Galaxy Global Corporation (Robert.Chapman@ivv.nasa.gov)
+%          +1-304-367-8341; Pat Callis, NASA, NASA project manager 
+%          for MDP (Patrick.E.Callis@ivv.nasa.gov) +1-304-367-8309 
+% 
+%    -- Donor: Stefan Wagner (wagnerst@in.tum.de)
+% 
+%    -- Date:  May 11 2009
+
+% 3. Past usage:
+% 
+%    1. S. Wagner. A Bayesian Network Approach to Assess and Predict
+%       Software Quality Using Activity-Based Quality Models. In: Proc.
+%       International Conference on Predictor Models in Software 
+%       Engineering (PROMISE '09). ACM Press, 2009.
+%       -- Results: 
+% 
+%         -- Used for predicting maintainability by the average
+%            effort for a fix
+% 
+%         -- The Bayesian net did not predict very accurately but
+%            the general feasibility of the approach was shown.
+% 
+
+% 4. Relevant information:
+% 
+%    -- CM1 is a NASA spacecraft instrument written in "C".
+% 
+%    -- The only data here is the respective effort in person hours
+%       for fixing each defect. Only for a part of the defects the
+%       effort was documented.
+
+% 5. Number of instances: 25
+
+% 6. Number of attributes: 1 (fix effort)
+
+% 7. Attribute Information:
+% 	
+%      1. fix             : numeric % fix effort in person hours
+%        -- mean 9.58
+
+
+% 8. Missing attributes: 104
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+@relation CM1_fix
+
+@attribute fix numeric
+
+
+@data
+
+1
+0,5
+0,5
+0,5
+0,5
+0,1
+8
+2
+1
+0,1
+0,2
+0,5
+0,5
+3
+0,25
+1
+2
+1
+1
+8
+1
+17
+20
+80
+1
+

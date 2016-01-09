@@ -1,0 +1,24 @@
+3394	rts panic! - stopping execution
+2175	rts internal error
+12629	rts: kernel terminated
+96	 Power deactivated:
+406	Error: unable to mount filesystem
+2048	Lustre mount FAILED
+512	Temperature Over Limit on link card
+256	Link PGOOD error latched on link card
+47	Power Good signal deactivated:
+39	MONITOR FAILURE While reading FanModule .*: Broken pipe
+31	MONITOR FAILURE While setting fan speed .*: Broken pipe
+73	MONITOR FAILURE monitor caught .*: Broken pipe and is stopping
+18	FATAL kernel panic
+4	power module status fault detected on node card
+4	Local PGOOD error latched on link card
+5	no ethernet link
+7	MidplaneSwitchController::.* pap failed:
+1	mmcs_server exited abnormally due to signal: Aborted
+2	monitor caught .*: power module .* not present and is stopping
+2	MidplaneSwitchController::.* iap failed:
+1	ciodb exited abnormally due to signal: Aborted
+2	rts assertion failed:
+2	L3 major internal error
+1	No power module .* found found on link card

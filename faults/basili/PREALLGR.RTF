@@ -1,0 +1,520 @@
+  OBS  SUBJ  RUN   RTECH  PRSP  YEXP  DOC  TDPC  TDNO  TIME  FPNO  FPPC  TDPH
+ 
+    1  J1    1995  USUAL  NONE   0.0  ATM   13     4     90    3    43     3
+    2  J1    1995  PBR    DES    0.0  PG    19     5    105    8    62     3
+    3  J2    1995  USUAL  NONE   0.0  ATM    7     2     79   11    85     2
+    4  J2    1995  PBR    TEST   0.0  PG    22     6     92    9    60     4
+    5  J3    1995  USUAL  NONE   4.0  ATM   27     8     50   13    62    10
+    6  J3    1995  PBR    USER   4.0  PG    37    10     75   10    50     8
+    7  J4    1995  USUAL  NONE   7.0  PG    26     7     95   11    61     4
+    8  J4    1995  PBR    DES    7.0  ATM   23     7    105   16    70     4
+    9  J5    1995  USUAL  NONE   5.0  PG    59    16     79   22    58    12
+   10  J5    1995  PBR    TEST   5.0  ATM   50    15    118   48    76     8
+   11  J6    1995  USUAL  NONE   3.0  PG    33     9     65    2    18     8
+   12  J6    1995  PBR    USER   3.0  ATM   37    11     95   20    65     7
+   13  J7    1995  USUAL  NONE   9.0  ATM   30     9     72   14    61     8
+   14  J7    1995  PBR    DES    9.0  PG    48    13     66    9    41    12
+   15  J8    1995  USUAL  NONE   1.0  ATM   17     5     60   10    67     5
+   16  J8    1995  PBR    TEST   1.0  PG    30     8     55   11    58     9
+   17  J9    1995  USUAL  NONE   5.5  ATM   13     4     60   11    73     4
+   18  J9    1995  PBR    USER   5.5  PG    26     7     70   12    63     6
+   19  J10   1995  USUAL  NONE   8.0  PG    15     4     80    7    64     3
+   20  J10   1995  PBR    DES    8.0  ATM   20     6     70    9    60     5
+   21  J11   1995  USUAL  NONE   0.0  PG    15     4     87    6    60     3
+   22  J11   1995  PBR    TEST   0.0  ATM   30     9    112   16    64     5
+   23  J12   1995  USUAL  NONE   0.0  PG    30     8     90   16    67     5
+   24  J12   1995  PBR    USER   0.0  ATM   30     9    102   27    75     5
+   25  J13   1995  USUAL  NONE   1.5  ATM   33    10     60   14    58    10
+   26  J13   1995  PBR    DES    1.5  PG    37    10     70    5    33     9
+   27  J14   1995  USUAL  NONE   1.0  ATM   27     8     85    9    53     6
+   28  J14   1995  PBR    TEST   1.0  PG    41    11     98    8    42     7
+   29  N1    1994  USUAL  NONE   7.5  PG    11     3    110   19    86     2
+   30  N1    1994  PBR    DES    7.5  ATM   30     9    120   10    53     5
+   31  N2    1994  USUAL  NONE   3.0  PG    11     3     50   10    77     4
+   32  N2    1994  PBR    DES    3.0  ATM   23     7    109    8    53     4
+   33  N3    1994  USUAL  NONE  28.0  ATM    7     2     95    3    60     1
+   34  N3    1994  PBR    DES   28.0  PG    15     4     80    3    43     3
+   35  N4    1994  USUAL  NONE  32.0  ATM   13     4     95    8    67     3
+   36  N4    1994  PBR    DES   32.0  PG    22     6     88   18    75     4
+   37  N6    1994  USUAL  NONE   0.0  PG    19     5     48    7    58     6
+   38  N6    1994  PBR    TEST   0.0  ATM   20     6     46   16    73     8
+   39  N7    1994  USUAL  NONE   0.0  PG    33     9     84   45    83     6
+   40  N7    1994  PBR    TEST   0.0  ATM   43    13    118   43    77     7
+   41  N8    1994  USUAL  NONE   1.0  ATM   27     8     75    5    38     6
+   42  N8    1994  PBR    TEST   1.0  PG    15     4     75    1    20     3
+   43  N9    1994  USUAL  NONE   2.0  ATM   37    11    100   23    68     7
+   44  N9    1994  PBR    TEST   2.0  PG    22     6     62   18    75     6
+   45  N11   1994  USUAL  NONE   0.0  PG    19     5    105    6    55     3
+   46  N11   1994  PBR    USER   0.0  ATM   30     9    105    5    36     5
+   47  N12   1994  USUAL  NONE   2.0  PG    30     8    120   12    60     4
+   48  N12   1994  PBR    USER   2.0  ATM   20     6    121   15    71     3
+   49  N13   1994  USUAL  NONE   1.5  ATM   10     3     90    8    73     2
+   50  N13   1994  PBR    USER   1.5  PG    26     7    140   25    78     3
+   51  N14   1994  USUAL  NONE   3.5  ATM   30     9     80   18    67     7
+   52  N14   1994  PBR    USER   3.5  PG    33     9     85    7    44     6
+ 
+ 
+                                 The SAS System
+ 
+                                     U  U  U   U  U  U  P  P  P   P  P  P
+                                     S  S  S   S  S  S  B  B  B   B  B  B
+                                     U  U  U   U  U  U  R  R  R   R  R  R
+           S               P      Y  T  T  T   F  F  T  T  T  T   F  F  T
+        O  U   R     G     R      E  D  D  I   P  P  D  D  D  I   P  P  D
+        B  B   U     R     S      X  P  N  M   P  N  P  P  N  M   P  N  P
+        S  J   N     P     P      P  C  O  E   C  O  H  C  O  E   C  O  H
+ 
+        1 J1  1995 GROUP1 DES   0.0 13  4  90 43  3  3 19  5 105 62  8  3
+        2 J2  1995 GROUP1 TEST  0.0  7  2  79 85 11  2 22  6  92 60  9  4
+        3 J3  1995 GROUP1 USER  4.0 27  8  50 62 13 10 37 10  75 50 10  8
+        4 J4  1995 GROUP2 DES   7.0 26  7  95 61 11  4 23  7 105 70 16  4
+        5 J5  1995 GROUP2 TEST  5.0 59 16  79 58 22 12 50 15 118 76 48  8
+        6 J6  1995 GROUP2 USER  3.0 33  9  65 18  2  8 37 11  95 65 20  7
+        7 J7  1995 GROUP1 DES   9.0 30  9  72 61 14  8 48 13  66 41  9 12
+        8 J8  1995 GROUP1 TEST  1.0 17  5  60 67 10  5 30  8  55 58 11  9
+        9 J9  1995 GROUP1 USER  5.5 13  4  60 73 11  4 26  7  70 63 12  6
+       10 J10 1995 GROUP2 DES   8.0 15  4  80 64  7  3 20  6  70 60  9  5
+       11 J11 1995 GROUP2 TEST  0.0 15  4  87 60  6  3 30  9 112 64 16  5
+       12 J12 1995 GROUP2 USER  0.0 30  8  90 67 16  5 30  9 102 75 27  5
+       13 J13 1995 GROUP1 DES   1.5 33 10  60 58 14 10 37 10  70 33  5  9
+       14 J14 1995 GROUP1 TEST  1.0 27  8  85 53  9  6 41 11  98 42  8  7
+       15 N1  1994 GROUP2 DES   7.5 11  3 110 86 19  2 30  9 120 53 10  5
+       16 N2  1994 GROUP2 DES   3.0 11  3  50 77 10  4 23  7 109 53  8  4
+       17 N3  1994 GROUP1 DES  28.0  7  2  95 60  3  1 15  4  80 43  3  3
+       18 N4  1994 GROUP1 DES  32.0 13  4  95 67  8  3 22  6  88 75 18  4
+       19 N6  1994 GROUP2 TEST  0.0 19  5  48 58  7  6 20  6  46 73 16  8
+       20 N7  1994 GROUP2 TEST  0.0 33  9  84 83 45  6 43 13 118 77 43  7
+       21 N8  1994 GROUP1 TEST  1.0 27  8  75 38  5  6 15  4  75 20  1  3
+       22 N9  1994 GROUP1 TEST  2.0 37 11 100 68 23  7 22  6  62 75 18  6
+       23 N11 1994 GROUP2 USER  0.0 19  5 105 55  6  3 30  9 105 36  5  5
+       24 N12 1994 GROUP2 USER  2.0 30  8 120 60 12  4 20  6 121 71 15  3
+       25 N13 1994 GROUP1 USER  1.5 10  3  90 73  8  2 26  7 140 78 25  3
+       26 N14 1994 GROUP1 USER  3.5 30  9  80 67 18  7 33  9  85 44  7  6
+ 
+                                 The SAS System
+ 
+                                     A  A  A   A  A  A
+                                     T  T  T   T  T  T  P  P  P   P  P  P
+                                     M  M  M   M  M  M  G  G  G   G  G  G
+           S               P      Y  T  T  T   F  F  T  T  T  T   F  F  T
+        O  U   R     G     R      E  D  D  I   P  P  D  D  D  I   P  P  D
+        B  B   U     R     S      X  P  N  M   P  N  P  P  N  M   P  N  P
+        S  J   N     P     P      P  C  O  E   C  O  H  C  O  E   C  O  H
+ 
+        1 J1  1995 GROUP1 DES   0.0 13  4  90 43  3  3 19  5 105 62  8  3
+        2 J2  1995 GROUP1 TEST  0.0  7  2  79 85 11  2 22  6  92 60  9  4
+        3 J3  1995 GROUP1 USER  4.0 27  8  50 62 13 10 37 10  75 50 10  8
+        4 J4  1995 GROUP2 DES   7.0 23  7 105 70 16  4 26  7  95 61 11  4
+        5 J5  1995 GROUP2 TEST  5.0 50 15 118 76 48  8 59 16  79 58 22 12
+        6 J6  1995 GROUP2 USER  3.0 37 11  95 65 20  7 33  9  65 18  2  8
+        7 J7  1995 GROUP1 DES   9.0 30  9  72 61 14  8 48 13  66 41  9 12
+        8 J8  1995 GROUP1 TEST  1.0 17  5  60 67 10  5 30  8  55 58 11  9
+        9 J9  1995 GROUP1 USER  5.5 13  4  60 73 11  4 26  7  70 63 12  6
+       10 J10 1995 GROUP2 DES   8.0 20  6  70 60  9  5 15  4  80 64  7  3
+       11 J11 1995 GROUP2 TEST  0.0 30  9 112 64 16  5 15  4  87 60  6  3
+       12 J12 1995 GROUP2 USER  0.0 30  9 102 75 27  5 30  8  90 67 16  5
+       13 J13 1995 GROUP1 DES   1.5 33 10  60 58 14 10 37 10  70 33  5  9
+       14 J14 1995 GROUP1 TEST  1.0 27  8  85 53  9  6 41 11  98 42  8  7
+       15 N1  1994 GROUP2 DES   7.5 30  9 120 53 10  5 11  3 110 86 19  2
+       16 N2  1994 GROUP2 DES   3.0 23  7 109 53  8  4 11  3  50 77 10  4
+       17 N3  1994 GROUP1 DES  28.0  7  2  95 60  3  1 15  4  80 43  3  3
+       18 N4  1994 GROUP1 DES  32.0 13  4  95 67  8  3 22  6  88 75 18  4
+       19 N6  1994 GROUP2 TEST  0.0 20  6  46 73 16  8 19  5  48 58  7  6
+       20 N7  1994 GROUP2 TEST  0.0 43 13 118 77 43  7 33  9  84 83 45  6
+       21 N8  1994 GROUP1 TEST  1.0 27  8  75 38  5  6 15  4  75 20  1  3
+       22 N9  1994 GROUP1 TEST  2.0 37 11 100 68 23  7 22  6  62 75 18  6
+       23 N11 1994 GROUP2 USER  0.0 30  9 105 36  5  5 19  5 105 55  6  3
+       24 N12 1994 GROUP2 USER  2.0 20  6 121 71 15  3 30  8 120 60 12  4
+       25 N13 1994 GROUP1 USER  1.5 10  3  90 73  8  2 26  7 140 78 25  3
+       26 N14 1994 GROUP1 USER  3.5 30  9  80 67 18  7 33  9  85 44  7  6
+ 
+                                 The SAS System
+ 
+                                      U  U  U   U  U U  P  P  P   P  P P
+                                      S  S  S   S  S S  B  B  B   B  B B
+                                      U  U  U   U  U U  R  R  R   R  R R
+            S               P      Y  T  T  T   F  F T  T  T  T   F  F T
+         O  U   R     G     R      E  D  D  I   P  P D  D  D  I   P  P D
+         B  B   U     R     S      X  P  N  M   P  N P  P  N  M   P  N P
+         S  J   N     P     P      P  C  O  E   C  O H  C  O  E   C  O H
+ 
+         1 N1  1994 GROUP2 DES   7.5 11  3 110 86 19 2 30  9 120 53 10 5
+         2 N2  1994 GROUP2 DES   3.0 11  3  50 77 10 4 23  7 109 53  8 4
+         3 N3  1994 GROUP1 DES  28.0  7  2  95 60  3 1 15  4  80 43  3 3
+         4 N4  1994 GROUP1 DES  32.0 13  4  95 67  8 3 22  6  88 75 18 4
+         5 N6  1994 GROUP2 TEST  0.0 19  5  48 58  7 6 20  6  46 73 16 8
+         6 N7  1994 GROUP2 TEST  0.0 33  9  84 83 45 6 43 13 118 77 43 7
+         7 N8  1994 GROUP1 TEST  1.0 27  8  75 38  5 6 15  4  75 20  1 3
+         8 N9  1994 GROUP1 TEST  2.0 37 11 100 68 23 7 22  6  62 75 18 6
+         9 N11 1994 GROUP2 USER  0.0 19  5 105 55  6 3 30  9 105 36  5 5
+        10 N12 1994 GROUP2 USER  2.0 30  8 120 60 12 4 20  6 121 71 15 3
+        11 N13 1994 GROUP1 USER  1.5 10  3  90 73  8 2 26  7 140 78 25 3
+        12 N14 1994 GROUP1 USER  3.5 30  9  80 67 18 7 33  9  85 44  7 6
+ 
+                                 The SAS System
+ 
+                                      A  A  A   A  A A
+                                      T  T  T   T  T T  P P  P   P  P P
+                                      M  M  M   M  M M  G G  G   G  G G
+            S               P      Y  T  T  T   F  F T  T T  T   F  F T
+         O  U   R     G     R      E  D  D  I   P  P D  D D  I   P  P D
+         B  B   U     R     S      X  P  N  M   P  N P  P N  M   P  N P
+         S  J   N     P     P      P  C  O  E   C  O H  C O  E   C  O H
+ 
+         1 N1  1994 GROUP2 DES   7.5 30  9 120 53 10 5 11 3 110 86 19 2
+         2 N2  1994 GROUP2 DES   3.0 23  7 109 53  8 4 11 3  50 77 10 4
+         3 N3  1994 GROUP1 DES  28.0  7  2  95 60  3 1 15 4  80 43  3 3
+         4 N4  1994 GROUP1 DES  32.0 13  4  95 67  8 3 22 6  88 75 18 4
+         5 N6  1994 GROUP2 TEST  0.0 20  6  46 73 16 8 19 5  48 58  7 6
+         6 N7  1994 GROUP2 TEST  0.0 43 13 118 77 43 7 33 9  84 83 45 6
+         7 N8  1994 GROUP1 TEST  1.0 27  8  75 38  5 6 15 4  75 20  1 3
+         8 N9  1994 GROUP1 TEST  2.0 37 11 100 68 23 7 22 6  62 75 18 6
+         9 N11 1994 GROUP2 USER  0.0 30  9 105 36  5 5 19 5 105 55  6 3
+        10 N12 1994 GROUP2 USER  2.0 20  6 121 71 15 3 30 8 120 60 12 4
+        11 N13 1994 GROUP1 USER  1.5 10  3  90 73  8 2 26 7 140 78 25 3
+        12 N14 1994 GROUP1 USER  3.5 30  9  80 67 18 7 33 9  85 44  7 6
+ 
+                                 The SAS System
+ 
+                                     U  U  U  U  U  U  P  P  P   P  P  P
+                                     S  S  S  S  S  S  B  B  B   B  B  B
+                                     U  U  U  U  U  U  R  R  R   R  R  R
+            S               P    Y   T  T  T  F  F  T  T  T  T   F  F  T
+         O  U   R     G     R    E   D  D  I  P  P  D  D  D  I   P  P  D
+         B  B   U     R     S    X   P  N  M  P  N  P  P  N  M   P  N  P
+         S  J   N     P     P    P   C  O  E  C  O  H  C  O  E   C  O  H
+ 
+         1 J1  1995 GROUP1 DES  0.0 13  4 90 43  3  3 19  5 105 62  8  3
+         2 J2  1995 GROUP1 TEST 0.0  7  2 79 85 11  2 22  6  92 60  9  4
+         3 J3  1995 GROUP1 USER 4.0 27  8 50 62 13 10 37 10  75 50 10  8
+         4 J4  1995 GROUP2 DES  7.0 26  7 95 61 11  4 23  7 105 70 16  4
+         5 J5  1995 GROUP2 TEST 5.0 59 16 79 58 22 12 50 15 118 76 48  8
+         6 J6  1995 GROUP2 USER 3.0 33  9 65 18  2  8 37 11  95 65 20  7
+         7 J7  1995 GROUP1 DES  9.0 30  9 72 61 14  8 48 13  66 41  9 12
+         8 J8  1995 GROUP1 TEST 1.0 17  5 60 67 10  5 30  8  55 58 11  9
+         9 J9  1995 GROUP1 USER 5.5 13  4 60 73 11  4 26  7  70 63 12  6
+        10 J10 1995 GROUP2 DES  8.0 15  4 80 64  7  3 20  6  70 60  9  5
+        11 J11 1995 GROUP2 TEST 0.0 15  4 87 60  6  3 30  9 112 64 16  5
+        12 J12 1995 GROUP2 USER 0.0 30  8 90 67 16  5 30  9 102 75 27  5
+        13 J13 1995 GROUP1 DES  1.5 33 10 60 58 14 10 37 10  70 33  5  9
+        14 J14 1995 GROUP1 TEST 1.0 27  8 85 53  9  6 41 11  98 42  8  7
+ 
+                                 The SAS System
+ 
+                                    A  A  A   A  A  A
+                                    T  T  T   T  T  T  P  P  P   P  P  P
+                                    M  M  M   M  M  M  G  G  G   G  G  G
+           S               P    Y   T  T  T   F  F  T  T  T  T   F  F  T
+        O  U   R     G     R    E   D  D  I   P  P  D  D  D  I   P  P  D
+        B  B   U     R     S    X   P  N  M   P  N  P  P  N  M   P  N  P
+        S  J   N     P     P    P   C  O  E   C  O  H  C  O  E   C  O  H
+ 
+        1 J1  1995 GROUP1 DES  0.0 13  4  90 43  3  3 19  5 105 62  8  3
+        2 J2  1995 GROUP1 TEST 0.0  7  2  79 85 11  2 22  6  92 60  9  4
+        3 J3  1995 GROUP1 USER 4.0 27  8  50 62 13 10 37 10  75 50 10  8
+        4 J4  1995 GROUP2 DES  7.0 23  7 105 70 16  4 26  7  95 61 11  4
+        5 J5  1995 GROUP2 TEST 5.0 50 15 118 76 48  8 59 16  79 58 22 12
+        6 J6  1995 GROUP2 USER 3.0 37 11  95 65 20  7 33  9  65 18  2  8
+        7 J7  1995 GROUP1 DES  9.0 30  9  72 61 14  8 48 13  66 41  9 12
+        8 J8  1995 GROUP1 TEST 1.0 17  5  60 67 10  5 30  8  55 58 11  9
+        9 J9  1995 GROUP1 USER 5.5 13  4  60 73 11  4 26  7  70 63 12  6
+       10 J10 1995 GROUP2 DES  8.0 20  6  70 60  9  5 15  4  80 64  7  3
+       11 J11 1995 GROUP2 TEST 0.0 30  9 112 64 16  5 15  4  87 60  6  3
+       12 J12 1995 GROUP2 USER 0.0 30  9 102 75 27  5 30  8  90 67 16  5
+       13 J13 1995 GROUP1 DES  1.5 33 10  60 58 14 10 37 10  70 33  5  9
+       14 J14 1995 GROUP1 TEST 1.0 27  8  85 53  9  6 41 11  98 42  8  7
+ 
+ 1    dm 'include "C:\\_USER\\READING\\EXPPBR\\PROGRAMS\\PREALLGR.SAS"'
+ 1                                                                ;
+ 2    /***************************************************************
+ 3    /*               E S E G   S A M P L E   L I B R A R Y
+ 4    /*
+ 5    /*    NAME: PreAllGr
+ 6    /*    AUTHOR: Filippo Lanubile
+ 7    /*    LAST UPDATED: 8Feb97
+ 8    /*   TITLE: Preparation of all defect data for gen. docs of PBR exper.
+ 9    /* PRODUCT: BASE SAS
+ 10   /*  SYSTEM:
+ 11   /*    KEYS: PRINT
+ 12   /*   PROCS: PRINT
+ 13   /*    INPUT DATA: AllGrCel.dat
+ 14   /* DATA SET DESCRIPTION: The data set contains the values for
+ 15   /*    both the independent and dependent variables of the PBR
+ 16   /*    experiment. The data are limited to the generic documents
+ 17   /*    There is a row for each cell of the experimental design
+ 18   /*    Independent variables:
+ 19   /*       subj          subject identifier;
+ 20   /*       run           experimental run (1994, 1995);
+ 21   /*       rtech         reading technique (USUAL, PBR);
+ 22   /*       prsp          perspective (NONE, DES, USER, TEST);
+ 23   /*       yexp           subject experience in the assigned
+ 24   /*                      perspective: number of years
+ 25   /*       doc            document read (ATM, PG);
+ 26   /*    Dependent variables:
+ 27   /*       tdpc           percentage of true defects found;
+ 28   /*       tdno           number of true defects found;
+ 29   /*       time           time to finish (in minutes);
+ 30   /*       fpno;          number of false positives;
+ 31   /*       fppc           percentage of false positives; (derived)
+ 32   /*       tdph;          number of true defects found per hour; (derived)
+ 33   /*
+ 34   /*    OUTPUT DATA: allgrsu
+ 35   /* DATA SET DESCRIPTION: The data set contains the values for
+ 36   /*    both the independent and dependent variables of the PBR
+ 37   /*    experiment. The data are limited to the generic documents
+ 38   /*    There is a row for each subject with related repeated
+ 39   /*    measures.
+ 40   /*    Independent variables:
+ 41   /*       subj          subject identifier;
+ 42   /*       run           experimental run (1994, 1995);
+ 43   /*       grp             GROUP1 = usual technique with ATM
+ 44   /*                                PBR technique with PG
+ 45   /*                       GROUP2 = usual technique with PG
+ 46   /*                                PBR technique with ATM
+ 47   /*       rtech         reading technique (USUAL, PBR);
+ 48   /*       prsp          perspective (NONE, DES, USER, TEST);
+ 49   /*       yexp           subject experience in the assigned
+ 50   /*                      perspective: number of years
+ 51   /*       doc            document read (ATM, PG);
+ 52   /*    Dependent variables:
+ 53   /*       usutdpc  percentage of true defects found with usual tech;
+ 54   /*       usutdno  number of true defects found with usual tech;
+ 55   /*       usutime  time to finish with usual tech(in minutes);
+ 56   /*       usufppc  percentage of false positives with usual tech;
+ 57   /*       usufpno  number of false positive found with usual tech
+ 58   /*       usutdph  number of true defects found per hour with
+ 59   /*                 with usual tech;
+ 60   /*       pbrtdpc  percentage of true defects found with PBR tech
+ 61   /*       pbrtdno  number of true defects found with PBR tech;
+ 62   /*       pbrtime  time to finish with PBR tech(in minutes);
+ 63   /*       pbrfppc  percentage of false positives with PBR tech;
+ 64   /*       pbrfpno  number of false positive found with PBR tech;
+ 65   /*       pbrtdph  number of true defects found per hour
+ 66   /*                 with PBR tech;
+ 67   /*       atmtdpc  percentage of true defects found with ATM doc;
+ 68   /*       atmtdno  number of true defects found with ATM doc;
+ 69   /*       atmtime  time to finish with ATM doc(in minutes);
+ 70   /*       atmfppc  percentage of false positives with ATM doc;
+ 71   /*       atmfpno  number of false positive found with ATM doc;
+ 72   /*       atmtdph  number of true defects found per hour
+ 73   /*                 with ATM doc;
+ 74   /*       pgtdpc  percentage of true defects found with PG doc
+ 75   /*       pgtdno  number of true defects found with PG doc;
+ 76   /*       pgtime  time to finish with PG doc(in minutes);
+ 77   /*       pgfppc  percentage of false positives with PG doc;
+ 78   /*       pgfpno  number of false positive found with PG doc;
+ 79   /*       pgtdph  number of true defects found per hour
+ 80   /*                 with PG doc;
+ 81   /*
+ 82   /*   PURPOSE OF PROGRAM: Prepare the data set for the ANOVA
+ 83   /*                       verify there is no data entry error
+ 84   /*     REF:
+ 85   /*    MISC:
+ 86   /*
+ 87   /**************************************************************/
+ 88   options ls=78 ps=60 nodate nonumber;
+ 89   data allgrce;
+ 90      infile 'AllGrCel.dat';
+ 91      input subj $ run $ rtech $ prsp $ yexp  doc $
+ 92            tdpc tdno time fpno;
+ 93       fppc = round(((fpno*100)/(fpno+tdno)),1);
+ 94       tdph = round(((tdno*60)/ time),1);
+ 
+ NOTE: The infile 'AllGrCel.dat' is:
+       FILENAME=C:\\_USER\\Reading\\ExpPBR\\Programs\\AllGrCel.dat,
+       RECFM=V,LRECL=256
+ 
+ NOTE: 52 records were read from the infile 'AllGrCel.dat'.
+       The minimum record length was 42.
+       The maximum record length was 43.
+ NOTE: The data set WORK.ALLGRCE has 52 observations and 12 variables.
+ NOTE: The DATA statement used 2.97 seconds.
+ 
+ 
+ 95   proc print data=allgrce;
+ 96   run;
+ 
+ NOTE: The PROCEDURE PRINT used 0.5 seconds.
+ 
+ 
+ 97   /*1994 Run in the Generic Problem Domain*/
+ 98   data algrce94;
+ 99      set allgrce;
+ 100     if run = '1994';
+ 
+ NOTE: The data set WORK.ALGRCE94 has 24 observations and 12 variables.
+ NOTE: The DATA statement used 0.38 seconds.
+ 
+ 
+ 101  proc print data=algrce94;
+ 102  run;
+ 
+ NOTE: The PROCEDURE PRINT used 0.11 seconds.
+ 
+ 
+ 103  /*1995 Run in the Generic problem Domain*/
+ 104  data algrce95;
+ 105     set allgrce;
+ 106     if run = '1995';
+ 
+ NOTE: The data set WORK.ALGRCE95 has 28 observations and 12 variables.
+ NOTE: The DATA statement used 0.38 seconds.
+ 
+ 
+ 107  proc print data=algrce95;
+ 108  run;
+ 
+ NOTE: The PROCEDURE PRINT used 0.11 seconds.
+ 
+ 
+ 109  data allgrsu;
+ 110      set allgrce;
+ 111      retain usutdpc usutdno usutime usufppc usufpno usutdph
+ 112         pbrtdpc pbrtdno pbrtime pbrfppc pbrfpno pbrtdph
+ 113           atmtdpc atmtdno atmtime atmfppc atmfpno atmtdph
+ 114         pgtdpc pgtdno pgtime pgfppc pgfpno pgtdph;
+ 115
+ 116      if rtech='USUAL' and doc='ATM' then do;
+ 117         grp='GROUP1';
+ 118         usutdpc=tdpc;
+ 119         usutdno=tdno;
+ 120         usutime=time;
+ 121         usufppc=fppc;
+ 122         usufpno=fpno;
+ 123         usutdph=tdph;
+ 124         atmtdpc=tdpc;
+ 125         atmtdno=tdno;
+ 126         atmtime=time;
+ 127         atmfppc=fppc;
+ 128         atmfpno=fpno;
+ 129         atmtdph=tdph;
+ 130       end;
+ 131      if rtech='USUAL' and doc='PG' then do;
+ 132         grp='GROUP2';
+ 133         usutdpc=tdpc;
+ 134         usutdno=tdno;
+ 135         usutime=time;
+ 136         usufppc=fppc;
+ 137         usufpno=fpno;
+ 138         usutdph=tdph;
+ 139         pgtdpc=tdpc;
+ 140         pgtdno=tdno;
+ 141         pgtime=time;
+ 142         pgfppc=fppc;
+ 143         pgfpno=fpno;
+ 144         pgtdph=tdph;
+ 145       end;
+ 146      if rtech='PBR' and doc='PG' then do;
+ 147         grp='GROUP1';
+ 148         pbrtdpc=tdpc;
+ 149         pbrtdno=tdno;
+ 150         pbrtime=time;
+ 151         pbrfppc=fppc;
+ 152         pbrfpno=fpno;
+ 153         pbrtdph=tdph;
+ 154         pgtdpc=tdpc;
+ 155         pgtdno=tdno;
+ 156         pgtime=time;
+ 157         pgfppc=fppc;
+ 158         pgfpno=fpno;
+ 159         pgtdph=tdph;
+ 160         output;
+ 161       end;
+ 162      if rtech='PBR' and doc='ATM' then do;
+ 163         grp='GROUP2';
+ 164         pbrtdpc=tdpc;
+ 165         pbrtdno=tdno;
+ 166         pbrtime=time;
+ 167         pbrfppc=fppc;
+ 168         pbrfpno=fpno;
+ 169         pbrtdph=tdph;
+ 170         atmtdpc=tdpc;
+ 171         atmtdno=tdno;
+ 172         atmtime=time;
+ 173         atmfppc=fppc;
+ 174         atmfpno=fpno;
+ 175         atmtdph=tdph;
+ 176         output;
+ 177       end;
+ 178     keep subj run grp prsp yexp
+ 179           usutdpc usutdno usutime usufppc usufpno usutdph
+ 180         pbrtdpc pbrtdno pbrtime pbrfppc pbrfpno pbrtdph
+ 181           atmtdpc atmtdno atmtime atmfppc atmfpno atmtdph
+ 182         pgtdpc pgtdno pgtime pgfppc pgfpno pgtdph;
+ 
+ NOTE: The data set WORK.ALLGRSU has 26 observations and 29 variables.
+ NOTE: The DATA statement used 3.02 seconds.
+ 
+ 
+ 183  proc print data=allgrsu;
+ 184       var subj run grp prsp yexp
+ 185           usutdpc usutdno usutime usufppc usufpno usutdph
+ 186         pbrtdpc pbrtdno pbrtime pbrfppc pbrfpno pbrtdph;
+ 187  run;
+ 
+ NOTE: The PROCEDURE PRINT used 0.44 seconds.
+ 
+ 
+ 188  proc print data=allgrsu;
+ 189       var subj run grp prsp yexp
+ 190  atmtdpc atmtdno atmtime atmfppc atmfpno atmtdph
+ 191         pgtdpc pgtdno pgtime pgfppc pgfpno pgtdph;
+ 192  run;
+ 
+ NOTE: The PROCEDURE PRINT used 0.27 seconds.
+ 
+ 
+ 193  /*1994 Run in the Generic Problem Domain*/
+ 194  data algrsu94;
+ 195     set allgrsu;
+ 196     if run = '1994';
+ 
+ NOTE: The data set WORK.ALGRSU94 has 12 observations and 29 variables.
+ NOTE: The DATA statement used 0.38 seconds.
+ 
+ 
+ 197  proc print data=algrsu94;
+ 198       var subj run grp prsp yexp
+ 199           usutdpc usutdno usutime usufppc usufpno usutdph
+ 200         pbrtdpc pbrtdno pbrtime pbrfppc pbrfpno pbrtdph;
+ 201  run;
+ 
+ NOTE: The PROCEDURE PRINT used 0.28 seconds.
+ 
+ 
+ 202  proc print data=algrsu94;
+ 203       var subj run grp prsp yexp
+ 204  atmtdpc atmtdno atmtime atmfppc atmfpno atmtdph
+ 205         pgtdpc pgtdno pgtime pgfppc pgfpno pgtdph;
+ 206  run;
+ 
+ NOTE: The PROCEDURE PRINT used 0.22 seconds.
+ 
+ 
+ 207  /*1995 Run in the Generic problem Domain*/
+ 208  data algrsu95;
+ 209     set allgrsu;
+ 210     if run = '1995';
+ 
+ NOTE: The data set WORK.ALGRSU95 has 14 observations and 29 variables.
+ NOTE: The DATA statement used 0.44 seconds.
+ 
+ 
+ 211  proc print data=algrsu95;
+ 212       var subj run grp prsp yexp
+ 213           usutdpc usutdno usutime usufppc usufpno usutdph
+ 214         pbrtdpc pbrtdno pbrtime pbrfppc pbrfpno pbrtdph;
+ 215  run;
+ 
+ NOTE: The PROCEDURE PRINT used 0.22 seconds.
+ 
+ 
+ 216  proc print data=algrsu95;
+ 217       var subj run grp prsp yexp
+ 218  atmtdpc atmtdno atmtime atmfppc atmfpno atmtdph
+ 219         pgtdpc pgtdno pgtime pgfppc pgfpno pgtdph;
+ 220  run;
+ 
+ NOTE: The PROCEDURE PRINT used 0.22 seconds.
+ 
+ 

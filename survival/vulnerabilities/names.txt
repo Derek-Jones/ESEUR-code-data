@@ -1,0 +1,47 @@
+patching patch time in days from publish??? Some patch dates are <NA>???
+outcome 0/1/NA NA when not patched yet
+by_cert ???
+c_c ??? CERT
+c_s ??? SecurityFocus
+c_o ??? Other
+s_s ???
+cert_pub data CERT published vulnerability
+other_pub data other published vulnerability, what about SecurityFocus published data?
+disclosure 0/1 is 1 if vulnerability disclosed before patch is released
+smallvendor 0/1 no information on number of employees
+logemployee ln number of employees
+public ???
+opensource 0/1 is open source vendor
+metric ???
+cvss_score CVSS score
+waiting ???
+employee number of employees
+notify date vendor notified
+patch date patch released
+publish date what published???
+cve_new CERT vulnerability string?
+vul_num CERT vulnerability number?
+vid ???
+vendor vendor name as string
+year 2000/2001/2002/2003
+y2000 0/1
+y2001 0/1
+y2002 0/1
+y2003 0/1   
+cert_only  Only on CERT list
+bugtraq_only  Only on SecurityFocus list
+both on Both lists
+instant 0/1 an instant disclosure or not
+dis_by_c Disclosed by CERT
+dis_by_s Disclosed by SecurityFocus
+dis_by_o Disclosed by other vendors
+vendor_id Vendor ID
+vul_id Vulnerability ID
+os 0/1 Operating System (Windows/Linux???)
+s_app 0/1 is server application
+ln_cvss ln CVSS score
+id Used to identify same vulnerability + same vendor
+X_st always 1
+X_d  0/1 same as outcome when disclosure==1, otherwise 0???
+X_t same value as patching???
+X_t0 previous days from notify to publish

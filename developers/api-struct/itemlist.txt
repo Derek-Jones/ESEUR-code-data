@@ -1,0 +1,51 @@
+Date of last vet inspection | Last vet inspection date
+Date animal born | Animal birth date
+Date crop sown | Crop sown date
+Date animal slaughtered | Animal slaughter date
+Date crop harvested | Crop harvest date
+Antibiotics used | Antibiotics given
+Fertilizer used | Fertilizer applied
+Weed killer used | Weed killer sprayed
+Pedigree ID | Pedigree class
+Genetic ID | Genetic family
+Supplier of seeds | Seed supplier
+Was organically produced | Produced organically
+Number of each kind of animal on farm
+Farm acres used to grow crops | Acres used to grow crops
+Farm acres used to rear animals | Acres used to rear animals
+Average shipment weight | Weight of average shipment
+Market value of kind of animal
+Market value of acre of crop | Acre of crop market value
+Average labor cost for raising kind of animal | Animal raising average labor cost
+Average labor cost for growing crop | Crop growing average labor costs
+Feed-stuff costs | Cost of feed-stuff
+Fertilizer costs | Cost of fertilizer
+Location of field | Field location
+Location of farm | Farm location
+Farm owner | Owner of farm
+====
+Date of last official agricultural product food safety inspection
+Date agricultural product started life | Agricultural product started life date
+Date agricultural product started life | Agricultural product started life date
+Date agricultural product killed | Agricultural product end life date
+Date agricultural product killed | Agricultural product end life date
+Antibiotics / Chemicals used | Chemicals / Antibiotics used
+Antibiotics / Chemicals used | Chemicals / Antibiotics used
+DUMMY__DUMMY
+DUMMY__DUMMY
+Genetic ID | Genetic family
+DUMMY__DUMMY
+Was organically produced | Produced organically
+Number of each kind of agricultural product on farm
+Farm acres dedicated to creation of agricultural product | Acres dedicated to creation of agricultural product
+Farm acres dedicated to creation of agricultural product | Acres dedicated to creation of agricultural product
+Average shipment weight of agricultural product | Agricultural product average shipment weight
+Market value of agricultural product | Agricultural product market value
+Market value of agricultural product | Agricultural product market value
+Average labor costs of agricultural product | Agricultural product average labor costs
+Average labor costs of agricultural product | Agricultural product average labor costs
+Agricultural product growth costs (e.g., Feed-stuff and Fertilizer) | Costs (e.g., Feed-stuff and Fertilizer) for agricultural product growing
+Agricultural product growth costs (e.g., Feed-stuff and Fertilizer) | Costs (e.g., Feed-stuff and Fertilizer) for agricultural product growing
+Location of fields holding agricultural product | Field locations holding agricultural product
+Location of farm | Farm location
+Farm owner | Owner of farm

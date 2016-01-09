@@ -1,0 +1,41 @@
+README for failure data for all systems
+LA-UR-05-7318-failure-data-1996-2005.README
+
+We request that if you use these data in your research that you recognize Los Alamos for providing these data.
+
+The file is a comma separated file csv, Excel should be able to read this file.
+This is failure/interrupt data for all systems from 1996 to 2005
+
+Record layout
+System
+machine type
+number of nodes
+number of processors total
+number of processors per node
+node number as it existed (either starts with 0 or 1)
+node number starting with zero
+install date
+production date
+decommission date
+field replacable unit type
+mememory
+cpu type
+mememory type
+number of interconnects
+node purpose - compute, front end, graphics
+Problem Started (mm/dd/yy hh:mm)
+Problem Fixed (mm/dd/yy hh:mm)
+Down Time
+------below here are interrupt blame categories ---------------
+Facilities
+Hardware
+Human Error
+Network
+Undetermined
+Software
+Same Event - related events
+
+example
+2,cluster,49,6152,80,0,0,5-Apr,5-Jun,current,part,80,1,1,0,graphics.fe,6/21/2005 10:54,6/21/2005 11:00,6,,Graphics Accel Hdwr,,,,,N
+
+FAQ from CMU

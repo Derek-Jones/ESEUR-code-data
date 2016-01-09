@@ -1,0 +1,167 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This is a PROMISE Software Engineering Repository data set made publicly
+% available in order to encourage repeatable, verifiable, refutable, and/or
+% improvable predictive models of software engineering.
+%
+% If you publish material based on PROMISE data sets then, please
+% follow the acknowledgment guidelines posted on the PROMISE repository
+% web page http://promise.site.uottawa.ca/SERepository .
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%
+
+1. Title/Topic : CM1/Baselines in Requirements Tracing
+
+2. Sources:
+
+	--Creators:NASA, then the NASA Metrics Data Program,
+       -- http://mdp.ivv.nasa.gov. Contacts: Mike Chapman, 
+          Galaxy Global Corporation (Robert.Chapman@ivv.nasa.gov)
+         +1-304-367-8341; Pat Callis, NASA, NASA project manager 
+         for MDP (Patrick.E.Callis@ivv.nasa.gov) +1-304-367-8309. 
+	  Dr.Hayes and Dr.Dekhtyar modified the original dataset and created an answerset with the help of analysts.
+
+	--Donors: Jane Hayes (hayes@cs.uky.edu)
+
+	--Date: March 31 2005
+
+3. Past Usage:
+
+	 1. Hayes, J.H., Dekhtyar, A., Sundaram, S.K., Measuring the effectiveness of Retrieval Techniques in 
+	    Software Engineering, October 2004, (TR422-04).
+
+
+4. Relevant Information:
+
+Requirements tracing is defined as "the ability to describe and follow the life of a requirement, in 
+both a forward and backward direction, through the whole systems lifecycle[1]." It helps us in assuring that
+all requirements have been implimented.
+
+We have implemented and evaluated a variety of IR methods including tf-idf vector retrieval, tf-idf 
+retrieval with simple thesaurus, and Latent Semantic Indexing (LSI).
+
+TF-IDF model:  "vector model (also known as tf-idf model) for information retrieval is defined as follows. Let 
+V = {k1,...,kN} be the vocabulary of a given document collection. Then, a vector model of a document d is a vector 
+(w1,...,wN) of keywords weights, where wi is computed as wi = tfi(d)*idf , where tfi(d) is the so-called 
+term frequency: the frequency of keyword ki in the document d, and idfi, called inverse document frequency is 
+computed as idfi = log(n/dfi), where n is the number of documents in the document collection and dfi is the number of 
+documents in which keyword ki occurs. Given a document vector d=(w1,...,wN) and a similarly computed query vector 
+q=(q1,...,qN) the similarity between d and q is defined as the cosine of the angle between the vectors.[2]"
+
+TF-IDF + Simple Thesaurus: "This method extends tf-idf model with a simple thesaurus of terms and 
+key phrases. A simple thesaurus T is a set of triples <t1, t2,a>, where t1 and t2 are matching thesaurus terms and 
+a is the similarity coefficient between them. Thesaurus terms can be either single keywords or key phrases (sequences
+ of two or more keywords). The vector model is augmented to account for thesaurus matches as follows. First, all 
+thesaurus terms that are not keywords (i.e., thesaurus terms that consist of more than one keyword) are added as 
+separate keywords to the document collection vocabulary. Given a thesaurus T={<ki,kj,aij>}, and document/query 
+vectors d=(w1,...,wN), q=(q1,...,qN), the similarity between d and q is computed.[2]"
+
+Latent Semantic Indexing (LSI) : "LSI is a dimension reduction technique based on Singular Value Decomposition (SVD) 
+of the term-by-document matrix that can be constructed by putting tf-idf vectors of all documents in a single 
+matrix. SVD transforms the original matrix into a product of two orthogonal matrices and a diagonal matrix of 
+eigenvalues.  By considering only the top k eigenvalues, we can obtain an approximation of the original matrix by a 
+smaller matrix. Rows of the matrix can be compared to each other using the cosine similarity described above.[3]" 
+
+Relevance Feedback : To incorporate interactive work with analyst into RETRO, we have implemented  relevance feedback 
+for the IR methods studied.  Relevance feedback works as follows: the analyst conveys to RETRO both positive 
+(true link found) and negative (false positive found) information. The relevance feedback processor recomputes the 
+vector qnew for the query q by adding to it positive information and subtracting negative information as specified
+in [2].
+
+Dataset Details : This dataset is a modified dataset from [4]. The dataset contains 235 high level and 220 low-level 
+requirements. The trace for the dataset was manually verified. The "theoretical true trace" (answerset) built for this 
+dataset consisted of 361 correct links. Each of the high and low-leve files contain the text of one requirement element. 
+
+Take, for example, SRS5.1.1.10.  The file with the name SRS5.1.1.10 is a text file that contains:
+
+The DPU-BOOT CSC shall include a DRAM BIT consisting of two write/read/compare tests.  
+The first test shall write the address of each memory location to that location.  
+The second test shall write the complement of each memory location to that location.
+
+in plain text.
+
+The files in the low directory are in the same format.
+
+The handtrace.txt file is the answerset.  It maps high-level requirements to their low level children.
+
+The handtrace.txt file has this format:
+
+%
+SRS5.1.1.10   DPUSDS4.4.1.1   DPUSDS5.1.0.2   DPUSDS5.1.2.3   
+%
+SRS5.1.1.11   DPUSDS5.1.0.2   DPUSDS5.1.2.3   DPUSDS5.2.3.7.1   DPUSDS5.3.0.1   DPUSDS5.3.2.1.4   
+%
+SRS5.1.1.12   DPUSDS5.1.4.2   
+..
+..
+..
+..
+
+where SRS5.1.1.12 is the identifier of a high level requirement, and DPUSDS5.1.4.2 is the identifier of the only low 
+level requirement that traces to it.  The items are separated by tabs.
+
+So, for example, high-level requirement SRS5.1.1.10 has three children requirements:  DPUSDS4.4.1.1, DPUSDS5.1.0.2, DPUSDS5.1.2.3.
+
+Metrics: 
+
+a) RECALL is the percentage of the actual matches that are found. 
+
+	recall = number of links found/ total number of links
+
+b) PRECISION is the ratio of the true links found and the number of candidate links generated.
+
+	precision = number of links found/ total number of candidate links
+
+Please refer to [2] for the definition of other primary and secondary metrics.
+
+Feedback strategy:
+
+  "For each method, four different feedback strategies or behaviors, called Top 1, Top 2, Top 3 and Top 4 were tested. 
+The Top i behavior meant that at each iteration, we simulated correct analyst feedback for the top i unmarked candidate 
+links from the list for each high-level requirement. For example, for each high level requirement, Top 1 behavior examined 
+the top candidate link suggested by the IR procedure that had not yet been marked as true. If the link was found in the 
+verified trace, it was marked as true, otherwise as false. After repeating the Top i relevance feedback procedure for 
+each high level requirement, the answers were submitted to the feedback processing module.  At this point, the Standard 
+Rochio procedure was used to update query (high-level requirement) keyword weights, and to submit the new queries to the 
+IR method. The process continued for a maximum of eight iterations or until the results had converged.[3]"
+
+filtering technique:
+
+A filtering technique is a simple decision procedure that examines each candidate link produced by the IR method and 
+decides whether to show it to the analyst. In our study, in addition to the test run involving no filtering, 
+we used filters with different threshold values. For example, filter with threshold value 0.1 will throw out all the
+candidate links that have relevance less than 0.1. 
+
+Expreimental Results:
+ 	
+TABLE 1
+  	
+		Prec.	Recall	Sel.
+tf-idf		1.5%	97.7%	42.8%
+tf-idf+TH	1.5%	97.7%	42.8%
+LSI (10/100)	0.9%	98.6%	71.5%
+LSI+TH (10/100)	0.9%	98.6%	71.5%
+LSI (19/200)	0.9%	98.8%	73.9%
+LSI+TH (29/200) 0.9%	98.8%	73.9%
+
+
+The table shows the results of running different methods on CM1 dataset. Please refer to [2] and [3] for more results.
+
+
+References:
+
+	[1] J. Matthias. Requirements tracing. Communications of the ACM, 41(12), 1998.
+	[2] Jane Huffman Hayes, Alexander Dekhtyar, Senthil Sundaram, Sarah Howard, "Helping Analysts Trace 
+	    Requirements:  An Objective Look", in Proceedings of IEEE Requirements Engineering Congerence (RE) 2004, 
+	    Kyoto, Japan, September 2004, pp. 249-261.
+	[3] Baselines in Requirements Tracing, Senthil Karthikeyan Sundaram, Jane Huffman Hayes and Alex Dekhtyar, 
+	    accepted, PROMISE'2005: International Workshop on Predictor Models in Software Engineering , St. Louis, 
+	    MO, May 2005.
+	[4] MDP Website, CM-1 Project, http://mdp.ivv.nasa.gov/mdp_glossary.html#CM1.
+
+
+5. Number of Instances: 220 low level requirements and 235 high level requirements
+
+6. Directory Content: 
+
+The CM1Dataset folder contains answerset (handtrace.txt) the high directory and the low directory.
+The high directory contains the high-level requirements and the low directory contains the low level requirements.  

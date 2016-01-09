@@ -1,0 +1,13 @@
+> criterion(all.dist, all.ser)
+    AR_deviations         AR_events      Gradient_raw Gradient_weighted 
+         61.34615         838.00000        2188.00000         375.65385 
+          Inertia     Least_squares                ME      Moore_stress 
+      61475.76923       55857.65976         868.29364         207.97633 
+   Neumann_stress       Path_length 
+        123.27219          16.88462 
+> get_order(all.ser)
+ V6  V4  V9  V2  V1 V17 V21 V19 V10 V15 V13 V24 V25 V14 V12 V22 V11  V3  V7  V5 
+  6   4   9   2   1  17  21  19  10  15  13  24  25  14  12  22  11   3   7   5 
+V23  V8 V20 V16 V18 
+ 23   8  20  16  18 
+

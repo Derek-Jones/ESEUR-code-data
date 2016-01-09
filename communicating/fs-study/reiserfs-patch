@@ -1,0 +1,849 @@
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.0
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.1
+	[PATCH] Fix reiserfs handling of `silent' option.
+		. (1):(super):(b:sem->conf):(s:wb):(r:fail):(rep:forget_config) 1 32 27 
+	[PATCH] reiserfs commit_max_age mount option
+		. (1):(journal,super):(f)	 4 32 7 
+	[PATCH] reiserfs_rename ctime update
+		. (1):(dir):(b:sem->state->inode):(s:corruption):(rep:update_time) 1 17 7 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.2
+	[PATCH] reiserfs v3 should throttle writers
+		. (2):(file):(c:fun_ck) 2 3 0 
+	[PATCH] reiserfs: cleanup_bitmap_list() check for NULL argument.
+		. (2):(journal):(b:mem->null):(s:crash->null):(rep:deref_before_check) 1 3 0 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.3
+	[PATCH] gcc-3.5: reiserfs fixes
+		. (3):(misc->compile)							  
+	[PATCH] try reiserfs before other filesystems
+		. (3):(misc->code)			
+	[PATCH] Suppress reiserfs page allocation wanring
+		. (3):(misc->code)			
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.4
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.5
+	[PATCH] reiserfs: fix null pointer deref
+		. (5):(inode):(b:mem->null):(s:crash->null):(r:fail) 1 1 1 
+	[PATCH] reiserfs: search_by_key fix
+		. (5):(tree):(b:concurrency->ato):(s:wb) 1 10 6 
+	[PATCH] reiserfs: fix transaction sizes
+		. (5):(inode,tree):(p:acce):(s:performance->io) 2 2 2 
+	[PATCH] reiserfs: atomicity fix
+		. (5):(file):(b:concurrency->ato):(s:corruption) 1 8 4 
+	[PATCH] resierfs: AIO support
+		. (5):(misc->code)			
+	[PATCH] reiserfs: use kernel min/max
+		. (5):(misc->api)			
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.6
+	[PATCH] reiserfs: support for nested transactions
+		. (6):(jounral):(f):(nested_journal)	4 86 9 
+	[PATCH] reiserfs: cleanups
+		. (6):(misc->code)	
+	[PATCH] reiserfs: logging rework
+		. (6):(tree,inode,journal,super):(p:sche):(s:performance->io) 11 972 851 
+	[PATCH] reiserfs: data=ordered support
+		. (6):(file,inode,ioctl,journal,super):(f):(order_journal) 8 805 231 
+	[PATCH] reiserfs: locking fix
+		. (6):(inode):(b:concurrency->ato):(s:corruption) 1 4 1 
+	[PATCH] reiserfs: preallocation support
+		. (6):(misc->code)
+	[PATCH] reiserfs: tail repacking fix
+		. (6):(tree):(b:sem->state->journal):(s:corruption):(note:miss_state_update_journaling) 1 3 2 
+	[PATCH] reiserfs: fix race with writepage
+		. (6):(inode):(b:concurrency->ato):(s:corruption) 1 37 42 
+	[PATCH] reiserfs: sparse file handling fix
+		. (6):(misc->code)
+	[PATCH] reiserfs: laptop-mode support
+		. (6):(journal,super):(f)		2 5 3 
+	[PATCH] reiserfs: truncate leak fix
+		. (6):(tree):(b:mem->re):(s:leak->vo) 1 1 3 
+	[PATCH] reiserfs: scheduling latency improvements
+		. (6):(journal):(p:sche):(s:performance->cpu) 1 4 12 
+	[PATCH] reiserfs: fix dirty-buffer warnings
+		. (6):(journal):(b:sem->state->bh):(s:error->warning):(r:fail):(note:wrong_state_check_bh) 1 1 1 
+	[PATCH] reiserfs_kfree warning fix
+		. (6):(misc->compile)
+	[PATCH] reiserfs writepage race with data=ordered
+		. (6):(inode):(b:concurrency->ato):(s:corruption) 1 1 1 
+	[PATCH] Add "commit=0" to reiserfs
+		. (6):(journal,super):(f) 3 13 6 
+	[PATCH] reiserfs: fsync() speedup
+		. (6):(journal):(p:sche):(s:performance->io):(rep:batch_more_writes) 1 17 7 
+	[PATCH] reiserfs: remove final sleep_on
+		. (6):(misc->code)
+	[PATCH] Fix default value for commit interval for older reiserfs filesystems.
+		. (6):(journal):(b:sem->state->super):(s:corruption):(ff):(note:wrong_state_update_super) 1 10 8 
+	[PATCH] reiserfs use-after-free fix
+		. (6):(journal):(b:mem->dp):(s:crash->af):(rep:use_after_free) 1 1 0 
+	[PATCH] lockfs: reiserfs fix
+		. (6):(super):(b:sem->io):(s:corruption):(rep:sync_to_async) 1 1 1 
+	[PATCH] reiserfs: ignore prepared and locked buffers
+		. (6):(tree):(b:sem->state->bh):(s:error->warning):(note:wrong_state_check_bh) 1 2 1 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.7
+	[PATCH] Reiserfs commit default fix
+		. (7):(misc->code)
+	[PATCH] reiserfs: acl device node initialization
+		. (7):(dir):(b:sem->state->inode):(s:corruption):(note:wrong_state_update_inode) 1 1 1 
+	[PATCH] reiserfs: xattr support
+		. (7):(dir,file,inode,super,xattr):(f) 13 1735 53 
+	[PATCH] reiserfs: ACL support
+		. (7):(file,inode,dir,super,xattr):(f):(acl) 13 836 15 
+	[PATCH] reiserfs: support trusted xattrs
+		. (7):(xattr):(f):(trusted) 4 84 1 
+	[PATCH] reiserfs: selinux support
+		. (7):(xattr):(f):(security) 5 91 0 
+	[PATCH] reiserfs: xattr locking fixes
+		. (7):(inode,xattr):(b:concurrency->ato):(s:corruption):(rep:lock_inode_update) 5 66 8 
+	[PATCH] reiserfs: quota support
+		. (7):(balloc,file,tree,inode,dir,super):(f):(quota) 10 364 121 
+	[PATCH] reiserfs: xattr permission fix
+		. (7):(xattr):(b:sem->state->inode):(s:wb):(note:wrong_state_check_inode) 1 2 1 
+	[PATCH] reiserfs: add device info to diagnostic messages
+		. (7):(balloc,dir,tree,file,inode,journal,super,xattr):(c:db) 18 446 379 
+	[PATCH] Fix reiserfs oom crash
+		. (7):(journal):(b:mem->null):(s:crash->null):(r:fail):(rep:deref_before_check) 1 4 2 
+	[PATCH] Fix reiserfs inode size update race
+		. (7):(file):(b:concurrency->ato):(s:corruption):(rep:lock_inode_update) 1 12 4 
+	[PATCH] Fix for lockup in reiserfs acl/xattrs
+		. (7):(xattr):(b:concurrency->deadlock):(s:deadlock->re):(note:xattr_recursive_lock) 1 6 4 
+	[PATCH] sparse: reiserfs annotation
+		. (7):(file,ioctl):(c:an) 2 6 6 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.8
+	[PATCH] reiserfs: block allocator optimizations
+		. (8):(block):(f):(packing_locality) 5 263 27 
+	[PATCH] reiserfs: block allocator should not inherit "packing locality 1"
+		. (8):(balloc):(b:sem->state->inode):(s:error->op_fail):(note:wrong_state_update_inode) 1 6 1 
+	[PATCH] reiserfs: remove debugging warning from block allocator
+		. (8):(misc->code)
+	[PATCH] reiserfs: btree readahead
+		. (8):(tree):(p:sche):(s:performance->io):(note:btree_readahead) 3 74 26 
+	[PATCH] reiserfs data logging support
+		. (8):(file,inode,journal,tree):(f):(data_journal) 7 129 60 
+	[PATCH] fix possible stack corruption during reiserfs_file_write
+		. (8):(bitmap,file):(b:sem->wlog):(s:corruption):(note:wrong_logic) 2 16 14 
+	[PATCH] reiserfs_setattr retval fix
+		. (8):(inode):(b:error_handling->wr_err):(s:corruption):(r:fail) 1 1 1 
+	[PATCH] sparse: NULL noise in fs/reiserfs
+		. (8):(misc->code)
+	[PATCH] missing (void) in reiserfs on big-endian boxen
+		. (8):(misc->code)
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.9
+	[PATCH] reiserfs v3 barrier support
+		. (9):(file,journal,super):(f):(barrier) 5 113 15 
+	[PATCH] reiserfs: xattr/acl fixes
+		. (9):(xattr):(b:sem->state->inode):(s:corruption):(r:fail):(real):(rep:update_time) 2 16 3 
+	[PATCH] Fix write() return values for reiserfs.
+		. (9):(misc->code)
+	[PATCH] Fix for default ACL handling on ReiserFS
+		. (9):(xattr):(b:sem->state->inode):(s:corruption):(rep:update_time) 1 8 2 
+	[PATCH] fix for fsync ignoring writing errors
+		. (9):(inode):(b:error_handling->ms_err):(s:corruption):(rep:miss_write_err):(r:fail) 1 3 2 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.10
+	[PATCH] reiserfs: small filesystem fix
+		. (10):(balloc):(b:sem->state->super):(s:wb):(note:miss_state_check_super) 1 12 1 
+	[PATCH] ReiserFS: Cleanup internal use of bh macros
+		. (10):(misc->api)
+	[PATCH] ReiserFS: Cleanup access of journal (cosmetic)
+		. (10):(misc->code)
+	[PATCH] ReiserFS: Add I/O error handling to journal operations
+		. (10):(file,inode,journal,dir,tree,super):(b:error_handling->ms_err):(s:crash,corruption):(r:fail) 14 884 277 
+	[PATCH] ReiserFS: Fix several missing reiserfs_write_unlock calls
+		. (10):(dir):(b:concurrency->m_unlock):(s:deadlock->re):(r:fail) 1 2 0 
+	[PATCH] reiserfs: rename struct key
+		. (10):(misc->api)
+	[PATCH] reiserfs: support for REISERFS_UNSUPPORTED_OPT notation
+		. (10):(super):(c:err_ck) 2 9 2 
+	[PATCH] reiserfs: allow user_xattr and acl options to be ignored, with warning
+		. (10):(misc->code)
+	[PATCH] m68k: Reiserfs: Add missing #include <linux/sched.h>
+		. (10):(misc->code)
+	[PATCH] reiserfs bug fix: add missing pair of lock_kernel()/unlock_kernel()
+		. (10):(inode):(b:concurrency->ato):(s:corruption) 1 2 0 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.11
+	[PATCH] Expose reiserfs_sync_fs()
+		. (11):(misc->code)
+	[PATCH] Fix reiserfs quota debug messages
+		. (11):(misc->compile)
+	[PATCH] Fix of quota deadlock on pagelock: reiserfs
+		. (11):(file,inode,dir,super):(b:concurrency->deadlock):(s:deadlock->in):(rep:wrong_lock_in_transaction) 6 497 58 
+	[PATCH] reiserfs vs-8115 test adjustment
+		. (11):(misc->code)
+	[PATCH] reiserfs: use proper 64-bit clean types
+		. (11):(file):(b:sem->gene):(s:corruption):(rep:wrong_type) 1 11 12 
+	[PATCH] Fix reiserfs quota SMP locks
+		. (11):(super):(b:concurrency->ato):(s:corruption) 1 17 0 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.12
+    [PATCH] reiserfs: max_key fix
+		. (12):(super,tree):(b:sem->wlog):(s:error->warning):(ff):(note:wrong_logic) 2 3 2
+    [PATCH] reiserfs: use NULL instead of 0
+		. (12):(misc->code)
+    [PATCH] reiserfs endianness: sanitize reiserfs_key union
+		. (12):(misc->code)
+    [PATCH] reiserfs endianness: comp_short_keys() cleanup
+		. (12):(misc->code)
+    [PATCH] reiserfs endianness: fix endianness bugs
+		. (12):(journal):(b:sem->gene):(s:error->op_fail):(r:fail):(ff):(rep:wrong_endianess) 2 2 2 
+    [PATCH] reiserfs endianness: annotate little-endian objects
+		. (12):(tree,inode,file,dir):(c:an) 12 138 130
+    [PATCH] reiserfs endianness: clone struct reiserfs_key
+		. (12):(misc->api)
+    [PATCH] reiserfs: journal_init fix
+		. (12):(journal):(b:mem->dp):(s:crash->null):(r:fail):(rep:use_after_free) 1 5 7 
+    [PATCH] Fix rewriting on a full reiserfs filesystem
+		. (12):(misc->code)
+    [PATCH] reiserfs: make resize option auto-get new device size
+		. (12):(misc->code)
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.13
+    [PATCH] reiserfs+acl+quota deadlock fix
+        . (13):(inode):(b:sem->state->inode):(s:deadlock):(r:fail):(ff):(note:wrong_state_check_inode)  1  1   1 
+    [PATCH] Fix error handling in reiserfs
+        . (13):(dir):(b:sem->state->inode):(s:wb):(r:fail):(note:miss_state_update_inode)  1  3   0 
+    [PATCH] reiserfs doesn't use mbcache
+        . (13):(misc->code)  1  0   1 
+    [PATCH] reiserfs: fix deadlock in inode creation failure path w/ default ACL
+        . (13):(inode):(b:concurrency->deadlock):(s:deadlock->re):(r:fail):(note:lock_iput_recursive)  1  11   1 
+    reiserfs: run scripts/Lindent on reiserfs code
+        . (13):(misc->code)  30  24429   22663 
+    [PATCH] reiserfs: fix up case where indent misreads the code
+        . (13):(misc->code)  1  1   1 
+    [PATCH] reiserfs: handle_attrs() fix
+        . (13):(super):(b:mem->unread):(s:crash->af):(rep:use_before_init)  1  1   2 
+    [PATCH] reiserfs: enable attrs by default if saf
+        . (13):(misc->code)  1  2   0 
+    [PATCH] reiserfs: Check if attrs are enabled for attr ioctls
+        . (13):(ioctl):(b:sem->conf):(s:wb):(r:fail):(rep:forget_config)  1  6   0 
+    [PATCH] reiserfs: do not ignore i/io error on readpage
+        . (13):(inode):(b:error_handling->ms_err):(s:wb):(r:fail):(rep:miss_read_err)  1  12   3 
+    [PATCH] Make reiserfs BUG on too big transaction
+        . (13):(journal):(b:sem->state->journal):(s:deadlock):(note:miss_state_check_journaling)  1  2   0 
+    [PATCH] quota: reiserfs: improve quota credit estimates
+        . (13):(file,inode,dir,super):(c:fun_ck):(rep:lightup_trans)  6  58   34 
+    [PATCH] reiserfs: add checking of journal_begin() return value
+        . (13):(inode,super):(b:error_handling->ms_err):(s:corruption):(r:fail)  2  52   20 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.14
+    [PATCH] reiserfs: use mark_inode_dirty instead of reiserfs_update_sd
+        . (14):(file,inode):(b:sem->io):(s:corruption):(rep:sync_to_async)  2  13   14 
+    [PATCH] janitor: reiserfs: super.c - vfree() checking cleanups
+        . (14):(misc->code)  1  1   2 
+    [PATCH] Change ll_rw_block() calls in Reiser
+        . (14):(journal):(b:sem->io):(s:corruption):(rep:sync_to_async)  1  2   2 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.15
+    [PATCH] reiserfs: close open transactions on error path
+        . (15):(inode):(b:sem->state->journal):(s:crash->BUG):(r:fail):(note:miss_state_update_journaling)  1  18   8 
+    [PATCH] reiserfs: skip commit on io error
+        . (15):(journal):(b:error_handling->ms_err):(s:corruption):(r:fail):(ff):(rep:miss_write_err)  1  14   4 
+    [PATCH] reiserfs: handle cnode allocation failure gracefully
+        . (15):(journal):(c:err_ck):(rep:grace)  1  9   0 
+    [PATCH] reiserfs: fix 32-bit overflow in map_block_for_writepage()
+        . (15):(inode):(b:sem->gene):(s:corruption):(rep:wrong_type)  1  1   1 
+    [PATCH] Fix return value in reiserfs allocator
+        . (15):(file):(b:error_handling->wr_err):(s:error->wr_err):(r:fail)  1  2   2 
+    [PATCH] reiserfs: [kv]free() checking cleanup
+        . (15):(misc->code)
+    [PATCH] gfp_t: reiserfs mapping_set_gfp_mask() use
+        . (15):(misc->api)  1  1   1 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.16
+    [PATCH] reiserfs: fix unaligned bitmap usage
+        . (16):(dir):(b:sem->gene):(s:crash->af):(rep:wrong_type)  2  5   5 
+    [PATCH] reiserfs: do not check if unsigned < 0
+        . (16):(file,inode,journal):(b:sem->gene):(s:wb):(rep:wrong_type)  3  10   15 
+    [PATCH] reiserfs: fix potential (unlikely) oops in reiserfs_get_acl
+        . (16):(xattr):(b:error_handling->ms_err):(s:crash->af):(r:fail)  1  2   1 
+    [PATCH] reiserfs: disable automatic enabling of reiserfs inode attributes
+        . (16):(super):(b:sem->state->super):(s:wb):(ff):(r:fail):(note:wrong_state_update_super)  1  0   2 
+    [PATCH] reiserfs_get_acl() build fix
+        . (16):(misc->compile)  1  5   1 
+    [PATCH] someone broke reiserfs V3 mount options, this fixes it
+        . (16):(super):(b:sem->gene):(s:corruption):(rep:simple_typo)  1  1   1 
+    [PATCH] reiserfs: reiserfs: check for files > 2GB on 3.5.x disks
+        . (16):(file):(c:fun_ck):(rep:limit_check)  1  17   0 
+    [PATCH] reiserfs: reiserfs fix journal accounting in journal_transaction_should_end
+        . (16):(journal):(b:sem->state->journal):(s:error->op_fail):(rep:wrong_journal_credit)  1  3   0 
+    [PATCH] reiserfs: reiserfs write_ordered_buffers should not oops on dirty non-uptodate bh
+        . (16):(journal):(b:sem->state->bh):(s:crash->BUG):(r:fail):(note:wrong_state_check_bh)  1  13   2 
+    [PATCH] reiserfs: reiserfs hang and performance fix for data=journal mode
+        . (16):(inode,journal):(b:concurrency->deadlock):(s:deadlock->in)  2  21   5 
+    [PATCH] resierfs: fix reiserfs_invalidatepage race against data=ordered
+        . (16):(inode,journal):(b:concurrency->ato):(s:corruption):(rep:del_commit_race)  2  16   1 
+    [PATCH] reiserfs: use generic_permission
+        . (16):(misc->api)  1  26   77 
+    [PATCH] reiserfs: remove reiserfs_permission_locked
+        . (16):(misc->code)  2  8   24 
+    [PATCH] reiserfs: missing kmalloc failure check
+        . (16):(file):(b:error_handling->ms_err):(s:crash->null):(r:fail):(real):(rep:miss_mem_err)  1  2   0 
+    [PATCH] reiserfs: use __GFP_NOFAIL instead of yield and retry loop for allocation
+        . (16):(misc->api)  1  2   6 
+    [PATCH] reiserfs: remove kmalloc wrapper
+        . (16):(misc->api)  9  49   154 
+    [PATCH] reiserfs: remove d_splice_alias NULL check from reiserfs_lookup
+        . (16):(misc->code)  1  1   5 
+    [PATCH] reiserfs: fix assertion failure in reiserfs+journaled quotas
+        . (16):(journal):(b:sem->wlog):(s:crash->assert):(note:wrong_logic)  1  4   1 
+    [PATCH] remove reiserfs xattr permission checks
+        . (16):(misc->code)  2  0   51 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.17
+    [PATCH] Fix reiserfs deadlock
+        . (17):(xattr):(b:concurrency->deadlock):(s:deadlock->re):(r:fail)  1  3   2  
+    [PATCH] indirect_print_item() warning fix
+        . (17):(misc->compile)  1  1   1 
+    [PATCH] reiserfs/xattr_acl.c:reiserfs_get_acl(): make size an int
+        . (17):(xattr):(b:sem->gene):(s:error->wr_err):(t:coverity):(r:fail):(rep:wrong_type)  1  2   2 
+    [PATCH] reiserfs: use balance_dirty_pages_ratelimited_nr in reiserfs_file_write()
+        . (17):(misc->api)  1  1   1 
+    [PATCH] reiserfs: cleanups
+        . (17):(misc->compile)  3  8   10 
+    [PATCH] reiserfs: reiserfs_file_write() will lose error code when a 0-length write occurs w/ O_SYNC
+        . (17):(file):(b:error_handling->wr_err):(s:error->wr_err):(r:fail):(rep:over_written_err)  1  4   4 
+    [PATCH] reiserfs: handle trans_id overflow
+        . (17):(journal):(b:sem->gene):(s:crash):(rep:wrong_type)  1  18   3 
+    [PATCH] reiserfs: fix transaction overflowing
+        . (17):(tree):(b:sem->state->journal):(s:error->op_fail):(note:miss_state_update_journaling) 2  77   138 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.18
+    [PATCH] lockdep: annotate reiserfs
+        . (18):(xattr):(c:an->lock)  2  3   2 
+    [PATCH] reiserfs_write_full_page() should not get_block past eof
+        . (18):(inode):(b:sem->conf):(s:corruption):(rep:forget_config)  1  12   2 
+    [PATCH] fix reiserfs lock inversion of bkl vs inode semaphore
+        . (18):(file,ioctl):(b:concurrency->deadlock):(s:deadlock->in):(note:ilock_bkl_order)  2  2   2 
+    [PATCH] i_mutex does not need to be locked in reiserfs_delete_inode()
+        . (18):(inode):(p:sync->rm_lock):(s:performance->cpu):(rep:remove_lock)  1  2   10 
+    [PATCH] reiserfs: fix handling of device names with /'s in them
+        . (18):(misc->code)  1  21   4 
+    [PATCH] reiserfs: fix journaling issue regarding fsync()
+        . (18):(file):(b:sem->state->journal):(s:corruption):(rep:forget_journaling)  1  5   1 
+    [PATCH] lockdep: annotate the quota code
+        . (18):(super):(c:an->lock)  4  4   4 
+    [PATCH] reiserfs: update ctime and mtime on expanding truncate
+        . (18):(inode):(b:sem->state->inode):(s:corruption):(rep:update_time)  1  5   0 
+    [PATCH] reiserfs: remove reiserfs_aio_write()
+        . (18):(misc->api)  1  1   7 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.19
+    [PATCH] reiserfs: fmt bugfix
+        . (19):(misc->code)  1  2   1 
+    [PATCH] reiserfs: reset errval after initializing bitmap cache
+        . (19):(super):(b:error_handling->wr_err):(s:crash):(r:fail)  1  1   0 
+    [PATCH] ReiserFS: Make sure all dentries refs are released before calling kill_block_super()
+        . (19):(super):(c:fun_ck)  1  20   11 
+    [PATCH] reiserfs: null pointer dereferencing in reiserfs_read_bitmap_block
+        . (19):(balloc):(b:mem->null):(s:crash->null):(r:fail):(rep:deref_after_check)  1  2   2 
+    [PATCH] Remove unnecessary check in fs/reiserfs/inode.c
+        . (19):(misc->code):(t:coverity)  1  1   1 
+    BUG_ON conversion for fs/reiserfs
+        . (19):(misc->api)  5  26   54 
+    [PATCH] reiserfs: eliminate minimum window size for bitmap searching
+        . (19):(balloc):(p:acce):(s:performance->cpu,performance->io,performance->mem)  1  1   22 
+    [PATCH] reiserfs: use generic_file_open for open() checks
+        . (19):(misc->api)  1  1   0 
+    [PATCH] reiserfs: on-demand bitmap loading
+        . (19):(balloc,resize,super):(p:acce):(s:performance->mem):(rep:check_before_work)  4  70   91 
+    [PATCH] reiserfs: reorganize bitmap loading functions
+        . (19):(misc->code)  4  94   113 
+    [PATCH] reiserfs: clean up bitmap block buffer head references
+        . (19):(misc->code)  2  71   49 
+    [PATCH] reiserfs: fix is_reusable bitmap check to not traverse the bitmap info array
+        . (19):(balloc,super):(p:acce):(s:performance->cpu)  3  28   15 
+    [PATCH] BLOCK: Move the ReiserFS device ioctl compat stuff to the ReiserFS driver [try #6]
+        . (19):(misc->code)
+    [PATCH] reiserfs: ifdef ACL stuff from inode
+        . (19):(inode):(p:scal):(s:performance->mem):(rep:save_struct_mem)  4  31   5 
+    [PATCH] reiserfs: ifdef xattr_sem
+        . (19):(inode):(p:scal):(s:performance->mem):(rep:save_struct_mem)  3  12   2 
+    [PATCH] Fix reiserfs latencies caused by data=ordered
+        . (19):(journal):(p:sche):(s:performance->io)  1  43   11 
+    [PATCH] reiserfs_fsync should only use barriers when they are enabled
+        . (19):(file):(p:acce):(s:performance->io):(rep:async_to_sync) 1  1   1 
+    [PATCH] use gcc -O1 in fs/reiserfs only for ancient gcc versions
+        . (19):(misc->compile)  1  1   1 
+    [PATCH] reiserfs: warn about the useless nolargeio option
+        . (19):(misc->code)  1  2   19 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.20
+    [PATCH] resierfs: avoid tail packing if an inode was ever mmapped
+        . (20):(inode,file):(b:concurrency->ato):(s:corruption):(rep:lock_inode_update) 3  23   1 
+    Fix reiserfs after "test_clear_page_dirty()" removal
+        . (20):(misc->code)
+    [PATCH] struct path: convert reiserfs
+        . (20):(misc->code)  5  11   11 
+    [PATCH] struct path: rename Reiserfs's struct path
+        . (20):(misc->api)  7  58   58 
+    [PATCH] fs: reiserfs add missing brackets
+        . (20):(misc->code)  1  1   1 
+    [PATCH] reiserfs: do not add save links for O_DIRECT writes
+        . (20):(file):(b:sem->wlog):(s:crash):(r:fail):(note:wrong_logic)  1  4   50 
+    [PATCH] reiserfs: add missing D-cache flushing
+        . (20):(misc->code)  1  4   0 
+    [PATCH] fix reiserfs bad path release panic
+        . (20):(inode):(b:sem->state->tree):(s:crash->BUG):(r:fail):(note:miss_state_update_tree)  1  2   1 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.21
+    reiserfs: fix xattr root locking/refcount bug
+        . (21):(xattr):(b:concurrency->ato):(s:crash->BUG,leak->vo):(r:fail):(rep:lock_inode_update)  1  24   68 
+    [PATCH] reiserfs: fix key decrementing
+        . (21):(tree):(b:sem->gene):(s:corruption):(rep:wrong_type)  1  1   1 
+    [PATCH] reiserfs: Use ARRAY_SIZE macro when appropriate
+        . (21):(misc->api)  1  3   2 
+    [PATCH] cleanup include/linux/reiserfs_xattr.h
+        . (21):(misc->code)  1  19   5 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.22
+    reiserfs: mailing list has moved
+        . (22):(misc->doc)  1  1   1 
+    Missing 'const' from reiserfs MIN_KEY declaration.
+        . (22):(misc->code)  1  1   1 
+    reiserfs: use zero_user_page
+        . (22):(misc->api)  2  13   39 
+    reiserfs: use __set_current_state()
+        . (22):(misc->api)  1  1   1 
+    reiserfs: proc support requires PROC_FS
+        . (22):(misc->compile)  1  1   1 
+    reiserfs: correct misspelled "REISERFS_PROC_INFO" to "CONFIG_REISERFS_PROC_INFO"
+        . (22):(misc->code)
+    reiserfs: shrink superblock if no xattrs
+        . (22):(super):(p:scal):(s:performance->mem):(rep:save_struct_mem)  2  6   3 
+    reiserfs: possible null pointer dereference during resize
+        . (22):(resize):(b:error_handling->ms_err):(s:crash->null):(r:fail):(rep:miss_read_err)  1  4   0 
+    reiserfs: suppress lockdep warning
+        . (22):(xattr):(c:an->lock)  1  1   1 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.23
+    fix preprocessor idiocy in reiserfs
+        . (23):(misc->code)  1  5   3 
+    quota: fix infinite loop
+        . (23):(super):(b:mem->re->err):(s:leak->vo,hang):(r:fail):(rep:leak_on_err)  3  31   4 
+    more reiserfs endianness annotations
+        . (23):(tree):(c:an)  1  3   2 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.24
+    reiserfs: don't drop PG_dirty when releasing sub-page-sized dirty file
+        . (24):(tree):(b:sem->io):(s:corruption):(rep:sync_to_async)  1  0   3 
+    reiserfs: new export ops
+        . (24):(misc->api)  3  35   43 
+    reiserfs: ignore on disk s_bmap_nr value
+        . (24):(balloc,journal,resize,super):(f):(16TB)  5  56   23 
+    reiserfs: remove first_zero_hint
+        . (24):(misc->code)  3  13   26 
+    reiserfs: fix usage of signed ints for block numbers
+        . (24):(balloc,inode,journal,tree):(b:sem->gene):(s:wb):(rep:wrong_type)  5  38   32 
+    reiserfs: fix memset byte count during resize
+        . (24):(resize):(b:sem->wlog):(s:corruption):(note:wrong_logic)  1  1   1 
+    reiserfs: use is_reusable to catch corruption
+        . (24):(balloc):(c:cor_ck)  1  13   8 
+    reiserfs: dont use BUG when panicking
+        . (24):(other):(b:sem->conf):(s:wb):(r:fail):(rep:forget_config)  1  4   6 
+    reiserfs: fix up lockdep warnings
+        . (24):(xattr):(c:an->lock)  1  3   2 
+    reiserfs: turn of ATTR_KILL_S*ID at beginning of reiserfs_setattr
+        . (24):(inode):(b:sem->state->other->xattr):(s:crash->BUG):(note:miss_state_update_other_xattr) 1 5 1 
+    reiserfs: do not repair wrong journal params
+        . (24):(journal):(c:cor_ck):(rep:journal_check)  1  57   43 
+    reiserfs: workaround for dead loop in finish_unfinished
+        . (24):(super):(b:sem->state->tree):(s:hang):(r:fail):(note:miss_state_update_tree)  1  15   3 
+    reiserfs: fix kernel panic on corrupted directory
+        . (24):(dir):(c:cor_ck):(rep:dir_check)  1  10   0 
+    try to reap reiserfs pages left around by invalidatepage
+        . (24):(journal):(p:scal):(s:performance->mem) 1  32   10 
+    fs/reiserfs/: cleanups
+        . (24):(misc->code)  4  4   67 
+    reiserfs: use generic_cont_expand_simple
+        . (24):(misc->api)  1  11   2 
+    reiserfs: convert to new aops
+        . (24):(misc->api)  3  183   19 
+    reiserfs: use generic write
+        . (24):(misc->api)  1  1   1239 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.25
+    [PATCH] reiserfs: eliminate private use of struct file in xattr
+        . (25):(misc->code)  1  30   80 
+    fs/reiserfs/super.c: correct use of ! and &
+        . (25):(super):(b:sem->gene):(s:wb):(r:fail):(t:coccinelle):(rep:simple_typo)  1  1   1 
+    use __u32 in linux/reiserfs_fs.h
+        . (25):(misc->api)  1  1   1 
+    mount options: fix reiserfs
+        . (25):(misc->code)  1  26   12 
+    reiserfs: constify function pointer tables
+        . (25):(misc->api)  1  1   1 
+    fs/reiserfs/xattr.c: use LIST_HEAD instead of LIST_HEAD_INIT
+        . (25):(misc->api)  1  1   1 
+    reiserfs: complement va_start() with va_end().
+        . (25):(misc->code)  1  2   0 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.26
+    reiserfs: discard prealloc in reiserfs_delete_inode
+        . (26):(inode):(b:sem->state->inode):(s:hang):(note:miss_state_update_inode)  1  2   0 
+    reiserfs: add missing unlock to an error path in reiserfs_quota_write()
+        . (26):(super):(b:concurrency->m_unlock):(s:deadlock->re):(r:fail)  1  3   1 
+    MAINTAINERS: reiserfs entry is out of date
+        . (26):(misc->doc)  1  0   3 
+    reiserfs: use open_bdev_excl
+        . (26):(misc->api)  2  23   28 
+    reiserfs: use non-racy method for proc entries creation
+        . (26):(other):(b:concurrency->ato):(s:corruption) 1  3   6 
+    reiserfs: unpack tails on quota files
+        . (26):(super):(b:sem->state->inode):(s:error->wr_err):(r:fail):(note:wrong_state_update_inode)  3  14   8 
+    reiserfs: fix hang on umount with quotas when journal is aborted
+        . (26):(super):(b:sem->state->inode):(s:hang,leak->vo):(r:fail):(note:miss_state_update_inode)   1  7   1 
+    reiserfs: replace remaining __FUNCTION__ occurrences
+        . (26):(misc->api)  4  13   13 
+    reiserfs: fix more sparse warnings in do_balan.c
+        . (26):(misc->code)  1  7   7 
+    reiserfs: fix sparse warning in journal.c
+        . (26):(misc->code)  1  1   1 
+    reiserfs: le*_add_cpu conversion
+        . (26):(misc->api)
+    quota: reiserfs: make reiserfs handle quotaon on remount
+        . (26):(misc->code)  1  8   5 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.27
+    reiserfs: removed duplicated #include
+        . (27):(misc->code)  1  0   1 
+    reiserfs: remove double definitions of xattr macros
+        . (27):(misc->code)  3  0   6 
+    reiserfs: convert j_commit_lock to mutex
+        . (27):(misc->api)  2  11   13 
+    reiserfs: convert j_flush_sem to mutex
+        . (27):(misc->api)  2  8   8 
+    reiserfs: convert j_lock to mutex
+        . (27):(misc->api)  2  4   4 
+    reiserfs: correct mount option parsing to detect when quota options can be changed
+        . (27):(super):(b:sem->wlog):(s:corruption):(note:wrong_logic)  1  60   23 
+    reiserfs: fix typos in messages and comments (journalled -> journaled)
+        . (27):(misc->code)  1  5   5 
+    reiserfs: fix synchronization of quota files in journal=data mode
+        . (27):(super):(b:sem->io):(s:corruption):(rep:sync_to_async)  1  21   9 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.28
+    [PATCH] reiserfs: add missing llseek method
+        . (28):(misc->api)  1  1   0 
+    [PATCH] remember mode of reiserfs journal
+        . (28):(misc->code)  2  5   2 
+    fs/reiserfs: use an IS_ERR test rather than a NULL test
+        . (28):(misc->code):(t:coccinelle)  1  1   1 
+    reiserfs/procfs.c: remove CVS keywords
+        . (28):(misc->code)  1  0   3 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.29
+    fs/Kconfig: move reiserfs out
+        . (29):(misc->code)  2  86   85 
+    fix breakage in reiserfs_new_inode()
+        . (29):(inode):(b:mem->unread):(s:corruption):(rep:use_before_init)  1  6   7 
+    reiserfs: Add default allocation routines for quota structures
+        . (29):(misc->api)  1  2   0 
+    reiserfs: Use sb_any_quota_loaded() instead of sb_any_quota_enabled().
+        . (29):(misc->api)  1  3   5 
+    nfsd race fixes: reiserfs
+        . (29):(inode,dir):(b:concurrency->ato):(s:corruption):(r:fail):(rep:nfs_race_inode)  2  18   5 
+    CRED: Wrap task credential accesses in the ReiserFS filesystem
+        . (29):(misc->api)  1  2   2 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.30
+    reiserfs: fixup perms when xattrs are disabled
+        . (30):(xattr):(b:sem->conf):(s:error->warning):(rep:forget_config)  2  20   20 
+    reiserfs: deal with NULL xattr root w/ xattrs disabled
+        . (30):(xattr):(b:mem->null):(s:crash->null):(r:fail):(rep:deref_before_check)  2  3   3 
+    reiserfs: clean up ifdefs
+        . (30):(misc->code)  1  22   23 
+    reiserfs: remove privroot hiding in lookup
+        . (30):(misc->code)  4  16   28 
+    reiserfs: dont associate security.* with xattr files
+        . (30):(misc->code)  1  10   2 
+    reiserfs: fixup xattr_root caching
+        . (30):(xattr):(p:acce):(s:performance->io)  3  48   29 
+    Always lookup priv_root on reiserfs mount and keep it
+        . (30):(super,xattr):(b:concurrency->ato):(s:corruption)  3  41   52 
+    reiserfs: Expand i_mutex to enclose lookup_one_len
+        . (30):(xattr):(c:cor_ck)  1  14   18 
+    reiserfs: fix j_last_flush_trans_id type
+        . (30):(misc->code)  1  1   1 
+    fs/reiserfs: return f_fsid for statfs(2)
+        . (30):(misc->compile)  2  6   0 
+    reiserfs: xattr_create is unused with xattrs disabled
+        . (30):(misc->code)  1  2   0 
+    reiserfs: fix build breakage
+        . (30):(misc->compile)  1  2   1 
+    reiserfs: rename [cn]_* variables
+        . (30):(misc->code)
+    reiserfs: rename p_._ variables
+        . (30):(misc->code)  5  365   356 
+    reiserfs: rename p_s_tb to tb
+        . (30):(misc->code)  3  254   251 
+    reiserfs: rename p_s_inode to inode
+        . (30):(misc->code)  5  95   89 
+    reiserfs: rename p_s_bh to bh
+        . (30):(misc->code)  3  93   99 
+    reiserfs: rename p_s_sb to sb
+        . (30):(misc->code)  5  468   469 
+    reiserfs: strip trailing whitespace
+        . (30):(misc->code)  19  184   184 
+    reiserfs: cleanup path functions
+        . (30):(misc->code)  2  43   74 
+    reiserfs: factor out buffer_info initialization
+        . (30):(misc->api)  1  60   115 
+    reiserfs: add atomic addition of selinux attributes during inode creation
+        . (30):(inode,dir,xattr):(f)  5  137   6 
+    reiserfs: use generic readdir for operations across all xattrs
+        . (30):(dir,xattr):(p:acce):(s:performance->io)  3  131   300 
+    reiserfs: journaled xattrs
+        . (30):(inode,dir,xattr):(f)  7  159   49 
+    reiserfs: use generic xattr handlers
+        . (30):(misc->api)  9  258   441 
+    reiserfs: remove i_has_xattr_dir
+        . (30):(misc->code)  1  1   8 
+    reiserfs: make per-inode xattr locking more fine grained
+        . (30):(xattr):(p:sync->sm_lock):(s:performance->cpu)  4  55   90 
+    reiserfs: eliminate per-super xattr lock
+        . (30):(misc->code)  8  74   151 
+    reiserfs: simplify xattr internal file lookups/opens
+        . (30):(misc->code)  1  135   127 
+    reiserfs: Clean up xattrs when REISERFS_FS_XATTR is unset
+        . (30):(xattr):(b:sem->conf):(s:corruption):(rep:forget_config)  4  367   357 
+    reiserfs: remove IS_PRIVATE helpers
+        . (30):(misc->api)  7  23   33 
+    reiserfs: remove link detection code
+        . (30):(misc->code)  1  0   13 
+    reiserfs: xattr reiserfs_get_page takes offset instead of index
+        . (30):(misc->api)  1  4   6 
+    reiserfs: small variable cleanup
+        . (30):(misc->code)  1  8   12 
+    reiserfs: use reiserfs_error()
+        . (30):(balloc,inode,tree,dir,super,xattr):(c:err_ck)  9  107   110 
+    reiserfs: introduce reiserfs_error()
+        . (30):(misc->api)  2  29   0 
+    reiserfs: rearrange journal abort
+        . (30):(misc->code)  3  6   21 
+    reiserfs: rework reiserfs_panic
+        . (30):(misc->code)  13  200   183 
+    reiserfs: add locking around error buffer
+        . (30):(other):(b:concurrency->ato):(s:corruption,crash->af):(r:fail)  1  4   1 
+    reiserfs: eliminate reiserfs_warning from uniqueness functions
+        . (30):(other):(b:concurrency->deadlock):(s:deadlock->re):(r:fail):(note:error_buf_lock)  1  2   5 
+    reiserfs: prepare_error_buf wrongly consumes va_arg
+        . (30):(other):(b:mem->unread):(s:crash->af,corruption)  1  3   9 
+    reiserfs: rework reiserfs_warning
+        . (30):(misc->code)  17  454   426 
+    reiserfs: make some warnings informational
+        . (30):(misc->code)  3  13   17 
+    reiserfs: use more consistent printk formatting
+        . (30):(misc->code)  1  14   14 
+    reiserfs: use buffer_info for leaf_paste_entries
+        . (30):(misc->api)  3  11   13 
+    reiserfs: audit transaction ids to always be unsigned ints
+        . (30):(misc->code)  5  31   31 
+    reiserfs: add support for mount count incrementing
+        . (30):(misc->code)  3  13   2 
+    reiserfs: Use lowercase names of quota functions
+        . (30):(misc->api)  5  24   22 
+    reiserfs: Remove unnecessary quota functions
+        . (30):(misc->code)  1  2   56 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.31
+    switch reiserfs to inode->i_acl
+        . (31):(misc->api)  5  4   55 
+    switch reiserfs to usual conventions for caching ACLs
+        . (31):(misc->api)  3  16   21 
+    reiserfs: minimal fix for ACL caching
+        . (31):(misc->code)  1  1   1 
+    reiserfs: remove stray unlock_super in reiserfs_resize
+        . (31):(misc->code)  1  0   1 
+    reiserfs: fix warnings with gcc 4.4
+        . (31):(misc->compile)  3  47   15 
+    reiserfs: allow exposing privroot w/ xattrs enabled
+        . (31):(misc->code)  4  9   7 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.32
+    const: make struct super_block::s_qcop const
+        . (32):(misc->api)  10  11   11 
+    const: make struct super_block::dq_op const
+        . (32):(misc->api)  8  8   8 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.33
+    reiserfs: Fix softlockup while waiting on an inode
+        . (33):(inode):(b:concurrency->deadlock):(s:deadlock->cl):(note:iget_inote_write)  1  2   0 
+    reiserfs: Fix vmalloc call under reiserfs lock
+        . (33):(journal):(b:concurrency->deadlock):(s:deadlock->in):(rep:lock_sleep)  1  2   0 
+    reiserfs: Relax reiserfs_xattr_set_handle() while acquiring xattr locks
+        . (33):(xattr):(b:concurrency->deadlock):(s:deadlock->in):(note:unlock_lock)  1  4   0 
+    reiserfs: Fix unreachable statement
+        . (33):(ioctl):(b:sem->gene):(s:wb):(r:fail):(t:stance):(rep:simple_typo)  1  2   1 
+    reiserfs: Don't call reiserfs_get_acl() with the reiserfs lock
+        . (33):(xattr):(b:concurrency->deadlock):(s:deadlock->in):(note:unlock_lock)  1  2   0 
+    reiserfs: Relax lock on xattr removing
+        . (33):(xattr):(b:concurrency->deadlock):(s:deadlock->in):(note:unlock_lock)  1  9   3 
+    reiserfs: Relax the lock before truncating pages
+        . (33):(inode):(b:concurrency->deadlock):(s:deadlock->re):(note:unlock_lock)  1  10   1 
+    reiserfs: Fix recursive lock on lchown
+        . (33):(inode):(b:concurrency->deadlock):(s:deadlock->re)  1  5   3 
+    reiserfs: Fix mistake in down_write() conversion
+        . (33):(xattr):(b:concurrency->wr_lock):(s:wb):(ff)  1  1   1 
+    reiserfs: Safely acquire i_mutex from xattr_rmdir
+        . (33):(xattr):(b:concurrency->deadlock):(s:deadlock->in):(note:unlock_lock)  1  2   1 
+    reiserfs: Safely acquire i_mutex from reiserfs_for_each_xattr
+        . (33):(xattr):(b:concurrency->deadlock):(s:deadlock->cl):(note:unlock_lock)  1  3   2 
+    reiserfs: Fix journal mutex <-> inode mutex lock inversion
+        . (33):(xattr):(b:concurrency->deadlock):(s:deadlock->cl):(note:unlock_lock)  1  2   1 
+    reiserfs: Fix unwanted recursive reiserfs lock in reiserfs_unlink()
+        . (33):(dir):(b:concurrency->deadlock):(s:deadlock->in):(note:bkl_lock_once)  1  4   3 
+    reiserfs: Relax lock before open xattr dir in reiserfs_xattr_set_handle()
+        . (33):(xattr):(b:concurrency->deadlock):(s:deadlock->cl):(r:fail):(note:unlock_lock)  1  7   2 
+    reiserfs: Relax reiserfs lock while freeing the journal
+        . (33):(journal):(b:concurrency->deadlock):(s:deadlock->cl):(note:unlock_lock)  1  2   1 
+    reiserfs: Fix reiserfs lock <-> i_mutex dependency inversion on xattr
+        . (33):(xattr):(b:concurrency->deadlock):(s:deadlock->cl):(r:fail):(note:unlock_lock)  1  7   2 
+    reiserfs: Warn on lock relax if taken recursively
+        . (33):(other):(c:an->lock) 2  18   0 
+    reiserfs: Fix reiserfs lock <-> i_xattr_sem dependency inversion
+        . (33):(xattr):(b:concurrency->deadlock):(s:deadlock->cl):(r:fail):(ff):(note:unlock_lock)   2  9   1 
+    reiserfs: Fix remaining in-reclaim-fs <-> reclaim-fs-on locking inversion
+        . (33):(journal):(b:concurrency->deadlock):(s:deadlock->in):(r:fail):(ff):(rep:lock_sleep)  1  12   3 
+    reiserfs: truncate blocks not used by a write
+        . (33):(inode):(b:sem->state->inode):(s:leak->fo):(r:fail):(note:miss_state_update_inode) 1  14   4 
+    reiserfs: Fix reiserfs lock <-> inode mutex dependency inversion
+        . (33):(xattr):(b:concurrency->deadlock):(s:deadlock->cl):(note:unlock_lock)  2  11   1 
+    reiserfs: don't compile procfs.o at all if no support
+        . (33):(misc->code)  3  26   36 
+    reiserfs: remove /proc/fs/reiserfs/version
+        . (33):(misc->code)  3  0   48 
+    reiserfs: Fix reiserfs lock and journal lock inversion dependency
+        . (33):(inode):(b:concurrency->deadlock):(s:deadlock->cl):(note:bkl_lock_once)  1  3   2 
+    reiserfs: Fix possible recursive lock
+        . (33):(misc->code)  1  12   3   
+    reiserfs: fix misspelling of "journaled"
+        . (33):(misc->code)
+    kill-the-bkl/reiserfs: turn GFP_ATOMIC flag to GFP_NOFS in reiserfs_get_block()
+        . (33):(misc->code)  1  1   1 
+    kill-the-bkl/reiserfs: drop the fs race watchdog from _get_block_create_0()
+        . (33):(misc->code)  1  2   9 
+    kill-the-bkl/reiserfs: definitely drop the bkl from reiserfs_ioctl()
+        . (33):(misc->code)  4  6   12 
+    kill-the-bkl/reiserfs: always lock the ioctl path
+        . (33):(ioctl):(b:concurrency->ato):(s:corruption):(r:fail)  1  39   27 
+    kill-the-bkl/reiserfs: fix reiserfs lock to cpu_add_remove_lock dependency
+        . (33):(journal):(b:concurrency->deadlock):(s:deadlock->cl):(note:bkl_circle_lock)  1  4   1 
+    kill-the-bkl/reiserfs: Fix induced mm->mmap_sem to sysfs_mutex dependency
+        . (33):(journal):(b:concurrency->deadlock):(s:deadlock->cl):(r:fail):(note:bkl_circle_lock)  1  16   0 
+    kill-the-bkl/reiserfs: panic in case of lock imbalance
+        . (33):(other):(c:cor_ck)  1  3   4 
+    kill-the-bkl/reiserfs: fix recursive reiserfs write lock in reiserfs_commit_write()
+        . (33):(inode):(p:sync->rm_lock):(s:performance->cpu):(rep:remove_lock)  1  2   9 
+    kill-the-bkl/reiserfs: fix recursive reiserfs lock in reiserfs_mkdir()
+        . (33):(dir):(b:concurrency->deadlock):(s:deadlock->in):(r:fail):(note:bkl_in_lock)  1  4   3 
+    kill-the-bkl/reiserfs: fix "reiserfs lock" / "inode mutex" lock inversion dependency
+        . (33):(xattr):(b:concurrency->deadlock):(s:deadlock->in):(note:bkl_in_lock) 1 1 1 
+    kill-the-bkl/reiserfs: move the concurrent tree accesses checks per superblock
+        . (33):(tree,other):(b:concurrency->inter):(s:crash):(r:fail)  5  18   24 
+    kill-the-bkl/reiserfs: acquire the inode mutex safely
+        . (33):(journal,xattr):(b:concurrency->deadlock):(s:deadlock->in):(note:bkl_in_lock)  3  37   36 
+    kill-the-bkl/reiserfs: unlock only when needed in search_by_key
+        . (33):(tree):(p:sync->sm_lock):(s:performance->cpu)  1  34   8 
+    kill-the-bkl/reiserfs: use mutex_lock in reiserfs_mutex_lock_safe
+        . (33):(misc->code)  1  3   5 
+    kill-the-bkl/reiserfs: factorize the locking in reiserfs_write_end()
+        . (33):(inode):(p:sync->rm_lock):(s:performance->cpu):(rep:remove_lock)  1  15   10 
+    kill-the-bkl/reiserfs: reduce number of contentions in search_by_key()
+        . (33):(tree):(p:sync->rm_lock):(s:performance->cpu):(rep:remove_lock)  1  11   1 
+    kill-the-bkl/reiserfs: don't hold the write recursively in reiserfs_lookup()
+        . (33):(dir):(b:concurrency->deadlock):(s:deadlock->re):(r:fail):(note:bkl_re_lock)  1  10   3 
+    kill-the-bkl/reiserfs: conditionaly release the write lock on fs_changed()
+        . (33):(other):(p:sync->rm_lock):(s:performance->cpu):(rep:remove_lock)  1  1   3 
+    kill-the-BKL/reiserfs: add reiserfs_cond_resched()
+        . (33):(misc->api)  1  13   0 
+    kill-the-bkl/reiserfs: lock only once on reiserfs_get_block()
+        . (33):(inode):(b:concurrency->deadlock):(s:deadlock->re):(r:fail):(note:bkl_re_lock)   1  11   8 
+    kill-the-BKL/reiserfs: release the write lock on flush_commit_list()
+        . (33):(journal):(b:concurrency->deadlock):(s:deadlock->bs):(rep:lock_sleep)  1  5   2 
+    kill-the-BKL/reiserfs: release the write lock inside reiserfs_read_bitmap_block()
+        . (33):(balloc):(b:concurrency->deadlock):(s:deadlock->bs):(rep:lock_sleep)  1  2   0 
+    kill-the-BKL/reiserfs: release the write lock inside get_neighbors()
+        . (33):(tree):(b:concurrency->deadlock):(s:deadlock->bs):(rep:lock_sleep)  1  4   0 
+    kill-the-BKL/reiserfs: release write lock while rescheduling on prepare_for_delete_or_cut()
+        . (33):(tree):(b:concurrency->deadlock):(s:deadlock->bs):(rep:lock_sleep)  1  2   0 
+    kill-the-BKL/reiserfs: release the write lock before rescheduling on do_journal_end()
+        . (33):(journal):(b:concurrency->deadlock):(s:deadlock->bs):(rep:lock_sleep)  1  2   0 
+    kill-the-BKL/reiserfs: release write lock on fs_changed()
+        . (33):(other):(b:concurrency->deadlock):(s:deadlock->bs):(rep:lock_sleep)  1  7   1 
+    kill-the-BKL/reiserfs: only acquire the write lock once in reiserfs_dirty_inode
+        . (33):(super):(b:concurrency->deadlock):(s:deadlock->re):(r:fail):(note:bkl_re_lock)  1  9   6 
+    kill-the-BKL/reiserfs: lock only once in reiserfs_truncate_file
+        . (33):(inode):(b:concurrency->deadlock):(s:deadlock->re):(note:bkl_re_lock)  1  7   3 
+    kill-the-BKL/reiserfs: provide a tool to lock only once the write lock
+        . (33):(other):(c:an->lock)  2  28   0 
+    reiserfs, kill-the-BKL: fix unsafe j_flush_mutex lock
+        . (33):(journal):(b:concurrency->deadlock):(s:deadlock->in):(note:bkl_in_lock)  1  1   1 
+    reiserfs: kill-the-BKL
+        . (33):(misc->code)  1  4   6  
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.34
+    reiserfs: fix corruption during shrinking of xattrs
+        . (34):(xattr):(b:sem->state->xattr):(s:corruption):(real):(ff):(note:wrong_state_update_xattr)  1  1   1 
+    reiserfs: fix permissions on .reiserfs_priv
+        . (34):(dir,xattr):(b:sem->wlog):(s:wb):(r:fail):(real):(ff):(note:wrong_logic)  2  4   15 
+    reiserfs: Fix locking BUG during mount failure
+        . (34):(super):(b:concurrency->d_unlock):(s:crash->BUG):(r:fail):(real):(ff)  1  4   6 
+    reiserfs: properly honor read-only devices
+        . (34):(journal):(b:sem->conf):(s:error->op_fail,corruption):(rep:forget_config)  1  9   6 
+    reiserfs: fix oops while creating privroot with selinux enabled
+        . (34):(xattr):(b:mem->null):(s:crash->null):(real):(ff):(rep:deref_before_check)  2  6   1 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.35
+    reiserfs: Fix resuming of quotas on remount read-write
+        . (35):(super):(b:sem->conf):(s:wb):(rep:forget_config)  1  10   2 
+    reiserfs: replace inode uid,gid,mode initialization with helper function
+        . (35):(misc->api)  1  4   14 
+    reiserfs: constify xattr_handler
+        . (35):(misc->api)  7  18   18 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.36
+    reiserfs: fix unwanted reiserfs lock recursion
+        . (36):(ioctl):(b:concurrency->deadlock):(s:deadlock->cl):(r:fail):(rep:wrong_lock_in_transaction) 1  3   2 
+    reiserfs: fix dependency inversion between inode and reiserfs mutexes
+        . (36):(ioctl):(b:concurrency->deadlock):(s:deadlock->cl):(note:wrong_lock_mutex_order)  1  1   1 
+    fix reiserfs_evict_inode end_writeback second call
+        . (36):(inode):(b:sem->gene):(s:crash->BUG):(r:fail):(rep:simple_typo)  1  1   0 
+    reiserfs: remove unused local `wait'
+        . (36):(misc->code)
+    reiserfs: typo comment fix
+        . (36):(misc->code)  1  1   1 
+    convert reiserfs to ->evict_inode()
+        . (36):(misc->api)  3  12   11 
+    Fix reiserfs_file_release()
+        . (36):(file,inode,super):(b:sem->wlog):(s:corruption,deadlock):(note:wrong_logic)  4  32   26 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.37
+    reiserfs: don't acquire lock recursively in reiserfs_acl_chmod
+        . (37):(xattr):(b:concurrency->deadlock):(s:deadlock->re):(rep:wrong_lock_in_trasaction)  1  4   2 
+    reiserfs: fix inode mutex - reiserfs lock misordering
+        . (37):(ioctl):(b:concurrency->inter):(s:wb):(note:wrong_lock_mutex_order)  1  3   4 
+    reiserfs: replace barriers with explicit flush / FUA usage
+        . (37):(misc->api)  1  20   86 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.38
+    reiserfs xattr ->d_revalidate() shouldn't care about RCU
+        . (38):(xattr):(b:sem->wlog):(s:error->wr_err):(r:fail):(note:wrong_logic)  1  0   2 
+    fix reiserfs mkdir() breakage
+        . (38):(dir):(b:sem->state->inode):(s:corruption):(r:fail):(note:wrong_state_update_inode)  1  1   1 
+    reiserfs: make sure va_end() is always called after va_start().
+        . (38):(other):(b:sem->state->bh):(s:wb):(note:miss_state_update_bh)  1  2   2 
+--------------------------------------------------------------------------------------------
+ChangeLog-2.6.39
+    reiserfs: use little-endian bitops
+        . (39):(misc->api)  1  13   14 
+    reiserfs: make commit_wq use the default concurrency level
+        . (39):(journal):(p:sche):(s:performance->cpu)  1  1   1 
+--------------------------------------------------------------------------------------------

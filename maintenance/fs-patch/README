@@ -1,0 +1,354 @@
+
+*************************************************************************************************************
+
+In this document, we describe our classification in following aspects:
+
+1. bug patterns
+
+2. bug consequences
+
+3. failure paths
+
+4. performance patches
+
+5. reliability patches
+
+6. maintenance patches
+
+7. other useful classifications
+
+8. simple examples of our notations 
+
+*************************************************************************************************************
+
+Bug patterns: 
+
+. notation: (b:bug_pattern)
+
+. type: sem, concurrency, mem, error_handling
+
+. semantic bug (sem):
+
+	. sub-type: state, wlog, conf, io, gene 
+
+	. State(state): incorrectly update or check file-system state
+
+	. Logic(wlog): wrong algorithm / assumptions / implementation
+
+	. Config(conf): miss to process related configuration 
+
+	. I/O timing(io): wrong I/O request order
+
+	. Generic(gene): generic semantic bugs 
+
+
+. concurrency bug (concurrency):
+
+	. sub-type: ato, inter, m_unlock, d_unlock, wr_lock
+
+	. atomicity(ato): the atomic property for accesses is violated
+
+	. order(inter): the order of multiple accesses is violated
+
+	. deadlock(deadlock): deadlock due to wrong lock order
+
+	. miss unlock(m_unlock): miss a paired unlock
+
+	. double_unlock(d_unlock): unlock twice, unlock without lock,
+
+	. wr_lock(wr_lock): use the wrong lock
+
+
+. memory bug (mem):
+
+	. sub-type: re, null, dp, unread, df, bover
+
+	. resource leak(re): fail to release memory resource
+	
+	. null pointer(null): null pointer dereference 
+
+	. dangling pointer(dp)
+
+	. uninitialized read(unread)
+
+	. double free pointers(df) 
+
+	. buffer overflow(bover)
+
+
+. error handling (error_handling):
+	. sub-type: ms_err, wr_err
+
+	. miss_error(ms_err): miss return error code, miss error code check, 
+
+	. wrong_error(wr_err): wrong error code return, wrong error check, unexpected error code
+
+************************************************************************************************************
+
+Bug consequences:
+
+. notation: (s:bug_consequence)
+
+. type: corruption, crash, error, deadlock, hang, leak, wrong
+
+. corruption:
+	. on-disk metadata and file data 
+
+	. in-memory metadata: 
+		. fs data structure 
+		. vfs data structure
+		. journal data structure
+
+	. potential data loss:
+		. fail to sync data or metadata
+		. dir entry loss due to hash collision 
+
+. crash:
+	. bug/assert, null, af, other
+
+	. bug, assert: hit BUG, BUG_ON, ASSERT,
+	. null: null pointer dereference
+	. access_fault(af): illegal memory access, divide by zero, etc
+	. other
+
+. deadlock: 
+	. in, cl, re, bs, other
+	
+	. inversion(in): lock order inversion leading to deadlock, such as ABBA lock order
+	. circle(cl): lock in a circle, A->B->C->A
+	. recursion(re): recursively lock the same lock without unlock, 
+	. block_spinlock(bs): blocking during spinlock, such as interrupt handling lock the same lock
+	. other:
+			
+. error: 
+	. wr_err, op_fail, warning
+		
+	. wrong_error(wr_err): return wrong error code, do the wrong error check, 
+	. operation fail(op_fail): error leading to operation fail, 
+	. warning(warning): trigger warning message
+
+. leak:
+	. go, vo, fo
+
+	. generic_object(go): general memory object,
+	. vfs_object(vo): VFS object, such as inode, dentry, etc
+	. fs_object(fo): low level file system object, such as ext3_inode, 
+
+. wb: divert from expectations, excluding the above ones 
+	. security/permission vulnerability, information leak, etc. 
+
+*************************************************************************************************************
+
+. Failure paths:
+
+. notation: (r:fail)
+
+. hardware failure: (when any such failure happens, the handling is wrong)
+	. disk read/write
+	. memory allocation
+	. disk block allocation failure
+	. power failure
+
+. silent failure: (when validating important data structures, such as inode, super, dir)
+	. silent data corruption
+
+*************************************************************************************************************
+
+. Performance patches:
+
+. notation: (p:performance_pattern)
+
+. type: sync, acce, sche, scal, loca, rest
+
+. synchronization(sync): inefficient usage of synchronization methods
+	. rm_lock: remove lock usage, 
+	. rw_lock: use read/write lock
+	. rcu	 : use rcu_read, rcu_write
+	. sm_lock: smaller lock, reduce lock range(such as lock several bit)
+	. sh_lock: use shared lock
+
+. access_optimization(acce): apply smarter access strategies
+	. caching metadata and statistics
+	. avoid unnecessary I/O and computing 
+
+. schedule(sche): improve I/O operation scheduling 
+	. batching, readahead, parallel, wake up, con_schedule, solve io stalls, etc.
+
+. scalability(scal): scale on-disk and in-memory data structure
+	. on-disk: per-bg structure, per-device structure, 
+	. in-mem:  using tree over linear structure, save memory for basic structure(inode,etc)
+
+. locality(loca): overcome sub-optimal data block allocation
+	. bad data layout, file fragmentation, improve the allocation locality algorithm
+
+. rest: other performance improvement techniques
+	. sharing tree nodes in btrfs, 
+	. use slab, 
+	. reduce stack
+	. algorithmic optimization, 
+	. inline functions, 
+	. compiling related optimization(unlikely,etc)
+
+*************************************************************************************************************
+
+Reliability patches:
+
+. notation: (c:reliability_pattern)
+
+. type: fun_ck, cor_ck, err_ck, an, db
+
+. robust(fun_ck): enhance file-system robustness
+	. check potential boundary/support/functionality violation, fail/error if necessary: 
+		. potential type overflow: check fs/file size limit (2TB, 16TB, etc), rejected if over the limit, 
+		. potential seeking, truncating boundary
+
+	. improve functional robustness: 
+		. improve/lightup the journal credit requirements, more ENOSPC friendly
+		. add BUG_ON() to check certain conditions
+		. improve memory allocation to be more resilient
+
+	. access right/permission check: restrict users' access capability, return error when appropriate
+
+
+. corruption_check(cor_ck): improve fs's ability to handle various kinds of possible disk corruptions
+	. corruption/data integrity check: inode, super block, journal, orphan list, etc
+	. corruption prevention (such as flush when possible, null symlimk),
+	. or improve original corruption handling: return error code instead of crash, instead of wipe journal, etc
+
+	. these patches are usually from injected corruption !!
+	. many cases happened when mounting a file system, checking super, block group, journal, directory, etc
+
+
+. error_check(err_ck): improve original error handling
+	. return detailed error code, instead of null or a single error code 
+	. return error code earlier, to avoid a large amount of errors/warnings later
+	. remove unnecessary warnings, or add some warnings
+	. check error code is within a valid range, prevent some error/failures to happen by reservations, 
+
+	. grace_handling: gracefully handle crash, assert, panic, etc
+		. use error code instead of BUG or assert,
+		. if error happen then fallback to some graceful mode, etc
+
+
+. annotation(an): lock, endianness, user/kernel space pointer annotation, 
+
+	. add lock annotations to these two functions so that sparse can check callers for lock pairing,
+	  and so that sparse will not complain about these functions since they intentionally use locks
+	  in this manner.
+
+	. sparse: lockdep, user/kernel pointer, endianness, 
+		
+
+. debugging(db): strace, debugging message, printk,
+	. output debugging information when panic, crash, error out
+	. add tracepoint in code
+
+*************************************************************************************************************
+
+Maintenance patches:
+
+. notation: (misc->maintenance_type)
+
+. type: api, code, compile, doc
+
+. doc fix
+
+. api change
+	. function
+	. type
+
+. code cleanup
+	. fix message, log,
+	. remove dead code, white space,
+	. fix comments 
+	. simplify code structure
+	. configuration
+	. remove redundant checks, code, etc
+
+. compiling fix
+
+*************************************************************************************************************
+
+Other useful information :  (will add more details in this section) 
+
+common patches across all file systems: 
+
+	. notation: (rep:FOO)
+
+	. for example, a common memory leak bug on failures will be described as: 
+		. (rep:leak_on_err)
+
+	. for bug, performance and reliability patches, we identify many interesting common cases. 
+
+
+extra notes to summarize a bug patch: 
+
+	. notation: (note:FOO)
+
+	. for example, a semantic bug has extra notes as: 
+		. (note:miss_state_update_inode)
+
+
+fix-on-fix bug patches: 
+
+	. notation: (ff)
+
+	. some bug-fixings are also error-prone, (ff) indicates these type of bug patches
+
+
+same type of patches: 
+
+	. notation: (ss)
+
+	. this notation is only used in ext3. 
+
+	. since ext4 inherits from ext3, there are same bugs in these two file systems, 
+	  we use (ss) in ext3 to identify these same bugs because of same code base.  
+
+
+tools used: 
+
+	. notation: (t:FOO)
+
+	. this notation is used to indicate which tool is used to detect bugs.
+
+	. for example: (t:coverity) means Coverity is used to find this bug. 
+
+*************************************************************************************************************
+
+Several simple examples of our notations:
+
+A bug patch example: 
+
+[PATCH] fix ext3 quota allocation bug on error path ...
+	. (11):(xattr):(b:mem->re->err):(s:leak->fo):(r:fail):(rep:leak_on_err) 1 6 2 
+
+	. meanings: 
+		. (11): 2.6.11
+		. (xattr): logical component
+		. (b:mem->re->err): this is a bug patch, memory bug, resource leak
+		. (s:leak->fo): this bug causes resource leak, file system object
+		. (r:fail): this bug happens on failure path
+		. (rep:leak_on_err): this is a common type of bug, which leak resource on failures.
+		. 1 6 2: 1 file modified, 6 lines added, 2 lines deleted 
+
+
+A performance patch example: 
+
+ext4: avoid unnecessary spinlock in critical POSIX ACL path
+	. (31):(xattr):(p:sync->rm_lock):(s:performance->cpu):(rep:remove_lock)  1  9   6 
+
+
+	. meanings: 
+		. (31): 2.6.31
+		. (xattr): logical component
+		. (p:sync->rm_lock): this is a performance patch, sync type, remove lock
+		. (s:performance->cpu): this patch improves performance (CPU)
+		. (rep:remove_lock): this is a common type of performance patch, which removes locks.
+		. 1 9 6: 1 file modified, 9 lines added, 6 lines deleted 
+
+
+*************************************************************************************************************
+
+
+

@@ -1,0 +1,39 @@
+> criterion(loy.dist, loy.ser)
+    AR_deviations         AR_events      Gradient_raw Gradient_weighted 
+         54.18182         464.00000        2124.00000         427.54545 
+          Inertia     Least_squares                ME      Moore_stress 
+      62488.18182       55697.25620         892.21478         205.32231 
+   Neumann_stress       Path_length 
+        123.47107          16.72727 
+> get_order(loy.ser)
+V13 V16 V24 V25 V11 V14 V23 V22  V7  V8 V20  V3  V5 V12 V18 V10 V17  V6  V1  V2 
+ 13  16  24  25  11  14  23  22   7   8  20   3   5  12  18  10  17   6   1   2 
+ V4  V9 V21 V19 V15 
+  4   9  21  19  15 
+
+> criterion(prof.dist, prof.ser)
+    AR_deviations         AR_events      Gradient_raw Gradient_weighted 
+         42.17647         288.00000        2191.00000         348.52941 
+          Inertia     Least_squares                ME      Moore_stress 
+      63794.23529       55494.61592         951.03790         230.98962 
+   Neumann_stress       Path_length 
+        138.90657          18.11765 
+> get_order(prof.ser)
+V18 V20  V3  V7  V8  V5 V11 V22 V16 V23 V12 V14 V15 V24 V25 V13 V21 V17  V1 V19 
+ 18  20   3   7   8   5  11  22  16  23  12  14  15  24  25  13  21  17   1  19 
+ V2  V4  V6  V9 V10 
+  2   4   6   9  10 
+
+> criterion(all.dist, all.ser)
+    AR_deviations         AR_events      Gradient_raw Gradient_weighted 
+         46.42308         635.00000        2210.00000         353.26923 
+          Inertia     Least_squares                ME      Moore_stress 
+      62995.46154       55614.21006         924.04852         215.69231 
+   Neumann_stress       Path_length 
+        128.91124          17.73077 
+> get_order(prof.ser)
+V18 V20  V3  V7  V8  V5 V11 V22 V16 V23 V12 V14 V15 V24 V25 V13 V21 V17  V1 V19 
+ 18  20   3   7   8   5  11  22  16  23  12  14  15  24  25  13  21  17   1  19 
+ V2  V4  V6  V9 V10 
+  2   4   6   9  10 
+

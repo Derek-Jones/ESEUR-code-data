@@ -1,0 +1,506 @@
+%%-*- text -*-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% This is a PROMISE Software Engineering Repository data set made publicly
+% available in order to encourage repeatable, verifiable, refutable, and/or
+% improvable predictive models of software engineering.
+%
+% If you publish material based on PROMISE data sets then, please
+% follow the acknowledgment guidelines posted on the PROMISE repository
+% web page http://promise.site.uottawa.ca/SERepository .
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% 1. Title/Topic: CM1/ Maintainability Bayesian Net
+ 
+% 2. Sources:
+% 
+%    -- Creators: Stefan Wagner (wagnerst@in.tum.de) based on
+%       data from NASA, then the NASA Metrics Data Program,
+%       http://mdp.ivv.nasa.gov. Contacts: Mike Chapman, 
+%       Galaxy Global Corporation (Robert.Chapman@ivv.nasa.gov)
+%       +1-304-367-8341; Pat Callis, NASA, NASA project manager 
+%       for MDP (Patrick.E.Callis@ivv.nasa.gov) +1-304-367-8309
+%       and Stefan Wagner. A Literature Survey on the Quality
+%       Economics of Defect-Detection Techniques, ISESE '06.
+% 
+%    -- Donor: Stefan Wagner (wagnerst@in.tum.de)
+% 
+%    -- Date:  May 12 2009
+
+% 3. Past usage:
+% 
+%    1. S. Wagner. A Bayesian Network Approach to Assess and Predict
+%       Software Quality Using Activity-Based Quality Models. In: Proc.
+%       International Conference on Predictor Models in Software 
+%       Engineering (PROMISE '09). ACM Press, 2009.
+%       -- Results: 
+% 
+%         -- Used for predicting maintainability by the average
+%            effort for a fix
+% 
+%         -- The Bayesian net did not predict very accurately but
+%            the general feasibility of the approach was shown.
+% 
+
+% 4. Relevant information:
+% 
+%    -- CM1 is a NASA spacecraft instrument written in "C".
+% 
+%    -- The data here describes the node probability tables (NPT)
+%       for every node in the Bayesian network
+%
+%    -- Topology:
+%       Maintenance -> Average Change Effort
+%       Analysis, Quality Assurance, Implementation -> Maintenance
+%       Comprehension -> Analysis
+%       Testing -> Quality Assurance
+%       Modification -> Implementation
+%       Code Reading -> Comprehension
+%       Extent of Modules -> Code Reading, Average Module Size
+%       Regularity of Implementation -> Testing, Average Cyclomatic
+%                                       Complexity
+%       Appropriateness of Comments -> Modification, Comment Ratio
+
+% 5. Number of instances: 15
+
+% 6. Number of attributes: 1 (fix effort)
+
+% 7. Attribute Information:
+% 	
+%      1. effort             : numeric % change effort in person hours
+%      2. XXX_state	         : {low,medium,high}
+%      3. probability        : numeric % in the range 0.0-1.0
+%      4. comment_ratio      : numeric % commented loc / total loc
+%      5. average_cyclomatic_complexity : numeric
+%      6. average_module_size : numeric % in loc
+
+
+% 8. Missing attributes: none
+
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+@relation CM1_bn_average_change_effort 
+@attribute change_effort : numeric
+@attribute maintenance_state : {low,medium,high}
+@attribute probability : numeric
+
+@data
+3.9-9.125,low,0.31552193				
+3.9-9.125,medium,0.013411271
+3.9-9.125,high,2.3337046E-7
+9.125-14.35,low,0.31052786				
+9.125-14.35,medium,0.062048152
+9.125-14.35,high,1.659625E-5
+14.35-19.575,low,0.2327166				
+14.35-19.575,medium,0.14756572
+14.35-19.575,high,5.007459E-4
+19.575-24.8,low,0.11020119				
+19.575-24.8,medium,0.21272083
+19.575-24.8,high,0.0065820036
+24.8-30.025,low,0.027585793				
+24.8-30.025,medium,0.22646089
+24.8-30.025,high,0.039424136
+30.025-35.25,low,0.0032700424			
+30.025-35.25,medium,0.18976566
+30.025-35.25,high,0.11653791
+35.25-40.475,low,1.7260591E-4			
+35.25-40.475,medium,0.10799699
+35.25-40.475,high,0.19554493
+40.475-45.7,low,3.9161127E-6			
+40.475-45.7,medium,0.034315377
+40.475-45.7,high,0.22718826
+45.7-50.925,low,3.7389842E-8		
+45.7-50.925,medium,0.0053285165
+45.7-50.925,high,0.20863116
+50.925-56.15,low,1.4826267E-10		
+50.925-56.15,medium,3.7498344E-4
+50.925-56.15,high,0.13919194
+56.15-61.375,low,2.4211362E-13		
+56.15-61.375,medium,1.1459871E-5
+56.15-61.375,high,0.05524505
+61.375-66.6,low,1.5715541E-16		
+61.375-66.6,medium,1.4830746E-7
+61.375-66.6,high,0.011137037
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+
+@relation CM1_bn_maintenance
+
+@attribute maintenance_state : {low,medium,high}
+@attribute implementation_state : {low,medium,high}
+@attribute analysis_state : {low,medium,high}
+@attribute quality_assurance_state : {low,medium,high}
+@attribute probability : numeric
+
+@data
+low,low,low,low,0.9930634
+medium,low,low,low,0.006936614
+high,low,low,low,0.0
+low,low,low,medium,0.77246124
+medium,low,low,medium,0.22753875
+high,low,low,medium,0.0
+low,low,low,high,0.22753875
+medium,low,low,high,0.77246124
+high,low,low,high,2.6977163E-9
+low,low,medium,low,0.77246124
+medium,low,medium,low,0.22753875
+high,low,medium,low,0.0
+low,low,medium,medium,0.22753875
+medium,low,medium,medium,0.77246124
+high,low,medium,medium,2.6977163E-9
+low,low,medium,high,0.0068888287
+medium,low,medium,high,0.9862223
+high,low,medium,high,0.0068888287
+low,low,high,low,0.22753875
+medium,low,high,low,0.77246124
+high,low,high,low,2.6977163E-9
+low,low,high,medium,0.0068888287
+medium,low,high,medium,0.9862223
+high,low,high,medium,0.0068888287
+low,low,high,high,2,6977163E-9
+medium,low,high,high,0.77246124
+high,low,high,high,0.22753875
+low,medium,low,low,0.77246124
+medium,medium,low,low,0.22753875
+high,medium,low,low,0.0
+low,medium,low,medium,0.22753875
+medium,medium,low,medium,0.77246124
+high,medium,low,medium,2.6977163E-9
+low,medium,low,high,0.0068888287
+medium,medium,low,high,0.9862223
+high,medium,low,high,0.0068888287
+low,medium,medium,low,0.22753875
+medium,medium,medium,low,0.77246124
+high,medium,medium,low,2.6977163E-9
+low,medium,medium,medium,0.0068888287
+medium,medium,medium,medium,0.9862223
+high,medium,medium,medium,0.0068888287
+low,medium,medium,high,2.6977163E-9
+medium,medium,medium,high,0.77246124
+high,medium,medium,high,0.22753875
+low,medium,high,low,0.0068888287
+medium,medium,high,low,0.9862223
+high,medium,high,low,0.0068888287
+low,medium,high,medium,2.6977163E-9
+medium,medium,high,medium,0.77246124
+high,medium,high,medium,0.22753875
+low,medium,high,high,0.0
+medium,medium,high,high,0.22753875
+high,medium,high,high,0.77246124
+low,high,low,low,0.22753875
+medium,high,low,low,0.77246124
+high,high,low,low,2.6977163E-9
+low,high,low,medium,0.0068888287
+medium,high,low,medium,0.9862223
+high,high,low,medium,0.0068888287
+low,high,low,high,2.6977163E-9
+medium,high,low,high,0.77246124
+high,high,low,high,0.22753875
+low,high,medium,low,0.0068888287
+medium,high,medium,low,0.9862223
+high,high,medium,low,0.0068888287
+low,high,medium,medium,2.6977163E-9
+medium,high,medium,medium,0.7724624
+high,high,medium,medium,0.22753875
+low,high,medium,high,0.0
+medium,high,medium,high,0.22753875
+high,high,medium,high,0.77246124
+low,high,high,low,2.6977163E-9
+medium,high,high,low,0.77246124
+high,high,high,low,0.22753875
+low,high,high,medium,0.0
+medium,high,high,medium,0.22753875
+high,high,high,medium,0.77246124
+low,high,high,high,0.0
+medium,high,high,high,0.006936614
+high,high,high,high,0.9930634
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+
+@relation CM1_bn_analysis
+@attribute analysis_state : {low,medium,high}
+@attribute comprehension_state : {low,medium,high}
+@attribute probability : numeric
+
+@data
+low,low,1.0
+medium,low,0.0
+high,low,0.0
+low,medium,0.0
+medium,medium,1.0
+high,medium,0.0
+low,high,0.0
+medium,high,0.0
+high,high,1.0
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+
+@relation CM1_bn_quality_assurance
+@attribute quality_assurance_state : {low,medium,high}
+@attribute testing_state : {low,medium,high}
+@attribute probability : numeric
+
+@data
+low,low,1.0
+medium,low,0.0
+high,low,0.0
+low,medium,0.0
+medium,medium,1.0
+high,medium,0.0
+low,high,0.0
+medium,high,0.0
+high,high,1.0
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+
+@relation CM1_bn_implementation
+@attribute implementation_state : {low,medium,high}
+@attribute modification_state : {low,medium,high}
+@attribute probability : numeric
+
+@data
+low,low,1.0
+medium,low,0.0
+high,low,0.0
+low,medium,0.0
+medium,medium,1.0
+high,medium,0.0
+low,high,0.0
+medium,high,0.0
+high,high,1.0
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+
+@relation CM1_bn_comprehension
+@attribute comprehension_state : {low,medium,high}
+@attribute code_reading_state : {low,medium,high}
+@attribute probability : numeric
+
+@data
+low,low,1.0
+medium,low,0.0
+high,low,0.0
+low,medium,0.0
+medium,medium,1.0
+high,medium,0.0
+low,high,0.0
+medium,high,0.0
+high,high,1.0
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+
+@relation CM1_bn_testing
+@attribute testing_state : {low,medium,high}
+@attribute regularity_of_implementation_state : {low,medium,high}
+@attribute probability : numeric
+
+@data
+low,low,0.0
+medium,low,0.0
+high,low,1.0
+low,medium,0.0
+medium,medium,1.0
+high,medium,0.0
+low,high,1.0
+medium,high,0.0
+high,high,0.0
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+
+@relation CM1_bn_modification
+@attribute modification_state : {low,medium,high}
+@attribute appropriateness_of_comment_state : {low,medium,high}
+@attribute probability : numeric
+ 
+@data
+low,low,0.0
+medium,low,0.0
+high,low,1.0
+low,medium,0.0
+medium,medium,1.0
+high,medium,0.0
+low,high,1.0
+medium,high,0.0
+high,high,0.0
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+
+@relation CM1_bn_code_reading
+@attribute code_reading_state : {low,medium,high}
+@attribute extent_of_modules_state : {low,medium,high}
+@attribute probability : numeric
+ 
+@data
+low,low,1.0
+medium,low,0.0
+high,low,0.0
+low,medium,0.0
+medium,medium,1.0
+high,medium,0.0
+low,high,0.0
+medium,high,0.0
+high,high,1.0
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+
+@relation CM1_bn_extent_of_modules
+@attribute extent_of_modules_state : {low,medium,high}
+@attribute probability : numeric
+
+@data
+low,0.33333
+medium,0.33333
+high,0.33333
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+
+@relation CM1_bn_regularity_of_implementation
+@attribute regularity_of_implementation_state : {low,medium,high}
+@attribute probability : numeric
+ 
+@data
+low,0.33333
+medium,0.33333
+high,0.33333
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+
+@relation CM1_bn_appropriateness_of_comment
+@attribute appropriateness_of_comment_state : {low,medium,high}
+@attribute probability : numeric
+
+@data
+low,0.33333
+medium,0.33333
+high,0.33333
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+@relation CM1_bn_comment_ratio
+@attribute comment_ratio : numeric
+@attribute appropriatness_of_comment_state : {low,medium,high}
+@attribute probability : numeric
+
+@data
+0.0-0.05,low,0.21861392
+0.0-0.05,medium,0.12514098
+0.0-0.05,high,0.06303138
+0.05-0.1,low,0.20460929
+0.05-0.1,medium,0.13152975
+0.05-0.1,high,0.069645956
+0.1-0.15,low,0.17629181
+0.1-0.15,medium,0.13152975
+0.1-0.15,high,0.07505856
+0.15-0.2,low,0.13982919
+0.15-0.2,medium,0.12514098
+0.15-0.3,high,0.078898676
+0.2-1.0,low,0.2606558
+0.2-1.0,medium,0.48665854
+0.2-1.0,high,0.71336544
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+@relation CM1_bn_average_cyclomatic_complexity
+@attribute average_cyclomatic_complexity : numeric
+@attribute regularity_of_implementation_state : {low,medium,high}
+@attribute probability : numeric
+
+@data
+0.0-1.0,low,0.0
+0.0-1.0,medium,0.0
+0.0-1.0,high,0.15
+1.0-2.0,low,0.0
+1.0-2.0,medium,0.0
+1.0-2.0,high,0.15
+2.0-3.0,low,0.0
+2.0-3.0,medium,0.0
+2.0-3.0,high,0.15
+3.0-4.0,low,0.0
+3.0-4.0,medium,0.0
+3.0-4.0,high,0.15
+4.0-5.0,low,0.0
+4.0-5.0,medium,0.0
+4.0-5.0,high,0.15
+5.0-6.0,low,0.0
+5.0-6.0,medium,0.0
+5.0-6.0,high,0.15
+6.0-7.0,low,0.0
+6.0-7.0,medium,0.05
+6.0-7.0,high,0.1
+7.0-8.0,low,0.0
+7.0-8.0,medium,0.15
+7.0-8.0,high,0.0
+8.0-9.0,low,0.0
+8.0-9.0,medium,0.15
+8.0-9.0,high,0.0
+9.0-10.0,low,0.0
+9.0-10.0,medium,0.15
+9.0-10.0,high,0.0
+10.0-Infinity,low,1.0
+10.0-Infinity,medium,0.5
+10.0-Infinity,high,0.0
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%% 
+
+@relation CM1_bn_average_module_size
+@attribute average_module_size : numeric
+@attribute extent_of_modules_state : {low,medium,high}
+@attribute probability : numeric
+
+@data
+0.0-10.0,low,0.15
+0.0-10.0,medium,0.0
+0.0-10.0,high,0.0
+10.0-20.0,low,0.15
+10.0-20.0,medium,0.0
+10.0-20.0,high,0.0
+20.0-30.0,low,0.15
+20.0-30.0,medium,0.0
+20.0-30.0,high,0.0
+30.0-40.0,low,0.15
+30.0-40.0,medium,0.0
+30.0-40.0,high,0.0
+40.0-50.0,low,0.15
+40.0-50.0,medium,0.0
+40.0-50.0,high,0.0
+50.0-60.0,low,0.15
+50.0-60.0,medium,0.0
+50.0-60.0,high,0.0
+60.0-70.0,low,0.1
+60.0-70.0,medium,0.05
+60.0-70.0,high,0.0
+70.0-80.0,low,0.0
+70.0-80.0,medium,0.15
+70.0-80.0,high,0.0
+80.0-90.0,low,0.0
+80.0-90.0,medium,0.15
+80.0-90.0,high,0.0
+90.0-Infinity,low,0.0
+90.0-Infinity,medium,0.65
+90.0-Infinity,high,1.0
