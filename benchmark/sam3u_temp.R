@@ -32,7 +32,7 @@ brew_col=rainbow(10)
 
 plot(1, type="n",
 	xlim=c(20, 60), ylim=c(10, 320),
-	xlab="Temperature (C)", ylab=expression("Power ("*mu*"W)\n"))
+	xlab="Temperature (C)", ylab=expression("Power ("*mu*"W)"))
 dummy=sapply(2:11, plot_sleep)
 text(40, 20, "Sleeping")
 

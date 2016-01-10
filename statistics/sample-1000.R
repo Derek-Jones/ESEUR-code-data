@@ -1,5 +1,5 @@
 #
-# sample-1000.R,  8 Jan 16
+# sample-1000.R,  9 Jan 16
 #
 # Data from:
 #
@@ -32,7 +32,7 @@ lines(c(m_1, m_1), c(0, max_y), col=pal_col[1])
 lines(c(m_2, m_2), c(0, max_y), col=pal_col[2])
 lines(c(m_3, m_3), c(0, max_y), col=pal_col[3])
 
-text(m_1, max_y, "mean", pos=4, col=pal_col[1], offset=c(0.2, -0.2), cex=1.2)
-text(m_2, max_y, "median", pos=3, col=pal_col[2], cex=1.2)
-text(m_3, max_y, "mode", pos=2, col=pal_col[3], offset=c(0.2, -0.2), cex=1.2)
+text(m_1, max_y, "mean", pos=4, col=pal_col[1], offset=c(0.2, -0.2), cex=1.4)
+text(m_2, max_y, "median", pos=3, col=pal_col[2], cex=1.4)
+text(m_3, max_y, "mode", pos=2, col=pal_col[3], offset=c(0.2, -0.2), cex=1.4)
 

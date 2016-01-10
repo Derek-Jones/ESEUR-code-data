@@ -1,5 +1,5 @@
 #
-# sample-distrib.R,  8 Jan 16
+# sample-distrib.R,  9 Jan 16
 #
 # Data from:
 #
@@ -17,7 +17,6 @@ library("VGAM")
 
 
 plot_layout(2, 3)
-par(mar=c(5, 1, 4, 1)+0.1)
 
 pal_col=rainbow(2)
 
@@ -63,7 +62,8 @@ lines(c(q[2], q[2]), c(0, max(y_bounds)/3), col=pal_col[2])
 # lines(c(dist_mean, dist_mean), c(0, max(y_bounds)), col=pal_col[2])
 # lines(c(rep_mean, rep_mean), c(0, max(y_bounds)), col=pal_col[1])
 
-legend(x="topright", legend=c(paste0("size=", sample_size)), title=dist_str, bty="n")
+legend(x="topright", legend=c(paste0("size=", sample_size)), title=dist_str,
+				bty="n", cex=1.3)
 }
 
 

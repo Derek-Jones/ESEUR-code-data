@@ -1,5 +1,5 @@
 #
-# pop-sample.R, 20 Sep 14
+# pop-sample.R,  9 Jan 16
 #
 #
 # Example from:
@@ -45,14 +45,14 @@ plot(pts$x, pts$y, pch=21, cex=0.2, col="red",
 	xlab="", ylab="")
 
 draw_circle(pop_rad, pop_rad, pop_rad)
-text(pop_rad, 0.1+pop_rad*2, "Population", cex=1.2)
+text(pop_rad, 0.1+pop_rad*2, "Population", cex=1.4)
 
 samp_rad=pop_rad/3
 samp_x=3*pop_rad
 samp_y=pop_rad
 
 draw_circle(samp_x, samp_y, samp_rad)
-text(samp_x, 0.1+samp_y+samp_rad, "Sample", cex=1.2)
+text(samp_x, 0.1+samp_y+samp_rad, "Sample", cex=1.4)
 
 samp_x_pts=samp_x+c(0, 0.5, 0.5, -0.5, -0.5)*samp_rad
 samp_y_pts=samp_y+c(0, -0.5, 0.5, 0.5, -0.5)*samp_rad

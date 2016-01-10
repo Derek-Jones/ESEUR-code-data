@@ -1,11 +1,9 @@
 #
-# sorted-agg-year-cor.R, 10 Oct 12
+# sorted-agg-year-cor.R,  9 Jan 16
 #
-# R code for book "Empirical Software Engineering using R"
-# Derek M. Jones, http://shape-of-code.coding-guidelines.com
-#
-# Data from paper "Learning a Metric for Code Readability",
-# by Raymond P. L. Buse and Westley R. Weimer
+# Data from:
+# Learning a Metric for Code Readability
+# Raymond P. L. Buse and Westley R. Weimer
 #
 # Example from:
 # Empirical Software Engineering using R
@@ -96,7 +94,7 @@ abline(lm(y ~ x)$coefficients)
 text(60, 0.14, pos=4,
         label=paste("1st    ",
                     round(mean(cs1_rank_cor), digits=2), " ",
-                    round(sd(cs1_rank_cor), digits=2)))
+                    round(sd(cs1_rank_cor), digits=2)), cex=1.3)
 
 x=seq(1, 100, by=100/length(cs2_rank_cor))
 y=sort(cs2_rank_cor)
@@ -105,7 +103,7 @@ abline(glm(y ~ x)$coefficients)
 text(60, 0.17, pos=4,
         label=paste("2nd   ",
                     round(mean(cs2_rank_cor), digits=2), " ",
-                    round(sd(cs2_rank_cor), digits=2)))
+                    round(sd(cs2_rank_cor), digits=2)), cex=1.3)
 
 x=seq(1, 100, by=100/length(cs4_rank_cor))
 y=sort(cs4_rank_cor)

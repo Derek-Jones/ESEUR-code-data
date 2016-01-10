@@ -1,5 +1,5 @@
 #
-# two-norm.R, 19 Mar 14
+# two-norm.R,  9 Jan 16
 #
 # Example from:
 # Empirical Software Engineering using R
@@ -13,17 +13,17 @@ plot_layout(2, 3)
 x_bounds=seq(-4, 4, 0.25)
 
 plot(cut(rnorm(100), breaks=x_bounds), xaxt="n", yaxt="n",
-	xlab="")
+	xlab="", col="yellow")
 plot(cut(rnorm(1000), breaks=x_bounds), xaxt="n", yaxt="n",
-	xlab="")
+	xlab="", col="yellow")
 
 plot(cut(rnorm(100), breaks=x_bounds), xaxt="n", yaxt="n",
-	xlab="100 data points")
+	xlab="100 data points", col="yellow")
 plot(cut(rnorm(1000), breaks=x_bounds), xaxt="n", yaxt="n",
-	xlab="1000 data points")
+	xlab="1000 data points", col="yellow")
 
 plot(cut(rnorm(100), breaks=x_bounds), xaxt="n", yaxt="n",
-	xlab="")
+	xlab="", col="yellow")
 plot(cut(rnorm(1000), breaks=x_bounds), xaxt="n", yaxt="n",
-	xlab="")
+	xlab="", col="yellow")
 
