@@ -1,5 +1,5 @@
 #
-# merging.R, 13 Jun 13
+# merging.R, 12 Jan 16
 #
 # Merging multiple csv files
 # Data from the top500.org web site, November of every year
@@ -12,7 +12,7 @@ source("ESEUR_config.r")
 
 dir_str=paste0(ESEUR_dir, "Rlang/Top500/")
 top_files=list.files(dir_str)
-top_files=top_files[grep("^TOP500_.*\.csv.xz", top_files)]
+top_files=top_files[grep("^TOP500_.*.csv.xz", top_files)]
 
 merge_csv=function(file_str)
 {

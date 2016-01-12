@@ -1,18 +1,20 @@
 #
-# Top500.R,  8 Jan 16
+# Top500.R, 12 Jan 16
 #
 #
 # Example from:
 # Empirical Software Engineering using R
 # Derek M. Jones
+#
+# 12 Jan 16 Fixed messed up problem reported by Alex Conlin-Oakley
 
 dir_str="/usr1/rbook/examples/Rlang/Top500/"
 top_files=list.files(dir_str)
-top_files=top_files[grep("^TOP500_.*\.csv.xz", top_files)]
+top_files=top_files[grep("^TOP500_.*.csv.xz", top_files)]
 
 merge_csv=function(file_str)
 {
-all_csv <<- merge(all_csv, read.csv(paste(dir_str, file_str, sep="/", as.is=TRUE)), all=TRUE)
+all_csv <<- merge(all_csv, read.csv(paste(dir_str, file_str, sep="/"), as.is=TRUE), all=TRUE)
 return(0)
 }
 
