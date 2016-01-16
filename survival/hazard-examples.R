@@ -1,13 +1,17 @@
 #
-# hazard-examples.R,  8 Oct 13
+# hazard-examples.R, 14 Jan 16
 #
 # Example from:
 # Empirical Software Engineering using R
 # Derek M. Jones
 
-plot(1, 1)
+source("ESEUR_config.r")
+
+
+plot_layout(1, 1)
+
+
+plot(1, type="n")
 
 text(1, 1, "TO DO")
-
-
 
