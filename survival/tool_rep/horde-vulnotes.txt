@@ -1,0 +1,127 @@
+SNAPSHOT	DOCUMENTED	COMMIT NOTES
+11	NO	"Mike: worked on cleaning up the menus  problem reporting  and signups after the move last night.  Made these changes:  o Fixed the ""\r\n"" wrapping bug in the problem report  o Disabused the ""all done"" redirects of any module knowledge. it now    takes a ""return_url"" parameter and will send you to that when done.  o Fixed multiple append trailer/footer bugs.  o Fixed a variable naming bug so your work is saved if you had already    typed a problem report but forgot something  causing a redisplay  o Incorrect variable names and program descriptors for versioning  o abstracted the mailfrom command and set_env_in_string command to the    horde library since it was used in 3 different places without change.    updated horde.config  build.pl and buildlib.pl to reflect this and build    correctly "
+90	NO	- The MimePartData class is now officially defunct - Moved the attachment-gathering code in compose.php3 into an addMimeParts()   function to avoid code duplication. - Got rid of some code duplication in message.php3 by calling   mime_view_text() for text
+93	NO	- Removing signup.php3. It's out of date  and we need something that works with phplib.  - Converting horde.php3 over to the $horde[][] conf system. 
+194	NO	Log.php     Added priorityToString()  which maps the LOG_* constants to their     string representation  Log/file.php     Rename Log/logfile.php to Log/file.php     Check for a valid file handle before attempting to write to the logfile     Use Log::priorityToString()  Log/sql.php     Use Log::priorityToString() 
+249	NO	removing  now that the latest rev is in cvs. 
+271	NO	Initial commit of the new help subsystem.  This implementation is much cleaner than the previous system.  It also has the advantage of being XML-based.  Note than the help sources are nowhere near populated or complete right now. 
+335	YES	HTTP_Cache:: now compresses content without the use of a temp file  makes sure that implicit_flush is off  and some other cleanup. 
+359	YES	remove our mailfrom() function in favor of the Mail:: interface now in PEAR. 
+412	YES	Remove Log::. It is part of PEAR now. 
+416	YES	Clean up the problem reporting a bit more and pass the name value from preferences to it from IMP.  We need Mail_RFC822::writeAddress() to really make this correct  but I'll implement that in a bit. 
+427	NO	"Documentation commit - put all classes into a @package  and fix some other documentation bits. But there is a LOT more left to do here. The results of running PHPDoc against the current tree are at http://chuck.bitgroup.com/api/; if everyone can chip in with their pieces (like Anil  I'll leave the Chora stuff to you  probably)  it shouldn't be too bad. "
+428	NO	Woof:  - break core Horde classes (Lang  Secret  ObjectStore (renamed from   SessionCache)  etc. out into their own files. - include them where necessary  usually in an app's lib/base.php file. - core package names are all now lowercase. - a bit more documentation work  but that's mostly to come. - classes all now follow a convention of capitalizing words and acronyms - documentation is updated accordingly - logic is built in to the factory() methods to account for case in driver   names. 
+434	YES	make help work with register_globals = Off. 
+490	YES	Here ya go: update your imp/config/prefs.php  edit away  and see prefs appear and disappear  change from numbers to textareas to text boxes to...  Yeah. It all works. I need to put change_password back in somehow  but that's minor. Have fun. 
+501	NO	make factory-generated subclasses lowercase.  Bug: Submitted by: 
+517	NO	Improved  more modular PHP version testing code.  I've regression-tested this against all released versions of PHP4 so I think we're set now. 
+585	NO	rename ObjectStore to SessionCache and Connection to Token 
+644	NO	Add a framework-level base.php file and make framework scripts use it. This will ensure that framework-level pages are translated  etc. 
+666	YES	Cleanup: change all the $conf['paths'] variables to query this information from the registry using the new API functions:  getTemplatePath()  getWebRoot()  getFileRoot()  getGraphicsPath()  Update your config files! 
+718	NO	Cleaned up the help system a bit. 
+733	NO	xhtml 
+793	NO	let applications ignore the Horde css settings and completely specify their own 
+915	NO	Have tgz driver handle non-gzipped tarballs too. 
+938	NO	Copyright year update. 
+967	NO	not needed 
+1253	YES	Much improved information returned on PGP packets.  This enables Horde to support PGP keys that contain more than 1 e-mail address  for example. 
+1267	NO	TNEF attachments now handled by 100% PHP instead of with external program. Thanks to Jan for writing most of this code. 
+1304	NO	VFS file driver fixes  including automatic creation of directories. 
+1306	NO	fix typo 
+1315	NO	Submitted by: Michael Cochrane <mike@graftonhall.co.nz> All handling of listing zip files is handled with 100% PHP code  instead of an external program  in the MIME_Viewer object. 
+1317	NO	Submitted by: Michael Cochrane <mike@graftonhall.co.nz> The listing of RAR archives is now done internally by the MIME Viewer. 
+1319	NO	Submitted by: Michael Cochrane <mike@graftonhall.co.nz> Tar/gzip now handled entirely internally by MIME_Viewer. 
+1413	NO	"Alright  I give up... enscript just doesn't work on my machine; I think it wants a shell or something. But  this should clean the viewer up a bit and use one less temp file. "
+1557	NO	Add VFS::writeData()  which takes raw data instead of a tmp file  which will sometimes be more efficient. 
+1694	NO	javascript-based colorpicker  Submitted by: Mike Cochrane <mike@graftonhall.co.nz> 
+1702	NO	Add update command  re-order commands and increase verbosity level in debug mode. 
+1793	NO	Cosmetic changes. 
+1806	NO	Cleanups  updates  and modernization of Token:: framework. 
+1905	NO	Some code cleanup  and don't use Horde::fatal(). 
+1915	NO	E_ALL fix if no TERM available. 
+2203	NO	Adopt Data_tsv:: to the new Data framework. 
+2208	YES	Let's see here... Removed some code in Horde_Crypt_smime that was PGP specific - marked that function as incomplete. Various cleanups/phpdoc/private variables everywhere. Now  Horde will not output a fatal error if the openssl extension is not available. Made IMP_SMIME extend Horde_Crypt_smime. Display raw signed message if S/MIME support is not available (either turned off or no OpenSSL support). 
+2458	NO	More strtolower() replacements. 
+2461	NO	Move setup.php into /admin 
+2633	YES	Submitted by: Chris Hastie <lists@oak-wood.co.uk> Improved handling of PGP packet information. PEAR::isError -> is_a(). No need to number any of the file pointer variables. 
+2707	NO	Various cleanups/modifications - mainly to make the various MIME_Viewers more consistent with each other. 
+2751	NO	- Horde_CLI:: library for common command-line tasks. - Split Horde_Scheduler:: out into a driver model. - add a cron driver. - add an example crond script. 
+2869	YES	Add check for Auth_SASL. Submitted by: Chris Hastie <lists@oak-wood.co.uk> 
+2874	NO	Don't set PO-Revision-Date. It produces too much one line changes. 
+2914	NO	silence some errors. We *really* need a clean Horde request lib. 
+2929	YES	Use PEAR's HTTP_Request for XMLRPC requests and simplify request() signature. 
+2969	YES	- Move Cache_session to Horde_SessionObjects - the semantics just aren't the same as the rest of the Cache drivers.  - Rename Cache:: to Horde_Cache:: for consistency/packaging.  - The Horde_Cache:: API is completely revamped to be more flexible/easy to u
+2984	YES	"Don't show a red ""No"" for MIME magic if we're PHP <= 4.2.x and can't get it. Remove some nulls that somehow got in here. "
+3052	NO	 =- Clean up a bunch of The links ui - add getLinkSummary() methods for use in status messages. - use redirects and notification calls instead of intermediate pages when adding/deleting links.
+3063	YES	Fix connection timeouts for PGP keyserver lookups. The add to keyserver probably still needs to be tweaked some more though. 
+3076	NO	Clean up and add some new VFS functionality.  Submitted by: Jeff Graves <jeff@image-src.com> 
+3200	NO	move setup to scripts/ dir  replace existing script  take out for now the incoherent Setup libraries 
+3203	NO	Convert to Horde_Test:: - making it much cleaner. 
+3205	NO	Move Horde_Version:: class into Horde_Test::. Correct linking between test page and extension/phpinfo pages. 
+3350	NO	All gnupg binary interaction handled by a single function now (_callGpg()). Also  make the argument lists for each gpg call a bit neater so it is easier to see what options are being used. 
+3415	YES	 =- Convert Auth_yahoo to use HTTP_Request. - Remove now unused Snoopy.php file.
+3449	NO	Use Horde_CLI. 
+3450	NO	Some fixes. Use System::mkdir(). 
+3451	NO	Use PEAR::File_Find for file searching. 
+3612	YES	Remove use of the file() binary for MIME_Magic. 1) it seems like Chuck's PHP based solution matches the same files as the function based solution  and 2) I guess there is a pretty big security risk for versions of file() before 3.41 - see http://www.idefense.com/advisory/03.04.03.txt Cleaned up some of the code also. 
+3643	NO	 =- Clean up cron code a lot - start implementing config caching in whups scheduler.
+3699	NO	" =- add a set of functions for loading a named piece of image data; then operate on that data  instead of passing The data to every function"
+3728	NO	Match to Image_gd  combine all operations into one call of convert. Add line()  circle(). rectangle()  polygon()  arc() and create blank canvas if not loading an image. 
+3920	YES	 =- close security hole - stream data directly to browser instead of reading It into memory first.
+3927	NO	the image display script now with editing functions too 
+3963	NO	alright  it's not stackable filters yet  but here's an update that at least puts the right hierachy in place and fixes up a few paths/method names/etc. 
+3964	NO	 =- add cleanup command. - some simplifications  fixes.
+3974	NO	always use Image:: 
+4090	NO	Add VFS::autocreatePath() and obey the $autocreate parameter in VFS_sql::write[Data](). 
+4186	NO	VFS is now in the framework CVS module (http://cvs.horde.org/cvs.php/framework/VFS/) and should be installed via PEAR. 
+4259	YES	More reliable check for PHP support in xgettext. 
+4269	NO	Start removing files that have been moved via repository copies. 
+4464	NO	Move Horde_Util package into the framework module. 
+4465	NO	Move Cache classes to the framework module. 
+4468	NO	Move Token classes to the framework module. 
+4479	NO	start fixing test.php to work with the new layout. still needed: instructions on what to do if packages are not found. 
+4497	NO	Get rid of the dumb HORDE_BASE fiddling and fix for the new directory layout. 
+4500	NO	Move cipher test. 
+4533	NO	"get some test files  and rearrange a few things. What package some of these classes fall under is entirely debatable; I just want to get everything into a structure that can be worked with. "
+4652	NO	Move test file into the package. 
+4726	NO	Moved Horde_Text to framework. 
+4729	NO	Move Horde_Data to framework. 
+4730	NO	Move Horde_Template to framework 
+4740	NO	Move Horde_MIME to framework.  If I somehow managed to convert all includes to the new path  I owe myself a beer. 
+4786	NO	Moved Horde_Crypt:: to framework. 
+4811	NO	Moved Horde_Image:: to framework. 
+4850	NO	Move Auth classes to framework. 
+4991	NO	Rename 
+4996	NO	NLS and Horde_Editor moved to framework/ 
+5048	NO	Not used anymore 
+5118	NO	Allow flat module hierarchy (horde on the same level as the other modules). 
+5121	NO	Better check for Horde directory and fix extracting strings from other modules than Horde. 
+5126	NO	Add feature to save translation statistics as a serialized array to a local file. 
+5190	NO	not useful for much of anything 
+5347	NO	No longer needed. 
+5361	NO	No need for this anymore. 
+5470	NO	browse a level of subdirectories 
+5526	NO	Go ahead and just use the constants STDIN/STDERR/STDOUT since  in PHP 4.3.0+  they are pre-defined and pre-opened. 
+5713	NO	rip out useless stuff from this  all this script does now is prep the minimum possible for the web install to continue 
+5734	NO	Try to clean this up a bit.  Karsten  first  this shouldn't be in the portal  it should go directly under services/ if anywhere (should probably be just a custom prefs pane). Second  what's the reason for the links to cvs.horde.org here? 
+5741	NO	Test for XML_Serializer Bug: 2805 Submitted by: kevin_myer (at) iu13 (dot) org 
+5743	NO	PHP 5.0.x should be stable enough by now to remove this warning. 
+5765	NO	this fixes for me when merging files in newly created directories  doing a mkdir first will not create the CVS directory for cvs up to succeed later on  with a cvs co the directory will be created with the CVS directory under it. 
+5814	NO	Update compressor to version 1.06 
+5853	NO	Implement some of Roel's suggestion  move the welcome text out of the Add Content row. 
+5871	NO	We just need tiny_mce.js. 
+5894	YES	Replace all unnecessary eval() calls. 
+5938	YES	Use file_get_contents(). 
+5950	NO	Escape the URL in test pages. Submitted by: Michal Marek <mmarek@suse.cz> 
+5977	NO	Fixed bug #2676. Also remove various unused stuff. Added a button to completly delete all SyncML data in the datatree for one user. 
+5984	NO	Split Tarball class out to a separate class file. 
+5991	NO	Move mime_mapping build scripts into the developer tools package. 
+6001	NO	No reason to distribute this file  move it to the devtools package. Could even move to a system tools package  but this is fine. 
+6003	NO	This is a developer script. 
+6004	NO	"Themes check now works independently from Horde dirs; add package.xml that installs devtools scripts into a bin dir on install; remove last devtools scripts from main scripts/ dir. "
+6026	NO	Move this script over to devtools 
+6042	NO	this doesn't really have anything to do with horde... 
+6065	NO	Add one file after the other. Slower but atomic. 
+6118	NO	[cjh] Consolidate color pickers used for Labels and in Horde_Form (Bug #5112). 
+6149	NO	wrapping 
+6156	NO	move ajax called script out of lib/Block since directory is protected via .htaccess file 

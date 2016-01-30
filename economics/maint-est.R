@@ -1,5 +1,5 @@
 #
-# maint-est.R,  5 Jan 16
+# maint-est.R, 25 Jan 16
 #
 # Data from:
 #
@@ -24,7 +24,7 @@ plot_layout(1, 3)
 plot(maint$est_time, maint$act_time, col=point_col,
 	xlab="Estimated hours", ylab="Actual hours\n")
 
-plot(jitter(maint$est_time), jitter(maint$act_time),
+plot(jitter(maint$est_time), jitter(maint$act_time), col=point_col,
 	xlab="Estimated hours", ylab="")
 
 t=ddply(maint, .(est_time, act_time), nrow)

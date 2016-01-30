@@ -1,5 +1,5 @@
 #
-# acc-sec-experience.R.R, 12 Jan 14
+# acc-sec-experience.R.R, 29 Jan 16
 #
 # Data from:
 # An empirical study on the effectiveness of security code review
@@ -24,7 +24,7 @@ rev_acc$accuracy=rev_acc$accuracy*100
 #rev_acc=rev_acc[-c(1, 4, 24), ]
 
 
-plot(rev_acc$years.in.security, rev_acc$accuracy,
+plot(rev_acc$years.in.security, rev_acc$accuracy, col=point_col,
 	xlab="Years working in security",
 	ylab="Percentage of vulnerabilities detected\n")
 

@@ -1,9 +1,9 @@
 #
-# commit-rs.R, 31 Jul 15
+# commit-rs.R, 23 Jan 16
 #
 # Data from:
 # Do time of day and developer experience affect commit bugginess?
-#
+# Jon Eyolfson and Lin Tan and Patrick Lam
 #
 # Example from:
 # Empirical Software Engineering using R

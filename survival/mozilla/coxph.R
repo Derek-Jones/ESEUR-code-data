@@ -18,9 +18,9 @@ library("survival")
 moz_data=read.arff(paste0(ESEUR_dir, "survival/mozilla/mozilla4.csv.xz"))
 
 
-fit <- coxph(Surv(start,end,event) ~ ns(size, df=4) + cluster(id), data=moz_data)
-pred <- predict(fit, type="terms", se=TRUE)
-hmat <- cbind(pred$fit[,1], pred$fit[,1]+2*pred$se[,1], pred$fit[,1]-2*pred$se[,1])
+fit = coxph(Surv(start,end,event) ~ ns(size, df=4) + cluster(id), data=moz_data)
+pred = predict(fit, type="terms", se=TRUE)
+hmat = cbind(pred$fit[,1], pred$fit[,1]+1.96*pred$se[,1], pred$fit[,1]-1.96*pred$se[,1])
 matplot(moz_data$size[order(moz_data$size)], hmat[order(moz_data$size),],
         xlab = "LOC", ylab="Log Relative Risk",
         col=c("BLACK","BLACK","BLACK"), lty=c(1,2,2), type="l")

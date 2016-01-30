@@ -1,5 +1,5 @@
 #
-# patch-behav.R, 26 Sep 13
+# patch-behav.R, 18 Jan 16
 #
 # Data from:
 # An empirical analysis of software vendors' patch release behavior: Impact of vulnerability disclosure
@@ -76,42 +76,46 @@ map_vendor("yellow dog", "Yellow Dog Linux")
 
 ISR$vendor=tolower(ISR$vendor)
 
+# Date on which the NVD was sampled
+end_date=as.Date("11-Aug-2003", format="%d-%b-%Y")
+
+# patch is NA if no patch has been released yet
+ISR$is_censored=is.na(ISR$patch)
+ISR$patch[ISR$is_censored]=end_date
+
+# Vendor may be notified, but before a patch is made available the
+# vulnerability may be published
 ISR$patch_days=as.numeric(ISR$patch-ISR$notify)
-ISR$disc=as.numeric(ISR$patch <= ISR$publish)
+ISR$notify_days=as.numeric(ISR$publish-ISR$notify)
+ISR$disc=as.numeric(ISR$patch > ISR$publish)
+
+# ISR_0=subset(ISR, notify < publish)
+# ISR_1=subset(ISR, notify == publish)
+# 
+# p_sfit_0=survfit(Surv(ISR_0$notify_days, ISR_0$disc == 0) ~ 1)
+# plot(p_sfit_0, xlim=c(0, 600))
+# p_sfit_1=survfit(Surv(ISR_1$patch_days, !ISR_1$is_censored) ~ 1)
+# 
+# lines(p_sfit_1, col="red")
+# 
+# mixed=as.numeric(ISR$patch > ISR$publish & ISR$notify < ISR$publish)
+
 ISR$small_loge=(1-ISR$smallvendor)*ISR$logemployee
 
-ISR_0=subset(ISR, disc == 0)
-ISR_1=subset(ISR, disc == 1)
-
-p_sfit_0=survfit(Surv(ISR_0$patch_days, !is.na(ISR_0$patch)) ~ 1)
-plot(p_sfit_0, xlim=c(0, 600))
-p_sfit_1=survfit(Surv(ISR_1$patch_days, !is.na(ISR_1$patch)) ~ 1)
-
-points(p_sfit_1, col="red")
-
-
 plot(p_sfit_0, col="red", xlim=c(1, 600), ylim=c(-3, 2), fun="cloglog")
-par(new=TRUE)
-plot(p_sfit_1, col="green", xlim=c(1, 600), ylim=c(-3, 2), fun="cloglog")
+lines(p_sfit_1, col="green")
 
-p_mod=coxph(Surv(ISR$patch_days, !is.na(ISR$patch)) ~ disc+log(cvss_score)+opensource+c_o+y2002+y2003+smallvendor+small_loge, data=ISR)
+p_mod=coxph(Surv(ISR$patch_days, !ISR$is_censored) ~ disc+log(cvss_score)+opensource+c_o+y2002+y2003+smallvendor+small_loge, data=ISR)
 
-p_mod=coxph(Surv(ISR$patch_days, !is.na(ISR$patch)) ~ disc+log(cvss_score)+opensource+dis_by_c+dis_by_s+dis_by_o+y2002+y2003+os+s_app, data=ISR)
+p_mod=coxph(Surv(ISR$patch_days, !ISR_0$is_censored) ~ disc+log(cvss_score)+opensource+dis_by_c+dis_by_s+dis_by_o+y2002+y2003+os+s_app, data=ISR)
 
-p_mod=coxph(Surv(ISR$patch_days, !is.na(ISR$patch)) ~ disc+log(cvss_score)+opensource+dis_by_c+dis_by_s+dis_by_o+y2002+y2003++os+s_app+frailty(vendor), data=ISR)
+p_mod=coxph(Surv(ISR$patch_days, !ISR_0$is_censored) ~ disc+log(cvss_score)+opensource+dis_by_c+dis_by_s+dis_by_o+y2002+y2003++os+s_app+frailty(vendor), data=ISR)
 
-p_mod=survreg(Surv(ISR$patch_days, !is.na(ISR$patch)) ~ disc+log(cvss_score)+opensource+dis_by_c+dis_by_s+dis_by_o+y2002+y2003+os+s_app, data=ISR, dist="weibull")
+p_mod=survreg(Surv(ISR$patch_days, !ISR_0$is_censored) ~ disc+log(cvss_score)+opensource+dis_by_c+dis_by_s+dis_by_o+y2002+y2003+os+s_app, data=ISR, dist="weibull")
 
-p_mod=survreg(Surv(ISR$patch_days, !is.na(ISR$patch)) ~ disc+log(cvss_score)+opensource+dis_by_c+dis_by_s+dis_by_o+y2002+y2003+os+s_app+frailty(vendor), data=ISR, dist="weibull")
+p_mod=survreg(Surv(ISR$patch_days, !ISR$is_censored) ~ disc+log(cvss_score)+opensource+dis_by_c+dis_by_s+dis_by_o+y2002+y2003+os+s_app+frailty(vendor), data=ISR, dist="weibull")
 
-
-library("rms")
+p_mod=survreg(Surv(ISR_1$patch_days, !ISR_1$is_censored) ~ log(cvss_score)+opensource+dis_by_c+y2002+y2003+os+s_app+frailty(vendor), data=ISR_1, dist="weibull")
 
 
-p_mod=cph(Surv(ISR$patch_days, !is.na(ISR$patch)) ~ disc+log(cvss_score)+opensource+dis_by_c+dis_by_s+dis_by_o+y2002+y2003+os+s_app+frailty(vendor), data=ISR)
-
-# summary generates the error:
-#  adjustment values not defined here or with datadist for disc cvss_score opensource dis_by_c dis_by_s dis_by_o y2002 y2003 os s_app vendor
-
-p_mod$coefficients
 

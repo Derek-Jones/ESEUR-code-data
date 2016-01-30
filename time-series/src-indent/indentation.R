@@ -1,5 +1,9 @@
 #
-# indentation.R, 21 Oct 13
+# indentation.R, 30 Jan 16
+#
+# Data from:
+# Reading Beside the Lines: {Indentation} as a Proxy for Complexity Metrics
+# Abram Hindle and Michael W. Godfrey and Richard C. Holt
 #
 # Example from:
 # Empirical Software Engineering using R
@@ -18,7 +22,7 @@ indent=read.csv(paste0(ESEUR_dir, "time-series/src-indent/sfmirror.", lang_str,
 
 acf(indent$V1, lag.max=20, xlab="Indentation")
 
-text(15, 0.8, labels=lang_str, col="blue")
+text(15, 0.8, labels=lang_str, col="blue", cex=1.4)
 
 }
 

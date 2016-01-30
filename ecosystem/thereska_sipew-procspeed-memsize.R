@@ -19,7 +19,7 @@ library("plyr")
 memcpu=read.csv(paste0(ESEUR_dir, "ecosystem/thereska_sipew-procspeed-memsize.csv.xz"), as.is=TRUE)
 memcpu$logMemSize=as.integer(18*log(memcpu$MemorySize))
 
-pal_col=rainbow_hcl(12)
+pal_col=rainbow(12)
 
 # pairs(Session_Count ~ ProcSpeed + MemorySize, data=memcpu)
 # pairs(log(Session_Count) ~ ProcSpeed + logMemSize, data=memcpu)

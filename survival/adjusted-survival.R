@@ -8,8 +8,6 @@
 source("ESEUR_config.r")
 
 
-plot_layout(1, 1)
-
 
 plot(1, type="n")
 

@@ -1,5 +1,13 @@
 Change log
 
+30 Jan 16
+
+Added energy data used by peerj-1219.R
+
+28 Jan 16
+
+Added glibc commit data: smr1615.R
+
 16 Jan 16
 
 Added help desk data: viability.R

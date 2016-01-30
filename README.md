@@ -3,9 +3,9 @@ The code and data used to create the examples in "Empirical Software Engineering
 
 To install all of the R library packages used by this code type:
 
-source("install.R")
+  source("install.R")
 
-at the R command line.
+at the R command line (if binaries are not available for your system, then they will be built from source and any dependencies will not automatically be detected).
 
 All programs read the file: ESEUR_config.r.  Put a copy of this file in what R considers to be its home directory.
 

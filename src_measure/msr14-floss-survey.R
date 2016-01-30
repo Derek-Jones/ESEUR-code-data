@@ -1,5 +1,5 @@
 #
-# msr14-floss-survey.R, 24 Dec 15
+# msr14-floss-survey.R, 13 Jan 16
 #
 # Data from:
 #
@@ -42,7 +42,7 @@ floss_dev$age_started=as.numeric(floss_dev$My.age.then.was.)
 # hist(2014-floss_dev$year_started+floss_dev$age_started, breaks=30)
 
 plot(floss_dev$year_started, floss_dev$age_started, col=point_col,
-	xlab="Year started", ylab="Age when starting")
+	xlab="Year started", ylab="Age when starting\n")
 
 # lines(loess.smooth(floss_dev$year_started, floss_dev$age_started, span=0.5, family="gaussian"), col="red")
 

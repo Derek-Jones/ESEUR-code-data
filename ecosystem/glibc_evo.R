@@ -12,6 +12,7 @@
 source("ESEUR_config.r")
 
 
+# id,branch_id,date,loc,sloc,files
 glibc=read.csv(paste0(ESEUR_dir, "ecosystem/glibc_evo.csv.xz"), as.is=TRUE)
 
 glibc$date=as.POSIXct(glibc$date, format="%Y-%m-%d")
@@ -24,6 +25,7 @@ glibc_main=subset(glibc, branch_id == 1)
 glibc_main=subset(glibc_main, Number_days > 0)
 x_bounds=min(glibc_main$Number_days):max(glibc_main$Number_days)
 
+# They are probably already sorted by date
 glibc_main=glibc_main[order(glibc_main$Number_days), ]
 
 plot(glibc_main$Number_days, glibc_main$sloc, col=point_col,
