@@ -1,5 +1,5 @@
 #
-# BSD-ts.R, 20 Feb 16
+# BSD-dtw.R, 20 Feb 16
 #
 # Data from:
 #
@@ -16,17 +16,21 @@ source("ESEUR_config.r")
 library("dtw")
 library("plyr")
 
+plot_wide()
+
+pal_col=rainbow(2)
+
 
 freebsd=read.csv(paste0(ESEUR_dir, "regression/Herraiz-freebsd.txt.xz"), as.is=TRUE)
 netbsd=read.csv(paste0(ESEUR_dir, "regression/Herraiz-netbsd.txt.xz"), as.is=TRUE)
-postgresql=read.csv(paste0(ESEUR_dir, "regression/Herraiz-postgresql.txt.xz"), as.is=TRUE)
+# postgresql=read.csv(paste0(ESEUR_dir, "regression/Herraiz-postgresql.txt.xz"), as.is=TRUE)
 
 
 plot_acf=function(lines)
 {
 sloc_diff=diff(lines)
 
-t=acf(sloc_diff, lag=175, plot=FALSE)
+# t=acf(sloc_diff, lag=175, plot=FALSE)
 # plot(t, xlab="Lag (days)")
 
 weeks=aaply(seq(1, length(lines), by=7), 1,
@@ -41,25 +45,15 @@ return(head(weeks, -1))
 
 freebsd_weeks=plot_acf(freebsd$sloc)
 netbsd_weeks=plot_acf(netbsd$sloc)
-psql_weeks=plot_acf(postgresql$sloc)
+# psql_weeks=plot_acf(postgresql$sloc)
 
-# ccf(diff(freebsd_weeks), diff(netbsd_weeks))
+bsd_align=dtw(freebsd_weeks, netbsd_weeks, keep=TRUE,
+		step=asymmetric, open.end=TRUE, open.begin=TRUE)
+plot(bsd_align, type="twoway", offset=1, col=pal_col, cex.lab=1.5,
+	xlab="Weeks", ylab="FreeBSD\n")
 
-t=dtw(freebsd_weeks, netbsd_weeks)
-plot(t)
-t=dtw(freebsd_weeks, psql_weeks)
-plot(t)
+# bsd_align=dtw(psql_weeks, freebsd_weeks,
+# 		keep=TRUE, step=asymmetric, open.end=TRUE, open.begin=TRUE)
+# plot(bsd_align, type="twoway", offset=1)
 
-alignmentOBE = dtw(netbsd_weeks, freebsd_weeks,
-           keep=TRUE,step=asymmetric, open.end=TRUE,open.begin=TRUE);
-plot(alignmentOBE, type="twoway", offset=1);
-
-auto.arima(freebsd_weeks)
-
-plot(stl(ts(head(diff(weeks), -1), frequency=24), s.window="periodic"))
-
-arima(diff(psql_weeks), order=c(1, 0, 0), seasonal=list(order=c(0, 0, 1), period=24))
-
-# plot_acf(netbsd$sloc)
-# plot_acf(postgresql$sloc)
 

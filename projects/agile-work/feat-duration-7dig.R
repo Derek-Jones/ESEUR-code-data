@@ -1,16 +1,16 @@
 #
-# feat-duration-7dig.R, 22 Dec 15
+# feat-duration-7dig.R, 14 Feb 16
 #
 # Various analysis of http://www.7digital.com feature data
-#
-# R code for book "Empirical Software Engineering using R"
-# Derek M. Jones, http://shape-of-code.coding-guidelines.com
 #
 # Example from:
 # Empirical Software Engineering using R
 # Derek M. Jones
 
 source("ESEUR_config.r")
+
+plot_layout(2, 1)
+par(mai=c(1, 0.8, 0.0, 0.1))
 
 # Fit a power law and draw it to an existing plot
 plot_pow=function(y, x, line_color)
@@ -84,23 +84,14 @@ lines(dnbinom(1:93, size=size.ct,  mu=mu.ct)*length(day_count), col="green",
 
 
 
-
-p=read.csv(paste0(ESEUR_dir, "projects/agile-work/7digital2012.csv.xz"))
-
-plot_layout(2, 1)
-par(mai=c(1, 0.8, 0.0, 0.1))
-
-# Bracket the data start/end dates
-base.date="20/04/2009"  # a Monday
-base.day=as.integer(as.Date(base.date, "%d/%m/%Y"))
-end.day=as.integer(as.Date("01/08/2012", "%d/%m/%Y"))-base.day
+source(paste0(ESEUR_dir, "projects/agile-work/feat-common-7dig.R"))
 
 
-Done.day=as.integer(as.Date(p$Done, format="%d/%m/%Y"))-base.day
-plot_pow_exp(p$Cycle.Time[Done.day > 650])
-fit_equ(p$Cycle.Time[Done.day > 650])
+Done_day=as.integer(p$Done)-base_day
+plot_pow_exp(p$Cycle.Time[Done_day > 650])
+fit_equ(p$Cycle.Time[Done_day > 650])
 
-plot_pow_exp(p$Cycle.Time[Done.day <= 650])
-fit_equ(p$Cycle.Time[Done.day <= 650])
+plot_pow_exp(p$Cycle.Time[Done_day <= 650])
+fit_equ(p$Cycle.Time[Done_day <= 650])
 
 

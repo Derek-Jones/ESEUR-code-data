@@ -1,8 +1,9 @@
 #
-# staff_pred.R,  2 Dec 15
+# staff_pred.R, 14 Feb 16
 #
 # Data from:
-# Buettner PhD...
+# Designing an Optimal Software Intensive System Acquisition: {A} Game Theoretic Approach
+# Douglas John Buettner
 #
 # Example from:
 # Empirical Software Engineering using R

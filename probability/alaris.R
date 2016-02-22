@@ -1,5 +1,5 @@
 #
-# alaris.R,  5 Jan 16
+# alaris.R, 21 Feb 16
 #
 # Data from:
 # Devices, Errors and Improving Interaction Design - A case study using an Infusion Pump
@@ -15,6 +15,10 @@ source("ESEUR_config.r")
 library(igraph)
 library(plyr)
 library(RJSONIO)
+
+
+plot_wide()
+
 
 #    {
 #        "stateName":"Show_Volume_Infused",

@@ -1,10 +1,7 @@
 #
-# feat-half-day-7dig.R, 25 Aug 12
+# feat-half-day-7dig.R, 20 Feb 16
 #
 # Various analysis of http://www.7digital.com feature data
-#
-# R code for book "Empirical Software Engineering using R"
-# Derek M. Jones, http://shape-of-code.coding-guidelines.com
 #
 # Example from:
 # Empirical Software Engineering using R
@@ -14,32 +11,26 @@ source("ESEUR_config.r")
 
 library("fitdistrplus")
 
+source(paste0(ESEUR_dir, "projects/agile-work/feat-common-7dig.R"))
 
-p=read.csv(paste0(ESEUR_dir, "projects/agile-work/7digital2012.csv.xz"))
-
-# Bracket the data start/end dates
-base.date="20/04/2009"  # a Monday
-base.day=as.integer(as.Date(base.date, "%d/%m/%Y"))
-end.day=as.integer(as.Date("01/08/2012", "%d/%m/%Y"))-base.day
-
-Done.day=as.integer(as.Date(p$Done, format="%d/%m/%Y"))-base.day
+Done_day=as.integer(p$Done)-base_day
 
 
-fit.quality=function(half.day.list)
+fit_quality=function(half_day_list)
 {
-fd=fitdist(half.day.list, "nbinom", method="mme")
+fd=fitdist(half_day_list, "nbinom", method="mme")
 return(c(loglikelihood=fd$loglik, AIC=fd$aic, BIC=fd$bic))
 }
 
 
-sub.divide=function(cycle.list)
+sub_divide=function(cycle_list)
 {
-cl=length(cycle.list)
+cl=length(cycle_list)
 dither=as.integer(runif(cl, 0, 1) > 0.33)
-return(2*cycle.list-dither)
+return(2*cycle_list-dither)
 }
 
 
-#fit.quality(p$Cycle.Time[Done.day < 650])
-#rowMeans(replicate(1000, fit.quality(sub.divide(p$Cycle.Time[Done.day < 650]))))
+#fit_quality(p$Cycle.Time[Done_day < 650])
+#rowMeans(replicate(1000, fit_quality(sub_divide(p$Cycle.Time[Done_day < 650]))))
 

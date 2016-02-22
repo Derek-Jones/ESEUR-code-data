@@ -1,5 +1,5 @@
 #
-# time-distrib.R,  5 Jan 16
+# time-distrib.R, 14 Feb 16
 #
 # 10 Dec 14 Fixed fault reported by Tom Clifford
 # 27 Aug 12 Initial release 27 Aug 12
@@ -9,9 +9,6 @@
 # Derek M. Jones
 
 # Various analysis of http://www.7digital.com feature data
-#
-# R code for book "Empirical Software Engineering using R"
-# Derek M. Jones, http://shape-of-code.coding-guidelines.com
 #
 # Load.Time and Cycle.Time were calculated as Done-Prioritised and
 # Done-Dev.Started respectively.  Weekends were removed and dates
@@ -26,24 +23,12 @@
 
 source("ESEUR_config.r")
 
-# Global initialization
-library("zoo")
-
-p=read.csv(paste0(ESEUR_dir, "projects/agile-work/7digital2012.csv.xz"))
-
 plot_layout(2, 1)
 
-# Bracket the data start/end dates
-base.date="20/04/2009"  # a Monday
-base.day=as.integer(as.Date(base.date, "%d/%m/%Y"))
-end.day=as.integer(as.Date("01/08/2012", "%d/%m/%Y"))-base.day
+source(paste0(ESEUR_dir, "projects/agile-work/feat-common-7dig.R"))
 
-# Calculate weekend days so they can be removed from totals.
-# base.day is a Monday, so first Saturday starts at day 5
-weekends=c(seq(5, end.day ,by=7), # Saturday
-           seq(6, end.day, by=7))
 
-Done.day=as.integer(as.Date(p$Done, format="%d/%m/%Y"))-base.day
+Done_day=as.integer(p$Done)-base_day
 
 
 # Fit a power law and draw it to an existing plot
@@ -61,10 +46,10 @@ text(x[2]*2.5, y[2], paste("days ^ ", signif(as.numeric(coef(pow_equ)[2]), digit
 
 
 # Plot sum of data values and fit various equations to parts of it
-plot_pow_exp=function(day.info)
+plot_pow_exp=function(day_info)
 {
-ct=table(day.info)
-all.x=x=as.integer(dimnames(ct)[[1]])
+ct=table(day_info)
+all_x=x=as.integer(dimnames(ct)[[1]])
 
 plot(ct, xlim=c(1, 90), ylim=c(1, 1200), log="xy", type="p",
             xlab="Implementation duration (working days)", ylab="Features")
@@ -88,8 +73,8 @@ plot_pow(cv2, x2, "blue")
 #print(coef(exp_mod))
 }
 
-plot_pow_exp(p$Cycle.Time[Done.day >= 650])
-plot_pow_exp(p$Cycle.Time[Done.day < 650])
+plot_pow_exp(p$Cycle.Time[Done_day >= 650])
+plot_pow_exp(p$Cycle.Time[Done_day < 650])
 plot_pow_exp(p$Lead.Time)
 
 plot_pow_exp(p$Cycle.Time[p$Size == "Small"])
@@ -153,23 +138,23 @@ plot(dnbinom(1:93, size=size.ct,  mu=mu.ct)*length(day_count),
 }
 
 
-fit.quality=function(half.day.list)
+fit_quality=function(half_day_list)
 {
-fd=fitdist(half.day.list, "nbinom", method="mme")
+fd=fitdist(half_day_list, "nbinom", method="mme")
 return(c(loglikelihood=fd$loglik, AIC=fd$aic, BIC=fd$bic))
 }
 
 
-sub.divide=function(cycle.list)
+sub_divide=function(cycle_list)
 {
-cl=length(cycle.list)
+cl=length(cycle_list)
 dither=as.integer(runif(cl, 0, 1) > 0.33)
-return(2*cycle.list-dither)
+return(2*cycle_list-dither)
 }
 
 
-fit.quality(p$Cycle.Time[Done.day < 650])
-rowMeans(replicate(1000, fit.quality(sub.divide(p$Cycle.Time[Done.day < 650]))))
+fit.quality(p$Cycle.Time[Done_day < 650])
+rowMeans(replicate(1000, fit_quality(sub_divide(p$Cycle.Time[Done_day < 650]))))
 
 
 fit_equ(p$Cycle.Time[Done.day < 650])
@@ -198,139 +183,53 @@ gen.trun(par=0, family=NBII)
 # Fit a zero-truncated, type II, negative binomial distribution
 fit.NBII=function(day.list)
 {
-g.NBIItr=gamlss(day.list ~ 1, family=NBIItr)
+g_NBIItr=gamlss(day.list ~ 1, family=NBIItr)
 
-print(summary(g.NBIItr))
+print(summary(g_NBIItr))
 
-NBII.mu=exp(coef(g.NBIItr, "mu"))
-NBII.sigma=exp(coef(g.NBIItr, "sigma"))
+NBII_mu=exp(coef(g_NBIItr, "mu"))
+NBII_sigma=exp(coef(g_NBIItr, "sigma"))
 
-print(c(NBII.mu, NBII.sigma))
+print(c(NBII_mu, NBII_sigma))
 
-plot(table(day.list), xlim=c(1, 90), ylim=c(1, 1200), log="xy", type="p",
+plot(table(day_list), xlim=c(1, 90), ylim=c(1, 1200), log="xy", type="p",
             xlab="Elapsed working days", ylab="Feature count")
 
 par(new=TRUE)
-plot(dNBIItr(1:93, mu=NBII.mu, sigma=NBII.sigma)*length(day.list),
+plot(dNBIItr(1:93, mu=NBII_mu, sigma=NBII_sigma)*length(day_list),
        xlim=c(1,90), ylim=c(1,1200), log="xy",
        xlab="", ylab="",
        type="l", col="red")
-return(c(AIC=as.numeric(AIC(g.NBIItr)),
-         log.likelihood=as.numeric(logLik(g.NBIItr))))
+return(c(AIC=as.numeric(AIC(g_NBIItr)),
+         log_likelihood=as.numeric(logLik(g_NBIItr))))
 }
 
 
-qual.pre650=fit.NBII(p$Cycle.Time[Done.day <= 650])
-qual.post650=fit.NBII(p$Cycle.Time[Done.day > 650])
+qual_pre650=fit.NBII(p$Cycle.Time[Done_day <= 650])
+qual_post650=fit.NBII(p$Cycle.Time[Done_day > 650])
 
-fit.NBII(p$Cycle.Time[p$Type == "Production Bug"])
-fit.NBII(p$Cycle.Time[p$Type == "MMF"])
-fit.NBII(p$Cycle.Time[p$Size == "Small"])
+fit_NBII(p$Cycle.Time[p$Type == "Production Bug"])
+fit_NBII(p$Cycle.Time[p$Type == "MMF"])
+fit_NBII(p$Cycle.Time[p$Size == "Small"])
 
-d1=p$Cycle.Time[Done.day <= 650]
-d2=p$Cycle.Time[Done.day >= 650]
-g2.NBI=gamlss(d2 ~ 1, family=NBI)
+d1=p$Cycle.Time[Done_day <= 650]
+d2=p$Cycle.Time[Done_day >= 650]
+g2_NBI=gamlss(d2 ~ 1, family=NBI)
 
 gen.trun(par=0, family=DEL)
-g2.DELtr=gamlss(d2 ~ 1, family=DELtr)
+g2_DELtr=gamlss(d2 ~ 1, family=DELtr)
 plot(table(d2), xlim=c(1, 90), ylim=c(1, 1200), log="xy", type="p",
             xlab="Elapsed working days", ylab="Features")
 
 par(new=TRUE)
-plot(dDELtr(1:93, mu=exp(coef(g2.DELtr, "mu")),
-                sigma=exp(coef(g2.DELtr, "sigma")),
-                 nu=inv.logit(coef(g2.DELtr, "nu")))*length(d2),
+plot(dDELtr(1:93, mu=exp(coef(g2_DELtr, "mu")),
+                sigma=exp(coef(g2_DELtr, "sigma")),
+                 nu=inv.logit(coef(g2_DELtr, "nu")))*length(d2),
        xlim=c(1,90), ylim=c(1,1200), log="xy",
        xlab="", ylab="",
        type="l", col="red")
 
 
-
-# What is the Cycle.Time moving average?
-plot_layout(1, 1)
-
-cma=data.frame(Cycle.Time=p$Cycle.Time,
-               Done=as.integer(as.Date(p$Done, format="%d/%m/%Y"))-base.day)
-
-# Return the mean of all cyle times that occur between two dates.
-# Need to handle weekend days that occur between dates to get accurate
-# answer, but broad brush good enough for now.
-cycle.ma.between=function(start.day, num.days)
-{
-return(mean(cma$Cycle.Time[cma$Done >= (start.day-num.days+1) &
-                           cma$Done <= start.day]))
-}
-
-cma.10=sapply(1:end.day, function(x) cycle.ma.between(x, 10))
-cma.20=sapply(1:end.day, function(x) cycle.ma.between(x, 20))
-cma.30=sapply(1:end.day, function(x) cycle.ma.between(x, 30))
-
-plot(cma.30, xlim=c(0,1210),
-          col="red",
-             axes=FALSE, xlab="", ylab="")
-axis(1, col="black")
-mtext("Days since April 2009", side=1, las=0, line=2)
-axis(2, col="red")
-mtext("Feature implementation time", side=2, las=0, line=2)
-
-work.starts=sum.starts(p$Dev.Start)
-work.starts=rollmean(work.starts, 30)
-
-par(new=TRUE)
-plot(work.starts, xlim=c(0, 1210),
-          col="blue",
-             axes=FALSE, xlab="", ylab="")
-axis(4, col="blue")
-mtext("Features started", side=4, las=0, line=-1)
-
-
-# Look at number of features currently in progress on any day
-#
-sum.day.range=function(start.list, end.list, max.days=300)
-{
-day.totals=rep(0, end.day)
-
-sum.one.feature=function(start.date, end.date)
-   {
-# Range of days over which this project is active
-   t=as.integer(as.Date(start.date, format="%d/%m/%Y", origin=base.date):
-             as.Date(end.date, format="%d/%m/%Y", origin=base.date)) - base.day
-
-# Need to adjust for weekends!!!
-   # No feature can take longer than max.days to implement
-   if (length(t) > max.days)
-      return(0)
-
-   # Update variable in outer scope!
-   day.totals[t] <<- day.totals[t]+1
-   return(0)
-   }
-dummy=lapply(1:length(start.list),
-                      function(x) sum.one.feature(start.list[x], end.list[x]))
-
-return(day.totals)
-}
-
-
-# Return the day number of public holidays in England and Wales
-get.ph.days=function()
-{
-ew.hols=read.csv(paste0(ESEUR_dir, "projects/england-wales-hols.csv.xz"), as.is=TRUE)
-
-return(sapply(1:ncol(ew.hols), function(x)
-               as.integer(as.Date(as.character(ew.hols[,x]), format="%d %b %Y"))))
-}
-
-
-# Return the number of events happening on each date in date.list
-sum.starts=function(date.list)
-{
-dl=rep(0, end.day)
-t=table(as.integer(as.Date(date.list, format="%d/%m/%Y"))-base.day)
-dl[as.integer(dimnames(t)[[1]])]=as.vector(t)
-
-return(dl)
-}
 
 
 # For each day return the total number of work-days for each
@@ -366,21 +265,6 @@ plot(rollmean(blue.vals/red.vals, 40), xlim=c(0, 820), ylim=c(0, 7),
           type="l", xlab="", ylab="")
 }
 
-# MMF/Production bug ratio
-all.bugs=sum.starts(p[grep(".*Bug$", p$Type), ]$Dev.Start)
-all.bugs=all.bugs[-weekends]
-non.bugs=sum.starts(p[-grep(".*Bug$", p$Type), ]$Dev.Start)
-non.bugs=non.bugs[-weekends]
-
-plot_layout(2, 2)
-plot(all.bugs, col="red",
-	xlim=c(0, 820), ylim=c(0, 7),
-	xlab="Work Days since Apr 2009", ylab="New feature starts")
-#plot(rollmean(all.bugs+non.bugs, 120), xlim=c(0, 820), ylim=c(0, 7),
-#          xlab="Work Days since Apr 2009", ylab="New feature starts")
-plot.two.ratio(rollmean(all.bugs, 20), rollmean(non.bugs, 20))
-plot.two.ratio(rollmean(all.bugs, 50), rollmean(non.bugs, 50))
-plot.two.ratio(rollmean(all.bugs, 120), rollmean(non.bugs, 120))
 
 # MMF/Production bug ratio
 t=sum.starts(p$Dev.Start[p$Type == "MMF"])
@@ -411,7 +295,7 @@ hol.days=as.vector(get.ph.days())-base.day
 hol.days=hol.days[hol.days > 0 & !is.na(hol.days)]
 workday.totals=weekday.totals[-hol.days]
 
-plot(all.day.totals, col="green"<
+plot(all.day.totals, col="green",
 	xlim=c(0, 1200), ylim=c(0, 50),
 	xlab="Days", ylab="In-progress projects")
 

@@ -1,5 +1,5 @@
 #
-# BSD-network.R, 31 Oct 13
+# BSD-network.R, 21 Feb 16
 #
 # Data from:
 # Social Interactions around Cross-System Bug Fixings: the Case of FreeBSD and OpenBSD
@@ -12,6 +12,10 @@
 source("ESEUR_config.r")
 
 library("igraph")
+
+
+plot_wide()
+
 
 # Return entries that occur more than X times
 top_subset=function(everything)

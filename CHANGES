@@ -1,5 +1,13 @@
 Change log
 
+21 Feb 16
+
+Major update to time-series plots
+
+31 Jan 16
+
+Added NASA fault/fix phase data: STVR-2013.R
+
 30 Jan 16
 
 Added energy data used by peerj-1219.R

@@ -1,5 +1,5 @@
 #
-# smr1615.R, 19 Feb 16
+# smr-ccf.R, 20 Feb 16
 #
 # Data from:
 # Studying the laws of software evolution in a long-lived {FLOSS} project
@@ -46,13 +46,13 @@ cfl_week=ddply(cfl, .(week),
                                         lines_added=sum(df$added),
 					lines_deleted=sum(df$removed)))
 
-plot(cfl_week$week, cfl_week$num_commits, type="l")
-plot(cfl_week$week, cfl_week$lines_added+1e-2, type="l", log="y")
+# plot(cfl_week$week, cfl_week$num_commits, type="l")
+# plot(cfl_week$week, cfl_week$lines_added+1e-2, type="l", log="y")
 
-cfl$month=floor_date(cfl$date, "month")
-cfl_month=ddply(cfl, .(month),
-		function(df) data.frame(num_commits=length(unique(df$commit))))
+# auto.arima(cfl_week$lines_added)
+# auto.arima(cfl_week$lines_deleted)
 
-plot(cfl_month, type="l")
+ccf(cfl_week$lines_added, cfl_week$lines_deleted,
+	xlab="Weeks")
 
 

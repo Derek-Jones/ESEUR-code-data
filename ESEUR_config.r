@@ -1,5 +1,5 @@
 #
-# ESEUR-config.r,  8 Jan 16
+# ESEUR-config.r, 20 Feb 16
 
 # Assume the current directory under told otherwise
 ESEUR_dir=paste0(getwd(), "/")
@@ -58,6 +58,13 @@ else if (num_down == 2)
    {
    layout(matrix(1:2, nrow=2), widths=ESEUR_max_width/1.5, heights=rep(ESEUR_max_height/2, 2), TRUE)
    }
+ESEUP_set_par()
+}
+
+
+plot_wide=function()
+{
+layout(matrix(1:1, nrow=1), widths=ESEUR_default_width*1.5, heights=ESEUR_default_height, TRUE)
 ESEUP_set_par()
 }
 

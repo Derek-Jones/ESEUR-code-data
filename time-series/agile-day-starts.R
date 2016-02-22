@@ -1,5 +1,5 @@
 #
-# agile-arima.R, 19 Feb 16
+# agile-day-starts.R, 18 Feb 16
 #
 # Data from:
 # http://www.7digital.com
@@ -11,6 +11,8 @@
 source("ESEUR_config.r")
 
 
+plot_layout(1, 2)
+
 source(paste0(ESEUR_dir, "projects/agile-work/feat-common-7dig.R"))
 
 
@@ -20,5 +22,15 @@ day_starts[t$x]=t$freq
 
 weekdays=day_starts[-weekends]
 
-print(arima(diff(log(weekdays+1e-8)), order=c(1, 0, 2)))
+plot(weekdays,
+	xlab="Days", ylab="Features started")
+
+ds_mod=glm(weekdays ~ time(weekdays), family=poisson(link="identity"))
+
+lines(fitted(ds_mod), col="red")
+
+# summary(ds_mod)
+
+plot(weekdays-fitted(ds_mod),
+	xlab="Days", ylab="Features started")
 

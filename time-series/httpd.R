@@ -3,6 +3,7 @@
 #
 # Date from:
 # Intensive Metrics for the Study of the Evolution of Open Source Projects: Case studies from Apache Software Foundation projects
+# Santiago Gala-P{\'e}rez and Gregorio Robles and Jes{\'u}s M. Gonz{\'a}lez-Barahona and Israel Herraiz
 #
 # Example from:
 # Empirical Software Engineering using R

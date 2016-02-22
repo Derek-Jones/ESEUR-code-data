@@ -1,5 +1,5 @@
 #
-# smr1615.R, 19 Feb 16
+# smr-strip.R, 19 Feb 16
 #
 # Data from:
 # Studying the laws of software evolution in a long-lived {FLOSS} project
@@ -11,6 +11,7 @@
 
 source("ESEUR_config.r")
 
+library("lattice")
 library("lubridate")
 library("plyr")
 
@@ -33,26 +34,18 @@ cfl$date=scm$date[cfl$commit]
 
 cfl=subset(cfl, (date >= start_date) & (date <= end_date))
 
-# cfl_day=ddply(cfl, .(date),
-# 		function(df) data.frame(num_changes=nrow(df)))
-# 
-# There are days with no commits, so this does not work as such
-# cfl_week=aaply(seq(1, nrow(cfl_day), by=7), 1,
-# 			function(X) sum(cfl_day$num_changes[X:(X+6)]))
-
 cfl$week=floor_date(cfl$date, "week")
 cfl_week=ddply(cfl, .(week),
 		function(df) data.frame(num_commits=length(unique(df$commit)),
                                         lines_added=sum(df$added),
 					lines_deleted=sum(df$removed)))
 
-plot(cfl_week$week, cfl_week$num_commits, type="l")
-plot(cfl_week$week, cfl_week$lines_added+1e-2, type="l", log="y")
-
-cfl$month=floor_date(cfl$date, "month")
-cfl_month=ddply(cfl, .(month),
-		function(df) data.frame(num_commits=length(unique(df$commit))))
-
-plot(cfl_month, type="l")
-
+# Placement of vertical strips is sensitive to the range of
+# values on the y-axis, whichmay have to be compressed (e.q., sqrt(...).
+t=xyplot(lines_added ~ week | equal.count(week, 4, overlap=0.1), cfl_week,
+		type="l", aspect="xy", strip=FALSE,
+		xlab="", ylab="Weekly total",
+		scales=list(x=list(relation="sliced", axs="i"),
+			    y=list(alternating=FALSE, log=TRUE)))
+plot(t)
 

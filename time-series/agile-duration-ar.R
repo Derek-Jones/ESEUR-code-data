@@ -1,5 +1,5 @@
 #
-# agile-arima.R, 19 Feb 16
+# agile-duration-ar.R, 18 Feb 16
 #
 # Data from:
 # http://www.7digital.com
@@ -10,6 +10,7 @@
 
 source("ESEUR_config.r")
 
+library("ascii")
 
 source(paste0(ESEUR_dir, "projects/agile-work/feat-common-7dig.R"))
 
@@ -20,5 +21,9 @@ day_starts[t$x]=t$freq
 
 weekdays=day_starts[-weekends]
 
-print(arima(diff(log(weekdays+1e-8)), order=c(1, 0, 2)))
+dur_ar=data.frame(
+	AR=head(coef(arima(diff(log(weekdays+1e-8)), order=c(5, 0, 1))), n=5),
+	Duration=head(count(p$Cycle.Time)$freq/sum(count(p$Cycle.Time)$freq), n=5))
+
+print(ascii(signif(dur_ar, digits=2)))
 

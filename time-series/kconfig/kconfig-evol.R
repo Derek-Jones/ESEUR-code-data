@@ -1,8 +1,10 @@
 #
-# kconfig.evol.R, 22 Dec 15
+# kconfig.evol.R, 10 Feb 16
 #
 # Data from:
 # Evolution of the Linux kernel variability model
+# Lutufo, She, Berger, Czarnecki and Wasowski
+# Figure 3
 #
 # Example from:
 # Empirical Software Engineering using R
@@ -14,8 +16,8 @@ source("ESEUR_config.r")
 # changes=read.csv(paste0(ESEUR_dir, "time-series/kconfig/kconfig.csv.xz"), as.is=TRUE)
 changes=read.csv(paste0(ESEUR_dir, "time-series/kconfig/splc-2010-fm-evol-files-commit-date.gz"), as.is=TRUE)
 
-# changes$date=as.POSIXct(changes$date, format="%a %b %d %X %Y %z")
-changes$date=as.Date(changes$date, format="%a %b %d %X %Y %z")
+# changes$date=as.POSIXct(changes$date, format="%a %B %d %H:%M:%S %Y %z")))
+changes$date=as.Date(changes$date, format="%a %B %d %H:%M:%S %Y %z")))
 changes=subset(changes, !is.na(changes$date))
 
 # Round date to help smooth things

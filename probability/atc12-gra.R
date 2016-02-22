@@ -1,5 +1,5 @@
 #
-# atc12-gra.R,  5 Aug 15
+# atc12-gra.R, 21 Feb 16
 #
 # Data from:
 # Generating Realistic Datasets for Deduplication Analysis
@@ -14,6 +14,8 @@ source("ESEUR_config.r")
 
 
 library("igraph")
+
+plot_wide()
 
 
 atc=read.csv(paste0(ESEUR_dir, "probability/atc12-gra.csv.xz"), as.is=TRUE)
