@@ -1,5 +1,5 @@
 #
-# shared-contrib.R, 30 Dec 15
+# shared-contrib.R,  3 Mar 16
 #
 #
 # Example from:
@@ -16,9 +16,10 @@ pal_col=rainbow_hcl(3)
 
 
 grid.newpage()
-par(fin=c(3.5, 3.5))
+par(fin=c(2.5, 2.5))
 
 venn.plot = draw.triple.venn(
+#	overrideTriple="blah", euler.d=FALSE, scaled=FALSE,
 		area1 = 90,
 		area2 = 75,
 		area3 = 100,
@@ -30,7 +31,7 @@ venn.plot = draw.triple.venn(
 		category = c("X_2", "X_1", "Y"),
 		fill = c(pal_col[2], pal_col[3], pal_col[1]),
 		lty = "blank",
-#		lwd=rep(0.5, 3),
+#		lwd=rep(1.5, 3),
 		cex = 2,
 		cat.cex = 1.5,
 		# cat.col = c("blue", "red", "green"),

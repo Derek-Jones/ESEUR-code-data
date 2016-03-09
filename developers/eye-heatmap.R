@@ -15,6 +15,8 @@ source("ESEUR_config.r")
 library("png")
 library("ks")
 
+plot_wide()
+
 
 prob2=readPNG(paste0(ESEUR_dir, "developers/2.png"), TRUE)
 subject06=read.csv(paste0(ESEUR_dir, "developers/subject06.csv.xz"), as.is=TRUE)

@@ -22,5 +22,5 @@ version_date$date=as.Date(version_date$date, format="%d %b %Y")
 plot(id_changes, type="b",
 	xlab="Date", ylab="Identifiers changed\n")
 
-text(version_date$date, 200, version_date$version, srt=90, col="grey")
+text(version_date$date, 200, version_date$version, srt=90, col="salmon3")
 

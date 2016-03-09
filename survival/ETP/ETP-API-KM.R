@@ -1,5 +1,5 @@
 #
-# ETP-API-KM.R, 17 Jan 16
+# ETP-API-KM.R, 21 Feb 16
 #
 # Data from:
 # Survival of Eclipse Third-party Plug-ins
@@ -18,19 +18,10 @@ pal_col=rainbow(2)
 
 all_API=read.csv(paste0(ESEUR_dir, "survival/ETP/ETP-all-rel.csv.xz"), as.is=TRUE)
 
-app_API=subset(all_API, API == 1)
-app_nonAPI=subset(all_API, API == 0)
-
-api_surv=Surv(app_API$year_end-app_API$year_start,
-		 event=app_API$survived == 0, type="right")
-api_mod=survfit(api_surv ~ 1)
-
-nonapi_surv=Surv(app_nonAPI$year_end-app_nonAPI$year_start,
-		 event=app_nonAPI$survived == 0, type="right")
-nonapi_mod=survfit(nonapi_surv ~ 1)
-
-plot(api_mod, col=pal_col[1],
+api_surv=Surv(all_API$year_end-all_API$year_start,
+		 event=all_API$survived == 0, type="right")
+api_mod=survfit(api_surv ~ all_API$API)
+plot(api_mod, col=pal_col, conf.int=TRUE,
 	xlim=c(0,7), xlab="Years")
 
-lines(nonapi_mod, col=pal_col[2])
 

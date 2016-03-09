@@ -1,7 +1,7 @@
 #
-# ESEUR-config.r, 20 Feb 16
+# ESEUR-config.r,  6 Mar 16
 
-# Assume the current directory under told otherwise
+# Assume the current directory unless told otherwise
 ESEUR_dir=paste0(getwd(), "/")
 #ESEUR_dir="/usr1/rbook/examples/"
 
@@ -54,17 +54,19 @@ if (num_across > 1)
       layout(matrix(1:(num_down*num_across), nrow=2), widths=rep(ESEUR_max_width/num_across, num_across), heights=rep(ESEUR_max_height/2, 2), TRUE)
       }
    }
-else if (num_down == 2)
+else if (num_down != 1)
    {
-   layout(matrix(1:2, nrow=2), widths=ESEUR_max_width/1.5, heights=rep(ESEUR_max_height/2, 2), TRUE)
+   layout(matrix(1:num_down, nrow=num_down), widths=ESEUR_max_width/1.5, heights=rep(ESEUR_max_height/num_down, num_down), TRUE)
    }
+else
+   par(fin=c(3.0, 3.0))
 ESEUP_set_par()
 }
 
 
 plot_wide=function()
 {
-layout(matrix(1:1, nrow=1), widths=ESEUR_default_width*1.5, heights=ESEUR_default_height, TRUE)
+layout(matrix(1:1, nrow=1), widths=ESEUR_default_width*1.4, heights=ESEUR_default_height, TRUE)
 ESEUP_set_par()
 }
 
@@ -72,13 +74,24 @@ ESEUP_set_par()
 # In centemeters
 ESEUR_max_width=16
 ESEUR_max_height=14
-ESEUR_default_width=8
-ESEUR_default_height=8
-point_col="grey"
+ESEUR_default_width=7
+ESEUR_default_height=7
+point_col="salmon3"
 loess_col="yellow"
 
+# Settings for slides
+# ESEUR_max_width=20
+# ESEUR_max_height=17
+# ESEUR_default_width=10
+# ESEUR_default_height=10
+# point_col="tan"
+# loess_col="yellow"
+
 # In inches
-par(fin=c(3.5, 3.5))
+# par(fin=c(4.5, 4.5))
+
+# In inches
+par(fin=c(3.0, 3.0))
 # Layout behaves oddly in this case:
 # layout(matrix(1:1, ncol=1), widths=default_width, heights=default_height, TRUE)
 

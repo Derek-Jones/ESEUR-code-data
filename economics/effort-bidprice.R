@@ -1,5 +1,5 @@
 #
-# effort-bidprice.R, 19 Mar 14
+# effort-bidprice.R,  9 Mar 16
 #
 # Data from:
 # Variability and Reproducibility in Software Engineering: A Study of Four Companies that Developed the Same System
@@ -18,7 +18,7 @@ bid_info=read.csv(paste0(ESEUR_dir, "economics/SoftEngjan10.csv.xz"), as.is=TRUE
 # Consistency check
 # (bid_info$A_D_bid+bid_info$A_D_planned/10) == bid_info$A_D_emphasis
 
-plot(bid_info$bid_price, bid_info$est_time,
+plot(bid_info$bid_price, bid_info$est_time, col=point_col,
 	xlab="Bid price", ylab="Estimated time")
 
 bid_mod=glm(est_time ~ bid_price, data=bid_info)

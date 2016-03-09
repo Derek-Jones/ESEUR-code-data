@@ -1,5 +1,5 @@
 #
-# method-usage.R, 10 Mar 15
+# method-usage.R, 22 Feb 16
 #
 # Data from:
 # Empirical Evidence of Large-Scale Diversity in {API} Usage of Object-Oriented Software
@@ -13,6 +13,8 @@ source("ESEUR_config.r")
 
 
 library("diagram")
+
+plot_wide()
 
 # method-seq,uses,num-methods
 # append,353547,1
@@ -39,7 +41,8 @@ M[names[7], names[8]]=""
 M[names[8], names[9]]=""
 M[names[8], names[10]]=""
 
-plotmat(t(M), pos=c(3, 4, 1, 2), lwd=1, curve=0,
-	 arr.type="triangle", arr.pos=0.75, endhead=TRUE, cex.txt=1.0,
-         box.type="ellipse", box.prop=0.5, box.lcol="white", shadow.size=0)
+plotmat(t(M), pos=c(3, 4, 1, 2), lwd=1, curve=0, cex=1.4,
+	 arr.type="triangle", arr.pos=0.63, endhead=TRUE, arr.width=0.2, cex.txt=1.0,
+         box.type="ellipse", box.prop=0.5, box.lcol="white", box.cex=1.4,
+	 shadow.size=0)
 

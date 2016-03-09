@@ -19,7 +19,7 @@ all_den=read.csv(paste0(ESEUR_dir, "regression/20120821_S102A_Grochowski.csv.xz"
 pal_col=rainbow(3)
 
 
-plot(all_den, log="y", col="gray",
+plot(all_den, log="y", col=point_col,
 	xlab="Production Date", ylab="Areal Density (gigabits/m^2)\n")
 
 all_den$log_ad=log(all_den$areal_density)

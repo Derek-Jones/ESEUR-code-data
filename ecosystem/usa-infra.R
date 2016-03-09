@@ -1,5 +1,5 @@
 #
-# usa-infra.R, 15 Aug 15
+# usa-infra.R, 21 Feb 16
 #
 # Data from:
 #
@@ -13,6 +13,7 @@
 source("ESEUR_config.r")
 
 
+plot_wide()
 pal_col=rainbow(7)
 
 # year,canals,railways,surfaced roads,oil pipelines,gas pipelines,telegraph wire

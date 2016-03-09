@@ -1,5 +1,5 @@
 #
-# patch-behav.R, 18 Jan 16
+# patch-pp-KS.R, 29 Feb 16
 #
 # Data from:
 # An empirical analysis of software vendors' patch release behavior: Impact of vulnerability disclosure
@@ -84,38 +84,19 @@ ISR$is_censored=is.na(ISR$patch)
 ISR$patch[ISR$is_censored]=end_date
 
 # Vendor may be notified, but before a patch is made available the
-# vulnerability may be published
+# vulnerability may be disclosed.
 ISR$patch_days=as.numeric(ISR$patch-ISR$notify)
 ISR$notify_days=as.numeric(ISR$publish-ISR$notify)
 ISR$disc=as.numeric(ISR$patch > ISR$publish)
 
-# ISR_0=subset(ISR, notify < publish)
-# ISR_1=subset(ISR, notify == publish)
-# 
-# p_sfit_0=survfit(Surv(ISR_0$notify_days, ISR_0$disc == 0) ~ 1)
-# plot(p_sfit_0, xlim=c(0, 600))
-# p_sfit_1=survfit(Surv(ISR_1$patch_days, !ISR_1$is_censored) ~ 1)
-# 
-# lines(p_sfit_1, col="red")
-# 
+ISR_priv=subset(ISR, notify < publish)
+ISR_disc=subset(ISR, notify == publish)
+
+p_sfit_priv=survfit(Surv(ISR_priv$notify_days, ISR_priv$disc == 0) ~ 1)
+plot(p_sfit_priv, xlim=c(0, 600))
+
+p_sfit_disc=survfit(Surv(ISR_disc$patch_days, !ISR_disc$is_censored) ~ 1)
+lines(p_sfit_disc, col="red")
+
 # mixed=as.numeric(ISR$patch > ISR$publish & ISR$notify < ISR$publish)
-
-ISR$small_loge=(1-ISR$smallvendor)*ISR$logemployee
-
-plot(p_sfit_0, col="red", xlim=c(1, 600), ylim=c(-3, 2), fun="cloglog")
-lines(p_sfit_1, col="green")
-
-p_mod=coxph(Surv(ISR$patch_days, !ISR$is_censored) ~ disc+log(cvss_score)+opensource+c_o+y2002+y2003+smallvendor+small_loge, data=ISR)
-
-p_mod=coxph(Surv(ISR$patch_days, !ISR_0$is_censored) ~ disc+log(cvss_score)+opensource+dis_by_c+dis_by_s+dis_by_o+y2002+y2003+os+s_app, data=ISR)
-
-p_mod=coxph(Surv(ISR$patch_days, !ISR_0$is_censored) ~ disc+log(cvss_score)+opensource+dis_by_c+dis_by_s+dis_by_o+y2002+y2003++os+s_app+frailty(vendor), data=ISR)
-
-p_mod=survreg(Surv(ISR$patch_days, !ISR_0$is_censored) ~ disc+log(cvss_score)+opensource+dis_by_c+dis_by_s+dis_by_o+y2002+y2003+os+s_app, data=ISR, dist="weibull")
-
-p_mod=survreg(Surv(ISR$patch_days, !ISR$is_censored) ~ disc+log(cvss_score)+opensource+dis_by_c+dis_by_s+dis_by_o+y2002+y2003+os+s_app+frailty(vendor), data=ISR, dist="weibull")
-
-p_mod=survreg(Surv(ISR_1$patch_days, !ISR_1$is_censored) ~ log(cvss_score)+opensource+dis_by_c+y2002+y2003+os+s_app+frailty(vendor), data=ISR_1, dist="weibull")
-
-
 

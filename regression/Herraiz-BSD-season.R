@@ -1,5 +1,5 @@
 #
-# Herraiz-BSD-season.R,  5 Feb 16
+# Herraiz-BSD-season.R,  3 Mar 16
 #
 # Data from:
 #
@@ -23,15 +23,15 @@ kind_bsd$Number_days=as.integer(difftime(kind_bsd$date,
                                          units="days"))
 # Order by days since first release
 
-lin_mod=glm(sloc ~ Number_days, data=kind_bsd)
-print(summary(lin_mod))
+# lin_mod=glm(sloc ~ Number_days, data=kind_bsd)
+# print(summary(lin_mod))
 
 rad_per_day=(2*pi)/365
-freebsd$rad_Number_days=rad_per_day*freebsd$Number_days
+kind_bsd$rad_Number_days=rad_per_day*kind_bsd$Number_days
 
 season_mod=glm(sloc ~ Number_days+
                         I(sin(rad_Number_days))+I(cos(rad_Number_days)),
-                                                     data=freebsd)
+                                                     data=kind_bsd)
 print(summary(season_mod))
 }
 

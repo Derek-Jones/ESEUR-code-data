@@ -1,5 +1,5 @@
 #
-# patch-KS.R, 18 Jan 16
+# patch-param.R, 27 Feb 16
 #
 # Data from:
 # An empirical analysis of software vendors' patch release behavior: Impact of vulnerability disclosure
@@ -90,13 +90,30 @@ ISR$notify_days=as.numeric(ISR$publish-ISR$notify)
 ISR$disc=as.numeric(ISR$patch > ISR$publish)
 
 ISR_0=subset(ISR, notify < publish)
-ISR_1=subset(ISR, notify == publish)
+ISR_np=subset(ISR, notify == publish)
+# 
+# p_sfit_0=survfit(Surv(ISR_0$notify_days, ISR_0$disc == 0) ~ 1)
+# plot(p_sfit_0, xlim=c(0, 600))
+# p_sfit_1=survfit(Surv(ISR_1$patch_days, !ISR_1$is_censored) ~ 1)
+# 
+# lines(p_sfit_1, col="red")
+# 
+# mixed=as.numeric(ISR_np$patch > ISR_np$publish & ISR_np$notify < ISR_np$publish)
 
-p_sfit_0=survfit(Surv(ISR_0$notify_days, ISR_0$disc == 0) ~ 1)
-plot(p_sfit_0, xlim=c(0, 600))
-p_sfit_1=survfit(Surv(ISR_1$patch_days, !ISR_1$is_censored) ~ 1)
+ISR_np$small_loge=(1-ISR_np$smallvendor)*ISR_np$logemployee
 
-lines(p_sfit_1, col="red")
+plot(p_sfit_0, col="red", xlim=c(1, 600), ylim=c(-3, 2), fun="cloglog")
+lines(p_sfit_1, col="green")
 
-# mixed=as.numeric(ISR$patch > ISR$publish & ISR$notify < ISR$publish)
+
+p_mod=coxph(Surv(ISR_np$patch_days, !ISR_np$is_censored) ~ log(cvss_score)+opensource+dis_by_c+dis_by_s+y2002+y2003++os+s_app+frailty(vendor), data=ISR_np)
+
+s_mod=survreg(Surv(ISR_np$patch_days, !ISR_np$is_censored) ~ log(cvss_score)+opensource+dis_by_c+dis_by_s+y2002+y2003+os+s_app, data=ISR_np, dist="weibull")
+summary(s_mod)
+
+s_mod=survreg(Surv(ISR_np$patch_days, !ISR_np$is_censored) ~ disc+log(cvss_score)+opensource+dis_by_c+dis_by_s+y2002+y2003+os+s_app+frailty(vendor), data=ISR_np, dist="weibull")
+
+s_mod=survreg(Surv(ISR_np_1$patch_days, !ISR_np_1$is_censored) ~ log(cvss_score)+opensource+dis_by_c+y2002+y2003+os+s_app+frailty(vendor), data=ISR_np, dist="weibull")
+
+
 

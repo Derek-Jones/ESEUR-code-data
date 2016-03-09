@@ -39,7 +39,7 @@ all_days=strip_support_v(h1, 5)
 
 x_bounds=0:6000
 
-plot(all_days$Number_days, all_days$LOC, col="grey",
+plot(all_days$Number_days, all_days$LOC, col=point_col,
 	xlim=range(x_bounds),
 	xlab="Days since version 1.0 release", ylab="Total lines of code\n")
 

@@ -1,5 +1,5 @@
 #
-# lines-per-hour.R, 19 Dec 15
+# lines-per-hour.R,  5 Mar 16
 #
 # Data from:
 # On the effectiveness of early life cycle defect prediction with Bayesian Nets
@@ -23,7 +23,7 @@ y_bounds=range(loc_hour$KLoC)
         
 Hours_KLoC=function(df)
 {
-plot(df$Hours, df$KLoC, 
+plot(df$Hours, df$KLoC, col=point_col,
         xlim=x_bounds, ylim=y_bounds,
         xlab="Hours", ylab="Lines of code (Kloc)\n")
 

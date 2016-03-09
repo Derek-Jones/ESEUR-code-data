@@ -1,5 +1,5 @@
 #
-# ATR-2004.R,  3 Dec 15
+# ATR-2004.R, 22 Feb 16
 #
 # Data from:
 # Software Cost and Productivity Model
@@ -12,9 +12,11 @@
 
 source("ESEUR_config.r")
 
-ATR=read.csv(paste0(ESEUR_dir, "economics/ATR-2004.csv.xz"), as.is=TRUE)
-
+plot_wide()
 pal_col=rainbow(4)
+
+
+ATR=read.csv(paste0(ESEUR_dir, "economics/ATR-2004.csv.xz"), as.is=TRUE)
 
 plot_effort_loc=function(df, col_num)
 {
@@ -54,5 +56,4 @@ legend(x="bottomright", legend=c("Military Ground", "Military Mobile", "Mil-Spec
 # #			+Estimated.ESLOC
 # 			,
 # 		data=ATR)
-
 

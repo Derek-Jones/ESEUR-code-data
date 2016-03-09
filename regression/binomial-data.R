@@ -1,0 +1,29 @@
+#
+# binomial-data.R,  9 Mar 16
+#
+# Data from:
+#
+# Example from:
+# Empirical Software Engineering using R
+# Derek M. Jones
+
+source("ESEUR_config.r")
+
+pal_col=rainbow(2)
+
+# Simulate some 0/1 data
+answer=data.frame(x=c(rnorm(10, mean=1), rnorm(10, mean=3)),
+                  y=c(rep(0, 10), rep(1, 10)))
+
+plot(answer,
+	xlab="Input", ylab="Output\n")
+
+sl=glm(y ~ x, data=answer)
+lines(answer$x, predict(sl), col=pal_col[1])
+
+b_sl=glm(y ~ x, data=answer, family=binomial)
+
+x_vals=seq(-1, 5, by=0.1)
+lines(x_vals, predict(b_sl, newdata=data.frame(x=x_vals), type="response"), col=pal_col[2])
+
+

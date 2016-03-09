@@ -1,5 +1,5 @@
 #
-# p55-cpudb.R,  8 Jan 16
+# p55-cpudb.R, 21 Feb 16
 #
 # Data from:
 # CPU DB: Recording Microprocessor History
@@ -15,6 +15,7 @@
 source("ESEUR_config.r")
 
 
+plot_wide()
 pal_col=rainbow(3)
 
 

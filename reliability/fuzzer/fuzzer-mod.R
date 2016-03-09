@@ -1,5 +1,5 @@
 #
-# fuzzer-mod.R, 17 Jun 15
+# fuzzer-mod.R,  8 Mar 16
 #
 # Data from:
 # Comparative Language Fuzz Testing: Programming Languages vs. Fat Fingers
@@ -26,29 +26,27 @@ fuzz=read.csv(paste0(ESEUR_dir, "reliability/fuzzer/fuzzer.csv.xz"), as.is=TRUE)
 prog_lang_len=read.csv(paste0(ESEUR_dir, "reliability/fuzzer/prog_len.csv.xz"),
 			as.is=TRUE, row.names=1)
 
-fuzz$comp_status=as.factor(fuzz$comp_status)
-fuzz$run_status=as.factor(fuzz$run_status)
-fuzz$out_status=as.factor(fuzz$out_status)
-
 fuzz=ddply(fuzz, .(program, language), prog_len)
 
 comp_fuzz=subset(fuzz, fuzz_status == "OK")
 
-comp_mod=glm(comp_status ~ language+operation+log(prog_len)
+y=cbind(comp_fuzz$comp_status == "OK", comp_fuzz$comp_status != "OK")
+
+comp_mod=glm(y ~ language+operation+log(prog_len)
 				+language:prog_len,
 				data=comp_fuzz,
 				family=binomial)
-comp_mod=glm(comp_status ~ language + operation + log(prog_len)
+comp_mod=glm(y ~ language + operation + log(prog_len)
 				+program:language 
     				+operation:(program+log(prog_len)),
 				data=comp_fuzz,
 				family=binomial)
 
-# comp_mod=glm(comp_status ~ (program+language+operation+log(prog_len))^2
+# comp_mod=glm(y ~ (program+language+operation+log(prog_len))^2
 # 				-program:log(prog_len)-program,
 # 				data=comp_fuzz,
 # 				family=binomial)
-# comp_mod=glm(comp_status ~ program+language+operation, data=comp_fuzz,
+# comp_mod=glm(y ~ program+language+operation, data=comp_fuzz,
 # 				family=binomial)
 
 
@@ -57,12 +55,14 @@ summary(comp_mod)
 
 run_fuzz=subset(fuzz, comp_status == "OK")
 
-run_mod=glm(run_status ~ language + operation + log(prog_len)
+y=cbind(run_fuzz$run_status == "OK", run_fuzz$run_status != "OK")
+
+run_mod=glm(y ~ language + operation + log(prog_len)
 				+program:language 
     				+operation:(program+log(prog_len)),
 				data=run_fuzz,
 				family=binomial)
-# run_mod=glm(run_status ~ (program+language+operation+log(prog_len))^2
+# run_mod=glm(y ~ (program+language+operation+log(prog_len))^2
 # 				-program:log(prog_len)-program,
 # 				data=run_fuzz,
 # 				family=binomial)
@@ -75,12 +75,14 @@ summary(run_mod)
 
 exe_fuzz=subset(fuzz, run_status == "OK")
 
-exe_mod=glm(out_status ~ language + operation + log(prog_len)
+y=cbind(exe_fuzz$out_status == "OK", exe_fuzz$out_status != "OK")
+
+exe_mod=glm(y ~ language + operation + log(prog_len)
 				+program:language 
     				+operation:(program+log(prog_len)),
 				data=exe_fuzz,
 				family=binomial)
-#exe_mod=glm(out_status ~ (program+language+operation+log(prog_len))^2
+#exe_mod=glm(y ~ (program+language+operation+log(prog_len))^2
 #				-program:log(prog_len)-program,
 #				data=exe_fuzz,
 #				family=binomial)

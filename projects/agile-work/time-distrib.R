@@ -3,12 +3,14 @@
 #
 # 10 Dec 14 Fixed fault reported by Tom Clifford
 # 27 Aug 12 Initial release 27 Aug 12
+
+# Data from:
+#
+# http://www.7digital.com feature data
 #
 # Example from:
 # Empirical Software Engineering using R
 # Derek M. Jones
-
-# Various analysis of http://www.7digital.com feature data
 #
 # Load.Time and Cycle.Time were calculated as Done-Prioritised and
 # Done-Dev.Started respectively.  Weekends were removed and dates

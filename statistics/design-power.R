@@ -1,5 +1,5 @@
 #
-# design-power.R,  6 Sep 15
+# design-power.R,  2 Mar 16
 #
 # Example from:
 # Empirical Software Engineering using R
@@ -13,25 +13,27 @@ library("diagram")
 
 plot.new()
 
-# Add some fake nodes so the inner ones are pushed in
-coords=coordinates(c(1, 1, 4, 1, 1))
+# plot_wide()
 
-textellipse(coords[2, ], radx=0.2, rady=0.2,
-		shadow.size=0.0,
+# Add some fake nodes so the inner ones are pushed in
+coords=coordinates(c(1, 1, 1, 2, 1, 1, 1))
+
+textellipse(coords[4, ], radx=0.2, rady=0.2, cex=1.2,
+		shadow.size=0.0, adj=c(0.7, 0.7),
 		box.col=rgb(0, 0.9, 0, alpha=0.15),
-		lab=c("Power", "1-P(Type II Error)", ""))
-textellipse(coords[4, ], radx=0.2, rady=0.2,
-		shadow.size=0.0, adj=c(0.8, 0.8),
+		lab=c("", "Power", "1-P(Type II Error)", ""))
+textellipse(coords[3, ], radx=0.2, rady=0.2,
+		shadow.size=0.0, cex=1.3,
 		box.col=rgb(0, 0, 0.9, alpha=0.15),
-		lab=c("", "Sample Size", "n", ""))
-textellipse(coords[5, ], radx=0.2, rady=0.2,
-		shadow.size=0.0, adj=c(0.15, 0.15),
+		lab=c("Sample Size", "n", ""))
+textellipse(coords[6, ], radx=0.2, rady=0.2,
+		shadow.size=0.0, cex=1.4,
 		box.col=rgb(0, 0, 0.9, alpha=0.15),
-		lab=c("", "Effect Size", "ES", ""))
-textellipse(coords[7, ], radx=0.2, rady=0.2,
-		shadow.size=0.0,
+		lab=c("", "Effect Size", "ES"))
+textellipse(coords[5, ], radx=0.2, rady=0.2, cex=1.2,
+		shadow.size=0.0, adj=c(0.30, 0.30),
 		box.col=rgb(0, 0.9, 0, alpha=0.15),
-		lab=c("", "Significance Level", "P(Type I Error)"))
+		lab=c("", "Significance Level", "P(Type I Error)", ""))
 
 # grid.newpage()
 

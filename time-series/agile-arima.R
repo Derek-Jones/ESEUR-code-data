@@ -22,3 +22,4 @@ weekdays=day_starts[-weekends]
 
 print(arima(diff(log(weekdays+1e-8)), order=c(1, 0, 2)))
 
+

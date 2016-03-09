@@ -1,5 +1,5 @@
 #
-# feat-averages-7dig.R, 14 Feb 16
+# feat-averages-7dig.R, 22 Feb 16
 #
 # Various analysis of http://www.7digital.com feature data
 #
@@ -9,6 +9,7 @@
 
 source("ESEUR_config.r")
 
+plot_wide()
 pal_col=rainbow(2)
 
 source(paste0(ESEUR_dir, "projects/agile-work/feat-common-7dig.R"))

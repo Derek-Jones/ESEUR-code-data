@@ -1,5 +1,5 @@
 #
-# agile-day-starts.R, 18 Feb 16
+# agile-day-starts.R,  5 Mar 16
 #
 # Data from:
 # http://www.7digital.com
@@ -22,7 +22,7 @@ day_starts[t$x]=t$freq
 
 weekdays=day_starts[-weekends]
 
-plot(weekdays,
+plot(weekdays, col=point_col,
 	xlab="Days", ylab="Features started")
 
 ds_mod=glm(weekdays ~ time(weekdays), family=poisson(link="identity"))
@@ -31,6 +31,6 @@ lines(fitted(ds_mod), col="red")
 
 # summary(ds_mod)
 
-plot(weekdays-fitted(ds_mod),
+plot(weekdays-fitted(ds_mod), col=point_col,
 	xlab="Days", ylab="Features started")
 

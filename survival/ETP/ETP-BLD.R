@@ -1,5 +1,5 @@
 #
-# ETP-BLD.R, 18 Jan 16
+# ETP-BLD.R, 21 Feb 16
 #
 # Data from:
 # Survival of Eclipse Third-party Plug-ins
@@ -18,25 +18,11 @@ pal_col=rainbow(2)
 
 bld_API=read.csv(paste0(ESEUR_dir, "survival/ETP/ETP-all-bld.csv.xz"), as.is=TRUE)
 
-app_API=subset(bld_API, API == 1)
-app_nonAPI=subset(bld_API, API == 0)
+bld_surv=Surv(bld_API$year_end-bld_API$year_start,
+		 event=bld_API$survived == 0, type="right")
+bld_mod=survfit(bld_surv ~ bld_API$API)
 
-api_surv=Surv(app_API$year_end-app_API$year_start,
-		 event=app_API$survived == 0, type="right")
-api_mod=survfit(api_surv ~ 1)
-
-nonapi_surv=Surv(app_nonAPI$year_end-app_nonAPI$year_start,
-		 event=app_nonAPI$survived == 0, type="right")
-nonapi_mod=survfit(nonapi_surv ~ 1)
-
-plot(api_mod, col=pal_col[1],
+plot(bld_mod, col=pal_col, conf.int=TRUE,
 	xlim=c(0,7), xlab="Years")
-
-lines(nonapi_mod, col=pal_col[2])
-
-# bld_diff=survdiff(Surv(year_end-year_start, event=(survived == 0),
-# 					 type="right") ~ API, data=bld_API)
-# 
-# print(bld_diff)
 
 

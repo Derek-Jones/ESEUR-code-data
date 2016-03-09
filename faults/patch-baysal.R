@@ -1,5 +1,5 @@
 #
-# patch-baysal.R, 15 Jan 15
+# patch-baysal.R, 21 Feb 15
 #
 # Data from:
 # The Influence of Non-Technical Factors on Code Review
@@ -15,6 +15,9 @@ source("ESEUR_config.r")
 
 library("diagram")
 library("RSQLite")
+
+
+plot_wide()
 
 
 con=dbConnect(RSQLite::SQLite(), dbname=paste0(ESEUR_dir, "faults/patch-baysal.sqlite"))
@@ -106,6 +109,6 @@ M["Submitted", "Rejected"]=main_trans[6, 2]
 sub_total=sum(M["Submitted", ])
 M=signif(100*M/sub_total, 2)
 
-plotmat(t(M), pos=c(1, 2, 4), lwd=1, arr.pos=0.6,
-	 box.type="rect", box.prop=0.5, shadow.size=0)
+plotmat(t(M), pos=c(1, 2, 4), lwd=1, arr.pos=0.62, cex=1.3,
+	 box.type="rect", box.prop=0.5, box.cex=1.3, shadow.size=0)
 

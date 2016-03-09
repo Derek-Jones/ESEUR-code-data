@@ -5,9 +5,6 @@
 #
 # http://www.7digital.com...
 #
-# R code for book "Empirical Software Engineering using R"
-# Derek M. Jones, http://shape-of-code.coding-guidelines.com
-#
 # Example from:
 # Empirical Software Engineering using R
 # Derek M. Jones

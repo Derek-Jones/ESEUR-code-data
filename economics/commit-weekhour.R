@@ -1,5 +1,5 @@
 #
-# commit-weekhour.R,  9 Dec 15
+# commit-weekhour.R, 22 Feb 16
 #
 # Data from:
 # Do time of day and developer experience affect commit bugginess?
@@ -12,6 +12,7 @@
 
 source("ESEUR_config.r")
 
+plot_wide()
 pal_col=rainbow(2)
 
 # id repository_id raw_author_id sha1 merge utc_time local_time

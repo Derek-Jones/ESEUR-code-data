@@ -1,5 +1,5 @@
 #
-# ff_code-usage.R, 27 Dec 15
+# ff_code-usage.R, 22 Feb 16
 #
 # Data from:
 # After-Life Vulnerabilities: A Study on Firefox Evolution, its Vulnerabilities, and Fixes
@@ -13,6 +13,8 @@
 source("ESEUR_config.r")
 
 library("plyr")
+
+plot_wide()
 
 
 study_start=as.Date("9-November-2004", format="%d-%B-%Y")

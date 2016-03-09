@@ -1,5 +1,5 @@
 #
-# Little.R,  2 Dec 15
+# Little.R,  9 Mar 16
 #
 # Data from:
 # Schedule Estimation and Uncertainty Surrounding the Cone of Uncertainty
@@ -53,7 +53,7 @@ points(c(ests[-1], -10)/as.numeric(ests))
 t=ddply(lit, .(Project.Code), mk_target_unique)
 t_sum=ddply(t, .(Project.Code), target_summary)
 
-plot(t_sum$duration,t_sum$num_reest,
+plot(t_sum$duration,t_sum$num_reest, col=point_col,
 	xlab="Project durations (days)", ylab="Reestimates")
 
 lines(loess.smooth(t_sum$duration,t_sum$num_reest, span=0.5, family="gaussian"), col="green")

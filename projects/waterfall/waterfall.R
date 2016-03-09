@@ -13,6 +13,8 @@ source("ESEUR_config.r")
 
 library("plyr")
 
+plot_wide()
+
 
 zel=read.csv(paste0(ESEUR_dir, "projects/waterfall/zelkowitz.csv.xz"), as.is=TRUE)
 

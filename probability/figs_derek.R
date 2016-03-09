@@ -1,7 +1,4 @@
 #
-# Example from:
-# Empirical Software Engineering using R
-# Derek M. Jones
 
 library(plyr)
 library(ggplot2)

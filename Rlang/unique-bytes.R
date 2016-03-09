@@ -1,5 +1,5 @@
 #
-# unique-bytes.R,  7 Jan 16
+# unique-bytes.R, 21 Feb 16
 #
 #
 # Example from:
@@ -7,6 +7,9 @@
 # Derek M. Jones
 
 source("ESEUR_config.r")
+
+
+plot_wide()
 
 
 window_width=256 # if this is less than 256 divisor has to change in call to plot

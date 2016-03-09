@@ -1,5 +1,5 @@
 #
-# staff_pred.R, 14 Feb 16
+# staff_pred.R,  5 Mar 16
 #
 # Data from:
 # Designing an Optimal Software Intensive System Acquisition: {A} Game Theoretic Approach
@@ -20,7 +20,7 @@ t=read.csv(paste0(ESEUR_dir, "regression/Buettner-A1.csv.xz"), as.is=TRUE)
 max_weeks=max(t$Staff.Week.1, na.rm=TRUE)
 max_staff=max(t$Staff.Actuals*1.1, na.rm=TRUE)
 
-plot(t$Staff.Week.1, t$Staff.Actuals,
+plot(t$Staff.Week.1, t$Staff.Actuals, col=point_col,
 	xlab="Week", ylab="Estimated people\n",
 	xlim=c(0, max_weeks), ylim=c(0, max_staff))
 

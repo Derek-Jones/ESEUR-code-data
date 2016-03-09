@@ -58,7 +58,7 @@ scaleclk  =min(all[["max_clock"]], na.rm=TRUE)
 
 ratio_change=all[["max_clock"]]/scaleclk
 
-plot(dates, ratio_change, log="y", col="grey",
+plot(dates, ratio_change, log="y", col=point_col,
 	xlab="Date of introduction", ylab="Relative frequency increase\n")
 line_smoother(dates, ratio_change)
 

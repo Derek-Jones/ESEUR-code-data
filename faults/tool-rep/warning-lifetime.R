@@ -48,7 +48,7 @@ df_mod=survfit(df_surv ~1)
 plot(df_mod, col=col_str,
 	xlim=c(0, 1000),
 	xlab="Days since created")
-text(600, 0.8, prog_str)
+text(250, 0.92, prog_str, cex=1.3)
 }
 
 plot_categ=function(df, tool_hist, prog_str)

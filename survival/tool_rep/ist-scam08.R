@@ -1,5 +1,5 @@
 #
-# ist-scam08.R, 29 Jan 15
+# ist-scam08.R, 21 Feb 16
 #
 # Data from:
 # The Life and Death of Statically Detected Vulnerabilities: an Empirical Study
@@ -44,11 +44,11 @@ plot_cif=function(sys_str)
 t=cuminc(rats$failtime, rats$type, cencode=0,
 	subset=(rats$SYSTEM == sys_str))
 
-plot(t, col=pal_col,
+plot(t, col=pal_col, cex=1.25,
 	curvlab=c("was removed", "disappeared"),
 	xlab="Snapshot", ylab="Proportion flagged issues 'dead'\n")
 
-text(max(t[[1]]$time)/2, 0.9, sys_str, cex=1.5)
+text(max(t[[1]]$time)/1.5, 0.9, sys_str, cex=1.5)
 }
 
 plot_cif("samba")

@@ -1,5 +1,5 @@
 #
-# world-compute.R,  5 Jan 16
+# world-compute.R,  7 Mar 16
 #
 # Data from:
 #
@@ -10,6 +10,7 @@
 
 source("ESEUR_config.r")
 
+plot_wide()
 
 # year,PC,Videogame_console,Mobile_phone/PDA,Server/mainframe,Supercomputer,Pocket_calculator,DSP,MCU,GPU
 world_comp=read.csv(paste0(ESEUR_dir, "introduction/world-compute.csv.xz"), as.is=TRUE)

@@ -1,5 +1,5 @@
 #
-# fault-states.R, 20 Jan 15
+# fault-states.R, 22 Feb 16
 #
 # Data from:
 # Software Reliability: Repetitive Run Experimentation and Modeling
@@ -51,6 +51,6 @@ M["124", "1234"]=30
 M["134", "1234"]=1
 M["1234", "12345"]=22
 
-plotmat(t(M), pos=c(1, 2, 3, 4, 2, 1), lwd=1, arr.pos=0.4,
-	 box.type="rect", box.prop=0.5, box.size=0.05, shadow.size=0)
+plotmat(t(M), pos=c(1, 2, 3, 4, 2, 1), lwd=1, arr.pos=0.4, cex=1.2,
+	 box.type="rect", box.prop=0.5, box.size=0.05, box.cex=1.2, shadow.size=0)
 

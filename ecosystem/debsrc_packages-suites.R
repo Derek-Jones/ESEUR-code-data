@@ -60,6 +60,6 @@ suite_surv=Surv(as.numeric(p_dates$e_date)-as.numeric(p_dates$s_date),
 suite_mod=survfit(suite_surv ~ 1)
 
 plot(suite_mod, col="red",
-	xlab="Days", ylab="Survival rate")
+	xlab="Days", ylab="Survival rate\n")
 
 

@@ -1,5 +1,5 @@
 #
-# Net-Open_BSD.R,  8 Jan 16
+# Net-Open_BSD.R, 21 Feb 16
 #
 # Data from:
 #
@@ -15,6 +15,7 @@ source("ESEUR_config.r")
 
 library("plyr")
 
+plot_wide()
 
 #BSD=read.csv(paste0(ESEUR_dir, "ecosystem/Net-Open_BSD.csv.xz"), as.is=TRUE)
 BSD=read.csv(paste0(ESEUR_dir, "ecosystem/Open-Net_BSD.csv.xz"), as.is=TRUE)

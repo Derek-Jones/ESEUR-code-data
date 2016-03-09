@@ -1,5 +1,5 @@
 #
-# firefox.R,  8 Jan 16
+# firefox.R,  8 Mar 16
 #
 # Data from:
 # Does Hardware Configuration and Processor Load Impact Software Fault Observability?
@@ -17,43 +17,42 @@ ff=read.csv(paste0(ESEUR_dir, "faults/hardware-config/firefox.csv.xz"), as.is=TR
 pal_col=rainbow(3)
 plot_layout(1, 2)
 
-fit_fails=function(fail_count, ff_data, rhs, is_quasi)
+fit_fails=function(fail_count, ff_data, is_quasi)
 {
 # Build failure and non-failure vector
 y=cbind(fail_count, 10-fail_count)
 
+# Fit all explanatory variables, looking for some interaction between them
 if (is_quasi)
-   model=glm(formula(rhs), data=ff_data, family=quasibinomial)
+   b_mod=glm(y ~ (cpu_speed+memory+disk_size)^3, data=ff_data,
+						family=quasibinomial)
 else
-   model=glm(formula(rhs), data=ff_data, family=binomial)
+   b_mod=glm(y ~ (cpu_speed+memory+disk_size)^3, data=ff_data,
+						family=binomial)
 
-summary(model)
+t=stepAIC(b_mod, trace=0)
+
+return(t)
 }
 
-# Fit all predictor variables.
-# Look for some interaction between the predictors first
-fit_fails(ff$f_124750, ff, "y ~ cpu_speed*memory*disk_size", FALSE)
-fit_fails(ff$f_124750, ff, "y ~ cpu_speed+memory+disk_size", FALSE)
-# Now fit the one that we know might be significant
-fit_fails(ff$f_124750, ff, "y ~ cpu_speed", FALSE)
+# ft=cbind(ff$f_124750, 10-ff$f_124750)
+# ft_mod=glm(ft ~ (cpu_speed+memory+disk_size)^3, data=ff, family=binomial)
 
-fit_fails(ff$f_380417, ff, "y ~ cpu_speed+memory+disk_size", FALSE)
-fit_fails(ff$f_380417, ff, "y ~ memory", FALSE)
+# t=fit_fails(ff$f_124750, ff, FALSE)
+
 # residual deviance is greater than the residual degrees of freedom
 # Need to adjust for  overdispersion.
-fit_fails(ff$f_380417, ff, "y ~ memory", TRUE)
+# t=fit_fails(ff$f_380417, ff, TRUE)
 
-fit_fails(ff$f_396863, ff, "y ~ cpu_speed+memory+disk_size", FALSE)
+# t=fit_fails(ff$f_396863, ff, FALSE)
 
-fit_fails(ff$f_410075, ff, "y ~ cpu_speed+memory+disk_size", FALSE)
+# t=fit_fails(ff$f_410075, ff, FALSE)
 
-fit_fails(ff$f_494116, ff, "y ~ cpu_speed+memory+disk_size", FALSE)
+# t=fit_fails(ff$f_494116, ff, FALSE)
 
-fit_fails(ff$f_264562, ff, "y ~ cpu_speed+memory+disk_size", FALSE)
-fit_fails(ff$f_264562, ff, "y ~ cpu_speed", FALSE)
+# t=fit_fails(ff$f_264562, ff, FALSE)
 
-fit_fails(ff$f_332330, ff, "y ~ cpu_speed+memory+disk_size", FALSE)
-fit_fails(ff$f_332330, ff, "y ~ cpu_speed", FALSE)
+# t=fit_fails(ff$f_332330, ff, FALSE)
 
 # What is the power of the tests?
 
