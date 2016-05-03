@@ -1,5 +1,5 @@
 #
-# data_all_Blob_merge.R, 25 May 15
+# data_all_Blob_merge.R, 19 Mar 16
 #
 # Data from:
 #
@@ -18,7 +18,7 @@ library(car)
 
 
 # No information on the order in which questions were answered.
-# Is the large difference seen a result on ordering or anti-patterns???
+# Is the large difference seen a result of ordering or anti-patterns???
 # Subject,AP,System,QTYPE,Time,Answer,Effort,SE,Java,Eclipse
 blob=read.csv(paste0(ESEUR_dir, "experiment/data_all_Blob_merge.csv.xz"), as.is=TRUE)
 
@@ -26,13 +26,17 @@ blob=read.csv(paste0(ESEUR_dir, "experiment/data_all_Blob_merge.csv.xz"), as.is=
 # blob_mod=glm(Time ~ ., data=blob)
 # t=stepAIC(blob_mod)
 
-# blob_mod=lmer(Time ~ (AP+System+QTYPE+Answer+Effort+SE+Java+Eclipse)^2+ (AP+System+QTYPE+Answer | Subject), data=blob)
+# blob_mod=lmer(Time ~ (AP+System+QTYPE+Answer+Effort+SE+Java+Eclipse+Subject)^2, data=blob)
 
 #library("lmerTest")
 # t=step(blob_mod)
 
-# blob_mod=lmer(Time ~ System+AP+ SE+Java+Eclipse+ (AP+Java | Subject), data=blob)
-blob_mod=lmer(Time ~ AP+ QTYPE+Java+ (AP+QTYPE | Subject), data=blob)
+# Cannot used Subject as the random effect...
+# table(blob$Subject, blob$AP)
+blob_mod=lmer(Time ~ AP+ QTYPE+Java+ (AP | Subject), data=blob)
+# table(blob$Subject, blob$QTYPE)
+blob_mod=lmer(Time ~ AP+ QTYPE+Java+ (QTYPE | Subject), data=blob)
+
 summary(blob_mod)
 
 Anova(blob_mod)

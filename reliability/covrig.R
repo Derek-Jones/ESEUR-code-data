@@ -32,6 +32,7 @@ prog=subset(bench, program != "Binutils")
 
 # library("lattice")
 # xyplot(cov_ratio ~ time | program, data=prog,
+#	col=point_col, pch=point_pch, type="b",
 # 	xlab="Year", ylab="Coverage")
 
 xrange=range(prog$time, na.rm=TRUE)

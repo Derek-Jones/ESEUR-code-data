@@ -1,5 +1,5 @@
 #
-# heatmap-hotpower.R, 28 Mar 15
+# heatmap-hotpower.R, 26 Mar 15
 #
 # Data from:
 # Memory Performance at Reduced {CPU} Clock Speeds: {An} Analysis of Current x86\_64 Processor
@@ -23,13 +23,14 @@ L3_band=L3_band[rev(seq_len(nrow(L3_band))), ]
 t=levelplot(L3_band,
 		col.regions=rainbow(100, end=0.9),
 		xlab="Clock frequency (Mhz)", ylab="Cores used",
+                scales=list(x=list(cex=0.70, rot=35), y=list(cex=0.65)),
 		panel=function(...)
 			{
 			panel.levelplot(...)
-			panel.text(1:11, rep(1:8, each=11), L3_band)
+			panel.text(1:11, rep(1:8, each=11), L3_band, cex=0.55)
 			})
 
-plot(t)
+plot(t, panel.height=list(3.8, "cm"), panel.width=list(6.2, "cm"))
 
 # library("gplots")
 # 

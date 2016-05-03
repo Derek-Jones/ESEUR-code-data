@@ -1,5 +1,5 @@
 #
-# array-durbinwatson.R, 25 May 15
+# array-durbinwatson.R, 25 Mar 16
 #
 # Data from:
 #
@@ -44,6 +44,9 @@ mk_v0_mod=function(O_str)
 t1=subset(bench, (is_1st == 0) & (s_l == "L") & (opt == O_str) & (expr == "v0"))
 
 t1_time=t1$time
+
+# pacf(t1_time)
+
 t1_mod=glm(t1_time ~ 1)
 
 return(t1_mod)
@@ -53,4 +56,6 @@ to0=mk_v0_mod("o0")
 # to3=mk_v0_mod("o3")
 
 dw=durbinWatsonTest(to0)
+
+print(dw)
 

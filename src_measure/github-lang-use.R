@@ -1,8 +1,9 @@
 #
-# github-lang-use.R,  6 Dec 15
+# github-lang-use.R, 21 Apr 16
 #
 # Data from:
 # Popularity, interoperability, and impact of programming languages in 100,000 open source projects
+# Tegawend\'{e} F. Bissyand\'{e} and Ferdian Thung and David Lo and Lingxiao Jiang and Laurent R\'{e}veill\`{e}re
 #
 # Example from:
 # Empirical Software Engineering using R
@@ -28,6 +29,6 @@ return(nrow(df))
 t=daply(git_lang, .(program), count_proj_lang)
 
 # Plot complains about the log option unless the value of table is converted
-plot(as.vector(table(t)), log="y", type="b",
+plot(as.vector(table(t)), log="y", type="b", col=point_col,
 	xlab="\nNumber of languages used", ylab="Number of projects\n")
 

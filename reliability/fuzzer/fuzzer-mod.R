@@ -32,6 +32,8 @@ comp_fuzz=subset(fuzz, fuzz_status == "OK")
 
 y=cbind(comp_fuzz$comp_status == "OK", comp_fuzz$comp_status != "OK")
 
+# sl=glm(comp_status == "OK" ~ log(prog_len), data=comp_fuzz)
+
 comp_mod=glm(y ~ language+operation+log(prog_len)
 				+language:prog_len,
 				data=comp_fuzz,

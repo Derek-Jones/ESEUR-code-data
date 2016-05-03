@@ -1,5 +1,5 @@
 #
-# MemoPower03_interact.R,  8 Jan 16
+# MemoPower03_interact.R, 26 Mar 16
 #
 # Data from:
 # "Look It up" or "Do the Math": An Energy, Area, and Timing Analysis of Instruction Resuse and Memoization
@@ -25,10 +25,10 @@ Memo$replacement=as.factor(Memo$replacement)
 # Using with means we get a more sensible label names
 with(Memo,
 	interaction.plot(size, associativity, cint,
-		cex=1.3, col="blue",
+		cex=1.3, col="brown",
 		xlab="size", ylab="Mean cint performance\n"))
 with(Memo,
-interaction.plot(size, mapping, cint,
-		cex=1.3, col="blue",
+	interaction.plot(size, mapping, cint,
+		cex=1.3, col="brown",
 		xlab="size", ylab="Mean cint performance"))
 

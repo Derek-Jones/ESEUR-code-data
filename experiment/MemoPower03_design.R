@@ -1,5 +1,5 @@
 #
-# MemoPower03_design.R,  8 Jan 16
+# MemoPower03_design.R, 26 Mar 16
 #
 # Data from:
 # "Look It up" or "Do the Math": An Energy, Area, and Timing Analysis of Instruction Resuse and Memoization
@@ -25,7 +25,7 @@ Memo$replacement=as.factor(Memo$replacement)
 
 
 plot.design(cint ~ size+associativity+mapping+replacement, data=Memo,
-			cex=1.3, col="blue",
-			ylab="Mean of cint\n")
+			cex=1.3, col="brown",
+			xlab="", ylab="Mean cint\n")
 
 

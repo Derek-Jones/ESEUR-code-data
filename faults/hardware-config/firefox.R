@@ -1,5 +1,5 @@
 #
-# firefox.R,  8 Mar 16
+# firefox.R,  5 Apr 16
 #
 # Data from:
 # Does Hardware Configuration and Processor Load Impact Software Fault Observability?
@@ -23,12 +23,8 @@ fit_fails=function(fail_count, ff_data, is_quasi)
 y=cbind(fail_count, 10-fail_count)
 
 # Fit all explanatory variables, looking for some interaction between them
-if (is_quasi)
-   b_mod=glm(y ~ (cpu_speed+memory+disk_size)^3, data=ff_data,
-						family=quasibinomial)
-else
-   b_mod=glm(y ~ (cpu_speed+memory+disk_size)^3, data=ff_data,
-						family=binomial)
+b_mod=glm(y ~ (cpu_speed+memory+disk_size)^3, data=ff_data,
+			family=ifelse(is_quasi, quasibinomial, binomial))
 
 t=stepAIC(b_mod, trace=0)
 

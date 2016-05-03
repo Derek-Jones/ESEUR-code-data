@@ -1,5 +1,5 @@
 #
-# sw_i_faults.R, 29 Oct 15
+# sw_i_faults.R, 21 Mar 16
 #
 # Data from:
 #
@@ -23,11 +23,13 @@ t[cbind(cassandra$software,cassandra$implication)]=cassandra$count
 
 p=levelplot(t, col.regions=rainbow(100, start=0.1),
 	xlab="Implication", ylab="Software",
-                panel=function(...)
+                scale=list(x=list(rot=45)),
+		panel=function(...)
                         {
                         panel.levelplot(...)
-                        panel.text(1:nrow(t), rep(1:ncol(t), each=nrow(t)), t)
+                        panel.text(1:nrow(t), rep(1:ncol(t), each=nrow(t)), t,
+								cex=0.7)
                         })
 
-plot(p)
+plot(p, panel.height=list(3.8, "cm"), panel.width=list(4.2, "cm"))
 

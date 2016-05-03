@@ -1,7 +1,9 @@
 #
-# linux-src-evol.R, 22 May 15
+# linux-src-evol.R, 26 Mar 16
 #
 # Data from:
+# Simone Livieri and Yoshiki Higo and Makoto Matsushita and Katsuro Inoue
+# Analysis of the {Linux} Kernel Evolution Using Code Clone Coverage
 #
 # Example from:
 # Empirical Software Engineering using R
@@ -26,7 +28,8 @@ t=levelplot(evol, col.regions=pal_col,
 		    y=list(at=c(130, 60, 1),
 				 label=c("1.2.0", "2.2.20", "2.6.18.3"))),
 	xlab="", ylab="")
-plot(t)
+
+plot(t, panel.height=list(3.8, "cm"), panel.width=list(5.2, "cm"))
 
 # The base library approach (with no legend)
 # image(evol, col=pal_col, axes=FALSE)

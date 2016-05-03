@@ -1,5 +1,5 @@
 #
-# ESEUR-config.r,  6 Mar 16
+# ESEUR-config.r, 17 Mar 16
 
 # Assume the current directory unless told otherwise
 ESEUR_dir=paste0(getwd(), "/")
@@ -17,7 +17,7 @@ ESEUP_set_par=function(OMA=c(2, 2, 1, 1), MAR=c(3, 4.2, 1, 1)+0.1)
 # par(col.axis="black")
 par(bty="l")
 par(las=1)
-par(pch=3)
+par(pch=point_pch)
 # Length of tick marks as a fraction of the height of a line of text
 par(tcl=-0.2)
 par(xaxs="r")
@@ -76,6 +76,7 @@ ESEUR_max_width=16
 ESEUR_max_height=14
 ESEUR_default_width=7
 ESEUR_default_height=7
+point_pch=3
 point_col="salmon3"
 loess_col="yellow"
 

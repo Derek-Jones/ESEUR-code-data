@@ -1,8 +1,5 @@
 #
-# dacapo_progname_refact.R, 11 Nov 15
-#
-# R code for book "Empirical Software Engineering using R"
-# Derek M. Jones, http://shape-of-code.coding-guidelines.com
+# dacapo_progname_refact.R, 25 Mar 16
 #
 # Data from:
 # Are Your Incoming Aliases Really Necessary?  Counting the Cost of Object Ownership
@@ -35,5 +32,6 @@ bm2=glm(performance ~ progname+progname:refact-1, data=dacapo)
 
 t=summary(bm2)
 
-print(t$coefficients[t$coefficients[ , 4] < 0.05 , ])
+# Exclude t value so long output don't wrap on the printed page
+print(t$coefficients[t$coefficients[ , 4] < 0.05 , -3])
 

@@ -1,5 +1,5 @@
 #
-# cpu-mem-power.R, 30 Dec 15
+# cpu-mem-power.R, 25 Mar 16
 #
 # Data from:
 # Predictive Power Management for Multi-Core Processors
@@ -44,6 +44,9 @@ axis(2, at=ticks, labels=abs(ticks-middle))
 
 
 power=read.csv(paste0(ESEUR_dir, "benchmark/bircher_F46.csv.xz"), as.is=TRUE)
+
+# Improve look of legend
+power$workload=sub("_", "\n", power$workload)
 
 pal_col=rainbow_hcl(nrow(power))
 

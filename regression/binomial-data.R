@@ -12,11 +12,11 @@ source("ESEUR_config.r")
 pal_col=rainbow(2)
 
 # Simulate some 0/1 data
-answer=data.frame(x=c(rnorm(10, mean=1), rnorm(10, mean=3)),
-                  y=c(rep(0, 10), rep(1, 10)))
+answer=data.frame(x=c(rnorm(20, mean=1), rnorm(20, mean=3)),
+                  y=c(rep(0, 20), rep(1, 20)))
 
 plot(answer,
-	xlab="Input", ylab="Output\n")
+	xlab="Explanatory variable", ylab="Response variable\n")
 
 sl=glm(y ~ x, data=answer)
 lines(answer$x, predict(sl), col=pal_col[1])

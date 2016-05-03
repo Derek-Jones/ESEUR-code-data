@@ -1,5 +1,5 @@
 #
-# icpe13_datamill_link.R, 28 Dec 15
+# icpe13_datamill_link.R, 28 Mar 16
 #
 # Data from:
 # DataMill: Rigorous Performance Evaluation Made Easy
@@ -31,9 +31,13 @@ bench=read.csv(paste0(ESEUR_dir, "benchmark/icpe13_datamill_perl.csv.xz"), as.is
 bench$hostname=mapvalues(bench$hostname, from_str, to_str)
 
 p=bwplot(Base.Run.Time ~ link_order|address_randomization+hostname,
-	data=bench, notch=TRUE, as.table=TRUE,
-        scales=list(x="same", y="free", tick.number=4, rot=c(0, 90)),
-	xlab="Link order", ylab="Run Time (secs)", fil=pal_col)
+		data=bench, as.table=TRUE, col="yellow",
+		panel=panel.violin,
+		par.strip.text=list(cex=0.7),
+		scales=list(x=list(relation="same"),
+			 y=list(relation="free", tick.number=4),
+			 rot=c(0, 90)),
+		xlab="Link order", ylab="Run Time (secs)")
 t=useOuterStrips(p)
 plot(t)
 

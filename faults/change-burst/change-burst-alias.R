@@ -1,5 +1,5 @@
 #
-# change-burst-alias.R,  1 Jun 15
+# change-burst-alias.R,  4 Apr 16
 #
 # Data from:
 # Modified version from Appendix of "Change bursts as defect predictors"
@@ -57,5 +57,11 @@ summary(burst_model)
 
 # Which items correlate with each other?
 print(alias(burst_model, partial=TRUE))
+
+
+# plot(thedata$NumberOfConsecutiveChanges, thedata$HasDefect)
+# 
+# sl_mod=glm(HasDefect ~ NumberOfConsecutiveChanges, data=thedata)
+# summary(sl_mod)
 
 

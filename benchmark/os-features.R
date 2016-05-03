@@ -1,5 +1,5 @@
 #
-# os-features.R, 28 Feb 14
+# os-features.R, 27 Mar 16
 #
 # Data from:
 # Performance Variance Evaluation on Mozilla Firefox
@@ -38,12 +38,16 @@ n_t$with_noise=NULL
 n_t$less_noise=NULL
 m_t=melt(n_t, id.vars="program")
 
-brew_col=rainbow_hcl(4)
+brew_col=rainbow_hcl(2)
 
 # boxplot(Original ~ program, data=n_t, notch=TRUE)
 
-p=bwplot(value ~ variable|program, data=m_t, notch=TRUE,
-	ylab="Normalised performance", fil=brew_col)
+t=bwplot(value ~ variable | program, data=m_t,
+		panel=panel.violin, col="yellow",
+                par.strip.text=list(cex=0.75),
+                scales=list(y=list(cex=0.8)),
+		ylab="Normalised performance")
 
-print(p)
+plot(t, panel.height=list(1.5, "cm"))
+
 

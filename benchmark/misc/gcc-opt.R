@@ -1,5 +1,5 @@
 #
-# gcc-opt.R, 15 Sep 12
+# gcc-opt.R, 18 Mar 16
 #
 # SPEC2000 results for various versions of gcc, obtained from:
 # Vladimir N. Makarow http://vmakarov.fedorapeople.org/spec/index.html
@@ -37,9 +37,10 @@ colnames(O3.64)=c(colnames(O3.64)[1:3],substr(colnames(O3.64[, 4:9]), 2, 10))
 lp=melt(O3.64[,3:9], id="Name")
 
 xyplot(value ~ variable | Name, data=lp[lp$Name != "SPECint2000", ],
-       xlab="gcc version", ylab="Performance change",
-       scales=list(x=list(cex.lab=0.2)),
-       panel=function(...) {panel.abline(0, 0, col="red"); panel.xyplot(...)})
+	xlab="gcc version", ylab="Performance change",
+	scales=list(x=list(cex.lab=0.2)),
+	col=point_col, pch=point_pch, type="b",
+	panel=function(...) {panel.abline(0, 0, col="red"); panel.xyplot(...)})
 
 
 # restructure the data and build three models

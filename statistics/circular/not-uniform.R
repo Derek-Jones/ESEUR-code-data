@@ -1,6 +1,10 @@
 #
 # not-uniform.R, 21 Apr 15
 #
+# Data from:
+# The daily I/O activity of HPSS
+# <http://www.nersc.gov/nusers/systems/HPSS/> at NERSC.
+#
 # Example from:
 # Empirical Software Engineering using R
 # Derek M. Jones

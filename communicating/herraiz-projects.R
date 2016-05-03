@@ -36,5 +36,6 @@ smoothScatter(log(proj_inf$Files), log(proj_inf$SLOC),
 # 
 # 
 # xyplot(Files ~ SLOC, data=proj_inf, panel=panel.hexbinplot,
+#	col=point_col, pch=point_pch, type="b",
 # 	scales=list(x=list(log=10), y=list(log=10)))
 

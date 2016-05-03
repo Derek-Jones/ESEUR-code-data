@@ -3,6 +3,7 @@
 #
 # Data from:
 # Popularity, interoperability, and impact of programming languages in 100,000 open source projects
+# Tegawend\'{e} F. Bissyand\'{e} and Ferdian Thung and David Lo and Lingxiao Jiang and Laurent R\'{e}veill\`{e}re
 #
 # Example from:
 # Empirical Software Engineering using R
