@@ -1,5 +1,5 @@
 #
-# Linux-DAYLOC.R, 18 Dec 15
+# Linux-DAYLOC.R, 16 Jul 16
 #
 # Data from:
 #
@@ -13,9 +13,9 @@
 
 source("ESEUR_config.r")
 
+plot_layout(2, 1)
 pal_col=rainbow(2)
 
-plot_layout(1, 2)
 
 # Lines of code in each release
 ll=read.csv(paste0(ESEUR_dir, "regression/Linux-LOC.csv.xz"), as.is=TRUE)

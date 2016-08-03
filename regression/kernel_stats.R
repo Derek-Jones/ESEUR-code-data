@@ -1,8 +1,9 @@
 #
-# kernel_stats.R,  8 Jan 14
+# kernel_stats.R, 18 Jul 16
 #
 # Data from:
 # github.com/gregkh/kernel-history
+# Last updated Jun 2016
 #
 # Example from:
 # Empirical Software Engineering using R
@@ -27,11 +28,11 @@ brew_col=rainbow(3)
 
 plot(ks$number.developers, ks$commits,
 	xlab="Number of contributing developers",
-	ylab="Number of commits")
+	ylab="Number of commits\n")
 
 k_mod=glm(commits ~ number.developers, data=ks)
 
-k_pred=predict(k_mod, newdata=data.frame(number.developers=1:1400),
+k_pred=predict(k_mod, newdata=data.frame(number.developers=1:1600),
 		type="response", se.fit=TRUE)
 
 lines(k_pred$fit, col=brew_col[1])

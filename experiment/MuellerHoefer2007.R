@@ -1,5 +1,5 @@
 #
-# MuellerHoefer2007.R,  1 Nov 15
+# MuellerHoefer2007.R, 10 Jun 16
 #
 # Data from:
 # The Effect of Experience on the Test-Driven Development Process
@@ -20,6 +20,7 @@ tdd=read.csv(paste0(ESEUR_dir, "experiment/MuellerHoefer2007.csv.xz"), as.is=TRU
 
 panel_user=function(x, y, user)
 {
+par(cex.axis=0.9)
 expert=(user == "e")
 points(x[expert], y[expert], col=pal_col[1])
 #lines(loess.smooth(x[expert], y[expert], span=0.7), col=pal_col[1])
@@ -46,6 +47,7 @@ usr = par("usr"); yaxt=par("yaxt")
 on.exit(par(usr)); on.exit(par(yaxt), add=TRUE)
 par(usr = c(0.5, 2.5, usr[3:4]) )
 par(yaxt="n")
+par(cex.axis=0.9)
 
 t=data.frame(x, user)
 

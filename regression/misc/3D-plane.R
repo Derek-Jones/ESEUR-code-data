@@ -5,6 +5,9 @@
 # Empirical Software Engineering using R
 # Derek M. Jones
 
+source("ESEUR_config.r")
+
+
 library("scatterplot3d")
 
 data(trees)

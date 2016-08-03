@@ -1,5 +1,5 @@
 #
-# lines-per-hour.R,  5 Mar 16
+# lines-per-hour.R, 27 Jul 16
 #
 # Data from:
 # On the effectiveness of early life cycle defect prediction with Bayesian Nets
@@ -25,9 +25,10 @@ Hours_KLoC=function(df)
 {
 plot(df$Hours, df$KLoC, col=point_col,
         xlim=x_bounds, ylim=y_bounds,
-        xlab="Hours", ylab="Lines of code (Kloc)\n")
+        xlab="Effort (hours)", ylab="Lines of code (Kloc)\n")
+lines(loess.smooth(df$Hours, df$KLoC, span=0.4), col=loess_col)
 
-plh_mod=glm(KLoC ~ Hours, data=df)
+plh_mod=glm(KLoC ~ I(Hours^0.5), data=df)
                 
 plh_pred=predict(plh_mod, type="response", se.fit=TRUE)
 

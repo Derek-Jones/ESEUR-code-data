@@ -1,5 +1,5 @@
 #
-# fuzzer-mod.R,  8 Mar 16
+# fuzzer-mod.R, 13 Jul 16
 #
 # Data from:
 # Comparative Language Fuzz Testing: Programming Languages vs. Fat Fingers
@@ -38,6 +38,14 @@ comp_mod=glm(y ~ language+operation+log(prog_len)
 				+language:prog_len,
 				data=comp_fuzz,
 				family=binomial)
+# Number of lines has the largest impact in C#
+# c_comp_fuzz=subset(comp_fuzz, language == "cs")
+# c_y=cbind(c_comp_fuzz$comp_status == "OK", c_comp_fuzz$comp_status != "OK")
+# comp_lmod=glm(c_y ~ log(prog_len),
+# 				data=c_comp_fuzz,
+# 				family=binomial)
+# summary(comp_lmod)
+
 comp_mod=glm(y ~ language + operation + log(prog_len)
 				+program:language 
     				+operation:(program+log(prog_len)),

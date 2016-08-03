@@ -1,5 +1,5 @@
 #
-# hujics-proc-pita.R,  5 Jan 16
+# hujics-proc-pita.R, 15 Jul 16
 #
 # Data from:
 #
@@ -14,7 +14,7 @@
 source("ESEUR_config.r")
 
 
-plot_layout(1, 2)
+plot_layout(2, 1)
 
 # amd10.2  SF    root     __       0.05 secs Wed Dec 30 12:07
 pita.2=read.fwf(paste0(ESEUR_dir, "data-check/hujics-proc-pita-1998.txt.xz"),

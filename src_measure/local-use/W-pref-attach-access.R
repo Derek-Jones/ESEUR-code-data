@@ -1,5 +1,5 @@
 #
-# L-pref-attach-access.R, 22 Dec 15
+# L-pref-attach-access.R, 20 Jul 16
 #
 # Simulate weighted preferential attachment process
 #
@@ -9,6 +9,12 @@
 
 
 source("ESEUR_config.r")
+
+library("plyr")
+
+plot_layout(4, 1)
+# par(mai=c(0.7, 0.7, 0.1, 0.2))
+
 
 MAX_LOCALS=100
 NUM_REPLICATE=1000
@@ -127,8 +133,6 @@ points(q[access_bounds], col="red")
 }
 
 
-library("plyr")
-
 # Remove 'edge' cases
 ob_all=subset(access_data, (total.access > 5) & (total.access < 105) &
                            (object.access <= 20))
@@ -147,9 +151,6 @@ ob_norm=ddply(ob_all, .(total.access),
 
 nls_mod=nls(occurrences ~ a*exp(b*object.access+c*total.access),
 		data=ob_norm, start=list(a=100, b=-0.1, c=0.01))
-
-plot_layout(2, 2)
-par(mai=c(0.7, 0.7, 0.1, 0.2))
 
 # Lower total.access counts tend to have more occurrences,
 # so smoothing need not cast such a wide net

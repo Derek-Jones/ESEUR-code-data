@@ -1,5 +1,5 @@
 #
-# 500K_inputs.R,  9 Dec 15
+# 500K_inputs.R, 15 Jul 16
 #
 # Data from:
 # An Experiment in Software Reliability
@@ -12,7 +12,7 @@
 source("ESEUR_config.r")
 
 
-plot_layout(1, 2)
+plot_layout(2, 1)
 
 plot_test=function(test_num)
 {

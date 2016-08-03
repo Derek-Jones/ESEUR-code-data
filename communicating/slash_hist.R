@@ -1,5 +1,5 @@
 #
-# slash_hist.R,  6 Oct 14
+# slash_hist.R, 15 Jul 16
 #
 # Data from:
 # Homogeneous temporal activity patterns in a large online communication space
@@ -12,7 +12,7 @@
 source("ESEUR_config.r")
 
 
-plot_layout(1, 2)
+plot_layout(2, 1)
 
 slash = read.csv(paste0(ESEUR_dir, "probability/0708.1579v1.fig6.csv.xz"), head=TRUE)
 
@@ -33,11 +33,11 @@ bin_offset=exp(seq(0, log(max(slash$users)), length.out=11))
 t=hist(slash$users, breaks=bin_offset, plot=FALSE)
 
 plot(bin_offset[-length(t$count)], t$count, log="x", type="s",
-	col="blue",
+	col=point_col,
 	xlab="Minutes", ylab="Total accesses per bin\n")
 
 plot(bin_offset[-length(t$count)], t$density, log="x", type="s",
-	col="blue",
+	col=point_col,
 	xlab="Minutes", ylab="Density (accesses per unit time)\n")
 
 # x_pts=seq(1, max(slash$users), length.out=1000)

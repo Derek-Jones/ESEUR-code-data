@@ -1,5 +1,5 @@
 #
-# udd-insts-bugs.R, 22 Dec 15
+# udd-insts-bugs.R, 15 Jul 16
 #
 # R code for book "Empirical Software Engineering using R"
 # Derek M. Jones, http://shape-of-code.coding-guidelines.com
@@ -39,9 +39,9 @@
 source("ESEUR_config.r")
 
 
+plot_layout(2, 1)
 pal_col=rainbow(2)
 
-plot_layout(1, 2)
 
 q1=read.csv(paste0(ESEUR_dir, "regression/Q1_udd.csv.xz"), as.is=TRUE)
 q10=read.csv(paste0(ESEUR_dir, "regression/Q10_udd.csv.xz"), as.is=TRUE)

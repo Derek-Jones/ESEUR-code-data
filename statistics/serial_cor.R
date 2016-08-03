@@ -1,5 +1,5 @@
 #
-# serial_cor.R, 21 Apr 16
+# serial_cor.R, 15 Jul 16
 #
 # Example from:
 # Empirical Software Engineering using R
@@ -10,7 +10,7 @@ source("ESEUR_config.r")
 
 # library("sandwich")
 
-plot_layout(1, 2)
+plot_layout(2, 1)
 pal_col=rainbow(12)
 
 sample_var=function(var_cor, sample_size)

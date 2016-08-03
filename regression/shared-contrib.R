@@ -1,5 +1,5 @@
 #
-# shared-contrib.R,  3 Mar 16
+# shared-contrib.R,  3 Jul 16
 #
 #
 # Example from:
@@ -15,8 +15,10 @@ library("VennDiagram")
 pal_col=rainbow_hcl(3)
 
 
+# This package used the grid package for its graphics
 grid.newpage()
-par(fin=c(2.5, 2.5))
+vp=viewport(width=0.4, height=0.4)
+pushViewport(vp)
 
 venn.plot = draw.triple.venn(
 #	overrideTriple="blah", euler.d=FALSE, scaled=FALSE,
@@ -27,17 +29,21 @@ venn.plot = draw.triple.venn(
 		n23 = 25,
 		n13 = 35,
 		n123 = 15,
-		label.col=c("grey", "black", "grey", "red", "green", "red", "yellow"),
+		label.col=c("yellow", "green", "yellow", "red", "blue", "red", "yellow"),
 		category = c("X_2", "X_1", "Y"),
 		fill = c(pal_col[2], pal_col[3], pal_col[1]),
 		lty = "blank",
 #		lwd=rep(1.5, 3),
-		cex = 2,
-		cat.cex = 1.5,
+# Scaling does not have the desired effect,
+# which might not be mathematically possible anyway.
+#		euler.d=TRUE, scaled=TRUE, overrideTriple=TRUE,
+		cex = 1.2,
+		cat.cex = 1.3,
 		# cat.col = c("blue", "red", "green"),
 		cat.dist = c(0.02, 0.02, 0.01),
 		cat.pos = c(140, 220, 0),
 		rotation.degree=180
              )
 grid.draw(venn.plot)
+popViewport()
 

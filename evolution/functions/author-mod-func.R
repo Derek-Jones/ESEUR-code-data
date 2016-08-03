@@ -15,10 +15,9 @@ source("ESEUR_config.r")
 library("plyr")
 
 brew_col=rainbow(2)
-plot_layout(1, 2)
+plot_layout(2, 1)
 
 funcs=read.csv(paste0(ESEUR_dir, "evolution/functions/ev_funcmod.tsv.xz"), as.is=TRUE, sep="\t")
-
 
 
 # Investigate how many times files might be moved

@@ -1,5 +1,5 @@
 #
-# num_change_reqs.R, 22 Dec 15
+# num_change_reqs.R, 15 Jul 16
 #
 # Data from:
 # Observational Models of Requirements Evolution
@@ -12,7 +12,7 @@
 
 source("ESEUR_config.r")
 
-plot_layout(1, 2)
+plot_layout(2, 1)
 
 # Values were estimated visually from the pdf.
 # So some degree of fuzziness is to be expected.
@@ -47,6 +47,6 @@ req_normalise=total_changes[1]/evol_reqs$total_reqs[1]
 
 evol_reqs$actual_reqs=evol_reqs$total_reqs*req_normalise
 
-plot(evol_reqs$actual_reqs, evol_reqs$cum_changes,
+plot(evol_reqs$actual_reqs, evol_reqs$cum_changes, col=point_col,
 	xlab="Actual requests", ylab="Actual changes")
 

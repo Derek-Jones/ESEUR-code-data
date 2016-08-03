@@ -1,5 +1,5 @@
 #
-# opensignal-screen-size.R,  6 Apr 16
+# opensignal-screen-size.R, 15 Jul 16
 #
 # Data from:
 #
@@ -14,14 +14,14 @@
 source("ESEUR_config.r")
 
 
-plot_layout(1, 2)
+plot_layout(2, 1)
 
 screen=read.csv(paste0(ESEUR_dir, "data-check/2015_08_screen_sizes.csv.xz"), as.is=TRUE)
 
 pal_col=rainbow(2)
 
 
-plot(screen$width, screen$height,
+plot(screen$width, screen$height, col=point_col,
 	xlab="Width (inches)", ylab="Height (inches)")
 
 rot=(screen$width > screen$height)

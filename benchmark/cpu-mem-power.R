@@ -11,7 +11,7 @@
 
 source("ESEUR_config.r")
 
-plot_layout(1, 2)
+plot_layout(2, 1)
 
 
 # DIMM,core_4,core_1,benchmark

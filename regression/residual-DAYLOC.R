@@ -1,5 +1,5 @@
 #
-# residual-DAYLOC.R, 18 Dec 15
+# residual-DAYLOC.R, 23 Jul 16
 #
 # Data from:
 #
@@ -12,6 +12,9 @@
 
 source("ESEUR_config.r")
 
+
+plot_layout(2, 1)
+pal_col=rainbow(2)
 
 # Lines of code in each release
 ll=read.csv(paste0(ESEUR_dir, "regression/Linux-LOC.csv.xz"), as.is=TRUE)
@@ -44,8 +47,7 @@ keep_version=sapply(2:nrow(ld_ordered),
 		   greatest_version <<- n_Version[X]
 		   return(TRUE)
 		   }
-		else
-		   return(FALSE)
+		return(FALSE)
 		})
 
 latest_version=ld_ordered[c(TRUE, keep_version), ]
@@ -56,4 +58,13 @@ m1=glm(LOC ~ Number_days, data=latest_version)
 # m2=glm(LOC ~ Number_days+I(Number_days^2), data=latest_version)
 
 plot(m1, which=1, caption="", col=point_col)
+
+
+plot(latest_version$Number_days, latest_version$LOC, col=point_col,
+       xlab="Days", ylab="Total lines of code\n")
+
+pred=predict(m1, type="response", se.fit=TRUE)
+lines(latest_version$Number_days, pred$fit, col=pal_col[1])
+lines(loess.smooth(latest_version$Number_days, latest_version$LOC, span=0.3),
+		col=pal_col[2])
 

@@ -1,5 +1,5 @@
 #
-# SPEC-Mhz.R, 18 Nov 14
+# SPEC-Mhz.R,  3 Jul 16
 #
 # Data from:
 # www.spec.org/cpu2006/results
@@ -14,7 +14,7 @@ source("ESEUR_config.r")
 library("plyr")
 
 
-plot_layout(1, 3)
+plot_layout(3, 1)
 
 cpu2006=read.csv(paste0(ESEUR_dir, "benchmark/cpu2006-results-20140206.csv.xz"), as.is=TRUE)
 
@@ -44,7 +44,7 @@ cint=subset(cint, mem_rate >= 3200)
 
 # plot(cint$Test.Date, cint$Result,
 # 	xlab="Measurement date", ylab="SPEC2006 int")
-plot(cint$Processor.MHz, cint$Result,
+plot(cint$Processor.MHz, cint$Result, col=point_col,
 	xlab="Processor speed MHz", ylab="SPEC2006 int")
 
 PC2=subset(cint, mem_kind == "PC2")
@@ -86,7 +86,7 @@ plot(cint$mem_rate, cint$Result, col=pal_col[cpu_freq_map],
 
 
 # Remove detailed processor information
-cint$Processor=sub("[0-9][0-9][0-9][0-9](K|L|M|S|T| EE| HE| SE| v2|V2| v3)*$", "", x=cint$Processor)
+# cint$Processor=sub("[0-9][0-9][0-9][0-9](K|L|M|S|T| EE| HE| SE| v2|V2| v3)*$", "", x=cint$Processor)
 
 # cint$main_proc=sub("([^ ]+ [^ ]+) .+$", "\\1", x=cint$Processor)
 # freqs=unique(cint$main_proc)

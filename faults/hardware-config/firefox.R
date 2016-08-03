@@ -1,5 +1,5 @@
 #
-# firefox.R,  5 Apr 16
+# firefox.R, 15 Jul 16
 #
 # Data from:
 # Does Hardware Configuration and Processor Load Impact Software Fault Observability?
@@ -14,8 +14,8 @@ source("ESEUR_config.r")
 
 ff=read.csv(paste0(ESEUR_dir, "faults/hardware-config/firefox.csv.xz"), as.is=TRUE)
 
+plot_layout(2, 1)
 pal_col=rainbow(3)
-plot_layout(1, 2)
 
 fit_fails=function(fail_count, ff_data, is_quasi)
 {

@@ -1,5 +1,5 @@
 #
-# turley_02.R,  7 Mar 16
+# turley_02.R, 15 Jul 16
 #
 # Data from:
 #
@@ -12,7 +12,6 @@
 
 source("ESEUR_config.r")
 
-plot_wide()
 
 proc_sales=read.csv(paste0(ESEUR_dir, "introduction/turley_02.csv.xz"), as.is=TRUE)
 

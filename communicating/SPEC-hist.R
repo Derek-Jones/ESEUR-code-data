@@ -1,5 +1,5 @@
 #
-# SPEC-hist.R,  2 May 15
+# SPEC-hist.R, 15 Jul 16
 #
 # Data from:
 # www.spec.org/cpu2006/results
@@ -10,7 +10,7 @@
 
 source("ESEUR_config.r")
 
-plot_layout(1, 2)
+plot_layout(2, 1)
 
 cpu2006=read.csv(paste0(ESEUR_dir, "benchmark/cpu2006-results-20140206.csv.xz"), as.is=TRUE)
 
@@ -22,8 +22,8 @@ cint=subset(cpu2006, Benchmark == "CINT2006")
 cint$Benchmark=NULL
 cint=subset(cint, Result > 0)
 
-plot(table(cint$Result), type="l",
+plot(table(cint$Result), type="l", col=point_col,
 	xlab="SPECint Result", ylab="Number of computers\n")
-hist(cint$Result, main="",
+hist(cint$Result, main="", col=point_col,
 	xlab="SPECint Result", ylab="Number of computers\n")
 

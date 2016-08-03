@@ -12,6 +12,11 @@ source("ESEUR_config.r")
 
 library("plyr")
 
+plot_layout(3, 1)
+
+pal_col=rainbow_hcl(3)
+
+
 plot_fault_count=function(fault_list, fault_str)
 {
 t=ddply(fault_list, .(team_number), function(df) {
@@ -37,8 +42,6 @@ barplot(t(as.matrix(q[ , -1])), col=pal_col,
 
 EECS=read.csv(paste0(ESEUR_dir, "faults/EECS-vulnerabilities.csv.xz"), as.is=TRUE)
 
-pal_col=rainbow_hcl(3)
-
 reflect_XSS=subset(EECS, vulnerability_class == "Reflected XSS")
 stored_XSS=subset(EECS, vulnerability_class == "Stored XSS")
 others=subset(EECS, vulnerability_class != "Reflected XSS" &
@@ -46,8 +49,6 @@ others=subset(EECS, vulnerability_class != "Reflected XSS" &
 
 empty_found=table(EECS$found_using)
 empty_found[names(empty_found)]=0
-
-plot_layout(1, 3)
 
 plot_fault_count(reflect_XSS, "Reflected XSS")
 plot_fault_count(stored_XSS, "Stored XSS")

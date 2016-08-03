@@ -32,7 +32,7 @@ mttf_fit=glm(MTTF ~ ESLOC, data=log_mttf)
 mttf_pred=predict(mttf_fit)
 lines(MTTF$ESLOC, exp(mttf_pred), col=pal_col[1])
 
-# glm_fit=glm(MTTF ~ log(ESLOC), data=MTTF, family=Gamma(link="log"))
+# There are lots of non-integer values, so family=poisson cannot be used.
 glm_fit=glm(MTTF ~ log(ESLOC), data=MTTF, family=gaussian(link="log"))
 pred_ESLOC=seq(1, 2000, 10)
 pred_mttf=predict(glm_fit, newdata=list(ESLOC=pred_ESLOC), type="link", se.fit=TRUE)

@@ -1,5 +1,5 @@
 #
-# array-access.R, 27 Dec 15
+# array-access.R, 16 Jul 16
 #
 # Data from:
 #
@@ -14,6 +14,7 @@
 source("ESEUR_config.r")
 
 
+plot_layout(2, 1)
 pal_col=rainbow(3)
 
 # time,s_l,is_1st,opt,expr,expr_pos
@@ -36,7 +37,6 @@ t1=subset(bench, (is_1st == 0) & (s_l == "L") & (opt == O_str) & (expr == "v0"))
 return(t1)
 }
 
-plot_layout(1, 2)
 
 to0=v0_cell("o0")
 plot(to0$time, col=point_col,

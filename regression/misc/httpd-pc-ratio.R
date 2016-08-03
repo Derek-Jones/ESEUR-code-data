@@ -12,7 +12,7 @@
 
 source("ESEUR_config.r")
 
-httpd=read.csv(paste0(ESEUR_dir, "regression/httpd.csv.xz"), as.is=TRUE)
+httpd=read.csv(paste0(ESEUR_dir, "regression/misc/httpd.csv.xz"), as.is=TRUE)
 
 pal_col=rainbow(4)
 

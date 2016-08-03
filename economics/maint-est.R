@@ -15,11 +15,11 @@ source("ESEUR_config.r")
 
 library("plyr")
 
+plot_layout(3, 1)
+
 
 # est_adapt,est_correct,est_perfect,act_adapt,act_correct,act_perfect,est_time,act_time
 maint=read.csv(paste0(ESEUR_dir, "economics/exportdata.csv.xz"), as.is=TRUE)
-
-plot_layout(1, 3)
 
 plot(maint$est_time, maint$act_time, col=point_col,
 	xlab="Estimated hours", ylab="Actual hours\n")
@@ -38,16 +38,16 @@ fit_maint=function(maint)
 plot(jitter(maint$est_time), jitter(maint$act_time), col=point_col,
 	xlab="Estimated hours", ylab="Actual hours")
 
+lines(loess.smooth(maint$est_time, maint$act_time, span=0.3), col=loess_col)
+
 e_mod=glm(act_time ~ est_time, data=maint, family=quasipoisson(link="identity"))
 #e_mod=glm(act_time ~ est_time, data=maint, family=quasipoisson)
 
-xbounds=seq(1, 40)
+e_pred=predict(e_mod, newdata=data.frame(est_time=xbounds), type="response", se.fit=TRUE)
 
-# e_pred=predict(e_mod, newdata=data.frame(est_time=xbounds), type="response", se.fit=TRUE)
-
-# lines(xbounds, e_pred$fit, col="red")
-# lines(xbounds, e_pred$fit+1.96*e_pred$se.fit, col="blue")
-# lines(xbounds, e_pred$fit-1.96*e_pred$se.fit, col="blue")
+lines(xbounds, e_pred$fit, col="red")
+lines(xbounds, e_pred$fit+1.96*e_pred$se.fit, col="blue")
+lines(xbounds, e_pred$fit-1.96*e_pred$se.fit, col="blue")
 
 return(e_mod)
 }

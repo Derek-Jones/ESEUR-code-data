@@ -8,7 +8,7 @@
 source("ESEUR_config.r")
 
 
-classes=read.csv(paste0(ESEUR_dir, "src_measure/Vasa_mod-classes.csv.xz"), as.is=TRUE)
+classes=read.csv(paste0(ESEUR_dir, "src_measure/misc/Vasa_mod-classes.csv.xz"), as.is=TRUE)
 
 pal_col=rainbow_hcl(3)
 

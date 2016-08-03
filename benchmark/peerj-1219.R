@@ -21,7 +21,7 @@ en_ts=ts(bench, start=0, frequency=5e5)
 
 # spectrum(en_ts)
 
-spec.ar(en_ts, n.freq=200,
+spec.ar(en_ts, n.freq=200, col=point_col,
 	main="",
 	xlim=c(0, 60000),
 	xlab="Frequency", ylab="Power density\n")

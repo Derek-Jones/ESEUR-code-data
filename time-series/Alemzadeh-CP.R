@@ -1,5 +1,5 @@
 #
-# Alemzadeh-CP.R,  2 Feb 16
+# Alemzadeh-CP.R, 26 Jul 16
 #
 # Data from:
 # Analysis of safety-critical computer failures in medical devices
@@ -13,7 +13,7 @@ source("ESEUR_config.r")
 
 library("changepoint")
 
-plot_layout(1, 2)
+plot_layout(2, 1)
 
 brew_col=rainbow(3)
 
@@ -29,11 +29,11 @@ t2=table(t1)
 
 # change_at=cpt.mean(as.vector(t2), test.stat="CUSUM", penalty="Manual", pen.value="log(n"))
 change_at=cpt.mean(as.vector(t2))
-plot(change_at,
-	xlab="Fortnights", ylab="Reported product recalls\n")
+plot(change_at, col=point_col,
+	xlab="", ylab="Reported product recalls\n")
 
 change_at=cpt.mean(as.vector(t2), method="PELT")
-plot(change_at,
-	xlab="Fortnights", ylab="")
+plot(change_at, col=point_col,
+	xlab="Fortnights", ylab="Reported product recalls\n")
 
 

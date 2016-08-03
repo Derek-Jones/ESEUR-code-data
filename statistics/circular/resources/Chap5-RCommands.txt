@@ -1,0 +1,536 @@
+# ***************************************************************************************************
+
+# Note that in the NEW functions introduced here the objects cdat, circdat and origdat are assumed to  
+# be CIRCULAR data objects, whereas the objects lcdat and lcircdat are assumed to be LINEAR data 
+# objects containing values in [0, 2pi). 
+
+# ***************************************************************************************************
+
+library(circular)
+
+
+# **********************************************************************************
+# Ambulance call-outs
+# **********************************************************************************
+
+# ******************************************************* 
+# Initial plot
+# *******************************************************
+  
+plot(fisherB1c, shrink=1.2, stack=TRUE, pch=16, bins=720, cex=1.5)
+lines(density.circular(fisherB1c, bw=40), lwd=2)
+rose.diag(fisherB1c, bins=24, cex=1.5, prop=2.3, col="grey", add=TRUE)
+
+# ********************************************************************************** 
+# Rayleigh test for uniformity
+# **********************************************************************************
+
+rtest <- rayleigh.test(fisherB1c) ; rtest$statistic ; rtest$p
+
+# ********************************************************************************** 
+# Omnibus tests for uniformity
+# **********************************************************************************
+
+kuiper.test(fisherB1c) ; watson.test(fisherB1c) ; 
+rao.spacing.test(fisherB1c) 
+
+# **********************************************************************************
+# Focal births (grouped data)
+# **********************************************************************************
+
+# **********************************************************************************
+# Test for uniformity of Choulakian et al. (1994) using bootstrapping
+# **********************************************************************************
+
+UGsqMonTotalsBoot <- function (montotals, B) {
+nmon <- 12 ; mons <- seq(1:nmon) 
+daysmon <- 
+c(31,28,31,30,31,30,31,31,30,31,30,31)
+daysyear <- rep(mons,daysmon)
+n <- sum(montotals) ; Pval <- daysmon/365 ; Eval <- Pval*n
+UGsq <- function (mtots) {
+Dval <- mtots - Eval
+Sval <- cumsum(Dval) ; Sbar <- sum(Pval*Sval)
+tstat <- sum((Sval-Sbar)*(Sval-Sbar)*Pval)/n
+return(tstat)
+}
+tstat <- UGsq(montotals)
+nxtrm <- 1
+for (b in 2:(B+1)) {
+umontot <- 0
+for (j in 1:nmon) {umontot[j] <- 0}
+udays <- sample(daysyear, 
+size=n, replace = TRUE)
+for (j in 1:n) {umontot[udays[j]] <- umontot[udays[j]]+1}
+tstat[b] <- UGsq(umontot)
+if (tstat[b] >= tstat[1]) {nxtrm <- nxtrm + 1}
+}
+pval <- nxtrm/(B+1) 
+return(list(pval, tstat))
+}
+
+monbirths <- c(10,19,18,15,11,13,7,10,13,23,15,22)
+B=9999 ; bootres <- UGsqMonTotalsBoot(monbirths, B)
+pval <- bootres[[1]] ; UGsqval <- bootres[[2]] 
+UGsqval[1] ; pval
+hist(UGsqval, freq=FALSE, breaks=40, main=" ", xlab="UGsq value", ylab="Density")
+
+# **********************************************************************************
+# Kuiper and Watson tests for uniformity using bootstrapping
+# **********************************************************************************
+
+KWMonTotalsBoot <- function (montotals, B) {
+n <- sum(montotals)
+daysmon <- 
+c(31,28,31,30,31,30,31,31,30,31,30,31)
+monuplim <- cumsum(daysmon) ; mtotuplim <- rep(monuplim, montotals)
+cmtotuplim <- circular(mtotuplim*(2*pi/365))
+kuistat <- kuiper.test(cmtotuplim)$statistic 
+
+watstat <- watson.test(cmtotuplim)$statistic
+nxtrm <- 0 ; pval <- 0
+for (k in 1:2) {nxtrm[k] <- 1} 
+umonuplim <- rep(monuplim,daysmon) ; cumonuplim <- circular(umonuplim*(2*pi/365))
+for (b in 2:(B+1)) {
+uuplim <- sample(cumonuplim,
+ size=n, replace=TRUE)
+kuistat[b] <- 
+kuiper.test(uuplim)$statistic 
+watstat[b] <- watson.test(uuplim)$statistic
+if (kuistat[b] >= 
+kuistat[1]) {nxtrm[1] <- nxtrm[1]+1}
+if (watstat[b] >= 
+watstat[1]) {nxtrm[2] <- nxtrm[2]+1} 
+}
+for (k in 1:2) {pval[k] <- 
+nxtrm[k]/(B+1)}
+return(pval)
+}
+
+B=9999 ; pval <- KWMonTotalsBoot(monbirths, B) ; pval
+
+# **********************************************************************************
+# Rayleigh test with specified mean direction
+# **********************************************************************************
+
+mu <- circular(15, units="hours", template="clock24")
+rayleigh.test(fisherB1c, mu)
+
+# **********************************************************************************
+# Testing for reflective symmetry
+# **********************************************************************************
+
+# **********************************************************************
+# Large-sample (normal theory based) test
+# **********************************************************************
+
+# **************************************************
+# Wind directions (Col De La Roa) 
+# **************************************************
+
+RSTestStat <- function(circdat) {
+n <- length(circdat)
+Rbar <- rho.circular(circdat)
+t2bar <- trigonometric.moment(circdat, p=2, center=TRUE)
+bbar2 <- t2bar$sin  ; abar2 = t2bar$cos  
+t3bar <- trigonometric.moment(circdat, p=3, center=TRUE)
+abar3 <- t3bar$cos 
+t4bar <- trigonometric.moment(circdat, p=4, center=TRUE)
+abar4 <- t4bar$cos
+var <- ((1-abar4)/2-(2*abar2)+(2*abar2/Rbar)*(abar3+(abar2*(1-abar2)/Rbar)))/n
+absz <- abs(bbar2/sqrt(var)) ; return(absz)
+}
+
+cdat <- circular(wind)
+absz <- RSTestStat(cdat) 
+pval = 2*pnorm(absz, mean=0, sd=1, lower=FALSE) ; pval
+
+# **************************************************
+# Intensive care data
+# **************************************************
+
+cdat <- circular(fisherB1*2*pi/24)
+absz <- RSTestStat(cdat) 
+pval = 2*pnorm(absz, mean=0, sd=1, lower=FALSE) ; pval
+
+# **********************************************************************
+# Symmetrizing a circular sample
+# **********************************************************************
+
+tbar <- mean(cdat) ; refcdat <- 2*tbar-cdat
+symmcdat = c(cdat, refcdat)
+
+# **********************************************************************
+# Bootstrap version of test for reflective symmetry
+# **********************************************************************
+
+RSTestBoot <- function(origdat, B) {
+n <- length(origdat)
+absz <- RSTestStat(origdat)
+tbar <- mean(origdat) ; refcdat <- 2*tbar-origdat ; symmcdat <- c(origdat, refcdat)
+nxtrm <- 1
+for (b in 2:(B+1)) { 
+bootsymmdat <- sample(symmcdat, size=n, replace=TRUE)
+absz[b] <- RSTestStat(bootsymmdat)
+if (absz[b] >= absz[1]) {nxtrm <- nxtrm+1} 
+}
+pval <- nxtrm/(B+1) 
+return(pval)
+}
+
+# **************************************************************
+# Palaeocurrent cross-bed azimuths
+# **************************************************************
+
+# **************************************************
+# Initial plot 
+# **************************************************
+
+cdat <- circular(fisherB6$set1*2*pi/360) 
+plot(cdat, xlim=c(-1.3,1.3), pch=16, stack=TRUE, bins=720, cex=0.9)
+arrows.circular(mean(cdat), y=rho.circular(cdat), lwd=2)
+
+# **************************************************
+# Kuiper test
+# **************************************************
+
+kuiper.test(cdat)
+
+# **************************************************
+# Bootstrap test for reflective symmetry
+# **************************************************
+
+cdat <- circular(fisherB6$set1*2*pi/360) ; B <- 9999 
+pval <- RSTestBoot(cdat, B) ; pval
+
+# **************************************************************
+# Homing pigeon vanishing angles
+# **************************************************************
+
+x <- fisherB12 ; x <- x[-10] ; x <- c(x, 185)
+cdat <- circular(x*2*pi/360)
+B <- 9999 
+pval <- RSTestBoot(cdat, B) ; pval
+
+# **********************************************************************************
+# Bias-corrected point and interval estimation
+# **********************************************************************************
+
+# **********************************************************
+# Wind directions (Col De La Roa) 
+# **********************************************************
+
+data(wind) ; wind
+wind = circular(wind, units="radians", template="geographics") ; wind
+plot(wind, shrink=1.2, stack=TRUE, pch=16, col="darkblue", cex=1.5, bins=720)
+
+# **********************************************************
+# Intensive care arrivals
+# **********************************************************
+
+data(fisherB1c) ; fisherB1c
+plot(fisherB1c, shrink=1.2, stack=TRUE, pch=16, col="darkblue", cex=1.5, bins=720)
+
+# **********************************************************************
+# Large-sample asymptotic normal theory based inference
+# **********************************************************************
+
+ConfIntLS <- function(circdat, indsym, conflevel) {
+n <- length(circdat) ; tbar <- mean(circdat) ; Rbar <- rho.circular(circdat)
+t2bar <- trigonometric.moment(circdat, p=2, center=TRUE)
+t3bar <- trigonometric.moment(circdat, p=3, center=TRUE)
+t4bar <- trigonometric.moment(circdat, p=4, center=TRUE)
+abar2 <- t2bar$cos ; abar3 <- t3bar$cos
+abar4 <- t4bar$cos
+bbar2 <- t2bar$sin ; bbar3 <- t3bar$sin
+Rbar2 <-  Rbar*Rbar ; Rbar4 <- Rbar2*Rbar2
+alpha <- (100-conflevel)/100 ; qval <- qnorm(1-alpha/2)
+rhobc <- Rbar - ((1-abar2)/(4*n*Rbar)) ; rbarstderr <- sqrt((1-2*Rbar2+abar2)/(2*n))
+rhoup <- rhobc + qval*rbarstderr ; rholo <- rhobc - qval*rbarstderr
+rhores <- c(rhobc, rholo, rhoup)
+if (indsym == 1) {bbar2 <- 0 ; bbar3 <- 0 ; betab2res <- c(0,0,0)} else
+if (indsym == 0) {
+betab2bc <- bbar2 + ((bbar3/Rbar)+(bbar2/Rbar2)-(2*abar2*bbar2/Rbar4))/n
+b2bstderr <- sqrt((((1-abar4)/2)-(2*abar2)-(bbar2*bbar2)+(2*abar2/Rbar)*(abar3+(abar2*(1-abar2)/Rbar)))/n)
+betab2up <- betab2bc + qval*b2bstderr ; betab2lo <- betab2bc - qval*b2bstderr
+betab2res <- c(betab2bc, betab2lo, betab2up)
+}
+div <- 2*n*Rbar2 
+mubc <- tbar + (bbar2/div) ; tbarstderr <- sqrt((1-abar2)/div)
+muup <- mubc + qval*tbarstderr ; mulo <- mubc - qval*tbarstderr
+mures <- c(mubc, mulo, muup)
+alphab2bc <- abar2 - (1-(abar3/Rbar)-((abar2*(1-abar2)+bbar2*bbar2)/Rbar2))/n
+a2bstderr <- sqrt((((1+abar4)/2)-(abar2*abar2)+(2*bbar2/Rbar)*(bbar3+(bbar2*(1-abar2)/Rbar)))/n)
+alphab2up <- alphab2bc + qval*a2bstderr ; alphab2lo <- alphab2bc - qval*a2bstderr
+alphab2res <- c(alphab2bc, alphab2lo, alphab2up)
+if (indsym == 0) { return(list(mures, rhores, betab2res, alphab2res)) } else
+if (indsym == 1) { return(list(mures, rhores, alphab2res)) }
+}
+
+# **********************************************************
+# Wind directions (Col De La Roa) 
+# **********************************************************
+
+cdat <- circular(wind) ; sym <- 0 ; clev <- 95
+LSCIOut <- ConfIntLS(cdat, sym, clev) ; LSCIOut
+
+# **********************************************************
+# Intensive care arrivals
+# **********************************************************
+
+cdat <- circular(fisherB1*2*pi/24)
+sym <- 1 ; clev <- 95
+LSCIOut <- ConfIntLS(cdat, sym, clev) ; LSCIOut
+
+# **********************************************************************
+# Bootstrap based inference
+# **********************************************************************
+
+BiasCEsts <- function(circdat, indsym, n) {
+t10bar <- trigonometric.moment(circdat, p=1, center=FALSE)
+tbar <- atan2(t10bar$sin, t10bar$cos) 
+if (tbar < 0) {tbar <- tbar + 2*pi}
+Rbar <- rho.circular(circdat)
+t2bar <- trigonometric.moment(circdat, p=2, center=TRUE)
+t3bar <- trigonometric.moment(circdat, p=3, center=TRUE)
+abar2 <- t2bar$cos ; abar3 <- t3bar$cos
+bbar2 <- t2bar$sin ; bbar3 <- t3bar$sin
+Rbar2 <-  Rbar*Rbar ; Rbar4 <- Rbar2*Rbar2
+rhobc <- Rbar - ((1-abar2)/(4*n*Rbar))
+if (indsym == 1) {bbar2 <- 0 ; bbar3 <- 0 ; betab2bc <- 0} else
+if (indsym == 0) {
+betab2bc <- bbar2 + ((bbar3/Rbar)+(bbar2/Rbar2)-(2*abar2*bbar2/Rbar4))/n
+}
+div <- 2*n*Rbar2 ; mubc <- tbar + (bbar2/div)
+if (mubc > 2*pi) {mubc <- mubc - 2*pi} else
+if (mubc < 0) {mubc <- mubc + 2*pi}
+alphab2bc <- abar2 - (1-(abar3/Rbar)-((abar2*(1-abar2)+bbar2*bbar2)/Rbar2))/n
+return(list(mubc, rhobc, betab2bc, alphab2bc))
+}
+
+ConfIntBoot <- function(origdat, indsym, conflevel, B) {
+alpha <- (100-conflevel)/100
+n <- length(origdat)
+ests <- BiasCEsts(origdat, indsym, n)
+muest <- ests[[1]] ; rhoest <- ests[[2]]
+betab2est <- ests[[3]] ; alphab2est <- ests[[4]]
+
+if (indsym == 1) {
+refdat <- 2*muest-origdat ; sampledat <- c(origdat, refdat)
+} else
+if (indsym == 0) { sampledat <- origdat }
+
+for (b in 2:(B+1)) { 
+bootdat <- sample(sampledat, size=n, replace=TRUE)
+ests <- BiasCEsts(bootdat, indsym, n)
+muest[b] <- ests[[1]] ; rhoest[b] <- ests[[2]]
+betab2est[b] <- ests[[3]] ; alphab2est[b] <- ests[[4]]
+}
+
+dist <- 0
+if (indsym == 1) {
+dist <- pi-abs(pi-abs(muest-muest[1]))
+sdist <- sort(dist)
+mulo <- muest[1]-sdist[(B+1)*(1-alpha)]
+muup <- muest[1]+sdist[(B+1)*(1-alpha)]
+} else
+
+if (indsym == 0) {
+
+if (muest[1] < pi) {
+ref <- muest[1] + pi
+for (b in 1:(B+1)) { 
+dist[b] <- -(pi-abs(pi-abs(muest[b]-muest[1])))
+if (muest[b] > muest[1]) {
+if (muest[b] < ref) {dist[b] <- -dist[b]}
+}
+}
+} else
+if (muest[1] >= pi) {
+ref <- muest[1] - pi
+for (b in 1:(B+1)) { 
+dist[b] <- pi-abs(pi-abs(muest[b]-muest[1]))
+if (muest[b] > ref) {
+if (muest[b] < muest[1]) {dist[b] <- -dist[b]}
+}
+}
+}
+
+sdist <- sort(dist)
+mulo <- muest[1]+sdist[(B+1)*(alpha/2)]
+muup <- muest[1]+sdist[(B+1)*(1-alpha/2)]
+sbetab2est <- sort(betab2est)
+betab2lo <- sbetab2est[(B+1)*(alpha/2)]
+betab2up <- sbetab2est[(B+1)*(1-alpha/2)]
+betab2res <- c(betab2est[1], betab2lo, betab2up)
+
+}
+
+mures <- c(muest[1], mulo, muup) 
+srhoest <- sort(rhoest)
+rholo <- srhoest[(B+1)*(alpha/2)] ; rhoup <- srhoest[(B+1)*(1-alpha/2)]
+salphab2est <- sort(alphab2est)
+alphab2lo <- salphab2est[(B+1)*(alpha/2)] ; alphab2up <- salphab2est[(B+1)*(1-alpha/2)]
+rhores <- c(rhoest[1], rholo, rhoup) ; alphab2res <- c(alphab2est[1], alphab2lo, alphab2up)
+if (indsym == 0) { return(list(mures, rhores, betab2res, alphab2res)) } else 
+if (indsym == 1) { return(list(mures, rhores, alphab2res)) }
+}
+
+# **************************************************************
+# Palaeocurrent cross-bed azimuth data
+# **************************************************************
+
+cdat <- circular(fisherB6$set1*2*pi/360)
+sym <- 1 ; clev <- 95 ; B <- 9999
+BCIOut <- ConfIntBoot(cdat, sym, clev, B) ; BCIOut
+
+LSCIOut <- ConfIntLS(cdat, sym, clev) ; LSCIOut
+
+# **************************************************************
+# Wind data
+# **************************************************************
+
+cdat <- circular(wind)
+sym <- 0 ; clev <- 95 ; B <- 9999
+BCIOut <- ConfIntBoot(cdat, sym, clev, B) ; BCIOut
+
+LSCIOut <- ConfIntLS(cdat, sym, clev) ; LSCIOut
+
+# **************************************************************
+# Intensive care arrivals
+# **************************************************************
+
+cdat <- circular(fisherB1*2*pi/24)
+
+sym <- 1 ; clev <- 95 ; B <- 9999
+BCIOut <- ConfIntBoot(cdat, sym, clev, B) ; BCIOut
+
+LSCIOut <- ConfIntLS(cdat, sym, clev) ; LSCIOut
+
+# **************************************************************
+# Homing pigeon vanishing angles
+# **************************************************************
+
+x <- fisherB12 ; x <- x[-10] ; x <- c(x, 185)
+cdat <- circular(x*2*pi/360)
+
+sym <- 1 ; clev <- 95 ; B <- 9999
+BCIOut <- ConfIntBoot(cdat, sym, clev, B) ; BCIOut
+
+LSCIOut <- ConfIntLS(cdat, sym, clev) ; LSCIOut
+
+# **********************************************************************************
+# Testing for a specific mean direction
+# **********************************************************************************
+
+# **********************************************************************
+# Large-sample asymptotic normal theory test
+# **********************************************************************
+
+SpecMeanTestRes <- function(circdat, indsym, mu0) {
+n <- length(circdat)
+t10bar <- trigonometric.moment(circdat, p=1, center=FALSE)
+tbar <- atan2(t10bar$sin, t10bar$cos) 
+if (tbar < 0) {tbar <- tbar + 2*pi}
+Rbar <- rho.circular(circdat) ; Rbar2 <-  Rbar*Rbar
+t2bar <- trigonometric.moment(circdat, p=2, center=TRUE)
+abar2 <- t2bar$cos ; bbar2 <- t2bar$sin 
+if (indsym == 1) {bbar2 <- 0} 
+div <- 2*n*Rbar2 
+mubc <- tbar + (bbar2/div) ; 
+if (mubc > 2*pi) {mubc <- mubc - 2*pi} else 
+if (mubc < 0) {mubc <- mubc + 2*pi}
+dist <- pi-abs(pi-abs(mubc-mu0))
+tbarstderr <- sqrt((1-abar2)/div)
+z <- dist/tbarstderr 
+return(list(z, mubc))
+}
+
+# **************************************************************
+# Intensive care arrivals
+# **************************************************************
+
+cdat <- circular(fisherB1*2*pi/24)
+sym <- 1 ; mu0 <- 3.927
+testres <- SpecMeanTestRes(cdat, sym, mu0) ; z <- testres[[1]]
+pval <- 2*pnorm(z, mean=0, sd=1, lower=FALSE) ; pval
+
+# **************************************************************
+# Wind data
+# **************************************************************
+
+cdat <- circular(wind) ; sym <- 0 ; mu0 <- 0
+testres <- SpecMeanTestRes(cdat, sym, mu0) ; z <- testres[[1]]
+pval <- 2*pnorm(z, mean=0, sd=1, lower=FALSE) ; pval
+
+# **********************************************************************
+# Bootstrap version of test
+# **********************************************************************
+
+SpecMeanTestBoot <- function(origdat, mu0, indsym, B) {
+n <- length(origdat)
+testres <- SpecMeanTestRes(origdat, indsym, mu0)
+z <- testres[[1]] ; mubc <- testres[[2]]
+
+shiftdat <- origdat-mubc+mu0
+
+if (indsym == 1) { 
+refdat <- 2*mu0-shiftdat ; sampledat <- c(shiftdat, refdat)
+} else
+if (indsym == 0) { sampledat <- shiftdat }
+
+nxtrm <- 1
+for (b in 2:(B+1)) { 
+bootdat <- sample(sampledat, size=n, replace=TRUE)
+testres <- SpecMeanTestRes(bootdat, indsym, mu0)
+z[b] <- testres[[1]]
+if (z[b] >= z[1]) { nxtrm <- nxtrm + 1 }
+}
+
+pval <- nxtrm/(B+1)
+return(pval)
+}
+
+# ****************************************
+# Homing pigeon vanishing angles
+# ****************************************
+ 
+x <- fisherB12 ; x <- x[-10] ; x <- c(x, 185)
+cdat <- circular(x*2*pi/360)
+
+kuiper.test(cdat)
+
+B <- 9999 
+pval <- RSTestBoot(cdat, B) ; pval
+
+sym <- 1 ; mu0 <- 2.60 ; B <- 9999
+pval <- SpecMeanTestBoot(cdat, mu0, sym, B) ; pval
+
+# ****************************************
+# Palaeocurrent cross-bed azimuth data
+# ****************************************
+
+cdat <- circular(fisherB6$set1*2*pi/360)
+sym <- 1 ; mu0 <- 4.7 ; B <- 9999
+pval <- SpecMeanTestBoot(cdat, mu0, sym, B) ; pval
+
+# ****************************************
+# Intensive care unit admissions
+# ****************************************
+
+cdat <- circular(fisherB1*2*pi/24)
+sym <- 1 ; mu0 <- 3.927; B <- 9999
+pval <- SpecMeanTestBoot(cdat, mu0, sym, B) ; pval
+
+# ****************************************
+# Wind data
+# ****************************************
+
+cdat <- circular(wind) ; sym <- 0 ; mu0 <- 0 ; B <- 9999
+pval <- SpecMeanTestBoot(cdat, mu0, sym, B) ; pval
+
+
+
+
+
+

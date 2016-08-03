@@ -1,5 +1,5 @@
 #
-# sort-benchmark.R,  8 Jan 16
+# sort-benchmark.R, 16 Jul 16
 #
 # Data from:
 # sortbenchmark.org
@@ -10,7 +10,7 @@
 
 source("ESEUR_config.r")
 
-plot_layout(1, 2)
+plot_layout(2, 1)
 
 bench=read.csv(paste0(ESEUR_dir, "benchmark/sort-benchmark.csv.xz"), as.is=TRUE)
 

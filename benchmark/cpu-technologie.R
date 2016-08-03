@@ -12,8 +12,6 @@
 
 source("ESEUR_config.r")
 
-plot_wide()
-
 
 cpu=read.csv(paste0(ESEUR_dir, "benchmark/cpu-technologie.csv.xz"), as.is=TRUE)
 

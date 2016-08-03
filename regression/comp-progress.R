@@ -19,6 +19,7 @@ bench=read.csv(paste0(ESEUR_dir, "regression/comp-progress.csv.xz"), as.is=TRUE)
 
 tech_vec=unique(bench$technology)
 
+pal_col=0
 pal_col[tech_vec]=rainbow(length(tech_vec))
 
 plot(0, type="n", log="y",

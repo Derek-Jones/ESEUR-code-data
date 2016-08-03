@@ -1,8 +1,9 @@
 #
-# least-sq.R, 22 Dec 15
+# least-sq.R, 22 Jul 16
 #
 # Data from:
 # github.com/gregkh/kernel-history
+# Last updated Jun 2016
 #
 # Example from:
 # Empirical Software Engineering using R
@@ -10,6 +11,8 @@
 
 source("ESEUR_config.r")
 
+
+plot_layout(2, 1)
 
 pal_col=rainbow(2)
 
@@ -24,8 +27,6 @@ ks=read.csv(paste0(ESEUR_dir, "regression/kernel_stats.csv.xz"), as.is=TRUE)
 #ks$date.released=as.Date(ks$date.released, format="%d/%m/%y")
 
 
-plot_layout(1, 2)
-
 ks_na=na.omit(ks)
 
 x = ks_na$number.developers
@@ -35,7 +36,7 @@ yx_line = glm(y ~ x) # Assume x values do not contain any error
 xy_line = glm(x ~ y) # Assume y values do not contain any error
 
 plot(y ~ x,
-	xlab="Developers", ylab="Commits\n")
+	xlab="", ylab="Commits\n")
 yx_pred=predict(yx_line)
 lines(x, yx_pred, col=pal_col[1])
 
@@ -43,7 +44,7 @@ lines(x, yx_pred, col=pal_col[1])
 segments(x, y, x, fitted(yx_line), lty = 2, col =pal_col[1]) # vertical line
 
 plot(y ~ x,
-	xlab="Developers", ylab="")
+	xlab="Developers", ylab="Commits\n")
 
 yx_pred=predict(yx_line)
 lines(x, yx_pred, col=pal_col[1])

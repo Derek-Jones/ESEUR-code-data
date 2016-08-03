@@ -46,7 +46,8 @@ lines(exp(x_loc), exp(c_pred$fit+1.96*c_pred$se.fit), col=pal_col[3])
 lines(exp(x_loc), exp(c_pred$fit-1.96*c_pred$se.fit), col=pal_col[3])
 
 
-c_mod=glm(nofc ~ log_loc, data=c_loc_nofc, family=gaussian(link="log"))
+# c_mod=glm(nofc ~ log_loc, data=c_loc_nofc, family=gaussian(link="log"))
+c_mod=glm(nofc ~ log_loc, data=c_loc_nofc, family=poisson)
 
 c_pred=predict(c_mod, newdata=data.frame(log_loc=x_loc), type="link", se.fit=TRUE)
 

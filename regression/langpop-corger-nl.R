@@ -1,5 +1,5 @@
 #
-# langpop-corger-nl.R,  3 Nov 14
+# langpop-corger-nl.R, 16 Jul 16
 #
 # Data from:
 # http://langpop.corger.nl/results
@@ -12,7 +12,7 @@
 
 source("ESEUR_config.r")
 
-plot_layout(1, 2)
+plot_layout(2, 1)
 
 langpop=read.csv(paste0(ESEUR_dir, "regression/langpop-corger-nl.csv.xz"), as.is=TRUE)
 langpop=subset(langpop, github > 0 & stackoverflow > 0)
@@ -30,6 +30,8 @@ loess_mod=loess(log(stackoverflow) ~ log_github, data=langpop, span=0.3)
 x_points=1:max(langpop$log_github)
 loess_pred=predict(loess_mod, newdata=data.frame(log_github=x_points))
 lines(exp(x_points), exp(loess_pred), col=pal_col[1])
+
+# lines(loess.smooth(langpop$github, langpop$stackoverflow, span=0.3), col=loess_col)
 
 lang_mod=glm(log(stackoverflow) ~ log_github+I(log_github^2), data=langpop)
 

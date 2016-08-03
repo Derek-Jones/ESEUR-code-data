@@ -1,5 +1,5 @@
 #
-# sex-differences.R,  2 Dec 15
+# sex-differences.R, 15 Jul 16
 #
 # Data from:
 # Sex Differences in Cognitive Abilities Test Scores: A UK National Picture
@@ -15,7 +15,7 @@ source("ESEUR_config.r")
 library("plyr")
 library("reshape2")
 
-plot_layout(1, 2)
+plot_layout(2, 1)
 
 b_g_IQ=read.csv(paste0(ESEUR_dir, "developers/sex-differences.csv.xz"), as.is=TRUE)
 

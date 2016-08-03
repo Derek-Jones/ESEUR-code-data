@@ -11,12 +11,23 @@
 
 source("ESEUR_config.r")
 
-httpd=read.csv(paste0(ESEUR_dir, "regression/httpd.csv.xz"), as.is=TRUE)
+
+pal_col=rainbow(3)
+
+httpd=read.csv(paste0(ESEUR_dir, "regression/misc/httpd.csv.xz"), as.is=TRUE)
 
 plot(httpd$total, httpd$commits, col=point_col,
         xlab="Posts per month", ylab="Commits per month\n")
 
-# h_mod=glm(total ~ commits, data=httpd)
-# 
-# summary(h_mod)
+lines(loess.smooth(httpd$total, httpd$commits, span=0.3), col=loess_col)
+
+h_mod=glm(commits ~ total, data=httpd)
+summary(h_mod)
+
+lines(httpd$total, predict(h_mod))
+
+h_mod=glm(commits ~ I(total^0.5), data=httpd)
+summary(h_mod)
+
+lines(httpd$total, predict(h_mod), col="red")
 

@@ -1,5 +1,5 @@
 #
-# id-renaming.R, 26 Dec 15
+# id-renaming.R, 15 Jul 16
 #
 # Data from:
 # An exploratory study of identifier renamings
@@ -19,8 +19,8 @@ version_date=read.csv(paste0(ESEUR_dir, "ecosystem/eclipse-ver-date.csv.xz"), as
 id_changes$date=as.Date(paste0(id_changes$date, "-01"), format="%Y-%m-%d")
 version_date$date=as.Date(version_date$date, format="%d %b %Y")
 
-plot(id_changes, type="b",
+plot(id_changes, type="b", col=point_col,
 	xlab="Date", ylab="Identifiers changed\n")
 
-text(version_date$date, 200, version_date$version, srt=90, col="salmon3")
+text(version_date$date, 200, version_date$version, srt=90, col="green")
 

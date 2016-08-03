@@ -1,5 +1,5 @@
 #
-# ist-scam08.R, 21 Feb 16
+# ist-scam08.R, 17 Jul 16
 #
 # Data from:
 # The Life and Death of Statically Detected Vulnerabilities: an Empirical Study
@@ -11,10 +11,10 @@
 
 source("ESEUR_config.r")
 
+
 library("cmprsk")
 
-plot_layout(1, 2)
-
+plot_layout(2, 1)
 pal_col=rainbow(2)
 
 #  ID: the unique ID

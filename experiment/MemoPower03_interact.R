@@ -1,5 +1,5 @@
 #
-# MemoPower03_interact.R, 26 Mar 16
+# MemoPower03_interact.R, 16 Jul 16
 #
 # Data from:
 # "Look It up" or "Do the Math": An Energy, Area, and Timing Analysis of Instruction Resuse and Memoization
@@ -11,7 +11,7 @@
 
 source("ESEUR_config.r")
 
-plot_layout(1, 2)
+plot_layout(2, 1)
 
 Memo=read.csv(paste0(ESEUR_dir, "experiment/MemoPower03.csv.xz"), as.is=TRUE)
 

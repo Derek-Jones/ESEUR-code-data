@@ -1,5 +1,5 @@
 #
-# lines-hour-influence.R, 17 Dec 15
+# lines-hour-influence.R, 27 Jul 16
 #
 # Data from:
 # On the effectiveness of early life cycle defect prediction with Bayesian Nets
@@ -22,7 +22,9 @@ loc_hour=loc_hour[order(loc_hour$Hours), ]
 row.names(loc_hour)=1:nrow(loc_hour)
 
 
-all_mod=glm(KLoC ~ Hours, data=loc_hour)
+# all_mod=glm(KLoC ~ Hours, data=loc_hour)
+all_mod=glm(KLoC ~ I(Hours^0.5), data=loc_hour)
 
-influenceIndexPlot(all_mod, main="")
+influenceIndexPlot(all_mod, main="", col=point_col,
+		cex.axis=0.9, cex.lab=1.0)
 

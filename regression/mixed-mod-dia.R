@@ -1,5 +1,5 @@
 #
-# mixed-mod-dia.R, 22 Aug 14
+# mixed-mod-dia.R, 17 Jul 16
 #
 #
 # Example from:
@@ -7,6 +7,9 @@
 # Derek M. Jones
 
 source("ESEUR_config.r")
+
+
+plot_layout(3, 1)
 
 num_lines=6
 pal_col=rainbow(num_lines)
@@ -47,8 +50,6 @@ yline=c(ybase*(1-yslope), ybase*(1+yslope))
 lines(c(0, 1), yline, col=pal_col[col_num])
 }
 
-
-plot_layout(1, 3)
 
 base_plot()
 dummy=sapply(1:num_lines, function(X) lines_parallel(X))

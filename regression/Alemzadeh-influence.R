@@ -29,6 +29,7 @@ y_axis=as.vector(t2)
 # l_mod=glm(y_axis ~ x_axis, family=quasipoisson(link="identity"))
 l_mod=glm(y_axis ~ x_axis)
 
-influenceIndexPlot(l_mod, main="")
+influenceIndexPlot(l_mod, main="", col=point_col,
+		cex.axis=0.9, cex.lab=1.0)
 
 

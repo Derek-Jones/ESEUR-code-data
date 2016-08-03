@@ -1,6 +1,7 @@
 #
 # nvd-2003.R,  1 May 14
-#
+# Data from:
+# http://nvd.nist.gov
 #
 # Example from:
 # Empirical Software Engineering using R

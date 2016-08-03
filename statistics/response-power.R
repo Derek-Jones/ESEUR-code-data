@@ -1,5 +1,5 @@
 #
-# response-power.R,  6 Jan 16
+# response-power.R, 15 Jul 16
 #
 #
 # Example from:
@@ -9,7 +9,7 @@
 source("ESEUR_config.r")
 
 
-plot_layout(1, 2)
+plot_layout(2, 1)
 
 
 power_test=function(num_runs=NULL, m_diff=NULL, d_sd=NULL, sig.level=0.05, req_pow = NULL)

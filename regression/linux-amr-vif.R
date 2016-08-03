@@ -1,5 +1,5 @@
 #
-# linux-amr-vif.R, 17 Jan 14
+# linux-amr-vif.R, 14 Jun 16
 #
 # Data from:
 # Linux Kernel history
@@ -14,11 +14,13 @@ source("ESEUR_config.r")
 library("car")
 
 # version,date released,days,commits,number files,number lines,lines added,lines removed,lines modified,number developers,number employers,changes per day,changes per hour,perc growth files,perc growth lines,lines added per day,lines removed per day,lines changed per day,lines added per hour
-adm=read.csv(paste0(ESEUR_dir, "regression/kernel_stats.csv.xz"), as.is=TRUE)
+amr=read.csv(paste0(ESEUR_dir, "regression/kernel_stats.csv.xz"), as.is=TRUE)
 
-# pairs(~ lines.added+lines.removed+lines.modified, data=adm, panel = panel.smooth)
+amr_out=subset(amr, lines.removed < 1e6)
 
-p_mod=glm(lines.modified ~ lines.added+lines.removed, data=adm)
+# pairs(~ lines.added+lines.removed+lines.modified, data=amr panel = panel.smooth)
+
+amr_mod=glm(lines.modified ~ lines.added+lines.removed, data=amr_out)
 
 print(vif(amr_mod))
 

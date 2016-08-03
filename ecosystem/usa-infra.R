@@ -1,5 +1,5 @@
 #
-# usa-infra.R, 21 Feb 16
+# usa-infra.R, 15 Jul 16
 #
 # Data from:
 #
@@ -13,26 +13,25 @@
 source("ESEUR_config.r")
 
 
-plot_wide()
-pal_col=rainbow(7)
+pal_col=rainbow(6)
 
 # year,canals,railways,surfaced roads,oil pipelines,gas pipelines,telegraph wire
 infra=read.csv(paste0(ESEUR_dir, "ecosystem/usa-infra.csv.xz"), as.is=TRUE)
 
-plot(infra$year, infra$canals/max(infra$canals),
+plot(infra$year, 100*infra$canals/max(infra$canals), type="l",
 	col=pal_col[1],
 	xlab="Year", ylab="Percentage of known maximum\n",
-	xlim=c(1805,1995), ylim=c(0, 1.0))
-points(infra$year, infra$railways/max(infra$railways, na.rm=TRUE),
+	xlim=c(1805,1995), ylim=c(0, 100))
+lines(infra$year, 100*infra$railways/max(infra$railways, na.rm=TRUE),
 	col=pal_col[2])
-points(infra$year, infra$surfaced.roads/max(infra$surfaced.roads, na.rm=TRUE),
+lines(infra$year, 100*infra$surfaced.roads/max(infra$surfaced.roads, na.rm=TRUE),
 	col=pal_col[5])
 
-points(infra$year, infra$telegraph.wire/max(infra$telegraph.wire, na.rm=TRUE),
+lines(infra$year, 100*infra$telegraph.wire/max(infra$telegraph.wire, na.rm=TRUE),
 	col=pal_col[3])
-points(infra$year, infra$oil.pipelines/max(infra$oil.pipelines, na.rm=TRUE),
+lines(infra$year, 100*infra$oil.pipelines/max(infra$oil.pipelines, na.rm=TRUE),
 	col=pal_col[4])
-points(infra$year, infra$gas.pipelines/max(infra$gas.pipelines, na.rm=TRUE),
+lines(infra$year, 100*infra$gas.pipelines/max(infra$gas.pipelines, na.rm=TRUE),
 	col=pal_col[6])
 
 legend(x="bottomright", legend=c("canals", "railways", "telegraph wire", "oil pipelines", "surfaced roads", "gas pipelines"),

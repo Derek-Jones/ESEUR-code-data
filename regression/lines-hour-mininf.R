@@ -1,5 +1,5 @@
 #
-# lines-hour-mininf.R,  5 Mar 16
+# lines-hour-mininf.R, 27 Jul 16
 #
 # Data from:
 # On the effectiveness of early life cycle defect prediction with Bayesian Nets
@@ -14,13 +14,13 @@ source("ESEUR_config.r")
 
 library(car)
 
+plot_layout(2, 1)
 brew_col=rainbow(3)
 
-plot_layout(1, 2)
 
 loc_hour=read.csv(paste0(ESEUR_dir, "regression/10.1.1.157.6206.csv.xz"), as.is=TRUE)
 loc_hour=subset(loc_hour, !is.na(KLoC))
-loc_hour=loc_hour[order(loc_hour$KLoC), ]
+loc_hour=loc_hour[order(loc_hour$Hours), ]
 # influenceIndexPlot uses row.names and it is confusing because the original
 # ones are maintained from before: loc_hour[order(loc_hour$KLoC), ]
 row.names(loc_hour)=1:nrow(loc_hour)
@@ -33,9 +33,14 @@ Hours_KLoC=function(df)
 {
 plot(df$Hours, df$KLoC, col=point_col,
 	xlim=x_bounds, ylim=y_bounds,
-	xlab="Hours", ylab="Lines of code (Kloc)\n")
+	xlab="Effort (hours)", ylab="Lines of code (Kloc)\n")
+# lines(loess.smooth(df$Hours, df$KLoC, span=0.4), col=loess_col)
 
-plh_mod=glm(KLoC ~ Hours, data=df)
+# The iterative removal of points happens for the KLoC ~ Hours formula.
+# The formula I(KLoC ~ Hours^0.5) is a better fit, but have not checked
+# whether the iterative removal also occurs for it.
+# plh_mod=glm(KLoC ~ Hours, data=df)
+plh_mod=glm(KLoC ~ I(Hours^0.5), data=df)
 
 plh_pred=predict(plh_mod, type="response", se.fit=TRUE)
 
@@ -65,7 +70,7 @@ s1_loc_hour=loc_hour[-c(21,25), ]
 # influenceIndexPlot(subset1_mod, main="")
 
 s2_loc_hour=s1_loc_hour[-c(24), ]
-subset2_mod=Hours_KLoC(s2_loc_hour)
+# subset2_mod=Hours_KLoC(s2_loc_hour)
 # influenceIndexPlot(subset2_mod, main="")
 
 
@@ -119,9 +124,4 @@ s10_loc_hour=s9_loc_hour[-c(12),]
 subset10_mod=Hours_KLoC(s10_loc_hour)
 # plot_cutoff(s10_loc_hour, subset10_mod)
 
-
-# 
-# library(robustbase)
-# 
-# rlh_mod=glmrob(Hours ~ KLoC, family=gaussian, data=loc_hour)
 

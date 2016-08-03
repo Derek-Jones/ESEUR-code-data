@@ -1,5 +1,5 @@
 #
-# c_linelen.R, 30 Dec 15
+# c_linelen.R, 15 Jul 16
 #
 # Data from:
 #
@@ -13,7 +13,7 @@
 source("ESEUR_config.r")
 
 
-plot_layout(1, 2)
+plot_layout(2, 1)
 
 pal_col=rainbow(2)
 

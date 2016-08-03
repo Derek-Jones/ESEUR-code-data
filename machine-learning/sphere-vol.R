@@ -19,7 +19,7 @@ sphere_vol[2]=2
 for (d in 3:n)
    sphere_vol[d]=sphere_vol[d-2]*2*pi/(d-1)
 
-plot(1:n, sphere_vol, log="y",
+plot(1:n, sphere_vol, log="y", col=point_col,
 	xlab="Dimensions", ylab="Volume\n")
 
 

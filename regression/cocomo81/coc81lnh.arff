@@ -1,0 +1,86 @@
+@relation coc81lnh
+
+@attribute id numeric
+@attribute dev_mode {organic}
+@attribute rely {l,n,vl,h,vh}
+@attribute data {vh,l,n,h}
+@attribute cplx {vl,l,n,vh,xh,h}
+@attribute time {n,xh,vh,h}
+@attribute stor {h,n,vh,xh}
+@attribute virt {h,n,l,vh}
+@attribute turn {h,l,n,vh}
+@attribute acap {l,n,h,vl,vh}
+@attribute aexp {l,h,vh,n,vl}
+@attribute pcap {l,n,h,vl,vh}
+@attribute vexp {l,h,n,vl}
+@attribute lexp {n,h,vl,l}
+@attribute modp {vl,l,h,n,vh}
+@attribute tool {l,n,h,vl,vh}
+@attribute sced {h,n,l,vl}
+@attribute loc numeric
+@attribute actual numeric
+
+@data
+1,organic,l,vh,vl,n,h,h,h,l,l,l,l,n,vl,l,h,113,2040
+2,organic,l,vh,l,n,h,n,h,n,h,n,h,h,l,n,n,293,1600
+3,organic,n,vh,l,n,n,l,l,h,vh,h,h,h,h,h,n,132,243
+4,organic,vl,vh,vl,n,n,l,n,l,h,vl,n,h,vl,n,h,60,240
+5,organic,l,l,n,n,n,l,n,n,n,h,h,h,vl,n,n,16,33
+6,organic,vl,n,l,n,vh,n,n,vl,n,vl,h,h,vl,l,n,4,43
+7,organic,vl,n,n,n,n,l,l,n,n,n,h,h,h,h,n,6.9,8
+8,organic,h,l,vh,xh,xh,vh,n,vh,h,n,vl,vl,l,l,l,22,1075
+9,organic,h,l,vh,vh,vh,h,n,h,n,h,l,l,h,n,n,30,423
+10,organic,vh,l,vh,h,xh,n,h,h,vh,h,h,n,n,n,n,29,321
+11,organic,vh,l,vh,h,xh,n,h,h,vh,h,h,n,n,n,n,32,218
+12,organic,h,l,vh,h,h,n,n,h,vh,h,n,h,h,n,l,37,201
+13,organic,h,l,vh,h,h,h,n,vh,n,vh,l,n,vh,n,n,25,79
+14,organic,h,l,xh,vh,xh,h,n,h,n,vh,l,l,l,vl,vl,3,60
+15,organic,vh,l,vh,vh,h,h,l,h,l,h,vl,vl,h,n,vl,3.9,61
+16,organic,vh,n,vh,vh,xh,n,l,h,n,h,n,n,n,n,n,6.1,40
+17,organic,vh,n,vh,vh,xh,n,l,h,vh,h,n,n,n,n,n,3.6,9
+18,organic,h,vh,h,vh,vh,n,h,h,n,n,n,n,vl,l,l,320,11400
+19,organic,h,h,n,h,vh,l,l,vh,h,n,n,n,h,h,n,1150,6600
+20,organic,vh,h,vh,h,vh,h,h,vh,vh,l,l,l,vl,n,l,299,6400
+21,organic,n,vh,h,h,h,l,l,h,n,n,n,n,h,h,n,252,2455
+22,organic,h,n,n,vh,h,n,n,h,vh,h,h,n,h,n,vl,118,724
+23,organic,h,n,n,h,h,n,n,h,vh,h,h,n,n,n,vl,77,539
+24,organic,l,n,l,h,h,n,l,n,vl,n,l,h,vh,vh,n,90,453
+25,organic,h,vh,vh,h,h,n,l,h,n,h,l,n,vh,h,l,38,523
+26,organic,l,n,l,h,h,h,h,h,n,h,l,n,h,l,l,48,387
+27,organic,h,l,h,vh,vh,n,l,n,n,n,n,n,vh,l,l,9.4,88
+28,organic,h,h,vh,h,vh,h,h,h,n,h,l,l,l,l,n,13,98
+29,organic,l,n,n,n,n,n,n,n,vl,h,n,n,h,h,vl,2.14,7.3
+30,organic,l,n,n,n,n,n,n,n,vl,h,n,n,h,h,vl,1.98,5.9
+31,organic,vh,h,n,xh,xh,h,h,h,vh,h,l,l,n,n,n,62,1063
+32,organic,l,h,l,n,n,n,n,vh,vh,n,n,n,l,l,n,390,702
+33,organic,vh,h,vh,xh,xh,h,l,h,vh,h,h,n,h,h,n,42,605
+34,organic,h,h,n,h,n,n,l,n,n,n,n,n,h,l,vl,23,230
+35,organic,vl,l,vh,h,vh,h,n,n,h,n,l,n,vl,vl,n,13,82
+36,organic,l,h,l,n,n,l,l,l,n,l,h,h,n,h,h,15,55
+37,organic,l,l,vl,n,h,n,n,h,vh,h,n,n,n,n,n,60,47
+38,organic,n,n,h,n,n,l,l,vh,h,n,h,h,vh,h,n,15,12
+39,organic,n,n,h,n,n,l,n,vh,vh,vh,n,h,h,l,n,6.2,8
+40,organic,n,l,vh,n,n,n,l,h,vh,l,n,n,l,n,n,3,8
+41,organic,l,l,n,n,n,l,l,n,vh,vh,h,h,h,h,n,5.3,6
+42,organic,l,h,h,n,h,l,h,h,n,h,h,h,h,h,h,45.5,45
+43,organic,n,h,h,n,vh,l,h,h,n,n,h,h,n,n,h,28.6,83
+44,organic,l,h,h,h,vh,l,h,n,n,n,h,h,l,n,h,30.6,87
+45,organic,l,h,h,n,h,l,h,n,n,n,h,h,n,h,h,35,106
+46,organic,l,h,h,n,h,l,h,n,n,h,h,h,n,n,h,73,126
+47,organic,vl,l,vh,n,n,l,l,vh,vh,vh,l,l,l,n,h,23,36
+48,organic,l,l,l,n,n,l,n,l,h,l,h,h,l,n,h,464,1272
+49,organic,n,n,l,n,n,n,l,vh,n,vh,l,n,vh,h,n,91,156
+50,organic,h,n,n,vh,vh,n,l,h,n,h,l,n,n,n,n,24,176
+51,organic,l,n,n,n,n,n,vh,l,n,vl,n,h,vl,l,h,10,122
+52,organic,l,l,l,n,h,h,n,n,n,n,l,l,vl,l,n,8.2,41
+53,organic,l,l,h,h,vh,vh,n,vh,n,vh,l,l,n,l,l,5.3,14
+54,organic,n,l,n,n,h,h,l,n,vh,n,n,h,h,l,n,4.4,20
+55,organic,l,l,vl,n,n,l,l,h,vh,l,h,h,l,n,n,6.3,18
+56,organic,h,l,vh,vh,vh,n,n,h,h,n,l,l,l,l,l,27,958
+57,organic,n,l,h,h,vh,vh,n,n,n,n,l,l,l,l,vl,17,237
+58,organic,vh,l,vh,xh,vh,n,n,vh,vh,vh,h,h,h,n,n,25,130
+59,organic,n,l,h,h,h,n,l,n,n,n,n,n,h,n,n,23,70
+60,organic,h,l,vh,h,h,n,n,h,l,h,l,l,l,l,l,6.7,57
+61,organic,n,l,h,n,n,l,l,h,n,h,h,n,vh,n,n,28,50
+62,organic,l,l,vh,h,vh,h,n,vh,vh,vh,vl,vl,h,vl,n,9.1,38
+63,organic,n,l,h,n,n,n,l,vh,vh,h,n,n,vh,n,n,10,15

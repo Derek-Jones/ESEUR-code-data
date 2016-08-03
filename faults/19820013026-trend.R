@@ -1,5 +1,5 @@
 #
-# 19820013026-trend.R, 19 Nov 15
+# 19820013026-trend.R, 15 Jul 16
 #
 # Data from:
 # Software Reliability: Repetitive Run Experimentation and Modeling
@@ -14,7 +14,7 @@ source("ESEUR_config.r")
 
 library("plyr")
 
-plot_layout(1, 2)
+plot_layout(2, 1)
 
 rshift_2cols=function(df, col_num)
 {

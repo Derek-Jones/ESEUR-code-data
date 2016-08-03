@@ -8,7 +8,7 @@
 source("ESEUR_config.r")
 
 
-plot_layout(2, 2)
+plot_layout(4, 1)
 
 brew_col=rainbow(3)
 

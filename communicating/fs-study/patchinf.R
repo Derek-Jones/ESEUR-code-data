@@ -1,5 +1,5 @@
 #
-# patchinf.R,  4 Dec 15
+# patchinf.R, 15 Jul 16
 #
 # Data from:
 # A Study of Linux File System Evolution
@@ -12,7 +12,7 @@
 source("ESEUR_config.r")
 
 
-plot_layout(1, 2)
+plot_layout(2, 1)
 
 ext3=read.csv(paste0(ESEUR_dir, "communicating/fs-study/ext3-added.csv.xz"), as.is=TRUE)
 

@@ -3,6 +3,7 @@
 #
 # Data from:
 # github.com/gregkh/kernel-history
+# Last updated Jun 2016
 #
 # Example from:
 # Empirical Software Engineering using R

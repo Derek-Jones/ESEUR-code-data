@@ -1,5 +1,5 @@
 #
-# unique-bytes.R, 21 Feb 16
+# unique-bytes.R, 16 Jul 16
 #
 #
 # Example from:
@@ -8,8 +8,6 @@
 
 source("ESEUR_config.r")
 
-
-plot_wide()
 
 
 window_width=256 # if this is less than 256 divisor has to change in call to plot
@@ -22,7 +20,8 @@ t=readBin(filename, what="raw", n=1e7)
 cnt_points=seq(1, length(t)-window_width, 5)
  
 u=sapply(cnt_points, function(X) length(unique(t[X:(X+window_width)])))
-plot(u/256, type="l", xlab="File offset", ylab="Fraction Unique\n", las=1)
+plot(u/256, type="l", col=point_col,
+	xlab="File offset", ylab="Fraction Unique\n")
  
 return(u)
 }

@@ -1,5 +1,5 @@
 #
-# 200xdisks.R, 30 Dec 15
+# 200xdisks.R, 16 Jul 16
 #
 # Data from:
 # Disks are like snowflakes: No two are alike
@@ -13,15 +13,15 @@ source("ESEUR_config.r")
 
 library("plyr")
 
+plot_layout(2, 1)
 brew_col=rainbow_hcl(12)
+
 
 plot_disk=function(df)
 {
 points(df$offset, df$bandwidth, col=brew_col[df$disk])
 }
 
-
-plot_layout(1, 2)
 
 disk2002=read.csv(paste0(ESEUR_dir, "benchmark/2002disks.csv.xz"), as.is=TRUE)
 

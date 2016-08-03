@@ -1,5 +1,5 @@
 #
-# tail-signif.R, 30 Dec 15
+# tail-signif.R, 16 Jul 16
 #
 #
 # Example from:
@@ -9,7 +9,7 @@
 source("ESEUR_config.r")
 
 
-plot_layout(1, 2)
+plot_layout(2, 1)
 par(mar=c(5, 1, 4, 1)+0.1)
 
 pal_col=rainbow(3)

@@ -13,7 +13,7 @@ a2=with(anscombe, data.frame(x=c(x2), y=c(y2)))
 a3=with(anscombe, data.frame(x=c(x3), y=c(y3)))
 a4=with(anscombe, data.frame(x=c(x4), y=c(y4)))
 
-plot_layout(2, 2)
+plot_layout(4, 1)
 
 plot_anscombe=function(x_y)
 {

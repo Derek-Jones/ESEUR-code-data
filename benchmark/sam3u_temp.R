@@ -14,7 +14,7 @@ source("ESEUR_config.r")
 
 library("plyr")
 
-plot_layout(1, 2)
+plot_layout(2, 1)
 
 sam_32khz=read.csv(paste0(ESEUR_dir, "benchmark/sam3u_32khz_sleep.csv.xz"), as.is=TRUE)
 

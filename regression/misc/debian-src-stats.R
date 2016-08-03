@@ -1,5 +1,5 @@
 #
-# debian-src-stats.R,  9 Dec 15
+# debian-src-stats.R, 24 Jul 16
 #
 # Data from:
 #
@@ -18,12 +18,35 @@ pal_col=rainbow(3)
 
 pairs(deb[,-1])
 
-plot(deb$Source.packages)
+plot(deb$Source.files, deb$Source.lines)
 
-x_points=1:nrow(deb)
+lf_mod=glm(Source.lines ~ Source.files, data=deb)
+summary(lf_mod)
 
-deb_mod=glm(Source.packages ~ x_points, data=deb)
-summary(deb_mod)
+lines(deb$Source.files, predict(lf_mod))
 
-lines(predict(deb_mod))
+plot(deb$Source.packages, deb$Source.lines)
+
+lp_mod=glm(Source.lines ~ Source.packages, data=deb)
+summary(lp_mod)
+
+lines(deb$Source.packages, predict(lp_mod))
+
+lp2_mod=glm(Source.lines ~ Source.packages+I(Source.packages^2), data=deb)
+summary(lp2_mod)
+
+lines(deb$Source.packages, predict(lp2_mod))
+
+plot(deb$Source.packages, deb$Disk.usage)
+
+dp_mod=glm(Disk.usage ~ Source.packages, data=deb)
+summary(dp_mod)
+
+lines(deb$Source.packages, predict(dp_mod))
+
+dp2_mod=glm(Disk.usage ~ Source.packages+I(Source.packages^2), data=deb)
+summary(dp2_mod)
+
+lines(deb$Source.packages, predict(dp2_mod))
+
 

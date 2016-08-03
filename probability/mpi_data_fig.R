@@ -1,5 +1,5 @@
 #
-# mpi_data_fig.R, 13 Dec 15
+# mpi_data_fig.R, 17 Jul 16
 #
 # Data from:
 # Reproducible {MPI} Micro-Benchmarking Isn't As Easy As You Think
@@ -13,7 +13,7 @@
 source("ESEUR_config.r")
 
 
-plot_layout(1, 2)
+plot_layout(2, 1)
 
 # "";"test";"count";"size";"time";"nodes";"nnp";"rank";"exp"
 fig1=read.csv(paste0(ESEUR_dir, "probability/mpi_data_fig1.csv.xz"), sep=";", as.is=TRUE)
@@ -23,11 +23,11 @@ fig1_Allreduce=subset(fig1_Allreduce, time < 60)
 
 fig1_Scan=subset(fig1, test == "Scan")
 
-plot(density(fig1_Scan$time), main="",
+plot(density(fig1_Scan$time), col=point_col, main="",
 	xlim=c(70, 120),
 	xlab="Runtime (micro secs)", ylab="Density\n")
 
-plot(density(fig1_Allreduce$time), main="",
+plot(density(fig1_Allreduce$time), col=point_col, main="",
 	xlim=c(15, 55),
 	xlab="Runtime (micro secs)", ylab="Density\n")
 

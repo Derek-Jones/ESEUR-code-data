@@ -13,7 +13,6 @@
 source("ESEUR_config.r")
 
 
-plot_wide()
 pal_col=rainbow(3)
 
 proc_sales=read.csv(paste0(ESEUR_dir, "introduction/turley_02.csv.xz"), as.is=TRUE)

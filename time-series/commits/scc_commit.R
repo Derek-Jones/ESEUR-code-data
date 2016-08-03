@@ -3,7 +3,7 @@
 #
 # Data from:
 # Do time of day and developer experience affect commit bugginess?
-#
+# Jon Eyolfson and Lin Tan and Patrick Lam
 #
 # Example from:
 # Empirical Software Engineering using R

@@ -1,5 +1,5 @@
 #
-# meeting-duration.R, 21 Dec 15
+# meeting-duration.R, 30 Jul 16
 #
 # Data from:
 # Understanding the Sources of Variation in Software Inspection
@@ -11,17 +11,19 @@
 
 source("ESEUR_config.r")
 
+pal_col=rainbow(3)
+
 meeting=read.csv(paste0(ESEUR_dir, "experiment/porter-siy/meeting.csv.xz"), as.is=TRUE)
 
 # Remove one outlier
 meeting=meeting[-39, ]
 
-brew_col=rainbow(4)
-
 
 plot(meeting$S_NCSL, meeting$S_MEETDUR,
 	col=point_col,
 	xlab="Non-comment source lines", ylab="Meeting duration (hours)\n")
+
+lines(loess.smooth(meeting$S_NCSL, meeting$S_MEETDUR, span=0.3), col=loess_col)
 
 
 gmeet_mod=glm(S_MEETDUR ~ S_NCSL, data=meeting, family=Gamma(link="identity"))
@@ -29,9 +31,9 @@ gmeet_mod=glm(S_MEETDUR ~ S_NCSL, data=meeting, family=Gamma(link="identity"))
 xbounds=1:1000
 g_pred=predict(gmeet_mod, newdata=data.frame(S_NCSL=xbounds), se.fit=TRUE)
 
-lines(xbounds, g_pred$fit, col=brew_col[1])
-lines(xbounds, g_pred$fit+1.96*g_pred$se.fit, col=brew_col[4])
-lines(xbounds, g_pred$fit-1.96*g_pred$se.fit, col=brew_col[4])
+lines(xbounds, g_pred$fit, col=pal_col[1])
+lines(xbounds, g_pred$fit+1.96*g_pred$se.fit, col=pal_col[3])
+lines(xbounds, g_pred$fit-1.96*g_pred$se.fit, col=pal_col[3])
 
 
 nmeet_mod=glm(S_MEETDUR ~ S_NCSL, data=meeting, family=gaussian)
@@ -40,9 +42,9 @@ nmeet_mod=glm(S_MEETDUR ~ S_NCSL, data=meeting, family=gaussian)
 xbounds=seq(1, 1100, 50)
 n_pred=predict(nmeet_mod, newdata=data.frame(S_NCSL=xbounds), se.fit=TRUE)
 
-lines(xbounds, n_pred$fit, col=brew_col[2], type="c")
-lines(xbounds, n_pred$fit+1.96*n_pred$se.fit, col=brew_col[3], type="c")
-lines(xbounds, n_pred$fit-1.96*n_pred$se.fit, col=brew_col[3], type="c")
+lines(xbounds, n_pred$fit, col=pal_col[2])
+# lines(xbounds, n_pred$fit+1.96*n_pred$se.fit, col=pal_col[3], type="c")
+# lines(xbounds, n_pred$fit-1.96*n_pred$se.fit, col=pal_col[3], type="c")
 
 # Robust methods don't change things much
 # library("robustbase")

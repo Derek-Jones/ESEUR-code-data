@@ -1,5 +1,5 @@
 #
-# AssessEffectCodeOb.R, 24 Jun 15
+# AssessEffectCodeOb.R, 12 Jul 16
 #
 # Data from:
 #
@@ -39,17 +39,18 @@ T1_codeob$Average=as.numeric(T1_codeob$Average)
 pairs(~ Time1 + Average, data=T1_codeob)
 
 #gan_mod=lmer(Time1 ~ Level+(Ability+Lab+Treatment+Application)^2
-gan_mod_1=lmer(Time1 ~ Level+Lab+Treatment
-			+(Treatment | ID),
+gan_mod_1=lmer(Time1 ~ Treatment
+			+(1 | ID),
 				data=T1_codeob)
 Anova(gan_mod_1)
 summary(gan_mod_1)
 
 # glm_mod=glmer(Accuracy1 ~ Level+(Ability+Lab+Treatment+Application)^2
-glm_mod_1=glmer(Accuracy1 ~ Level+Lab+Treatment
-			+(Treatment | ID),
+glm_mod_1=glmer(Accuracy1 ~ Treatment
+			+(1 | ID),
 				data=T1_codeob, family=binomial)
 Anova(glm_mod_1)
+summary(glm_mod_1)
 
 
 T2_codeob=subset(codeob, !is.na(Time2))
@@ -57,13 +58,13 @@ T2_codeob=subset(codeob, !is.na(Time2))
 
 # gan_mod=lmer(Time1 ~ Level+(Ability+Lab+Treatment+Application)^2
 gan_mod_2=lmer(Time2 ~ Level+Treatment+Application
-			+(Treatment | ID),
+			+(1 | ID),
 				data=T2_codeob)
 Anova(gan_mod_2)
 summary(gan_mod_2)
 
 glm_mod_2=glmer(Accuracy2 ~ Level+Treatment+Application
-			+(Treatment | ID),
+			+(1 | ID),
 				data=T2_codeob, family=binomial)
 Anova(glm_mod_2)
 

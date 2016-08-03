@@ -1,0 +1,532 @@
+
+
+
+################################################################################
+# Circular data plots for the three groups of ants (with mean directions and median directions indicated)
+################################################################################
+
+rm(list=ls())
+library(circular)
+
+cdat1 <- circular(fisherB10c$set1, units="degrees", zero=pi/2, rotation="clock")
+plot(cdat1, stack=TRUE, bins=720, cex=1.2, sep=0.04, shrink=0.95)
+arrows.circular(mean(cdat1), y=rho.circular(cdat1), lty=1, lwd=2)
+arrows.circular(median(cdat1), y=rho.circular(cdat1), lty=2, lwd=3)
+
+cdat2 <- circular(fisherB10c$set2, units="degrees", zero=pi/2, rotation="clock")
+plot(cdat2, stack=TRUE, bins=720, cex=1.2, sep=0.04, shrink=0.95)
+arrows.circular(mean(cdat2), y=rho.circular(cdat2), lty=1, lwd=2)
+arrows.circular(median(cdat2), y=rho.circular(cdat2), lty=2, lwd=3)
+
+cdat3 <- circular(fisherB10c$set3, units="degrees", zero=pi/2, rotation="clock")
+plot(cdat3, stack=TRUE, bins=720, cex=1.2, sep=0.04, shrink=0.95)
+arrows.circular(mean(cdat3), y=rho.circular(cdat3), lty=1, lwd=2)
+arrows.circular(median(cdat3), y=rho.circular(cdat3), lty=2, lwd=3)
+
+################################################################################
+# Conversion of data to radians in (-pi, pi) (anticlockwise from the positive horizontal axis)
+################################################################################
+
+cdat1 <- circular(fisherB10$set1*2*pi/360)
+cdat2 <- circular(fisherB10$set2*2*pi/360)
+cdat3 <- circular(fisherB10$set3*2*pi/360)
+
+################################################################################
+# Q-Q plot for two circular data plots (Fisher, 1993, Section 5.2)
+################################################################################
+
+TwoSampleQQ <- function(cdat1, cdat2) {
+n1 <- length(cdat1) ; n2 <- length(cdat2) ; nmin <- min(n1,n2) ; nmax <- max(n1,n2)
+cdatref <- cdat1 ; cdatoth <- cdat2 
+if (n2 < n1) { cdatref <- cdat2 ; cdatoth <- cdat1 }
+zref <- sin(0.5*(cdatref-medianCircular(cdatref))) ; szref <- sort(zref)
+zoth <- sin(0.5*(cdatoth-medianCircular(cdatoth))) ; szoth <- sort(zoth)
+koth <- 0 ; szothred <- 0 ; szreffin <- 0
+for (k in 1:nmin) { koth[k] <- 1+nmax*(k-0.5)/nmin ; szothred[k] <- szoth[koth[k]] ; szreffin[k] <- szref[k]}
+par(mai=c(0.90, 0.9, 0.05, 0.1), cex.axis=1.2, cex.lab=1.5)
+plot(szreffin, szothred, pch=16, xlim=c(-1,1), ylim=c(-1,1), xlab = "Smaller sample", ylab = "Larger sample")
+xlim <- c(-1,1) ; ylim <- c(-1,1) ; lines(xlim, ylim, lwd=2, lty=2)
+}
+
+TwoSampleQQ(cdat1, cdat2)
+TwoSampleQQ(cdat1, cdat3)
+TwoSampleQQ(cdat2, cdat3)
+
+################################################################################
+# Calculation of Yg test statistic for Watson's test for a common mean direction
+################################################################################
+
+YgVal <- function(cdat, ndat, g) {
+N <- length(cdat) ; ndatcsum <- cumsum(ndat) 
+delhat <- 0 ; tbar <- 0
+for (k in 1:g) {
+sample <- circular(0)
+if (k==1) {low <- 0} else
+if (k > 1) {low <- ndatcsum[k-1]}
+for (j in 1:ndat[k]) { sample[j] <- cdat[j+low] }
+tm1 <- trigonometric.moment(sample, p=1)
+tm2 <- trigonometric.moment(sample, p=2)
+Rbar1 <- tm1$rho; Rbar2 <- tm2$rho ; tbar[k] <- tm1$mu
+delhat[k] <- (1-Rbar2)/(2*Rbar1*Rbar1)
+}
+dhatmax <- max(delhat) ; dhatmin <- min(delhat)
+if (dhatmax/dhatmin <= 4) {
+CP <- 0 ; SP <- 0 ; dhat0 <- 0
+for (k in 1:g) {
+CP <- CP + ndat[k]*cos(tbar[k])
+SP <- SP + ndat[k]*sin(tbar[k])
+dhat0 <- dhat0 + ndat[k]*delhat[k] 
+}
+dhat0 <- dhat0/N
+RP <- sqrt(CP*CP+SP*SP)
+Yg <- 2*(N-RP)/dhat0
+return(Yg) } else
+if (dhatmax/dhatmin > 4) {
+CM <- 0 ; SM <- 0 ; Yg <- 0
+for (k in 1:g) {
+CM <- CM + (ndat[k]*cos(tbar[k])/delhat[k])
+SM <- SM + (ndat[k]*sin(tbar[k])/delhat[k])
+Yg <- Yg + (ndat[k]/delhat[k]) 
+}
+RM <- sqrt(CM*CM+SM*SM)
+Yg <- 2*(Yg-RM)
+return(Yg) }
+}
+
+
+cdat <- c(cdat1, cdat2, cdat3) 
+n1 <- length(cdat1) ; n2 <- length(cdat2) ; n3 <- length(cdat3) 
+ndat <- c(n1, n2, n3) ; g <- 3
+YgObs <- YgVal(cdat, ndat, g)
+pchisq(YgObs, g-1, lower.tail=F)
+
+
+################################################################################
+# Bootstrap version of Watson's test for a common mean direction
+################################################################################
+
+YgTestBoot <- function(cdat, ndat, g, indsym, B) {
+N <- length(cdat) ; ndatcsum <- cumsum(ndat) 
+delhat <- 0 ; tbar <- 0 ; centdat <- circular(0)
+for (k in 1:g) {
+sample <- circular(0)  
+if (k==1) {low <- 0} else
+if (k > 1) {low <- ndatcsum[k-1]}
+for (j in 1:ndat[k]) { sample[j] <- cdat[j+low] }
+tm1 <- trigonometric.moment(sample, p=1)
+tm2 <- trigonometric.moment(sample, p=2)
+Rbar1 <- tm1$rho; Rbar2 <- tm2$rho ; tbar[k] <- tm1$mu
+delhat[k] <- (1-Rbar2)/(2*Rbar1*Rbar1)
+if (tbar[k] < 0) {tbar[k] <- tbar[k]+2*pi}
+centsamp <- sample-tbar[k]
+if (indsym == 1) {centsamp <- c(centsamp, -centsamp)}
+centdat <- c(centdat,centsamp)
+}
+centdat <- centdat[-1]
+dhatmax <- max(delhat) ; dhatmin <- min(delhat)
+if (dhatmax/dhatmin <= 4) {
+PorM <- 1 ; CP <- 0 ; SP <- 0 ; dhat0 <- 0
+for (k in 1:g) {
+CP <- CP + ndat[k]*cos(tbar[k])
+SP <- SP + ndat[k]*sin(tbar[k])
+dhat0 <- dhat0 + ndat[k]*delhat[k] 
+}
+dhat0 <- dhat0/N
+RP <- sqrt(CP*CP+SP*SP)
+Yg <- 2*(N-RP)/dhat0
+} else
+if (dhatmax/dhatmin > 4) {
+PorM <- 0 ; CM <- 0 ; SM <- 0 ; Yg <- 0
+for (k in 1:g) {
+CM <- CM + (ndat[k]*cos(tbar[k])/delhat[k])
+SM <- SM + (ndat[k]*sin(tbar[k])/delhat[k])
+Yg <- Yg + (ndat[k]/delhat[k]) 
+}
+RM <- sqrt(CM*CM+SM*SM)
+Yg <- 2*(Yg-RM)
+}
+Yg0 <- Yg ; nxtrm <- 1
+
+if (indsym == 0) {
+for (b in 1:B) {
+centsamp <- circular(0) 
+for (k in 1:g) {
+if (k==1) {low <- 0} else
+if (k > 1) {low <- ndatcsum[k-1]}
+for (j in 1:ndat[k]) { centsamp[j] <- centdat[j+low] }
+bootsamp <- sample(centsamp, size=ndat[k], replace=TRUE)
+tm1 <- trigonometric.moment(bootsamp, p=1)
+tm2 <- trigonometric.moment(bootsamp, p=2)
+Rbar1 <- tm1$rho; Rbar2 <- tm2$rho ; tbar[k] <- tm1$mu
+delhat[k] <- (1-Rbar2)/(2*Rbar1*Rbar1)
+}
+if (PorM == 1) {
+CP <- 0 ; SP <- 0 ; dhat0 <- 0
+for (k in 1:g) {
+CP <- CP + ndat[k]*cos(tbar[k])
+SP <- SP + ndat[k]*sin(tbar[k])
+dhat0 <- dhat0 + ndat[k]*delhat[k] 
+}
+dhat0 <- dhat0/N
+RP <- sqrt(CP*CP+SP*SP)
+Yg <- 2*(N-RP)/dhat0
+} else
+if (PorM == 0) {
+CM <- 0 ; SM <- 0 ; Yg <- 0
+for (k in 1:g) {
+CM <- CM + (ndat[k]*cos(tbar[k])/delhat[k])
+SM <- SM + (ndat[k]*sin(tbar[k])/delhat[k])
+Yg <- Yg + (ndat[k]/delhat[k]) 
+}
+RM <- sqrt(CM*CM+SM*SM)
+Yg <- 2*(Yg-RM)
+}
+YgBoot <- Yg
+if (YgBoot >= YgObs) {nxtrm <- nxtrm+1}
+}
+pval <- nxtrm/(B+1)
+return(c(YgObs, pval))
+} else
+
+if (indsym == 1) {
+for (b in 1:B) {
+centsamp <- circular(0) 
+for (k in 1:g) {
+if (k==1) {low <- 0} else
+if (k > 1) {low <- 2*ndatcsum[k-1]}
+for (j in 1:(2*ndat[k])) { centsamp[j] <- centdat[j+low] }
+bootsamp <- sample(centsamp, size=ndat[k], replace=TRUE)
+tm1 <- trigonometric.moment(bootsamp, p=1)
+tm2 <- trigonometric.moment(bootsamp, p=2)
+Rbar1 <- tm1$rho; Rbar2 <- tm2$rho ; tbar[k] <- tm1$mu
+delhat[k] <- (1-Rbar2)/(2*Rbar1*Rbar1)
+}
+if (PorM == 1) {
+CP <- 0 ; SP <- 0 ; dhat0 <- 0
+for (k in 1:g) {
+CP <- CP + ndat[k]*cos(tbar[k])
+SP <- SP + ndat[k]*sin(tbar[k])
+dhat0 <- dhat0 + ndat[k]*delhat[k] 
+}
+dhat0 <- dhat0/N
+RP <- sqrt(CP*CP+SP*SP)
+Yg <- 2*(N-RP)/dhat0
+} else
+if (PorM == 0) {
+CM <- 0 ; SM <- 0 ; Yg <- 0
+for (k in 1:g) {
+CM <- CM + (ndat[k]*cos(tbar[k])/delhat[k])
+SM <- SM + (ndat[k]*sin(tbar[k])/delhat[k])
+Yg <- Yg + (ndat[k]/delhat[k]) 
+}
+RM <- sqrt(CM*CM+SM*SM)
+Yg <- 2*(Yg-RM)
+}
+YgBoot <- Yg
+if (YgBoot >= YgObs) {nxtrm <- nxtrm+1}
+}
+pval <- nxtrm/(B+1)
+return(c(YgObs, pval))
+}
+}
+
+indsym <- 1 ; B <- 9999  
+YgTestBoot(cdat, ndat, g, indsym, B)
+
+################################################################################
+# Watson-Williams two-sample test for a common mean direction
+################################################################################
+
+mle.vonmises(cdat1, bias=TRUE) ; mle.vonmises(cdat2, bias=TRUE) ; mle.vonmises(cdat3, bias=TRUE)
+
+cdat23 <- c(cdat2, cdat3) ; groupID <- c(rep(1,n2), rep(2,n3))
+watson.williams.test(cdat23, group=groupID) 
+
+################################################################################
+# Calculation of Fisher's Pg test statistic for testing for a common median direction
+################################################################################
+
+MinusPiPi <- function(sample) {
+n <- length(sample)
+for (j in 1:n) {
+if (sample[j] < -pi) {sample[j] <- sample[j] + (2*pi)} else
+if (sample[j] > pi) {sample[j] <- sample[j] - (2*pi)}
+}
+return(sample)
+}
+
+PgVal <- function(cdat, ndat, g) {
+N <- length(cdat) 
+ndatcsum <- cumsum(ndat) ; gmedian <- medianCircular(cdat) 
+sumterms <- 0 ; M <- 0 
+for (k in 1:g) {
+if (k==1) {low <- 0} else
+if (k > 1) {low <- ndatcsum[k-1]}
+sample <- circular(0)
+for (j in 1:ndat[k]) { sample[j] <- cdat[j+low] }
+shiftdat <- MinusPiPi(sample-gmedian) ; m <- length(shiftdat[shiftdat<0]) ; M <- M+m
+sumterms <- sumterms + m*m/ndat[k]
+}
+term1 <- ((N*N)/(M*(N-M))); term2 <- (N*M)/(N-M) ; Pg <- term1*sumterms-term2
+return(Pg)
+}
+
+cdat <- c(cdat1, cdat2, cdat3) ; n1 <- length(cdat1) ; n2 <- length(cdat2) ; n3 <- length(cdat3) ; ndat <- c(n1, n2, n3) ; g <- 3
+PgObs <- PgVal(cdat, ndat, g)
+pchisq(PgObs, g-1, lower.tail=F)
+
+################################################################################
+# Randomization version of Fisher's test for a common median direction ################################################################################
+
+PgRandTest <- function(cdat, ndat, g, NR) {
+ndatcsum <- cumsum(ndat)
+PgObs <- PgVal(cdat, ndat, g) ; nxtrm <- 1
+for (r in 1:NR) {
+randsamp <- sample(cdat)
+PgRand <- PgVal(randsamp, ndat, g)
+if (PgRand >= PgObs) { nxtrm <- nxtrm+1 } 
+}
+pval <- nxtrm/(NR+1)
+return (c(PgObs,pval))
+}
+
+NR <- 9999 ; PgRandTest(cdat, ndat, g, NR)
+
+################################################################################
+# Wallraff's test for a common concentration
+################################################################################
+
+WalraffTest <- function(cdat, ndat, g) {
+N <- length(cdat) ; ndatcsum <- cumsum(ndat) ; tbar <- circular(0) ; distdat <- 0
+for (k in 1:g) {
+dist <- 0 ; sample <- circular(0)  
+if (k==1) {low <- 0} else
+if (k > 1) {low <- ndatcsum[k-1]}
+for (j in 1:ndat[k]) { sample[j] <- cdat[j+low] }
+tm1 <- trigonometric.moment(sample, p=1) ; tbar[k] <- tm1$mu
+for (j in 1:ndat[k]) { dist[j] <- pi-abs(pi-abs(sample[j]-tbar[k])) }
+distdat <- c(distdat, dist)
+}
+distdat <- distdat[-1]
+gID <- c(rep(1,n1), rep(2,n2), rep(3,n3))
+TestRes <- kruskal.test(distdat, g=gID)
+return(TestRes)
+} 
+
+WallraffTest(cdat, ndat, g)
+
+################################################################################
+# Fisher's large-sample test for a common concentration of von Mises distributions
+################################################################################
+
+dValues <- function(cdat, ndat, g) {
+N <- length(cdat) ; ndatcsum <- cumsum(ndat) ; dval <- 0 
+for (k in 1:g) {
+sample <- circular(0) 
+if (k==1) {low <- 0} else
+if (k > 1) {low <- ndatcsum[k-1]}
+for (j in 1:ndat[k]) { sample[j] <- cdat[j+low] }
+tm1 <- trigonometric.moment(sample, p=1) ; tbar <- tm1$mu
+dvalk <- abs(sin(sample-tbar))
+dval <- c(dval, dvalk)
+}
+dval <- dval[-1]
+return(dval)
+}
+
+FgVal <- function(dvals, ndat, g) {
+N <- length(dvals) ; ndatcsum <- cumsum(ndat) 
+sum1 <- 0 ; sum2 <- 0 ; dk <- 0 ; dbar <- 0 ; gdbar <- 0 
+for (k in 1:g) {
+sample <- circular(0) 
+if (k==1) {low <- 0} else
+if (k > 1) {low <- ndatcsum[k-1]}
+for (j in 1:ndat[k]) { dk[j] <- dvals[j+low] }
+dbar[k] <- sum(dk)/ndat[k]
+sum2 <- sum2 + sum((dk-dbar[k])**2)
+gdbar <- gdbar+ndat[k]*dbar[k]
+}
+gdbar <- gdbar/N
+for (k in 1:g) { sum1 <- sum1 + ndat[k]*(dbar[k]-gdbar)**2 }
+Fg <- (N-g)*sum1/((g-1)*sum2)
+return(Fg)
+}
+
+cdat1 <- circular(fisherB10$set1*2*pi/360)
+cdat2 <- circular(fisherB10$set2*2*pi/360)
+cdat3 <- circular(fisherB10$set3*2*pi/360)
+
+cdat <- c(cdat1, cdat2, cdat3) 
+n1 <- length(cdat1) ; n2 <- length(cdat2) ; n3 <- length(cdat3) ; N <- n1+n2+n3
+ndat <- c(n1, n2, n3) ; g <- 3
+dvals <- dValues(cdat, ndat, g)
+FgObs <- FgVal(dvals, ndat, g) ; pf(FgObs, g-1, N-g, lower.tail=F)
+
+B <- 9999 ; pval <- vMGoFBoot(cdat1, B) ; pval
+pval <- vMGoFBoot(cdat2, B) ; pval
+pval <- vMGoFBoot(cdat3, B) ; pval
+
+################################################################################
+# Randomization version of Fisher's test for a common concentration
+################################################################################
+
+FgTestRand <- function(dvals, ndat, g, NR) {
+FgObs <- FgVal(dvals, ndat, g) ; nxtrm <- 1
+for (r in 1:NR) {
+randdvals <- sample(dvals)
+FgRand <- FgVal(randdvals, ndat, g)
+if (FgRand >= FgObs) {nxtrm <- nxtrm+1}
+}
+pval <- nxtrm/(NR+1) ; return(pval)
+}
+
+NR <- 9999 ; FgTestRand(dvals, ndat, g, NR)
+
+
+################################################################################
+# Large-sample Mardia-Watson-Wheeler test for a common distribution
+################################################################################
+
+CosSinUniScores <- function(cdat) {
+N <- length(cdat)
+ranks <- rank(cdat, ties.method="random")
+CosUniScores <- cos(ranks*2*pi/N)
+SinUniScores <- sin(ranks*2*pi/N)
+return(list(CosUniScores, SinUniScores))
+}
+
+WgVal <- function(CSUScores, ndat, g) {
+CosUScores <- CSUScores[[1]] ; SinUScores <- CSUScores[[2]]
+N <- length(CosUScores) ; ndatcsum <- cumsum(ndat)
+Wg <- 0
+for (k in 1:g) {
+CosUScoresk <- 0 ; SinUScoresk <- 0
+if (k==1) {low <- 0} else
+if (k > 1) {low <- ndatcsum[k-1]}
+for (j in 1:ndat[k]) { 
+CosUScoresk[j] <- CosUScores[j+low] ; SinUScoresk[j] <- SinUScores[j+low] }
+sumCkSq <- (sum(CosUScoresk))**2 ; sumSkSq <- (sum(SinUScoresk))**2
+Wg <- Wg+(sumCkSq+sumSkSq)/ndat[k]
+}
+Wg <- 2*Wg ; return(Wg)
+}
+
+cdat1 <- circular(fisherB10$set1*2*pi/360)
+cdat2 <- circular(fisherB10$set2*2*pi/360)
+cdat3 <- circular(fisherB10$set3*2*pi/360)
+
+cdat <- c(cdat1, cdat2, cdat3) 
+n1 <- length(cdat1) ; n2 <- length(cdat2) ; n3 <- length(cdat3) 
+ndat <- c(n1, n2, n3) ; g <- 3
+CSUScores <- CosSinUniScores(cdat)
+WgObs <- WgVal(CSUScores, ndat, g) ; pchisq(WgObs, 2*(g-1), lower.tail=F)
+
+################################################################################
+# Randomization version of Mardia-Watson-Wheeler test for a common distribution
+################################################################################
+
+WgTestRand <- function(CSUScores, ndat, g, NR) {
+CosUScores <- CSUScores[[1]] ; SinUScores <- CSUScores[[2]]
+N <- length(CosUScores) ; ndatcsum <- cumsum(ndat)
+WgObs <- WgVal(CSUScores, ndat, g) ; nxtrm <- 1
+ind <- seq(1, N)
+for (r in 1:NR) {
+CosUScoresRand <- 0 ; SinUScoresRand <- 0
+randind <- sample(ind)
+for (k in 1:g) {
+CosUScoresk <- 0 ; SinUScoresk <- 0 
+if (k==1) {low <- 0} else
+if (k > 1) {low <- ndatcsum[k-1]}
+for (j in 1:ndat[k]) { 
+CosUScoresk[j] <- CosUScores[randind[j+low]] 
+SinUScoresk[j] <- SinUScores[randind[j+low]] 
+}
+CosUScoresRand <- c(CosUScoresRand, CosUScoresk)
+SinUScoresRand <- c(SinUScoresRand, SinUScoresk)
+}
+CosUScoresRand <- CosUScoresRand[-1] ; SinUScoresRand <- SinUScoresRand[-1]
+CSUScoresRand <- list(CosUScoresRand, SinUScoresRand)
+WgRand <-  WgVal(CSUScoresRand, ndat, g)
+if (WgRand >= WgObs) { nxtrm <- nxtrm+1 }
+}
+pval <- nxtrm/(NR+1) ; return(pval)
+}
+
+NR <- 9999 ; WgTestRand(CSUScores, ndat, g, NR)
+
+################################################################################
+# Watson's test for a common distribution (two samples)
+################################################################################
+
+watson.two.test(cdat1, cdat3)
+
+################################################################################
+# Randomization version of Watson's test for a common distribution (two samples)
+################################################################################
+
+WatsonU2TestRand <- function(cdat1, cdat2, NR){
+U2Obs <- watson.two.test(cdat1, cdat2)$statistic ; nxtrm <- 1
+n1 <- length(cdat1); n2 <- length(cdat2); N <- n1+n2
+combsample <- c(cdat1, cdat2)
+for (r in 1:NR) {
+randsamp <- sample(combsample)
+randsamp1 <- randsamp[1:n1]; randsamp2 <- randsamp[(n1+1):N]
+U2Rand <- watson.two.test(randsamp1, randsamp2)$statistic
+if (U2Rand >= U2Obs) { nxtrm <- nxtrm+1 }
+}
+pval <- nxtrm/(NR+1) ; return(c(U2Obs, pval))
+}
+
+NR <- 9999 ; WatsonU2TestRand(cdat1, cdat3, NR)
+
+################################################################################
+# Moore's test for a common distribution for paired samples
+################################################################################
+
+ldat1 <- c(105,120,135,95,155,170,160,155,120,115)
+ldat2 <- c(205,210,235,245,260,255,240,245,210,200)
+plot(ldat1, ldat2, xlim=c(0,360), ylim=c(0,360), pch=16, xlab="Morning orientation (in degrees)", ylab="Afternoon orientation (in degrees)")
+xlim <- c(0, 360) ; ylim <- c(0,360)
+lines(xlim, ylim, lty=2, lwd=2)
+
+cdat1d <- circular(ldat1, units="degrees", zero=pi/2, rotation="clock") 
+cdat2d <- circular(ldat2, units="degrees", zero=pi/2, rotation="clock")
+plot(cdat1d, pch=16, cex=1.5, shrink=0.9, stack=T, sep=0.037, bins=360)
+ticks.circular(circular(seq(0,(15/8)*pi,pi/8)), tcl=0.075)
+points(cdat2d, pch=16, cex=1.5, stack=T, sep=0.037, bins=360, col="darkgrey")
+
+ldat1 <- ldat1*2*pi/360 ; ldat2 <- ldat2*2*pi/360
+
+MooreRStats <- function(ldat1, ldat2) { 
+x <- cos(ldat1)-cos(ldat2); y <- sin(ldat1)-sin(ldat2)
+r <- sqrt((x*x)+(y*y)) ; Ranks <- rank(r)
+cosphi <- x/r; sinphi <- y/r 
+return(list(cosphi, sinphi, Ranks))
+}
+
+RoostingStats <- MooreRStats(ldat1, ldat2)
+cosphi <- RoostingStats[[1]] ; sinphi <- RoostingStats[[2]] ; Ranks <- RoostingStats[[3]]
+
+MooreRTestStat <- function(cosphi, sinphi, Ranks){ 
+n <- length(cosphi)
+RbarC <- (1/n)*sum(Ranks*cosphi); RbarS <- (1/n)*sum(Ranks*sinphi)
+Rval <- sqrt(((RbarC*RbarC)+(RbarS*RbarS))/n) ; return(Rval)
+}
+
+MooreRTestRand <- function(cosphi, sinphi, Ranks, NR) {
+RObs <- MooreRTestStat(cosphi, sinphi, Ranks) ; nxtrm <- 1
+n <- length(cosphi)
+for (r in 1:NR) {
+cosphirand <- 0 ; sinphirand <- 0
+for (j in 1:n) {
+if (runif(1) < 0.5) {
+cosphirand[j] <- cosphi[j] ; sinphirand[j] <- sinphi[j] }
+else {
+cosphirand[j] <- -cosphi[j] ; sinphirand[j] <- -sinphi[j] } }
+RRand <- MooreRTestStat(cosphirand, sinphirand, Ranks)
+if (RRand >= RObs) { nxtrm <- nxtrm+1 }
+}
+pval <- nxtrm/(NR+1) ; return(c(RObs, pval))
+}
+
+NR <- 9999 ; MooreRTestRand(cosphi, sinphi, Ranks, NR)

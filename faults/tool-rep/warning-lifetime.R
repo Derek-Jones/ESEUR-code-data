@@ -1,5 +1,5 @@
 #
-# warning-lifetime.R,  5 May 14
+# warning-lifetime.R, 15 Jul 16
 #
 # Data from:
 # The Life and Death of Statically Detected Vulnerabilities: an Empirical Study
@@ -15,8 +15,8 @@ source("ESEUR_config.r")
 library("survival")
 
 
+plot_layout(2, 1)
 pal_col=rainbow(2)
-plot_layout(1, 2)
 
 
 get_prog_hist=function(prog_str)

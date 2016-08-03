@@ -1,5 +1,5 @@
 #
-# 10K_inputs.R 22 Dec 15
+# 10K_inputs.R 15 Jul 16
 #
 # Data from:
 # An Experiment in Software Reliability
@@ -12,7 +12,7 @@
 source("ESEUR_config.r")
 
 
-plot_layout(1, 2)
+plot_layout(2, 1)
 MAX_BREW=8
 
 brew_col=rainbow(MAX_BREW)

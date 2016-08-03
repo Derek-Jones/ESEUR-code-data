@@ -1,5 +1,5 @@
 #
-# func-mod-interval.R, 26 Dec 15
+# func-mod-interval.R, 15 Jul 16
 #
 # Data from:
 # Modification and developer metrics at the function level: Metrics for the study of the evolution of a software project
@@ -27,7 +27,7 @@ funcs$prevdate=revdate$date_time[funcs$revprev]
 time_between=funcs$revdate-funcs$prevdate
 
 q=density(as.numeric(time_between)/(60*60), adjust=0.5, na.rm=TRUE)
-plot(q, log="y",
+plot(q, log="y", col=point_col,
 	main="",
 	xlab="Hours", ylab="Modification density\n",
 	xlim=c(2, 20000), ylim=c(1e-8,1e-2))

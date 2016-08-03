@@ -1,5 +1,5 @@
 #
-# slash_mixture.R, 14 Dec 15
+# slash_mixture.R, 15 Jul 16
 #
 # Data from:
 # Homogeneous temporal activity patterns in a large online communication space
@@ -14,7 +14,7 @@ source("ESEUR_config.r")
 library("rebmix")
 
 
-plot_layout(1, 2)
+plot_layout(2, 1)
 
 slash = read.csv(paste0(ESEUR_dir, "probability/0708.1579v1.fig6.csv.xz"), as.is=TRUE)
 

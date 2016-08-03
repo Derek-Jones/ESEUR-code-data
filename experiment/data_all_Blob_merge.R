@@ -1,5 +1,5 @@
 #
-# data_all_Blob_merge.R, 19 Mar 16
+# data_all_Blob_merge.R, 13 Jul 16
 #
 # Data from:
 #
@@ -9,7 +9,6 @@
 # Example from:
 # Empirical Software Engineering using R
 # Derek M. Jones
-
 
 source("ESEUR_config.r")
 
@@ -31,24 +30,27 @@ blob=read.csv(paste0(ESEUR_dir, "experiment/data_all_Blob_merge.csv.xz"), as.is=
 #library("lmerTest")
 # t=step(blob_mod)
 
-# Cannot used Subject as the random effect...
+# Cannot use Subject as the random effect because all the explanatory
+# variables are categorical and multiply up the number of random effects
+# table(blob$Subject, blob$QTYPE)
 # table(blob$Subject, blob$AP)
 blob_mod=lmer(Time ~ AP+ QTYPE+Java+ (AP | Subject), data=blob)
-# table(blob$Subject, blob$QTYPE)
-blob_mod=lmer(Time ~ AP+ QTYPE+Java+ (QTYPE | Subject), data=blob)
+
+# blob_mod=lmer(Time ~ AP+ QTYPE+Java+ (1 | Subject), data=blob)
+blob_mod=lmer(Time ~ AP+ (1 | Subject), data=blob)
 
 summary(blob_mod)
 
 Anova(blob_mod)
 
-# Only AP is significant TODO probit because answer is bounded???
+# Only AP is significant TODO probit because answer is ordinal???
 # blob_mod=lmer(Answer ~ AP+ (AP | Subject), data=blob)
 
 
 SC=read.csv(paste0(ESEUR_dir, "experiment/data_all_SC_merge.csv.xz"), as.is=TRUE)
 
 
-SC_mod=lmer(Time ~ AP+ (AP | Subject), data=SC)
+SC_mod=lmer(Time ~ AP+ (1 | Subject), data=SC)
 summary(SC_mod)
 
 Anova(blob_mod)

@@ -1,7 +1,9 @@
 #
-# herraiz-projects.R,  8 Sep 14
+# herraiz-projects.R, 15 Jul 16
 #
 # Data from:
+# A statistical examination of the properties and evolution of libre software
+# Israel Herraiz Tabernero
 #
 # Example from:
 # Empirical Software Engineering using R
@@ -11,7 +13,7 @@
 source("ESEUR_config.r")
 
 
-plot_layout(1, 2)
+plot_layout(2, 1)
 
 proj_inf=read.csv(paste0(ESEUR_dir, "communicating/herraiz-projects.tsv.xz"),
 			as.is=TRUE, sep="\t")

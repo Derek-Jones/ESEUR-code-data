@@ -1,5 +1,5 @@
 #
-# power-trade-off.R,  6 Jan 16
+# power-trade-off.R, 15 Jul 16
 #
 #
 # Example from:
@@ -9,9 +9,7 @@
 source("ESEUR_config.r")
 
 
-brew_col=rainbow_hcl(3)
-
-plot_layout(1, 2)
+plot_layout(2, 1)
 par(mar=c(5, 1, 4, 1)+0.1)
 
 pal_col=rainbow(3)

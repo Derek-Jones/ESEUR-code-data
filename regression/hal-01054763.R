@@ -1,5 +1,5 @@
 #
-# hal-01054763.R,  5 Apr 16
+# hal-01054763.R, 11 Jul 16
 #
 # Data from:
 #
@@ -34,9 +34,9 @@ opt_mod=glm(value ~ year+variable, data=gcc_all_opts)
 pred_vals=predict(opt_mod)
 
 opt_pred=pred_vals[gcc_all_opts$variable == "opt_flags"]
-lines(gcc_12$year, opt_pred)
+lines(gcc_12$year, opt_pred, col=pal_col[1])
  
 param_pred=pred_vals[gcc_all_opts$variable != "opt_flags"]
-lines(gcc_12$year, param_pred)
+lines(gcc_12$year, param_pred, col=pal_col[2])
  
  

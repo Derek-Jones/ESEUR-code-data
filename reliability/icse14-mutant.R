@@ -4,7 +4,6 @@
 # Data from:
 # Code Coverage for Suite Evaluation by Developers
 # Rahul Gopinath and Carlos Jensen and Alex Groce
-# http://dx.doi.org/10.7910/DVN/24574
 #
 # Example from:
 # Empirical Software Engineering using R

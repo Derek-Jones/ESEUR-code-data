@@ -1,8 +1,9 @@
 #
-# ICSE2014-docs.R, 17 Dec 15
+# ICSE2014-docs.R, 25 Jul 16
 #
 # Data from:
 # How Do API Documentation and Static Typing Affect API Usability?
+# Stefan Endrikat and Stefan Hanenberg and Romain Robbes and Andreas Stefik
 #
 # Example from:
 # Empirical Software Engineering using R
@@ -12,13 +13,14 @@
 source("ESEUR_config.r")
 
 
-
 # CT,DRT,DS,FS,DT,Group,Subject
 devtime=read.csv(paste0(ESEUR_dir, "developers/misc/ICSE2014-docs.csv.xz"), as.is=TRUE)
 
 devtime$Subject=as.factor(devtime$Subject)
 devtime$have_doc=(devtime$DS != 0)
 devtime$static_type=(devtime$Group == 1) | (devtime$Group == 2)
+
+plot(devtime)
 
 d_mod=glm(CT ~ have_doc+static_type,
 			data=devtime)

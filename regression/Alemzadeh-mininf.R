@@ -1,5 +1,5 @@
 #
-# Alemzadeh-mininf.R, 19 Dec 15
+# Alemzadeh-mininf.R, 16 Jul 16
 #
 # Data from:
 # Analysis of safety-critical computer failures in medical devices
@@ -12,9 +12,9 @@
 source("ESEUR_config.r")
 
 
+plot_layout(2, 1)
 brew_col=rainbow(3)
 
-plot_layout(1, 2)
 
 # Recall_Number,Date,Year,Trade_Name,Recalling_Firm,Recall_Class,Reason_Recall,Action
 comp_recalls=read.csv(paste0(ESEUR_dir, "regression/Alemzadeh-Computer_Related_Recalls.csv.xz"), as.is=TRUE)

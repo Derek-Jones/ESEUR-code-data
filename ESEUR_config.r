@@ -1,5 +1,5 @@
 #
-# ESEUR-config.r, 17 Mar 16
+# ESEUR-config.r, 24 Jul 16
 
 # Assume the current directory unless told otherwise
 ESEUR_dir=paste0(getwd(), "/")
@@ -22,10 +22,11 @@ par(pch=point_pch)
 par(tcl=-0.2)
 par(xaxs="r")
 par(yaxs="r")
-ESEUR_global_cex=0.5
+ESEUR_global_cex=0.55
 par(cex=ESEUR_global_cex)
-par(cex.axis=0.7/ESEUR_global_cex)
-par(cex.lab=0.8/ESEUR_global_cex)
+par(cex.axis=0.67/ESEUR_global_cex)
+par(cex.lab=0.7/ESEUR_global_cex)
+ESEUR_legend_cex=1.2
 
 #
 # Do we want plotting clipped at the figure region?
@@ -53,10 +54,21 @@ if (num_across > 1)
       {
       layout(matrix(1:(num_down*num_across), nrow=2), widths=rep(ESEUR_max_width/num_across, num_across), heights=rep(ESEUR_max_height/2, 2), TRUE)
       }
+   else
+      {
+      layout(matrix(1:(num_down*num_across), nrow=num_down), widths=rep(ESEUR_max_width/num_across, num_across), heights=rep(ESEUR_max_height/num_down, num_down), TRUE)
+      }
    }
 else if (num_down != 1)
    {
-   layout(matrix(1:num_down, nrow=num_down), widths=ESEUR_max_width/1.5, heights=rep(ESEUR_max_height/num_down, num_down), TRUE)
+   if (num_across > 1)
+      {
+      layout(matrix(1:num_down, nrow=num_down), widths=ESEUR_max_width/1.5, heights=rep(ESEUR_max_height/num_down, num_down), TRUE)
+      }
+   else
+      {
+      layout(matrix(1:num_down, nrow=num_down), widths=ESEUR_default_width, heights=rep(ESEUR_max_height/num_down, num_down), TRUE)
+      }
    }
 else
    par(fin=c(3.0, 3.0))
@@ -66,7 +78,7 @@ ESEUP_set_par()
 
 plot_wide=function()
 {
-layout(matrix(1:1, nrow=1), widths=ESEUR_default_width*1.4, heights=ESEUR_default_height, TRUE)
+layout(matrix(1:1, nrow=1), widths=ESEUR_default_width*1.3, heights=ESEUR_default_height*0.8, TRUE)
 ESEUP_set_par()
 }
 

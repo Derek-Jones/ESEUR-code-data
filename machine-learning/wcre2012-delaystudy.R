@@ -1,5 +1,5 @@
 #
-# wcre2012-delaystudy.R,  1 Jun 15
+# wcre2012-delaystudy.R, 10 Jun 16
 #
 # Data from:
 # An empirical study of factors impacting bug fixing time
@@ -29,16 +29,26 @@ delays=subset(delays, (delayFromReport > 0) &
 			(delayBeforeChange > 0) &
 			(delayAfterChange > 0))
 
-pairs(delays)
+pairs(delays, col=point_col)
 
 ldelays=log(delays)
-pairs(ldelays)
+pairs(ldelays, col=point_col)
 
 l_moda=glm(delayBeforeChange ~ .-delayAfterChange, data=delays)
 summary(l_moda, correlation=TRUE)
 
 l_modb=update(l_moda, .~. -delayOfResponse)
 summary(l_modb)
+
+library("penalized")
+
+pen_mod=penalized(delayBeforeChange ~ .-delayAfterChange,
+			data=delays,
+			steps=50,
+			lambda1=1.0)
+plotpath(pen_mod)
+coefficients(pen_mod)
+
 
 # l_modc=update(l_modb, .~. -delayFromReport)
 # summary(l_modc)
@@ -51,6 +61,6 @@ pairs( ~ log(delayAfterChange)+hourOfDayStartFix+dayOfWeekStartFix, data=delays)
 
 library("rpart")
 
-delays=subset(buglist, (fixtime > 0))
+delays=subset(buglist, (fixTime > 0))
 dt_mod=rpart(delayAfterChange ~ ., data=delays)
 

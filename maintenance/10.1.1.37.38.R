@@ -1,5 +1,5 @@
 #
-# 10.1.1.37.38.R, 11 May 15
+# 10.1.1.37.38.R, 10 Jun 16
 #
 # Data from:
 #
@@ -19,7 +19,9 @@ maint$TASK.ID=NULL
 maint$UNEXPEC=as.factor(maint$UNEXPEC)
 maint$CONFIDENCE=as.factor(maint$CONFIDENCE)
 
-pairs(~LOC+MEXPTOT+MEXPAPP, data=maint)
+pairs(~LOC+MEXPTOT+MEXPAPP, col=point_col,
+		cex.labels=1.3, cex.axis=1.2,
+		data=maint)
 
 # table(maint$UNEXPEC)
 unexpect_mod=glm(UNEXPEC ~ ., data=maint, family="binomial")

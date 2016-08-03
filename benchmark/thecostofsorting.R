@@ -15,7 +15,7 @@ source("ESEUR_config.r")
 library("plyr")
 
 
-plot_layout(1, 3)
+plot_layout(3, 1)
 
 
 plot_alg=function(df)

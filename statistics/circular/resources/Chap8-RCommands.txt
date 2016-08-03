@@ -1,0 +1,609 @@
+
+
+
+############################################################################
+# Plot of seastar data 
+############################################################################
+
+star1 <- c(335.8, 91.2,339.1,318.8, 8.6, 7.0, 355.9, 4.6, 346.5, 325.0)
+star2 <- c(6.8,345.5,51.2,359.3,1.7,333.9,320.6,334.4,329.9,318.8)
+
+par(mai=c(0.9, 0.9, 0.05, 0.05))
+
+plot(star1,star2,
+	xlab = "Direction of sea star 1 (in degrees)",
+	ylab = "Direction of sea star 2 (in degrees)",
+	ylim = c(0,360),
+	xlim = c(0,360),
+	xaxp = c(0,360,4),
+	yaxp = c(0,360,4),
+        cex.axis = 1.3,
+        cex.lab = 1.4,
+        pch = 16, cex=1.5)
+
+n <- length(star1)
+for (j in 1:n) {
+if (star1[j] > 180) {star1[j] <- star1[j] - 360}
+if (star2[j] > 180) {star2[j] <- star2[j] - 360}
+}
+
+plot(star1,star2,
+	xlab = "Direction of sea star 1 (in degrees)",
+	ylab = "Direction of sea star 2 (in degrees)",
+	ylim = c(-180, 180),
+	xlim = c(-180, 180),
+	xaxp = c(-180, 180, 4),
+	yaxp = c(-180, 180, 4),
+        cex.axis = 1.3,
+        cex.lab = 1.4,
+        pch = 16, cex=1.5)
+
+##############################################################################
+# Fisher-Lee correlation coefficient for rotational dependence
+# Example: seastar data 
+##############################################################################
+
+rFLCorrCoeff <- function(lcdat1, lcdat2) {
+A <- sum(cos(lcdat1)*cos(lcdat2)) ;  B <- sum(sin(lcdat1)*sin(lcdat2))
+C <- sum(cos(lcdat1)*sin(lcdat2)) ;  D <- sum(sin(lcdat1)*cos(lcdat2))
+E <- sum(cos(2*lcdat1)) ; F <- sum(sin(2*lcdat1))
+G <- sum(cos(2*lcdat2)) ; H <- sum(sin(2*lcdat2))
+n <- length(lcdat1) ; denom <- sqrt(((n*n)-(E*E)-(F*F))*((n*n)-(G*G)-(H*H)))
+rFL <- 4*((A*B)-(C*D))/denom ; return(rFL)
+}
+
+rFLIndTestRand <- function(lcdat1, lcdat2, NR) {
+rFLObs <- rFLCorrCoeff(lcdat1, lcdat2) ; nxtrm <- 1
+for (r in 1:NR) {
+lcdat1Rand <- sample(lcdat1) ; rFLRand <- rFLCorrCoeff(lcdat1Rand, lcdat2)
+if (abs(rFLRand) >= abs(rFLObs)) { nxtrm <- nxtrm + 1} }
+pval <- nxtrm/(NR+1) ; return(c(rFLObs, pval))
+}
+
+star1deg <- c(335.8,91.2,339.1,318.8,8.6,7.0,355.9,4.6,346.5,325.0)
+star2deg <- c(6.8,345.5,51.2,359.3,1.7,333.9,320.6,334.4,329.9,318.8)
+star1rad <- star1deg*2*pi/360 ;  star2rad <- star2deg*2*pi/360
+rFLIndTestRand(star1rad, star2rad, 9999)
+
+
+##############################################################################
+# Bootstrap confidence interval for rho_FL
+# Example: sea star data 
+##############################################################################
+
+rhoFLCIBoot <- function(lcdat1, lcdat2, ConfLevel, B) {
+alpha <- (100-ConfLevel)/100 ; n <- length(lcdat1) ; rFL <- 0 
+for (b in 1:B) {
+randind <- sample(1:n, n, replace=T) 
+boot1 <- lcdat1[randind] ; boot2 <- lcdat2[randind] 
+rFL[b] <- rFLCorrCoeff(boot1, boot2) }
+rFL[B+1] <-  rFLCorrCoeff(lcdat1, lcdat2) ; rFLsort <- sort(rFL) 
+return (c(rFLsort[(alpha/2)*(B+1)], rFLsort[(1-alpha/2)*(B+1)]))
+}
+
+rhoFLCIBoot(star1rad, star2rad, 95, 9999)
+
+##############################################################################
+# Jammalamadaka--Sarma correlation coefficient 
+# Examples: Roosting orientations of birds and sea star data
+##############################################################################
+
+JSTestRand <- function(cdat1, cdat2, NR) {
+CorrJSObs <- cor.circular(cdat1, cdat2) ; nxtrm <- 1
+for (r in 1:NR) {
+cdat1Rand <- sample(cdat1) ; CorrJSRand <- cor.circular(cdat1Rand, cdat2)
+if (abs(CorrJSRand) >= abs(CorrJSObs)) { nxtrm <- nxtrm + 1} }
+pval <- nxtrm/(NR+1) ; return(c(CorrJSObs, pval))
+}
+
+lmorn <- c(105,120,135,95,155,170,160,155,120,115)
+laft <- c(205,210,235,245,260,255,240,245,210,200)
+cmorn <- circular(lmorn*2*pi/360) ; caft <- circular(laft*2*pi/360)
+JSCorrRes <- cor.circular(cmorn, caft, test=T)
+JSTestRand(cmorn, caft, 9999)
+
+star1deg <- c(335.8,91.2,339.1,318.8,8.6,7.0,355.9,4.6,346.5,325.0)
+star2deg <- c(6.8,345.5,51.2,359.3,1.7,333.9,320.6,334.4,329.9,318.8)
+star1rad <- star1deg*2*pi/360 ;  star2rad <- star2deg*2*pi/360
+cstar1rad <- circular(star1rad) ; cstar2rad <- circular(star2rad)
+JSCorrRes <- cor.circular(cstar1rad, cstar2rad, test=T)
+JSTestRand(cstar1rad, cstar2rad, 9999)
+
+##############################################################################
+# Randomization version of Rothman's test for indpendence 
+# Example: sea star data
+##############################################################################
+
+Ranks <- function(lcdat1, lcdat2) {
+rank1 <- rank(lcdat1, ties.method="random"); rank2 <- rank(lcdat2, ties.method="random")
+return(list(rank1, rank2))
+}
+
+RothmanAn <- function(rank1, rank2) {
+n <- length(rank1) ; AnVal <- 0
+for (j in 1:n) {
+for (k in 1:n) {
+Tjj <- n*min(rank1[j],rank2[j])-(rank1[j]*rank2[j]) 
+Tkk <- n*min(rank1[k],rank2[k])-(rank1[k]*rank2[k]) 
+Tjk <- n*min(rank1[j],rank2[k])-(rank1[j]*rank2[k]) 
+Tkj <- n*min(rank1[k],rank2[j])-(rank1[k]*rank2[j])
+AnVal <- AnVal+(Tjj+Tkk-Tjk-Tkj)**2}}
+AnVal <- AnVal/(n**4); return(AnVal)
+}
+
+RothmanAnTestRand <- function (rank1, rank2, NR) {
+AnObs <- RothmanAn(rank1, rank2) ; nxtrm <- 1
+for (r in 1:NR) {
+randrank1 <- sample(rank1)
+AnRand <- RothmanAn(randrank1, rank2)
+if (AnRand >= AnObs) { nxtrm <- nxtrm + 1 } }
+pval <- nxtrm/(NR+1) ; return(c(AnObs, pval))
+}
+
+SeaStarRanks <- Ranks(star1rad, star2rad)
+rank1 <- SeaStarRanks[[1]] ; rank2 <- SeaStarRanks[[2]]
+RothmanAnTestRand(rank1, rank2, 9999)
+
+##############################################################################
+# Plotting ozone level against wind direction
+##############################################################################
+
+ozone <- c(28.0,85.2,80.5,4.7,45.9,12.7,72.5,56.6,31.5,112.0,20.0,72.5,16.0,45.9,32.6,56.6,52.6,91.8,55.2)
+winddeg <- c(327,91,88,305,344,270,67,21,281,8,204,86,333,18,57,6,11,27,84)
+
+par(mai=c(0.9, 0.9, 0.05, 0.05))
+
+plot(winddeg,ozone,
+	ylab = "Ozone level",
+	xlab = "Wind direction (in degrees)",
+	ylim = c(0,120),
+	xlim = c(0,360),
+	xaxp = c(0,360,4),
+	yaxp = c(0,120,6),
+        cex.axis = 1.3,
+        cex.lab = 1.6,
+        pch = 16, cex=1.5)
+
+n <- length(ozone)
+for (j in 1:n) { if (winddeg[j] > 180) {winddeg[j] <- winddeg[j]-360} }
+
+plot(winddeg,ozone,
+	ylab = "Ozone level",
+	xlab = "Wind direction (in degrees)",
+	ylim = c(0,120),
+	xlim = c(-180,180),
+	xaxp = c(-180,180,4),
+	yaxp = c(0,120,6),
+        cex.axis = 1.3,
+        cex.lab = 1.6,
+        pch = 16, cex=1.5)
+
+##############################################################################
+# Randomisation test for circular-linear independence
+# Example: ozone data
+##############################################################################
+
+R2xtCorrCoeff <- function(lvar, cvar) {
+rxc <- cor(lvar, cos(cvar)) ; rxs <- cor(lvar, sin(cvar))
+rcs <- cor(cos(cvar), sin(cvar))
+R2xtVal <- ((rxc*rxc)+(rxs*rxs)-(2*rxc*rxs*rcs))/(1-rcs*rcs)
+return(R2xtVal)
+}
+
+R2xtIndTestRand <- function(lvar, cvar, NR) {
+R2xtObs <- R2xtCorrCoeff(lvar, cvar) ; nxtrm <- 1
+for (r in 1:NR) {
+lvarRand <- sample(lvar)
+R2xtRand <- R2xtCorrCoeff(lvarRand,cvar)
+if (R2xtRand >= R2xtObs) {nxtrm <- nxtrm+1} }
+pval <- nxtrm/(NR+1) ; return(c(R2xtObs, pval))
+}
+
+ozone <- c(28.0,85.2,80.5,4.7,45.9,12.7,72.5,56.6,31.5,112.0,20.0,72.5,16.0,45.9,32.6,56.6,52.6,91.8,55.2)
+winddeg <- c(327,91,88,305,344,270,67,21,281,8,204,86,333,18,57,6,11,27,84)
+windrad <- winddeg*2*pi/360
+R2xtIndTestRand(ozone, windrad, 9999)
+
+##############################################################################
+# Randomization version of Mardia's rank correlation coefficient based test for
+# circular-linear independence.
+# Example: ozone data
+##############################################################################
+
+OrderScores <- function(lvar, cvar) {
+ranklvar <- rank(lvar, ties.method="random")
+n <- length(cvar) ; cvar2 <- 0
+for (j in 1:n) { cvar2[ranklvar[j]] <- cvar[j] }
+rankcvar <- rank(cvar2, ties.method="random")
+uscores <- rankcvar*2*pi/n ; return(uscores)
+}
+
+Ustar <- function(uniscores) {
+n <- length(uniscores) ; Tc <- 0 ; Ts <- 0
+for (j in 1:n) {
+Tc <- Tc+j*cos(uniscores[j]) ; Ts <- Ts+j*sin(uniscores[j]) }
+UstarVal <- (Ts*Ts)+(Tc*Tc) ; return(UstarVal)
+}
+
+MardiaRankIndTestRand <- function(uniscores, NR) {
+UstarObs <- Ustar(uniscores) ; nxtrm <- 1 
+for (r in 1:NR) {
+uniscoresRand <- sample(uniscores) ; UstarRand <- Ustar(uniscoresRand)
+if (UstarRand >= UstarObs) { nxtrm <- nxtrm + 1 } }
+pval <- nxtrm/(NR+1) ; return(c(UstarObs, pval))
+}
+
+ozone <- c(28.0,85.2,80.5,4.7,45.9,12.7,72.5,56.6,31.5,112.0,20.0,72.5,16.0,45.9,32.6,56.6,52.6,91.8,55.2)
+winddeg <- c(327,91,88,305,344,270,67,21,281,8,204,86,333,18,57,6,11,27,84)
+windrad <- winddeg*2*pi/360
+
+uniscores <- OrderScores(ozone, windrad)
+MardiaRankIndTestRand(uniscores, 9999) 
+
+##############################################################################
+# Scatterplot for monthly lung disease mortality data
+##############################################################################
+
+lung74 <- c(3035,2552,2704,2554,2014,1655,1721,1524,1596,2074,2199,2512)
+lung75 <- c(2933,2889,2938,2497,1870,1726,1607,1545,1396,1787,2076,2837)
+lung76 <- c(2787,3891,3179,2011,1636,1580,1489,1300,1356,1653,2013,2823)
+lung77 <- c(2996,2523,2540,2520,1994,1641,1691,1479,1696,1877,2032,2484)
+lung78 <- c(2899,2990,2890,2379,1933,1734,1617,1495,1440,1777,1970,2745)
+lung79 <- c(2841,3535,3010,2091,1667,1589,1518,1349,1392,1619,1954,2633)
+alllung <- c(lung74,lung75,lung76,lung77,lung78,lung79)
+month <- rep(seq(1,12), 6)
+
+par(mai=c(0.9, 0.9, 0.05, 0.05))
+plot(month,alllung, xlab = "Month",
+	ylab = "Monthly number of lung disease deaths",
+	ylim = c(1000,4000),
+	xlim = c(1,12),
+	xaxp = c(0,12,12),
+	yaxp = c(1000,4000,3),
+        cex.axis = 1.2,
+        cex.lab = 1.4,
+        pch = 16, cex = 1.2)
+
+cmonth <- month*2*pi/12 ; R2xtCorrCoeff(alllung, cmonth)
+
+##############################################################################
+# Cosine regression for a linear response and a circular predictor variable 
+# Example: monthly lung disease death data
+##############################################################################
+
+lung74 <- c(3035,2552,2704,2554,2014,1655,1721,1524,1596,2074,2199,2512)
+lung75 <- c(2933,2889,2938,2497,1870,1726,1607,1545,1396,1787,2076,2837)
+lung76 <- c(2787,3891,3179,2011,1636,1580,1489,1300,1356,1653,2013,2823)
+lung77 <- c(2996,2523,2540,2520,1994,1641,1691,1479,1696,1877,2032,2484)
+lung78 <- c(2899,2990,2890,2379,1933,1734,1617,1495,1440,1777,1970,2745)
+lung79 <- c(2841,3535,3010,2091,1667,1589,1518,1349,1392,1619,1954,2633)
+alllung <- c(lung74,lung75,lung76,lung77,lung78,lung79)
+month <- rep(seq(1,12), 6) ; omega <- pi/6
+cosmonth <- cos(omega*month) ; sinmonth <- sin(omega*month)
+
+lung.lmod <- lm(alllung ~ cosmonth+sinmonth)
+
+par(mai=c(0.9, 0.9, 0.05, 0.05))
+
+plot(month,alllung, xlab = "Month",
+	ylab = "Monthly number of lung disease deaths",
+	ylim = c(1000,4000),
+	xlim = c(1,12),
+	xaxp = c(0,12,12),
+	yaxp = c(1000,4000,3),
+        cex.axis = 1.2,
+        cex.lab = 1.4,
+        pch = 16, cex = 1.2,
+        lines(predict(lung.lmod), lwd = 2))
+
+install.packages(MASS) ; library(MASS)
+lung.pred <- fitted(lung.lmod) ; lung.sres <- studres(lung.lmod)
+
+plot(lung.pred, lung.sres, xlab = "Predicted value",
+	ylab = "Studentized residual",
+	cex.axis = 1.2,
+        cex.lab = 1.4,
+        pch = 16, cex = 1.2)
+
+shapiro.test(lung.sres)
+bartlett.test(lung.sres, month)
+fligner.test(lung.sres, month)
+
+##############################################################################
+# With outliers for February 1976 and 1979 removed
+##############################################################################
+
+lung74 <- c(3035,2552,2704,2554,2014,1655,1721,1524,1596,2074,2199,2512)
+lung75 <- c(2933,2889,2938,2497,1870,1726,1607,1545,1396,1787,2076,2837)
+lung76 <- c(2787,3891,3179,2011,1636,1580,1489,1300,1356,1653,2013,2823)
+lung77 <- c(2996,2523,2540,2520,1994,1641,1691,1479,1696,1877,2032,2484)
+lung78 <- c(2899,2990,2890,2379,1933,1734,1617,1495,1440,1777,1970,2745)
+lung79 <- c(2841,3535,3010,2091,1667,1589,1518,1349,1392,1619,1954,2633)
+is.na(lung76) <- c(2) ; is.na(lung79) <- c(2) 
+
+alllung <- c(lung74,lung75,lung76,lung77,lung78,lung79)
+month <- rep(seq(1,12), 6) ; omega <- pi/6
+cosmonth <- cos(omega*month) ; sinmonth <- sin(omega*month)
+
+lung.lmod <- lm(alllung ~ cosmonth+sinmonth)
+
+par(mai=c(0.9, 0.9, 0.05, 0.05))
+plot(month,alllung, xlab = "Month",
+	ylab = "Monthly number of lung disease deaths",
+	ylim = c(1200,3300),
+	xlim = c(1,12),
+	xaxp = c(0,12,12),
+	yaxp = c(1500,3500,4),
+        cex.axis = 1.2,
+        cex.lab = 1.4,
+        pch = 16, cex = 1.2,
+	lines(predict(lung.lmod), lwd = 2))
+
+lung.pred <- fitted(lung.lmod) ; lung.sres <- studres(lung.lmod)
+
+plot(lung.sres, lung.pred, xlab = "Studentized residual",
+	ylab = "Predicted value",
+	cex.axis = 1.2,
+        cex.lab = 1.4,
+        pch = 16, cex = 1.2)
+
+shapiro.test(lung.sres)
+lung.sres2 <- c(lung.sres[1:25], NA, lung.sres[26:60], NA, lung.sres[61:70])
+fligner.test(lung.sres2, month) 
+bartlett.test(lung.sres2, month)
+
+##############################################################################
+# Cosine regression with two terms for a linear response and a circular predictor variable 
+# Example: Monthly lung disease deaths
+##############################################################################
+
+rm(list=ls())	
+
+lung74 <- c(3035,2552,2704,2554,2014,1655,1721,1524,1596,2074,2199,2512)
+lung75 <- c(2933,2889,2938,2497,1870,1726,1607,1545,1396,1787,2076,2837)
+lung76 <- c(2787,3891,3179,2011,1636,1580,1489,1300,1356,1653,2013,2823)
+lung77 <- c(2996,2523,2540,2520,1994,1641,1691,1479,1696,1877,2032,2484)
+lung78 <- c(2899,2990,2890,2379,1933,1734,1617,1495,1440,1777,1970,2745)
+lung79 <- c(2841,3535,3010,2091,1667,1589,1518,1349,1392,1619,1954,2633)
+alllung <- c(lung74,lung75,lung76,lung77,lung78,lung79)
+month <- rep(seq(1,12), 6)
+omega <- pi/6
+
+cosmonth <- cos(omega*month)
+sinmonth <- sin(omega*month)
+cos2month <- cos(2*omega*month)
+sin2month <- sin(2*omega*month)
+lung2a.lmod <- lm(alllung ~ cosmonth+sinmonth+cos2month+sin2month)
+
+plot(month, alllung, xlab = "Month",
+	ylab = "Monthly number of lung disease deaths",
+	ylim = c(1000,4000),
+	xlim = c(1,12),
+	xaxp = c(0,12,12),
+	yaxp = c(1000,4000,3),
+        cex.axis = 1.2,
+        cex.lab = 1.4,
+        pch = 16, cex = 1.2,
+	lines(predict(lung2a.lmod), lwd = 2))
+
+lung2a.pred <- fitted(lung2a.lmod) ; lung2a.sres <- studres(lung2a.lmod)
+
+plot(lung2a.pred, lung2a.sres, xlab = "Predicted value",
+	ylab = "Studentized residual",
+	cex.axis = 1.2,
+        cex.lab = 1.4,
+        pch = 16, cex = 1.2)
+
+shapiro.test(lung2a.sres) ; bartlett.test(lung2a.sres, month) ; fligner.test(lung2a.sres, month)
+
+summary(lung2a.lmod)
+
+##############################################################################
+# With outliers for February 1976 and 1979 replaced by missing values
+##############################################################################
+
+lung74 <- c(3035,2552,2704,2554,2014,1655,1721,1524,1596,2074,2199,2512)
+lung75 <- c(2933,2889,2938,2497,1870,1726,1607,1545,1396,1787,2076,2837)
+lung76 <- c(2787,3891,3179,2011,1636,1580,1489,1300,1356,1653,2013,2823)
+lung77 <- c(2996,2523,2540,2520,1994,1641,1691,1479,1696,1877,2032,2484)
+lung78 <- c(2899,2990,2890,2379,1933,1734,1617,1495,1440,1777,1970,2745)
+lung79 <- c(2841,3535,3010,2091,1667,1589,1518,1349,1392,1619,1954,2633)
+is.na(lung76) <- c(2) ; is.na(lung79) <- c(2) 
+
+alllung <- c(lung74,lung75,lung76,lung77,lung78,lung79)
+month <- rep(seq(1,12), 6) ; omega <- pi/6
+
+cosmonth <- cos(omega*month)
+sinmonth <- sin(omega*month)
+cos2month <- cos(2*omega*month)
+sin2month <- sin(2*omega*month)
+lung2.lmod <- lm(alllung ~ cosmonth+sinmonth+cos2month+sin2month)
+
+plot(month, alllung, xlab = "Month",
+	ylab = "Monthly number of lung disease deaths",
+	ylim = c(1000,4000),
+	xlim = c(1,12),
+	xaxp = c(0,12,12),
+	yaxp = c(1000,4000,3),
+        cex.axis = 1.2,
+        cex.lab = 1.4,
+        pch = 16, cex = 1.2,
+	lines(predict(lung2.lmod), lwd = 2))
+
+lung2.pred <- fitted(lung2.lmod) ; lung2.sres <- studres(lung2.lmod)
+
+plot(lung2.pred, lung2.sres, xlab = "Predicted value",
+	ylab = "Studentized residual",
+	cex.axis = 1.2,
+        cex.lab = 1.4,
+        pch = 16, cex = 1.2)
+
+shapiro.test(lung2.sres)
+lung2.sresb <- c(lung2.sres[1:25], NA, lung2.sres[26:60], NA, lung2.sres[61:70])
+bartlett.test(lung2.sresb, month)
+
+summary(lung2.lmod)
+
+##############################################################################
+# Reduced model
+##############################################################################
+
+
+lung2b.lmod <- lm(alllung ~ cosmonth+sinmonth+sin2month)
+
+par(mai=c(0.9, 0.9, 0.05, 0.15))
+
+plot(month, alllung, xlab = "Month",
+	ylab = "Monthly number of lung disease deaths",
+	ylim = c(1200,3200),
+	xlim = c(1,12),
+	xaxp = c(0,12,12),
+	yaxp = c(1200,3200,2),
+        cex.axis = 1.2,
+        cex.lab = 1.4,
+        pch = 16, cex = 1.2,
+	lines(predict(lung2b.lmod), lwd = 2))
+
+lung2b.pred <- fitted(lung2b.lmod) ; lung2b.sres <- studres(lung2b.lmod)
+
+plot(lung2b.pred, lung2b.sres, xlab = "Predicted value",
+	ylab = "Studentized residual",
+	cex.axis = 1.2,
+        cex.lab = 1.4,
+        pch = 16, cex = 1.2)
+
+shapiro.test(lung2b.sres)
+lung2b.sresb <- c(lung2b.sres[1:25], NA, lung2b.sres[26:60], NA, lung2b.sres[61:70])
+bartlett.test(lung2b.sresb, month)
+
+summary(lung2b.lmod)
+
+##############################################################################
+# Regression using the skew cosine model
+# Example: Monthly lung disease deaths
+##############################################################################	
+
+lung74 <- c(3035,2552,2704,2554,2014,1655,1721,1524,1596,2074,2199,2512)
+lung75 <- c(2933,2889,2938,2497,1870,1726,1607,1545,1396,1787,2076,2837)
+lung76 <- c(2787,3891,3179,2011,1636,1580,1489,1300,1356,1653,2013,2823)
+lung77 <- c(2996,2523,2540,2520,1994,1641,1691,1479,1696,1877,2032,2484)
+lung78 <- c(2899,2990,2890,2379,1933,1734,1617,1495,1440,1777,1970,2745)
+lung79 <- c(2841,3535,3010,2091,1667,1589,1518,1349,1392,1619,1954,2633)
+is.na(lung76) <- c(2) ; is.na(lung79) <- c(2) 
+alllung <- c(lung74,lung75,lung76,lung77,lung78,lung79)
+month <- rep(seq(1,12), 6) ; omega <- pi/6
+
+lung.nlmod <- nls(alllung ~ gam0+gam1*cos(omega*month-phi+nu*cos(omega*month-phi)),
+		start = list(gam0 = 2000, gam1 = 1000, phi = 1, nu = 0))
+
+summary(lung.nlmod)
+
+##############################################################################
+# Regression using the flat-topped and sharply-peaked cosine model
+# Example: Monthly lung disease deaths
+##############################################################################	
+
+rm(list=ls())
+lung74 <- c(3035,2552,2704,2554,2014,1655,1721,1524,1596,2074,2199,2512)
+lung75 <- c(2933,2889,2938,2497,1870,1726,1607,1545,1396,1787,2076,2837)
+lung76 <- c(2787,3891,3179,2011,1636,1580,1489,1300,1356,1653,2013,2823)
+lung77 <- c(2996,2523,2540,2520,1994,1641,1691,1479,1696,1877,2032,2484)
+lung78 <- c(2899,2990,2890,2379,1933,1734,1617,1495,1440,1777,1970,2745)
+lung79 <- c(2841,3535,3010,2091,1667,1589,1518,1349,1392,1619,1954,2633)
+is.na(lung76) <- c(2) ; is.na(lung79) <- c(2) 
+alllung <- c(lung74,lung75,lung76,lung77,lung78,lung79)
+month <- rep(seq(1,12), 6) ; omega <- pi/6
+
+lung.nlmod2 <- nls(alllung ~ gam0+gam1*cos(omega*month-phi+lambda*sin(omega*month-phi)),
+		start = list(gam0 = 2000, gam1 = 1000, phi = 1, lambda = 0))
+
+lungnlm2.pred <- fitted(lung.nlmod2) ; lungnlm2.res <- residuals(lung.nlmod2)
+
+plot(month, alllung, xlab = "Month",
+	ylab = "Monthly number of lung disease deaths",
+	ylim = c(1200,3200),
+	xlim = c(1,12),
+	xaxp = c(0,12,12),
+	yaxp = c(1200,3200,2),
+        cex.axis = 1.2,
+        cex.lab = 1.4,
+        pch = 16, cex = 1.2,
+	lines(predict(lung2b.lmod), lwd = 2, lty=2))
+lines(lungnlm2.pred, lwd=2)
+
+plot(lungnlm2.pred, lungnlm2.res, xlab = "Predicted value",
+	ylab = "Residual",
+	cex.axis = 1.2,
+        cex.lab = 1.4,
+        pch = 16, cex = 1.2)
+
+shapiro.test(lungnlm2.res)
+lungnlm2.resb <- c(lungnlm2.res[1:25], NA, lungnlm2.res[26:60], NA, lungnlm2.res[61:70])
+bartlett.test(lungnlm2.resb, month)
+
+summary(lung.nlmod2)
+
+##############################################################################
+# Plot of periwinkle data
+##############################################################################
+
+library(circular)
+rm(list=ls())
+
+distance <- c(107,46,33,67,122,69,43,30,12,25,37,69,5,83,68,38,21,1,71,60,71,71,57,53,38,70,7,48,7,21,27)
+direct_deg <- c(67,66,74,61,58,60,100,89,171,166,98,60,197,98,86,123,165,133,101,105,71,84,75,98,83,71,74,91,38,200,56)
+
+plot(distance,direct_deg,
+	ylab = "Direction of travel (in degrees)",
+	xlab = "Distance travelled (in m)",
+	ylim = c(0,270),
+	xlim = c(0,150),
+	yaxp = c(0,360,6),
+	xaxp = c(0,150,5),
+        cex.axis = 1.3,
+        cex.lab = 1.6,
+        pch = 16, cex=1.5)
+
+##############################################################################
+# Regression with a circular response variable and a linear regressor
+# Example: periwinkle data
+##############################################################################
+
+distance <- c(107,46,33,67,122,69,43,30,12,25,37,69,5,83,68,38,21,1,71,60,71,71,57,53,38,70,7,48,7,21,27)
+direct_deg <- c(67,66,74,61,58,60,100,89,171,166,98,60,197,98,86,123,165,133,101,105,71,84,75,98,83,71,74,91,38,200,56)
+cdirect <- circular(direct_deg*2*pi/360)
+
+lm.circular(type = "c-l", y=cdirect, x=distance, init = 0.0)
+
+##############################################################################
+# Plot of wind directions data
+##############################################################################
+
+psideg <- c(356,97,211,232,343,292,157,302,335,302,324,85,324,340,157,238,254,146,232,122,329)
+thetadeg <- c(119,162,221,259,270,29,97,292,40,313,94,45,47,108,221,270,119,248,270,45,23)
+
+plot(psideg,thetadeg,
+	ylab = "Wind direction at noon (degrees)",
+	xlab = "Wind direction at 6am (degrees)",
+	ylim = c(0,360),
+	xlim = c(0,360),
+	yaxp = c(0,360,6),
+	xaxp = c(0,360,6),
+        cex.axis = 1.3,
+        cex.lab = 1.6,
+        pch = 16, cex=1.5)
+
+##############################################################################
+# Circular-circular correlation coefficient and test for rotational dependence for wind directions data
+##############################################################################
+
+psirad <- psideg*2*pi/360 ;  thetarad <- thetadeg*2*pi/360
+rFLIndTestRand(psirad, thetarad, 9999)
+
+##############################################################################
+# Circular-circular regression for the wind direction data
+##############################################################################
+
+cpsirad <- circular(psideg*2*pi/360); cthetarad <- circular(thetadeg*2*pi/360)
+lm.circular(type = "c-c", y = cthetarad, x = cpsirad, order = 1)
+

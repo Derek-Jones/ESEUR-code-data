@@ -1,5 +1,5 @@
 #
-# pub-fs-fp.R, 29 Jan 16
+# pub-fs-fp.R, 15 Jun 16
 #
 # Data from:
 #
@@ -15,5 +15,5 @@ source("ESEUR_config.r")
 
 bench=read.csv(paste0(ESEUR_dir, "communicating/pub-fs-fp.csv.xz"), as.is=TRUE)
 
-plot(bench[, -1], col="blue", cex.labels=1.4)
+plot(bench[, -1], col="blue", cex.labels=1.2)
 

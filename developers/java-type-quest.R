@@ -1,5 +1,5 @@
 #
-# java-type-quest.R, 30 Sep 15
+# java-type-quest.R, 14 Jul 16
 #
 # Data from:
 #
@@ -61,16 +61,35 @@ return(df)
 
 # ans_base=43 # for long
 ans_base=42
+x_range=seq(1, 4, by=0.5)
 cur_sols=subset(solutions, !is.na(short_offset))
 
 ans_vec=ddply(answers, .(RespondentID), num_correct)
 
+ans_vec$perc=ans_vec$ans_true/(ans_vec$ans_true+ans_vec$ans_false)
+ans_vec=subset(ans_vec, (perc > 0) & (perc < 1))
+
+
 plot(ans_vec$How.many.years.of.Java.programming.experience.do.you.have.,
 	ans_vec$ans_true+ans_vec$ans_false)
+
+plot(ans_vec$How.many.years.of.Java.programming.experience.do.you.have., ans_vec$perc,
+	ylab="T/(T+F)")
 
 ans_mod=glm(cbind(ans_true,ans_false) ~ How.many.years.of.Java.programming.experience.do.you.have.,
 			data=ans_vec, family=binomial,
 			subset=(ans_true+ans_false >= 5))
+g_pred=predict(ans_mod, newdata=data.frame(How.many.years.of.Java.programming.experience.do.you.have.=x_range), type="response")
+lines(x_range, g_pred, col="green")
 
+
+
+library("betareg")
+
+b_mod=betareg(perc ~ How.many.years.of.Java.programming.experience.do.you.have., data=ans_vec)
+
+
+b_pred=predict(b_mod, newdata=data.frame(How.many.years.of.Java.programming.experience.do.you.have.=x_range))
+lines(x_range, b_pred, col="red")
 
 

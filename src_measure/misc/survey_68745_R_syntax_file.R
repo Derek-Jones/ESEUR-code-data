@@ -3,6 +3,7 @@
 # Empirical Software Engineering using R
 # Derek M. Jones
 #$Rev: 12179 $ .
+
 data <- read.table(paste0(ESEUR_dir, "src_measure/survey_68745_R_data_file.csv.xz"),
  sep=",", quote = "'", na.strings=c("","\"\""), stringsAsFactors=FALSE)
 

@@ -1,5 +1,7 @@
 #
-# obs-fit.R, 22 Dec 15
+# obs-fit.R, 13 Jul 16
+#
+# Data from:
 #
 # Example from:
 # Empirical Software Engineering using R
@@ -49,7 +51,7 @@ loc100_mod=gam(norm_occur ~ s(object.access, k=40),
 plot(around_100$object.access, around_100$norm_occur,
 	 xlim=c(1, 60), ylim=c(0, 0.5),
 	xlab="Accesses", ylab="Occurrences (nomalised)")
-points(predict(loc100_mod, newdata=data.frame(object.access=1:100), type="response"),
+lines(predict(loc100_mod, newdata=data.frame(object.access=1:100), type="response"),
 	col="red")
 
 

@@ -4,12 +4,9 @@
 # Data from:
 # An Investigation of the Factors Affecting the Lifecycle Costs of COTS-Based Systems
 # Laurence Michael Dunn
-#
-# Data from paper "Software Lifetime and its Evolution Process over Generations"
-# by Tetsuo Tamai and Yohsuke Torimitsu
-#
-# R code for book "Empirical Software Engineering using R"
-# Derek M. Jones, http://shape-of-code.coding-guidelines.com
+#   plus:
+# Software Lifetime and its Evolution Process over Generations
+# Tetsuo Tamai and Yohsuke Torimitsu
 #
 # Example from:
 # Empirical Software Engineering using R

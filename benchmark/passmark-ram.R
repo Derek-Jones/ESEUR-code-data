@@ -1,5 +1,9 @@
 #
-# passmark-ram.R,  2 Dec 15
+# passmark-ram.R, 17 Jul 16
+#
+# Data from:
+# www.passmark.com
+# David Wren
 #
 # Example from:
 # Empirical Software Engineering using R
@@ -8,7 +12,7 @@
 
 source("ESEUR_config.r")
 
-plot_layout(1, 2)
+plot_layout(2, 1)
 
 # BaselineId,module type,part density,DDR,number modules,revision,speed,CAS latency,extras,RAM Size,CPU Company,CPU Name,CPU speed,Read Speed MB/Sec
 mp=read.csv(paste0(ESEUR_dir, "benchmark/passmark-ram.csv.xz"), as.is=TRUE)

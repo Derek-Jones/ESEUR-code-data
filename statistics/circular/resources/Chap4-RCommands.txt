@@ -1,0 +1,1821 @@
+
+
+library(circular)
+
+
+# ***********************************************************************************************
+
+# Linear representation of (von Mises) distribution function and density 
+
+# ***********************************************************************************************
+
+x1 <- seq(0, 2*pi, by=pi/32)
+y1 <- pvonmises(x1, mu=circular(pi), kappa=2)
+y1[65]=1
+x2=x1+2*pi ; x3=x2+2*pi ; x4=x3+2*pi
+y2=1+y1 ; y3=1+y2 ; y4=1+y3
+x=c(x1,x2,x3,x4) ; y=c(y1,y2,y3,y4)
+
+x1b <- seq(-2*pi, 0, by=pi/32)
+x2b = x1b-2*pi ; x3b = x2b-2*pi ; x4b = x3b-2*pi
+y1=1-y1
+y1b=-y1 ; y2b=-1-y1 ; y3b=-2-y1 ; y4b=-3-y1
+x = c(x4b,x3b,x2b,x1b,x) ; y = c(y4b,y3b,y2b,y1b,y)
+
+par(lty=1, lwd=2, lab=c(5,9,1), mai=c(0.85,1.05,0.05,0.05), font.main=1, cex.lab=2, cex.axis=1.6)
+
+plot(x,y,type="l",lty=2,xlab = expression(paste(theta, " (radians)")), ylab=expression(paste(F(theta), " and ", f(theta)))) 
+
+x <- seq(-8*pi,8*pi,by=pi/32)
+y <- dvonmises(x, mu=circular(pi), kappa=2)
+lines(x,y)
+
+# ***********************************************************************************************
+
+# Polar representation of (von Mises) density
+
+# ***********************************************************************************************
+
+ff <- function(x) dvonmises(x, mu=circular(pi), kappa=2)
+curve.circular(ff, join=TRUE, xlim=c(-1.38, 0.9), cex=1.3, lwd=2)
+
+ff <- function(x) dvonmises(x, mu=circular(pi), kappa=2)
+curve.circular(ff, join=TRUE, xlim=c(-2, 2), ylim=c(-2, 1), cex=1.3, lwd=2)
+
+# Polar representation of antipodally symmetric (von Mises mixture) density
+
+ff <- function(x) (dvonmises(x, mu=circular(pi/2), kappa=5)+dvonmises(x, mu=circular(3*pi/2), kappa=5))/2
+curve.circular(ff, join=TRUE, cex=1.3, ylim=c(-1.28,1.28),lwd=2)
+
+ff <- function(x) (dvonmises(x, mu=circular(pi/2), kappa=7)+dvonmises(x, mu=circular(3*pi/2), kappa=7))/2
+curve.circular(ff, join=TRUE, cex=1, xlim=c(-0.2, 0.2), ylim=c(-1.35,1.35),lwd=2)
+
+# Polar representation of 3-fold sine-skewed von Mises mixture
+
+ff <- function(x) (dvonmises(x, mu=circular(2*pi/3), kappa=12)*(1+2*sin(x-2*pi/3))+dvonmises(x, mu=circular(4*pi/3), kappa=12)*(1+2*sin(x-4*pi/3))
++dvonmises(x, mu=circular(2*pi), kappa=12)*(1+2*sin(x-2*pi)))/3+0.01
+curve.circular(ff, join=TRUE, cex=1, xlim=c(-0.2, 0.2), ylim=c(-1.35,1.35),lwd=2)
+
+# ***********************************************************************************************
+
+# Simulation of discrete circular uniform variates
+
+# ***********************************************************************************************
+
+dcuSim <- function(n, xi, m) {
+dcuniloc <- seq(0:m-1)
+dcuniloc <- dcuniloc*2*pi/m + xi
+dcusamp <- sample(dcuniloc, n, replace=TRUE)
+dcusamp <- circular(dcusamp) ; return(dcusamp)
+}
+
+xi <- pi/2 ; m <- 10 ; n <- 100
+dcusamp <- dcuSim(n, xi, m)
+
+plot(dcusamp, pch=16, stack=TRUE, shrink=1.1, bins=m)
+
+# ***********************************************************************************************
+
+# Continuous circular uniform variates
+
+# ***********************************************************************************************
+
+# Plotting the continuous circular uniform density, simulation of continuous circular uniform variates, and evaluation of distribution and quantile # functions.
+
+curve.circular(dcircularuniform, join=TRUE, ylim=c(-1.05, 1.05),lwd=2)
+
+ccusamp <- rcircularuniform(100, control.circular=list(units="radians"))
+plot(ccusamp)
+
+ccuDF <- function(theta) { theta/(2*pi) }
+ccudf2 <- ccuDF(2)
+
+curve.circular(ccuDF, join=TRUE, cex=1.0, ylim=c(-1.6,1.6),lwd=2)
+
+ccuQF <- function(u) { u*(2*pi) }
+ccuQF(ccudf2)
+
+# ***********************************************************************************************
+
+# Cardioid distribution
+
+# ***********************************************************************************************
+
+# ******************************************************************
+# Cardioid 1. Plotting the density and simulation 
+# ******************************************************************
+
+mu <- circular(pi/2) ; rho <- 0.3
+curve.circular(dcardioid(x, mu, rho), join=TRUE, ylim=c(-1.2, 1.2), lwd=2)
+
+cardsamp <- rcardioid(100, mu, rho, control.circular=list(units="radians"))
+
+# ******************************************************************
+# Cardioid 2. Distribution function
+# ******************************************************************
+
+cardioidDF <- function(theta, mu, rho) {
+dfval <- (theta+2*rho*(sin(mu)+sin(theta-mu)))/(2*pi)
+return(dfval)
+}
+carddfpi <- cardioidDF(pi, mu=pi/2, rho)
+
+# ******************************************************************
+# Cardioid 3. Quantile function
+# ******************************************************************
+
+cardioidQF <- function(u, mu, rho) {
+eps <- 10*.Machine$double.eps
+if (u <= eps) {theta <- 0 ; return(theta)}
+
+ 
+else if (u >= 1-eps) {theta <- 2*pi-eps ; return(theta)}
+else {
+roottol <- .Machine$double.eps**(0.6)
+qzero <- function(x) { y <- cardioidDF(x, mu, rho) - u ; return(y) }
+
+  
+res <- uniroot(qzero, lower=0, upper=2*pi-eps, tol=roottol)
+theta <- res$root ; return(theta) }
+}
+
+cardioidQF(carddfpi, mu=pi/2, rho)
+
+# ***********************************************************************************************
+
+# Cartwright's power-of-cosine distribution
+
+# ***********************************************************************************************
+
+# ******************************************************************
+# Cartwright 1. Plotting the density 
+# ******************************************************************
+
+mu <- circular(pi/2) ; zeta <- 0.1
+curve.circular(dcarthwrite(x, mu, zeta), join=TRUE, ylim=c(-0.9, 1.8), lwd=2)
+
+# ******************************************************************
+# Cartwright 2. Multiple density plot
+# ******************************************************************
+
+par(mai=c(1,1,0.0,0.0))
+cmu <- circular(pi/2) ; zeta <- 1 ; theta <- circular(seq(0, 2*pi, by=pi/3600))
+curve.circular(dcarthwrite(x, mu, zeta), join=TRUE, ylim=c(-1, 1.8), cex=0.7, lwd=2)
+zeta <- 10 ; y <- dcarthwrite(theta, mu, zeta) ; lines(theta, y, lty=2, lwd=2)
+zeta <- 0.1 ; y <- dcarthwrite(theta, mu, zeta) ; lines(theta, y, lty=4, lwd=2)
+
+# ******************************************************************
+# Cartwright 3. Density function
+# ******************************************************************
+
+CartwrightPDF <- function(theta, mu, zeta) {
+  
+pdfval <- (2**(1/zeta-1))*((gamma(1+1/zeta))**2)
+  
+pdfval <- pdfval*((1+cos(theta-mu))**(1/zeta))/(pi*gamma(1+2/zeta))
+return(pdfval)
+
+}
+
+
+
+# ******************************************************************
+# Cartwright 4. Distribution function
+# ******************************************************************
+
+CartwrightDF <- function(theta, mu, zeta) {
+eps <- 10*.Machine$double.eps
+if (theta <= eps) {dfval <- 0 ; return(dfval)}
+
+ else 
+if (theta >= 2*pi-eps) {dfval <- 1 ; return(dfval)}
+else {
+dfval <- integrate(CartwrightPDF, mu=mu, zeta=zeta, lower=0, upper=theta)$value
+return(dfval) }
+}
+
+theta <- 3*pi/4 ; mu <- pi/2 ; zeta <- 0.1 
+cwdfval <- CartwrightDF(theta, mu, zeta) 
+
+# ******************************************************************
+# Cartwright 5. Quantile function
+# ******************************************************************
+
+
+CartwrightQF <- function(u, mu, zeta) {
+
+eps <- 10*.Machine$double.eps
+if (u <= eps) {theta <- 0 ; return(theta)}
+
+ 
+else if (u >= 1-eps) {theta <- 2*pi-eps ; return(theta)}
+else {
+roottol <- .Machine$double.eps**(0.6)
+qzero <- function(x) {
+
+y <- CartwrightDF(x, mu, zeta) - u
+return(y)
+}
+
+  
+res <- uniroot(qzero, lower=0, upper=2*pi-eps, tol=roottol)
+theta <- res$root ; return(theta) }
+}
+
+CartwrightQF(cwdfval, mu, zeta)
+
+mu <- pi ; zeta <- 0.1 ; CartwrightQF(0.5, mu, zeta)
+
+# ******************************************************************
+# Cartwright 6. Simulation: simple acceptance-rejection
+# ******************************************************************
+
+CartwrightSim <- function(n, mu, zeta) {
+fmax <- CartwrightPDF(mu, mu, zeta) ; theta <- 0
+for (j in 1:n) {
+stopgo <- 0
+while (stopgo == 0) {
+u1 <- runif(1, 0, 2*pi)
+pdfu1 <- CartwrightPDF(u1, mu, zeta)
+u2 <- runif(1, 0, fmax)
+if (u2 <= pdfu1) { theta[j] <- u1 ; stopgo <- 1 }
+} }
+return(theta)
+}
+
+n <- 100 ; mu <- pi/2 ; zeta <- 0.1
+cartsamp <- CartwrightSim(n, mu, zeta)
+cdat <- circular(cartsamp)
+plot(cdat, stack=T, shrink=1.0, bins=720)
+
+
+# ******************************************************************
+# Cartwright 7. Simulation: inverse transform sampling (generally slower)
+# ******************************************************************
+
+CartwrightSim2 <- function(n, mu, zeta) {
+u <- runif(n,0,1) ; theta <- 0 
+for (j in 1:n) {theta[j] <- CartwrightQF(u[j], mu, zeta) }
+return(theta)
+}
+
+n <- 10000 ; mu <- pi/2 ; zeta <- 0.1
+cartsamp <- CartwrightSim2(n, mu, zeta)
+cdat <- circular(cartsamp)
+plot(cdat, stack=TRUE, bins=720)
+
+# ***********************************************************************************************
+
+# Wrapped Cauchy distribution
+
+# ***********************************************************************************************
+
+# ******************************************************************
+# Wrapped Cauchy 1. Plotting the density 
+# ******************************************************************
+
+mu <- circular(pi/2) ; rho <- 0.25
+curve.circular(dwrappedcauchy(x, mu, rho), join=TRUE, ylim=c(-1, 2), lwd=2, lty=2)
+rho <- 0.50
+theta <- circular(seq(0, 2*pi, by=pi/3600))
+y <- dwrappedcauchy(theta, mu, rho)
+lines(theta, y, lty=1, lwd=2)
+rho <- 0.75
+y <- dwrappedcauchy(theta, mu, rho)
+lines(theta, y, lty=4, lwd=2)
+
+# ******************************************************************
+# Wrapped Cauchy 2. Simulation
+# ******************************************************************
+
+wcauchysamp <- rwrappedcauchy(100, mu, rho, control.circular=list(units="radians"))
+
+# ******************************************************************
+# Wrapped Cauchy 3. Density function
+# ******************************************************************
+
+wCauchyPDF <- function(theta, mu, rho) {
+  
+pdfval <- (1-rho**2)/((1+rho**2-2*rho*cos(theta-mu))*(2*pi))
+return(pdfval)
+
+}
+
+
+
+# ******************************************************************
+# Wrapped Cauchy 4. Distribution function
+# ******************************************************************
+
+wCauchyDF <- function(theta, mu, rho) {
+eps <- 10*.Machine$double.eps
+if (theta <= eps) {dfval <- 0 ; return(dfval)}
+
+ else 
+if (theta >= 2*pi-eps) {dfval <- 1 ; return(dfval)}
+else {
+dfval <- integrate(wCauchyPDF, mu=mu, rho=rho, lower=0, upper=theta)$value
+return(dfval)}
+}
+
+
+# ******************************************************************
+# Wrapped Cauchy 5. Quantile function
+# ******************************************************************
+
+wCauchyQF <- function(u, mu, rho) {
+
+eps <- 10*.Machine$double.eps
+if (u <= eps) {theta <- 0 ; return(theta)}
+
+ 
+else if (u >= 1-eps) {theta <- 2*pi-eps ; return(theta)}
+else {
+roottol <- .Machine$double.eps**(0.6)
+qzero <- function(x) { y <- wCauchyDF(x, mu,rho) - u ; return(y) }
+
+  
+res <- uniroot(qzero, lower=0, upper=2*pi-eps, tol=roottol)
+theta <- res$root ; return(theta) }
+}
+
+theta <- pi/6 ; mu <- pi/2 ; rho <- 0.75                              
+wcdfval <- wCauchyDF(theta, mu, rho) 
+wCauchyQF(wcdfval, mu, rho)
+
+# ***********************************************************************************************
+
+# Wrapped normal distribution
+
+# ***********************************************************************************************
+
+# ******************************************************************
+# Wrapped normal: Plotting the density, simulation, and evaluation of distribution and quantile functions.
+# ******************************************************************
+
+mu <- circular(pi/2) ; rho <- 0.25
+curve.circular(dwrappednormal(x, mu, rho), join=TRUE, ylim=c(-1, 2), lwd=2, lty=2)
+rho <- 0.50
+theta <- circular(seq(0, 2*pi, by=pi/3600))
+y <- dwrappednormal(theta, mu, rho)
+lines(theta, y, lty=1, lwd=2)
+rho <- 0.75
+y <- dwrappednormal(theta, mu, rho)
+lines(theta, y, lty=4, lwd=2)
+
+wnormsamp <- rwrappednormal(100, mu, rho, control.circular=list(units="radians"))
+
+pwrappednormal(circular(pi/6), mu, rho, from=circular(0))
+
+qwrappednormal(0.5, mu, rho, from=circular(0), tol=.Machine$double.eps**(0.6))
+
+
+# ***********************************************************************************************
+
+# von Mises distribution
+
+# ***********************************************************************************************
+
+# ******************************************************************
+# von Mises 1. Plotting the density, simulation, and evaluation of distribution and quantile functions.
+# ******************************************************************
+
+mu <- circular(pi/2) ; kappa <- 0.52
+curve.circular(dvonmises(x, mu, kappa), join=TRUE, ylim=c(-1, 2), lwd=2, lty=2)
+kappa <- 1.16
+theta <- circular(seq(0, 2*pi, by=pi/3600))
+y <- dvonmises(theta, mu, kappa)
+lines(theta, y, lty=1, lwd=2)
+kappa <- 2.37
+y <- dvonmises(theta, mu, kappa)
+lines(theta, y, lty=4, lwd=2)
+
+n <- 100 ; vmsamp <- rvonmises(n, mu, kappa, control.circular=list(units="radians"))
+
+pvonmises(circular(pi/6), mu, kappa, from=circular(0))
+
+qvonmises(0.5, mu, kappa, from=circular(0), tol=.Machine$double.eps**(0.6))
+
+# ******************************************************************
+# von Mises 2. Density function
+# ******************************************************************
+
+vMPDF <- function (theta, mu, kappa) {
+vmpdf <- 1/(2*pi* I.0(kappa)) * exp(kappa*cos(theta - mu))
+return(vmpdf)
+
+}
+
+
+
+# ******************************************************************
+# von Mises 3. Distribution function 
+# ******************************************************************
+
+vMDF <- function(theta, mu, kappa) {
+
+eps <- 10*.Machine$double.eps
+if (theta <= eps) {dfval <- 0 ; return(dfval)}
+
+ else 
+if (theta >= 2*pi-eps) {dfval <- 1 ; return(dfval)}
+else {
+dfval <- integrate(vMPDF, mu=mu, rho=rho, lower=0, upper=theta)$value
+return(dfval) }
+}
+
+
+# ******************************************************************
+# von Mises 4. Quantile function
+# ******************************************************************
+
+vMQF <- function(u, mu, kappa) {
+eps <- 10*.Machine$double.eps
+if (u <= eps) {y <- 0 ; return(y)}
+
+ else 
+if (u >= 1-eps) {y <- 2*pi-eps ; return(y)}
+else {
+roottol <- .Machine$double.eps**(0.6)
+qzero <- function(x) {
+y <- vMDF(x, mu, kappa)-u ; return(y) }
+res <- uniroot(qzero, lower=0, upper=2*pi-eps, tol=roottol)
+return(res$root)}
+}
+
+# ***********************************************************************************************
+
+# Comparing cardioid, wrapped Cauchy, wrapped normal and von Mises densities
+
+# ***********************************************************************************************
+
+# rho=0.1
+
+mu <- circular(pi/2) ; rho <- 0.1
+curve.circular(dcardioid(x, mu, rho), join=TRUE, ylim=c(-1, 2), lty=3, lwd=2)
+theta <- circular(seq(0, 2*pi, by=pi/3600))
+y <- dwrappedcauchy(theta, mu, rho)
+lines(theta, y, lty=2, lwd=2)
+y <- dwrappednormal(theta, mu, rho)
+lines(theta, y, lty=4, lwd=2)
+kappa <- 0.2
+y <- dvonmises(theta, mu, kappa)
+lines(theta, y, lty=1, lwd=2)
+
+# rho=0.25
+
+mu <- circular(pi/2) ; rho <- 0.25
+curve.circular(dcardioid(x, mu, rho), join=TRUE, xlim=c(-0.8,0.8), ylim=c(-1, 2), lty=3, lwd=2)
+theta <- circular(seq(0, 2*pi, by=pi/3600))
+y <- dwrappedcauchy(theta, mu, rho)
+lines(theta, y, lty=2, lwd=2)
+y <- dwrappednormal(theta, mu, rho)
+lines(theta, y, lty=4, lwd=2)
+kappa <- 0.5
+y <- dvonmises(theta, mu, kappa)
+lines(theta, y, lty=1, lwd=2)
+
+# rho=0.5
+
+mu <- circular(pi/2) ; rho <- 0.5
+curve.circular(dcardioid(x, mu, rho), join=TRUE, ylim=c(-1, 2), lty=3, lwd=2)
+theta <- circular(seq(0, 2*pi, by=pi/3600))
+y <- dwrappedcauchy(theta, mu, rho)
+lines(theta, y, lty=2, lwd=2)
+y <- dwrappednormal(theta, mu, rho)
+lines(theta, y, lty=4, lwd=2)
+kappa <- 1.2
+y <- dvonmises(theta, mu, kappa)
+lines(theta, y, lty=1, lwd=2)
+
+# rho=0.75
+
+mu <- circular(pi/2) ; rho <- 0.75
+curve.circular(dwrappedcauchy(x, mu, rho), join=TRUE, ylim=c(-1, 2), lty=2,lwd=2)
+theta <- circular(seq(0, 2*pi, by=pi/3600))
+y <- dwrappednormal(theta, mu, rho)
+lines(theta, y, lty=4, lwd=2)
+kappa <- 2.4
+y <- dvonmises(theta, mu, kappa)
+lines(theta, y, lty=1, lwd=2)
+
+
+# rho=0.9
+
+mu <- circular(pi/2) ; rho <- 0.9
+curve.circular(dwrappedcauchy(x, mu, rho), join=TRUE, ylim=c(-0.9, 3), lty=2,lwd=2)
+theta <- circular(seq(0, 2*pi, by=pi/3600))
+y <- dwrappednormal(theta, mu, rho)
+lines(theta, y, lty=4, lwd=2)
+kappa <- 5.3
+y <- dvonmises(theta, mu, kappa)
+lines(theta, y, lty=1, lwd=2)
+
+# ***********************************************************************************************
+
+# Jones-Pewsey distribution
+
+# ***********************************************************************************************
+
+# ****************************************************
+# Jones-Pewsey 1. Normalizing constant
+# ****************************************************
+
+JPNCon <- function(kappa, psi){
+if (kappa < 0.001) {ncon <- 1/(2*pi) ; return(ncon)} 
+else {
+eps <- 10*.Machine$double.eps
+if (abs(psi) <= eps) {ncon <- 1/(2*pi*I.0(kappa)) ; return(ncon)}
+
+ 
+else {
+intgrnd <- function(x){ (cosh(kappa*psi)+sinh(kappa*psi)*cos(x))**(1/psi) }
+
+ncon <- 1/integrate(intgrnd, lower=-pi, upper=pi)$value
+return(ncon) } }
+}
+
+ncon <- JPNCon(2,0.00000001) ; JPNCon(2,0)
+
+# ******************************************************************
+# Jones-Pewsey 2. Density function
+# ******************************************************************
+
+
+
+JPPDF <- function(theta, mu, kappa, psi, ncon){
+if (kappa < 0.001) {pdfval <- 1/(2*pi) ; return(pdfval)}
+else {
+eps <- 10*.Machine$double.eps
+if (abs(psi) <= eps) {
+pdfval <- ncon*exp(kappa*cos(theta-mu)) ; return(pdfval) }
+
+ 
+else { 
+pdfval <- (cosh(kappa*psi)+sinh(kappa*psi)*cos(theta-mu))**(1/psi)
+pdfval <- ncon*pdfval ; return(pdfval) } }
+
+}
+
+
+
+theta <- pi/2 ; mu <- pi/2 ; kappa <- 1 ; psi <- -2
+ncon <- JPNCon(kappa, psi)
+JPPDF(theta, mu, kappa, psi, ncon)
+
+psi <- 0.000001
+ncon <- JPNCon(kappa, psi)
+JPPDF(theta, mu, kappa, psi, ncon)
+
+psi <- 0
+ncon <- JPNCon(kappa, psi)
+JPPDF(theta, mu, kappa, psi, ncon)
+
+dvonmises(pi/2, pi/2, 1)
+djonespewsey(pi/2, pi/2, 1, 0)
+djonespewsey(pi/2, pi/2, 1, 0.0000001)
+
+# Plotting density
+
+mu <- circular(pi/2) ; kappa=2 ; psi <- -1 ; ncon <- JPNCon(kappa, psi)
+curve.circular(JPPDF(x, mu, kappa, psi, ncon), join=TRUE, ylim=c(-0.9, 2.6), lwd=2)
+
+mu <- circular(pi/2) ; kappa=2 ; psi <- 0 ; ncon <- JPNCon(kappa, psi)
+curve.circular(JPPDF(x, mu, kappa, psi, ncon), join=TRUE, ylim=c(-0.9, 2.6), lwd=2)
+
+mu <- circular(pi/2) ; kappa=2 ; psi <- 1 ; ncon <- JPNCon(kappa, psi)
+curve.circular(JPPDF(x, mu, kappa, psi, ncon), join=TRUE, ylim=c(-0.9, 2.6), lwd=2)
+
+# Multiple density plots
+
+mu <- circular(pi/2) ; kappa=0.5 ; psi <- 0 ; ncon <- JPNCon(kappa, psi)
+curve.circular(JPPDF(x, mu, kappa, psi, ncon), join=TRUE, ylim=c(-0.9, 2.6), lwd=2)
+theta <- circular(seq(0, 2*pi, by=pi/3600)) 
+psi <- -3/2 ; ncon <- JPNCon(kappa, psi)
+y <- JPPDF(theta, mu, kappa, psi, ncon) ; lines(theta, y, lty=2, lwd=2)
+psi <- -1 ; ncon <- JPNCon(kappa, psi)
+y <- JPPDF(theta, mu, kappa, psi, ncon) ; lines(theta, y, lty=2, lwd=2)
+psi <- -1/2 ; ncon <- JPNCon(kappa, psi)
+y <- JPPDF(theta, mu, kappa, psi, ncon) ; lines(theta, y, lty=2, lwd=2)
+psi <- 3/2 ; ncon <- JPNCon(kappa, psi)
+y <- JPPDF(theta, mu, kappa, psi, ncon) ; lines(theta, y, lty=3, lwd=2)
+psi <- 1 ; ncon <- JPNCon(kappa, psi)
+y <- JPPDF(theta, mu, kappa, psi, ncon) ; lines(theta, y, lty=3, lwd=2)
+psi <- 1/2 ; ncon <- JPNCon(kappa, psi)
+y <- JPPDF(theta, mu, kappa, psi, ncon) ; lines(theta, y, lty=3, lwd=2)
+
+mu <- circular(pi/2) ; kappa=1 ; psi <- 0 ; ncon <- JPNCon(kappa, psi)
+curve.circular(JPPDF(x, mu, kappa, psi, ncon), join=TRUE, ylim=c(-0.9, 2.6), lwd=2)
+theta <- circular(seq(0, 2*pi, by=pi/3600)) 
+psi <- -3/2 ; ncon <- JPNCon(kappa, psi)
+y <- JPPDF(theta, mu, kappa, psi, ncon) ; lines(theta, y, lty=2, lwd=2)
+psi <- -1 ; ncon <- JPNCon(kappa, psi)
+y <- JPPDF(theta, mu, kappa, psi, ncon) ; lines(theta, y, lty=2, lwd=2)
+psi <- -1/2 ; ncon <- JPNCon(kappa, psi)
+y <- JPPDF(theta, mu, kappa, psi, ncon) ; lines(theta, y, lty=2, lwd=2)
+psi <- 3/2 ; ncon <- JPNCon(kappa, psi)
+y <- JPPDF(theta, mu, kappa, psi, ncon) ; lines(theta, y, lty=3, lwd=2)
+psi <- 1 ; ncon <- JPNCon(kappa, psi)
+y <- JPPDF(theta, mu, kappa, psi, ncon) ; lines(theta, y, lty=3, lwd=2)
+psi <- 1/2 ; ncon <- JPNCon(kappa, psi)
+y <- JPPDF(theta, mu, kappa, psi, ncon) ; lines(theta, y, lty=3, lwd=2)
+
+mu <- circular(pi/2) ; kappa=1.5 ; psi <- 0 ; ncon <- JPNCon(kappa, psi)
+curve.circular(JPPDF(x, mu, kappa, psi, ncon), join=TRUE, ylim=c(-0.9, 2.6), lwd=2)
+theta <- circular(seq(0, 2*pi, by=pi/3600)) 
+psi <- -3/2 ; ncon <- JPNCon(kappa, psi)
+y <- JPPDF(theta, mu, kappa, psi, ncon) ; lines(theta, y, lty=2, lwd=2)
+psi <- -1 ; ncon <- JPNCon(kappa, psi)
+y <- JPPDF(theta, mu, kappa, psi, ncon) ; lines(theta, y, lty=2, lwd=2)
+psi <- -1/2 ; ncon <- JPNCon(kappa, psi)
+y <- JPPDF(theta, mu, kappa, psi, ncon) ; lines(theta, y, lty=2, lwd=2)
+psi <- 3/2 ; ncon <- JPNCon(kappa, psi)
+y <- JPPDF(theta, mu, kappa, psi, ncon) ; lines(theta, y, lty=3, lwd=2)
+psi <- 1 ; ncon <- JPNCon(kappa, psi)
+y <- JPPDF(theta, mu, kappa, psi, ncon) ; lines(theta, y, lty=3, lwd=2)
+psi <- 1/2 ; ncon <- JPNCon(kappa, psi)
+y <- JPPDF(theta, mu, kappa, psi, ncon) ; lines(theta, y, lty=3, lwd=2)
+
+mu <- circular(pi/2) ; kappa=2 ; psi <- 0 ; ncon <- JPNCon(kappa, psi)
+curve.circular(JPPDF(x, mu, kappa, psi, ncon), join=TRUE, ylim=c(-0.9, 2.6), lwd=2)
+theta <- circular(seq(0, 2*pi, by=pi/3600)) 
+psi <- -3/2 ; ncon <- JPNCon(kappa, psi)
+y <- JPPDF(theta, mu, kappa, psi, ncon) ; lines(theta, y, lty=2, lwd=2)
+psi <- -1 ; ncon <- JPNCon(kappa, psi)
+y <- JPPDF(theta, mu, kappa, psi, ncon) ; lines(theta, y, lty=2, lwd=2)
+psi <- -1/2 ; ncon <- JPNCon(kappa, psi)
+y <- JPPDF(theta, mu, kappa, psi, ncon) ; lines(theta, y, lty=2, lwd=2)
+psi <- 3/2 ; ncon <- JPNCon(kappa, psi)
+y <- JPPDF(theta, mu, kappa, psi, ncon) ; lines(theta, y, lty=3, lwd=2)
+psi <- 1 ; ncon <- JPNCon(kappa, psi)
+y <- JPPDF(theta, mu, kappa, psi, ncon) ; lines(theta, y, lty=3, lwd=2)
+psi <- 1/2 ; ncon <- JPNCon(kappa, psi)
+y <- JPPDF(theta, mu, kappa, psi, ncon) ; lines(theta, y, lty=3, lwd=2)
+
+# ******************************************************************
+# Jones-Pewsey 3. Distribution function
+# ******************************************************************
+
+JPDF <- function(theta, mu, kappa, psi, ncon) {
+eps <- 10*.Machine$double.eps
+if (theta <= eps) {dfval <- 0 ; return(dfval)}
+
+ else 
+if (theta >= 2*pi-eps) {dfval <- 1 ; return(dfval)} else
+if (kappa < 0.001) {dfval <- theta/(2*pi) ; return(dfval)}
+else {
+if (abs(psi) <= eps) {
+vMPDF <- function(x){ ncon*exp(kappa*cos(x-mu)) }
+dfval <- integrate(vMPDF, lower=0, upper=theta)$value
+return(dfval) }
+
+
+else { 
+dfval <- integrate(JPPDF, mu=mu, kappa=kappa, psi=psi, ncon=ncon, lower=0, upper=theta)$value
+return(dfval) }
+}
+}
+
+# ******************************************************************
+# Jones-Pewsey 4. Quantile function
+# ******************************************************************
+
+
+JPQF <- function(u, mu, kappa, psi, ncon) {
+
+eps <- 10*.Machine$double.eps
+if (u <= eps) {theta <- 0 ; return(theta)}
+
+ else 
+if (u >= 1-eps) {theta <- 2*pi-eps ; return(theta)} else
+if (kappa < 0.001) {theta <- u*2*pi ; return(theta)}
+else {
+roottol <- .Machine$double.eps**(0.6)
+qzero <- function(x) {
+y <- JPDF(x, mu, kappa, psi, ncon) - u ; return(y) }
+res <- uniroot(qzero, lower=0, upper=2*pi-eps, tol=roottol)
+theta <- res$root ; return(theta) }
+}
+
+theta = pi/6; mu <- pi/2 ; kappa <- 2 ; psi <- -3/2                            
+ncon <- JPNCon(kappa, psi)
+dfjp <- JPDF(theta, mu, kappa, psi, ncon) ; dfjp
+JPQF(dfjp, mu, kappa, psi, ncon)
+
+JPQF(0.5, mu, kappa, psi, ncon)
+
+# ******************************************************************
+# Jones-Pewsey 5. Simulation: acceptance-rejection
+# ******************************************************************
+
+JPSim <- function(n, mu, kappa, psi, ncon) {
+
+fmax <- JPPDF(mu, mu, kappa, psi, ncon) ; theta <- 0
+for (j in 1:n) {
+stopgo <- 0
+while (stopgo == 0) {
+u1 <- runif(1, 0, 2*pi)
+pdfu1 <- JPPDF(u1, mu, kappa, psi, ncon)
+u2 <- runif(1, 0, fmax)
+if (u2 <= pdfu1) { theta[j] <- u1 ; stopgo <- 1 }
+} }
+return(theta)
+}
+
+n <- 10000 ; mu <- pi/2 ; kappa <- 2 ; psi <- -3/2
+ncon <- JPNCon(kappa, psi)
+jpsamp <- JPSim(n, mu, kappa, psi, ncon)
+cdat <- circular(jpsamp)
+plot(cdat, stack=T, shrink=1.4, bins=720)
+
+# ******************************************************************
+# Jones-Pewsey 6. Simulation: inverse transform sampling (generally slower)
+# ******************************************************************
+
+JPSim2 <- function(n, mu, kappa, psi, ncon) {
+
+u <- runif(n,0,1) ; theta <- 0
+for (j in 1:n) { theta[j]  <- JPQF(u[j], mu, kappa, psi, ncon) }
+return(theta)
+}
+
+n <- 10000 ; mu <- pi/2 ; kappa <- 2 ; psi <- -3/2
+ncon <- JPNCon(kappa, psi)
+jpsamp <- JPSim2(n, mu, kappa, psi, ncon)
+cdat <- circular(jpsamp)
+plot(cdat, stack=T, shrink=1.4, bins=720)
+
+
+# ***********************************************************************************************
+
+# Batschelet (transformation of argument) distribution
+
+# ***********************************************************************************************
+
+# ****************************************************
+# Batschelet 1. Normalizing constant
+# ****************************************************
+
+BatNCon <- function(kappa, nu){
+eps <- 10 * .Machine$double.eps
+intgrnd <- function(x){ exp(kappa*cos(x+nu*sin(x))) }
+
+ncon <- 1/(integrate(intgrnd, lower=-pi, upper=pi)$value
+)
+return(ncon) 
+}
+
+
+# ****************************************************
+# Batschelet 2. Density
+# ****************************************************
+
+
+BatPDF <- function(theta, mu, kappa, nu, ncon) {
+pdfval <- ncon*exp(kappa*cos((theta-mu)+nu*sin(theta-mu)))
+
+return(pdfval) }
+
+mu <- pi/2; kappa <- 2 ; nu <- -1/2 ; ncon <- BatNCon(kappa, nu)
+theta <- pi/2 ; BatPDF(theta, mu, kappa, nu, ncon)
+
+# Multiple density plots for Batschelet density
+
+mu <- pi/2  
+
+kappa=1 ; nu <- 0.999 ;  ncon <- BatNCon(kappa, nu)  
+curve.circular(BatPDF(x, mu, kappa, nu, ncon), join=TRUE, n=3600, ylim=c(-1, 2.1), lty=2, lwd=2, cex=0.8)
+theta <- circular(seq(0, 2*pi, by=pi/3600)) 
+nu <- 0.75 ; ncon <- BatNCon(kappa, nu) 
+y <- BatPDF(theta, mu, kappa, nu, ncon) ; lines(theta, y, lty=2, lwd=2)
+nu <- 0.5 ; ncon <- BatNCon(kappa, nu) 
+y <- BatPDF(theta, mu, kappa, nu, ncon) ; lines(theta, y, lty=2, lwd=2)
+nu <- 0.25 ; ncon <- BatNCon(kappa, nu) 
+y <- BatPDF(theta, mu, kappa, nu, ncon) ; lines(theta, y, lty=2, lwd=2)
+nu <- 0 ; ncon <- BatNCon(kappa, nu) 
+y <- BatPDF(theta, mu, kappa, nu, ncon) ; lines(theta, y, lty=2, lwd=2)
+nu <- -0.999 ; ncon <- BatNCon(kappa, nu) 
+y <- BatPDF(theta, mu, kappa, nu, ncon) ; lines(theta, y, lty=2, lwd=2)
+nu <- -0.75 ; ncon <- BatNCon(kappa, nu) 
+y <- BatPDF(theta, mu, kappa, nu, ncon) ; lines(theta, y, lty=2, lwd=2)
+nu <- -0.5 ; ncon <- BatNCon(kappa, nu) 
+y <- BatPDF(theta, mu, kappa, nu, ncon) ; lines(theta, y, lty=2, lwd=2)
+nu <- -0.25 ; ncon <- BatNCon(kappa, nu) 
+y <- BatPDF(theta, mu, kappa, nu, ncon) ; lines(theta, y, lty=2, lwd=2)
+
+kappa=2 ; nu <- 0.999 ;  ncon <- BatNCon(kappa, nu)  
+curve.circular(BatPDF(x, mu, kappa, nu, ncon), join=TRUE, n=3600, ylim=c(-1, 2.1), lty=2, lwd=2, cex=0.8)
+theta <- circular(seq(0, 2*pi, by=pi/3600)) 
+nu <- 0.75 ; ncon <- BatNCon(kappa, nu) 
+y <- BatPDF(theta, mu, kappa, nu, ncon) ; lines(theta, y, lty=2, lwd=2)
+nu <- 0.5 ; ncon <- BatNCon(kappa, nu) 
+y <- BatPDF(theta, mu, kappa, nu, ncon) ; lines(theta, y, lty=2, lwd=2)
+nu <- 0.25 ; ncon <- BatNCon(kappa, nu) 
+y <- BatPDF(theta, mu, kappa, nu, ncon) ; lines(theta, y, lty=2, lwd=2)
+nu <- 0 ; ncon <- BatNCon(kappa, nu) 
+y <- BatPDF(theta, mu, kappa, nu, ncon) ; lines(theta, y, lty=2, lwd=2)
+nu <- -0.999 ; ncon <- BatNCon(kappa, nu) 
+y <- BatPDF(theta, mu, kappa, nu, ncon) ; lines(theta, y, lty=2, lwd=2)
+nu <- -0.75 ; ncon <- BatNCon(kappa, nu) 
+y <- BatPDF(theta, mu, kappa, nu, ncon) ; lines(theta, y, lty=2, lwd=2)
+nu <- -0.5 ; ncon <- BatNCon(kappa, nu) 
+y <- BatPDF(theta, mu, kappa, nu, ncon) ; lines(theta, y, lty=2, lwd=2)
+nu <- -0.25 ; ncon <- BatNCon(kappa, nu) 
+y <- BatPDF(theta, mu, kappa, nu, ncon) ; lines(theta, y, lty=2, lwd=2)
+
+kappa=3 ; nu <- 0.999 ;  ncon <- BatNCon(kappa, nu)  
+curve.circular(BatPDF(x, mu, kappa, nu, ncon), join=TRUE, n=3600, ylim=c(-1, 2.1), lty=2, lwd=2, cex=0.8)
+theta <- circular(seq(0, 2*pi, by=pi/3600)) 
+nu <- 0.75 ; ncon <- BatNCon(kappa, nu) 
+y <- BatPDF(theta, mu, kappa, nu, ncon) ; lines(theta, y, lty=2, lwd=2)
+nu <- 0.5 ; ncon <- BatNCon(kappa, nu) 
+y <- BatPDF(theta, mu, kappa, nu, ncon) ; lines(theta, y, lty=2, lwd=2)
+nu <- 0.25 ; ncon <- BatNCon(kappa, nu) 
+y <- BatPDF(theta, mu, kappa, nu, ncon) ; lines(theta, y, lty=2, lwd=2)
+nu <- 0 ; ncon <- BatNCon(kappa, nu) 
+y <- BatPDF(theta, mu, kappa, nu, ncon) ; lines(theta, y, lty=2, lwd=2)
+nu <- -0.999 ; ncon <- BatNCon(kappa, nu) 
+y <- BatPDF(theta, mu, kappa, nu, ncon) ; lines(theta, y, lty=2, lwd=2)
+nu <- -0.75 ; ncon <- BatNCon(kappa, nu) 
+y <- BatPDF(theta, mu, kappa, nu, ncon) ; lines(theta, y, lty=2, lwd=2)
+nu <- -0.5 ; ncon <- BatNCon(kappa, nu) 
+y <- BatPDF(theta, mu, kappa, nu, ncon) ; lines(theta, y, lty=2, lwd=2)
+nu <- -0.25 ; ncon <- BatNCon(kappa, nu) 
+y <- BatPDF(theta, mu, kappa, nu, ncon) ; lines(theta, y, lty=2, lwd=2)
+
+# Plotting a Batschelet density
+
+mu <- pi/2; kappa <- 2 ; nu <- -1/2 ; ncon <- BatNCon(kappa, nu)
+curve.circular(BatPDF(x, mu, kappa, nu, ncon), join=TRUE, n=3600, ylim=c(-1, 2.1), lwd=2, cex=0.8)
+
+
+# ****************************************************
+# Batschelet 3. Distribution function
+# ****************************************************
+
+
+
+BatDF <- function(theta, mu, kappa, nu, ncon){
+eps <- 10*.Machine$double.eps
+if (theta <= eps) {dfval <- 0 ; return(dfval)}
+
+ else 
+if (theta >= 2*pi-eps) {dfval <- 1 ; return(dfval)}
+else {
+dfval <- integrate(BatPDF, mu=mu, kappa=kappa, nu=nu, ncon=ncon, lower=0, upper=theta)$value
+
+return(dfval) }
+}
+
+theta <- 3*pi/4 ; mu <- pi/2; kappa <- 2 ; nu <- -1/2 
+ncon <- BatNCon(kappa, nu)
+BatDF(theta, mu, kappa, nu, ncon)
+
+# ****************************************************
+# Batschelet 4. Quantile function
+# ****************************************************
+
+
+
+BatQF <- function(u, mu, kappa, nu, ncon) {
+
+eps <- 10*.Machine$double.eps
+if (u <= eps) {theta <- 0 ; return(theta)}
+
+ else 
+if (u >= 1-eps) {theta <- 2*pi-eps ; return(theta)}
+else {
+roottol <- .Machine$double.eps**(0.6)
+qzero <- function(x) {
+y <- BatDF(x, mu, kappa, nu, ncon) - u ; return(y) }
+res <- uniroot(qzero, lower=0, upper=2*pi-eps, tol=roottol)
+theta <- res$root ; return(theta) }
+}
+
+BatQF(0.5, mu, kappa, nu, ncon)
+
+# ****************************************************
+# Batschelet 5. Simulation: acceptance-rejection
+# ****************************************************
+
+
+
+BatSim <- function(n, mu, kappa, nu, ncon) {
+
+fmax <- BatPDF(mu, mu, kappa, nu, ncon) ; theta <- 0
+for (j in 1:n) {
+stopgo <- 0
+while (stopgo == 0) {
+u1 <- runif(1, 0, 2*pi)
+pdfu1 <- BatPDF(u1, mu, kappa, nu, ncon)
+u2 <- runif(1, 0, fmax)
+if (u2 <= pdfu1) { theta[j] <- u1 ; stopgo <- 1 }
+} }
+return(theta)
+}
+
+n <- 10000 ; mu <- pi/2 ; kappa <- 3 ; nu <- -0.999
+ncon <- BatNCon(kappa, nu)
+jpsamp <- BatSim(n, mu, kappa, nu, ncon)
+cdat <- circular(jpsamp)
+plot(cdat, stack=T, shrink=1.4, bins=720)
+
+# ****************************************************
+# Batschelet 6. Simulation: inverse transform sampling (generally slower)
+# ****************************************************
+
+
+
+BatSim2 <- function(n, mu, kappa, nu, ncon) {
+
+u <- runif(n,0,1) ; theta <- 0 
+for (j in 1:n) {theta[j]  <- BatQF(u[j], mu, kappa, nu, ncon) }
+return(theta)
+}
+
+n <- 10000 ; mu <- pi/2 ; kappa <- 3 ; nu <- 0.999
+ncon <- BatNCon(kappa, nu)
+jpsamp <- BatSim2(n, mu, kappa, nu, ncon)
+cdat <- circular(jpsamp)
+plot(cdat, stack=T, shrink=1.4, bins=720)
+
+# ***********************************************************************************************
+
+# sine-skewed Jones-Pewsey distribution
+
+# ***********************************************************************************************
+
+# ****************************************************
+# Jones-Pewsey: Normalizing constant
+# ****************************************************
+
+JPNCon <- function(kappa, psi){
+if (kappa < 0.001) {ncon <- 1/(2*pi) ; return(ncon)} 
+else {
+eps <- 10*.Machine$double.eps
+if (abs(psi) <= eps) {ncon <- 1/(2*pi*I.0(kappa)) ; return(ncon)}
+
+ 
+else {
+intgrnd <- function(x){ (cosh(kappa*psi)+sinh(kappa*psi)*cos(x))**(1/psi) }
+
+ncon <- 1/integrate(intgrnd, lower=-pi, upper=pi)$value
+return(ncon) } }
+}
+
+ncon <- JPNCon(2,0.00000001) ; JPNCon(2,0)
+
+# ****************************************************
+# sine-skewed Jones-Pewsey 1.  Density function
+# ****************************************************
+
+
+ssJPPDF <- function(theta, xi, kappa, psi, lambda, ncon){
+pdfval <- JPPDF(theta, xi, kappa, psi, ncon)*(1+lambda*sin(theta-xi))
+return(pdfval)
+}
+
+# Multiple density plots for sine-skewed J-P density
+
+xi <- circular(pi/2) ; kappa <- 2 ; psi <- -1 ; lambda <- 0 ; ncon <- JPNCon(kappa, psi)
+curve.circular(JPPDF(x, xi, kappa, psi, ncon)*(1+lambda*sin(x-xi)), join=TRUE, n=3600, ylim=c(-0.9, 2), lty=1, lwd=2, cex=0.8)
+theta <- circular(seq(0, 2*pi, by=pi/3600)) 
+lambda <- 0.25 ; y <- JPPDF(theta, xi, kappa, psi, ncon)*(1+lambda*sin(theta-xi)) ; lines(theta, y, lty=2, lwd=2)
+lambda <- 0.5 ; y <- JPPDF(theta, xi, kappa, psi, ncon)*(1+lambda*sin(theta-xi)) ; lines(theta, y, lty=2, lwd=2)
+lambda <- 0.75 ; y <- JPPDF(theta, xi, kappa, psi, ncon)*(1+lambda*sin(theta-xi)) ; lines(theta, y, lty=2, lwd=2)
+lambda <- 1 ; y <- JPPDF(theta, xi, kappa, psi, ncon)*(1+lambda*sin(theta-xi)) ; lines(theta, y, lty=3, lwd=2)
+
+xi <- circular(pi/2) ; kappa=2 ; psi <- 0 ; lambda <- 0 ; ncon <- JPNCon(kappa, psi)
+curve.circular(JPPDF(x, xi, kappa, psi, ncon)*(1+lambda*sin(x-xi)), join=TRUE, n=3600, ylim=c(-0.9, 2), lty=1, lwd=2, cex=0.8)
+theta <- circular(seq(0, 2*pi, by=pi/3600)) 
+lambda <- 0.25 ; y <- JPPDF(theta, xi, kappa, psi, ncon)*(1+lambda*sin(theta-xi)) ; lines(theta, y, lty=2, lwd=2)
+lambda <- 0.5 ; y <- JPPDF(theta, xi, kappa, psi, ncon)*(1+lambda*sin(theta-xi)) ; lines(theta, y, lty=2, lwd=2)
+lambda <- 0.75 ; y <- JPPDF(theta, xi, kappa, psi, ncon)*(1+lambda*sin(theta-xi)) ; lines(theta, y, lty=2, lwd=2)
+lambda <- 1 ; y <- JPPDF(theta, xi, kappa, psi, ncon)*(1+lambda*sin(theta-xi)) ; lines(theta, y, lty=3, lwd=2)
+
+xi <- circular(pi/2) ; kappa=2 ; psi <- 1 ; lambda <- 0 ; ncon <- JPNCon(kappa, psi)
+curve.circular(JPPDF(x, xi, kappa, psi, ncon)*(1+lambda*sin(x-xi)), join=TRUE, n=3600, ylim=c(-0.9, 2), lty=1, lwd=2, cex=0.8)
+theta <- circular(seq(0, 2*pi, by=pi/3600)) 
+lambda <- 0.25 ; y <- JPPDF(theta, xi, kappa, psi, ncon)*(1+lambda*sin(theta-xi)) ; lines(theta, y, lty=2, lwd=2)
+lambda <- 0.5 ; y <- JPPDF(theta, xi, kappa, psi, ncon)*(1+lambda*sin(theta-xi)) ; lines(theta, y, lty=2, lwd=2)
+lambda <- 0.75 ; y <- JPPDF(theta, xi, kappa, psi, ncon)*(1+lambda*sin(theta-xi)) ; lines(theta, y, lty=2, lwd=2)
+lambda <- 1 ; y <- JPPDF(theta, xi, kappa, psi, ncon)*(1+lambda*sin(theta-xi)) ; lines(theta, y, lty=3, lwd=2)
+
+# Plotting a sine-skewed Jones-Pewsey density
+
+xi <- pi/2 ; kappa <- 2 ; psi <- 1 ; lambda <- 0.5
+ncon <- JPNCon(kappa, psi)
+curve.circular(ssJPPDF(x, xi, kappa, psi, lambda, ncon), join=TRUE, n=3600, ylim=c(-1,2.1), lwd=2, cex=0.8)
+
+# ****************************************************
+# sine-skewed Jones-Pewsey 2.  Distribution function
+# ****************************************************
+
+
+
+ssJPDF <- function(theta, xi, kappa, psi, lambda, ncon) {
+eps <- 10*.Machine$double.eps
+if (theta <= eps) {dfval <- 0 ; return(dfval)}
+
+ else 
+if (theta >= 2*pi-eps) {dfval <- 1 ; return(dfval)}
+else {
+dfval <- integrate(ssJPPDF, xi=xi, kappa=kappa, psi=psi, lambda=lambda, ncon=ncon, lower=0, upper=theta)$value
+
+return(dfval) }
+}
+
+ssJPDF(3*pi/2, xi, kappa, psi, lambda, ncon)
+
+# ****************************************************
+# sine-skewed Jones-Pewsey 3.  Quantile function
+# ****************************************************
+
+
+ssJPQF <- function(u, xi, kappa, psi, lambda, ncon) {
+
+eps <- 10*.Machine$double.eps
+if (u <= eps) {theta <- 0 ; return(theta)}
+
+ else 
+if (u >= 1-eps) {theta <- 2*pi-eps ; return(theta)}
+else {
+roottol <- .Machine$double.eps**(0.6)
+qzero <- function(x) { y <- ssJPDF(x, xi, kappa, psi, lambda, ncon) - u
+return(y) }
+
+  
+res <- uniroot(qzero, lower=0, upper=2*pi-eps, tol=roottol)
+theta <- res$root ; return(theta) }
+}
+
+ssJPQF(0.5, xi, kappa, psi, lambda, ncon)
+
+# ****************************************************
+# sine-skewed Jones-Pewsey 4. Simulation: acceptance-rejection
+# ****************************************************
+
+
+ssJPSim <- function(n, xi, kappa, psi, lambda, ncon) {
+tval <- seq(0, 2*pi, by=2*pi/1440)
+fval <- ssJPPDF(tval, xi, kappa, psi, lambda, ncon)
+fmax <- max(fval) ; theta <- 0
+for (j in 1:n) {
+stopgo <- 0
+while (stopgo == 0) {
+u1 <- runif(1, 0, 2*pi)
+pdfu1 <- ssJPPDF(u1, xi, kappa, psi, lambda, ncon)
+u2 <- runif(1, 0, fmax)
+if (u2 <= pdfu1) { theta[j] <- u1 ; stopgo <- 1 }
+} }
+return(theta)
+}
+
+n <- 10000 ; xi <- pi/2 ; kappa <- 2 ; psi <- 1 ; lambda <- 1
+ncon <- JPNCon(kappa, psi)
+ssjpsamp <- ssJPSim(n, xi, kappa, psi, lambda, ncon)
+cdat <- circular(ssjpsamp)
+plot(cdat, stack=T, shrink=2.2, bins=720)
+
+# ****************************************************
+# sine-skewed Jones-Pewsey 5. Simulation: inverse transform sampling (generally slower)
+# ****************************************************
+
+
+ssJPSim2 <- function(n, xi, kappa, psi, lambda, ncon) {
+
+u <- runif(n,0,1) ; theta <- 0 
+for (j in 1:n) {theta[j]  <- ssJPQF(u[j], xi, kappa, psi, lambda, ncon) }
+return(theta)
+}
+
+n <- 10000 ; xi <- pi/2 ; kappa <- 2 ; psi <- 1 ; lambda <- 1
+ncon <- JPNCon(kappa, psi)
+ssjpsamp <- ssJPSim2(n, xi, kappa, psi, lambda, ncon)
+cdat <- circular(ssjpsamp)
+plot(cdat, stack=TRUE, shrink=2.2, cex=0.8, bins=720)
+
+# ****************************************************
+# sine-skewed Jones-Pewsey 6. Simulation: approach based on result in Jones & Pewsey (2012) (a little slower)
+# ****************************************************
+
+
+ssJPSim3 <- function(n, xi, kappa, psi, lambda, ncon) {
+u <- runif(2*n,0,1) ; theta <- 0 
+for (j in 1:n) {
+ind <- 2*j ; indm1 <- ind-1
+theta[j]  <- JPQF(u[indm1], 0, kappa, psi, ncon) 
+if (u[ind] > (1+lambda*sin(theta[j])/2)) { theta[j]=-theta[j] }
+}
+theta <- theta+xi ; return(theta)
+}
+
+***********************************************************************************************
+
+# Asymmetric extended Jones-Pewsey family
+
+***********************************************************************************************
+
+# ****************************************************
+# Asymmetric extended Jones-Pewsey 1.  Normalizing constant
+# ****************************************************
+
+aeJPNCon <- function(kappa, psi, nu){
+eps <- 10*.Machine$double.eps
+if (abs(psi) <= eps) { 
+intgrnd0 <- function(x){ exp(kappa*cos(x+nu*cos(x))) }
+
+ncon <- 1/(integrate(intgrnd0, lower=-pi, upper=pi)$value)
+
+return(ncon) }
+else {
+intgrnd <- function(x){ 
+(cosh(kappa*psi)+sinh(kappa*psi)*cos(x+nu*cos(x)))**(1/psi)
+}
+
+ncon <- 1/(integrate(intgrnd, lower=-pi, upper=pi)$value
+)
+return(ncon) }
+}
+
+xi <- pi/2 ; kappa <- 2 ; psi <- -1 ; nu <- 0.75
+ncon <- aeJPNCon(kappa, psi, nu) 
+
+# ****************************************************
+# Asymmetric extended Jones-Pewsey 2.  Density function
+# ****************************************************
+
+
+aeJPPDF <- function(theta, xi, kappa, psi, nu, ncon){
+eps <- 10*.Machine$double.eps
+if (abs(psi) <= eps) {
+pdfval <- ncon*exp(kappa*cos(theta-xi+nu*cos(theta-xi)))
+return(pdfval)}
+
+ 
+else { 
+pdfval <- (cosh(kappa*psi)+sinh(kappa*psi)*cos(theta-xi+nu*cos(theta-xi)))**(1/psi)
+pdfval <- ncon*pdfval
+return(pdfval) }
+
+}
+
+
+
+# Plotting density for asymmetric extended Jones-Pewsey family 
+
+curve.circular(aeJPPDF(x, xi, kappa, psi, nu, ncon), n=3600, join=TRUE, cex=0.7, ylim=c(-0.9, 2.6), lwd=2)
+
+# Multiple density plots
+
+xi <- pi/2 ; kappa <- 2 ; psi <- -1 ; nu <- 0
+ncon <- aeJPNCon(kappa, psi, nu)
+curve.circular(aeJPPDF(x, xi, kappa, psi, nu, ncon), n=3600, join=TRUE, cex=0.7, ylim=c(-0.9, 2), lty=1, lwd=2)
+theta <- circular(seq(0, 2*pi, by=pi/3600))
+nu <- 0.25 ; ncon <- aeJPNCon(kappa,psi, nu)
+y <- aeJPPDF(theta, xi, kappa, psi, nu, ncon) ; lines(theta, y, lty=2, lwd=2)
+nu <- 0.5 ; ncon <- aeJPNCon(kappa,psi, nu)
+y <- aeJPPDF(theta, xi, kappa, psi, nu, ncon) ; lines(theta, y, lty=2, lwd=2)
+nu <- 0.75 ; ncon <- aeJPNCon(kappa,psi, nu)
+y <- aeJPPDF(theta, xi, kappa, psi, nu, ncon) ; lines(theta, y, lty=2, lwd=2)
+nu <- 0.999 ; ncon <- aeJPNCon(kappa,psi, nu)
+y <- aeJPPDF(theta, xi, kappa, psi, nu, ncon) ; lines(theta, y, lty=2, lwd=2)
+
+xi <- pi/2 ; kappa <- 2 ; psi <- -1 ; nu <- 0
+ncon <- aeJPNCon(kappa, psi, nu)
+curve.circular(aeJPPDF(x, xi, kappa, psi, nu, ncon), n=3600, join=TRUE, cex=0.7, ylim=c(-0.9, 2), lty=1, lwd=2)
+theta <- circular(seq(0, 2*pi, by=pi/3600))
+nu <- -0.25 ; ncon <- aeJPNCon(kappa,psi, nu)
+y <- aeJPPDF(theta, xi, kappa, psi, nu, ncon) ; lines(theta, y, lty=2, lwd=2)
+nu <- -0.5 ; ncon <- aeJPNCon(kappa,psi, nu)
+y <- aeJPPDF(theta, xi, kappa, psi, nu, ncon) ; lines(theta, y, lty=2, lwd=2)
+nu <- -0.75 ; ncon <- aeJPNCon(kappa,psi, nu)
+y <- aeJPPDF(theta, xi, kappa, psi, nu, ncon) ; lines(theta, y, lty=2, lwd=2)
+nu <- -0.999 ; ncon <- aeJPNCon(kappa,psi, nu)
+y <- aeJPPDF(theta, xi, kappa, psi, nu, ncon) ; lines(theta, y, lty=2, lwd=2)
+
+xi <- pi/2 ; kappa <- 2 ; psi <- 0 ; nu <- 0
+ncon <- aeJPNCon(kappa, psi, nu)
+curve.circular(aeJPPDF(x, xi, kappa, psi, nu, ncon), n=3600, join=TRUE, cex=0.7, ylim=c(-0.9, 2), lty=1, lwd=2)
+theta <- circular(seq(0, 2*pi, by=pi/3600))
+nu <- 0.25 ; ncon <- aeJPNCon(kappa,psi, nu)
+y <- aeJPPDF(theta, xi, kappa, psi, nu, ncon) ; lines(theta, y, lty=2, lwd=2)
+nu <- 0.5 ; ncon <- aeJPNCon(kappa,psi, nu)
+y <- aeJPPDF(theta, xi, kappa, psi, nu, ncon) ; lines(theta, y, lty=2, lwd=2)
+nu <- 0.75 ; ncon <- aeJPNCon(kappa,psi, nu)
+y <- aeJPPDF(theta, xi, kappa, psi, nu, ncon) ; lines(theta, y, lty=2, lwd=2)
+nu <- 0.999 ; ncon <- aeJPNCon(kappa,psi, nu)
+y <- aeJPPDF(theta, xi, kappa, psi, nu, ncon) ; lines(theta, y, lty=2, lwd=2)
+
+xi <- pi/2 ; kappa <- 2 ; psi <- 1 ; nu <- 0
+ncon <- aeJPNCon(kappa, psi, nu)
+curve.circular(aeJPPDF(x, xi, kappa, psi, nu, ncon), n=3600, join=TRUE, cex=0.7, ylim=c(-0.9, 2), lty=1, lwd=2)
+theta <- circular(seq(0, 2*pi, by=pi/3600))
+nu <- 0.25 ; ncon <- aeJPNCon(kappa,psi, nu)
+y <- aeJPPDF(theta, xi, kappa, psi, nu, ncon) ; lines(theta, y, lty=2, lwd=2)
+nu <- 0.5 ; ncon <- aeJPNCon(kappa,psi, nu)
+y <- aeJPPDF(theta, xi, kappa, psi, nu, ncon) ; lines(theta, y, lty=2, lwd=2)
+nu <- 0.75 ; ncon <- aeJPNCon(kappa,psi, nu)
+y <- aeJPPDF(theta, xi, kappa, psi, nu, ncon) ; lines(theta, y, lty=2, lwd=2)
+nu <- 0.999 ; ncon <- aeJPNCon(kappa,psi, nu)
+y <- aeJPPDF(theta, xi, kappa, psi, nu, ncon) ; lines(theta, y, lty=2, lwd=2)
+
+xi <- pi/2 ; kappa <- 1 ; psi <- -1 ; nu <- 0
+ncon <- aeJPNCon(kappa, psi, nu)
+curve.circular(aeJPPDF(x, xi, kappa, psi, nu, ncon), n=3600, join=TRUE, cex=0.7, ylim=c(-0.9, 2), lty=1, lwd=2)
+theta <- circular(seq(0, 2*pi, by=pi/3600))
+nu <- 0.25 ; ncon <- aeJPNCon(kappa,psi, nu)
+y <- aeJPPDF(theta, xi, kappa, psi, nu, ncon) ; lines(theta, y, lty=2, lwd=2)
+nu <- 0.5 ; ncon <- aeJPNCon(kappa,psi, nu)
+y <- aeJPPDF(theta, xi, kappa, psi, nu, ncon) ; lines(theta, y, lty=2, lwd=2)
+nu <- 0.75 ; ncon <- aeJPNCon(kappa,psi, nu)
+y <- aeJPPDF(theta, xi, kappa, psi, nu, ncon) ; lines(theta, y, lty=2, lwd=2)
+nu <- 0.999 ; ncon <- aeJPNCon(kappa,psi, nu)
+y <- aeJPPDF(theta, xi, kappa, psi, nu, ncon) ; lines(theta, y, lty=2, lwd=2)
+
+
+# ****************************************************
+# Asymmetric extended Jones-Pewsey 3.  Distribution function
+# ****************************************************
+
+aeJPDF <- function(theta, xi, kappa, psi, nu, ncon) {
+eps <- 10*.Machine$double.eps
+if (theta <= eps) {dfval <- 0 ; return(dfval)}
+
+ else 
+if (theta >= 2*pi-eps) {dfval <- 1 ; return(dfval)}
+else {
+dfval <- integrate(aeJPPDF, xi=xi, kappa=kappa, psi=psi, nu=nu, ncon=ncon, lower=0, upper=theta)$value
+
+return(dfval) }
+}
+
+theta <- pi/2 ; xi <- pi/2 ; kappa <- 2 ; psi <- -1 ; nu <- 0.75
+ncon <- aeJPNCon(kappa, psi, nu)
+aeJPDF(theta, xi, kappa, psi, nu, ncon)
+
+# ****************************************************
+# Asymmetric extended Jones-Pewsey 4.  Quantile function
+# ****************************************************
+
+aeJPQF <- function(u, xi, kappa, psi, nu, ncon) {
+
+eps <- 10*.Machine$double.eps
+if (u <= eps) {theta <- 0 ; return(theta)}
+
+ else 
+if (u >= 1-eps) {theta <- 2*pi-eps ; return(theta)}
+else {
+roottol <- .Machine$double.eps**(0.6)
+qzero <- function(x) { y <- aeJPDF(x, xi, kappa, psi, nu, ncon) - u
+return(y) }
+
+  
+res <- uniroot(qzero, lower=0, upper=2*pi-eps, tol=roottol)
+theta <- res$root ; return(theta) }
+}
+
+u <- 0.5 ; xi <- pi/2 ; kappa <- 2 ; psi <- -1 ; nu <- 0.75
+ncon <- aeJPNCon(kappa, psi, nu)
+aeJPQF(u, xi, kappa, psi, nu, ncon)
+
+
+# ****************************************************
+# Asymmetric extended Jones-Pewsey 5. Simulation: acceptance-rejection
+# ****************************************************
+
+aeJPSim <- function(n, xi, kappa, psi, nu, ncon) {
+eps <- 10*.Machine$double.eps ; roottol <- .Machine$double.eps**(0.6)
+qzero <- function(x) { 
+y <- x + nu*sin(x) - pi/2 ; return(y) }
+
+  
+res <- uniroot(qzero, lower=0, upper=2*pi-eps, tol=roottol)
+mode <- xi+res$root-pi/2
+fmax <- aeJPPDF(mode, xi, kappa, psi, nu, ncon)
+theta <- 0
+for (j in 1:n) {
+stopgo <- 0
+while (stopgo == 0) {
+u1 <- runif(1, 0, 2*pi)
+pdfu1 <- aeJPPDF(u1, xi, kappa, psi, nu, ncon)
+u2 <- runif(1, 0, fmax)
+if (u2 <= pdfu1) { theta[j] <- u1 ; stopgo <- 1 }
+} }
+return(theta)
+}
+
+n <- 10000 ; xi <- pi/2 ; kappa <- 2 ; psi <- -1 ; nu <- 0
+ncon <- aeJPNCon(kappa, psi, nu)
+aejpsamp <- aeJPSim(n, xi, kappa, psi, nu, ncon)
+cdat <- circular(aejpsamp)
+plot(cdat, stack=T, shrink=2.2, bins=720)
+
+
+# ****************************************************
+# Asymmetric extended Jones-Pewsey 6. Simulation: inverse transform sampling (generally slower)
+# ****************************************************
+
+aeJPSim2 <- function(n, xi, kappa, psi, nu, ncon) {
+
+u <- runif(n,0,1) ; theta <- 0 
+for (j in 1:n) {theta[j]  <- aeJPQF(u[j], xi, kappa, psi, nu, ncon) }
+return(theta)
+}
+
+n <- 10000 ; xi <- pi/2 ; kappa <- 2 ; psi <- -1 ; nu <- 0
+ncon <- aeJPNCon(kappa, psi, nu)
+aejpsamp <- aeJPSim2(n, xi, kappa, psi, nu, ncon)
+cdat <- circular(aejpsamp)
+plot(cdat, stack=TRUE, shrink=2.2, cex=0.8, bins=720)
+
+
+# ***********************************************************************************************
+
+# Inverse Batschelet (von Mises extension) family
+
+# ***********************************************************************************************
+
+# ****************************************************
+# Inverse Batschelet 1. Inverse functions
+# ****************************************************
+
+tnu <- function(theta, xi, nu) {
+phi <- theta-xi 
+if (phi <= -pi) {phi <- phi+2*pi}
+else if (phi > pi) {phi <- phi-2*pi}
+eps <- 10*.Machine$double.eps
+if (phi <= -pi+eps) {return(-pi)}
+else if (phi >= pi-eps) {return(pi)}
+else {
+roottol <- .Machine$double.eps**(0.6)
+t1nuzero <- function(x){
+y <- x-nu*(1+cos(x))-phi ; return(y) }
+res <- uniroot(t1nuzero, lower=-pi+eps, upper=pi, tol=roottol)
+return(res$root) }
+}
+
+invslambda <- function(theta, lambda) {
+eps <- 10*.Machine$double.eps
+if (lambda <= -1+eps) {return(theta)} 
+else {
+roottol=.Machine$double.eps**(0.6)
+islzero <- function(x) {
+y <- x-(1+lambda)*sin(x)/2-theta ; return(y) }
+res <- uniroot(islzero, lower=-pi+eps, upper=pi, tol=roottol)
+return(res$root) }
+}
+
+# ****************************************************
+# Inverse Batschelet 2. Normalizing constant
+# ****************************************************
+
+invBNCon <- function(kappa, lambda) { 
+eps <- 10*.Machine$double.eps
+mult <- 2*pi*I.0(kappa)
+if (lambda >= 1-eps) { ncon <- 1/(mult*(1-A1(kappa))) ; return(ncon) }
+else {
+con1 <- (1+lambda)/(1-lambda) ; con2 <- (2*lambda)/((1-lambda)*mult)
+intgrnd <- function(x){ exp(kappa*cos(x-(1-lambda)*sin(x)/2)) }
+
+intval <- integrate(intgrnd, lower=-pi, upper=pi)$value
+ncon <- 1/(mult*(con1-con2*intval)) ; return(ncon) }
+}
+
+# ****************************************************
+# Inverse Batschelet 3. Density function
+# ****************************************************
+
+invBPDF <- function(theta, xi, kappa, nu, lambda, ncon){
+arg1 <- tnu(theta,xi,nu)
+eps <- 10*.Machine$double.eps
+if (lambda <= -1+eps) { 
+pdfval <- ncon*exp(kappa*cos(arg1-sin(arg1))) ; return(pdfval) }
+else {
+con1 <- (1-lambda)/(1+lambda) ; con2 <- (2*lambda)/(1+lambda)
+arg2 <- invslambda(arg1,lambda)
+pdfval <- ncon*exp(kappa*cos(con1*arg1+con2*arg2))
+return(pdfval) }
+}
+
+# Density plot
+
+xi <- pi/2 ; kappa <- 2; nu <- -0.5 ; lambda <- 0.7
+ncon <- invBNCon(kappa, lambda)
+x <- seq(0, 2*pi, by=2*pi/3600) ; y <- 0
+for (j in 1:3601) {
+y[j] <- invBPDF(x[j], xi, kappa, nu, lambda, ncon)
+} 
+theta <- circular(x)
+curve.circular(dcircularuniform, join=TRUE, xlim=c(-1.7, 1), lty=0)
+lines(theta, y, lwd=2)
+
+
+# Multiple plots nu = 0
+
+par(mai=c(1,1,0,0))
+
+xi <- pi/2 ; kappa <- 2; nu <- 0 ; lambda <- -1
+ncon <- invBNCon(kappa, lambda)
+x <- seq(0, 2*pi, by=2*pi/3600) ; y <- 0
+for (j in 1:3601) {
+y[j] <- invBPDF(x[j], xi, kappa, nu, lambda, ncon)
+} 
+theta <- circular(x)
+curve.circular(dcircularuniform, join=TRUE, ylim=c(-1, 2.4), cex=0.7, lty=0)
+lines(theta, y, lty=2, lwd=2)
+
+lambda <- -0.75
+ncon <- invBNCon(kappa, lambda)
+x <- seq(0, 2*pi, by=2*pi/3600) ; y <- 0
+for (j in 1:3601) {
+y[j] <- invBPDF(x[j], xi, kappa, nu, lambda, ncon)
+} 
+theta <- circular(x)
+lines(theta, y, lty=2, lwd=2)
+
+lambda <- -0.5
+ncon <- invBNCon(kappa, lambda)
+x <- seq(0, 2*pi, by=2*pi/3600) ; y <- 0
+for (j in 1:3601) {
+y[j] <- invBPDF(x[j], xi, kappa, nu, lambda, ncon)
+} 
+theta <- circular(x)
+lines(theta, y, lty=2, lwd=2)
+
+lambda <- -0.25
+ncon <- invBNCon(kappa, lambda)
+x <- seq(0, 2*pi, by=2*pi/3600) ; y <- 0
+for (j in 1:3601) {
+y[j] <- invBPDF(x[j], xi, kappa, nu, lambda, ncon)
+} 
+theta <- circular(x)
+lines(theta, y, lty=2, lwd=2)
+
+lambda <- 0
+ncon <- invBNCon(kappa, lambda)
+x <- seq(0, 2*pi, by=2*pi/3600) ; y <- 0
+for (j in 1:3601) {
+y[j] <- invBPDF(x[j], xi, kappa, nu, lambda, ncon)
+} 
+theta <- circular(x)
+lines(theta, y, lty=1, lwd=2)
+
+lambda <- 0.25
+ncon <- invBNCon(kappa, lambda)
+x <- seq(0, 2*pi, by=2*pi/3600) ; y <- 0
+for (j in 1:3601) {
+y[j] <- invBPDF(x[j], xi, kappa, nu, lambda, ncon)
+} 
+theta <- circular(x)
+lines(theta, y, lty=1, lwd=2)
+
+lambda <- 0.5
+ncon <- invBNCon(kappa, lambda)
+x <- seq(0, 2*pi, by=2*pi/3600) ; y <- 0
+for (j in 1:3601) {
+y[j] <- invBPDF(x[j], xi, kappa, nu, lambda, ncon)
+} 
+theta <- circular(x)
+lines(theta, y, lty=1, lwd=2)
+
+lambda <- 0.75
+ncon <- invBNCon(kappa, lambda)
+x <- seq(0, 2*pi, by=2*pi/3600) ; y <- 0
+for (j in 1:3601) {
+y[j] <- invBPDF(x[j], xi, kappa, nu, lambda, ncon)
+} 
+theta <- circular(x)
+lines(theta, y, lty=1, lwd=2)
+
+lambda <- 1
+ncon <- invBNCon(kappa, lambda)
+x <- seq(0, 2*pi, by=2*pi/3600) ; y <- 0
+for (j in 1:3601) {
+y[j] <- invBPDF(x[j], xi, kappa, nu, lambda, ncon)
+} 
+theta <- circular(x)
+lines(theta, y, lty=1, lwd=2)
+
+
+# Multiple plots nu = 0.5
+
+par(mai=c(1,1,0,0))
+
+xi <- pi/2 ; kappa <- 2; nu <- 0.5 ; lambda <- -1
+ncon <- invBNCon(kappa, lambda)
+x <- seq(0, 2*pi, by=2*pi/3600) ; y <- 0
+for (j in 1:3601) {
+y[j] <- invBPDF(x[j], xi, kappa, nu, lambda, ncon)
+} 
+theta <- circular(x)
+curve.circular(dcircularuniform, join=TRUE, ylim=c(-1, 2.4), cex=0.7, lty=0)
+lines(theta, y, lty=2, lwd=2)
+
+lambda <- -0.75
+ncon <- invBNCon(kappa, lambda)
+x <- seq(0, 2*pi, by=2*pi/3600) ; y <- 0
+for (j in 1:3601) {
+y[j] <- invBPDF(x[j], xi, kappa, nu, lambda, ncon)
+} 
+theta <- circular(x)
+lines(theta, y, lty=2, lwd=2)
+
+lambda <- -0.5
+ncon <- invBNCon(kappa, lambda)
+x <- seq(0, 2*pi, by=2*pi/3600) ; y <- 0
+for (j in 1:3601) {
+y[j] <- invBPDF(x[j], xi, kappa, nu, lambda, ncon)
+} 
+theta <- circular(x)
+lines(theta, y, lty=2, lwd=2)
+
+lambda <- -0.25
+ncon <- invBNCon(kappa, lambda)
+x <- seq(0, 2*pi, by=2*pi/3600) ; y <- 0
+for (j in 1:3601) {
+y[j] <- invBPDF(x[j], xi, kappa, nu, lambda, ncon)
+} 
+theta <- circular(x)
+lines(theta, y, lty=2, lwd=2)
+
+lambda <- 0
+ncon <- invBNCon(kappa, lambda)
+x <- seq(0, 2*pi, by=2*pi/3600) ; y <- 0
+for (j in 1:3601) {
+y[j] <- invBPDF(x[j], xi, kappa, nu, lambda, ncon)
+} 
+theta <- circular(x)
+lines(theta, y, lty=1, lwd=2)
+
+lambda <- 0.25
+ncon <- invBNCon(kappa, lambda)
+x <- seq(0, 2*pi, by=2*pi/3600) ; y <- 0
+for (j in 1:3601) {
+y[j] <- invBPDF(x[j], xi, kappa, nu, lambda, ncon)
+} 
+theta <- circular(x)
+lines(theta, y, lty=1, lwd=2)
+
+lambda <- 0.5
+ncon <- invBNCon(kappa, lambda)
+x <- seq(0, 2*pi, by=2*pi/3600) ; y <- 0
+for (j in 1:3601) {
+y[j] <- invBPDF(x[j], xi, kappa, nu, lambda, ncon)
+} 
+theta <- circular(x)
+lines(theta, y, lty=1, lwd=2)
+
+lambda <- 0.75
+ncon <- invBNCon(kappa, lambda)
+x <- seq(0, 2*pi, by=2*pi/3600) ; y <- 0
+for (j in 1:3601) {
+y[j] <- invBPDF(x[j], xi, kappa, nu, lambda, ncon)
+} 
+theta <- circular(x)
+lines(theta, y, lty=1, lwd=2)
+
+lambda <- 1
+ncon <- invBNCon(kappa, lambda)
+x <- seq(0, 2*pi, by=2*pi/3600) ; y <- 0
+for (j in 1:3601) {
+y[j] <- invBPDF(x[j], xi, kappa, nu, lambda, ncon)
+} 
+theta <- circular(x)
+lines(theta, y, lty=1, lwd=2)
+
+
+# Multiple plots nu = 1
+
+par(mai=c(1,1,0,0))
+
+xi <- pi/2 ; kappa <- 2; nu <- 1 ; lambda <- -1
+ncon <- invBNCon(kappa, lambda)
+x <- seq(0, 2*pi, by=2*pi/3600) ; y <- 0
+for (j in 1:3601) {
+y[j] <- invBPDF(x[j], xi, kappa, nu, lambda, ncon)
+} 
+theta <- circular(x)
+curve.circular(dcircularuniform, join=TRUE, ylim=c(-1, 2.4), cex=0.7, lty=0)
+lines(theta, y, lty=2, lwd=2)
+
+lambda <- -0.75
+ncon <- invBNCon(kappa, lambda)
+x <- seq(0, 2*pi, by=2*pi/3600) ; y <- 0
+for (j in 1:3601) {
+y[j] <- invBPDF(x[j], xi, kappa, nu, lambda, ncon)
+} 
+theta <- circular(x)
+lines(theta, y, lty=2, lwd=2)
+
+lambda <- -0.5
+ncon <- invBNCon(kappa, lambda)
+x <- seq(0, 2*pi, by=2*pi/3600) ; y <- 0
+for (j in 1:3601) {
+y[j] <- invBPDF(x[j], xi, kappa, nu, lambda, ncon)
+} 
+theta <- circular(x)
+lines(theta, y, lty=2, lwd=2)
+
+lambda <- -0.25
+ncon <- invBNCon(kappa, lambda)
+x <- seq(0, 2*pi, by=2*pi/3600) ; y <- 0
+for (j in 1:3601) {
+y[j] <- invBPDF(x[j], xi, kappa, nu, lambda, ncon)
+} 
+theta <- circular(x)
+lines(theta, y, lty=2, lwd=2)
+
+lambda <- 0
+ncon <- invBNCon(kappa, lambda)
+x <- seq(0, 2*pi, by=2*pi/3600) ; y <- 0
+for (j in 1:3601) {
+y[j] <- invBPDF(x[j], xi, kappa, nu, lambda, ncon)
+} 
+theta <- circular(x)
+lines(theta, y, lty=1, lwd=2)
+
+lambda <- 0.25
+ncon <- invBNCon(kappa, lambda)
+x <- seq(0, 2*pi, by=2*pi/3600) ; y <- 0
+for (j in 1:3601) {
+y[j] <- invBPDF(x[j], xi, kappa, nu, lambda, ncon)
+} 
+theta <- circular(x)
+lines(theta, y, lty=1, lwd=2)
+
+lambda <- 0.5
+ncon <- invBNCon(kappa, lambda)
+x <- seq(0, 2*pi, by=2*pi/3600) ; y <- 0
+for (j in 1:3601) {
+y[j] <- invBPDF(x[j], xi, kappa, nu, lambda, ncon)
+} 
+theta <- circular(x)
+lines(theta, y, lty=1, lwd=2)
+
+lambda <- 0.75
+ncon <- invBNCon(kappa, lambda)
+x <- seq(0, 2*pi, by=2*pi/3600) ; y <- 0
+for (j in 1:3601) {
+y[j] <- invBPDF(x[j], xi, kappa, nu, lambda, ncon)
+} 
+theta <- circular(x)
+lines(theta, y, lty=1, lwd=2)
+
+lambda <- 1
+ncon <- invBNCon(kappa, lambda)
+x <- seq(0, 2*pi, by=2*pi/3600) ; y <- 0
+for (j in 1:3601) {
+y[j] <- invBPDF(x[j], xi, kappa, nu, lambda, ncon)
+} 
+theta <- circular(x)
+lines(theta, y, lty=1, lwd=2)
+
+# ****************************************************
+# Inverse Batschelet 4. Distribution function
+# ****************************************************
+
+invBDF <- function(theta, xi, kappa, nu, lambda, ncon){
+eps <- 10 * .Machine$double.eps
+if (theta <= eps) {dfval <- 0 ; return(dfval)} else
+if (theta >= 2*pi-eps) {dfval <- 1 ; return(dfval)} else 
+if (theta <= pi/2) {nint <- 90} else
+if (theta <= pi) {nint <- 180} else
+if (theta <= 3*pi/2) {nint <- 270} else
+if (theta < 2*pi-eps) {nint <- 360}
+width <- theta/nint
+dfval <- 0
+for (j in 1:nint) {
+arg <- (2*j-1)*width/2
+dfval <- dfval+invBPDF(arg, xi, kappa, nu, lambda, ncon)
+} 
+dfval <- dfval*width
+return(dfval)
+}
+
+theta <- pi/2 ; xi <- pi/2 ; kappa <- 2 ; nu <- -0.5 ; lambda=0.7
+ncon <- invBNCon(kappa, lambda)
+invBDF(theta, xi, kappa, nu, lambda, ncon)
+
+
+# ****************************************************
+# Inverse Batschelet 5. Quantile function
+# ****************************************************
+
+invBQF <- function(u, xi, kappa, nu, lambda, ncon) {
+
+eps <- 10 * .Machine$double.eps
+if (u <= eps) {theta <- 0 ; return(theta)}
+
+ else
+if (u >= 1-eps) {theta <- 2*pi-eps ; return(theta)}
+else {
+roottol <- 1000*.Machine$double.eps**(0.6)
+qzero <- function(x) {
+
+y <- invBDF(x, xi, kappa, nu, lambda, ncon) - u
+return(y) }
+
+  
+res <- uniroot(qzero, lower=0, upper=2*pi-eps, tol=roottol)
+theta <- res$root ; return(theta) }
+}
+
+invBQF(0.5, xi, kappa, nu, lambda, ncon)
+
+# ****************************************************
+# Inverse Batschelet 6. Simulation: acceptance-rejection
+# ****************************************************
+
+invBSim <- function(n, xi, kappa, nu, lambda, ncon) {
+mode <- xi-2*nu ; fmax <- invBPDF(mode, xi, kappa, nu, lambda, ncon)
+theta <- 0
+for (j in 1:n) {
+stopgo <- 0
+while (stopgo == 0) {
+u1 <- runif(1, 0, 2*pi)
+pdfu1 <- invBPDF(u1, xi, kappa, nu, lambda, ncon)
+u2 <- runif(1, 0, fmax)
+if (u2 <= pdfu1) { theta[j] <- u1 ; stopgo <- 1 }
+} }
+return(theta)
+}
+
+n <- 10000 ; xi <- pi/2 ; kappa <- 2 ; nu <- 1 ; lambda <- 0
+ncon <- invBNCon(kappa, lambda)
+invbsamp <- invBSim(n, xi, kappa, nu, lambda, ncon)
+cdat <- circular(invbsamp)
+plot(cdat, stack=T, shrink=2.2, bins=720)
+
+# ****************************************************
+# Inverse Batschelet 7. Simulation: based on algorithms in Jones & Pewsey (2012) (Does not produce correct results)
+# ****************************************************
+
+xi <- pi/2 ; kappa <- 2 ; nu <- -0.5 ; lambda <- 0.7
+
+invBsim2 <- function(n, xi, kappa, nu, lambda) {
+wlamb <- function(phi, lambda) {
+if (phi <= -pi) {phi <- phi+2*pi} else
+if (phi > pi) {phi <- phi-2*pi}
+inval <- invslambda(phi, -lambda)
+if (lambda > 0) {
+con <- (3-lambda)/(3+lambda)
+wval <- (1-(1+lambda)/2)*cos(inval)/((1-(1-lambda)/2)*cos(inval))
+wval <- wval*con ; return(wval)} else
+if (lambda < 0) {
+con <- (1+lambda)/(1-lambda)
+wval <- (1-(1+lambda)/2)*cos(inval)/((1-(1-lambda)/2)*cos(inval))
+wval <- wval*con ; return(wval)}
+}
+eps <- 10*.Machine$double.eps ; theta <- circular(0) 
+for (j in 1:n) {
+if (abs(lambda) <= eps) {theta[j] <- rvonmises(1, circular(0), kappa)} else
+if (1-lambda <= eps) {
+theta[j] <- rvonmises(1, circular(0), kappa)
+u <- runif(1,0,1)
+if (u > (1-cos(theta[j]))/2) {theta[j]=theta[j]+circular(pi)}
+}
+else {
+stopgo <- 0
+while (stopgo == 0) {
+theta[j] <- rvonmises(1, circular(0), kappa)
+wval <- wlamb(theta[j], lambda)
+u <- runif(1,0,1)
+if (u <= wval) {stopgo <- 1} }
+}
+u <- runif(1,0,1)
+if (u <= (1+nu*sin(theta[j]))/2) {
+theta[j] <- theta[j]-nu*(1+cos(theta[j])) }
+else {theta[j] <- -theta[j]-nu*(1+cos(theta[j]))}
+theta[j] <- theta[j]+xi 
+}
+return(theta)
+}
+
+n <- 10000 ; invbsamp <- invBsim2(n, xi, kappa, nu, lambda)
+cdat <- circular(invbsamp)
+plot(cdat, stack=TRUE, shrink=2.2, bins=720)
+
+# ****************************************************
+# Inverse Batschelet 8. Simulation: based on quantile function - Not sensible to use this as it is VERY SLOW!
+# ****************************************************
+
+xi <- pi/2 ; kappa <- 2 ; nu <- -0.5 ; lambda <- 0.7
+ncon <- invBNCon
+
+invBsim3 <- function(n, xi, kappa, nu, lambda, ncon) {
+u <- runif(n,0,1) ; x <- 0 
+for (j in 1:n) {x[j]  <- invBQF(u[j], xi, kappa, nu, lambda, ncon) }
+theta <- circular(x) ; return(theta)
+}
+
+n <- 100 ; invbsamp <- invBsim3(n, xi, kappa, nu, lambda, ncon)
+cdat <- circular(invbsamp)
+plot(cdat, stack=TRUE, bins=720)
+
+
+
+
+
+
+

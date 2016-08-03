@@ -1,5 +1,5 @@
 #
-# putnam-MTTF-lin.R,  5 Jan 16
+# putnam-MTTF-lin.R, 15 Jul 16
 #
 # Data from:
 # Measures for Excellence: Reliable software on time, within budget
@@ -13,9 +13,9 @@
 source("ESEUR_config.r")
 
 
+plot_layout(2, 1)
 pal_col=rainbow(3)
 
-plot_layout(1, 2)
 
 MTTF=read.csv(paste0(ESEUR_dir, "regression//putnam-MTTF.csv.xz"), as.is=TRUE)
 

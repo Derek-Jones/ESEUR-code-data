@@ -1,5 +1,5 @@
 #
-# pldi13.R,  9 Apr 16
+# pldi13.R, 11 Jul 16
 # Data from:
 #
 # Taming Compiler Fuzzers
@@ -14,7 +14,9 @@ source("ESEUR_config.r")
 
 library("gnm")
 
-plot_layout(1, 2)
+plot_layout(2, 1)
+pal_col=rainbow(3)
+
 
 
 wrong=read.csv(paste0(ESEUR_dir, "reliability/wrong.csv.xz"), as.is=TRUE)
@@ -23,7 +25,7 @@ wrong_cnt=wrong[order(wrong$count, decreasing=TRUE), ]
 wrong_cnt$ind=1:nrow(wrong_cnt)
 
 plot(wrong_cnt$count, log="y", col=point_col,
-	xlab="Fault id", ylab="Failing test programs\n")
+	xlab="Fault id", ylab="Failing programs\n")
 
 text(20, 300, "gcc", cex=1.4)
 
@@ -61,8 +63,14 @@ fail_mod=gnm(count ~ instances(Mult(1, Exp(ind)), 2)-1,
 
 # fail_mod=nls(count ~ 1550*exp(-0.91*ind)+c*exp(-d*ind),
 # 		start=list(c=35, d=0.04), data=wrong_cnt)
+
+exp_coef=as.numeric(coef(fail_mod))
+
+lines(exp_coef[1]*exp(exp_coef[2]*wrong_cnt$ind), col=pal_col[1])
+lines(exp_coef[3]*exp(exp_coef[4]*wrong_cnt$ind), col=pal_col[3])
+
 t=predict(fail_mod)
-lines(t, col="red")
+lines(t, col=pal_col[2])
 
 # fail_mod=nls(log(count) ~ a*ind^b,
 # 		start=list(a=log(1100), b=-0.9), data=wrong_cnt)
@@ -114,7 +122,12 @@ fail_mod=gnm(count ~ instances(Mult(1, Exp(ind)), 2)-1,
 # fail_mod=nls(count ~ 2730*exp(-0.81*ind)+c*exp(-d*ind),
 # 		start=list(c=35, d=0.14), data=js1_6_cnt)
 
+exp_coef=as.numeric(coef(fail_mod))
+
+lines(exp_coef[1]*exp(exp_coef[2]*wrong_cnt$ind), col=pal_col[1])
+lines(exp_coef[3]*exp(exp_coef[4]*wrong_cnt$ind), col=pal_col[3])
+
 t=predict(fail_mod)
-lines(t, col="red")
+lines(t, col=pal_col[2])
 
 

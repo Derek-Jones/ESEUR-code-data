@@ -1,9 +1,10 @@
 #
-# cpu-product-lifetime.R,  9 Feb 16
+# cpu-product-lifetime.R,  4 Jul 16
 #
 # Data from:
 #
 # http://www.cpushack.com/life-cycle-of-cpu.html
+# John Culver
 #
 # Example from:
 # Empirical Software Engineering using R
@@ -12,13 +13,16 @@
 source("ESEUR_config.r")
 
 
+pal_col=rainbow(2)
+
+
 bench=read.csv(paste0(ESEUR_dir, "ecosystem/cpu-product-lifetime.csv"), as.is=TRUE)
 
-plot(bench$Introduced, bench$Lifetime,
-		xlab="Year introduced", ylab="Lifetime")
+plot(bench$Introduced, bench$Lifetime, col=point_col,
+		xlab="Year introduced", ylab="Lifetime<n")
 
 years=min(bench$Introduced):max(bench$Introduced)
 
-lines(years, 2010-years)
-lines(years, 2000-years)
+lines(years, 2000-years, col=pal_col[1])
+lines(years, 2010-years, col=pal_col[2])
 

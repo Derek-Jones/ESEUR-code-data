@@ -1,5 +1,5 @@
 #
-# nasa-ada-fortran.R,  5 Jan 16
+# nasa-ada-fortran.R, 10 Jun 16
 #
 # Data from:
 # IMPACT OF ADA AND OBJECT-ORIENTED DESIGN IN THE FLIGHT DYNAMICS DIVISION AT GODDARD SPACE FLIGHT CENTER
@@ -24,6 +24,7 @@ nasa$all[5]=6114
 # If this function was not passed to pairs, each plot would contain just crosses.
 panel.language=function(x, y, language)
 {
+par(cex.axis=1.1)
 Ada=(language == "Ada")
 points(x[Ada], y[Ada], col=pal_col[2])
 lines(loess.smooth(x[Ada], y[Ada], span=0.7), col=pal_col[2])

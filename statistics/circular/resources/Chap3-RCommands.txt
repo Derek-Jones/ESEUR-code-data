@@ -1,0 +1,157 @@
+
+
+library(circular)
+
+
+# ===================================================================================
+
+# Sea star data
+
+# ===================================================================================
+
+# ==================================
+
+# Basic plots
+
+# ==================================
+
+fB11 <- c(fisherB11,8)
+cfB11 <- circular(fB11, units="degrees", zero=circular(pi/2), rotation="clock")
+fB11c <- circular(fB11,units="degrees", zero=circular(0), rotation="counter")
+
+plot(cfB11, stack=TRUE, bins=720, cex=1.5)
+arrows.circular(cfB11)
+arrows.circular(mean(cfB11), y=rho.circular(cfB11), lwd=3)
+
+cf2 <- 2*cfB11
+plot(cf2, stack=TRUE, bins=720, cex=1.5)
+arrows.circular(cf2)
+arrows.circular(mean(cf2), y=rho.circular(cf2), lwd=3)
+
+cf3 <- 3*cfB11
+plot(cf3, stack=TRUE, bins=720, cex=1.5)
+arrows.circular(cf3)
+arrows.circular(mean(cf3), y=rho.circular(cf3), lwd=3)
+
+# ==================================
+
+# Trigonometric moments, mean directions and mean resultant lengths
+
+# ==================================
+
+t10 <- trigonometric.moment(fB11c, p=1)
+tbar <- t10$mu ; Rbar <- t10$rho ; a1 <- t10$cos ; b1 <- t10$sin
+tbar ; Rbar ; a1 ; b1
+
+t20 <- trigonometric.moment(fB11c, p=2)
+tbar2 <- t20$mu ; Rbar2 <- t20$rho ; a2 <- t20$cos ; b2 <- t20$sin
+tbar2 ; Rbar2 ; a2 ; b2
+
+t1t <- trigonometric.moment(fB11c, p=1, center=TRUE)
+tbar1t <- t1t$mu ; Rbar1t <- t1t$rho ; abar1 <- t1t$cos ; bbar1 <- t1t$sin
+tbar1t ; Rbar1t ; abar1 ; bbar1
+t2t <- trigonometric.moment(fB11c, p=2, center=TRUE)
+tbar2t <- t2t$mu ; Rbar2t <- t2t$rho ; abar2 <- t2t$cos ; bbar2 <- t2t$sin
+tbar2t ; Rbar2t ; abar2 ; bbar2
+
+# ==================================
+
+# Other basic circular summaries
+
+# ==================================
+
+medfB11 <- medianCircular(fB11c) ; medfB11
+
+av <- angular.variance(fB11c)
+V <- av/2 ; V
+
+V <- 1-Rbar ; V
+
+sd.circular(fB11c)
+
+delhat <- (1-Rbar2)/(2*Rbar**2) ; delhat
+
+dbar1 <- 1-(Rbar**2) ; dbar1
+mc <- medianCircular(fB11c, deviation=TRUE)
+mc$deviation
+
+range.circular(fB11c)
+
+# ==================================
+
+# Summaries for reduced data set without two extremes
+
+# ==================================
+
+fB11cred <- fB11c[-c(12,13)]
+mean(fB11cred) ; rho.circular(fB11cred)
+medianCircular(fB11cred, deviation=TRUE)
+range.circular(fB11cred)
+
+# ==================================
+
+# Measures of skewness and kurtosis
+
+# ==================================
+
+Rbar <- t10$rho
+bbar2 <- t2t$sin ; bbar2
+abar2 <- t2t$cos ; abar2
+V <- (1-Rbar)
+hats <- bbar2/(V**(3/2)) ; hats
+hatk <- (abar2-Rbar**4)/(V**2) ; hatk
+
+# ===================================================================================
+
+# Summaries for grouped data
+
+# ===================================================================================
+
+fB11g1 <- rep(c(11.25, 33.75, 146.25, 303.75, 326.25, 348.75), c(8, 4, 1, 1, 3, 5))
+fB11g1c <- circular(fB11g1,units="degrees", zero=circular(0), rotation="counter")
+fB11g2 <- rep(c(22.5, 157.5, 292.5, 337.5), c(12, 1, 1, 8))
+fB11g2c <- circular(fB11g2,units="degrees", zero=circular(0), rotation="counter")
+
+t10 <- trigonometric.moment(fB11g1c, p=1)
+tbar <- t10$mu ; Rbar <- t10$rho 
+tbar ; Rbar 
+
+t20 <- trigonometric.moment(fB11g1c, p=2)
+tbar2 <- t20$mu ; Rbar2 <- t20$rho 
+tbar2 ; Rbar2 
+
+corr1 <- ((2*pi/16)/2)/sin((2*pi/16)/2)
+corr2 <- ((2*2*pi/16)/2)/sin((2*2*pi/16)/2)
+
+Rbars <- corr1*Rbar ; Rbars
+Rbar2s <- corr2*Rbar2 ; Rbar2s
+
+t10 <- trigonometric.moment(fB11g2c, p=1)
+tbar <- t10$mu ; Rbar <- t10$rho 
+tbar ; Rbar 
+
+t20 <- trigonometric.moment(fB11g2c, p=2)
+tbar2 <- t20$mu ; Rbar2 <- t20$rho 
+tbar2 ; Rbar2 
+
+corr1 <- ((2*pi/8)/2)/sin((2*pi/8)/2)
+corr2 <- ((2*2*pi/8)/2)/sin((2*2*pi/8)/2)
+
+Rbars <- corr1*Rbar ; Rbars
+Rbar2s <- corr2*Rbar2 ; Rbar2s
+
+# ===================================================================================
+
+# Axial data
+
+# ===================================================================================
+
+data(fisherB2c)
+fB2cref <- fisherB2c+180
+plot(fisherB2c, stack=TRUE, shrink=1.04, pch=16, cex=1.8, sep=0.03, bins=720)
+points(fB2cref, stack=TRUE, shrink=1.04, pch=16, col="darkgrey", cex=1.8, sep=0.03, bins=720)
+
+fB2cdouble <- 2*fisherB2c
+plot(fB2cdouble, stack=TRUE, shrink=1.04, pch=16, cex=1.8, sep=0.03, bins=720)
+mean(fB2cdouble) ; medianCircular(fB2cdouble)
+rho.circular(fB2cdouble)
