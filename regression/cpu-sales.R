@@ -42,5 +42,5 @@ season_p4=glm(bit.4 ~ date*(date < y_1998)+date*(date >= y_1998)+
 # summary(season_p4)
 lines(proc_sales$date, predict(season_p4), col=pal_col[3])
 
-legend(x="topleft", legend=c("Two straight-lines", "Data", "Sine wave+straight lines"), bty="n", fill=pal_col, cex=1.3)
+legend(x="topleft", legend=c("Two straight-lines", "Data", "Sine wave+straight lines"), bty="n", fill=pal_col, cex=1.2)
 

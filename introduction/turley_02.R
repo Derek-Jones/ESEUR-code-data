@@ -28,5 +28,5 @@ points(proc_sales$date, proc_sales$bit.16, col=pal_col[3])
 points(proc_sales$date, proc_sales$bit.32, col=pal_col[4])
 
 legend(x="topleft", legend=c("8-bit", "4-bit", "16-bit", "32-bit"),
-		bty="n", fill=pal_col, cex=1.4)
+		bty="n", fill=pal_col, cex=1.2)
 

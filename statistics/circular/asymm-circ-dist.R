@@ -1,5 +1,5 @@
 #
-# asymm-circ-dist.R,  3 Jan 16
+# asymm-circ-dist.R, 18 Aug 16
 #
 # Data from:
 #
@@ -15,6 +15,8 @@ library("circular")
 pal_col=rainbow(5)
 
 plot_layout(3, 1)
+par(mar=c(0.2, 1.0, 0.2, 0.8))
+# par(oma=c(0.5, 1, 0.5, 1))
 
 
 # Code derived from that appearing in Circular statistics in R
@@ -60,7 +62,7 @@ return(pdfval)
 
 plot_asymm=function(xi, kappa, psi)
 {
-curve.circular(aeJPPDF(x, xi, kappa, psi, 0, ncon), n=360, join=TRUE, cex=0.7, shrink=1.4, col=pal_col[1])
+curve.circular(aeJPPDF(x, xi, kappa, psi, 0, ncon), n=360, join=TRUE, cex=0.7, shrink=2.1, col=pal_col[1])
 y = aeJPPDF(theta, xi, kappa, psi, 0.25, ncon)
 lines(theta, y, col=pal_col[2])
 y = aeJPPDF(theta, xi, kappa, psi, 0.5, ncon)

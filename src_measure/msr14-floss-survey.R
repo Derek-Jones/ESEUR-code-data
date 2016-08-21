@@ -58,5 +58,5 @@ plot_quant(0.5, pal_col[1])
 plot_quant(0.75, pal_col[2])
 
 legend(x="topleft", legend=c("0.75 quartile", "0.5 quartile", "0.25 quartile"),
-		bty="n", fill=pal_col[c(2, 1, 3)], cex=1.3)
+		bty="n", fill=pal_col[c(2, 1, 3)], cex=1.2)
 

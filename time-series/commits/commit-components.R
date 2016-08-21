@@ -36,7 +36,7 @@ linux_hr=table((as.numeric(local_time)+shift_weekend) %% week_secs)
 
 # stl does not figure out the recurrence interval, we have to specify it.
 hr_ts=ts(linux_hr, start=c(0, 0), frequency=24)
-plot(stl(hr_ts, s.window="periodic"),
+plot(stl(hr_ts, s.window="periodic"), col=point_col,
 	set.pars = list(mar = c(0, 6, 0, 6), oma = c(6, 0, 4, 0),
 			las=0, cex.axis=1.1, cex.lab=0.8,
 			tck = -0.01, mfrow = c(4, 1)))

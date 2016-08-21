@@ -1,8 +1,9 @@
 #
-# android-dist-evol.R,  2 Dec 15
+# android-dist-evol.R, 18 Aug 16
 #
 # Data from:
-#
+# Android version distribution history
+# Victorien Villard
 # http://www.bidouille.org/misc/androidcharts
 #
 # Example from:
@@ -37,5 +38,9 @@ plot(1, type="n",
 	xlab="Days since launch", ylab="Percentage of market")
 dummy=sapply(1:num_col, disp_time)
 
-# TODO Add legend
+
+ver_str=colnames(avd)
+ver_str=sub("X", "", ver_str[-1])
+
+legend(x="topright", legend=ver_str, bty="n", fill=pal_col, cex=1.2)
 

@@ -1,5 +1,5 @@
 #
-# feat-zero-trunc-nb-7dig.R, 13 Dec 15
+# feat-zero-trunc-nb-7dig.R,  6 Aug 16
 #
 # Data from:
 #
@@ -12,7 +12,7 @@
 source("ESEUR_config.r")
 
 
-# May have been install by previous programs and defines its own AIC function!
+# May have been installed by previous programs and defines its own AIC function!
 #detach(package:rebmix)
 
 library(gamlss)
@@ -21,8 +21,7 @@ library(gamlss.tr)
 
 p=read.csv(paste0(ESEUR_dir, "projects/agile-work/7digital2012.csv.xz"))
 
-plot_layout(2, 1)
-par(mai=c(1, 0.8, 0.0, 0.1))
+# plot_layout(2, 1)
 
 # Bracket the data start/end dates
 base.date="20/04/2009"  # a Monday
@@ -61,5 +60,6 @@ return(c(AIC=as.numeric(AIC(g.NBIItr)),
 
 
 qual.pre650=fit.NBII(p$Cycle.Time[Done.day <= 650])
-qual.post650=fit.NBII(p$Cycle.Time[Done.day > 650])
+
+# qual.post650=fit.NBII(p$Cycle.Time[Done.day > 650])
 

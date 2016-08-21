@@ -1,5 +1,8 @@
 #
 # LANL-node-uptime-binned.R,  8 Jan 16
+# Data from:
+# Los Alamos National Lab (LANL)
+# http://www.lanl.gov/
 #
 # Example from:
 # Empirical Software Engineering using R
@@ -69,7 +72,7 @@ c=table(ct)
 plot(as.vector(c)+0.1, col=point_col,
      xlim=c(1,1000), ylim=c(1,max(c)), log="xy",
      xlab="", ylab="Occurrences\n")
-legend(x="topright", legend=paste("system", sys.num), bty="n", cex=1.3)
+legend(x="topright", legend=paste("system", sys.num), bty="n", cex=1.2)
 
 }
 

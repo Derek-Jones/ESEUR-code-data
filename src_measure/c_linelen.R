@@ -1,5 +1,5 @@
 #
-# c_linelen.R, 15 Jul 16
+# c_linelen.R,  3 Aug 16
 #
 # Data from:
 #
@@ -26,16 +26,16 @@ plot(c_lines$length, c_lines$occurrences, log="y", col=pal_col[1],
 
 points(h_lines$length, h_lines$occurrences, col=pal_col[2])
 
+legend(x="topright", legend=c(".c files", ".h files"), bty="n", fill=pal_col)
+
 
 c_toks=read.csv(paste0(ESEUR_dir, "src_measure/c_linetok.csv.xz"), as.is=TRUE)
 h_toks=read.csv(paste0(ESEUR_dir, "src_measure/h_linetok.csv.xz"), as.is=TRUE)
 
 plot(c_toks$tokens, c_toks$occurrences, log="y", col=pal_col[1],
-	xlab="Tokens on line", ylab="",
+	xlab="Tokens on line", ylab="Occurrences",
 	xlim=c(0, 100))
 
 points(h_toks$tokens, h_toks$occurrences, col=pal_col[2])
 
-
-legend(x="topright", legend=c(".c files", ".h files"), bty="n", fill=pal_col)
 

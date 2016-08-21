@@ -1,5 +1,5 @@
 #
-# WSPP.R,  25 Aug 15
+# WSPP.R, 25 Aug 15
 #
 # Data from:
 #
@@ -15,7 +15,8 @@ source("ESEUR_config.r")
 library("igraph")
 library("sna")
 
-plot_layout(1, 2)
+plot_layout(2, 1)
+
 
 plot_dot=function(dot_file)
 {

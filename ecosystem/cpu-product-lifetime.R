@@ -16,10 +16,10 @@ source("ESEUR_config.r")
 pal_col=rainbow(2)
 
 
-bench=read.csv(paste0(ESEUR_dir, "ecosystem/cpu-product-lifetime.csv"), as.is=TRUE)
+bench=read.csv(paste0(ESEUR_dir, "ecosystem/cpu-product-lifetime.csv.xz"), as.is=TRUE)
 
 plot(bench$Introduced, bench$Lifetime, col=point_col,
-		xlab="Year introduced", ylab="Lifetime<n")
+		xlab="Year introduced", ylab="Lifetime")
 
 years=min(bench$Introduced):max(bench$Introduced)
 

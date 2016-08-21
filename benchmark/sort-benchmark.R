@@ -31,7 +31,7 @@ plot(minutesort$year, minutesort$perf, log="y",
 lines(pennysort$year, pennysort$perf, type="b",col=brew_col[2])
 
 legend(x="topleft", legend=c("Minute sort", "Penny sort"),
-		bty="n", fill=brew_col, cex=1.3)
+		bty="n", fill=brew_col, cex=1.2)
 
 
 

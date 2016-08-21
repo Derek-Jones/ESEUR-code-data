@@ -32,7 +32,7 @@ lines(density(log(comp_bid$Bid[17:35]), kernel="epanechnikov"),
 	col=brew_col[3])
 
 legend(x="topleft", legend=c("A Outline", "A Detailed", "B Detailed"),
-	 fill=brew_col, bty="n", cex=1.3)
+	 fill=brew_col, bty="n", cex=1.2)
 
 
 library("coin")

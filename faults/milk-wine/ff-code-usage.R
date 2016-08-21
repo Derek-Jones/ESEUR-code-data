@@ -14,8 +14,6 @@ source("ESEUR_config.r")
 
 library("plyr")
 
-plot_wide()
-
 
 study_start=as.Date("9-November-2004", format="%d-%B-%Y")
 study_end=as.Date("1-October-2010", format="%d-%B-%Y")

@@ -40,5 +40,5 @@ lines(world_comp$year, world_comp$Server.mainframe, type="b", col=pal_col[7])
 lines(world_comp$year, world_comp$Pocket_calculator, type="b", col=pal_col[8])
 
 legend(x="top", legend=c("GPU", "PC", "MCU", "DSP", "Videogame", "Modile phone/PDA", "Server/mainframe", "Pocket calculator"),
-			bty="n", fill=pal_col, cex=1.3)
+			bty="n", fill=pal_col, cex=1.2)
 

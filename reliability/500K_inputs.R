@@ -1,5 +1,5 @@
 #
-# 500K_inputs.R, 15 Jul 16
+# 500K_inputs.R,  5 Aug 16
 #
 # Data from:
 # An Experiment in Software Reliability
@@ -31,13 +31,13 @@ brew_col=rainbow(4)
 
 plot(1, type="n",
 	xlim=c(1, max_test), ylim=c(1, ncol(tests)),
-	xlab="Input cases", ylab="Failure count")
+	xlab="", ylab="Failure count")
 dummy=sapply(1:4, plot_test)
 
 
 plot(1, log="x", type="n",
 	xlim=c(1, max_test), ylim=c(1, ncol(tests)),
-	xlab="Input cases", ylab="")
+	xlab="Input cases", ylab="Failure count")
 dummy=sapply(1:4, plot_test)
 
 

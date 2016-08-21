@@ -12,7 +12,7 @@
 source("ESEUR_config.r")
 
 
-pr_soc=read.csv(paste0(ESEUR_dir, "regression/pr_soc_lan.csv"), as.is=TRUE)
+pr_soc=read.csv(paste0(ESEUR_dir, "regression/pr_soc_lan.csv.xz"), as.is=TRUE)
 
 plot(pr_soc$team_size, pr_soc$n_pr_core)
 plot(pr_soc$proj_age, pr_soc$n_pr_core)

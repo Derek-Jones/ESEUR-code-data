@@ -66,5 +66,5 @@ plot_year(com_mod, 1953, pal_col[1])
 plot_year(com_mod, 1957, pal_col[2])
 plot_year(com_mod, 1961, pal_col[3])
 
-legend(x="bottomleft", legend=rev(c(1953, 1957, 1961)), bty="n", fill=rev(pal_col), cex=1.3)
+legend(x="bottomleft", legend=rev(c(1953, 1957, 1961)), bty="n", fill=rev(pal_col), cex=1.2)
 

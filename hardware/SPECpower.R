@@ -1,17 +1,23 @@
 #
-# SPECpower.R, 12 Jun 16
+# SPECpower.R, 12 Aug 16
 # Data from:
 # http://www.spec.org
-# SPECpower_ssj2008 results
+# power_ssj2008-results-20160613-125328.csv
 #
 # Example from:
 # Empirical Software Engineering using R
 # Derek M. Jones
 
-ource("ESEUR_config.r")
+source("ESEUR_config.r")
 
 
-jpow=read.csv(paste0(ESEUR_dir, "hardware/SPECpower.csv.xz"), as.is=TRUE)
+library("car")
+
+
+jpow=read.csv(paste0(ESEUR_dir, "hardware/ssj2008-results-20160613.csv.xz"), as.is=TRUE)
+
+jpow$ssj_ops=jpow$ssj_ops...100..of.target.load
+jpow$avg.watts=jpow$Average.watts...100..of.target.load
 
 pal_col=rainbow_hcl(3)
 
@@ -19,11 +25,11 @@ jpow$ops_watt=jpow$ssj_ops/jpow$avg.watts
 pairs( ~ ops_watt+
 			Nodes+
 #			JVM.Vendor+
-			MHz+
+			Processor.MHz+
 			Chips+
 			Cores+
-#			Total.Threads+
-			Total.Memory
+#			Threads.Per.Core+
+			Memory.GB
 #			+ssj_ops
 			, col=point_col,
 			 data=jpow)
@@ -32,11 +38,11 @@ j_av_watts=subset(jpow, !is.na(avg.watts))
 pow_mod=glm(avg.watts ~ 
 			Nodes+
 #			JVM.Vendor+
-			MHz+
+			Processor.MHz+
 			Chips+
 			Cores+
-#			Total.Threads+
-			Total.Memory
+#			Threads.Per.Core+
+			Memory.GB
 #			+ssj_ops
 			, data=j_av_watts)
 summary(pow_mod)
@@ -45,12 +51,12 @@ vif(pow_mod)
 pow_mod=glm(avg.watts ~ 
 			Nodes+
 #			JVM.Vendor+
-			MHz+
+			Processor.MHz+
 # Chips has the highest VIF
 #			Chips+
 			Cores+
-#			Total.Threads+
-			Total.Memory
+#			Threads.Per.Core+
+			Memory.GB
 #			+ssj_ops
 			, data=j_av_watts)
 summary(pow_mod)
@@ -62,11 +68,11 @@ library("penalized")
 pen_mod=penalized(avg.watts ~
                         Nodes+
 #                       JVM.Vendor+
-                        MHz+
+                        Processor.MHz+
                         Chips+
                         Cores+
-#                       Total.Threads+
-                        Total.Memory
+#                       Threads.Per.Core+
+                        Memory.GB
 #                       +ssj_ops
                         , data=j_av_watts,
 # Give maximum opportunity to change the parameters

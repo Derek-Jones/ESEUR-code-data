@@ -19,7 +19,7 @@ ver_days=read.csv(paste0(ESEUR_dir, "maintenance/wiki-schema/ver-date-diff.csv.x
 
 ver_surv=Surv(col_life$last_v-col_life$first_v, event=col_life$last_v != 280)
 ver_mod=survfit(ver_surv ~ 1)
-plot(ver_mod,
+plot(ver_mod, col=point_col,
 	xlab="Versions since first release", ylab="Survival")
 
 # day_surv=Surv(ver_days$days_since_start[col_life$last_v]-ver_days$days_since_start[col_life$first_v], event=col_life$last_v != 280)

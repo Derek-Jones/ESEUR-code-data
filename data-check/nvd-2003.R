@@ -17,5 +17,5 @@ bench=read.csv(paste0(ESEUR_dir, "data-check/nvdcve-2.0-2003.xml.csv.xz"), as.is
 bench$vuln.published=as.Date(bench$vuln.published.datetime, format="%Y-%m-%d")
 
 t=table(bench$vuln.published)
-plot(t, ylab="Vulnerabilities published\n")
+plot(t, ylab="Vulnerabilities published\n", col=point_col)
 

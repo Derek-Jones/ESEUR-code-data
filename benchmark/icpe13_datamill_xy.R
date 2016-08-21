@@ -62,6 +62,6 @@ axis(1, at=1:length(opt_levels), labels=opt_levels)
 col_num=1
 d_ply(xsub, .(hostname), plot_perf)
 
-legend(x="topright", legend=processors, bty="n", fill=pal_col, cex=1.3)
+legend(x="topright", legend=processors, bty="n", fill=pal_col, cex=1.2)
 
 

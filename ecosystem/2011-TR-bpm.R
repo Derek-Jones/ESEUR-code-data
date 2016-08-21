@@ -35,5 +35,5 @@ plot_change(P1$BOTH, 3)
 plot_change(P1$NONE, 4)
 
 legend(x="topright", legend=c("Business only", "IT only", "Business/IT", "Neither"),
-			bty="n", fill=pal_col, cex=1.3)
+			bty="n", fill=pal_col, cex=1.2)
 

@@ -33,5 +33,5 @@ plot(1, type="n", log="y",
 d_ply(pdf_occur, .(version), plot_pdf)
 
 legend(x="bottomright", legend=unique(pdf_occur$version),
-				bty="n", fill=pal_col, cex=1.3)
+				bty="n", fill=pal_col, cex=1.2)
 

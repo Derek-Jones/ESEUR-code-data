@@ -63,7 +63,7 @@ lines(c(q[2], q[2]), c(0, max(y_bounds)/3), col=pal_col[2])
 # lines(c(rep_mean, rep_mean), c(0, max(y_bounds)), col=pal_col[1])
 
 legend(x="topright", legend=c(paste0("size=", sample_size)), title=dist_str,
-				bty="n", cex=1.3)
+				bty="n", cex=1.2)
 }
 
 

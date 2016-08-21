@@ -1,5 +1,5 @@
 #
-# patch-len.R, 22 Dec 15
+# patch-len.R, 20 Aug 16
 #
 # Data from:
 # A Study of Linux File System Evolution
@@ -33,6 +33,8 @@ k_del=kind$deleted[kind$deleted < 100]
 # print(c(length(k_del), mean(k_del), sd(k_del)))
 
 points(table(k_del), col=pal_col[2], type="p")
+
+legend(x="topright", legend=c("Added", "Deleted"), bty="n", fill=pal_col, cex=1.2)
 }
 
 plot_kind("bug")

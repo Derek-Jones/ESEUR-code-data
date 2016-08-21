@@ -15,7 +15,6 @@
 source("ESEUR_config.r")
 
 
-plot_wide()
 pal_col=rainbow(3)
 
 
@@ -103,6 +102,6 @@ points_and_smooth(dates, all[["tdp"]]/scaletdp, 3, 24)
 
 legend("topleft",
        c("Transistors", "Clock", "Power"),
-       bty="n", fill=pal_col, cex=1.3)
+       bty="n", fill=pal_col, cex=1.2)
 
 

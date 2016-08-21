@@ -1,5 +1,5 @@
 #
-# cpu-tuning.R, 26 Mar 16
+# cpu-tuning.R, 19 Aug 16
 #
 # Data from:
 # Software knows best: A case for hardware transparancy and measureability
@@ -44,7 +44,8 @@ t=levelplot(perf_27,
 # Not as garish
 		col.regions=rainbow_hcl(100),
 		scales=list(x=list(cex=0.70, rot=25), y=list(cex=0.65)),
-		xlab="", ylab="",
+		colorkey=NULL, # Numeric values remove the need for legend
+		xlab="Tuned for", ylab="Executed on",
 		panel=function(...)
 			{
 			panel.levelplot(...)

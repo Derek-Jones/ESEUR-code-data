@@ -1,5 +1,5 @@
 #
-# atc12-gra.R, 21 Feb 16
+# atc12-gra.R,  6 Aug 16
 #
 # Data from:
 # Generating Realistic Datasets for Deduplication Analysis
@@ -31,5 +31,7 @@ E(atc_gra)$weight=E(atc_gra)$linux
 E(atc_gra)$label=E(atc_gra)$weight/100
 
 par(cex=0.9)
-plot(atc_gra, edge.width=0.3*sqrt(E(atc_gra)$weight), edge.curved=TRUE)
+# layout.lgl seems to perform better, on average, than the default layout
+plot(atc_gra, edge.width=0.3*sqrt(E(atc_gra)$weight), edge.curved=TRUE,
+							layout=layout.lgl)
 

@@ -1,5 +1,5 @@
 #
-# residual-DAYLOC.R, 23 Jul 16
+# residual-DAYLOC.R, 18 Aug 16
 #
 # Data from:
 #
@@ -57,11 +57,11 @@ m1=glm(LOC ~ Number_days, data=latest_version)
 
 # m2=glm(LOC ~ Number_days+I(Number_days^2), data=latest_version)
 
-plot(m1, which=1, caption="", col=point_col)
+plot(m1, which=1, caption="", sub.caption="", col=point_col)
 
 
 plot(latest_version$Number_days, latest_version$LOC, col=point_col,
-       xlab="Days", ylab="Total lines of code\n")
+	xlab="Days", ylab="Total lines of code\n")
 
 pred=predict(m1, type="response", se.fit=TRUE)
 lines(latest_version$Number_days, pred$fit, col=pal_col[1])

@@ -42,7 +42,7 @@ plot(100*df$b_percent,
 
 lines(100*df$g_percent, col=brew_col[2], type="b")
 
-legend(x="top",legend=c("Boy", "Girl"), bty="n", fill=brew_col, cex=1.3)
+legend(x="top",legend=c("Boy", "Girl"), bty="n", fill=brew_col, cex=1.2)
 }
 
 b_g_percent=ddply(b_g, .(test, stanine), calc_percent)

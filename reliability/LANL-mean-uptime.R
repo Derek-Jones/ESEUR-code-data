@@ -1,5 +1,8 @@
 #
 # LANL-mean-uptime.R, 25 Nov 12
+# Data from:
+# Los Alamos National Lab (LANL)
+# http://www.lanl.gov/
 #
 # Example from:
 # Empirical Software Engineering using R

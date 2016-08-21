@@ -39,7 +39,7 @@ wr_pred=predict(wr_nl_mod, data.frame(experience=x_vals))
 lines(x_vals, wr_pred, col=pal_col[3])
 
 
-legend(x="bottomright", legend=c("Quadratic", "loess", "Exponential"), bty="n", fill=pal_col, cex=1.3)
+legend(x="bottomright", legend=c("Quadratic", "loess", "Exponential"), bty="n", fill=pal_col, cex=1.2)
 
 # library("nlme")
 

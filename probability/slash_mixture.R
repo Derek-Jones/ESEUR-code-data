@@ -1,5 +1,5 @@
 #
-# slash_mixture.R, 15 Jul 16
+# slash_mixture.R,  5 Aug 16
 #
 # Data from:
 # Homogeneous temporal activity patterns in a large online communication space
@@ -68,7 +68,7 @@ lines(x_vals, slash_mod$w[[1]][1, dist_num]*y_vals, col=pal_col[dist_num])
 
 plot(work_den, main="",
 	xlim=c(0, 10), ylim=c(0, 0.36),
-	xlab="log(Minutes)", ylab="Access density\n")
+	xlab="", ylab="Access density\n")
 plot_REBMIX_dist(1)
 plot_REBMIX_dist(2)
 plot_REBMIX_dist(3)
@@ -85,7 +85,7 @@ lines(x_vals, slash_dist$lambda[dist_num]*y_vals, col=pal_col[dist_num])
 
 plot(work_den, main="",
 	xlim=c(0, 10), ylim=c(0, 0.36),
-	xlab="log(Minutes)", ylab="")
+	xlab="log(Minutes)", ylab="Access density\n")
 plot_mix_dist(1)
 plot_mix_dist(2)
 plot_mix_dist(3)

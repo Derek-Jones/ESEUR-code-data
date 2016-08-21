@@ -15,5 +15,5 @@ source("ESEUR_config.r")
 
 bench=read.csv(paste0(ESEUR_dir, "communicating/pub-fs-fp.csv.xz"), as.is=TRUE)
 
-plot(bench[, -1], col="blue", cex.labels=1.2)
+plot(bench[, -1], col=point_col, cex.labels=1.2)
 

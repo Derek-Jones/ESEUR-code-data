@@ -1,5 +1,8 @@
 #
-# LANL-node-total-fail.R, 24 Nov 12
+# LANL-node-total-fail.R, 18 Aug 16
+# Data from:
+# Los Alamos National Lab (LANL)
+# http://www.lanl.gov/
 #
 # Example from:
 # Empirical Software Engineering using R
@@ -16,8 +19,8 @@ total_node.failures=function(sys.num)
 {
 sys.n=fail.rec[fail.rec$System == sys.num, ]
 
-plot(table(sys.n$nodenumz),
-        xlab="", ylab="Failures")
+plot(table(sys.n$nodenumz), col=point_col,
+        xlab="", ylab="Failures\n")
 legend(x="topright", legend=paste("system", sys.num), bty="n")
 
 return(sys.n)

@@ -54,5 +54,5 @@ plot_fault_count(reflect_XSS, "Reflected XSS")
 plot_fault_count(stored_XSS, "Stored XSS")
 plot_fault_count(others, "Others")
 
-legend(x="topleft", legend=names(empty_found), bty="n", fill=pal_col, cex=1.3)
+legend(x="topleft", legend=names(empty_found), bty="n", fill=pal_col, cex=1.2)
 

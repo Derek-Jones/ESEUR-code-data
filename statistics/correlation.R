@@ -3,10 +3,6 @@
 #
 # Modified version of...
 #
-#
-# Example from:
-# Empirical Software Engineering using R
-# Derek M. Jones
 #Title: An example of the correlation of x and y for various distributions of (x,y) pairs
 #Tags: Mathematics; Statistics; Correlation
 #Author: Denis Boigelot
@@ -14,6 +10,10 @@
 #How to use: output()
 #
 #This is an translated version in R of an Matematica 6 code by Imagecreator.
+#
+# Example from:
+# Empirical Software Engineering using R
+# Derek M. Jones
 
 source("ESEUR_config.r")
 
@@ -21,9 +21,10 @@ library(mvtnorm)
 # library(RSVGTipsDevice)
 
 MyPlot <- function(xy, xlim = c(-4, 4), ylim = c(-4, 4), eps = 1e-15) {
-   title = round(cor(xy[,1], xy[,2]), 1)
-   if (sd(xy[,2]) < eps) title = "" # corr. coeff. is undefined
-   plot(xy, main = title, xlab = "", ylab = "",
+title = round(cor(xy[,1], xy[,2]), 1)
+if (sd(xy[,2]) < eps)
+   title = "" # corr. coeff. is undefined
+plot(xy, main = title, xlab = "", ylab = "",
         col = "darkblue", pch = 16, cex = 0.2,
         xaxt = "n", yaxt = "n", bty = "n",
         xlim = xlim, ylim = ylim)

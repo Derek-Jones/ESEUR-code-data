@@ -39,5 +39,5 @@ points(mdf1$NTA, mdf1$AW/mdf1$NTA, col=pal_col[1])
 points(mdf1$NTA, mdf1$AW/mdf1$NTA^2, col=pal_col[2])
 points(mdf1$NTA, mdf1$AW/exp(mdf1$NTA), col=pal_col[3])
 
-legend(x="bottomleft", legend=c("Linear", "Quadratic", "Exponential"), bty="n", fill=pal_col, cex=1.3)
+legend(x="bottomleft", legend=c("Linear", "Quadratic", "Exponential"), bty="n", fill=pal_col, cex=1.2)
 

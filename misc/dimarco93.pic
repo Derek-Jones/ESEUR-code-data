@@ -1,0 +1,54 @@
+
+.ps 8
+
+.PS 4.0 1.5
+
+# dimarco93.pic, 14 Jan 03
+
+boxht = 0.5 ; boxwid = 3.0
+
+define zigzag {
+   $1 at $2+0.4,$3+lang_offset
+   if $4 == 1 then {
+      move to $2+0.8,$3+0.25+lang_offset
+      line down 0.1 left 0.1
+      line down 0.1 right 0.2
+      line down 0.1 left 0.2
+      line down 0.1 right 0.2
+      line down 0.1 left 0.1
+      }
+   }
+
+define language {
+   lang_offset=$2+0.5
+   $1 ljust at 0.0,lang_offset
+   box at 0.8+(boxwid/2),lang_offset
+   }
+
+language("English", 0.0)
+zigzag("tree", 0.7, 0.0, 1)
+zigzag("wood       ", 2.1, 0.0, 1)
+zigzag("forest", 3.0, 0.0, 0)
+
+language("French", -0.5)
+zigzag("abre", 0.7, 0.0, 1)
+zigzag("bois       ", 2.1, 0.0, 1)
+zigzag("fore\h'-0.4m'^t", 3.0, 0.0, 0)
+
+language("Dutch", -1.0)
+zigzag(" boom", 0.7, 0.0, 1)
+zigzag("  hout", 1.4, 0.0, 1)
+zigzag("  bos", 2.1, 0.0, 1)
+zigzag("woud", 3.0, 0.0, 0)
+
+language("German", -1.5)
+zigzag(" Baum", 0.7, 0.0, 1)
+zigzag("  Holz", 1.4, 0.0, 1)
+zigzag("Wald", 2.6, 0.0, 0)
+
+language("Danish", -2.0)
+zigzag("tra\h'-0.2m'e  ", 1.0, 0.0, 1)
+zigzag("skov", 2.4, 0.0, 0)
+
+.PE
+

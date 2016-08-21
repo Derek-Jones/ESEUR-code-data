@@ -1,5 +1,5 @@
 #
-# simula_0a.R,  5 Jan 16
+# simula_0a.R, 20 Aug 16
 #
 # Data from:
 #
@@ -42,4 +42,5 @@ simnD_mod=glm(Actual ~ Estimated, data=nD)
 simnD_pred=predict(simnD_mod)
 lines(nD$Estimated, simnD_pred, col=pal_col[2])
 
+legend(x="bottomright", legend=c("Daily", "not Daily"), bty="n", fill=pal_col, cex=1.2)
 

@@ -52,5 +52,5 @@ plot(1, type="n",
 t=sapply(seq(0.2, 0.5, by=0.1), function(X) plot_run_prob(max_warnings, X, 3, pal_col[1]))
 t=sapply(seq(0.2, 0.5, by=0.1), function(X) plot_run_prob(max_warnings, X, 4, pal_col[2]))
 
-legend(x="bottomleft", legend=c("3 false positives", "4 false positives"), bty="n", fill=pal_col, cex=1.3)
+legend(x="bottomleft", legend=c("3 false positives", "4 false positives"), bty="n", fill=pal_col, cex=1.2)
 

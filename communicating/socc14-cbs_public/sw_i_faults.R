@@ -1,7 +1,9 @@
 #
-# sw_i_faults.R, 21 Mar 16
+# sw_i_faults.R, 19 Aug 16
 #
 # Data from:
+# What Bugs Live in the Cloud? {A} Study of 3000+ Issues in Cloud Systems
+# Haryadi S. Gunawi and Mingzhe Hao and Tanakorn Leesatapornwongsa and Tiratat Patana-anake and Thanh Do and Jeffry Adityatama and Kurnia J. Eliazar and Agung Laksono and Jeffrey F. Lukman and Vincentius Martin and Anang D. Satria
 #
 # What Bugs Live in the Cloud? {A} Study of 3000+ Issues in Cloud Systems
 # Haryadi S. Gunawi and Mingzhe Hao and Tanakorn Leesatapornwongsa and Tiratat Patana-anake and Thanh Do and Jeffry Adityatama and Kurnia J. Eliazar and Agung Laksono and Jeffrey F. Lukman and Vincentius Martin and Anang D. Satria
@@ -12,8 +14,8 @@
 
 source("ESEUR_config.r")
 
-library("lattice")
 
+library("lattice")
 
 cassandra=read.csv(paste0(ESEUR_dir, "communicating/socc14-cbs_public/sw_i_cassandra.csv.xz"), as.is=TRUE)
 
@@ -22,8 +24,9 @@ t=table(cassandra$software, cassandra$implication)
 t[cbind(cassandra$software,cassandra$implication)]=cassandra$count
 
 p=levelplot(t, col.regions=rainbow(100, start=0.1),
-	xlab="Implication", ylab="Software",
-                scale=list(x=list(rot=45)),
+	xlab="Software fault", ylab="Effect",
+                scale=list(x=list(rot=45), cex=0.8),
+		colorkey=NULL, # Numeric values remove the need for legend
 		panel=function(...)
                         {
                         panel.levelplot(...)

@@ -56,7 +56,7 @@ sum_market_cap=function(df)
 return(sum(df$market_cap))
 }
 
-m_cap=read.csv(paste0(ESEUR_dir, "ecosystem/real-market-cap.csv"), as.is=TRUE)
+m_cap=read.csv(paste0(ESEUR_dir, "ecosystem/real-market-cap.csv.xz"), as.is=TRUE)
 
 # ibm=subset(m_cap, ticker == "IBM")
 # ibm_1=subset(ibm, round == 1)
@@ -94,5 +94,5 @@ aapl=plot_percent("AAPL", pal_col[1])
 ibm=plot_percent("IBM", pal_col[2])
 MSFT=plot_percent("MSFT", pal_col[3])
 
-legend(x="topright", legend=rev(c("Apple", "IBM", "Microsoft")), bty="n", fill=rev(pal_col), cex=1.3)
+legend(x="topright", legend=rev(c("Apple", "IBM", "Microsoft")), bty="n", fill=rev(pal_col), cex=1.1)
 

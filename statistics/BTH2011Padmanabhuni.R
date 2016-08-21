@@ -53,7 +53,7 @@ plot(1, type="n", log="xy",
 plot_who(ind, pal_col[1])
 plot_who(aca, pal_col[3])
 
-legend(x="topleft", legend=D_names, bty="n", fill=D_cols, cex=1.3)
+legend(x="topleft", legend=D_names, bty="n", fill=D_cols, cex=1.2)
 
 # Remove what data that has a different slope to everything else
 aca=subset(no_Cuadtado, who_CFP != "ind")

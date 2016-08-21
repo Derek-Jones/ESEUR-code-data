@@ -1,5 +1,5 @@
 #
-# linux-src-evol.R, 26 Mar 16
+# linux-src-evol.R, 18 Aug 16
 #
 # Data from:
 # Simone Livieri and Yoshiki Higo and Makoto Matsushita and Katsuro Inoue
@@ -27,7 +27,7 @@ t=levelplot(evol, col.regions=pal_col,
 			   label=c("1.2.0", "2.2.20", "2.6.18.3")),
 		    y=list(at=c(130, 60, 1),
 				 label=c("1.2.0", "2.2.20", "2.6.18.3"))),
-	xlab="", ylab="")
+	xlab="Linux version", ylab="Linux version")
 
 plot(t, panel.height=list(3.8, "cm"), panel.width=list(5.2, "cm"))
 

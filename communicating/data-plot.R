@@ -28,7 +28,7 @@ par(oma = c(0,0,0,0), mar=c(2,2,2,0))
 MyPlot <- function(xy, xlim = c(-4, 4), ylim = c(-4, 4), eps = 1e-15) {
 #   title = round(cor(xy[,1], xy[,2]), 1)
 #   if (sd(xy[,2]) < eps) title = "" # corr. coeff. is undefined
-   plot(xy, col="blue",
+   plot(xy, col=point_col,
 	xlab = "", ylab = "",
         pch = 16, cex = 0.2,
         xaxt = "n", yaxt = "n", bty = "n",
@@ -37,7 +37,7 @@ MyPlot <- function(xy, xlim = c(-4, 4), ylim = c(-4, 4), eps = 1e-15) {
 
 curvy_line = function(x, y)
 {
-plot(x, y, col="blue",
+plot(x, y, col=point_col,
 	xlab = "", ylab = "",
         pch = 16, cex = 0.2,
         xaxt = "n", yaxt = "n", bty = "n")

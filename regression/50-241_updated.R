@@ -80,5 +80,5 @@ pred=predict(wb_mod, newdata=data.frame(L2=L2_range), type="response", se.fit=TR
 lines(L2_range, 1/pred, col=pal_col[4])
 
 
-legend(x="topright", legend=c("Exponential", "Michaelis-Menten", "Gompertz", "Weibull"), bty="n", fill=pal_col, cex=1.3)
+legend(x="topright", legend=c("Exponential", "Michaelis-Menten", "Gompertz", "Weibull"), bty="n", fill=pal_col, cex=1.2)
 

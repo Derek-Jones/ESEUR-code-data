@@ -39,5 +39,5 @@ plot(1, type="n", log="y",
 d_ply(features, .(model), feature_plot)
 
 legend(x="topright", legend=unique(features$model),
-				bty="n", fill=pal_col, cex=1.3)
+				bty="n", fill=pal_col, cex=1.2)
 

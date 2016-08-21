@@ -30,5 +30,5 @@ d_ply(bench, .(technology), function(df)
 			points(df$Date, df$total_cost_mill_ops,
 				col=pal_col[df$technology]))
 
-legend(x="bottomleft", legend=tech_vec, bty="n", fill=pal_col[tech_vec], cex=1.3)
+legend(x="bottomleft", legend=tech_vec, bty="n", fill=pal_col[tech_vec], cex=1.2)
 

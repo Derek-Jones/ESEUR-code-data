@@ -52,5 +52,5 @@ plot_commits(subset(commits, repository_id == 5), pal_col[2])
 axis(1, at=seq(0, 24*7, by=24), hadj=0,
 	labels=c("Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun", "Mon"))
 legend(x="topright", legend=c("Linux", "FreeBSD"),
-			bty="n", fill=pal_col, cex=1.3)
+			bty="n", fill=pal_col, cex=1.2)
 

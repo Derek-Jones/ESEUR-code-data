@@ -23,7 +23,7 @@ pita.2=subset(pita.2, V1 <= 1.0 & V1 >= 0.5,)
 hist(pita.2$V1, breaks=100, col="red",
 	main="",
 	xlim=c(0.5, 1.0),
-	xlab="Runtime (seconds)", ylab="Frequency\n")
+	xlab="", ylab="Number of processes\n")
 
 text(0.75, 900, "2 significant digits", cex=1.3)
 
@@ -35,7 +35,7 @@ pita.6=subset(pita.6, V1 <= 1.0 & V1 >= 0.5)
 hist(pita.6$V1, breaks=100, col="red",
 	main="",
 	xlim=c(0.5, 1.0),
-	xlab="Runtime (seconds)", ylab="")
+	xlab="Runtime (seconds)", ylab="Number of processes")
 
 text(0.75, 900, "6 significant digits", cex=1.3)
 

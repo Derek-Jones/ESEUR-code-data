@@ -1,5 +1,5 @@
 #
-# param-unused.R, 27 Dec 15
+# param-unused.R, 20 Aug 16
 #
 # Data from:
 # Derek M. Jones
@@ -37,4 +37,6 @@ est_mod=glm(y~x)
 
 pred=predict(est_mod)
 lines(10^pred, col=pal_col[4])
+
+legend(x="bottomleft", legend=c("Total functions measured", "Total unused parameters", "Wet finger model fit", "Linear fit"), bty="n", fill=pal_col, cex=1.2)
 

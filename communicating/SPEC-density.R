@@ -21,6 +21,6 @@ cint=subset(cpu2006, Benchmark == "CINT2006")
 cint$Benchmark=NULL
 cint=subset(cint, Result > 0)
 
-plot(density(cint$Result), main="",
+plot(density(cint$Result), col=point_col, main="",
 	xlab="SPECint Result", ylab="Density\n")
 

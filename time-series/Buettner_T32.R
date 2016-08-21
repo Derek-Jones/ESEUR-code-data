@@ -29,6 +29,6 @@ bc_ts[dt_c$Day]=dt_c$V1
 # Remove the styartup days where no faults reported
 bc_ts=bc_ts[min(bt_c$Day):max(bt_c$Day)]
 
-acf(bc_ts, lag.max=100)
+acf(bc_ts, lag.max=100, col=point_col)
 
 

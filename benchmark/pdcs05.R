@@ -68,5 +68,5 @@ all_thru=sapply(xbounds, get_throughput)
 
 lines(xbounds, all_thru/all_thru[1], col=brew_col[3])
 
-legend(x="bottomright",legend=c("Amdahl", "Quadratic Amdahl", "Queueing"), bty="n", fill=brew_col, cex=1.4)
+legend(x="bottomright",legend=c("Amdahl", "Quadratic Amdahl", "Queueing"), bty="n", fill=brew_col, cex=1.3)
 

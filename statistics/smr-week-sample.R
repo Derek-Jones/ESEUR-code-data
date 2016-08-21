@@ -1,5 +1,5 @@
 #
-# smr-week-sample.R,  2 Jun 16
+# smr-week-sample.R,  8 Aug 16
 #
 # Data from:
 # Studying the laws of software evolution in a long-lived {FLOSS} project
@@ -11,11 +11,11 @@
 
 source("ESEUR_config.r")
 
-library("circular")
 library("lubridate")
 library("plyr")
 
-plot_layout(5, 5)
+plot_layout(4, 6)
+par(mar=c(2.5, 2.2, 1, 1))
 
 scm=read.csv(paste0(ESEUR_dir, "time-series/smr1615/scmlog.csv.xz"),
 				 as.is=TRUE, quote="\'")
@@ -41,7 +41,8 @@ cfl$year=year(cfl$date)
 # d_ply(cfl, .(year), function(df) plot(table(month(df$date)), ylab=""))
 
 # Dates start with Thursday as zero, so need to shift up to make Monday zero
-d_ply(cfl, .(year), function(df) plot(table(trunc(as.numeric(3+df$date) %% 7)), ylab=""))
-plot(table(trunc(as.numeric(3+cfl$date) %% 7)), ylab="")
+d_ply(cfl, .(year), function(df) plot(table(trunc(as.numeric(3+df$date) %% 7)),
+					 xlab=df$year[1], ylab="", col=point_col))
+plot(table(trunc(as.numeric(3+cfl$date) %% 7)), ylab="", col=point_col)
 
 

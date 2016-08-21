@@ -12,7 +12,6 @@
 
 source("ESEUR_config.r")
 
-plot_wide()
 pal_col=rainbow(4)
 
 
@@ -42,7 +41,7 @@ plot_effort_loc(subset(ATR, Environment == "Mil-Spec Av"), 3)
 plot_effort_loc(subset(ATR, Environment == "Unmanned Sp"), 4)
 
 legend(x="bottomright", legend=c("Military Ground", "Military Mobile", "Mil-Spec Avionics", "Unmanned Space"),
-		bty="n", fill=pal_col, cex=1.3)
+		bty="n", fill=pal_col, cex=1.2)
 
 
 

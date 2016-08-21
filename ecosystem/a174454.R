@@ -40,7 +40,7 @@ return(f_mod)
 }
 
 
-AF_code=read.csv(paste0(ESEUR_dir, "ecosystem/a174454.csv"), as.is=TRUE)
+AF_code=read.csv(paste0(ESEUR_dir, "ecosystem/a174454.csv.xz"), as.is=TRUE)
 
 All=subset(AF_code, language == "All")
 Fortran=subset(AF_code, language == "Fortran")
@@ -56,7 +56,7 @@ lines(Fortran$year, Fortran$LOC, col=pal_col[2])
 lines(Other$year, Other$LOC, col=pal_col[3])
 lines(Assembler$year, Assembler$LOC, col=pal_col[4])
 
-legend(x="topleft", legend=c("Cobol", "Fortran", "Other", "Assembler"), bty="n", fill=pal_col, cex=1.3)
+legend(x="topleft", legend=c("Cobol", "Fortran", "Other", "Assembler"), bty="n", fill=pal_col, cex=1.2)
 
 plot(All$year, All$dev.cost, col=pal_col[1], log="y", type="l",
 	xlab="Year", ylab="Development cost\n")
@@ -65,7 +65,7 @@ lines(Fortran$year, Fortran$dev.cost, col=pal_col[2])
 lines(Cobol$year, Cobol$dev.cost, col=pal_col[3])
 lines(Other$year, Other$dev.cost, col=pal_col[4])
 
-legend(x="topleft", legend=c("All", "Fortran", "Cobol", "Other"), bty="n", fill=pal_col, cex=1.3)
+legend(x="topleft", legend=c("All", "Fortran", "Cobol", "Other"), bty="n", fill=pal_col, cex=1.2)
 
 plot(Fortran$LOC, Fortran$dev.cost, col=pal_col[1], log="xy",
 	xlab="LOC", ylab="Development cost\n")
@@ -77,7 +77,7 @@ points(Other$LOC, Other$dev.cost, col=pal_col[2])
 points(Cobol$LOC, Cobol$dev.cost, col=pal_col[3])
 points(Assembler$LOC, Assembler$dev.cost, col=pal_col[4])
 
-legend(x="bottomright", legend=c("Fortran", "Other", "Cobol", "Assembler"), bty="n", fill=pal_col, cex=1.3)
+legend(x="bottomright", legend=c("Fortran", "Other", "Cobol", "Assembler"), bty="n", fill=pal_col, cex=1.2)
 
 plot(Fortran$LOC, Fortran$dev.cost, col=pal_col[2], log="xy",
 	xlab="LOC", ylab="Development cost\n")
@@ -89,7 +89,7 @@ f_mod=fit_line(F_clean, pal_col[2])
 c_mod=fit_line(Cobol, pal_col[1])
 o_mod=fit_line(Other, pal_col[3])
 # fit_line(Assembler, pal_col[4])
-legend(x="topleft", legend=c("Cobol", "Fortran", "Other"), bty="n", fill=pal_col, cex=1.3)
+legend(x="topleft", legend=c("Cobol", "Fortran", "Other"), bty="n", fill=pal_col, cex=1.2)
 
 # Models involving year
 fp_rmod=glmrob(dev.cost ~ year*log(LOC), data=F_clean, family=poisson)
@@ -98,7 +98,7 @@ fg_mod=glm(log(dev.cost) ~ year+log(LOC), data=F_clean)
 fp_rmod=glmrob(dev.cost ~ year*log(LOC), data=Cobol, family=poisson)
 fg_mod=glm(log(dev.cost) ~ log(LOC), data=Cobol)
 
-legend(x="bottomright", legend=c("Fortran", "Cobol", "other"), bty="n", fill=pal_col, cex=1.3)
+legend(x="bottomright", legend=c("Fortran", "Cobol", "other"), bty="n", fill=pal_col, cex=1.2)
 
 
 plot(Fortran$LOC, Fortran$maint.cost, col=pal_col[1], log="xy",
@@ -108,6 +108,6 @@ points(Other$LOC, Other$maint.cost, col=pal_col[2])
 points(Cobol$LOC, Cobol$maint.cost, col=pal_col[3])
 points(Assembler$LOC, Assembler$maint.cost, col=pal_col[4])
 
-legend(x="bottomright", legend=c("Fortran", "Other", "Cobol", "Assembler"), bty="n", fill=pal_col, cex=1.3)
+legend(x="bottomright", legend=c("Fortran", "Other", "Cobol", "Assembler"), bty="n", fill=pal_col, cex=1.2)
 
 

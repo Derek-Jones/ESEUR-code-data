@@ -1,10 +1,9 @@
 #
-# ff-ms-predict.R, 20 Dec 15
+# ff-ms-predict.R, 19 Aug 16
 #
-# R code for book "Empirical Software Engineering using R"
-# Derek M. Jones, http://shape-of-code.coding-guidelines.com
-#
-# Data from ITU...
+# Data from:
+# W3Counter global web stats
+# www.w3counter.com
 #
 # Example from:
 # Empirical Software Engineering using R
@@ -38,7 +37,7 @@ brew_col=rainbow(4)
 
 v3=subset(browser_ms, browser == "v3.0")
 
-plot(v3$date, v3$market_share,
+plot(v3$date, v3$market_share, col=point_col,
 	xlab="Days since verson 1.0 released", ylab="Firefox v3 percentage market share\n")
 
 plot_market_share("v3.0", brew_col[1], 0.75)

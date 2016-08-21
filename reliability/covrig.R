@@ -11,8 +11,8 @@
 
 source("ESEUR_config.r")
 
-par(fin=c(4.5, 3.5))
 
+# par(fin=c(4.5, 3.5))
 
 library("plyr")
 
@@ -56,5 +56,5 @@ col_num=1
 d_ply(prog, .(program), all_progs)
 
 legend(x="bottomleft", legend=unique(prog$program),
-			bty="n", fill=pal_col, cex=1.3)
+			bty="n", fill=pal_col, cex=1.2)
 

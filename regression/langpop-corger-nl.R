@@ -1,5 +1,5 @@
 #
-# langpop-corger-nl.R, 16 Jul 16
+# langpop-corger-nl.R, 20 Aug 16
 #
 # Data from:
 # http://langpop.corger.nl/results
@@ -21,10 +21,10 @@ langpop$log_github=log(langpop$github)
 pal_col=rainbow(2)
 
 plot(langpop$github, langpop$stackoverflow, log="xy", col=point_col,
-	xlab="Github: lines checked in", ylab="Stackoverflow: language tags\n")
+	xlab="", ylab="Stackoverflow: language tags\n")
 
 plot(langpop$github, langpop$stackoverflow, log="xy", col=point_col,
-	xlab="Github: lines checked in", ylab="")
+	xlab="Github: lines checked in", ylab="Stackoverflow: language tags\n")
 
 loess_mod=loess(log(stackoverflow) ~ log_github, data=langpop, span=0.3)
 x_points=1:max(langpop$log_github)

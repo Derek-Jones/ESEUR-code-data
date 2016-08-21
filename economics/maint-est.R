@@ -1,5 +1,5 @@
 #
-# maint-est.R, 25 Jan 16
+# maint-est.R,  4 Aug 16
 #
 # Data from:
 #
@@ -15,23 +15,24 @@ source("ESEUR_config.r")
 
 library("plyr")
 
+
 plot_layout(3, 1)
+brew_col=rainbow_hcl(3)
 
 
 # est_adapt,est_correct,est_perfect,act_adapt,act_correct,act_perfect,est_time,act_time
 maint=read.csv(paste0(ESEUR_dir, "economics/exportdata.csv.xz"), as.is=TRUE)
 
 plot(maint$est_time, maint$act_time, col=point_col,
-	xlab="Estimated hours", ylab="Actual hours\n")
+	xlab="", ylab="Actual hours\n")
 
 plot(jitter(maint$est_time), jitter(maint$act_time), col=point_col,
-	xlab="Estimated hours", ylab="")
+	xlab="Estimated hours", ylab="Actual hours\n")
 
 t=ddply(maint, .(est_time, act_time), nrow)
 plot(t$est_time, t$act_time, cex=log(1+t$V1), pch=1, col=point_col,
-	xlab="Estimated hours", ylab="")
+	xlab="", ylab="Actual hours\n")
 
-brew_col=rainbow_hcl(3)
 
 fit_maint=function(maint)
 {

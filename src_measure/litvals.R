@@ -26,5 +26,5 @@ plot(int_lit$value, int_lit$occurrences, log="xy", col=pal_col[1],
 points(hex_lit$value, hex_lit$occurrences, col=pal_col[2])
 
 legend(x="topright", legend=c("Decimal", "Hexadecimal"),
-			bty="n", fill=pal_col, cex=1.3)
+			bty="n", fill=pal_col, cex=1.2)
 

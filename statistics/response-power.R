@@ -1,5 +1,5 @@
 #
-# response-power.R, 15 Jul 16
+# response-power.R, 18 Aug 16
 #
 #
 # Example from:
@@ -16,8 +16,8 @@ power_test=function(num_runs=NULL, m_diff=NULL, d_sd=NULL, sig.level=0.05, req_p
 {
 t=power.t.test(n = num_runs, delta = m_diff, sd = d_sd, sig.level = sig.level,
                  power = req_pow,
-                 type = "one.sample",
-                 alternative = "one.sided")
+                 type = "two.sample",
+                 alternative = "two.sided")
 
 return(t)
 }
@@ -27,7 +27,7 @@ plot_power=function(mean_ind)
 {
 t_pow=sapply(10:100, function(X) power_test(X, mean_range[mean_ind], 1)$power)
 lines(10:100, t_pow, col=pal_col[mean_ind])
-text(10, t_pow[10], mean_range[mean_ind], pos=4, cex=1.2)
+text(30, t_pow[32], mean_range[mean_ind], pos=4, cex=1.2)
 }
 
 
@@ -47,8 +47,8 @@ sig_test=function(m_diff=NULL, d_sd=NULL, sig.level=NULL, req_pow = NULL)
 {
 t=power.t.test(n = 30, delta = m_diff, sd = d_sd, sig.level = sig.level,
                  power = req_pow,
-                 type = "one.sample",
-                 alternative = "one.sided")
+                 type = "two.sample",
+                 alternative = "two.sided")
 
 return(t)
 }
@@ -58,7 +58,7 @@ plot_sig=function(mean_ind)
 {
 t_pow=sapply(sig_range, function(X) sig_test(mean_range[mean_ind], 1, X)$power)
 lines(sig_range, t_pow, col=pal_col[mean_ind])
-text(0.01, t_pow[1], mean_range[mean_ind], pos=4, cex=1.3)
+text(0.07, t_pow[3], mean_range[mean_ind], pos=4, cex=1.3)
 }
 
 
@@ -68,7 +68,7 @@ pal_col=rainbow(length(mean_range))
 
 plot(0, type="n",
 	xlim=range(sig_range), ylim=c(0, 1),
-        xlab="Significance", ylab="")
+        xlab="Significance", ylab="Power")
 q=sapply(1:length(mean_range), function(X) plot_sig(X))
 
 

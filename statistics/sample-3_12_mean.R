@@ -44,5 +44,5 @@ plot(m_3, col=pal_col[1], main="",
 lines(m_12, col=pal_col[2])
 
 legend(x="topright", legend=c("3 items", "12 items"),
-			bty="n", fill=pal_col, cex=1.3)
+			bty="n", fill=pal_col, cex=1.2)
 

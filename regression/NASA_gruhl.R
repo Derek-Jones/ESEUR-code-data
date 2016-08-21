@@ -1,5 +1,5 @@
 #
-# NASA_gruhl.R,  2 Apr 15
+# NASA_gruhl.R,  3 Aug 16
 #
 # Data from:
 # Lessons Learned cost/schedule assessment guide
@@ -10,14 +10,13 @@
 # Derek M. Jones
 
 
-
 source("ESEUR_config.r")
 
 
 gruhl=read.csv(paste0(ESEUR_dir, "regression/NASA_gruhl.csv.xz"), as.is=TRUE)
 
-plot(gruhl$definition.ratio, gruhl$target.overrun,
-	xlab="Definition investment (percentage)", ylab="Cost overrun percentage\n")
+plot(gruhl$definition.ratio, gruhl$target.overrun, col=point_col,
+	xlab="Project definition investment", ylab="Cost overrun\n")
 
 lines(loess.smooth(gruhl$definition.ratio, gruhl$target.overrun, span=0.5), col="green")
 

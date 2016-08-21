@@ -1,5 +1,5 @@
 #
-# BSD-network.R, 21 Feb 16
+# BSD-network.R, 29 Aug 16
 #
 # Data from:
 # Social Interactions around Cross-System Bug Fixings: the Case of FreeBSD and OpenBSD
@@ -61,4 +61,26 @@ V(conn_graph)$label=NA
 E(conn_graph)$arrow.size=0.4
 
 plot(conn_graph)
+
+os_col=unique(dev_OS[, c("V1", "col")])
+
+# plot uses a randomise algorithm, so we don't know where things
+# will appear (a legend option would be useful, but I guess they
+# might not know where things are).
+# So the legend has to go in the title.
+# The following seems to be the only way of changing the color
+# of text without doing string width calculations.
+t=as.expression(substitute(os1 * phantom(paste0(" ", os2, " ", os3)),
+		list(os1=os_col$V1[1], os2=os_col$V1[2], os3=os_col$V1[3])))
+title(t, col.main=os_col$col[1])
+
+t=as.expression(substitute(phantom(paste0(os1, " ")) * os2 *
+			   phantom(paste0(" ", os3)),
+		list(os1=os_col$V1[1], os2=os_col$V1[2], os3=os_col$V1[3])))
+title(t, col.main=os_col$col[2])
+
+t=as.expression(substitute(phantom(paste0(os1, " ", os2, " ")) * os3,
+		list(os1=os_col$V1[1], os2=os_col$V1[2], os3=os_col$V1[3])))
+title(t, col.main=os_col$col[3])
+
 

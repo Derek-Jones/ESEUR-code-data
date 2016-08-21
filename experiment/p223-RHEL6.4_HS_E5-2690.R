@@ -17,7 +17,7 @@ p223=read.csv(paste0(ESEUR_dir, "experiment/p223-RHEL6.4_HS_E5-2690.csv"), as.is
 # pal_col=rainbow(length(unique(p223$Worklet)))
 pal_col=rainbow(3)
 
-plot(p223$Load.Level, p223$Watts_1, type="l")
+# plot(p223$Load.Level, p223$Watts_1, type="l")
 
 LU=subset(p223, Worklet == "LU")
 SHA256=subset(p223, Worklet == "SHA256")
@@ -35,5 +35,5 @@ lines(LU$Load.Level[every_5th], LU$Watts_1[every_5th], col=pal_col[1])
 lines(SHA256$Load.Level[every_5th], SHA256$Watts_1[every_5th], col=pal_col[2])
 lines(SOR$Load.Level[every_5th], SOR$Watts_1[every_5th], col=pal_col[3])
 
-legend(x="bottomleft", legend=c("lu", "sha256", "sort"), bty="n", fill=pal_col, cex=1.3)
+legend(x="bottomleft", legend=c("lu", "sha256", "sort"), bty="n", fill=pal_col, cex=1.2)
 

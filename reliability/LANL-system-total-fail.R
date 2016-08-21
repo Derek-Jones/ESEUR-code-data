@@ -1,5 +1,8 @@
 #
-# LANL-system-total-fail.R, 22 Apr 15
+# LANL-system-total-fail.R, 18 Aug 16
+# Data from:
+# Los Alamos National Lab (LANL)
+# http://www.lanl.gov/
 #
 # Example from:
 # Empirical Software Engineering using R
@@ -26,7 +29,7 @@ plot_sys.failures=function(sys.num)
 {
 sys.n=total_failures(sys.num)
 
-plot(table(sys.n$fail_bin+1-min(sys.n$fail_bin)),
+plot(table(sys.n$fail_bin+1-min(sys.n$fail_bin)), col=point_col,
         xlab="", ylab="Failures\n")
 legend(x="topright", legend=paste("system", sys.num), bty="n")
 

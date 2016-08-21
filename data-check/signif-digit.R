@@ -39,5 +39,5 @@ digit_cnt=read.csv(paste0(ESEUR_dir, "data-check/benfordhex.csv.xz"), as.is=TRUE
 plot_ben(digit_cnt, pal_col[4])
 
 legend(x="topright", legend=c("Benford's law", "Floating", "Integer", "Hexadecimal"),
-			bty="n", fill=pal_col, cex=1.3)
+			bty="n", fill=pal_col, cex=1.2)
 

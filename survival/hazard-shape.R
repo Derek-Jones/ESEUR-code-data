@@ -8,7 +8,6 @@
 source("ESEUR_config.r")
 
 
-plot_wide()
 pal_col=rainbow(3)
 
 plot(0, type="n",
@@ -32,5 +31,5 @@ lines(x_vals, down_weib, col=pal_col[3])
 
 
 legend(x="topleft", legend=c("Lognormal", "Weibull", "Weibull"),
-				bty="n", fill=pal_col, cex=1.3)
+				bty="n", fill=pal_col, cex=1.2)
 

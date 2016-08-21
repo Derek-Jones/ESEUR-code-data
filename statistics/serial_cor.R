@@ -57,7 +57,7 @@ lines(sample_sizes, t, col=col_str)
 # plot_cor(0.5, pal_col[5])
 # plot_cor(0.7, pal_col[6])
 # 
-# legend(x="bottomleft", legend=rev(cor_vals), bty="n", fill=rev(pal_col), cex=1.3)
+# legend(x="bottomleft", legend=rev(cor_vals), bty="n", fill=rev(pal_col), cex=1.2)
 
 
 cor_vals=c(0.1, 0.2, 0.3, 0.5, 0.7, 0.9)
@@ -77,7 +77,7 @@ lines(sample_sizes, adjust_mean, col=col_str)
 
 plot(1, type="n", log="x",
 	xlim=range(sample_sizes), ylim=c(0, 2.0),
-	xlab="Sample size", ylab="Bias in mean standard deviation\n")
+	xlab="Sample size", ylab="Bias in standard deviation of mean\n")
 
 mean_var_adj(0.1, pal_col[1])
 mean_var_adj(0.2, pal_col[2])
@@ -92,8 +92,8 @@ mean_var_adj(-0.5, pal_col[10])
 # mean_var_adj(-0.7, pal_col[11])
 # mean_var_adj(-0.9, pal_col[12])
 
-legend(x="topright", legend=rev(cor_vals), bty="n", fill=rev(pal_col[1:6]), cex=1.3)
-legend(x="bottomright", legend=-cor_vals[1:4], bty="n", fill=pal_col[7:10], cex=1.3)
+legend(x="topright", legend=rev(cor_vals), bty="n", fill=rev(pal_col[1:6]), cex=1.2)
+legend(x="bottomright", legend=-cor_vals[1:4], bty="n", fill=pal_col[7:10], cex=1.2)
 
 
 variance_adj=function(serial_cor, col_str)
@@ -106,7 +106,7 @@ lines(sample_sizes, adjust_cor, col=col_str)
 
 plot(1, type="n", log="x",
 	xlim=range(sample_sizes), ylim=c(8e-1, 1.2),
-	xlab="Sample size", ylab="Bias in sample standard deviation\n")
+	xlab="Sample size", ylab="Bias in standard deviation of sample\n")
 
 variance_adj(0.1, pal_col[1])
 variance_adj(0.2, pal_col[2])
@@ -121,6 +121,6 @@ variance_adj(-0.5, pal_col[10])
 variance_adj(-0.7, pal_col[11])
 variance_adj(-0.9, pal_col[12])
 
-legend(x="bottomright", legend=cor_vals, bty="n", fill=pal_col[1:6], cex=1.3)
-legend(x="topright", legend=rev(-cor_vals), bty="n", fill=rev(pal_col[7:12]), cex=1.3)
+legend(x="bottomright", legend=cor_vals, bty="n", fill=pal_col[1:6], cex=1.2)
+legend(x="topright", legend=rev(-cor_vals), bty="n", fill=rev(pal_col[7:12]), cex=1.2)
 

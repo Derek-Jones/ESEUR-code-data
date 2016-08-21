@@ -1,5 +1,5 @@
 #
-# U-shaped.R,  2 Dec 15
+# U-shaped.R,  4 Aug 16
 #
 # Example from:
 # Empirical Software Engineering using R
@@ -19,6 +19,6 @@ plot(x, 3*inv.x, type="l", col=pal_col[1],
 	ylim=y_bounds,
 	xlab="LOC", ylab="Faults/LOC\n")
 
-lines(x, ((x+50)^3/500)*0.01*inv.x, col=pal_col[2])
+lines(x, ((x+50)^3/5e4)*inv.x, col=pal_col[2])
 
 

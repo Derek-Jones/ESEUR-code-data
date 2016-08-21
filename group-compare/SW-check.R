@@ -45,5 +45,5 @@ points(c_norm/num_replications, col=pal_col[4])
 
 
 legend(x="topleft", legend=c("exponential", "uniform", "log normal", "normal"),
-			bty="n", fill=pal_col, cex=1.3)
+			bty="n", fill=pal_col, cex=1.2)
 

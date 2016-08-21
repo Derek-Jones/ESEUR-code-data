@@ -73,6 +73,6 @@ plot_distrib(3)
 plot_distrib(4)
 
 legend(x="topright", legend=c("Normal", "Poisson", "Lognormal", "Negative binomial"),
-			bty="n", fill=pal_col, cex=1.3)
+			bty="n", fill=pal_col, cex=1.2)
 
 

@@ -1,5 +1,5 @@
 #
-# 1014.R, 26 Mar 16
+# 1014.R, 20 Aug 16
 #
 # Data from:
 #
@@ -26,6 +26,7 @@ FST=t(apply(FST, 2, rev))
 t=levelplot(FST,
                 xlab="", ylab="",
 		scales=list(x=list(cex=0.75, rot=25), y=list(cex=0.75)),
+		colorkey=NULL, # Numeric values remove the need for legend
                 panel=function(...)
                         {
                         panel.levelplot(...)

@@ -52,7 +52,7 @@ cfl_week=ddply(cfl, .(week),
 # auto.arima(cfl_week$lines_added)
 # auto.arima(cfl_week$lines_deleted)
 
-ccf(cfl_week$lines_added, cfl_week$lines_deleted,
+ccf(cfl_week$lines_added, cfl_week$lines_deleted, col=point_col,
 	xlab="Weeks")
 
 
