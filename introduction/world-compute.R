@@ -1,5 +1,5 @@
 #
-# world-compute.R,  9 Mar 16
+# world-compute.R,  2 Sep 16
 #
 # Data from:
 # Supporting Online Material for: {The} World's Technological Capacity to Store, Communicate, and Compute Information
@@ -7,13 +7,13 @@
 # and
 # The Postwar Evolution of Computer Prices
 # Robert J. Gordon
+#
 # Example from:
 # Empirical Software Engineering using R
 # Derek M. Jones
 
 source("ESEUR_config.r")
 
-plot_wide()
 pal_col=rainbow(8)
 
 
@@ -39,6 +39,6 @@ lines(world_comp$year, world_comp$Mobile_phone.PDA, type="b", col=pal_col[6])
 lines(world_comp$year, world_comp$Server.mainframe, type="b", col=pal_col[7])
 lines(world_comp$year, world_comp$Pocket_calculator, type="b", col=pal_col[8])
 
-legend(x="top", legend=c("GPU", "PC", "MCU", "DSP", "Videogame", "Modile phone/PDA", "Server/mainframe", "Pocket calculator"),
+legend(x="topleft", legend=c("GPU", "PC", "MCU", "DSP", "Videogame", "Modile phone/PDA", "Server/mainframe", "Pocket calculator"),
 			bty="n", fill=pal_col, cex=1.2)
 

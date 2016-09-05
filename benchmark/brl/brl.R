@@ -1,5 +1,5 @@
 #
-# template.R,  9 May 16
+# brl.R,  9 May 16
 # Data from:
 # Martin H. Weik 
 # A SURVEY OF DOMESTIC ELECTRONIC DIGITAL COMPUTING SYSTEMS

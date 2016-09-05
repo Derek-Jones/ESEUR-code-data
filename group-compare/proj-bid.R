@@ -1,5 +1,5 @@
 #
-# proj-bid.R,  2 Dec 15
+# proj-bid.R, 24 Aug 16
 #
 # Data from:
 # An Empirical Study of Software Project Bidding
@@ -33,25 +33,5 @@ lines(density(log(comp_bid$Bid[17:35]), kernel="epanechnikov"),
 
 legend(x="topleft", legend=c("A Outline", "A Detailed", "B Detailed"),
 	 fill=brew_col, bty="n", cex=1.2)
-
-
-library("coin")
-
-# The default is alternative="two.sided",
-# an option not currently listed in the Arguments section.
-oneway_test(Bid ~ as.factor(Group), data=comp_bid)
-
-
-# library(dgof)
-# 
-# Are the various bids drawn from the same distribution?
-# ks.test(comp_bid$Bid[18:35], ecdf(comp_bid$Bid[1:17]))
-# ks.test(comp_A_pre$Bid, ecdf(comp_bid$Bid[1:17]))
-# ks.test(comp_A_pre$Bid, comp_bid$Bid[1:17])
-# ks.test(comp_A_pre$Bid, ecdf(comp_bid$Bid[18:35]))
-
-# cvm.test(comp_bid$Bid[18:35], ecdf(comp_bid$Bid[1:17]))
-# cvm.test(comp_A_pre$Bid, ecdf(comp_bid$Bid[1:17]))
-# cvm.test(comp_A_pre$Bid, ecdf(comp_bid$Bid[18:35]))
 
 

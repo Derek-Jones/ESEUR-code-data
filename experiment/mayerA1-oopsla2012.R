@@ -1,8 +1,9 @@
 #
-# mayerA1-oopsla2012.R, 26 Aug 14
+# mayerA1-oopsla2012.R, 23 Aug 16
 #
 # Date from:
 # An Empirical Study of the Influence of Static Type Systems on the Usability of Undocumented Software
+# Clemens Mayer and Stefan Hanenberg and Romain Robbes and {\'E}ric Tanter and Andreas Stefik
 #
 # Example from:
 # Empirical Software Engineering using R
@@ -31,7 +32,7 @@ Groovy_ans$order=as.factor(1+(GJ$Group != "A"))
 all_ans=melt(rbind(Java_ans, Groovy_ans), variable.name="CIT", value.name="Time")
 
 
-GJ_mod=lmer(Time ~ order+language:CIT+CIT+(order+language:CIT+CIT | subject),
+GJ_mod=lmer(Time ~ order+language:CIT+CIT+(order+CIT | subject),
 		data=all_ans)
 
 summary(GJ_mod)

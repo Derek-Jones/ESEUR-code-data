@@ -1,5 +1,5 @@
 #
-# L2-miss-penalty.R,  8 Jan 16
+# L2-miss-penalty.R, 31 Aug 16
 #
 # Data from:
 # Investigating Cache Parameters of x86 Family Processors
@@ -14,7 +14,7 @@ source("ESEUR_config.r")
 
 library("plyr")
 
-par(fin=c(4.5, 3.5))
+pal_col=rainbow(3)
 
 
 plot_cache_cpu=function(file_str, stride, col_str)
@@ -33,8 +33,6 @@ text(max(cc_mean$cache_line_offset)/2, max(cc_mean$V1)+4, stride,
 		col="grey", cex=1.3)
 }
 
-
-pal_col=rainbow(3)
 
 xbounds=c(1, 4000)
 ybounds=c(220, 300)

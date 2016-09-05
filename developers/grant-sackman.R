@@ -1,13 +1,14 @@
 #
-# grant-sackman.R, 28 Aug 13
+# grant-sackman.R, 26 Aug 16
+# Data from:
+# The 28:1 {Grant}/{Sackman} legend is misleading, or: {How} large is interpersonal variation really?
+# Lutz Prechelt
 #
 # Example from:
 # Empirical Software Engineering using R
 # Derek M. Jones
 
 source("ESEUR_config.r")
-
-par(mai=c(0.8, 1.6, 0.3, 0.2))
 
 
 brew_col=rainbow_hcl(8)

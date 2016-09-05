@@ -1,9 +1,6 @@
 #
 # dacapo_progname.R, 11 Nov 15
 #
-# R code for book "Empirical Software Engineering using R"
-# Derek M. Jones, http://shape-of-code.coding-guidelines.com
-#
 # Data from:
 # Are Your Incoming Aliases Really Necessary?  Counting the Cost of Object Ownership
 # Alex Potanin and Monique Damitio and James Noble
@@ -12,8 +9,8 @@
 # Empirical Software Engineering using R
 # Derek M. Jones
 
-
 source("ESEUR_config.r")
+
 
 library("reshape2")
 

@@ -1,14 +1,16 @@
 #
-# sort-benchmark.R, 16 Jul 16
+# sort-benchmark.R, 30 Aug 16
 #
 # Data from:
 # sortbenchmark.org
+# www.spec.org/cpu2006/results
 #
 # Example from:
 # Empirical Software Engineering using R
 # Derek M. Jones
 
 source("ESEUR_config.r")
+
 
 plot_layout(2, 1)
 
@@ -50,7 +52,7 @@ cint=subset(cint, Result > 0)
 
 
 plot(cint$Test.Date, cint$Result,
-	col=rgb(0.5, 0.6, 0.4, alpha=0.7),
+	col=point_col,
 	xlab="Measurement date", ylab="SPEC2006 int\n")
 
 

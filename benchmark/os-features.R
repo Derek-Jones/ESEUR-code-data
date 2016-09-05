@@ -1,5 +1,5 @@
 #
-# os-features.R, 27 Mar 16
+# os-features.R, 31 Aug 16
 #
 # Data from:
 # Performance Variance Evaluation on Mozilla Firefox
@@ -48,6 +48,7 @@ t=bwplot(value ~ variable | program, data=m_t,
                 scales=list(y=list(cex=0.8)),
 		ylab="Normalised performance")
 
-plot(t, panel.height=list(1.5, "cm"))
+plot(t, panel.height=list(2.0, "cm"),
+		panel.width=list(3.0, "cm"))
 
 

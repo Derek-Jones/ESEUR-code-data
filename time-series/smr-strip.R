@@ -1,5 +1,5 @@
 #
-# smr-strip.R, 19 Feb 16
+# smr-strip.R, 22 Aug 16
 #
 # Data from:
 # Studying the laws of software evolution in a long-lived {FLOSS} project
@@ -45,7 +45,7 @@ cfl_week=ddply(cfl, .(week),
 t=xyplot(lines_added ~ week | equal.count(week, 4, overlap=0.1), cfl_week,
 		type="l", aspect="xy", strip=FALSE,
 		xlab="", ylab="Weekly total",
-		scales=list(x=list(relation="sliced", axs="i"),
-			    y=list(alternating=FALSE, log=TRUE)))
+		scales=list(x=list(relation="sliced", axs="i", cex=0.6),
+			    y=list(alternating=FALSE, log=TRUE, cex=0.7)))
 plot(t)
 

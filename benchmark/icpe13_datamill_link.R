@@ -1,5 +1,5 @@
 #
-# icpe13_datamill_link.R, 28 Mar 16
+# icpe13_datamill_link.R, 31 Aug 16
 #
 # Data from:
 # DataMill: Rigorous Performance Evaluation Made Easy
@@ -39,5 +39,6 @@ p=bwplot(Base.Run.Time ~ link_order|address_randomization+hostname,
 			 rot=c(0, 90)),
 		xlab="Link order", ylab="Run Time (secs)")
 t=useOuterStrips(p)
-plot(t)
+plot(t,
+	panel.width=list(4.0, "cm"))
 

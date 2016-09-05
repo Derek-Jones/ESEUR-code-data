@@ -1,8 +1,8 @@
 #
-# ChangesInCompPerf.R, 29 Apr 16
+# ChangesInCompPerf.R, 31 Aug 16
 # Data from:
 # Kenneth E. Knight
-# Change sin Computer Performance
+# Changes in Computer Performance
 #
 # Example from:
 # Empirical Software Engineering using R
@@ -25,8 +25,8 @@ points(year_pts$Com.ops.sec, year_pts$Com.sec.dol, col=col_str)
 bench=read.csv(paste0(ESEUR_dir, "benchmark/ChangesInCompPerf.csv.xz"), as.is=TRUE)
 
 # Scientific operations
-plot(bench$Sci.ops.sec, bench$Sci.sec.dol, log="xy", col=point_col,
-	xlab="Operations per second", ylab="Seconds per dollar\n")
+# plot(bench$Sci.ops.sec, bench$Sci.sec.dol, log="xy", col=point_col,
+# 	xlab="Operations per second", ylab="Seconds per dollar\n")
 
 bench$Sci.l.ops.sec=log(bench$Sci.ops.sec)
 bench$Com.l.ops.sec=log(bench$Com.ops.sec)
@@ -46,12 +46,12 @@ sci_mod=glm(Sci.sec.dol ~ Sci.l.ops.sec+year, data=fifties, family=gaussian(link
 # What Knight did...
 # sci_mod=lm(log(Sci.sec.dol) ~ Sci.l.ops.sec+year, data=fifties)
 
-summary(sci_mod)
+# summary(sci_mod)
 
 ops_sec=seq(log(min(bench$Sci.ops.sec)), log(max(bench$Sci.ops.sec)), length.out=10)
 
 pred=predict(sci_mod, newdata=data.frame(Sci.l.ops.sec=ops_sec, year=1962), type="response")
-lines(exp(ops_sec), exp(pred), col="green")
+# lines(exp(ops_sec), exp(pred), col="green")
 
 
 # Commercial operations
@@ -60,7 +60,7 @@ plot(bench$Com.ops.sec, bench$Com.sec.dol, log="xy", col=point_col,
 
 com_mod=glm(Com.sec.dol ~ Com.l.ops.sec+year, data=fifties, family=gaussian(link="log"))
 
-summary(com_mod)
+# summary(com_mod)
 
 plot_year(com_mod, 1953, pal_col[1])
 plot_year(com_mod, 1957, pal_col[2])

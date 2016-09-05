@@ -1,5 +1,5 @@
 #
-# gcc-opt-O3perf.R, 28 Mar 16
+# gcc-opt-O3perf.R, 31 Aug 16
 #
 # SPEC2000 results for various versions of gcc, obtained from:
 # Vladimir N. Makarow http://vmakarov.fedorapeople.org/spec/index.html
@@ -23,12 +23,13 @@ O3_64=bc_64[bc_64$Opt == "O3", ]
 colnames(O3_64)=c(colnames(O3_64)[1:3], substr(colnames(O3_64[, 4:9]), 2, 10))
 lp=melt(O3_64[,3:9], variable.name="gcc.version", id="Name")
 
-p=xyplot(value ~ gcc.version | Name, data=subset(lp, Name != "SPECint2000"),
+t=xyplot(value ~ gcc.version | Name, data=subset(lp, Name != "SPECint2000"),
 	col=point_col, pch=point_pch, type="b",
 	xlab="gcc version", ylab="Percentage performance change",
                 par.strip.text=list(cex=0.75),
                 scales=list(x=list(cex=0.5)),
 	panel=function(...) {panel.abline(0, 0, col="grey"); panel.xyplot(...)})
 
-plot(p, panel.height=list(1.4, "cm"))
+plot(t, panel.height=list(2.5, "cm"),
+		panel.width=list(3.0, "cm"))
 

@@ -1,5 +1,5 @@
 #
-# MemoPower03_design.R, 26 Mar 16
+# MemoPower03_design.R,  1 Sep 16
 #
 # Data from:
 # "Look It up" or "Do the Math": An Energy, Area, and Timing Analysis of Instruction Resuse and Memoization
@@ -11,8 +11,14 @@
 
 source("ESEUR_config.r")
 
-par(fin=c(4.5, 3.5))
 
+# library("DoE.base")
+
+
+# Need to fiddle with layout to get plot.design to generate
+# labels for everything
+layout(matrix(1:1, nrow=1), widths=ESEUR_default_width*1.3, heights=ESEUR_default_height*0.8, TRUE)
+# plot_wide()
 
 Memo=read.csv(paste0(ESEUR_dir, "experiment/MemoPower03.csv.xz"), as.is=TRUE)
 
@@ -25,7 +31,7 @@ Memo$replacement=as.factor(Memo$replacement)
 
 
 plot.design(cint ~ size+associativity+mapping+replacement, data=Memo,
-			cex=1.3, col="brown",
+			cex=1.2, cex.lab=1.0, cex.axis=0.9, col=point_col,
 			xlab="", ylab="Mean cint\n")
 
 
