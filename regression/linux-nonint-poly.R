@@ -1,5 +1,8 @@
 #
 # linux-nonint-poly.R, 14 Mar 14
+# Data from:
+# The {Linux} Kernel as a Case Study in Software Evolution
+# Ayelet Israeli and Dror G. Feitelson
 #
 # Example from:
 # Empirical Software Engineering using R

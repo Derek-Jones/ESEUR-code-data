@@ -11,6 +11,8 @@
 
 source("ESEUR_config.r")
 
+pal_col=rainbow(3)
+
 
 dh=read.csv(paste0(ESEUR_dir, "benchmark/fse13-dynohuman.csv"), as.is=TRUE)
 dm=read.csv(paste0(ESEUR_dir, "benchmark/fse13-dynomonkey.csv"), as.is=TRUE)
@@ -43,5 +45,13 @@ length(which(dm$LOC.covered.exclusively.by.Dyno..D.> dm$LOC.covered.exclusively.
 sum(dm$LOC.covered.exclusively.by.Dyno..D.) / sum(dm$LOC.covered.exclusively.by.Monkey..M.)
 
 dm_ex=prod(100*dm$LOC.covered.exclusively.by.Dyno/dm$Total.App.LOC)
+
+
+plot(dh$Total.App.LOC..T., dh$LOC.covered.by.both.Dyno.and.Human..C., log="xy",
+		col=pal_col[1])
+points(dh$Total.App.LOC..T., dh$LOC.covered.exclusively.by.Dyno..D.,
+		col=pal_col[2])
+points(dh$Total.App.LOC..T., dh$LOC.covered.exclusively.by.Human..H.,
+		col=pal_col[3])
 
 

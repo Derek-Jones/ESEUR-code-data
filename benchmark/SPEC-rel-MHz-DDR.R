@@ -15,7 +15,6 @@ library("car")
 library("relaimpo")
 
 
-
 cpu2006=read.csv(paste0(ESEUR_dir, "benchmark/cpu2006-results-20140206.csv.xz"), as.is=TRUE)
 
 # Memory numbers may be suffixed by:
@@ -68,9 +67,11 @@ spec_mod=glm(Result ~ Processor.MHz + I(Processor.MHz^2)+mem_rate + I(mem_rate^2
 # vif(spec_mod)
 
 # How much does each explanatory variable contribute?
-calc.relimp(spec_mod, type = c("lmg", "last", "first", "betasq", "pratt"), rela = TRUE)
-imp_boot=boot.relimp(spec_mod, type = c("lmg", "last", "first", "betasq"), fixed = FALSE)
-plot(booteval.relimp(imp_boot), main="")
+t=calc.relimp(spec_mod, type = c("first", "last", "betasq", "lmg"))
+print(t)
+
+# imp_boot=boot.relimp(spec_mod, type = c("lmg", "last", "first", "betasq"), fixed = FALSE)
+# plot(booteval.relimp(imp_boot), main="")
 
 
 # ecspec_mod=update(spec_mod, . ~ . + ecc)

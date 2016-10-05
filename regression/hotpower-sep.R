@@ -1,5 +1,8 @@
 #
-# hotpower-sep.R, 23 Aug 14
+# hotpower-sep.R, 13 Sep 16
+# Data from:
+# Accurate Characterization of the Variability in Power Consumption in Modern Mobile Processors
+# Bharathan Balaji and John McCullough and Rajesh K. Gupta and Yuvraj Agarwal
 #
 # Example from:
 # Empirical Software Engineering using R
@@ -23,6 +26,8 @@ brew_col=rainbow(6)
 
 fit_and_plot=function(df)
 {
+points(df$frequency, df$meanpower, col=brew_col[as.numeric(df$processor)])
+
 g_mod=glm(meanpower ~ frequency, data=df)
 
 pred=predict(g_mod, type="response", se.fit=TRUE)
@@ -32,7 +37,7 @@ lines(df$frequency, pred$fit, col=brew_col[as.numeric(df$processor)])
 return(g_mod)
 }
 
-plot(power_bench$frequency, power_bench$meanpower, col=point_col,
+plot(power_bench$frequency, power_bench$meanpower, type="n",
 	xlab="Frequency (GHz)", ylab="Mean power (watts)")
 
 d_ply(power_bench, .(processor), fit_and_plot)

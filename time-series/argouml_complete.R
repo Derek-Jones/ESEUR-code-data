@@ -16,7 +16,7 @@ library("plyr")
 library("zoo")
 
 
-argo=read.csv(paste0(ESEUR_dir, "time-series/argouml_complete.csv"), as.is=TRUE)
+argo=read.csv(paste0(ESEUR_dir, "time-series/argouml_complete.csv.xz"), as.is=TRUE)
 # results_jfreechart.csv
 
 Test_code=diff(argo$Test.code)

@@ -55,4 +55,9 @@ cfl_month=ddply(cfl, .(month),
 
 plot(cfl_month, type="l")
 
+# Check for changing variance
+com_diff=diff(cfl_week$num_commits)
+acf(com_diff)
+acf((com_diff-mean(com_diff))^2)
+
 

@@ -11,7 +11,7 @@
 source("ESEUR_config.r")
 
 
-plot_layout(1, 2)
+plot_layout(2, 1)
 
 source(paste0(ESEUR_dir, "projects/agile-work/feat-common-7dig.R"))
 

@@ -1,5 +1,5 @@
 #
-# tb104veytsman-dist.R,  3 Jul 15
+# tb104veytsman-dist.R, 21 Sep 16
 #
 # Data from:
 # Towards evidence-based typography: First results
@@ -16,7 +16,6 @@ source("ESEUR_config.r")
 library("dgof")
 library("kSamples")
 library("WRS")
-
 
 
 typo=read.csv(paste0(ESEUR_dir, "group-compare/tb104veytsman-typo_data.csv.xz"), as.is=TRUE)
@@ -51,13 +50,6 @@ ks.test(serif$Standard_WPM,
 
 # Only applicable to continuous distributions
 ad.test(serif$Standard_WPM, sansserif$Standard_WPM)
-
-
-library("coin")
-
-# The default is alternative="two.sided",
-# an option not currently listed in the Arguments section.
-oneway_test(WordsPerMinute ~ as.factor(Font), data=typo)
 
 
 # plot(ecdf(serif$WordsPerMinute),

@@ -1,5 +1,8 @@
 #
 # Linux-logistic-fut.R, 23 Dec 15
+# Data from:
+# The {Linux} Kernel as a Case Study in Software Evolution
+# Ayelet Israeli and Dror G. Feitelson
 #
 # Example from:
 # Empirical Software Engineering using R

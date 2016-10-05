@@ -1,0 +1,118 @@
+> summary(conv_pmod)
+
+Call:
+glm(formula = FP ~ (who_FP + who_CFP + log(CFP))^2 - who_FP:who_CFP + 
+    kind, family = poisson, data = no_students)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-9.1062  -2.1128  -0.7189   1.7209   9.8081  
+
+Coefficients:
+                    Estimate Std. Error z value Pr(>|z|)    
+(Intercept)          0.66357    0.07349   9.030  < 2e-16 ***
+who_FPind            0.81441    0.11500   7.082 1.42e-12 ***
+who_CFPind          -0.60418    0.11875  -5.088 3.62e-07 ***
+log(CFP)             0.89415    0.01184  75.539  < 2e-16 ***
+kindstu              0.23895    0.01699  14.063  < 2e-16 ***
+who_FPind:log(CFP)  -0.11908    0.01830  -6.507 7.66e-11 ***
+who_CFPind:log(CFP)  0.07790    0.01849   4.213 2.52e-05 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for poisson family taken to be 1)
+
+    Null deviance: 18548.25  on 96  degrees of freedom
+Residual deviance:   997.54  on 90  degrees of freedom
+  (2 observations deleted due to missingness)
+AIC: 1734.3
+
+Number of Fisher Scoring iterations: 4
+
+> summary(conv_mod)
+
+Call:
+glm(formula = log(FP) ~ (who_FP + log(CFP))^2 + kind, data = no_students)
+
+Deviance Residuals: 
+     Min        1Q    Median        3Q       Max  
+-0.64360  -0.12155   0.00277   0.13866   0.82275  
+
+Coefficients:
+                   Estimate Std. Error t value Pr(>|t|)    
+(Intercept)         0.39445    0.19393   2.034  0.04483 *  
+who_FPind           0.83007    0.26801   3.097  0.00259 ** 
+log(CFP)            0.93463    0.03523  26.527  < 2e-16 ***
+kindstu             0.28585    0.05402   5.291 8.19e-07 ***
+who_FPind:log(CFP) -0.13512    0.04762  -2.838  0.00559 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for gaussian family taken to be 0.0430359)
+
+    Null deviance: 62.8203  on 96  degrees of freedom
+Residual deviance:  3.9593  on 92  degrees of freedom
+  (2 observations deleted due to missingness)
+AIC: -22.994
+
+Number of Fisher Scoring iterations: 2
+
+> summary(conv_cmod)
+
+Call:
+glm(formula = log(CFP) ~ (who_FP + log(FP))^2 + kind, data = no_students)
+
+Deviance Residuals: 
+     Min        1Q    Median        3Q       Max  
+-1.04254  -0.12560  -0.00841   0.14497   0.64547  
+
+Coefficients:
+                  Estimate Std. Error t value Pr(>|t|)    
+(Intercept)        0.01301    0.22182   0.059 0.953353    
+who_FPind         -1.16100    0.33492  -3.466 0.000803 ***
+log(FP)            0.98981    0.04004  24.717  < 2e-16 ***
+kindstu           -0.29254    0.05982  -4.890 4.26e-06 ***
+who_FPind:log(FP)  0.19440    0.05880   3.306 0.001349 ** 
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for gaussian family taken to be 0.0524931)
+
+    Null deviance: 79.8445  on 96  degrees of freedom
+Residual deviance:  4.8294  on 92  degrees of freedom
+  (2 observations deleted due to missingness)
+AIC: -3.7255
+
+Number of Fisher Scoring iterations: 2
+
+> summary(conv_simex)
+Call:
+simex(model = conv_cmod, SIMEXvariable = "l_FP", measurement.error = no_students$l_FP/30, 
+    asymptotic = FALSE)
+
+Naive model: 
+glm(formula = l_CFP ~ (who_FP + l_FP)^2 + kind, data = no_students)
+
+Simex variable :
+                    l_FP             
+Measurement error : "heteroscedastic"
+
+
+Number of iterations:  100 
+
+Residuals: 
+     Min.   1st Qu.    Median      Mean   3rd Qu.      Max. 
+-1.026000 -0.126700  0.002207  0.004159  0.143400  0.689500 
+
+Coefficients: 
+
+Jackknife variance: 
+               Estimate Std. Error t value Pr(>|t|)    
+(Intercept)    -0.39296    0.22199  -1.770   0.0800 .  
+who_FPind      -0.95575    0.37100  -2.576   0.0116 *  
+l_FP            1.06508    0.04275  24.914  < 2e-16 ***
+kindstu        -0.31118    0.04566  -6.815 9.63e-10 ***
+who_FPind:l_FP  0.15226    0.06703   2.272   0.0254 *  
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+

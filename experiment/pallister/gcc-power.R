@@ -2,7 +2,8 @@
 # gcc-power.R, 28 Jul 14
 #
 # Data from:
-#
+# Identifying Compiler Options to Minimise Energy Consumption for Embedded Platforms
+# James Pallister and Simon Hollis and Jeremy Bennett
 #
 # Example from:
 # Empirical Software Engineering using R

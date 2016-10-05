@@ -65,6 +65,19 @@ vif(pow_mod)
 
 library("penalized")
 
+pow_mod=glm(avg.watts ~
+                        Nodes+
+#                       JVM.Vendor+
+                        Processor.MHz+
+                        Chips+
+                        Cores+
+#                       Threads.Per.Core+
+                        Memory.GB
+#                       +ssj_ops
+                        , data=j_av_watts)
+summary(pow_mod)
+vif(pow_mod)
+
 pen_mod=penalized(avg.watts ~
                         Nodes+
 #                       JVM.Vendor+

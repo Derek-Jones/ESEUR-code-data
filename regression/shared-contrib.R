@@ -1,5 +1,5 @@
 #
-# shared-contrib.R,  3 Jul 16
+# shared-contrib.R, 10 Sep 16
 #
 #
 # Example from:
@@ -30,7 +30,7 @@ venn.plot = draw.triple.venn(
 		n13 = 35,
 		n123 = 15,
 		label.col=c("yellow", "green", "yellow", "red", "blue", "red", "yellow"),
-		category = c("X_2", "X_1", "Y"),
+		category = c(expression(X[2]), expression(X[1]), "Y"),
 		fill = c(pal_col[2], pal_col[3], pal_col[1]),
 		lty = "blank",
 #		lwd=rep(1.5, 3),

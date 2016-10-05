@@ -14,7 +14,7 @@ source("ESEUR_config.r")
 library("visreg")
 
 
-plot_layout(1, 3)
+plot_layout(3, 1)
 
 
 cpu2006=read.csv(paste0(ESEUR_dir, "benchmark/cpu2006-results-20140206.csv.xz"), as.is=TRUE)

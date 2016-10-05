@@ -1,6 +1,6 @@
 #
-# nonlin-ex.R,  8 Jan 16
-#
+# nonlin-ex.R, 20 Sep 16
+# Data from:
 #
 # Example from:
 # Empirical Software Engineering using R
@@ -117,13 +117,13 @@ init_plot("Biexponential")
 
 be=function(a, b, c, d, l_col)
 {
-y=a*exp(b*x)-c*exp(-d*x)
+y=a*exp(-b*x)-c*exp(-d*x)
 lines(x, y, col=l_col)
 }
 
-be(1.6, -0.1, 1, 0.5, pal_col[1])
-be(1.5, -0.4, 1, 1, pal_col[2])
-be(1, -1, 1, 4, pal_col[3])
+be(1.6, 0.1, 1, 0.5, pal_col[1])
+be(1.5, 0.4, 1, 1, pal_col[2])
+be(1, 1, 1, 4, pal_col[3])
 
 
 

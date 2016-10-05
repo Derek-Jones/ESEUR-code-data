@@ -1,11 +1,15 @@
 #
 # Linux-DAYLOC-cubic.R, 15 Mar 14
+# Data from:
+# The {Linux} Kernel as a Case Study in Software Evolution
+# Ayelet Israeli and Dror G. Feitelson
 #
 # Example from:
 # Empirical Software Engineering using R
 # Derek M. Jones
 
 source("ESEUR_config.r")
+
 
 # Lines of code in each release
 ll=read.csv(paste0(ESEUR_dir, "regression/Linux-LOC.csv.xz"), as.is=TRUE)

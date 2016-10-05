@@ -1,5 +1,5 @@
 #
-# patch-param.R, 27 Feb 16
+# patch-param.R,  3 Oct 16
 #
 # Data from:
 # An empirical analysis of software vendors' patch release behavior: Impact of vulnerability disclosure
@@ -92,7 +92,7 @@ ISR$disc=as.numeric(ISR$patch > ISR$publish)
 ISR_0=subset(ISR, notify < publish)
 ISR_np=subset(ISR, notify == publish)
 # 
-# p_sfit_0=survfit(Surv(ISR_0$notify_days, ISR_0$disc == 0) ~ 1)
+# p_sfit_0=survfit(Surv(ISR_0$patch_days, !ISR_0$is_censored) ~ 1)
 # plot(p_sfit_0, xlim=c(0, 600))
 # p_sfit_1=survfit(Surv(ISR_1$patch_days, !ISR_1$is_censored) ~ 1)
 # 

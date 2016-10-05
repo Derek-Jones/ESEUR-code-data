@@ -1,5 +1,5 @@
 #
-# patch-timedep.R, 29 Feb 16
+# patch-timedep.R,  3 Oct 16
 #
 # Data from:
 # An empirical analysis of software vendors' patch release behavior: Impact of vulnerability disclosure
@@ -26,13 +26,16 @@ ISR$publish=as.Date(ISR$publish, format="%Y-%m-%d")
 # These reports are mixed private+disclosed
 split_report=function(df)
 {
+# Start as private notification
 priv_line=df
 priv_line$is_censored=0
-priv_line$pr_di=1
+priv_line$priv_di=1
+# End when published before patch available
 priv_line$end=priv_line$publish
 
 disc_line=df
-disc_line$pr_di=0
+disc_line$priv_di=0
+# Start as public notification, End when it ends
 disc_line$start=priv_line$publish
 
 return(rbind(priv_line, disc_line))
@@ -104,14 +107,14 @@ ISR$small_loge=(1-ISR$smallvendor)*ISR$logemployee
 
 # Vendor may be notified, but before a patch is made available the
 # vulnerability may be published
-ISR$pr_di=0
+ISR$priv_di=0
 ISR$ID=1:nrow(ISR)
 ISR$start=ISR$notify
 ISR$end=ISR$patch
 
 ISR_priv=subset(ISR, notify < publish)
 all_priv=subset(ISR_priv, patch <= publish) # <= as a catch all
-all_priv$pr_di=1
+all_priv$priv_di=1
 priv_disc=split_report(subset(ISR_priv, patch > publish))
 
 ISR_disc=subset(ISR, notify == publish)
@@ -120,7 +123,7 @@ ISR_split=rbind(all_priv, priv_disc, ISR_disc)
 
 ISR_split$patch_days=as.numeric(ISR_split$end-ISR_split$start)
 # 
-# p_sfit_priv=survfit(Surv(ISR_priv$notify_days, ISR_priv$disc == 0) ~ 1)
+# p_sfit_priv=survfit(Surv(ISR_priv$patch_days, !ISR_priv$is_censored) ~ 1)
 # plot(p_sfit_priv, xlim=c(0, 600))
 # p_sfit_1=survfit(Surv(ISR_1$patch_days, !ISR_1$is_censored) ~ 1)
 # 
@@ -129,90 +132,81 @@ ISR_split$patch_days=as.numeric(ISR_split$end-ISR_split$start)
 # plot(p_sfit_priv, col="red", xlim=c(1, 600), ylim=c(-3, 2), fun="cloglog")
 # lines(p_sfit_1, col="green")
 
-# Based on the model described in the paper
-p_mod=coxph(Surv(patch_days, !is_censored) ~ (log(cvss_score)+opensource+c_o+y2002+y2003+smallvendor+small_loge)^2, data=ISR_disc)
-t=stepAIC(p_mod)
-summary(t)
+# # Based on the model described in the paper
+# p_mod=coxph(Surv(patch_days, !is_censored) ~
+# 				(log(cvss_score)+opensource+c_o
+# 				+y2002+y2003
+# 				+smallvendor+small_loge)^2
+# 				, data=ISR_split)
+# t=stepAIC(p_mod)
+# summary(t)
+
+# # Time dependent model
+# pt_mod=coxph(Surv(patch_days, !is_censored) ~
+# 				cluster(ID)
+# 				+(priv_di
+# 				+log(cvss_score)+opensource+c_o
+# 				+y2002+y2003
+# 				+smallvendor+small_loge)^2
+# 				, data=ISR_split)
+# t=stepAIC(pt_mod)
+# summary(t)
 
 # The model we end up with.
-# High p-value variables commented out
+# The model we end up with.
+# High p-value variables removed
 min_p_mod=coxph(Surv(patch_days, !is_censored) ~ 
-				pr_di
-				+cluster(ID)
-				+log(cvss_score)
+				cluster(ID)
+				+priv_di*(
+				  log(cvss_score)
+				  +y2003
+				  +log(cvss_score):y2002)
 				+opensource
-#				+c_o
-#				+y2002
 				+y2003
 				+smallvendor
-				+small_loge
-#				+log(cvss_score):c_o
 				+log(cvss_score):y2002
-#				+c_o:y2002
-				+y2002:smallvendor
-				+y2003:smallvendor
 				, data=ISR_split)
-summary(min_p_mod)
+print(summary(min_p_mod))
 
-t=cox.zph(min_p_mod)
-print(t)
+# exp(0.912-(0.34*c(0.8, 1.8,2.3)))
 
-# Code based on Introducing Survival and Event history analysis
-# Melinda Mills
+# # Test the assumptions made by Cox modeling
+# t=cox.zph(min_p_mod)
+# print(t)
+
+# # Code based on Introducing Survival and Event history analysis
+# # Melinda Mills
 # page 150
 # Check the Cox-Snell residuals
-r=min_p_mod$residual
-rr=(!ISR_disc$is_censored)-r
+# r=min_p_mod$residual
+# rr=(!ISR_split$is_censored)-r
+# 
+# fit=survfit(Surv(rr, !ISR_split$is_censored) ~ 1)
+# S=-log(fit$surv) # Mills omits -log()
+# T=fit$time
 
-fit=survfit(Surv(rr, !ISR_disc$is_censored) ~ 1)
-S=-log(fit$surv) # Mills omits -log()
-T=fit$time
+# plot(T, S)
+# # Points should be on 45 degree line
+# lines(c(0, 3), c(0, 3), col="red")
 
-plot(T, S)
-# Points should be on 45 degree line
-lines(c(0, 3), c(0, 3), col="red")
+# # Use score residuals to look for outliers
+# # page 158
+# dfbeta=residuals(min_p_mod, type="dfbeta")
 
-# Use score residuals to look for outliers
-# page 158
-dfbeta=residuals(min_p_mod, type="dfbeta")
+# par(mfcol=c(4, 2))
 
-par(mfcol=c(4, 2))
+# d=sapply(1:ncol(dfbeta), function(X) 
+# 			{
+# 			plot(dfbeta[,X], type="n")
+# 			text(dfbeta[,X])
+# 			})
 
-d=sapply(1:ncol(dfbeta), function(X) 
-			{
-			plot(dfbeta[,X], type="n")
-			text(dfbeta[,X])
-			})
+# # Check functional form of residuals
+# # page 161
+# mgale=residuals(min_p_mod, type="martingale")
 
-# Check functional form of residuals
-# page 161
-mgale=residuals(min_p_mod, type="martingale")
-
-# One of the few variables that is continuous (sort of)
-plot(log(ISR_disc$cvss_score), mgale)
-lines(loess.smooth(log(ISR_disc$cvss_score), mgale, span=0.3), col="red")
-
-min_fp_mod=coxph(Surv(patch_days, !is_censored) ~ 
-# Cannot have frailty and cluster in the same model
-				frailty(vendor)
-				+cluster(ID)
-				+pr_di
-				+log(cvss_score)
-				+opensource
-#				+c_o
-#				+y2002
-				+y2003
-				+smallvendor
-				+small_loge
-#				+log(cvss_score):c_o
-				+log(cvss_score):y2002
-#				+c_o:y2002
-				+y2002:smallvendor
-				+y2003:smallvendor
-				, data=ISR_split)
-summary(min_fp_mod)
-
-t=cox.zph(min_p_mod)
-summary(t)
+# # One of the few variables that is continuous (sort of)
+# plot(log(ISR_split$cvss_score), mgale)
+# lines(loess.smooth(log(ISR_split$cvss_score), mgale, span=0.3), col="red")
 
 

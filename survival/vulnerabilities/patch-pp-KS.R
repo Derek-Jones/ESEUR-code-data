@@ -14,6 +14,8 @@ source("ESEUR_config.r")
 library("survival")
 
 
+pal_col=rainbow(3)
+
 ISR=read.csv(paste0(ESEUR_dir, "survival/vulnerabilities/patching_published-ISR.csv.xz"), as.is=TRUE)
 
 ISR$cert_pub=as.Date(ISR$cert_pub, format="%Y-%m-%d")
@@ -83,20 +85,29 @@ end_date=as.Date("11-Aug-2003", format="%d-%b-%Y")
 ISR$is_censored=is.na(ISR$patch)
 ISR$patch[ISR$is_censored]=end_date
 
-# Vendor may be notified, but before a patch is made available the
+# Vendor may be privately notified, but before a patch is available the
 # vulnerability may be disclosed.
 ISR$patch_days=as.numeric(ISR$patch-ISR$notify)
 ISR$notify_days=as.numeric(ISR$publish-ISR$notify)
-ISR$disc=as.numeric(ISR$patch > ISR$publish)
+ISR$disc=(ISR$patch > ISR$publish)
 
 ISR_priv=subset(ISR, notify < publish)
+ISR_priv_priv=subset(ISR_priv, !(patch > publish))
+ISR_priv_disc=subset(ISR_priv, patch > publish)
+
 ISR_disc=subset(ISR, notify == publish)
 
-p_sfit_priv=survfit(Surv(ISR_priv$notify_days, ISR_priv$disc == 0) ~ 1)
-plot(p_sfit_priv, xlim=c(0, 600))
+p_sfit_priv_priv=survfit(Surv(ISR_priv_priv$patch_days, !ISR_priv_priv$is_censored) ~ 1)
+plot(p_sfit_priv_priv, xlim=c(0, 600), col=pal_col[1],
+	xlab="Time to release patch", ylab="Survival rate\n")
+
+p_sfit_priv_disc=survfit(Surv(ISR_priv_disc$patch_days, !ISR_priv_disc$is_censored) ~ 1)
+lines(p_sfit_priv_disc, col=pal_col[2])
 
 p_sfit_disc=survfit(Surv(ISR_disc$patch_days, !ISR_disc$is_censored) ~ 1)
-lines(p_sfit_disc, col="red")
+lines(p_sfit_disc, col=pal_col[3])
+
+legend(x="topright", legend=c("Private, patched and disclosed", "Disclosed and patched", "Private, disclosed then patched"), bty="n", fill=pal_col, cex=1.2)
 
 # mixed=as.numeric(ISR$patch > ISR$publish & ISR$notify < ISR$publish)
 

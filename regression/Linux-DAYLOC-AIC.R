@@ -1,11 +1,15 @@
 #
 # Linux-DAYLOC-AIC.R, 15 Mar 14
+# Data from:
+# The {Linux} Kernel as a Case Study in Software Evolution
+# Ayelet Israeli and Dror G. Feitelson
 #
 # Example from:
 # Empirical Software Engineering using R
 # Derek M. Jones
 
 source("ESEUR_config.r")
+
 
 # May have been install by previous programs and defines its own AIC function!
 unloadNamespace("rebmix")

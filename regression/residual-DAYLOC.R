@@ -1,8 +1,6 @@
 #
 # residual-DAYLOC.R, 18 Aug 16
-#
 # Data from:
-#
 # The {Linux} Kernel as a Case Study in Software Evolution
 # Ayelet Israeli and Dror G. Feitelson
 #

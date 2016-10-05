@@ -1,5 +1,5 @@
 #
-# SPEC-resid-MHz-DDR.R,  2 Jan 16
+# SPEC-resid-MHz-DDR.R,  9 Sep 16
 #
 # Data from:
 # www.spec.org/cpu2006/results
@@ -9,6 +9,11 @@
 # Derek M. Jones
 
 source("ESEUR_config.r")
+
+
+library("car")
+
+plot_layout(3, 1)
 
 
 cpu2006=read.csv(paste0(ESEUR_dir, "benchmark/cpu2006-results-20140206.csv.xz"), as.is=TRUE)
@@ -60,5 +65,10 @@ cint$main_proc=sub("([^ ]+ [^ ]+) .*$", "\\1", x=cint$Processor)
 spec_mod=glm(Result ~ Processor.MHz + mem_rate + mem_freq
     			, data=cint)
 
-plot(spec_mod, which=1, col=point_col)
+# crPlots(spec_mod, terms= ~ ., layout=c(3, 1),
+# 			main="", cex.lab=0.9, cex.axis=0.9)
+ 
+crPlot(spec_mod, variable="Processor.MHz", col=point_col)
+crPlot(spec_mod, variable="mem_freq", col=point_col)
+crPlot(spec_mod, variable="mem_rate", col=point_col)
 

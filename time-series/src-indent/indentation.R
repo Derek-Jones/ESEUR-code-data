@@ -20,7 +20,7 @@ indent_acf=function(lang_str)
 indent=read.csv(paste0(ESEUR_dir, "time-series/src-indent/sfmirror.", lang_str,
 				",distribution.dat"), as.is=TRUE, header=FALSE)
 
-acf(indent$V1, lag.max=20, xlab="Indentation", col=point_col,)
+acf(indent$V1, lag.max=20, xlab="Characters", col=point_col,)
 
 text(15, 0.8, labels=lang_str, col="blue", cex=1.4)
 

@@ -1,5 +1,5 @@
 #
-# postmortem-answers.R, 5 Dec 13
+# postmortem-answers.R, 20 Sep 16
 #
 # Data from:
 # Plat_Forms 2007: The web development platform comparison - evaluation and results
@@ -20,7 +20,13 @@ brew_col=rainbow_hcl(3)
 boxplot(experience ~ language, data=pm_ans, col=brew_col,
 	ylab="Years experience")
 
-shapiro.test(subset(pm_ans, language=="Perl")$experience)
 
-t.test(subset(pm_ans, language=="Perl")$experience,
-       subset(pm_ans, language=="PHP")$experience)
+# library("coin")
+
+# Perl_PHP=subset(pm_ans, (language=="Perl") | (language=="PHP"))
+# The default is alternative="two.sided",
+# an option not currently listed in the Arguments section.
+# oneway_test(experience ~ as.factor(language), data=Perl_PHP,
+#						 distribution="exact")
+
+

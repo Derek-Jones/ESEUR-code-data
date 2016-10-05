@@ -1,5 +1,5 @@
 #
-# agile-day-starts.R,  5 Mar 16
+# agile-day-starts.R, 30 Sep 16
 #
 # Data from:
 # http://www.7digital.com
@@ -11,7 +11,7 @@
 source("ESEUR_config.r")
 
 
-plot_layout(1, 2)
+plot_layout(2, 1)
 
 source(paste0(ESEUR_dir, "projects/agile-work/feat-common-7dig.R"))
 
@@ -27,7 +27,7 @@ plot(weekdays, col=point_col,
 
 ds_mod=glm(weekdays ~ time(weekdays), family=poisson(link="identity"))
 
-lines(fitted(ds_mod), col="red")
+lines(fitted(ds_mod), col="blue")
 
 # summary(ds_mod)
 

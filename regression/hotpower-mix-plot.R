@@ -1,5 +1,5 @@
 #
-# hotpower-mixed.R, 11 Sep 16
+# hotpower-mix-plot.R, 12 Sep 16
 # Data from:
 # Accurate Characterization of the Variability in Power Consumption in Modern Mobile Processors
 # Bharathan Balaji and John McCullough and Rajesh K. Gupta and Yuvraj Agarwal
@@ -10,7 +10,9 @@
 
 source("ESEUR_config.r")
 
+library("lattice")
 library("lme4")
+library("gridExtra")
 
 
 # The processor configuration data analysed here is a small subset of the
@@ -30,5 +32,22 @@ power_bench$processor=as.factor(power_bench$processor)
 # proc_mod=lmer(meanpower ~ frequency +(frequency-1 | processor), data=power_bench)
 proc_mod=lmer(meanpower ~ frequency +(frequency | processor), data=power_bench)
 
-print(summary(proc_mod))
+
+dp_orig=dotplot(ranef(proc_mod, condVar=TRUE), main=FALSE, aspect=1.2)
+#print(t) # plot generates an error
+
+power_bench$shift_freq=power_bench$frequency-min(power_bench$frequency)
+proc_mod=lmer(meanpower ~ shift_freq +(shift_freq | processor), data=power_bench)
+# summary(proc_mod)
+
+dp_shift=dotplot(ranef(proc_mod, condVar=TRUE), main=FALSE, aspect=1.2)
+# plot(dp_shift[[1]])
+
+# dotplot comes from the lattice package which uses grid layout :-(
+
+grid.arrange(dp_orig$processor, dp_shift$processor, nrow=2)
+
+
+# shift_mod=lmer(meanpower ~ shift_freq +(shift_freq-1 | processor), data=power_bench)
+# summary(shift_mod)
 

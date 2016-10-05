@@ -1,5 +1,5 @@
 #
-# ESEUR-config.r, 24 Jul 16
+# ESEUR-config.r,  1 Oct 16
 
 # Assume the current directory unless told otherwise
 ESEUR_dir=paste0(getwd(), "/")
@@ -110,5 +110,8 @@ par(fin=c(3.0, 3.0))
 
 # nf = layout(matrix(1), widths = lcm(5), heights = lcm(5))
 # layout.show(nf)
+
+# Printed line width, matched to book text width in courier font
+options(width=75)
 
 ESEUP_set_par()
