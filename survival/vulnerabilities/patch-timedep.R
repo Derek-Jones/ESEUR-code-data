@@ -1,5 +1,5 @@
 #
-# patch-timedep.R,  3 Oct 16
+# patch-timedep.R,  5 Oct 16
 #
 # Data from:
 # An empirical analysis of software vendors' patch release behavior: Impact of vulnerability disclosure
@@ -49,6 +49,7 @@ ISR$vendor[ISR$vendor == from_name] <<- to_name
 
 
 # vendor column close spellings
+map_vendor("Apache", "Apache Software Foundation")
 map_vendor("apple", "Apple Computer Inc.")
 map_vendor("BEA", "BEA Systems Inc.")
 map_vendor("BSCW", "BSCW.gmd")
@@ -79,7 +80,7 @@ map_vendor("openpkg", "Openpgk")
 map_vendor("openpkg", "The OpenPKG Project")
 map_vendor("Oracle", "Oracle Corporation")
 map_vendor("Redhat", "Red Hat Inc.")
-map_vendor("SCO", "The SCO Group")
+map_vendor("sco", "The SCO Group")
 map_vendor("sco", "The SCO Group (SCO Linux)")
 map_vendor("sco", "The SCO Group (SCO UnixWare)")
 map_vendor("sendmail", "Sendmail Inc.")
@@ -92,6 +93,7 @@ map_vendor("Symantec", "Symantec Corporation")
 map_vendor("trustix", "Trusix")
 map_vendor("trustix", "Trustix Secure Linux")
 # turbolinux Turbolinux TurboLinux")
+map_vendor("Washington University", "University of Washington")
 map_vendor("yellow dog", "Yellow Dog Linux")
 
 ISR$vendor=tolower(ISR$vendor)
@@ -132,47 +134,64 @@ ISR_split$patch_days=as.numeric(ISR_split$end-ISR_split$start)
 # plot(p_sfit_priv, col="red", xlim=c(1, 600), ylim=c(-3, 2), fun="cloglog")
 # lines(p_sfit_1, col="green")
 
-# # Based on the model described in the paper
-# p_mod=coxph(Surv(patch_days, !is_censored) ~
-# 				(log(cvss_score)+opensource+c_o
-# 				+y2002+y2003
-# 				+smallvendor+small_loge)^2
-# 				, data=ISR_split)
-# t=stepAIC(p_mod)
-# summary(t)
-
-# # Time dependent model
+# # Based on the model described in the paper with added time dependency
 # pt_mod=coxph(Surv(patch_days, !is_censored) ~
 # 				cluster(ID)
-# 				+(priv_di
-# 				+log(cvss_score)+opensource+c_o
-# 				+y2002+y2003
-# 				+smallvendor+small_loge)^2
-# 				, data=ISR_split)
+#  				+(priv_di
+#  				  +cvss_score+opensource+c_o
+# 				  +dis_by_c
+# 				  +dis_by_s
+# 				  +dis_by_o
+# 				  +os
+# 				  +s_app
+# 				  +y2
+# #				  +y2000+y2001+y2002+y2003
+#  				  +smallvendor+small_loge)^2
+#  				, data=ISR_split)
 # t=stepAIC(pt_mod)
 # summary(t)
 
 # The model we end up with.
-# The model we end up with.
 # High p-value variables removed
-min_p_mod=coxph(Surv(patch_days, !is_censored) ~ 
+ISR_split$y2=ISR_split$year-2000
+min_p_mod=coxph(Surv(patch_days, !is_censored) ~
 				cluster(ID)
 				+priv_di*(
-				  log(cvss_score)
-				  +y2003
-				  +log(cvss_score):y2002)
-				+opensource
-				+y2003
-				+smallvendor
-				+log(cvss_score):y2002
-				, data=ISR_split)
+				  cvss_score
+				  +c_o
+				  +dis_by_s
+				  +os
+				  +y2
+#				  +y2000+y2001+y2002+y2003
+				  +smallvendor
+				  +small_loge
+				  )
+				-c_o
+				-dis_by_s
+				-os
+				-smallvendor
+				+cvss_score:(
+				  c_o
+				  +dis_by_s
+				  +s_app
+				  )
+				+opensource:c_o
+				+opensource:dis_by_s
+				+os:s_app
+				+s_app:y2
+ 				, data=ISR_split)
+
 print(summary(min_p_mod))
 
 # exp(0.912-(0.34*c(0.8, 1.8,2.3)))
 
 # # Test the assumptions made by Cox modeling
 # t=cox.zph(min_p_mod)
-# print(t)
+# print(t)  # Yuk!
+
+# We want a straight horizontal line...
+# par(mfcol=c(3,3))
+# plot(cox.zph(min_p_mod), col="red")
 
 # # Code based on Introducing Survival and Event history analysis
 # # Melinda Mills
@@ -209,4 +228,11 @@ print(summary(min_p_mod))
 # plot(log(ISR_split$cvss_score), mgale)
 # lines(loess.smooth(log(ISR_split$cvss_score), mgale, span=0.3), col="red")
 
+priv_di:cvss_score:opensource      0.0732690  1.0760199  0.0438768  1.670
+priv_di:cvss_score:c_o             0.1547634  1.1673817  0.1010330  1.532
+priv_di:cvss_score:y2             -0.0481804  0.9529619  0.0226401 -2.128
+priv_di:opensource:small_loge      0.0972573  1.1021440  0.0595951  1.632
+priv_di:y2:smallvendor            -0.3141256  0.7304273  0.1539260 -2.041
+cvss_score:opensource:smallvendor -0.4298626  0.6505985  0.2786996 -1.542
+cvss_score:c_o:y2                 -0.0991230  0.9056313  0.0373507 -2.654
 

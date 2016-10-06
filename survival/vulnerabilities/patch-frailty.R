@@ -29,6 +29,7 @@ ISR$vendor[ISR$vendor == from_name] <<- to_name
 
 
 # vendor column close spellings
+map_vendor("Apache", "Apache Software Foundation")
 map_vendor("apple", "Apple Computer Inc.")
 map_vendor("BEA", "BEA Systems Inc.")
 map_vendor("BSCW", "BSCW.gmd")
@@ -72,6 +73,7 @@ map_vendor("Symantec", "Symantec Corporation")
 map_vendor("trustix", "Trusix")
 map_vendor("trustix", "Trustix Secure Linux")
 # turbolinux Turbolinux TurboLinux")
+map_vendor("Washington University", "University of Washington")
 map_vendor("yellow dog", "Yellow Dog Linux")
 
 ISR$vendor=tolower(ISR$vendor)
