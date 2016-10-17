@@ -1,5 +1,5 @@
 #
-# compare-bid.R, 24 Aug 16
+# compare-bid.R, 11 Oct 16
 #
 # Data from:
 # An Empirical Study of Software Project Bidding
@@ -34,7 +34,9 @@ num_B_bids=nrow(B_final)
 total_bids=num_A_bids+num_B_bids
 AB_mean_diff=mean(A_final$Bid)-mean(B_final$Bid)
 
-bid_boot=boot(comp_bid$Bid, mean_diff, R = 4999)
+# bid_boot=boot(comp_bid$Bid, mean_diff, R = 4999)
+bid_boot=boot(comp_bid$Bid, mean_diff, R = 4999,
+				strata=as.factor(comp_bid$CompSize))
 
 plot(density(bid_boot$t),
 	main="", ylab="Density\n")

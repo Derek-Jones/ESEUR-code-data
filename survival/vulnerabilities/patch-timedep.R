@@ -181,7 +181,7 @@ min_p_mod=coxph(Surv(patch_days, !is_censored) ~
 				+s_app:y2
  				, data=ISR_split)
 
-print(summary(min_p_mod))
+print(summary(min_p_mod, conf.int=FALSE))
 
 # exp(0.912-(0.34*c(0.8, 1.8,2.3)))
 
@@ -227,12 +227,4 @@ print(summary(min_p_mod))
 # # One of the few variables that is continuous (sort of)
 # plot(log(ISR_split$cvss_score), mgale)
 # lines(loess.smooth(log(ISR_split$cvss_score), mgale, span=0.3), col="red")
-
-priv_di:cvss_score:opensource      0.0732690  1.0760199  0.0438768  1.670
-priv_di:cvss_score:c_o             0.1547634  1.1673817  0.1010330  1.532
-priv_di:cvss_score:y2             -0.0481804  0.9529619  0.0226401 -2.128
-priv_di:opensource:small_loge      0.0972573  1.1021440  0.0595951  1.632
-priv_di:y2:smallvendor            -0.3141256  0.7304273  0.1539260 -2.041
-cvss_score:opensource:smallvendor -0.4298626  0.6505985  0.2786996 -1.542
-cvss_score:c_o:y2                 -0.0991230  0.9056313  0.0373507 -2.654
 

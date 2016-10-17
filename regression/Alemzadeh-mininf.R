@@ -1,5 +1,5 @@
 #
-# Alemzadeh-mininf.R, 16 Jul 16
+# Alemzadeh-mininf.R, 14 Oct 16
 #
 # Data from:
 # Analysis of safety-critical computer failures in medical devices
@@ -12,9 +12,7 @@
 source("ESEUR_config.r")
 
 
-plot_layout(2, 1)
-brew_col=rainbow(3)
-
+brew_col=rainbow(2)
 
 # Recall_Number,Date,Year,Trade_Name,Recalling_Firm,Recall_Class,Reason_Recall,Action
 comp_recalls=read.csv(paste0(ESEUR_dir, "regression/Alemzadeh-Computer_Related_Recalls.csv.xz"), as.is=TRUE)
@@ -40,25 +38,7 @@ y_bounds=range(y_axis)
 
 plot(t2, type="p", col=point_col,
 	ylim=y_bounds,
-	xlab="Date", ylab="Recalls\n")
-
-loess_mod=loess(y_axis ~ x_axis, span=0.3)
-
-fortnight_pred=predict(loess_mod)
-
-lines(x_axis, fortnight_pred, col="green")
-
-# l_mod=glm(y_axis ~ x_axis, family=quasipoisson(link="identity"))
-l_mod=glm(y_axis ~ x_axis)
-
-fortnight_pred=predict(l_mod)
-
-lines(x_axis, orig_pred, col=brew_col[1])
-lines(x_axis, fortnight_pred, col=brew_col[2])
-
-plot(t2, type="p", col=point_col,
-	ylim=y_bounds,
-	xlab="Date", ylab="")
+	xlab="Fortnights", ylab="Recalls")
 
 # Just fit everything before the send of 2010
 recall_subset=subset(comp_recalls, Date <= as.Date("2010-12-31"))
@@ -74,8 +54,8 @@ sl_mod=glm(sy_axis ~ sx_axis)
 subset_pred=predict(sl_mod, se.fit=TRUE)
 
 lines(sx_axis, subset_pred$fit, col=brew_col[1])
-lines(sx_axis, subset_pred$fit+1.96*subset_pred$se.fit, col=brew_col[3])
-lines(sx_axis, subset_pred$fit-1.96*subset_pred$se.fit, col=brew_col[3])
+lines(sx_axis, subset_pred$fit+1.96*subset_pred$se.fit, col=brew_col[2])
+lines(sx_axis, subset_pred$fit-1.96*subset_pred$se.fit, col=brew_col[2])
 
 recall_subset=subset(comp_recalls, Date > as.Date("2010-12-31"))
 
@@ -90,8 +70,8 @@ sl_mod=glm(sy_axis ~ sx_axis)
 subset_pred=predict(sl_mod, se.fit=TRUE)
 
 lines(sx_axis, subset_pred$fit, col=brew_col[1])
-lines(sx_axis, subset_pred$fit+1.96*subset_pred$se.fit, col=brew_col[3])
-lines(sx_axis, subset_pred$fit-1.96*subset_pred$se.fit, col=brew_col[3])
+lines(sx_axis, subset_pred$fit+1.96*subset_pred$se.fit, col=brew_col[2])
+lines(sx_axis, subset_pred$fit-1.96*subset_pred$se.fit, col=brew_col[2])
 
 # influenceIndexPlot(l_mod, main="")
 

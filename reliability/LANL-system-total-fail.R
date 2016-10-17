@@ -1,5 +1,5 @@
 #
-# LANL-system-total-fail.R, 18 Aug 16
+# LANL-system-total-fail.R, 15 Oct 16
 # Data from:
 # Los Alamos National Lab (LANL)
 # http://www.lanl.gov/
@@ -9,6 +9,10 @@
 # Derek M. Jones
 
 source("ESEUR_config.r")
+
+plot_layout(5, 1)
+par(mai=c(0.3, 0.7, 0.1, 0.4))
+
 
 # System,machine type,nodes,procstot,procsinnode,nodenum,nodenumz,node install,node prod,node decom,fru type,mem,cputype,memtype,num intercon,purpose,Prob Started,Prob Fixed,Down Time,Facilities,Hardware,Human Error,Network,Undetermined,Software,Same Event
 # 2,cluster,49,6152,80,0,0,5-Apr,5-Jun,current,part,80,1,1,0,graphics.fe,6/21/2005 10:54,6/21/2005 11:00,6,,Graphics Accel Hdwr,,,,,No
@@ -45,9 +49,6 @@ fail_rec$Prob.Started=as.Date(fail_rec$Prob.Started, format=time_format)
 
 # System 2, 16, 18, 19, 20 each have an order of magnitude more
 # failure records than the other systems.
-par(mfcol=c(5,1))
-
-par(mai=c(0.3, 0.7, 0.1, 0.4))
 
 sys.2=plot_sys.failures(2)
 sys.16=plot_sys.failures(16)

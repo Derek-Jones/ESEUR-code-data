@@ -10,6 +10,9 @@
 
 source("ESEUR_config.r")
 
+
+library("ascii")
+
 # System,machine type,nodes,procstot,procsinnode,nodenum,nodenumz,node install,node prod,node decom,fru type,mem,cputype,memtype,num intercon,purpose,Prob Started,Prob Fixed,Down Time,Facilities,Hardware,Human Error,Network,Undetermined,Software,Same Event
 # 2,cluster,49,6152,80,0,0,5-Apr,5-Jun,current,part,80,1,1,0,graphics.fe,6/21/2005 10:54,6/21/2005 11:00,6,,Graphics Accel Hdwr,,,,,No
 
@@ -70,8 +73,6 @@ sys.16=profile.sys(16)
 sys.18=profile.sys(18)
 sys.19=profile.sys(19)
 sys.20=profile.sys(20)
-
-library("ascii")
 
 
 print(ascii(rbind(c("System", "Nodes", "Failures", "Mean", "Median"),

@@ -1,6 +1,9 @@
 #
-# param-cnt.R, 27 Sep 16
+# param-cnt.R, 15 Oct 16
+#
 # Data from:
+# Why {SpecInt95} Should Not Be Used to Benchmark Embedded Systems Tools
+# Jakob Engblom
 #
 # Example from:
 # Empirical Software Engineering using R
@@ -20,7 +23,7 @@ params$pal_col=pal_col[as.factor(params$source)]
 
 plot(params$params, params$percent, type="n",
 	xlim=c(0, 10),
-	xlab="Number of parameters", ylab="Function definitions (percentage)")
+	xlab="Number of parameters", ylab="Function definitions (percentage)\n")
 
 d_ply(params, .(source), function(df) 
 				lines(df$params, df$percent, col=df$pal_col[1]))
@@ -39,8 +42,17 @@ legend(x="topright", legend=unique(params$source), bty="n", fill=unique(params$p
 # embed$int_p=round(embed$percent)
 # embed_pc=rep(0:(nrow(embed)-1), embed$int_p)
 
-# beta_embed=embed_pc/(1+max(embed_pc))
-# zp_mod=gamlss(beta_embed ~ 1, family=BEZI)
+# plot(params$params, params$percent, type="n",
+# 	xlim=c(0, 10),
+# 	xlab="Number of parameters", ylab="Function definitions (percentage)\n")
+# lines(embed$params, embed$percent)
+# lines(cbook$params, cbook$percent)
+# embed_pois=glm(embed_pc ~ 1, family=poisson(link="identity"))
+# points(0:8, dpois(0:8, 0.808)*100, col=pal_col[2])
+# cbook_pois=glm(cb_cp ~ 1, family=poisson(link="identity"))
+# points(0:8, dpois(0:8, 1.98)*100, col=pal_col[1])
+
+# zp_mod=gamlss(embed_pc ~ 1, family=ZIP)  # ZIP2 supports dispersion
 
 # fitted(zp_mod, "mu")[1]
 # fitted(zp_mod, "sigma")[1]

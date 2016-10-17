@@ -1,13 +1,9 @@
 #
-# borda-sorted-year-plot.R, 22 Dec 15
+# borda-sorted-year-plot.R, 15 Oct 16
 #
 # Data from:
-#
 # Learning a Metric for Code Readability"
 # Raymond P. L. Buse and Westley R. Weimer
-#
-# R code for book "Empirical Software Engineering using R"
-# Derek M. Jones, http://shape-of-code.coding-guidelines.com
 #
 # Example from:
 # Empirical Software Engineering using R
@@ -15,6 +11,8 @@
 
 source("ESEUR_config.r")
 
+
+plot_layout(2, 1)
 
 rating_to_rank=function(rating_vec)
 {
@@ -78,14 +76,12 @@ cs4_aggreg_rank=aggreg_rank(subj_rank(cs4_snip_rating))
 
 
 
-plot_layout(1, 2)
-
 cs2.ord=order(cs2_aggreg_rank)
-plot(cs2_aggreg_rank[cs2.ord], ylim=c(0,100),
-      ylab="Aggregate rank", xlab="Subject")
+plot(cs2_aggreg_rank[cs2.ord], col=point_col, ylim=c(0,100),
+      ylab="Aggregate rank", xlab="")
 points(cs1_aggreg_rank[cs2.ord], col="red")
 
-plot(cs2_aggreg_rank[cs2.ord], ylim=c(0,100),
-      ylab="", xlab="Subject")
+plot(cs2_aggreg_rank[cs2.ord], col=point_col, ylim=c(0,100),
+      ylab="Aggregate rank", xlab="Subject")
 points(cs4_aggreg_rank[cs2.ord], col="blue")
 

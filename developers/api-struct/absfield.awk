@@ -1,5 +1,5 @@
 #
-# absfield.awk,  5 Mar 09
+# absfield.awk,  8 Oct 16
 
 BEGIN {
 	seen_descrip=0
@@ -12,7 +12,10 @@ BEGIN {
 	   if ($1 == "====")
 	      {
 	      animal_crop=0
-	      #item_count=0
+# The original analysis did not merge counts from answer sheets
+# that used slightly different wording in places.
+# Comment out the following line to not merge slightly different wording.
+	      item_count=0
 	      }
 	   else
 	      {
@@ -27,11 +30,15 @@ BEGIN {
 	   }
 	}
 
+#	{ print $0 }
+
 $1 == "//API" {
 	in_agriculture= ($2 == "Agriculture")
 	if (seen_descrip)
 	   delete descrip_num
 	seen_descrip=0
+	if (in_agriculture)
+	   print "New-Subject"
 	next
 	}
 
@@ -76,7 +83,7 @@ in_agriculture == 0 {
 	else
 	   {
 	   split($0, desc, /\/\/\* /)
-	   #print desc[2]
+	   # print desc[2]
 	   if (item_info[desc[2]] == "")
 	      print ">> Ill-formed //* comment |"  desc[2] "|"
 	   print item_info[desc[2]] " " $2

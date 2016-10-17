@@ -1,7 +1,8 @@
 #
-# varying-variance.R,  1 Oct 16
+# varying-variance.R, 14 Oct 16
 #
 # Data from:
+# It's FAKED data!
 #
 # Example from:
 # Empirical Software Engineering using R
@@ -26,12 +27,13 @@ w=rnorm(total_points)
 a=rep(0, total_points)
 h=rep(0, total_points)
 
+# Need to replace this for loop
 for (i in 2:total_points)
    {
    h[i]=alpha_0 + alpha_1*(a[i-1]^2) + beta_1*h[i-1]
    a[i]=w[i]*sqrt(h[i])
    }
 
-acf(a)
-acf(a^2)
+acf(a, col=point_col)
+acf(a^2, col=point_col)
 

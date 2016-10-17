@@ -1,11 +1,12 @@
 #
-# mkrobinson.awk, 27 Jan 09
+# mkrobinson.awk,  8 Oct 16
 
 BEGIN {
 	item_list[1]=" "
 	}
 
-$1 == ">>" {
+$1 == ">>" ||
+$1 == "New-Subject" {
 	next
 	}
 
@@ -28,8 +29,9 @@ $1 == "struct" {
 END {
 	for (i=1; i <=25; i++)
 	   {
-	   for (j=1; j <= 25; j++)
-	      printf("%d ", robinson[i " " j])
+	   printf("%d", robinson[1 " " j])
+	   for (j=2; j <= 25; j++)
+	      printf(",%d", robinson[i " " j])
 	   printf("\n")
 	   }
 	}

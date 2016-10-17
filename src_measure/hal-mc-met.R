@@ -13,11 +13,11 @@
 source("ESEUR_config.r")
 
 
-metrics=read.csv(paste0(ESEUR_dir, "src_measure/linux-2.6.9-met.csv.xz"), as.is=TRUE)
-
+plot_layout(3, 1)
 brew_col=rainbow_hcl(3)
 
-plot_layout(1, 3)
+
+metrics=read.csv(paste0(ESEUR_dir, "src_measure/linux-2.6.9-met.csv.xz"), as.is=TRUE)
 
 # plot(metrics$LOC, metrics$HD, log="xy")
 plot(metrics$LOC, metrics$HV, log="xy", col=point_col,

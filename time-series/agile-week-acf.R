@@ -1,5 +1,5 @@
 #
-# agile-week-acf.R, 18 Feb 16
+# agile-week-acf.R, 14 Oct 16
 #
 # Data from:
 # http://www.7digital.com
@@ -25,8 +25,8 @@ day_starts[t$x]=t$freq
 
 weekdays=day_starts[-weekends]
 # pacf(diff(weekdays), xlab="Lag (working days)")
-acf(diff(log(weekdays+1e-5)), xlab="Lag (working days)")
-pacf(diff(log(weekdays+1e-5)), xlab="Lag (working days)")
+acf(diff(log(weekdays+1e-5)), xlab="Lag (working days)", col=point_col)
+pacf(diff(log(weekdays+1e-5)), xlab="Lag (working days)", col=point_col)
 
 
 # weeks=sapply(seq(0, length(weekdays)-1, by=5), function(X) sum(weekdays[X:(X+4)]))

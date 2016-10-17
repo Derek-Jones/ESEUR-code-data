@@ -1,8 +1,7 @@
 #
-# hujics-proc-pita.R, 15 Jul 16
+# hujics-proc-pita.R,  9 Oct 16
 #
 # Data from:
-#
 # Workload Modeling for Computer Systems Performance Evaluation
 # Dror G. Feitelson
 #
@@ -35,7 +34,7 @@ pita.6=subset(pita.6, V1 <= 1.0 & V1 >= 0.5)
 hist(pita.6$V1, breaks=100, col="red",
 	main="",
 	xlim=c(0.5, 1.0),
-	xlab="Runtime (seconds)", ylab="Number of processes")
+	xlab="Runtime (seconds)", ylab="Number of processes\n")
 
 text(0.75, 900, "6 significant digits", cex=1.3)
 

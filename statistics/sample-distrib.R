@@ -1,10 +1,7 @@
 #
-# sample-distrib.R,  9 Jan 16
+# sample-distrib.R, 14 Oct 16
 #
 # Data from:
-#
-# Statistical Performance Comparisons of Computers
-# Tianshi Chen and Yunji Chen and Qi Guo and Olivier Temam and Tue Wu and Weiwu Hu
 #
 # Example from:
 # Empirical Software Engineering using R
@@ -16,7 +13,8 @@ source("ESEUR_config.r")
 library("VGAM")
 
 
-plot_layout(2, 3)
+plot_layout(3, 2, max_width=6)
+par(mar=c(2.0, 1.0, 1, 0.5))
 
 pal_col=rainbow(2)
 
@@ -46,13 +44,9 @@ q=quantile(samp_mean, c(0.025, 0.975))
 lines(c(q[1], q[1]), c(0, max(y_bounds)/3), col=pal_col[1])
 lines(c(q[2], q[2]), c(0, max(y_bounds)/3), col=pal_col[1])
 
-par(new=TRUE)
-
 # The normal distribution towards which an infinite number of samples converges
-plot(xpoints, ypoints, type="l", col=pal_col[2], fg="grey", col.axis="grey", yaxt="n",
-	bty="n", yaxt="n",
-	xlab="", ylab="",
-	xlim=x_bounds, ylim=y_bounds)
+lines(xpoints, ypoints, col=pal_col[2], fg="grey")
+
 q=c(dist_mean-norm_sd*1.96, dist_mean+norm_sd*1.96)
 lines(c(q[1], q[1]), c(0, max(y_bounds)/3), col=pal_col[2])
 lines(c(q[2], q[2]), c(0, max(y_bounds)/3), col=pal_col[2])
@@ -100,12 +94,11 @@ plot_sample(sample_size, samp_mean, dist_mean, "Pareto")
 
 
 exp_samp_dis(10)
-exp_samp_dis(20)
-
 lnorm_samp_dis(10)
-lnorm_samp_dis(20)
-
 pareto_samp_dis(20)
+
+exp_samp_dis(20)
+lnorm_samp_dis(20)
 pareto_samp_dis(200)
 
 

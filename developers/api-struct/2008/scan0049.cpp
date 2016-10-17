@@ -30,7 +30,7 @@ struct crop
 /* 15 */    bool organic;  //* Produced organically
 /* 18 */    double labourCost;  //* Average labor cost for growing crop
 /* 19 */    char * fieldLocation;  //* Location of field
-/* 25 */    time_t sownDate;  //* //* Crop sown date
+/* 25 */    time_t sownDate;  //* Crop sown date
 };
 
 struct farm
