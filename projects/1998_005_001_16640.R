@@ -10,7 +10,7 @@
 source("ESEUR_config.r")
 
 
-bench=read.csv(paste0(ESEUR_dir, "projects/1998_005_001_16640.csv"), as.is=TRUE)
+bench=read.csv(paste0(ESEUR_dir, "projects/1998_005_001_16640.csv.xz"), as.is=TRUE)
 
 
 rowMeans(bench[1:8, 2:8], na.rm=TRUE)

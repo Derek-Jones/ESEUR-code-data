@@ -1,0 +1,103 @@
+
+.ps 8
+
+.PS 2.8 5.5
+
+# stevens_78.pic,  4 Jul 01
+
+define up_bullet {
+   move to Here + 0,0.1
+   circle fill rad 0.02
+   }
+
+define left_bullet {
+   move to Here + -0.1,0
+   circle fill rad 0.02
+   }
+
+boxht = 1.7 ; boxwid =1.7
+
+B1: box
+line from last box.n to last box.s
+"Alpha" "Country" at last box.nw + 0.25, -0.21
+"Beta" "Country" at last box.se + -0.25, 0.19
+"X" at last box.c - 0.1,0
+up_bullet
+"Y" at last box.s + 0.1,0.15
+up_bullet
+"Z" at last box.c +0.5,0.4
+up_bullet
+
+move to last box.e + 0.30,0.0
+box
+line from last box.w to last box.e
+"Alpha" "Country" at last box.nw + 0.25, -0.21
+"Beta" "Country" at last box.se + -0.25, 0.19
+"X" at last box.c + 0.0,-0.1
+left_bullet
+"Y" at last box.c + 0.55,0.1
+left_bullet
+"Z" at last box.c + -0.4,0.42
+left_bullet
+
+move to last box.sw - 0.15,0.12
+"Congruent"
+
+move to B1.sw - 0.0,1.2
+B2: box
+arc from B2.s + 0.2,0 to B2.c + 0,-0.2
+arc cw from B2.c + 0,-0.2 to B2.c -0.1,-0.5
+arc from B2.c -0.1,-0.5 to B2.n
+"Alpha" "Country" at last box.nw + 0.25, -0.21
+"Beta" "Country" at last box.se + -0.25, 0.19
+"X" at last box.c - 0.1,0
+up_bullet
+"Y" at last box.s + 0.1,0.15
+up_bullet
+"Z" at last box.c +0.5,0.4
+up_bullet
+
+move to last box.e + 0.30,0.0
+B3: box
+"Alpha" "Country" at last box.nw + 0.25, -0.21
+"Beta" "Country" at last box.se + -0.25, 0.19
+arc from B3.e + 0,0.2 to B3.c + 0.2,0
+arc cw from B3.c + 0.2,0 to B3.c -0.5,0.1
+arc from B3.c -0.5,0.1 to B3.w
+"X" at last box.c + 0.0,-0.1
+left_bullet
+"Y" at last box.c + 0.55,0.1
+left_bullet
+"Z" at last box.c + -0.4,0.42
+left_bullet
+
+move to last box.sw - 0.15,0.12
+"Incongruent"
+
+move to B2.sw - 0.0,1.2
+box
+"Alpha" "Country" at last box.nw + 0.25, -0.21
+"Beta" "Country" at last box.se + -0.25, 0.19
+"X" at last box.c - 0.1,0
+up_bullet
+"Y" at last box.s + 0.1,0.15
+up_bullet
+"Z" at last box.c +0.5,0.4
+up_bullet
+
+move to last box.e + 0.30,0.0
+box
+"Alpha" "Country" at last box.nw + 0.25, -0.21
+"Beta" "Country" at last box.se + -0.25, 0.19
+"X" at last box.c + 0.0,-0.1
+left_bullet
+"Y" at last box.c + 0.55,0.1
+left_bullet
+"Z" at last box.c + -0.4,0.42
+left_bullet
+
+move to last box.sw - 0.15,0.12
+"Homogeneous"
+
+.PE
+

@@ -15,7 +15,7 @@ library("MASS")
 
 pal_col=rainbow(4)
 
-rw=read.csv(paste0(ESEUR_dir, "communicating/var_rw.csv"), sep="\t", as.is=TRUE)
+rw=read.csv(paste0(ESEUR_dir, "communicating/var_rw.csv.xz"), sep="\t", as.is=TRUE)
 
 rw=subset(rw, bits != 0)
 

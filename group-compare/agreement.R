@@ -24,7 +24,7 @@ t$Freq=NULL
 return(t)
 }
 
-cross_rater=read.csv(paste0(ESEUR_dir, "group-compare/agreement.csv"), as.is=TRUE)
+cross_rater=read.csv(paste0(ESEUR_dir, "group-compare/agreement.csv.xz"), as.is=TRUE)
 rownames(cross_rater)=colnames(cross_rater)
 
 kappa2(contin_to_list(data.matrix(cross_rater)))

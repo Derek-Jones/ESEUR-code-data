@@ -12,6 +12,6 @@
 source("ESEUR_config.r")
 
 
-bench=read.csv(paste0(ESEUR_dir, "projects/a493847.csv"), as.is=TRUE)
+bench=read.csv(paste0(ESEUR_dir, "projects/a493847.csv.xz"), as.is=TRUE)
 
 

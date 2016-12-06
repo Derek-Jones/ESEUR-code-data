@@ -13,7 +13,7 @@
 source("ESEUR_config.r")
 
 
-viability=read.csv(paste0(ESEUR_dir, "faults/viability.csv"), as.is=TRUE)
+viability=read.csv(paste0(ESEUR_dir, "faults/viability.csv.xz"), as.is=TRUE)
 
 plot(viability$installs, viability$incidents, log="xy", col=point_col,
 	xlab="Installs", ylab="Incidents\n")

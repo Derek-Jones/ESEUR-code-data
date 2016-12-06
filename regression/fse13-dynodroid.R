@@ -15,8 +15,8 @@ source("ESEUR_config.r")
 pal_col=rainbow(3)
 hcl_col=rainbow_hcl(4)
 
-dh=read.csv(paste0(ESEUR_dir, "benchmark/fse13-dynohuman.csv"), as.is=TRUE)
-# dm=read.csv(paste0(ESEUR_dir, "benchmark/fse13-dynomonkey.csv"), as.is=TRUE)
+dh=read.csv(paste0(ESEUR_dir, "benchmark/fse13-dynohuman.csv.xz"), as.is=TRUE)
+# dm=read.csv(paste0(ESEUR_dir, "benchmark/fse13-dynomonkey.csv.xz"), as.is=TRUE)
 
 # Dynodroid vs human
 

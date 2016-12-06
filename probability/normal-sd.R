@@ -10,7 +10,7 @@ source("ESEUR_config.r")
 
 plot(dnorm, col="grey",
 	xaxt="n", yaxt="n", bty="n",
-	xlim=c(-4.1, 4.1),
+	xlim=c(-4.2, 4.2),
 	xlab="", ylab="")
 axis(1, at=c(0, 0, 0+1, 0-1, 0+2, 0-2, 0+4, 0-4),
 	lab= expression(NA, mu, sigma, -sigma, NA, NA, NA, NA),

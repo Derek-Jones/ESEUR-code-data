@@ -21,7 +21,7 @@ pal_col=rainbow(2)
 
 plot_sd=function(file_str)
 {
-FS=read.csv(paste0(ESEUR_dir, "regression/2015_sosym/", file_str, "_sd.csv"),
+FS=read.csv(paste0(ESEUR_dir, "regression/2015_sosym/", file_str, "_sd.csv.xz"),
 			sep=";", as.is=TRUE)
 
 # displ is the constructor for the discrete power law distribution

@@ -11,7 +11,7 @@
 source("ESEUR_config.r")
 
 
-PC_crash=read.csv(paste0(ESEUR_dir, "group-compare/eurosys84.csv"), as.is=TRUE)
+PC_crash=read.csv(paste0(ESEUR_dir, "group-compare/eurosys84.csv.xz"), as.is=TRUE)
 
 crash_mod=glm(failures ~ CPU*DRAM, data=PC_crash, family=poisson)
 

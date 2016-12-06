@@ -17,8 +17,8 @@ source("ESEUR_config.r")
 
 pal_col=rainbow(2)
 
-c_hex=read.csv(paste0(ESEUR_dir, "data-check/srchex.csv"), as.is=TRUE)
-g_hex=read.csv(paste0(ESEUR_dir, "data-check/googlehex.csv"), as.is=TRUE)
+c_hex=read.csv(paste0(ESEUR_dir, "data-check/srchex.csv.xz"), as.is=TRUE)
+g_hex=read.csv(paste0(ESEUR_dir, "data-check/googlehex.csv.xz"), as.is=TRUE)
 
 plot(c_hex$hex, 100*c_hex$c_cnt/sum(c_hex$c_cnt), col=pal_col[1], type="b",
 	ylim=c(0, 22), xaxt="n",

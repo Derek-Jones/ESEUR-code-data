@@ -15,7 +15,7 @@ library("plyr")
 library("reshape2")
 
 
-ps=read.csv(paste0(ESEUR_dir, "experiment/page-swap.csv"), as.is=TRUE)
+ps=read.csv(paste0(ESEUR_dir, "experiment/page-swap.csv.xz"), as.is=TRUE)
 
 map_gp=function(df)
 {

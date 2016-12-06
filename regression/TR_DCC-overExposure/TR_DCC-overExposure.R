@@ -34,7 +34,7 @@ return(NULL)
 
 
 files=list.files(paste0(ESEUR_dir, "regression/TR_DCC-overExposure"),
-		pattern=".*.csv", full.names=TRUE)
+		pattern=".*.csv.xz", full.names=TRUE)
 
 dummy=sapply(files, plot_overexposure)
 

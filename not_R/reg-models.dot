@@ -1,0 +1,53 @@
+                    /* reg-models.dot, 27 Dec 15 */
+
+digraph G {
+
+   rankdir = TB;
+   ranksep = 0.3;
+   arrowsize=0.2;
+   size = "6.0,6.0";
+   edge [fontsize = 13, penwidth=0.2];
+   node [color = white, shape = plaintext, fontsize = 16];
+
+   general_linear_models -> generalized_linear_models[label="non-normal errors\nnonlinearity"] ;
+   general_linear_models -> nonlinear_least_squares[label="nonlinearity"] ;
+   general_linear_models -> mixed_models[label="random\neffects"] ;
+   general_linear_models -> repeated_measures_models_time_series[label="correlation"] ;
+
+   generalized_linear_models -> generalized_additive_models[label="smooth\nnonlinearity"] ;
+   generalized_linear_models -> quasilikelihood_models[label="scaled\nvariance"] ;
+   generalized_linear_models -> negative_binomial_models[label=" overdispersion"] ;
+   generalized_linear_models -> generalized_linear_mixed_models[label="random\neffects"] ;
+
+   repeated_measures_models_time_series -> nonlinear_time_series_models[label="nonlinearity"] ;
+
+   mixed_models -> generalized_linear_mixed_models[label="correlation"] ;
+
+   nonlinear_least_squares -> nonlinear_time_series_models[label="non-normal errors\nnonlinearity\nrandom effects"] ;
+
+   { rank=same;
+   rankdir = LR;
+
+   generalized_additive_models[label="Generalized\nAdditive\nModels"] ;
+   quasilikelihood_models[label="Quasilikelihood\nModels"] ;
+   negative_binomial_models[label="Negative\nBinomial Models"] ;
+   generalized_linear_mixed_models[label="Generalized Linear\nMixed Models"] ;
+   }
+
+   { /* rank=same;
+   rankdir = TB; */
+
+   repeated_measures_models_time_series[label="Time-Series \&\nRepeated-measures Models", fontcolor="red"] ;
+   mixed_models[label="Mixed Models", fontcolor="red"] ;
+   nonlinear_time_series_models[label="Nonlinear\nTime-Series\nModels"] ;
+   }
+
+
+   general_linear_models[label="General\nLinear Models"] ;
+
+   generalized_linear_models[label="Generalized\nLinear Models", fontcolor="red"] ;
+
+   nonlinear_least_squares[label="Nonlinear\nLeast-squares", fontcolor="red"] ;
+
+}
+

@@ -12,7 +12,7 @@
 source("ESEUR_config.r")
 
 
-p223=read.csv(paste0(ESEUR_dir, "experiment/p223-RHEL6.4_HS_E5-2690.csv"), as.is=TRUE)
+p223=read.csv(paste0(ESEUR_dir, "experiment/p223-RHEL6.4_HS_E5-2690.csv.xz"), as.is=TRUE)
 
 # pal_col=rainbow(length(unique(p223$Worklet)))
 pal_col=rainbow(3)

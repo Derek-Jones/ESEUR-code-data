@@ -1,5 +1,5 @@
 #
-# ESEUR-config.r, 13 Oct 16
+# ESEUR-config.r, 26 Nov 16
 
 # Assume the current directory unless told otherwise
 ESEUR_dir=paste0(getwd(), "/")
@@ -88,6 +88,20 @@ ESEUR_max_width=16
 ESEUR_max_height=14
 ESEUR_default_width=7
 ESEUR_default_height=7
+
+set_width_height=function(
+		max_width=ESEUR_max_width,
+		max_height=ESEUR_max_height,
+		default_width=ESEUR_default_width,
+		default_height=ESEUR_default_height)
+{
+ESEUR_max_width <<- max_width
+ESEUR_max_height <<- max_height
+ESEUR_default_width <<- default_width
+ESEUR_default_height <<- default_height
+}
+
+
 point_pch=3
 point_col="salmon3"
 loess_col="yellow"

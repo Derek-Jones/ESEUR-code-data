@@ -11,7 +11,7 @@
 source("ESEUR_config.r")
 
 
-product=read.csv(paste0(ESEUR_dir, "introduction/Wang2010a_Fig2.csv"), as.is=TRUE)
+product=read.csv(paste0(ESEUR_dir, "introduction/Wang2010a_Fig2.csv.xz"), as.is=TRUE)
 
 pal_col=rainbow(ncol(product)-1)
 

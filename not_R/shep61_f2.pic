@@ -1,0 +1,84 @@
+
+.ps 8
+
+.PS 4.0 2.5
+
+# shep61_f2.pic, 13 Oct 01
+
+define triangle {
+
+move left $1/2
+move down $1/2
+line right $1 then up $1 left $1/2 then down $1 left $1/2
+}
+
+define fill_triangle {
+
+move left $1/2
+move down $1/2
+for len=0 to $1/2 by $1 / 100 do
+   {
+   move up $1 / 200
+   move right $1 / 200
+   line right $1-2*len then up $1-2*len left ($1-2*len)/2 then down $1-2*len left ($1-2*len)/2
+   }
+}
+
+define square_ring {
+C: circle
+   move to last circle.c
+   fill_triangle(0.08)
+   move to last circle.s
+   line down 0.3 "\s+3Shape\s-3" rjust
+   move to last circle.se
+   line down 0.1 right 0.2
+   circle
+   move to last circle.c
+   fill_triangle(0.03)
+   move to last circle.s
+   line down 0.3
+   move to last circle.e
+   line right 0.3
+   circle
+   move to last circle.c
+   triangle(0.03)
+   move to last circle.s
+   line down 0.3
+   move to last circle.nw
+   line up 0.1 left 0.2
+   circle
+   move to last circle.c
+   triangle(0.08)
+   move to last circle.s
+   line down 0.3
+   move to last circle.w
+   line left 0.3 "\s+3Color\s-3" above
+   
+   move to C.s
+   move down 0.3
+   circle
+   box ht 0.07 wid 0.07 fill at last circle.c
+   move to last circle.se
+   line down 0.1 right 0.2 "\s+3Size\s-3" rjust below
+   circle
+   box ht 0.03 wid 0.03 fill at last circle.c
+   move to last circle.e
+   line right 0.3
+   circle
+   box ht 0.03 wid 0.03 at last circle.c
+   move to last circle.nw
+   line up 0.1 left 0.2
+   circle
+   box ht 0.07 wid 0.07 at last circle.c
+   move to last circle.w
+   line left 0.3
+  
+   }
+
+circlerad=0.07
+fillval=1.0
+
+square_ring
+
+.PE
+

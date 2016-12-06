@@ -14,7 +14,7 @@ library("latticeExtra")
 library("reshape2")
 
 
-STVR=read.csv(paste0(ESEUR_dir, "communicating/STVR-2013.csv"), as.is=TRUE)
+STVR=read.csv(paste0(ESEUR_dir, "communicating/STVR-2013.csv.xz"), as.is=TRUE)
 
 
 STVR_col=melt(STVR, id.vars="fault", variable.name="fix", value.name="occurrences")

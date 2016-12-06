@@ -1,0 +1,86 @@
+                    /* long-term-mem.dot, 27 Oct 16 */
+
+/*
+ * Inspired/modeled on:
+ * Figure 1 from
+ * Conscious and Unconscious Memory Systems
+ * Larry R. Squire and Adam J. O. Dede
+*/
+
+digraph G {
+
+   nojustify=true;
+   ranksep = equally ;
+   arrowsize=0.4;
+   size = "3.5,2.0";
+   ratio = fill;
+   dpi=100;
+   {
+   node [color = white, shape = plaintext, fontsize = 16];
+/*   rankdir = TB;  */
+
+Memory -> Declarative;
+Memory -> Nondeclarative;
+
+Declarative -> Facts;
+Declarative -> Events;
+
+Facts -> Medial_tld
+Events -> Medial_tld
+
+Nondeclarative -> Procedural;
+Nondeclarative -> Priming;
+Nondeclarative -> Simple_classical_conditioning;
+Nondeclarative -> Nonassociative_learning;
+
+Simple_classical_conditioning -> Emotional;
+Simple_classical_conditioning -> Skeletal;
+
+Procedural -> Striatum;
+Priming -> Neocortex;
+Emotional -> Amygdala;
+Skeletal -> Cerebellum;
+
+Nonassociative_learning -> Reflex;
+
+   }
+
+   node[color=white, shape = plaintext, fontsize=16];
+   nodesep=0.15;
+   minlen=0.2;
+
+   edge[dir=forward];
+/*   rankdir = LR; */
+
+
+   {rank = same;
+	Declarative;
+	Nondeclarative;
+   }
+
+   {rank = same;
+	 Facts[label="Facts\n\n"];
+	 Events[label="Events\n\n"];
+	 Procedural[label="Procedural\n(skills &\nhabits)"];
+	 Priming[label="Prining &\nperceptual\nlearning"];
+	 Simple_classical_conditioning[label="Simple\nclassical\nlearning"];
+	 Nonassociative_learning[label="Nonassociative\nlearning\n"];
+   }
+
+   {rank = same;
+	Emotional;
+	Skeletal;
+   }
+
+   {rank = same;
+	 Medial_tld[label="Medial temporal lobe\ndiencephalon"; fontcolor="red"];
+	 Striatum[fontcolor="red"];
+	 Neocortex[fontcolor="red"];
+	 Amygdala[fontcolor="red"];
+	 Cerebellum[fontcolor="red"];
+	 Reflex[label="Reflex\npathways"; fontcolor="red"];
+   }
+
+}
+
+

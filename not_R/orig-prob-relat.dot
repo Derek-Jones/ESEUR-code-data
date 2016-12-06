@@ -1,0 +1,240 @@
+                    /* prob-relat.dot,  3 Mar 14 */
+
+digraph G {
+
+   ranksep = 0.2;
+   arrowsize=0.8;
+   size = "7.0,6.7";
+
+/*
+   {
+   node [color = white, shape = plaintext, fontsize = 10];
+   rankdir = "TB";
+
+Zipf ->
+Zeta ->
+Beta_Pascal ->
+Geometric ->
+Discrete_Weilbull ->
+Arctangent ->
+Hyperbolic_secant ->
+Cauchy ->
+Standard_Cauchy ->
+Noncentral_t ->
+Doubly_noncentral_t ->
+Noncentral_F ->
+Doubly_noncentral_F ->
+Weibull ->
+Extreme_value ->
+Generalized_Pareto;
+   }
+*/
+
+   node[color=white, fontsize=12];
+/*   nodesep=0.05; */
+/*   minlen=0.2; */
+
+   node [shape=box];
+   edge[dir=forward];
+   rankdir = "LR";
+
+
+   {rank = same;
+Zipf[label="Zipf(\alpha, n)"];
+Discrete_uniform[label="Discrete uniform(a, b)"];
+Rectangular[label="Rectangular(n)"];
+Beta_binomial[label="Beta-binomial(a, b, n)"];
+Negative_hypergeometric[label="Negative hypergeometric(n_1, n_2, n_3)"];
+   }
+
+   Zipf -> { Discrete_uniform; Zeta };
+   Discrete_uniform -> Rectangular;
+   Beta_binomial -> { Rectangular; Negative_hypergeometric };
+
+   {rank = same;
+Zeta[label="Zeta(\alpha)"];
+Logarithmic[label="Logarithmic(c)"];
+Power_series[label="Power series(c, A(c))"];
+Poisson[label="Poisson(\mu)"];
+Hypergeometric[label="Hypergeometric(n_1, n_2, n_3)"];
+   }
+
+   Power_series -> { Logarithmic; Poisson; Pascal };
+   Poisson -> Gamma_Poisson;
+   Hypergeometric -> Binomial;
+
+   {rank = same;
+Beta_Pascal[label="Beta-Pascal(n, a, b)"];
+Gamma_Poisson[label="Gamma-Poisson(\alpha, \beta)"];
+Binomial[label="Binomial(n, p)"];
+Benoulli[label="Benoulli(p)"];
+   }
+
+   Gamma_Poisson -> Pascal;
+   Binomial -> { Benoulli; Normal }
+   Benoulli -> Binomial;
+
+   {rank = same;
+Geometric[label="Geometric(p)"];
+Pascal[label="Pascal(n, p)"];
+Normal[label="Normal(\mu, \sigma^2)"];
+Polya[label="Polya(n, p, \beta)"];
+Gamma_normal[label="Gamma-normal(\mu, \alpha, \beta)"];
+   }
+
+   Geometric -> Pascal;
+   Pascal -> { Geometric; Beta_Pascal; Poisson; Normal };
+   Normal -> { Gamma_normal; Chi_square; Noncentral_chi_square; Standard_normal };
+   Polya -> Binomial;
+
+   {rank = same;
+Discrete_Weilbull[label="Discrete Weilbull(p, \beta)"];
+Standard_normal[label="Standard normal"];
+Log_normal[label="Log normal(\alpha, \beta)"];
+Noncentral_beta[label="Noncentral beta(\beta, \gamma, \epsilon)"];
+   }
+
+   Discrete_Weilbull -> Geometric;
+   Standard_normal -> { Normal; Chi; Chi_square; Standard_Cauchy };
+   Log_normal -> Normal;
+   Noncentral_beta -> Beta;
+
+   {rank = same;
+Arctangent[label="Arctangent(\lambda, \phi)"];
+Noncentral_chi_square[label="Noncentral chi-square(m, \delta)"];
+Log_gamma[label="Log gamma(\alpha, \beta)"];
+Generalized_gamma[label="Generalized gamma(\alpha, \beta, \gamma)"];
+   }
+
+   Noncentral_chi_square -> Chi_square;
+   Generalized_gamma -> { Log_normal; Gamma };
+
+   {rank = same;
+Hyperbolic_secant[label="Hyperbolic-secant"];
+Inverse_Gaussian[label="Inverse Gaussian(\lambda, \mu)"];
+Chi[label="Chi(n)"];
+Inverted_gamma[label="Inverted gamma(\alpha, \beta)"];
+Gamma[label="Gamma(\alpha, \beta)"];
+Beta[label="Beta(\beta, \gamma)"];
+   }
+
+   Inverse_Gaussian -> { Chi_square; Standard_Wald };
+   Gamma -> { Inverted_gamma; Beta; Inverted_beta; Erlang; Chi_square };
+   Beta -> { Normal; Standard_uniform; Inverted_beta };
+
+   {rank = same;
+Cauchy[label="Cauchy(a, \alpha)"];
+Standard_Wald[label="Standard Wald(\lambda)"];
+Chi_square[label="Chi-square(n)"];
+Inverted_beta[label="Inverted beta(\beta, \gamma)"];
+Arcsin[label="Arcsin"];
+   }
+
+   Cauchy -> { Standard_Cauchy; Arctangent };
+   Chi_square -> { Erlang; Exponential; F };
+
+   {rank = same;
+Standard_Cauchy[label="Standard Cauchy"];
+t[label="t(n)"];
+Hypoexponential[label="Hypoexponential(\alpha)"];
+Erlang[label="Erlang(\alpha, n)"];
+Makeham[label="Makeham(\delta, n, \gamma)"];
+   }
+
+   Standard_Cauchy -> { Cauchy; Hyperbolic_secant };
+   t -> { Standard_Cauchy; Standard_normal };
+   Hypoexponential -> Erlang;
+   Erlang -> Chi_square;
+   Makeham -> Gompert;
+
+   {rank = same;
+Gompert[label="Gompert(\delta, \kappa)"];
+   }
+
+   {rank = same;
+Noncentral_t[label="Noncentral t(n, \delta)"];
+F[label="F(n_1, n_2)"];
+Exponential[label="Exponential(\alpha)"];
+Logistic_exponential[label="Logistic-exponential(\alpha, \beta)"];
+Exponential_power[label="Exponential power(\lambda, \kappa)"];
+   }
+
+   Noncentral_t -> t;
+   F -> Chi_square;
+   Exponential -> { Chi_square; Hypoexponential; Erlang; Laplace; Weibull; Hyperexponential; F };
+   Logistic_exponential -> Exponential;
+
+   {rank = same;
+Doubly_noncentral_t[label="Doubly noncentral t(n, \delta, \gamma)"];
+Hyperexponential[label="Hyperexponential(\alpha)"];
+Muth[label="Muth(\kappa)"];
+Error[label="Error(a, b, c)"];
+Standard_uniform[label="Standard uniform"];
+Minimax[label="Minimax(\beta, \gamma)"];
+   }
+
+   Doubly_noncentral_t -> Noncentral_t;
+   Hyperexponential -> Exponential;
+   Muth -> Exponential;
+   Standard_uniform -> { Exponential; Logistic_exponential; Beta; Gompert; Exponential_power; Standard_power; Uniform; Standard_triangular; Benford; Log_logistic; Pareto };
+   Minimax -> Standard_power;
+
+   {rank = same;
+Noncentral_F[label="Noncentral F(n_1, n_2, \delta)"];
+IDB[label="IDB(\delta, \kappa, \gamma)"];
+Laplace[label="Laplace(\alpha_1, \alpha_2)"];
+Standard_power[label="Standard power(\beta)"];
+   }
+
+   IDB -> { Rayleigh; Exponential };
+   Laplace -> { Exponential; Error };
+   Standard_power -> Standard_uniform;
+
+   {rank = same;
+Doubly_noncentral_F[label="Doubly noncentral F(n_1, n_2, n_3)"];
+Rayleigh[label="Rayleigh(\alpha)"];
+Pareto[label="Pareto(\lambda, \kappa)"];
+Standard_triangular[label="Standard triangular"];
+Power[label="Power(\alpha, \beta)"];
+   }
+
+   Doubly_noncentral_F -> Noncentral_F;
+   Rayleigh -> Exponential;
+   Pareto -> Exponential;
+   Power -> Standard_power;
+
+   {rank = same;
+Weibull[label="Weibull(\alpha, \beta);"]
+Log_logistic[label="Log logistic(\lambda, n);"]
+Benford[label="Benford"];
+TSP[label="TSP(a, b, m, n);"]
+Uniform[label="Uniform(a, b);"]
+   }
+
+   Weibull -> { Rayleigh; Exponential; Extreme_value };
+   Log_logistic -> { Logistic; Lomax };
+   TSP -> Triangular;
+   Uniform -> { Standard_uniform; Kolmogorov_Smirnov };
+
+   {rank = same;
+Extreme_value[label="Extreme value(\alpha, \beta);"]
+Lomax[label="Lomax(\lambda, \kappa);"]
+von_Mises[label="von Mises(\kappa, \mu);"]
+   }
+
+   Lomax -> Log_logistic;
+   von_Mises -> Uniform;
+
+   {rank = same;
+Generalized_Pareto[label="Generalized Pareto(\delta, \kappa, \gamma);"]
+Logistic[label="Logistic(\lambda, \kappa);"]
+Triangular[label="Triangular(a, b, m);"]
+Kolmogorov_Smirnov[label="Kolmogorov-Smirnov(n);"]
+   }
+
+   Generalized_Pareto -> Pareto;
+   Triangular -> Standard_triangular;
+   Kolmogorov_Smirnov -> Uniform;
+}
+
+

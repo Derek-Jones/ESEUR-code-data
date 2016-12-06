@@ -1,0 +1,124 @@
+                 /*  shep61_f1.dot, 31 Dec 04 */
+
+digraph T {
+
+size="4.0,3.0";
+
+node[height=0.9, width=0.9, color=black];
+edge[style=invis];
+
+subgraph cluster_I {
+   a_2 -> b_2 -> c_2 -> d_2;
+   a_1 -> b_1 -> c_1 -> d_1;
+   label = "I";
+   fontsize=20;
+   }
+subgraph cluster_II {
+   a_4 -> b_4 -> c_4 -> d_4;
+   a_3 -> b_3 -> c_3 -> d_3;
+   label = "II";
+   fontsize=20;
+   }
+subgraph cluster_III {
+   a_6 -> b_6 -> c_6 -> d_6;
+   a_5 -> b_5 -> c_5 -> d_5;
+   label = "III";
+   fontsize=20;
+   }
+subgraph cluster_IV {
+   e_2 -> f_2 -> g_2 -> h_2;
+   e_1 -> f_1 -> g_1 -> h_1;
+   label = "IV";
+   fontsize=20;
+   }
+subgraph cluster_V {
+   e_4 -> f_4 -> g_4 -> h_4;
+   e_3 -> f_3 -> g_3 -> h_3;
+   label = "V";
+   fontsize=20;
+   }
+subgraph cluster_VI {
+   e_6 -> f_6 -> g_6 -> h_6;
+   e_5 -> f_5 -> g_5 -> h_5;
+   label = "VI";
+   fontsize=20;
+   }
+
+  d_1 -> e_1;
+  d_3 -> e_3;
+  d_5 -> e_5;
+
+   {
+   a_1[shape=triangle, style=filled, height=1.0, width=1.0, label=""];
+   a_2[shape=triangle, height=1.0, width=1.0, label=""];
+   a_3[shape=triangle, style=filled, height=1.0, width=1.0, label=""];
+   a_4[shape=triangle, height=1.0, width=1.0, label=""];
+   a_5[shape=box, style=filled, label=""];
+   a_6[shape=triangle, height=1.0, width=1.0, label=""];
+   }
+
+   {
+   b_1[shape=box, style=filled, label=""];
+   b_2[shape=box, label=""];
+   b_3[shape=triangle, style=filled, height=0.5, width=0.5, label=""];
+   b_4[shape=triangle, height=0.5, width=0.5, label=""];
+   b_5[shape=triangle, style=filled, height=1.0, width=1.0, label=""];
+   b_6[shape=box, label=""];
+   }
+   
+   {
+   c_1[shape=triangle, style=filled, height=0.5, width=0.5, label=""];
+   c_2[shape=triangle, height=0.5, width=0.5, label=""];
+   c_3[shape=box, label=""];
+   c_4[shape=box, style=filled, label=""];
+   c_5[shape=triangle, style=filled, height=0.5, width=0.5, label=""];
+   c_6[shape=box, height=0.5, width=0.5, label=""];
+   }
+
+   {
+   d_1[shape=box, style=filled, height=0.5, width=0.5, label=""];
+   d_2[shape=box, height=0.5, width=0.5, label=""];
+   d_3[shape=box, height=0.5, width=0.5, label=""];
+   d_4[shape=box, style=filled, height=0.5, width=0.5, label=""];
+   d_5[shape=triangle, height=0.5, width=0.5, label=""];
+   d_6[shape=box, style=filled, height=0.5, width=0.5, label=""];
+   }
+
+   {
+   e_1[shape=triangle, style=filled, height=1.0, width=1.0, label=""];
+   e_2[shape=box, height=0.5, width=0.5, label=""];
+   e_3[shape=triangle, style=filled, height=1.0, width=1.0, label=""];
+   e_4[shape=triangle, height=1.0, width=1.0, label=""];
+   e_5[shape=triangle, style=filled, height=1.0, width=1.0, label=""];
+   e_6[shape=triangle, height=1.0, width=1.0, label=""];
+   }
+
+   {
+   f_1[shape=triangle, height=1.0, width=1.0, label=""];
+   f_2[shape=box, style=filled, height=0.5, width=0.5, label=""];
+   f_3[shape=triangle, style=filled, height=0.5, width=0.5, label=""];
+   f_4[shape=box, height=1.0, width=1.0, label=""];
+   f_5[shape=triangle, height=0.5, width=0.5, label=""];
+   f_6[shape=triangle, style=filled, height=0.5, width=0.5, label=""];
+   }
+
+   {
+   g_1[shape=box, style=filled, label=""];
+   g_2[shape=triangle, height=0.5, width=0.5, label=""];
+   g_3[shape=box, style=filled, label=""];
+   g_4[shape=triangle, height=0.5, width=0.5, label=""];
+   g_5[shape=box, style=filled, height=1.0, width=1.0, label=""];
+   g_6[shape=box, label=""];
+   }
+
+   {
+   h_1[shape=triangle, style=filled, height=0.5, width=0.5, label=""];
+   h_2[shape=box, label=""];
+   h_3[shape=box, height=0.5, width=0.5, label=""];
+   h_4[shape=box, style=filled, height=0.5, width=0.5, label=""];
+   h_5[shape=box, style=filled, height=0.5, width=0.5, label=""];
+   h_6[shape=box, height=0.5, width=0.5, label=""];
+   }
+
+}
+  

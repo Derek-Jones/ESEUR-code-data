@@ -1,0 +1,98 @@
+                    /* disc-cont.dot, 12 Oct 15 */
+
+digraph G {
+
+   rankdir = TB;
+   ranksep = 0.3;
+   arrowsize=0.3;
+   size = "6.0,4.0";
+   edge [fontsize = 12, penwidth=0.2];
+   node [color = white, shape = plaintext, fontsize = 15];
+
+   {
+   Beta_binomial -> Binomial[label=< large &theta;>] ;
+
+   Binomial -> Poisson[label=" large n\nsmall p"] ;
+
+   edge [ dir=back]
+   Poisson -> Negative_binomial[label=" large k"] ;
+
+   edge [ dir=forward]
+   Negative_binomial -> Geometric[label=" k=1"] ;
+
+   edge [color=white];
+   Geometric -> Discrete ;
+   }
+
+   {
+   edge [ dir=back]
+   Uniform -> Beta[label=" a=b=1"] ;
+
+   edge [ dir=forward]
+   Beta -> Normal[label=" large a and b"] ;
+
+   edge [ dir=back]
+   Normal -> Gamma[label=" large shape"];
+
+   edge [ dir=forward]
+   Gamma -> Exponential[label=" shape=1"] ;
+
+   edge [color=white];
+   Exponential -> Continuous ;
+   }
+
+/*   nodesep=0.05;
+   minlen=0.2;
+*/
+
+   node [shape=box];
+   edge[dir=forward];
+
+
+   {
+	Beta_binomial ; Uniform;
+
+	Beta_binomial[label=<Beta binomial(&theta;, n)>];
+	Uniform[label="Uniform"];
+   }
+
+   {rank = same;
+	Binomial ; Beta;
+	Binomial[label="Binomial(n, p)"];
+	Beta[label="Beta(a, b)"];
+   }
+
+   {
+	Poisson ; Normal;
+
+	Poisson[label=<Poisson(&lambda;)>];
+	Normal[label=<Normal(&mu;, &sigma;)>];
+   }
+
+   {rank = same;
+	Negative_binomial ; Gamma;
+
+	Negative_binomial[label=<Negative binomial(k, &mu;)>];
+	Gamma[label="Gamma(shape, scale)"];
+   }
+
+   {rank = same;
+	Geometric ; Exponential;
+	Geometric[label="Geometric(p)"];
+	Exponential[label=<Exponential(&lambda;)>];
+   }
+
+   {rank = same;
+	Discrete[fontcolor="red"] ; Continuous[fontcolor="red"];
+   }
+
+   Binomial -> Normal[label=" large n"];
+   Poisson -> Normal[label=< large &lambda;>];
+
+   edge [ dir=both]
+   Normal -> Log_normal;
+   Log_normal[label=< Log normal(&mu;, &sigma;)>];
+}
+
+
+

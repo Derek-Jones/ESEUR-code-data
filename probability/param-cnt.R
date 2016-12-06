@@ -16,7 +16,7 @@ library("gamlss")
 library("plyr")
 
 # source,params,count,percent
-params=read.csv(paste0(ESEUR_dir, "probability/param-cnt.csv"), as.is=TRUE)
+params=read.csv(paste0(ESEUR_dir, "probability/param-cnt.csv.xz"), as.is=TRUE)
 
 pal_col=rainbow(length(unique(params$source)))
 params$pal_col=pal_col[as.factor(params$source)]

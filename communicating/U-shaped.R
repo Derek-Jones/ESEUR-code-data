@@ -1,5 +1,5 @@
 #
-# U-shaped.R,  4 Aug 16
+# U-shaped.R,  5 Dec 16
 #
 # Example from:
 # Empirical Software Engineering using R
@@ -8,17 +8,37 @@
 source("ESEUR_config.r")
 
 
-x=1:100
-inv.x=1/x
-
-y_bounds=c(0, 3.0)
+x=1:200
 
 pal_col=rainbow(2)
 
-plot(x, 3*inv.x, type="l", col=pal_col[1],
-	ylim=y_bounds,
+plot(x, 30/x, type="l", col=pal_col[1],
 	xlab="LOC", ylab="Faults/LOC\n")
 
-lines(x, ((x+50)^3/5e4)*inv.x, col=pal_col[2])
+lines(x, 20/x+0.02*x, col=pal_col[2])
 
 
+# V. R. Basili and B. R. Perricone,
+# ”Software errors and complexity“
+# CACM, vol. 27, pp. 42-52, Jan. 1984.
+# Module Size (max),Module count,Cyclomatic complexity,Defect density (/KLOC)
+# 50 258 6 16
+# 100 70 17.9 12.6
+# 150 26 28.1 12.4
+# 200 13 52.7 7.6
+# 225 3 60 6.4
+# 
+# C. Withrow,
+# ”Error density and size in Ada software”
+# IEEE Software, pp. 26-30, Jan. 1990.
+# Source lines,Modules,Defect Density
+# 4-62 93 5.4
+# 64-97 39 4.9
+# 103-154 52 3.4
+# 161-250 53 1.8
+# 251-397 46 5.2
+# 402-625 31 5.6
+# 651-949 22 6.8
+# 1050-5 160 26 8.3
+#
+ 

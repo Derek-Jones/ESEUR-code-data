@@ -17,7 +17,7 @@ library("simex")
 
 pal_col=rainbow(3)
 
-maint_all=read.csv(paste0(ESEUR_dir, "regression/10.1002_maint-task-data.csv.xz"), as.is=TRUE)
+maint_all=read.csv(paste0(ESEUR_dir, "regression/10-1002_maint-task-data.csv.xz"), as.is=TRUE)
 
 maint_all$ins_up=maint_all$INSERT+maint_all$UPDATE
 maint_all$lins_up=log(maint_all$ins_up)
@@ -26,7 +26,7 @@ maint=subset(maint_all, EFFORT > 0.1)
 maint=subset(maint, ins_up > 0.0)
 
 plot(maint$ins_up, maint$EFFORT, log="xy", col=point_col,
-	xlab="Lines added+updated", ylab="Effort (days)")
+	xlab="Lines added+updated", ylab="Effort (days)\n")
 
 maint_mod=glm(EFFORT ~ lins_up, data=maint, family=gaussian(link="log"),
 				x=TRUE, y=TRUE)

@@ -16,7 +16,7 @@ source("ESEUR_config.r")
 library("betareg")
 
 
-reuse=read.csv(paste0(ESEUR_dir, "projects/reuse_and_prod.csv"), as.is=TRUE)
+reuse=read.csv(paste0(ESEUR_dir, "projects/reuse_and_prod.csv.xz"), as.is=TRUE)
 
 # reuse$unit_int=reuse$new_object/100-1e-9
 # Beta distribution takes values in 0..1

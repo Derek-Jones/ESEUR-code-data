@@ -13,7 +13,7 @@ source("ESEUR_config.r")
 library("ROCR")
 
 
-p_n=read.csv(paste0(ESEUR_dir, "regression/ROC_curve.csv"), as.is=TRUE)
+p_n=read.csv(paste0(ESEUR_dir, "regression/ROC_curve.csv.xz"), as.is=TRUE)
 
 
 pred = prediction(p_n$score, p_n$actual)

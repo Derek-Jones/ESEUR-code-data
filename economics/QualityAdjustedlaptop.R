@@ -23,7 +23,7 @@ lines(x_vals, exp(pred), col=pal_col[df$Introduction-2002])
 }
 
 
-i_lapcpu=read.csv(paste0(ESEUR_dir, "economics/QualityAdjustedlaptop.csv"), as.is=TRUE)
+i_lapcpu=read.csv(paste0(ESEUR_dir, "economics/QualityAdjustedlaptop.csv.xz"), as.is=TRUE)
 
 
 pal_col=rainbow(length(unique(i_lapcpu$Introduction)))

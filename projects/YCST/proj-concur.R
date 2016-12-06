@@ -13,7 +13,6 @@
 source("ESEUR_config.r")
 
 
-plot_wide()
 brew_col=rainbow_hcl(6)
 
 # The following only works if every layer covers the layer beneath it

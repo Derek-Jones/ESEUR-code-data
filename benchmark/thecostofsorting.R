@@ -31,7 +31,7 @@ d_ply(df, .(dsize), function(df) points(df$frequency, df$ac, col=pal_col[df$dsiz
 }
 
 
-sort_power=read.csv(paste0(ESEUR_dir, "benchmark/thecostofsorting.csv"), as.is=TRUE)
+sort_power=read.csv(paste0(ESEUR_dir, "benchmark/thecostofsorting.csv.xz"), as.is=TRUE)
 
 pal_col=rainbow(length(unique(sort_power$dsize)))
 

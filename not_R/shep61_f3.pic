@@ -1,0 +1,74 @@
+
+.ps 10
+
+.PS 2.2 3.3
+
+# shep61_f3.pic, 13 Nov 16
+
+define square_ring {
+C: circle $1 thickness 0.2
+   move to last circle.s
+   line down 0.3 outline "blue"
+   move to last circle.se
+   line down 0.1 right 0.2 outline "blue"
+   circle $2  thickness 0.2
+   move to last circle.s
+   line down 0.3 outline "blue"
+   move to last circle.e
+   line right 0.3 outline "blue"
+   circle $3  thickness 0.2
+   move to last circle.s
+   line down 0.3 outline "blue"
+   move to last circle.nw
+   line up 0.1 left 0.2 outline "blue"
+   circle $4  thickness 0.2
+   move to last circle.s
+   line down 0.3 outline "blue"
+   move to last circle.w
+   line left 0.3 outline "blue"
+   
+   move to C.s
+   move down 0.3
+   circle $5  thickness 0.2
+   move to last circle.se
+   line down 0.1 right 0.2 outline "blue"
+   circle $6  thickness 0.2
+   move to last circle.e
+   line right 0.3 outline "blue"
+   circle $7  thickness 0.2
+   move to last circle.nw
+   line up 0.1 left 0.2 outline "blue"
+   circle $8  thickness 0.2
+   move to last circle.w
+   line left 0.3 outline "blue"
+  
+   move up 0.1
+   move right 0.1
+   $9
+   }
+
+circlerad=0.02
+fillval=1.0
+linewid=0.2
+
+
+move to -0.9, 1.4
+square_ring(colored "red", colored "red", , , colored "red", colored "red", , , "I")
+
+move to -0.9, 0.7
+square_ring(colored "red", colored "red", , , , , colored "red", colored "red", "II")
+
+move to -0.9, 0
+square_ring(colored "red", colored "red", colored "red", , colored "red", , , , "III")
+
+move to 0, 1.4
+square_ring(colored "red", colored "red", , colored "red", colored "red", , , , "IV")
+
+move to 0, 0.7
+square_ring(colored "red", colored "red", , , colored "red", , colored "red", , "V")
+
+move to 0, 0
+square_ring(colored "red", , colored "red", , , colored "red", , colored "red", "VI")
+
+.PE
+
