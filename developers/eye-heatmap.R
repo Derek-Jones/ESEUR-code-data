@@ -1,7 +1,9 @@
 #
-# eye-heatmap.R,  4 Mar 15
+# eye-heatmap.R, 12 Jan 17
 #
 # Data from:
+# An Empirical Study on Requirements Traceability Using Eye-Tracking
+# Nasir Ali and Zohreh Sharafi and Yann-Ga{\"e}l Gu{\'e}h{\'e}neuc and Giuliano Antoniol
 #
 # Example from:
 # Empirical Software Engineering using R
@@ -15,7 +17,7 @@ source("ESEUR_config.r")
 library("png")
 library("ks")
 
-plot_wide()
+# plot_wide()
 
 
 prob2=readPNG(paste0(ESEUR_dir, "developers/2.png"), TRUE)

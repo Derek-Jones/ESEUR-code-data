@@ -20,7 +20,7 @@ source("ESEUR_config.r")
 
 library(mvtnorm)
 
-plot_layout(4, 2)
+plot_layout(4, 2, 10)
 
 par(oma = c(0,0,0,0), mar=c(2,2,2,0))
 

@@ -1,5 +1,5 @@
 #
-# ESEUR-config.r, 26 Nov 16
+# ESEUR-config.r, 18 Jan 17
 
 # Assume the current directory unless told otherwise
 ESEUR_dir=paste0(getwd(), "/")
@@ -42,36 +42,34 @@ par(oma=OMA)
 par(mar=MAR)
 }
 
-plot_layout=function(num_down, num_across, max_width=ESEUR_max_width)
+plot_layout=function(num_down, num_across,
+		default_width=ESEUR_default_height, default_height=ESEUR_default_height,
+		max_width=ESEUR_max_width, max_height=ESEUR_max_height)
 {
 if (num_across > 1)
    {
    if (num_down == 1)
       {
-      layout(matrix(1:num_across, nrow=1), widths=rep(max_width/num_across, num_across), heights=ESEUR_default_height, TRUE)
-      }
-   else if (num_down == 2)
-      {
-      layout(matrix(1:(num_down*num_across), nrow=2), widths=rep(max_width/num_across, num_across), heights=rep(ESEUR_max_height/2, 2), TRUE)
+      layout(matrix(1:num_across, nrow=1), widths=rep(max_width/num_across, num_across), heights=default_height, TRUE)
       }
    else
       {
-      layout(matrix(1:(num_down*num_across), nrow=num_down), widths=rep(max_width/num_across, num_across), heights=rep(ESEUR_max_height/num_down, num_down), TRUE)
+      layout(matrix(1:(num_down*num_across), nrow=num_down), widths=rep(max_width/num_across, num_across), heights=rep(max_height/num_down, num_down), TRUE)
       }
    }
-else if (num_down != 1)
+else if (num_down > 1)
    {
-   if (num_across > 1)
+   if (num_across == 1)
       {
-      layout(matrix(1:num_down, nrow=num_down), widths=max_width/1.5, heights=rep(ESEUR_max_height/num_down, num_down), TRUE)
+      layout(matrix(1:num_down, nrow=num_down), widths=default_width, heights=rep(max_height/num_down, num_down), TRUE)
       }
    else
       {
-      layout(matrix(1:num_down, nrow=num_down), widths=ESEUR_default_width, heights=rep(ESEUR_max_height/num_down, num_down), TRUE)
+      layout(matrix(1:(num_down*num_across), nrow=num_down), widths=rep(max_width/num_across, num_across), heights=rep(max_height/num_down, num_down), TRUE)
       }
    }
 else
-   par(fin=c(3.0, 3.0))
+   par(fin=c(default_width/2.54, default_height/2.54)) # cm -> inches
 ESEUP_set_par()
 }
 
@@ -117,8 +115,8 @@ loess_col="yellow"
 # In inches
 # par(fin=c(4.5, 4.5))
 
-# In inches
-par(fin=c(3.0, 3.0))
+# In inches, not cm
+par(fin=c(ESEUR_default_width/2.54, ESEUR_default_height/2.54))
 # Layout behaves oddly in this case:
 # layout(matrix(1:1, ncol=1), widths=default_width, heights=default_height, TRUE)
 

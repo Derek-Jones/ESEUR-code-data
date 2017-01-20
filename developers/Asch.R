@@ -1,5 +1,5 @@
 #
-# Asch.R,  4 Dec 16
+# Asch.R, 10 Dec 16
 # Data from:
 # Studies of Independence and Conformity: {A} Minority of One Against a Unanimous Majority, Fig 2
 # Solomon E. Asch
@@ -10,8 +10,9 @@
 
 source("ESEUR_config.r")
 
-plot(0, type="n", bty="n", xaxt="n", yaxt="n",
-	xlim=c(1, 3), ylim=c(0, 26.5),
+
+plot(0, type="n", bty="n", xaxt="n", yaxt="n", xaxs="i", yaxs="i",
+	xlim=c(0.8, 3.2), ylim=c(-1, 26.5),
 	xlab="", ylab="")
 
 

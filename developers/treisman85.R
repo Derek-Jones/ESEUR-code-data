@@ -13,16 +13,13 @@
 source("ESEUR_config.r")
 
 
-# kolers76.gra, 21 May 02
-# 
-
 set_width_height(max_width=8, max_height=12)
 plot_layout(3, 2)
 par(mar=c(2, 1, 1, 1))
 
 start_plot=function()
 {
-plot(0, type="n", bty="o", xaxt="n", yaxt="n",
+plot(0, type="n", bty="o", xaxt="n", yaxt="n", xaxs="i", yaxs="i",
 	xlim=c(1, 10), ylim=c(1, 10),
 	xlab="", ylab="")
 }

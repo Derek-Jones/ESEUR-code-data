@@ -14,7 +14,7 @@ source("ESEUR_config.r")
 
 library(MASS)
 
-eud=read.csv(paste0(ESEUR_dir, "regression/energy-usage-data.csv"), as.is=TRUE)
+eud=read.csv(paste0(ESEUR_dir, "regression/energy-usage-data.csv.xz"), as.is=TRUE)
 
 pal_colGrainbow(3)
 
