@@ -1,5 +1,5 @@
 #
-# miller64.R, 10 Dec 16
+# miller64.R, 27 Jan 17
 # Data from:
 # Free Recall of Self-Embedded {English} Sentences
 # George A. Miller and Stephen Isard
@@ -73,7 +73,7 @@ node(" vp", "liked")
 node(" np", "the man")
 node(" cl", "that")
 node(" vp", "visited")
-node(" np", "the jeweler")
+node(" np", "the jeweller")
 node(" cl", "that")
 node(" vp", "made")
 node(" np", "the ring")
@@ -110,7 +110,7 @@ points(x_cur, y_cur, pch=16, col=point_col)
 text(x_cur, y_cur, "s", pos=3, cex=1.2)
 
 move_left()
-node(" np", "the jeweler")
+node(" np", "the jeweller")
 node(" cl", "that")
 right_vp("visited")
 

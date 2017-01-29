@@ -1,0 +1,256 @@
+
+.PS 3.5 4.5
+
+.ps 8
+
+# preatten.pic, 28 Jan 17
+
+define enclosure {
+   circle at last box.sw + $1,$2 fill
+   circle radius 0.06 at last box.sw + $1,$2
+   }
+
+define number {
+   circle at last box.sw + $1,$2 fill
+   circle at last box.sw + $1+$3,$2+$4 fill
+   circle at last box.sw + $1+$4,$2+$3 fill
+   }
+
+define angle {
+   line from last box.sw + ($1,$2) to last box.sw + ($1+$3,$2)
+   line from last box.sw + ($1,$2) to last box.sw + ($1,$2-0.1)
+   }
+
+define parallel {
+   line from last box.sw + ($1,$2) right 0.1 down $3+0.04
+   line from last box.sw + ($1+0.02,$2+($3/2)) right 0.1 down $3
+   }
+
+lineht=0.18
+arcrad=0.15
+circlerad=0.07
+ellipseht=0.1
+ellipsewid=0.35
+fillval=1.0
+
+LINE_1:
+box ht 1 wid 1.5 at 0.0,0.0
+"orientation" at last box.s - 0.0,0.15
+
+line up at last box.sw + 0.1,0.1 thickness 4
+line up at last box.sw + 0.1,0.6 thickness 4
+line up at last box.sw + 0.3,0.25 thickness 4
+line up at last box.sw + 0.3,0.77 thickness 4
+line up 0.13 right 0.13 at last box.sw + 0.5,0.5 thickness 4
+line up at last box.sw + 0.6,0.2 thickness 4
+line up at last box.sw + 0.6,0.7 thickness 4
+line up at last box.sw + 0.9,0.07 thickness 4
+line up at last box.sw + 0.9,0.5 thickness 4
+line up at last box.sw + 1.1,0.15 thickness 4
+line up at last box.sw + 1.1,0.8 thickness 4
+line up at last box.sw + 1.3,0.3 thickness 4
+line up at last box.sw + 1.3,0.7 thickness 4
+
+box ht 1 wid 1.5 at last box.e + 1.0,0
+"curved/straight" at last box.s - 0.0,0.15
+
+arc up cw from last box.sw + 0.1,0.1 thickness 4
+arc up cw from last box.sw + 0.1,0.4 thickness 4
+arc up cw from last box.sw + 0.3,0.2 thickness 4
+arc up cw from last box.sw + 0.3,0.77 thickness 4
+line up 0.13 right 0.13 at last box.sw + 0.5,0.5 thickness 4
+arc up cw from last box.sw + 0.6,0.2 thickness 4
+arc up cw from last box.sw + 0.6,0.7 thickness 4
+arc up cw from last box.sw + 0.9,0.07 thickness 4
+arc up cw from last box.sw + 0.9,0.5 thickness 4
+arc up cw from last box.sw + 1.1,0.45 thickness 4
+arc up cw from last box.sw + 1.1,0.8 thickness 4
+arc up cw from last box.sw + 1.3,0.3 thickness 4
+arc up cw from last box.sw + 1.3,0.7 thickness 4
+
+LINE_2:
+box ht 1 wid 1.5 at LINE_1.s - 0.0,0.85
+"shape" at last box.s - 0.0,0.15
+
+circle at last box.sw + 0.14,0.1 fill
+circle at last box.sw + 0.14,0.6 fill
+circle at last box.sw + 0.3,0.25 fill
+circle at last box.sw + 0.3,0.77 fill
+ellipse at last box.sw + 0.5,0.5 fill
+circle at last box.sw + 0.6,0.2 fill
+circle at last box.sw + 0.6,0.7 fill
+circle at last box.sw + 0.9,0.17 fill
+circle at last box.sw + 0.9,0.5 fill
+circle at last box.sw + 1.1,0.15 fill
+circle at last box.sw + 1.1,0.8 fill
+circle at last box.sw + 1.3,0.3 fill
+circle at last box.sw + 1.3,0.7 fill
+
+box ht 1 wid 1.5 at last box.e + 1.0,0
+"shape" at last box.s - 0.0,0.15
+
+line up at last box.sw + 0.1,0.1 thickness 1
+line up at last box.sw + 0.1,0.6 thickness 1
+line up at last box.sw + 0.3,0.25 thickness 1
+line up at last box.sw + 0.3,0.77 thickness 1
+line up 0.1 at last box.sw + 0.5,0.5 thickness 3
+line up at last box.sw + 0.6,0.2 thickness 1
+line up at last box.sw + 0.6,0.7 thickness 1
+line up at last box.sw + 0.9,0.07 thickness 1
+line up at last box.sw + 0.9,0.5 thickness 1
+line up at last box.sw + 1.1,0.15 thickness 1
+line up at last box.sw + 1.1,0.8 thickness 1
+line up at last box.sw + 1.3,0.3 thickness 1
+line up at last box.sw + 1.3,0.7 thickness 1
+
+LINE_3:
+box ht 1 wid 1.5 at LINE_2.s - 0.0,0.85
+"size" at last box.s - 0.0,0.15
+
+circlerad=0.02
+circle at last box.sw + 0.14,0.1 fill
+circle at last box.sw + 0.14,0.6 fill
+circle at last box.sw + 0.3,0.25 fill
+circle at last box.sw + 0.3,0.77 fill
+circle radius 0.07 at last box.sw + 0.5,0.5 fill
+circle at last box.sw + 0.6,0.2 fill
+circle at last box.sw + 0.6,0.7 fill
+circle at last box.sw + 0.9,0.17 fill
+circle at last box.sw + 0.9,0.5 fill
+circle at last box.sw + 1.1,0.15 fill
+circle at last box.sw + 1.1,0.8 fill
+circle at last box.sw + 1.3,0.3 fill
+circle at last box.sw + 1.3,0.7 fill
+
+box ht 1 wid 1.5 at last box.e + 1.0,0
+"mixed" at last box.s - 0.0,0.15
+
+line up at last box.sw + 0.1,0.7 thickness 4
+arc up cw from last box.sw + 0.3,0.77 thickness 4
+line up 0.13 right 0.13 at last box.sw + 0.2,0.1 thickness 4
+circle at last box.sw + 0.5,0.3 fill
+circle radius 0.06 at last box.sw + 0.6,0.25
+circle at last box.sw + 0.3,0.77
+enclosure(1.1,0.7)
+number(1.2,0.1, 0.07, -0.05)
+circle at last box.sw + 0.2,0.5
+circle at last box.sw + 0.7,0.7
+circle at last box.sw + 0.9,0.17
+circle at last box.sw + 0.9,0.5
+parallel(1.3,0.4, 0.04)
+line up at last box.sw + 0.5,0.5
+box ht 0.3 wid 0.1 at last box.sw + 0.5,0.6
+
+LINE_4:
+box ht 1 wid 1.5 at LINE_3.s - 0.0,0.85
+"color" at last box.s - 0.0,0.15
+
+circlerad=0.03
+circle at last box.sw + 0.14,0.1
+circle at last box.sw + 0.14,0.6
+circle at last box.sw + 0.3,0.25
+circle at last box.sw + 0.3,0.77
+circle at last box.sw + 0.5,0.5 fill
+circle at last box.sw + 0.6,0.2
+circle at last box.sw + 0.6,0.7
+circle at last box.sw + 0.9,0.17
+circle at last box.sw + 0.9,0.5
+circle at last box.sw + 1.1,0.15
+circle at last box.sw + 1.1,0.8
+circle at last box.sw + 1.3,0.3
+circle at last box.sw + 1.3,0.7
+
+box ht 1 wid 1.5 at last box.e + 1.0,0
+"enclosure" at last box.s - 0.0,0.15
+
+circlerad=0.02
+enclosure(0.14,0.1)
+enclosure(0.14,0.6)
+enclosure(0.3,0.25)
+enclosure(0.3,0.77)
+circle at last box.sw + 0.5,0.5 fill
+circle radius 0.06 at last box.sw + 0.6,0.45
+enclosure(0.6,0.2)
+enclosure(0.6,0.7)
+enclosure(0.9,0.17)
+enclosure(0.9,0.5)
+enclosure(1.1,0.15)
+enclosure(1.1,0.8)
+enclosure(1.3,0.3)
+enclosure(1.3,0.7)
+
+LINE_5:
+box ht 1 wid 1.5 at LINE_4.s - 0.0,0.85
+"number" at last box.s - 0.0,0.15
+
+number(0.14,0.1, 0.07, -0.05)
+number(0.14,0.6, -0.07, 0.04)
+number(0.3,0.25, 0.02, 0.07)
+number(0.3,0.77, -0.07, 0.07)
+circle at last box.sw + 0.5,0.5 fill
+number(0.6,0.2, 0.08, 0.04)
+number(0.6,0.7, 0.05, -0.08)
+number(0.9,0.17, -0.07, 0.02)
+number(0.9,0.5, 0.04, 0.08)
+number(1.1,0.15, 0.06, 0.00)
+number(1.1,0.8, 0.05, 0.09)
+number(1.3,0.3, 0.07, -0.04)
+number(1.3,0.7, -0.04, -0.09)
+
+box ht 1 wid 1.5 at last box.e + 1.0,0
+"addition" at last box.s - 0.0,0.15
+
+line up at last box.sw + 0.1,0.1
+line up at last box.sw + 0.1,0.6
+line up at last box.sw + 0.3,0.25
+line up at last box.sw + 0.3,0.77
+line up at last box.sw + 0.6,0.2
+line up at last box.sw + 0.6,0.7
+line up at last box.sw + 0.9,0.07
+line up at last box.sw + 0.9,0.5
+line up at last box.sw + 1.1,0.15
+line up at last box.sw + 1.1,0.8
+line up at last box.sw + 1.3,0.3
+line up at last box.sw + 1.3,0.7
+line up at last box.sw + 0.5,0.5
+box ht 0.3 wid 0.1 at last box.sw + 0.5,0.6
+
+LINE_6:
+box ht 1 wid 1.5 at LINE_5.s - 0.0,0.85
+"juncture" at last box.s - 0.0,0.15
+
+angle(0.14,0.16, 0.1, -0.02)
+angle(0.14,0.6, -0.1, 0.01)
+angle(0.3,0.45, 0.1, 0.00)
+angle(0.3,0.77, -0.1, 0.02)
+line from last box.sw + 0.5,0.52 to last box.sw + 0.5,0.44
+line from last box.sw + 0.52,0.54 to last box.sw + 0.6,0.54
+angle(0.6,0.3, 0.1, 0.00)
+angle(0.6,0.8, 0.1, -0.02)
+angle(0.9,0.17, -0.1, 0.01)
+angle(0.9,0.5, 0.1, 0.02)
+angle(1.1,0.15, 0.1, 0.00)
+angle(1.0,0.8, 0.1, 0.02)
+angle(1.3,0.3, 0.1, -0.01)
+angle(1.3,0.7, -0.1, -0.02)
+
+box ht 1 wid 1.5 at last box.e + 1.0,0
+"parallelism" at last box.s - 0.0,0.15
+
+parallel(0.14,0.16, 0.02)
+parallel(0.14,0.6, -0.08)
+parallel(0.3,0.45, 0.05)
+parallel(0.3,0.77, 0.01)
+line from last box.sw + 0.5,0.5 right 0.1 down 0.04
+line from last box.sw + 0.53,0.53 right 0.1 down 0.04
+parallel(0.6,0.3, 0.09)
+parallel(0.6,0.8, -0.07)
+parallel(0.9,0.17, 0.06)
+parallel(0.9,0.5, 0.06)
+parallel(1.1,0.15, -0.08)
+parallel(1.0,0.8, 0.1)
+parallel(1.3,0.3, 0.0)
+parallel(1.3,0.7, 0.04)
+
+.PE
+
