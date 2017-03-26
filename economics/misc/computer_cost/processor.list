@@ -1,0 +1,218 @@
+http://www.frc.ri.cmu.edu/~hpm/book97/ch3/processor.list
+
+> MIPS Equivalents
+> 
+> Vax 11/780               =   1 MIPS
+> 10^9 Mind Children b/s   =   40 MIPS
+> 1757 Dhrystones          =   1 MIPS
+> 1 Dhrystone 2.1 MIPS     =   1 MIPS
+> 1 Specmark               =   1 MIPS
+> 1 Specint92              =   1 MIPS
+> 1 Specint95              =   40 MIPS
+> 1 Specint2000            =   4 MIPS
+> 1 MacBench               =   0.66 MIPS
+> 1 MacBench 5.0           =   0.58 MIPS	
+> 1 MacBogoMIPS            =   7.3 MIPS
+> 1 MacBogoMIPS Opt.       =   1.8 MIPS	
+> 1 BYTEmark               =   100 MIPS
+> 1 MacWorld Speedmark     =   110 MIPS
+> 1 WinScore 2.0           =   3.4 MIPS
+> 1 Sysmark 2002           =   15 MIPS
+> 1 SPECint_base2000       =   5 MIPS
+> 1 SPECint_rate_base2000  =   431 MIPS
+> 1 Speedmark 4.5          =   18.5 MIPS
+> 1 Cinebench 10           =   3.4 MIPS
+> 1 Cinebench 11.5         =   8000 MIPS
+> 1 Speedmark 6            =   110 MIPS
+> 1 Speedmark 6.5          =   130 MIPS
+> 1 Geekbench 2            =   5.5 MIPS
+> 1 Geekbench 3            =   13 MIPS
+> 
+> Type  
+>        H  Hand (manual calculation)
+>        G  Gear (mechanical calculator)
+>        E  Electromechanical
+>        V  Vacuum tube
+>        T  Transistor
+>        C  Ceramic (discrete components on small ceramic chip)
+>        I  Integrated circuit
+>        P  Processor (integrated microprocessor)
+>        R  RISC processor
+>        M  Multiprocessor
+>        -+<>{* layout hints for early graph
+>
+> Machine           Type  Date    Dollars     Mbytes       MIPS
+> 
+By_Hand             -<H   1892       8500   9.54e-05   1.19e-08
+Ohdner                G   1891      11000   1.49e-07   3.33e-09
+Steiger_Millionaire   G   1900      12000   3.58e-07   1.33e-08
+Hollerith             G   1908      50000   0.000286   1.85e-08
+Analytical_Engine     G   1910      1e+06     0.0244   3.77e-07
+Monroe_Calculator   -{G   1911      35000   2.86e-06   2.18e-08
+IBM_Tabulator       +<G   1919      20000   2.38e-05   4.12e-08
+Torres_Arithmometer   E   1920      25000   4.77e-06   3.58e-08
+National-Ellis_3000   G   1928      15000   4.29e-06   7.38e-08
+Burroughs_Class_16   +G   1929      15000   4.29e-06   7.38e-08
+Zuse-1              -<G   1938      10000   3.05e-05   4.24e-08
+Zuse-2               EG   1939      10000   3.05e-05   4.24e-07
+BTL_Model_1           E   1939      50000   3.81e-06      2e-06
+Zuse-3               EG   1941      50000   0.000244   2.04e-06
+BTL_Model_2           E   1943      50000   1.19e-05   1.03e-06
+Colossus             +V   1943     100000   2.38e-06   0.000224
+BTL_Model_3           E   1943     200000   4.29e-05   2.83e-06
+ASCC_(Mark_1)       -<E   1944     300000   0.000601   2.33e-06
+Zuse-4                E   1945      50000   0.000244   2.04e-06
+BTL_Model_5           E   1946     500000   0.000147   3.29e-06
+ENIAC                +V   1946     600000   9.54e-05    0.00289
+Harvard_Mark_2        E   1947     300000   0.000488   6.22e-06
+IBM_SSEC             VE   1948     500000   4.58e-05   0.000597
+EDSAC                 V   1949     100000    0.00214    0.00255
+SEAC                  V   1950     800000    0.00549    0.00416
+UNIVAC_I             +V   1951     930000    0.00537    0.00575
+Zuse-5                E   1952     100000   0.000244   9.33e-06
+IBM_CPC              VE   1952     100000   0.000154    0.00176
+IBM_650             ->V   1953     200000    0.00488   0.000966
+EDVAC                 V   1954     500000    0.00537     0.0017
+Whirlwind           +<V   1955     200000    0.00391     0.0694
+IBM_704              +V   1955      2e+06     0.0352     0.0536
+Librascope_LGP-30     V   1956      50000     0.0159   0.000701
+IBM_7090            +>T   1959      3e+06      0.141      0.326
+IBM_1620             -T   1960     200000     0.0122    0.00103
+DEC_PDP-1             T   1960     150000     0.0176      0.124
+Atlas                 T   1961      5e+06     0.0234        1.4
+Burroughs_5000      ->T   1962      1e+06     0.0254     0.0989
+IBM_7040             -T   1963     560000       0.07      0.063
+Honeywell_1800        T   1963    1400000      0.093      0.15
+DEC_PDP-6             T   1964     300000     0.0703      0.169
+CDC_6600              T   1964      5e+06          4       8.76
+IBM_1130            +{C   1965      50000     0.0156       0.15
+IBM_360/75           -C   1966      5e+06          8       2.54
+IBM_360/65            C   1967      3e+06          4       1.24
+DEC_PDP-10           +I   1968     500000      0.562      0.655
+CDC_7600             +T   1969      1e+07          8       25.7
+DG_Nova             ->I   1969       7600      0.008     0.1175
+GE-635                T   1970      2e+06        0.5      0.649
+SDS_920              -T   1971     100000       0.25      0.105
+IBM_360/195           C   1972      8e+06        0.5       17.3
+Honeywell_700         I   1972      12000      0.031      0.075
+Prime_Computer_100    I   1973       8500      0.031       0.36
+IBM-370/168           I   1974      2e+06          1       8.88
+MITS_Altair           P   1974        500    0.00024       0.01
+DG_Eclipse           +I   1975      50000       0.25       0.47
+DEC-KL-10            -I   1975     500000        4.5        2.3
+DEC_PDP-11/70         I   1976     150000      0.125        0.4
+Cray-1                I   1976      1e+07         32        150
+Apple_II             +P   1977       1300     0.0039       0.02
+DEC_VAX_11/780      -<P   1977     200000          8        1.0
+TRS-80                P   1977       2000      0.015       0.04
+Commodore_PET         I   1977       1500      0.008       0.06
+CDC_IPL               I   1978     500000          1        7.5
+Nanodata_VMX200       I   1979     300000          2        2.1
+TRS-80_M3             P   1980       1200      0.015       0.04
+Sun-1                 P   1980      30000          1      0.484
+CDC_Cyber-205         I   1981      9e+06         16       73.2
+Vic_20                P   1981        279      0.005       0.04
+IBM_PC              +<P   1982       3500     0.0635      0.238
+Sun-2               +<P   1982      20000          2      0.741
+Commodore_64         +P   1982        500     0.0825        0.2
+TRS-80_M4             P   1983       1000     0.0635        0.2
+Vax_11/750          -<P   1983      50000          4      0.799
+Macintosh-128K      +<P   1984       2500      0.125       0.52
+Vax_11/785            P   1984     200000     0.0156       2.26
+Cray-2/4              M   1985      1e+07   1.95e+03        824
+L.Edge_XT-7.16        P   1985       1995       0.25       0.26
+Atari_800XL           P   1985        850       0.64      0.165
+Sun-3               -<P   1986      10000          4       2.05
+DEC_VAX_8650          P   1986     125000         16       7.71
+MIT_XT-8              P   1986        500       0.25      0.534
+Mac_II               +P   1987       3000          2        2.5
+Sun-4                 R   1987      10000         16       1.87
+Mac-IIx               P   1988       9295          4        3.9
+CompuAdd_386-16       P   1988       2095          1        2.8
+PC_Brand_386-25       P   1988       2450          1        4.3
+Wang_VS_10000         P   1989     510000         16        103
+Macintosh_SE30        P   1989       6495          5        3.9
+Solbourne_5/500       P   1989      50000          2       25.5
+Stardent_3000         P   1990      89000         32       27.3
+Dell_320LX            P   1990       2900          1       12.5
+Mac_IIfx             -P   1990       9869          4       10.0
+Amiga_3000            P   1990       3300          2       12.5
+Gateway-486DX2/66    +P   1991       3900          8       30.9
+ACT_468/33            P   1991       3400          4       21.8
+Mac-Quadra-900        P   1991       3299          8       22.0
+AST_Bravo             P   1992       1400          2       12.9
+IBM_PS/2_55-041       P   1992       2000          4       10.6
+NEC_Powermate         P   1992       4800          4       21.8
+IBM_Valuepoint        P   1993       3600          4       26.1
+Acer_Power            P   1993       3500          4       44.5
+DECpc_LPv             P   1993       2900          4       16.6
+IBM_433/DX/Si         P   1994       1800          4       26.1
+Gateway_2000_486      P   1994       1000          2       16.2
+PowerMac_7100/66      R   1994       2899          8        100
+PowerMac_8500/120     R   1995       3999         16        180
+PowerMac_9500/132     R   1995       5299         16        200
+Intel_Xpress/60       R   1995       2000          8         70
+Gateway_P5-75         P   1996       2000         16         92
+Power_Tower_180e     *R   1996       3295         16        300
+PowerMac_7600/132     R   1996       2999         16        160
+Gateway_G6-200       *P   1997       2949         64        350
+Power_Center_210      R   1997       2500         32        375
+Mac_G3/266            R   1997       2000         32        500
+iMac_G3/233          *R   1998       1300         32        450
+AcerPower8000/450B    P   1998       2250        128        475
+Mac_G3/333            R   1998       2300         64        650
+Pentium_II/455       *P   1999       2000         64        750
+Pentium_III/500       R   1999       2500        128        820
+Mac_G4/450           *R   1999       2500        128        856
+IBM_ASCI_White       *M   2000      110e6        4e6       10e6
+Sony_Playstation_II  *R   2000        300         32       6000
+Mac_G4/500_dual      *M   2000       3500        256       1500
+CerfCube              R   2001        500         32        230
+Mac_G4/867            R   2001       2500        128       1300
+Dell_Workst_340/2G    P   2001       3000        256       3320
+iMac_G4/700           R   2002       1600        256       1100
+Dell_Workst_340/2.5   P   2002       2500        256       4500
+Athlon_XP_2.6GHz      P   2002       3000        256       4144
+Mac_G4/Dual-1.25GHz   M   2003       2000        512       2500
+Dell_D_8300_P4/3.0    P   2003       2500       2048       4439
+Mac_G5/Dual-2.0       M   2003       3500       1536       7413
+Dell_P4-530_3.0       P   2004       1200        512       5100
+Mac_G5/Dual-2.5       M   2004       3500       2048      10000
+VAtech_SysX_2.3G      M   2004        6e6      4.5e6       20e6
+Athlon64_FX55-2.6     P   2004       2000       1024       6800
+Mac_Mini_G4-1.25      P   2005        500        256       1850
+Opteron_252-2.6       M   2005       1500       1024       7000
+Mac_G5/Quad-2.5       M   2005       3500       2048      24000
+iMac-Core_Duo_2.0x2   M   2006       1700        512      15000
+Mac_Pro_Xeon_2.66x4   M   2006       2500       1024      30000
+Mac_Mini_Duo_1.83x2   M   2006        800        512       9000
+Mac_Pro/2_3GHzx8      M   2007       4000       2048      50000
+Sun_Blackbox          M   2007        5e5        1e6        5e6
+IBM_Blue_Gene/P       M   2007       13e5        2e6       14e6
+Mac_Pro/2.8GHzx8      M   2008       3500       4096      60000
+IBM_Roadrunner(LANL)  M   2008      133e6      100e6        1e9
+Cray/XT5_Jaguar(ORNL) M   2008      100e6      400e6        1e9
+Mac_Mini_Duo_2x2      M   2009        600       1024      11000
+Acer_Aspire_X1700     M   2009        480       4096      10000
+Mac_Nehalem_2.66x8    M   2009       4500       8192      78000
+Cray/XT5_Jaguar(ORNL) M   2010      100e6      400e6     1.75e9
+Mac_Westmere_2.93x12  M   2010       7000      16384     121000
+Tianhe-1A(China)      M   2010      100e6      262e6     2.67e9
+iPad-2                P   2011        500        512       1600
+iMac_21_i5_2.5x4      M   2011       1200       4096      40000
+MacBook_Pro_15_2.2x4  M   2011       1200       4096      51000
+Fujitsu_K_Computer    M   2012        1e9        1e9       10e9
+Raspberry_Pi          P   2012         25        256       1276
+iPad-2012             M   2012        600       1024       4150
+iPhone-5C             M   2013        500       1024       9210
+iPhone-5S             M   2013        600       1024      18200
+MacBookAir-11(2013)   M   2013       1100       4096      58240
+MacPro12core2.7GHz    M   2013       7000      32768     488250
+MacBookAir-11(2014)   M   2014        900       4096      62153
+iPadAir2-A8X(2014)    M   2014        600       2048      58201
+iMac27i7-4GHz         M   2014       2900      16384     213291
+Raspberry_Pi_2        M   2015         35       1024       9700
+iPod_Touch-A8(2015)   M   2015        200       1024      34600
+>
+> Machine           Type  Date    Dollars     Mbytes       MIPS
+>

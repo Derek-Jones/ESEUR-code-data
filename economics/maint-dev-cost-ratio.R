@@ -5,7 +5,6 @@
 # An Investigation of the Factors Affecting the Lifecycle Costs of COTS-Based Systems
 # Laurence Michael Dunn
 #
-#
 # Example from:
 # Empirical Software Engineering using R
 # Derek M. Jones
@@ -41,4 +40,7 @@ plot(tb*max(y)/norm, type="l", col=pal_col[1],
 	ylim=c(0, 12),
 	xlab="Sorted list of systems", ylab="Development/Maintenance")
 points(y, col=pal_col[2])
+
+# Harmonic mean of single year maintenance, i.e., d/m
+# 1/mean(1/(y*5))
 

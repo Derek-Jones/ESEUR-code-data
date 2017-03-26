@@ -1,9 +1,5 @@
 #
 # maint-dev-cost-cor.R,  3 Jun 14
-#
-# R code for book "Empirical Software Engineering using R"
-# Derek M. Jones, http://shape-of-code.coding-guidelines.com
-#
 # Data from:
 # An Investigation of the Factors Affecting the Lifecycle Costs of COTS-Based Systems
 # Laurence Michael Dunn

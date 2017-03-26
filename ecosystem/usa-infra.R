@@ -34,6 +34,6 @@ lines(infra$year, 100*infra$oil.pipelines/max(infra$oil.pipelines, na.rm=TRUE),
 lines(infra$year, 100*infra$gas.pipelines/max(infra$gas.pipelines, na.rm=TRUE),
 	col=pal_col[6])
 
-legend(x="bottomright", legend=c("canals", "railways", "telegraph wire", "oil pipelines", "surfaced roads", "gas pipelines"),
+legend(x="topleft", legend=c("canals", "railways", "telegraph wire", "oil pipelines", "surfaced roads", "gas pipelines"),
 			bty="n", fill=pal_col, cex=1.2)
 

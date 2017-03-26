@@ -1,5 +1,5 @@
 #
-# ATR-2004.R, 22 Feb 16
+# ATR-2004.R, 24 Mar 17
 #
 # Data from:
 # Software Cost and Productivity Model
@@ -19,7 +19,7 @@ ATR=read.csv(paste0(ESEUR_dir, "economics/ATR-2004.csv.xz"), as.is=TRUE)
 
 plot_effort_loc=function(df, col_num)
 {
-points(df$Labor.Effort, df$ESLOC, col=pal_col[col_num])
+points(df$ESLOC, df$Labor.Effort, col=pal_col[col_num])
 }
 
 
@@ -29,18 +29,18 @@ points(df$Labor.Effort, df$ESLOC, col=pal_col[col_num])
 
 L_E=subset(ATR, !is.na(Labor.Effort))
 
-x_range=range(L_E$Labor.Effort, na.rm=TRUE)
-y_range=range(L_E$ESLOC, na.rm=TRUE)
+x_range=range(L_E$ESLOC, na.rm=TRUE)
+y_range=range(L_E$Labor.Effort, na.rm=TRUE)
 
 plot(1, log="xy", type="n",
 	xlim=x_range, ylim=y_range,
-	xlab="Effort (months)", ylab="ESLOC\n")
+	xlab="ESLOC", ylab="Effort (months)\n")
 plot_effort_loc(subset(ATR, Environment == "Military Ground"), 1)
 plot_effort_loc(subset(ATR, Environment == "Military Mobile"), 2)
 plot_effort_loc(subset(ATR, Environment == "Mil-Spec Av"), 3)
 plot_effort_loc(subset(ATR, Environment == "Unmanned Sp"), 4)
 
-legend(x="bottomright", legend=c("Military Ground", "Military Mobile", "Mil-Spec Avionics", "Unmanned Space"),
+legend(x="topleft", legend=c("Military Ground", "Military Mobile", "Mil-Spec Avionics", "Unmanned Space"),
 		bty="n", fill=pal_col, cex=1.2)
 
 

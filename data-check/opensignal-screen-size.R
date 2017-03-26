@@ -1,5 +1,5 @@
 #
-# opensignal-screen-size.R, 15 Jul 16
+# opensignal-screen-size.R, 17 Feb 17
 #
 # Data from:
 #
@@ -48,7 +48,7 @@ clean_scr$width[rot]=clean_scr$t[rot]
 # points(clean_scr$width, clean_scr$height, cex=log(clean_scr$total)-2, pch="*")
 
 plot(clean_scr$width, clean_scr$height, type="n",
-	xlab="Width (inches)", ylab="")
+	xlab="", ylab="Height (inches)")
 
 points(screen$height[rot], screen$width[rot], col=pal_col[1])
 points(screen$width[!rot], screen$height[!rot], col=pal_col[2])

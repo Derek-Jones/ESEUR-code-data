@@ -1,5 +1,5 @@
 #
-# cpu-mem-power.R, 25 Mar 16
+# cpu-mem-power.R, 18 Feb 17
 #
 # Data from:
 # Predictive Power Management for Multi-Core Processors
@@ -12,6 +12,7 @@
 source("ESEUR_config.r")
 
 plot_layout(2, 1)
+pal_col=rainbow_hcl(3)
 
 
 # DIMM,core_4,core_1,benchmark
@@ -27,8 +28,6 @@ power$upper=middle+power$total/2
 
 num_power=1:nrow(power)
 
-pal_col=rainbow_hcl(3)
-
 plot.new()
 plot.window(xlim=c(0, nrow(power)), ylim=c(-7, middle*2))
 
@@ -37,7 +36,8 @@ rect(num_power-0.2, power$lower+power$core_4, num_power+0.2, power$upper, col="b
 
 lines(c(0, nrow(power)), c(middle, middle), col="grey")
 
-text(num_power, power$lower, power$benchmark, pos=2, offset=0.2, srt=45, col="grey")
+# offset=0.0 has a useful effect!
+text(num_power, power$lower, paste0(power$benchmark, " "), pos=2, offset=0.0, srt=45, col="black", cex=0.9)
 
 ticks=seq(0, middle*2, 5)
 axis(2, at=ticks, labels=abs(ticks-middle))
