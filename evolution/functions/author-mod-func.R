@@ -1,9 +1,9 @@
 #
-# author-mod-func.R, 26 Dec 15
+# author-mod-func.R,  6 May 17
 #
 # Data from:
 # Modification and developer metrics at the function level: Metrics for the study of the evolution of a software project
-# Gregorio Robles and Israel Herraiz and Daniel M.  Germ{\'a}n and Daniel Izquierdo-Cort{\'a}zar
+# Gregorio Robles and Israel Herraiz and Daniel M. Germ{\'a}n and Daniel Izquierdo-Cort{\'a}zar
 #
 # Example from:
 # Empirical Software Engineering using R
@@ -12,12 +12,14 @@
 
 source("ESEUR_config.r")
 
+library("gnm")
 library("plyr")
 
-brew_col=rainbow(2)
+pal_col=rainbow(3)
 plot_layout(2, 1)
 
 funcs=read.csv(paste0(ESEUR_dir, "evolution/functions/ev_funcmod.tsv.xz"), as.is=TRUE, sep="\t")
+# funcs=read.csv(paste0(ESEUR_dir, "evolution/functions/ap_funcmod.tsv.xz"), as.is=TRUE, sep="\t")
 
 
 # Investigate how many times files might be moved
@@ -67,29 +69,56 @@ plot(all_mods$num_mods, all_mods$V1, log="y", col=point_col,
 	xlim=c(0, 50),
 	xlab="Modifications", ylab="Functions\n")
 
-a1_mod=glm(log(V1) ~ num_mods, data=all_mods[2:20, ], family=gaussian)
-lines(1:20, exp(predict(a1_mod, newdata=data.frame(num_mods=1:20), type="link")), col=brew_col[1])
-a2_mod=glm(log(V1) ~ num_mods+I(num_mods^2), data=all_mods[2:50, ], family=gaussian)
-lines(1:50, exp(predict(a2_mod, newdata=data.frame(num_mods=1:50), type="link")), col=brew_col[2])
+# a_mod=glm(V1 ~ num_mods+I(num_mods^2)+I(num_mods^3), data=all_mods[-1, ], family=poisson)
+# a_mod=glm(V1 ~ num_mods, data=all_mods[-1, ], family=poisson)
+# lines(1:50, exp(predict(a_mod, newdata=data.frame(num_mods=1:50), type="link")), col=pal_col[3])
 
-# Does not converge
-# a_mod=glm(V1 ~ num_mods+I(num_mods^2), data=all_mods[2:50, ], family=gaussian(link="log"))
-# lines(1:50, exp(predict(a_mod, newdata=data.frame(num_mods=1:50), type="link")), col=brew_col[2])
+a2_mod=gnm(V1 ~ instances(Mult(1, Exp(num_mods)), 2)-1,
+                data=all_mods[-1,], verbose=FALSE,
+                start=c(20000.0, -0.6, 300.0, -0.1),
+                family=poisson(link="identity"))
+exp_coef=as.numeric(coef(a2_mod))
 
-s=exp(a1_mod$coefficients[2])
-M_t=s/(1-s)
+lines(exp_coef[1]*exp(exp_coef[2]*all_mods$num_mods), col=pal_col[2])
+lines(exp_coef[3]*exp(exp_coef[4]*all_mods$num_mods), col=pal_col[3])
+t=predict(a2_mod)
+lines(t, col=pal_col[1])
+
+s1=exp(a2_mod$coef[2])
+D_I_1=(1-s1)^2/s1
+
+s2=exp(a2_mod$coef[4])
+D_I_2=(1-s2)^2/s2
+
+# c(s1, D_I_1, s2, D_I_2)
 
 
 author_mods=ddply(total_mods, .(num_authors), function(df) sum(df$V1))
 
 plot(author_mods$num_authors, author_mods$V1, log="y", col=point_col,
-	xlab="Authors", ylab="")
+	xlab="Authors", ylab="Functions")
 
-a1_authors=glm(log(V1) ~ num_authors, data=author_mods[2:15, ], family=gaussian)
-lines(1:15, exp(predict(a1_authors, newdata=data.frame(num_authors=1:15), type="response")), col=brew_col[1])
-a2_authors=glm(log(V1) ~ num_authors+I(num_authors^2), data=author_mods[2:20, ], family=gaussian)
-lines(1:20, exp(predict(a2_authors, newdata=data.frame(num_authors=1:20), type="response")), col=brew_col[2])
+# a1_authors=glm(V1 ~ num_authors, data=author_mods[-1, ], family=poisson)
+# lines(1:15, exp(predict(a1_authors, newdata=data.frame(num_authors=1:15), type="link")), col=pal_col[1])
+# a2_authors=glm(V1 ~ num_authors+I(num_authors^2), data=author_mods[-1, ], family=poisson)
+# lines(1:20, exp(predict(a2_authors, newdata=data.frame(num_authors=1:20), type="link")), col=pal_col[2])
 
-s=exp(a2_authors$coefficients[2])
-M_t=s/(1-s)
+a2_mod=gnm(V1 ~ instances(Mult(1, Exp(num_authors)), 2)-1,
+                data=author_mods[-1,], verbose=FALSE,
+                start=c(20000.0, -0.6, 300.0, -0.1),
+                family=poisson(link="identity"))
+exp_coef=as.numeric(coef(a2_mod))
+
+lines(exp_coef[1]*exp(exp_coef[2]*author_mods$num_authors), col=pal_col[2])
+lines(exp_coef[3]*exp(exp_coef[4]*author_mods$num_authors), col=pal_col[3])
+t=predict(a2_mod)
+lines(t, col=pal_col[1])
+
+s1=exp(a2_mod$coef[2])
+D_I_1=(1-s1)^2/s1
+
+s2=exp(a2_mod$coef[4])
+D_I_2=(1-s2)^2/s2
+
+# c(s1, D_I_1, s2, D_I_2)
 

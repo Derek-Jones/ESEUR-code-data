@@ -1,10 +1,9 @@
 #
-# proj-lifespan.R, 26 Dec 15
+# proj-lifespan.R, 19 Apr 17
 #
 # Data from:
 # Software Lifetime and its Evolution Process over Generations
 # Tetsuo Tamai and Yohsuke Torimitsu
-#
 #
 # Example from:
 # Empirical Software Engineering using R
@@ -13,7 +12,7 @@
 
 source("ESEUR_config.r")
 
-pal_col=rainbow(2)
+pal_col=rainbow(3)
 
 life=read.csv(paste0(ESEUR_dir, "economics/system-lifetime.csv.xz"), as.is=TRUE)
 
@@ -21,17 +20,22 @@ life=read.csv(paste0(ESEUR_dir, "economics/system-lifetime.csv.xz"), as.is=TRUE)
 num_years=nrow(life)
 t=cumsum(life$projects)
 num_proj=max(t)
-t=num_proj-t
-plot(t, col=pal_col[1],
-	ylim=c(0,num_proj),
-	xlab="Years", ylab="Systems still in Use")
+life$remaining=num_proj-t
+plot(life$years, life$remaining, log="y", col=pal_col[1],
+	ylim=c(1, num_proj),
+	xlab="Years", ylab="Systems in use")
 
-x=1:num_years
+yr1_mod=glm(remaining ~ years, data=life, family=poisson)
+# summary(yr1_mod)
+lines(predict(yr1_mod, type="response"), col=pal_col[2])
 
-# and glm is not used because???
-q=nls(t ~ a*b^x, start=list(a=100, b=0.8))
-#q=nls(t ~ a*exp(b*x), start=list(a=100, b=0.2))
-#summary(q)
+yr2_mod=glm(remaining ~ years+I(years^2), data=life, family=poisson)
+# summary(yr2_mod)
+lines(predict(yr2_mod, type="response"), col=pal_col[3])
 
-lines(predict(q), col=pal_col[2])
+# a power law model just to see what it looks like
+# q=nls(remaining ~ a*b^years, data=life, start=list(a=100, b=0.8))
+# summary(q)
+
+# lines(predict(q), col=pal_col[3])
 

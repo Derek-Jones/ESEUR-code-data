@@ -1,0 +1,3419 @@
+=== Working dataset for paper: A Comprehensive Study of Software Forks
+=== Published at the OSS 2012
+=== Author: Gregorio Robles - grex at gsyc dot urjc dot es
+=== Location: http://gsyc.es/~grex/oss2012forking/ 
+=== Release Date: March 2012
+=== Version number: 1.0
+=== License: Creative Commons Attribution-ShareAlike 3.0
+====
+
+===
+August 2011
+===
+
+Original: Pretty Good Privacy
+Forked: Not Fond
+Date: Not Found
+Reason: Not Found
+Outcome: Not Found 
+Type: Not Found
+Other: 
+
+The Wikipedia page for "Fork (software development)" --http://en.wikipedia.org/wiki/Fork_(software_development)-- lists it as a software fork, but I haven't been able to find any software that forked from PGP. GnuPG is NOT a fork of PGP.
+
+=====
+
+Original: Nethack (http://www.nethack.org/)
+Forked: Slash'EM (http://www.slashem.org/)
+Date: 1996 (http://www.bbc.co.uk/dna/h2g2/A2089235)
+Reason: More community-driven development (New releases too slow)
+Outcome: Both exist and evolve
+Type: Game
+Other: 
+
+Article about Slash'EM. There it says that it is Nethack variant, not a fork. It is a fork of a software called Slash together with another patch for the game called the Wizard Patch. 
+http://linuxdevcenter.com/pub/a/linux/2003/06/12/slashem.html
+
+Nethack uses the Nethack General Public License (http://www.nethack.org/common/license.html) a copyleft license based on Bison's license (and authored by rms)
+
+According to its Wikipedia page Slash'EM uses a dual license: Nethack GPL and MIT, although I haven't seen in the sources any reference to the MIT license.
+
+In the main web site of Slash'EM, you can find the reasons for the fork:
+"""
+But the DevTeam, the reclusive masterminds of Nethack, are a rather quiet bunch, gracing the world with new versions as they see fit, and when they see fit. Which is usually a new version every good number of years.
+
+And there was much gnashing of teeth.
+
+But because of the Freely Available Source Code Phenomenon, people began making their own versions of Nethack to tide themselves between magical releases.
+
+SLASH'EM is the (continuing) saga of one such variant...
+"""
+
+The genealogy of roguelike games can be found at:
+http://www.bbc.co.uk/dna/h2g2/A2089235
+
+From the slamfaq.txt file in the sources of Slash'Em:
+"""
+At its very heart and core, it's still good ol' vanilla Nethack,
+by the illustrious DevTeam (http://www.nethack.org/).
+
+The code base from which this was started is SuperLotsaAddedStuffHack
+(SLASH) 4.1.2E8, ported by Enrico Horn.  He took the old SLASH V6 (a
+variant for Nethack 3.1.3) code by Tom Proudfoot, and ported it to use
+the Nethack 3.2.2 code.  SLASH was probably the most popular variant
+of Nethack.
+
+On top of this is added the Wizard Patch 0.7 by Larry Stewart-Zerba
+and Warwick Allison (also known for the Qt Nethack port).
+"""
+
+=====
+
+Original: NetBSD (http://netbsd.org/)
+Forked: OpenBSD (http://www.openbsd.org/)
+Date: October 1995 (Wikipedia)
+Reason: Philosophic and personal differences among development team
+Outcome: Both exist and evolve
+Type: Kernel
+Other: 
+
+=====
+
+Original: SSH (http://www.tectia.com/manuals/client-user/61/index.html)
+Forked: OpenSSH (http://www.openssh.com/)
+Type: Kernel
+Date: 1999 (Wikipedia)
+Reason: Company (commercial) strategy (Legal - Free version)
+Outcome: Both exist and evolve
+Other: 
+
+"""
+In 1999, developers wanting a free software version to be available went back to the older 1.2.12 release of the original SSH program, which was the last released under an open source license. Björn Grönvall's OSSH was subsequently developed from this codebase. Shortly thereafter, OpenBSD developers forked Grönvall's code and did extensive work on it, creating OpenSSH, which shipped with the 2.6 release of OpenBSD. From this version, a "portability" branch was formed to port OpenSSH to other operating systems. As of 2005, OpenSSH was the single most popular SSH implementation, coming by default in a large number of operating systems. OSSH meanwhile has become obsolete.[13] OpenSSH continued to be maintained and now supports both 1.x and 2.0 versions.
+"""
+From the Secure Shell Wikipedia page (http://en.wikipedia.org/wiki/Secure_Shell)
+
+"""
+OpenSSH is a derivative of the original free ssh 1.2.12 release from Tatu Ylönen. This version was the last one which was free enough for reuse by our project. Parts of OpenSSH still bear Tatu's license which was contained in that release. 
+"""
+OpenSSH project history and credits (http://www.openssh.com/history.html)
+
+Trademark issues around SSH (from the OpenSSH Wikipedia page: http://en.wikipedia.org/wiki/OpenSSH):
+"""
+In February 2001, Tatu Ylönen, Chairman and CTO of SSH Communications Security informed the OpenSSH development mailing list, that after speaking with key OpenSSH developers Markus Friedl, Theo de Raadt, and Niels Provos, the company would be asserting its ownership of the "SSH" and "Secure Shell" trademarks. Ylönen commented that the trademark "is a significant asset ... SSH Communications Security has made a substantial investment in time and money in its SSH mark"[8] and sought to change references to the protocol to "SecSH" or "secsh", in order to maintain control of the "SSH" name. He proposed that OpenSSH change its name in order to avoid a lawsuit, a suggestion that developers resisted. OpenSSH developer Damien Miller replied that "SSH has been a generic term to describe the protocol well before your [Ylönen's] attempt to trademark it" and urged Ylönen to reconsider, commenting: "I think that the antipathy generated by pursuing a free software project will cost your company a lot more than a trademark."[9]
+At the time, "SSH," "Secure Shell" and "ssh" had appeared in documents proposing the protocol as an open standard and it was hypothesised that by doing so, without marking these within the proposal as registered trademarks, Ylönen was relinquishing all exclusive rights to the name as a means of describing the protocol. Improper use of a trademark, or allowing others to use a trademark incorrectly, results in the trademark becoming a generic term, like Kleenex or Aspirin, which opens the mark to use by others.[10] After study of the USPTO trademark database, many online pundits opined that the term "ssh" was not trademarked, merely the logo using the lower case letters "ssh." In addition, the six years between the company's creation and the time when it began to defend its trademark, and that only OpenSSH was receiving threats of legal repercussions, weighed against the trademark's validity.[11]
+Both developers of OpenSSH and Ylönen himself were members of the IETF working group developing the new standard; after several meetings this group denied Ylönen's request to rename the protocol, citing concerns that it would set a bad precedent for other trademark claims against the IETF. The participants argued that both "Secure Shell" and "SSH" were generic terms and could not be trademarks.[12]
+"""
+
+=====
+
+Original: XFree86 (http://www.xfree86.org/)
+Forked: X.Org (http://www.x.org)
+Type: Desktop (Window System)
+Date: April 2004 (http://lwn.net/Articles/79302/)
+Reason: Legal (Change of license)
+Outcome: XFree86 is a dormant project; X.Org still lives
+Other: 
+
+From the XFree86 Wikipedia Page:
+"""
+In February 2004, with version 4.4.0, The XFree86 Project adopted a license change that the Free Software Foundation considered GPL incompatible. Most Linux distributions found the potential legal issues unacceptable and moved to a fork from before the license change. The first fork was the abortive Xouvert, but X.Org Server soon became dominant. Most XFree86 developers, who were already annoyed at other issues in the project, also moved to X.Org. The last CVS commit was February 2009.
+"""
+
+From the XFree86 Wikipedia Page:
+"""
+Versions of XFree86 up to and including some release candidates for 4.4.0 were under the MIT License, a permissive, non-copyleft free software license. XFree86 4.4 was released in February 2004 with a change to the license: the addition of a credit clause,[17] similar to that in the original BSD license,[18] but broader in scope. Many projects relying on XFree86 found the new license unacceptable,[19] and the Free Software Foundation considers it incompatible with the version 2 of the GNU General Public License, though compatible with version 3.[20] The XFree86 Project states that the license is "as GPL compatible as any and all previous versions were", but does not mention which version or versions of the GPL this is valid for.
+"""
+=====
+
+Original: Compiere (http://www.compiere.com)
+Forked: ADempiere (http://www.adempiere.org)
+Type: ERP
+Date: September 2006 (http://adempiere.org/home/aboutus)
+Reason: More community-driven deevelopment - Community believed Compiere Inc. placed too much emphasis on the open source lock-in/commercial nature (http://adempiere.org/home/aboutus)
+Outcome: Both live and evolve
+Other: 
+
+Debate - Has Compiere Become Closed? Do We Fork? How?
+http://red1.org/forum/viewtopic.php?t=931&postdays=0&postorder=asc&start=0
+
+http://adempiere.org/home/aboutus
+"""
+The ADempiere project was created in September 2006 after a long running disagreement between ComPiere Inc., the developers of Compiere™, and the community that formed around that project. The community believed Compiere Inc. placed too much emphasis on the open source lock-in/commercial nature of the project, rather than the community sharing/enriching nature of the project, and after an impassioned discussion decided to split from Compiere™ giving birth to the ADempiere project.
+"""
+=====
+
+Original: StarOffice 
+Forked: OpenOffice.org (http://www.openoffice.org)
+Type: Desktop (Office suite)
+Date: August 1999 (released July 2000)
+Reason: Company (commercial) strategy - Freeing source code to reduce dominance of Microsoft Office
+Outcome: StarOffice was discontinued in 2011 (http://blogs.oracle.com/trond/entry/openofficeorg_to_become_a_pure); OpenOffice.org discontinued commercially April 2011 (http://arstechnica.com/open-source/news/2011/04/oracle-gives-up-on-ooo-after-community-forks-the-project.ars)
+Other: 
+
+From the OpenOffice.org Wikipedia page (http://en.wikipedia.org/wiki/OpenOffice.org):
+"""
+Originally the German company StarDivision developed the application as the proprietary software suite StarOffice. In 1999 Sun Microsystems purchased the code. In August 1999 version 5.2 of StarOffice was made available free of charge.
+
+OpenOffice.org 1
+
+On 19 July 2000, Sun Microsystems announced that it would make the source code of StarOffice available for download under both the LGPL and the Sun Industry Standards Source License (SISSL) with the intention of building an open-source development community around the software. The new project was known as OpenOffice.org, and its website went live on 13 October 2000. 
+"""
+
+Oracle gives up on OpenOffice after community forks the project
+http://arstechnica.com/open-source/news/2011/04/oracle-gives-up-on-ooo-after-community-forks-the-project.ars
+
+GNU Lesser General Public License v3 (OpenOffice.org 2 Beta 2 and earlier are dual-licensed under the SISSL and LGPL)
+
+=====
+
+Original: OpenOffice.org (http://www.openoffice.org)
+Forked: LibreOffice (http://www.libreoffice.org)
+Type: Desktop (Office suite)
+Date: September 2010 (http://listarchives.documentfoundation.org/www/announce/msg00000.html)
+Reason: More community-driven development - Concerns that Oracle Corporation would either discontinue OpenOffice.org, or place restrictions on it as an open-source project, as it had on OpenSolaris. (http://en.wikipedia.org/wiki/LibreOffice)
+Outcome: OpenOffice.org discontinued commercially April 2011 (http://arstechnica.com/open-source/news/2011/04/oracle-gives-up-on-ooo-after-community-forks-the-project.ars)
+Other: 
+
+=====
+
+Original: OpenOffice.org (http://www.openoffice.org)
+Forked: NeoOffice (http://www.neooffice.org/neojava/en/index.php)
+Type: Desktop (Office suite)
+Date: June 2003 (http://en.wikipedia.org/wiki/NeoOffice)
+Reason: Technical reasons - Port to Mac OS X. Refuse to collaborate
+Outcome: NeoOffice still in development; OpenOffice.org discontinued commercially April 2011 (http://arstechnica.com/open-source/news/2011/04/oracle-gives-up-on-ooo-after-community-forks-the-project.ars)
+Other: 
+
+"""
+It is ported by Planamesa Software, and uses Java technology to integrate OpenOffice.org — originally developed for Solaris and Linux — with the Aqua interface of Mac OS X.
+"""
+
+From the NeoOffice Wikipedia Page (http://en.wikipedia.org/wiki/NeoOffice):
+"""
+OpenOffice.org was originally released by Sun under both the LGPL and SISSL; it is now released solely under the LGPL. However, OpenOffice.org requires a copyright assignment for contributions to the main code base; this allows Sun to create proprietary versions of the software (notably StarOffice). NeoOffice chooses not to assign its code to Sun; this prevents NeoOffice code from being used in official OpenOffice.org versions. Instead, NeoOffice is released only under the GPL (this is allowed by the LGPL), which ensures that any software based on it remains free.
+There were initially some attempts to resolve the licensing differences and foster more direct cooperation and code-sharing between the NeoOffice and OpenOffice.org developers. However, the NeoOffice developers have stated that they prefer to work separately from OpenOffice.org because "coordination requires a significant amount of time"; (http://www.neooffice.org/neojava/en/faq.php#11) on the other side, the OpenOffice.org developers state: "A proposal to work together has been made, and NeoOffice developers refused".(http://wiki.services.openoffice.org/wiki/FAQ_Openoffice.org_and_NeoOffice#Q5:_But_it_would_be_more_efficient.2C_if_there_would_be_only_one_effort...)
+"""
+
+From the NeoOffice WikiPedia page, it seems that NeoOffice takes off from each OpenOffice.org release and then adapts. No independent road. But this should be checked.
+
+=====
+
+Original: Mambo (http://mambo-foundation.org)
+Forked: Joomla! (http://www.joomla.org)
+Type: Web (CMS)
+Date: August 17 2005 (http://en.wikipedia.org/wiki/Joomla)
+Reason: More community-driven development - Concerns that Miro (Mambo's main sponsor) would take the project and relegate community
+Outcome: Mambo development ceased. Last version 4.6.5; June 26, 2008
+Other: 
+
+From the Joomla Wikipedia page (http://en.wikipedia.org/wiki/Joomla):
+"""
+Joomla! was the result of a fork of Mambo on August 17, 2005. At that time, the Mambo name was trademarked by Miro International Pvt Ltd. who formed a non-profit foundation with the stated purpose to fund the project and protect it from lawsuits (http://www.mambo-foundation.org/). The Joomla development team claimed that many of the provisions of the foundation structure went against previous agreements made by the elected Mambo Steering Committee, lacked the necessary consultation with key stake-holders and included provisions that violated core open source values (http://forum.joomla.org/index.php/topic,73.0.html).
+The Joomla development team created a web site called OpenSourceMatters.org to distribute information to users, developers, web designers and the community in general. Project leader Andrew Eddie wrote a letter (http://forum.mamboserver.com/showthread.php?t=57645) which appeared on the announcements section of the public forum at mamboserver.com.
+A little more than one thousand people had joined the OpenSourceMatters.org web site within a day, most posting words of encouragement and support, and the web site received the Slashdot effect as a result. Miro CEO Peter Lamont gave a public response to the development team in an article titled "The Mambo Open Source Controversy - 20 Questions With Miro". This event created controversy within the free software community about the definition of "open source". Forums at many other open source projects were active with postings for and against the actions of both sides.
+In the two weeks following Eddie's announcement, teams were re-organized, and the community continued to grow. Eben Moglen and the Software Freedom Law Center (SFLC) assisted the Joomla! core team beginning in August 2005, as indicated by Moglen's blog entry from that date and a related OSM announcement(http://emoglen.law.columbia.edu/blog/2005/08/index.html)(http://www.opensourcematters.com/index.php?option=com_content&task=view&id=41&Itemid=1). The SFLC continue to provide legal guidance to the Joomla! project (http://www.joomla.org/content/view/40/41/).
+On August 18, 2005, Andrew Eddie called for community input on suggested names for the project. The core team indicated that it would make the final decision for the project name based on community input. The core team eventually chose a name that was not on the list of suggested names provided by the community.
+"""
+
+=====
+
+Original: Sodipodi (http://sourceforge.net/projects/sodipodi)
+Forked: Inkscape (http://inkscape.org/)
+Type: Graphics
+Date: November 2003 (http://en.wikipedia.org/wiki/Inkscape)
+Reason: Differences among developer team
+Outcome: Sodipodi got discontinued since its 0.34 version, February 11, 2004 (http://en.wikipedia.org/wiki/Sodipodi)
+Other:
+
+From the Inkscape Wikipedia page ():
+"""
+The fork was led by a team of four former Sodipodi developers (Ted Gould, Bryce Harrington, Nathan Hurst, and MenTaLguY) who identified differences over project objectives, openness to third-party contributions, and technical disagreements as their reasons for forking. With Inkscape, they said they would focus development on implementing the complete SVG standard, whereas Sodipodi development emphasized creating a general-purpose vector graphics editor, possibly at the expense of SVG.
+Since the fork, Inkscape has changed from using the C programming language to C++; changed to the GTK+ toolkit C++ bindings (gtkmm); redesigned the user interface and added a number of new features. Its implementation of the SVG standard has shown gradual improvement, but still is incomplete (http://wiki.inkscape.org/wiki/index.php/FAQ#What_SVG_features_does_Inkscape_implement.3F).
+Rather than top-down governance, its developers strive to encourage an egalitarian culture where authority stems from an individual developer's abilities and active involvement in the project.
+""" 
+
+Initial announcement of Inkscape fork in the Sodipodi mailing list:
+http://sourceforge.net/mailarchive/message.php?msg_id=Pine.LNX.4.33.0311052315010.15937-100000%40osdlab.pdx.osdl.net
+
+From the FAQ page at Inkscape (http://wiki.inkscape.org/wiki/index.php/EsFAQ#Why_the_split_from_Sodipodi.3F)
+"""
+Why the split from Sodipodi?
+
+Inkscape started as a code fork of Sodipodi. The main reasons were differences in objectives and in development approach. Inkscape's objective is to be a fully compliant SVG editor, whereas for Sodipodi SVG is more a means-to-an-end of being a vector illustration tool. Inkscape's development approach emphasizes open developer access to the codebase, as well as using and contributing back to 3rd party libraries and standards such as HIG, CSS, etc. in preference to custom solutions. Reusing existing shared solutions helps developer to focus on the core work of Inkscape.
+
+For background, it may also be worth reviewing Lauris' Sodipodi direction post from Oct 2003, and his thoughts on SVG, licensing, and the value of splitting the project into two independent branches.
+"""
+
+=====
+
+Original: OpenDivX 
+Forked: Xvid (http://www.xvid.org)
+Type: Multimedia (Video codec)
+Date: August 2001
+Reason: Discontinuation of the original project
+Outcome: OpenDivX already dead
+Other: 
+
+From the Xvid Wikipedia page ():
+"""
+In January 2001, DivXNetworks founded OpenDivX as part of Project Mayo which was intended to be a home for open source multimedia projects. OpenDivX was an open-source MPEG-4 video codec based on a stripped down version of the MoMuSys reference MPEG-4 encoder. The source code, however, was placed under a restrictive license and only members of the DivX Advanced Research Centre (DARC) had write access to the project CVS. In early 2001, DARC member Sparky wrote an improved version of the encoding core called encore2. This was updated several times before, in April, it was removed from CVS without warning. The explanation given by Sparky was "We (our bosses) decided that we are not ready to have it in public yet." (http://linuxfr.org/2004/06/11/16509.html)
+
+In July 2001, developers started complaining about a lack of activity in the project; the last CVS commit was several months before, bugfixes were being ignored, and promised documentation had not been written. Soon after, DARC released a beta version of their closed-source commercial DivX 4 codec, which was based on encore2, saying that "what the community really wants is a Winamp, not a Linux." (http://lists.xiph.org/pipermail/vorbis/2001-August/004220.html) It was after this that a fork of OpenDivX was created, using the latest version of encore2 that was downloaded before it was removed. Since then, all the OpenDivX code has been replaced and Xvid has been published under the GNU General Public License.
+"""
+
+=====
+
+Original: XBMC (http://www.xmbc.org)
+Forked: Boxee (http://www.boxee.tv)
+Date: June 2008 (http://blog.boxee.tv/2008/06/16/boxee-for-mac-is-available-for-download/)
+Reason: 
+Outcome: 
+Other: 
+
+=====
+
+Original: MySQL (http://www.mysql.com)
+Forked: MariaDB (http://www.mariadb.org)
+Type: Database
+Date: January 22, 2009 (http://en.wikipedia.org/wiki/MariaDB)
+Reason: More community-driven development - Concerns about development model and how community is relegated
+Outcome: Both exist and evolve
+Other: 
+
+From Monty's blog (http://monty-says.blogspot.com/2008/11/oops-we-did-it-again-mysql-51-released.html#links)
+"""
+As I said in my talk at the MySQL users conference, I think it's time to seriously review how the MySQL server is being developed and change the development model to be more like Drizzle and PostgreSQL where the community has a driving role in what gets done!
+"""
+
+=====
+
+Original: MySQL (http://www.mysql.com)
+Forked: Percona (http://www.percona.com)
+Type: Database
+Date: August 2006 (http://www.percona.com/about-us/our-mission/)
+Reason: Company (commercial) strategy - Different business model (http://www.percona.com/about-us/our-mission/)
+Outcome: Both exist and evolve
+Other: 
+
+From Percona's FAQ (http://www.percona.com/software/percona-server/faq/):
+"""
+How is it different from standard MySQL?
+Percona's releases are based upon recent versions of the MySQL server source code. It is fully compatible with standard MySQL.
+
+How is it related to other MySQL forks?
+Percona Server with XtraDB is the closest to the official MySQL Enterprise releases from Oracle. It is more conservative than MariaDB, which includes extra storage engines and more far-reaching code changes. (MariaDB is also built on the Percona XtraDB storage engine, but adds more changes to the rest of the MySQL server.) It is the basis for OurDelta, which is is essentially a redistributor of other forks. It is not comparable to Drizzle, which is almost a complete rewrite of MySQL from the ground up.
+"""
+
+About the business model (http://www.percona.com/about-us/our-mission/):
+"""
+Percona makes MySQL more valuable to customers and the community. We provide consulting, support, training, development, and open-source software that helps people achieve breakthrough results with MySQL.
+
+We are changing the MySQL marketplace by introducing new pricing models that give customers access to services at a fraction of the cost, paying only for what they need. Our customers have choices. With Percona, they can purchase however best fits their budgets, be it annual contracts, bulk hourly purchases, onsite visits, or on-demand time in 15-minute increments.
+"""
+
+=====
+
+Original: MySQL (http://www.mysql.com)
+Forked: Drizzle (http://www.drizzle.org)
+Type: Database
+Date: July 2008 (http://krow.livejournal.com/602409.html)
+Reason: Technical; features targetting different scenarios than the MySQL ones (cloud, etc.)
+Outcome: Both exist and evolve
+Other: 
+
+=====
+
+Original: GNU Emacs (http://gnu.org/software/emacs)
+Forked: XEmacs (http://www.xemacs.org)
+Date: 1991 (http://www.jwz.org/doc/lemacs.html)
+Reason: Differences among developer team - cooperation is predictably unlikely (as said by rms) (http://www.jwz.org/doc/lemacs.html)
+Outcome: Both exist and evolve
+Other: 
+
+From the GNU Emacs Wikipedia page (http://en.wikipedia.org/wiki/Emacs):
+"""
+Beginning in 1991, Jamie Zawinski and others at Lucid Inc. developed Lucid Emacs, based on an early alpha version of GNU Emacs 19. The codebases soon diverged, and the separate development teams gave up trying to merge them back into a single program (http://www.xemacs.org/About/XEmacsVsGNUemacs.html). This was one of the most famous early forks of a free software program. Lucid Emacs has since been renamed XEmacs; it remains the second most popular variety of Emacs, after GNU Emacs.
+"""
+=====
+
+Original: GCC (http://gcc.gnu.org)
+Forked: EGCS 
+Type: Development (Compiler)
+Date: 1997
+Reason: More community-driven development - Slow development. Frustrated developers started their own forks of GCC in the hopes of getting their changes much faster to end users (http://gcc.gnu.org/wiki/History)
+Outcome: Both merged into EGCS (renamed GCC, although with a different meaning) in April 1999 
+Other: 
+
+From the GCC Wikipedia page (http://en.wikipedia.org/wiki/GNU_Compiler_Collection#EGCS_fork):
+"""
+In 1997, a group of developers formed EGCS (Experimental/Enhanced GNU Compiler System) (http://home.schmorp.de/pgcc-faq.html#egcs), to merge several experimental forks into a single project. The basis of the merger was a GCC development snapshot taken between the 2.7 and 2.81 releases. Projects merged included g77 (FORTRAN), PGCC (P5 Pentium-optimized GCC), many C++ improvements, and many new architectures and operating system variants. (http://gcc.gnu.org/wiki/History and http://www.softpanorama.org/People/Stallman/history_of_gcc_development.shtml)
+
+EGCS development proved considerably more vigorous than GCC development, so much so that the FSF officially halted development on their GCC 2.x compiler, "blessed" EGCS as the official version of GCC and appointed the EGCS project as the GCC maintainers in April 1999. Furthermore, the project explicitly adopted the "bazaar" model over the "cathedral" model. With the release of GCC 2.95 in July 1999, the two projects were once again united.
+GCC is now maintained by a varied group of programmers from around the world, under the direction of a steering committee (http://gcc.gnu.org/steering.html). It has been ported to more kinds of processors and operating systems than any other compiler (http://www.linfo.org/gcc.html).
+"""
+
+=====
+
+Original: Galeon (http://galeon.sourceforge.net)
+Forked: Epiphany (http://projects.gnome.org/epiphany)
+Type: Networking (web browser)
+Date: December 2002 (http://blogs.gnome.org/epiphany/2009/12/24/epiphany-turns-7/)
+Reason: Technical - Galeon had to simplify its user interfact to be fully compliant with GNOME human interface guidelines
+Outcome: Galeon discontinued Oct 2005. Included as Epiphany extensions (http://galeon.sourceforge.net/Main/GaleonFuture)
+Other: 
+
+Noteworthy: Epiphany was a branch of the original creator of Galeon!
+
+From the Galeon Wikipedia page (http://en.wikipedia.org/wiki/Galeon):
+"""
+Galeon’s initial development team split in 2002 due to disagreements about the target audience. This split led to the creation of Epiphany, a fork of Galeon. On October 22, 2005, the Galeon developers announced plans to stop development of Galeon in its current form, saying "the current approach is unsustainable" in the resources required for maintenance. Instead, they hope to develop a set of extensions for Epiphany to provide similar functionality.
+"""
+
+From the Galeon history page (http://galeon.sourceforge.net/links/history.php)
+"""
+In November of 2002, after many months of long hard discussion, Marco made the very difficult choice to leave the Galeon development team, and created Epiphany. No longer part of the Galeon team, Marco was free to create what he wanted; a simple, HIG compliant browser. This also freed the Galeon team to mold Galeon into what they wanted; a powerful, flexible browser for people who want to be able to customize to their hearts content.
+"""
+
+=====
+
+Original: MPlayer (http://mplayerhq.hu)
+Forked: MPlayerXP (http://mplayerxp.sourceforge.net/)
+Type: Multimedia
+Date: April 2005 (http://sourceforge.net/projects/mplayerxp/files/mplayerxp/)
+Reason: Technical - Use of threading (http://mplayerxp.sourceforge.net/mplayerxp_what.html)
+Outcome: Both exist and evolve
+Other: 
+
+From the MPlayerXP "What" page (http://mplayerxp.sourceforge.net/mplayerxp_what.html):
+"""
+Why: This project was born because we disagree with Arpad Gereoffy (the guy who developed mplayer since 2000) in the question of multi and single threaded cores of player. He is against of threading technology. I am not. 
+"""
+
+=====
+
+Original: lMule (http://lmule.sourceforge.net)
+Forked: xMule (http://www.xmule.ws)
+Type: Networking (p2p)
+Date: June 2003
+Reason: Differences among developer team
+Outcome: lMule is inactive (since 2003). xMule (inactive since 2006) forked to aMule (active)
+Other: 
+
+From the lMule Wikipedia page (http://en.wikipedia.org/wiki/LMule):
+"""
+The development team grew during the short lifespan of the project, but in June 2003, due to differences between the developers and the hijacking of the website by one contributor, the fork xMule was born, where the initial "x" was supposed to mean the multiplatform goals of the project (this claim was much later changed by xMule maintainer to "X11 mule"). Timo Kujala and the other lMule developers not part of xMule project abandoned all development after this event.
+"""
+
+=====
+
+Original: xMule (http://www.xmule.ws)
+Forked: aMule (http://www.amule.org)
+Type: Networking (p2p)
+Date: August 18 2003
+Reason: Differences among developer team
+Outcome: xMule inactive since 2006. aMule still active
+Other: 
+
+From the Amule wiki page on Xmule (http://wiki.amule.org/index.php/XMule):
+"""
+xMule is a fork of LMule, and was the defacto eMule client for Linux until aMule appeared and challenged that position. However, xMule is NOT under active development, primarily by Avi, as of 2009-01-18. Please refer to the xMule website for more information on its current state.
+
+aMule is a fork of xMule, though both projects have moved further and further apart since then. Diplomatic relations between the two projects are sadly in a rather sorry state.
+
+NOTE: aMule is a separate project and is not related to xMule in any way (apart from being originally a fork from it).
+"""
+
+=====
+
+Original: LimeWire (http://www.LimeWire.com)
+Forked: FrostWire (http://www.FrostWire.com)
+Type: Networking (p2p)
+Date: September 2005 (http://www.slyck.com/news.php?story=954)
+Reason: Legal issues - DRM included in LimeWire
+Outcome: LimeWire is under a court order dated October 26, 2010 (http://www.limewire.com/en/)
+Other: 
+
+From the "FrostWire Beta Released" October 2005 announcement (http://www.slyck.com/news.php?story=954)
+"""
+To stay alive, LimeWire decided to throw in the towel and began work on a DRM client.
+
+LimeWire's DRM client, although not yet operational, is designed to block unlicensed material from infiltrating the Gnutella network. If the client is released, it will equate to millions of individuals who will find themselves adrift on a network without resources. Unless they've already made the switch to FrostWire.
+
+FrostWire is fork of the LimeWire project. Unlike other closed source clients whose years of hard work will go for naught, LimeWire intelligently designed an open source client. This allowed a community of developers over the years to participate in the evolution of this client. The development team of FrostWire was part of this community.
+
+Even if LimeWire either ceases operations or releases thier DRM client, the core product will continue to live on. Considering the amount of attention and press given to FrostWire so far, it's possible this client may become the popular successor to the Gnutella crown.
+"""
+
+=====
+
+Original: LimeWire (http://www.LimeWire.com)
+Forked: WireShare (formerly LimeWire Pirate Edition) (http://wireshare.sourceforge.net/)
+Type: Networking (p2p)
+Date: November 2010
+Reason: Legal issues - Response to legal challenges of LimeWire
+Outcome: LimeWare discontinued due to legal issues
+Other: 
+
+From the WireShare homepage (http://wireshare.sourceforge.net/):
+"
+Formerly entitled LWPE, WireShare is the newest fork of the LimeWire codebase. The name was changed for legal reasons.
+"
+
+No downloads from SourceForge for WireShare. Apparently this project is only distributed in binary in p2p networks. I see anyway that the CVS at SourceForge contains some code (http://wireshare.cvs.sourceforge.net/viewvc/wireshare/). I have found it on GitHub (https://github.com/metapirate/LimeWire-Pirate-Edition) as well
+
+
+=====
+
+Original: Compiz (http://www.compiz.org)
+Forked: Beryl (http://www.beryl-project.org/)
+Type: Desktop (Window Manager)
+Date: September 2006
+Reason: More community-driven development - Novell team (the ones developing the main branch of Compiz) refused to introduce changes by Quinn Storm (http://rudd-o.com/en/linux-and-free-software/quinn-storm-personally-discusses-beryl)
+Outcome: Remerged March 30 2007 as Compiz Fusion
+Other: 
+
+From the Beryl Wikipedia page (http://en.wikipedia.org/wiki/Beryl_(window_manager)):
+"""
+Beryl was the project name for the Quinnstorm branch of Compiz, announced on 19 September 2006 after Quinnstorm and the development team decided that the fork had come too far from the original Compiz started by Novell (compiz-vanilla). After the Novell XGL/Compiz team (mostly David Reveman) refused the proposition to merge the Quinnstorm changes with compiz-vanilla, the decision was made to make a real differentiation. In 2007, they remerged into Compiz-Fusion.
+"""
+
+=====
+
+Original: cdrtools (http://cdrecord.berlios.de/private/cdrecord.html)
+Forked: cdrkit (http://www.cdrkit.org)
+Type: CD writing
+Date: January 2006 (http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=377109)
+Reason: Legal issues - License issue (http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=377109)
+Outcome: Both exist and evolve
+Other: 
+
+From http://bugs.debian.org/cgi-bin/bugreport.cgi?bug=377109:
+"""
+In cdrtools 2.01.01a03 license of several makefiles have been changed to a
+custom version of CDDL, which is a non-GPL-compatible license. These
+makefiles are used to build GPL-licensed binaries, which is a violation of
+paragraph 3 of the GPL
+"""
+
+An article about this issue can be found at LWN http://lwn.net/Articles/195167/
+
+Other forks related to this fork can be read from the cdrkit Wikipedia page (http://en.wikipedia.org/wiki/Wodim):
+"""
+Major components include:
+* wodim (an acronym for write optical disk media), which was forked from the cdrecord program in cdrtools.
+* icedax (an acronym for incredible digital audio extractor), which was forked from the cdda2wav program in cdrtools.
+* genisoimage (short for generate ISO image), which was forked from the mkisofs program in cdrtools.
+"""
+
+=====
+
+Original: Pidgin (http://pidgin.im/)
+Forked: Carrier (formerly PidginFun) (http://funpidgin.sourceforge.net)
+Type: Networking (Instant messaging client)
+Date: April 22 2008 (http://web.archive.org/web/20080519204346/http://blog.wired.com/monkeybites/2008/04/in-response-to.html)
+Reason: Technical - Text resizing issue (http://developer.pidgin.im/ticket/4986)
+Outcome: Pidgin still exists. Carriers seems to have a last release Dec 30 2010 (http://sourceforge.net/projects/funpidgin/files/carrier/)
+Other: 
+
+From the Pidgin Wikipedia page (http://en.wikipedia.org/wiki/Pidgin_(software)):
+"""
+As of version 2.4 and later, the ability to manually resize the text input box of conversations has been altered—Pidgin now automatically resizes between a number of lines set in 'Preferences' and 50% of the window depending on how much is typed. Some users find this an annoyance rather than a feature and find this solution unacceptable. The inability to manually resize the input area eventually led to a fork, Carrier (originally named Funpidgin).
+"""
+
+=====
+
+Original: KHTML (http://api.kde.org/3.5-api/kdelibs-apidocs/khtml/html/index.html)
+Forked: Webkit (http://www.webkit.org)
+Type: Web (Layout engine)
+Date: 2002
+Reason: Company (commercial) strategy - LGPL. Apple looking for an engine to base their browser on for Mac OS X (http://lists.kde.org/?l=kfm-devel&m=104197092318639&w=2)
+Outcome: Both live and evolve
+Other: 
+
+Blog entry from a KDE developer specifying the difficulty of including Webkit's enhancements into KHTML at http://blogs.kde.org/node/1001, basically because they get from Apple only the releases (the minimum required by the LGPL).
+
+=====
+
+Original: XMMS (http://legacy.xmms2.org/)
+Forked: Beep Media Player (http://www.sourceforge.net/projects/beepmp/)
+Type: Multimedia
+Date: 2003
+Reason: Technical - port to GTK+ 2
+Outcome: both are discontinued (XMMS in 2007, BMP in 2005 towards BMPx)
+Other: 
+
+From the XMMS Wikipedia page (http://en.wikipedia.org/wiki/Xmms):
+"""
+XMMS has continued to use GTK+ 1.x toolkit, despite a major revision of GTK (2.x) being available for several years. The primary reason for this reluctance to upgrade is that many XMMS plugins (written by third parties) are dependent on the older version of GTK+ to properly function (e.g. about boxes and configuration dialogs). Many software developers also consider the XMMS codebase to be poorly designed and difficult to maintain. These factors led to various forks and related projects
+"""
+
+From the Beep Media Player Wikipedia page (http://en.wikipedia.org/wiki/Beep_media_player):
+"""
+The BMP is mainly a port of XMMS to GTK+ 2 and, as such, integrates better with the look and feel of more recent versions of GNOME, Xfce, and, if using the GTK-QT theme engine for KDE, KDE desktop environments. Like XMMS, BMP looks like Winamp and even supports Winamp and XMMS skins.
+"""
+
+From the Beep Media Player Wikipedia page (http://en.wikipedia.org/wiki/Beep_media_player):
+"""
+Along with the announcement of the 0.9.7.1 release, the BMP development team also announced that BMP would not be actively developed anymore. Instead, the team would spend development effort on the next generation of BMP, called BMPx. There is also a fork of classic BMP called Audacious Media Player.
+"""
+
+BMPx (whose website is http://bmpx.backtrace.info/) seems discontinued.
+
+From the BMPx Wikipedia page in Spanish ():
+"""
+BMPx fue reescrito por completo desde cero, y prácticamente no comparte código con BMP (y por tanto tampoco indirectamente con XMMS). Incluso en BMP, los desarrolladores ya habían reconstruido entre un 60% y un 70% del código. 
+
+[...]
+
+BMPx comparte como mucho un 2-3% de código con la fuente original que es XMMS.
+"""
+
+=====
+
+Original: XMMS (http://legacy.xmms2.org/)
+Forked: XMMS 2 (http://www.xmms2.org/)
+Type: Multimedia
+Date: January 2003 (http://xmms2.org/wiki/History/Ancient)
+Reason: NOT A Fork -- Complete rewrite!
+Outcome: XMMS discontinued. XMMS 2 still alive and evolving
+Other: 
+
+This is NOT a fork. It is a complete rewrite!
+
+A subtle difference between the XMMS and XMMS2 acronyms is that, while XMMS stands for X (originally for X11 then Cross-platform) MultiMedia System, XMMS2 stands for X(Cross-platform) music multiplexing system. This decision was made to make it clear that XMMS2 would only ever be an audio player, and not a general multimedia player with video support.
+
+=====
+
+Original: Beep Media Player (http://www.sourceforge.net/projects/beepmp/)
+Forked: Audacious (http://www.audacious-media-player.org/)
+Date: October 2005
+Reason: Differences among developer team - Audacious developers had own ideas about design
+Outcome: Beep Media Player discontinued (2005, moved to BMPx), Audacious still evolves
+Other: 
+
+From the Audacious web page FAQ (http://www.audacious-media-player.org/):
+"""
+Why did you fork beep-media-player?
+First off, the fork has no political reasons, it is based entirely on the following issues:
+* BMP classic had a number of deficiencies relating to Unicode.
+* BMP classic is no longer actively maintained by the development team.
+* We had our own ideas about how a player should be designed, which we wanted to try in a production environment.
+Beep lacked functionality that is useful for people who do streaming, such as the songchange plugin from XMMS.
+Therefore, a fork seemed most logical as a choice for accomplishing our goals. The BMP team has done very good work, but their ideas for a next-generation beep do not align with ours.
+
+So, why not work with XMMS2?
+Working with XMMS2 does not seem like the best choice for us because we are not interested in developing a media client. We're looking to develop a media player based on our concepts of design, functionality and usability.
+We may work with XMMS2 on codec support at some point in the future.
+
+What about BMPx?
+BMPx is a nice media player for what it is -- a jukebox. We're not too interested in having a jukebox, though.
+"""
+
+=====
+
+Original: CodeIgniter (http://www.codeigniter.com)
+Forked: KohanaPHP (first called Blue Flame, http://kohanaframework.org/)
+Type: Development (Web application framework)
+Date: May 31 2007 (http://docs.kohanaphp.com/overview/history)
+Reason: More community-driven develpment - To create a more community-based web application framework as many users were frustrated with CodeIgniter's lack of bug fixes and inclusion of new features requested by the community
+Outcome: Both of them exist and evolve
+Other: 
+
+=====
+This is not a fork!
+
+Original: Ethereal ()
+Forked: Wireshark (http://www.wireshark.org)
+Date: May 2006
+Reason: Not a Fork! - Originally named Ethereal, in May 2006 the project was renamed Wireshark due to trademark issues! (http://www.wireshark.org/faq.html#q1.2)
+Outcome: Ethereal development ceased in 2006. 
+Other: 
+
+From the Wireshark Wikipedia page (http://en.wikipedia.org/wiki/Wireshark):
+"""
+The name was changed to Wireshark in May 2006, because creator and lead developer Gerald Combs could not keep using the Ethereal trademark (which was then owned by his old employer, Network Integration Services) when he accepted a job with CACE Technologies (http://www.wireshark.org/faq.html#q1.2). He still held copyright on most of the source code (and the rest was re-distributable under the GNU GPL), so he took the Subversion repository for Ethereal and used it as the basis for the Subversion repository of Wireshark.
+"""
+
+=====
+
+Original: Asterisk (http://www.asterisk.org)
+Forked: Callweaver (formerly OpenPBX.org, http://www.voip-info.org/wiki/view/CallWeaver)
+Type: Networking (PBX)
+Date: June 2007 (http://www.callweaver.org/blog/9)
+Reason: More community-driven development; no dual licensing; no commercial interference (http://www.voip-info.org/wiki/view/CallWeaver#WhydidweforkAsterisk)
+Outcome: Callweaver latest release in May 2009. Asterisk still evolving
+Other: 
+
+From (http://www.voip-info.org/wiki/view/CallWeaver):
+"""
+Why did we fork Asterisk?
+
+We wanted community input and control, so that no single person or company can stop progress.
+We wanted to be able to use the best libraries available. (e.g. SpanDSP, Unicall, Sofia SIP)
+We wanted to avoid reinventing the wheel if it is not necessary.
+We wanted to be free of limitations imposed by dual licensing.
+We wanted to avoid commercial interests to interfere with quality of development.
+We wanted more focus on reliability, generic solutions and cross-platform compatibility.
+We wanted to allow everybody to participate and contribute without having to disclaim copyrights.
+We wanted a level playing field, an independent project which does not compete with its customers.
+"""
+
+=====
+
+Original: Interbase (http://www.embarcadero.com/products/interbase)
+Forked: Firebird (http://www.firebirdsql.org/)
+Type: Database
+Date: July 2000
+Reason: 
+Outcome: Interbase made proprietary again in February 2006. The Firebird project still lives and evolves
+Other: 
+
+From the Firebird Wikipedia page (http://en.wikipedia.org/wiki/Firebird_(database_server)):
+
+"""
+Within a week of the InterBase 6.0 source being released by Borland on 25 July 2000 (http://web.archive.org/web/20041206174134/www.borland.com/news/press_releases/2000/07_16_00_ib6.html) (http://www.linuxtoday.com/news_story.php3?ltsn=2000-07-25-004-06-PR-SV-SW), the Firebird project was created on SourceForge (http://www.firebirdsql.org/index.php?op=history&id=firebird) (http://www.prototypical.co.uk/pdf/Interbase.pdf). Firebird 1.0 was released for Linux, Windows and Mac OS X on 11 March 2002 (http://wwwnfs.ibphoenix.com/main.nfs?a=ibphoenix&page=ibp_old_news&next=Y&skip=2029), with ports to Solaris, FreeBSD 4, HP-UX following over the next two months (http://wwwnfs.ibphoenix.com/main.nfs?a=ibphoenix&page=ibp_old_news&next=Y&skip=2015).
+
+Work on porting the codebase from C to C++ began in 2000 (http://firebirdsql.org/rlsnotesh/rlsnotes15.html#intro-gen-notes)
+"""
+
+From the Historical Reference page at Firebird (http://www.firebirdsql.org/en/historical-reference/)
+"""
+Unwilling to wait for Inprise to resolve difficulties resulting from the breakdown of negotiations to spin off a support company for OS InterBase®, open source coders set up their Firebird tree as a workshop repository for initial work on platform builds, new ports and tools developments.
+"""
+
+====
+
+Original: PHPNuke (http://www.phpnuke.org)
+Forked: PostNuke (http://www.postnuke.com)
+Type: Web (CMS)
+Date: Summer 2001 (http://www.postnuke.com/module-Content-view-pid-6.html)
+Reason: More community-driven development - Problems with Burzi, PHPNuke leader (in Spanish http://lists.ourproject.org/pipermail/solar-general/2004-September/011169.html)
+Outcome: PHPNuke still alive, although the latest version requires to pay a fee (older versions do not). PostNuke discontinued in 2009 due to many security issues ((http://www.postnuke.com/module-Content-view-pid-6.html))
+Other: 
+
+
+From "Editorial History on PHP-Nuke and Post-Nuke by Lawrence Krubner" (http://www.nukecops.com/article65.html):
+"""
+The background history: Originally Francisco Burzi sat down and created PHPNuke. His program became popular and soon scaled to a level that was beyond Burzi's ability to manage. He accepted help from outside programmers but he treated them badly. He often did not credit them for work they did, and also he failed to fix bugs they repeatedly pointed out to him, even when they submitted bug fixes. A number of these programmers became angry, and decided to fork PHPNuke, and come up with their own version, which is PostNuke. 
+"""
+
+From "PHPNuke and the GPL license" (http://phpnuke.org/modules.php?name=News&file=article&sid=6966):
+"""
+The email reference number is [gnu.org #213080] which will remain archived on gnu.org and on my records as well for future reference. 
+
+Resuming a little to not make this issue more long than it deserves to be, FSF and me agreed with the following: 
+
+1) Francisco Burzi is the legitimate copyright holder of PHP-Nuke software and as exactly said by Dave Turner: 
+
+As an aside, I spoke to David of Thatware, and he agrees with PHPNuke's current status with copyright notices. 
+
+2) The new, revised, approved and GPL section 2(c) compliant copyright notice of PHP-Nuke from now will be: 
+
+PHP-Nuke Copyright © 2004 by Francisco Burzi. This is free software, and you may redistribute it under the GPL. PHP-Nuke comes with absolutely no warranty; for details, see the license. 
+
+And this copyright notice will be present on the generated pages footer and in the HTML source as a Metatag called Generator. Those messages are now compliant with the 2(c) section of the GPL license and CAN'T BE REMOVED. 
+
+3) After sending a link to http://phpnuke.org/modules.php?name=Commercial_License explaining that I give written authorization to remove the PHP-Nuke's copyright notices if the software's user pays a fee for that purpose, the answer of FSF was: 
+
+That page looks good to me. 
+"""
+
+====
+
+Original: PostNuke (http://www.postnuke.com)
+Forked: Zikula (http://community.zikula.org/)
+Type: Web (CMS)
+Date: Not clear. Initial Freshmeat announcement Jun 2008 (http://freshmeat.net/projects/zikula)
+Reason: Technical reasons (http://community.zikula.org/index.php?module=Wiki&tag=History#hn_History_of_the_Zikula_Project)
+Outcome: PostNuke discontinued in 2009 due to many security issues ((http://www.postnuke.com/module-Content-view-pid-6.html))
+Other: 
+
+From "The End" Postnuke.com page (http://www.postnuke.com/module-Content-view-pid-6.html):
+"""
+PostNuke started officially in the summer of 2001.  After several years of development the PostNuke came to an official end in 2008.  The software was always meant to be the stepping stone to better things, namely the "Adam Baum" project which was originally based on a PostNuke version but soon forked in a totally different direction under development for a few years.  
+
+The fruits of the Adam Baum prokect were released as a new product called Zikula. Efforts have been made to make a migration path to the new product although not all modules and extension are compatible and the migration process can be rather difficult.  For details about the migration package, please see the migration release.
+
+Zikula should not be confused with PostNuke since they are spearate products and the underlying code is vastly different. A decision was made to provide security updates for PostNuke until 1st July 2009 and there will be no more releases of PostNuke beyond version 0.764.  If security issues are found it is suggested you discontinue use of PostNuke and migrate.  If you require professional support doing this you may contact us.
+"""
+
+From the "History of the Zikula Project" (http://community.zikula.org/index.php?module=Wiki&tag=History#hn_History_of_the_Zikula_Project)
+"""
+Zikula itself has a relatively short history. However, there a few paths that lead to and contributed to the first Zikula 1.0 release. When looking at this history it's important to separate out the influences with what actually exists today.
+
+Zikula started as a fork in of PostNuke project. Zikula today bears little resemblance to PostNuke but we must clarify the history.
+
+PostNuke provided a basic platform that that was extended by 'modules' to give varying functionality like blogging and image galleries. PostNuke made it to PostNuke 0.764 before being retired because there were too many technical difficulties to bringing it to full maturity. The internal fork was call by the codename of 'adam_baum', the online pseudonym of Greg Allen, a PostNuke developer who was unfortunately killed in a motorcycle accident in 2002.
+
+Project 'adam_baum' was radically different yet tries to provide a migration path from PostNuke. From a programming standpoint, there were huge changes and the main bulk of the heart was contributed by Robert Gasch with the 'v4b object library'.
+
+The adam_baum project finally matured and was released under the name of Zikula. While we owe a great deal in history to the PostNuke project, the two systems are vastly different.
+"""
+
+====
+
+Original: PHPNuke (http://www.phpnuke.org)
+Forked: Xoops (http://www.xoops.org/)
+Type: Web (CMS)
+Date: end 2001 (http://www.xoops.org/modules/news/article.php?storyid=3744)
+Reason: Technical - Add-on modules were integrated too tightly with the core (http://sourceforge.net/blog/xoops-there-it-is-a-cms-for-the-masses/)
+Outcome: PHPNuke still alive, although the latest version requires to pay a fee (older versions do not). Xoops still active and evolving
+Other: 
+
+====
+
+Original: Xoops (http://www.xoops.org)
+Forked: ImpessCMS (http://www.impresscms.org)
+Date: January 2008 (http://www.impresscms.org/modules/smartsection/item.php?itemid=2)
+Reason: Not found. They say it is a fork, but I haven't found reasons anywhere
+Outcome: Both still exist and evolve
+Other: 
+
+====
+
+Original: PHPNuke (http://www.phpnuke.com)
+Forked: MyPHPNuke (http://www.myphpnuke.com)
+Type: Web (CMS)
+Date: April 2001 (http://www.factbook.org/wikipedia/en/m/my/myphpnuke.html 4.4.1a release, http://freshmeat.net/projects/php-nuke/releases?page=3)
+Reason: Technical - Development process (From http://www.myphpnuke.com/sections.php?op=viewarticle&artid=6:)
+Outcome: PHPNuke still alive, although the latest version requires to pay a fee (older versions do not). MyPHPNuke discontinued; last version 1.8.8_8 from October 2003
+Other: 
+
+From http://www.myphpnuke.com/sections.php?op=viewarticle&artid=6:
+"""
+10/17/01
+Eric Caldwell, 17 October 2001
+
+With all the different CMS's out there, why was MyPHPNuke developed?
+
+To start, lets look at what's out there as far as the different phpNuke forks which will help you better understand why MyPHPNuke (MPN) was developed. 
+
+If you want to think of an original Nuke distro then we need look no further than phpNuke (http://www.phpnuke.org). phpNuke was a GPL project started by Francisco Burzi out of frustration because of the dearth of quality CMS's (content management systems). 
+
+In short, Francisco Burzi (the original author of phpNuke) was in search of a nice CMS and soon found that other CMS's were incomplete and not very flexible. Due to this frustration, the phpNuke project was born to in hopes of delivering an easy to use, easy to install and easy to maintain CMS that didn't have enormous systems requirements. All that's needed to run phpNuke is Apache, MySQL and PHP. These simple systems requirements is one of the distinctions that make phpNuke a hit. It has low systems requirements and was written in a server side scripting language (PHP) that's easy to learn, cross platform and is building critical developer mass.
+
+Now we get to the meat of why MPN was born; phpNuke was (and still is) considered buggy, unstable for production use and not feature complete. During the development of phpNuke, a project called NukeAddons (http://www.nukeaddons.com) was created with the mission of taking existing PHP scripts and porting them to work within the phpNuke framework to fill out some missing feature gaps. 
+
+The problem with this approach was that phpNuke was in heavy development as was the NukeAddons scripts (which was almost always a release behind), When you put them together (phpNuke and NukeAddon modules), life became a chore since site developers were continually chasing bugs.
+
+This development process was frustrating many in the Nuke community and one day a guy by the name of Kodewulf decided that he'd had enough and started what is now MyPHPNuke. With a fork in hand (pardon the pun), Kodewulf's first decision was to take the phpNuke 4.4x base and the NukeAddon modules and combine them into a stable feature rich Nuke distro. Through the hard work of Kodewulf, a few other developers, Ruffdogs.com and myPHPNuke.com, you have what you have today, a stable base system that you can dependably run a production web site on.
+
+To sum it up, MPN should be looked at as a mature core system that's easy to install and relatively bug free.
+"""
+
+====
+
+Original: Nessus (http://www.nessus.org)
+Forked: OpenVAS (initially GNessUs, http://www.openvas.org)
+Type: Security
+Date: October 2005 (http://news.cnet.com/Nessus-security-tool-closes-its-source/2100-7344_3-5890093.html)
+Reason: Legal - Nesus moved to proprietary (http://news.cnet.com/Nessus-security-tool-closes-its-source/2100-7344_3-5890093.html)
+Outcome: Both exist and evolve
+Other: 
+
+From "Nessus security tool closes its source" (http://news.cnet.com/Nessus-security-tool-closes-its-source/2100-7344_3-5890093.html)
+
+"""
+The developer, who has been working on the product since at least 1998, said commercial pressures facing Tenable Network Security, the company he started in 2002 around Nessus, was forcing him to stop making the software's source code available.
+
+"A number of companies are using the source code against us, by selling or renting appliances, thus exploiting a loophole in the GPL," he wrote in a later e-mail, justifying his decision. "So in that regard, we have been fueling our competition, and we want to put an end to that. Nessus 3 contains an improved engine, and we don't want our competition to claim to have improved 'their' scanner."
+
+The developer also expressed disappointment over the lack of community participation in developing the software, despite its open-source license.
+
+"Virtually nobody has ever contributed anything to improve the scanning engine over the last six years," he wrote, noting that there had been minor exceptions.
+
+Deraison said the existing version 2 of Nessus would continue to be available under the GPL license and receive bug fixes and regular updates. The large library of plug-ins to the software would also continue to distributed in a way that would allow parties to examine their source code.
+"""
+
+====
+
+Original: libdvdread (no homepage found)
+Forked: libdvdnav (http://dvd.sourceforge.net/)
+Type: Multimedia library
+Date: 
+Reason: 
+Outcome: libdvdread discontinued (last version October 2006). libdvdnav seems also discontinued. Not sure if one is the fork of the other or if both have been forked at least when used with Mplayer ???
+Other: 
+
+====
+
+Original: FFmpeg (http://www.FFmpeg.org)
+Forked: libav (http://www.libav.org)
+Type: Multimedia
+Date: March 13 2011 (http://www.libav.org/)
+Reason: Differences among the developer team (https://lwn.net/Articles/423705/)
+Outcome: Both exist and evolve
+Other: 
+
+====
+
+Original: smplayer (http://smplayer.sourceforge.net/)
+Forked: UMplayer (http://www.umplayer.com)
+Type: Multimedia
+Date: 2009 (http://www.reddit.com/r/linux/comments/gi95y/umplayer_a_fork_of_smplayer/)
+Reason: Not found.
+Outcome: Both exist and evolve
+Other: 
+
+From UMPlayer - a fork of SMPlayer (http://www.reddit.com/r/linux/comments/gi95y/umplayer_a_fork_of_smplayer/):
+"""
+UMPlayer is based on SMPlayer© 2006 - 2009 Ricardo Villalba and MPlayer© 2000 - 2010 The MPlayer Project.
+"""
+
+====
+
+Original: Amarok (http://amarok.kde.org)
+Forked: Clementine Player (http://www.clementine-player.org)
+Type: Multimedia
+Date: February 2010 (http://mail.kde.org/pipermail/kde-announce-apps/2010-February/004398.html)
+Reason: Technical - port of Amarok 1.4, with some features rewritten to take advantage of
+Qt4.
+Outcome: Both exist and evolve
+Other: 
+
+====
+
+Original: Amarok (http://amarok.kde.org)
+Forked: Pana (http://pana.bunnies.net/)
+Type: Multimedia
+Date: January 2010 (http://pana.bunnies.net/2010/01/25/about-pana/)
+Reason: Technical - The transition from version 1.4 to version 2 was criticized by some users. As a consequence, Pana was established based on Amarok version 1.4.x. 
+Outcome: Both exist and evolve, although Pana very slowly (seems to be a one-developer effort)
+Other: 
+
+====
+
+Original: Amarok (http://amarok.kde.org)
+Forked: Gereqi (http://code.google.com/p/gereqi)
+Type: Multimedia
+Date: 
+Reason: Not a fork!
+Outcome: 
+Other: 
+
+From the Gereqi FAQ (http://code.google.com/p/gereqi/wiki/FAQ):
+"""
+I've never seen a line of the Amarok code. Didn't see the point as Amarok is c++ and Gereqi is Python.
+"""
+
+====
+
+Original: rdesktop (http://www.rdesktop.org)
+Forked: FreeRDP (http://www.freerdp.org)
+Type: Networking (Remote desktop)
+Date: March 2010 (http://article.gmane.org/gmane.network.rdesktop.devel/3226)
+Reason: More community-driven development - Concerns with rdesktop not being fixed up quick enough (http://article.gmane.org/gmane.network.rdesktop.devel/3226)
+Outcome: Both exist and evolve
+Other: 
+
+====
+
+Original: MPlayer (http://www.mplayerhq.hu)
+Forked: mplayer2 (http://www.mplayer2.org)
+Type: Multimedia
+Date: March 2011 (http://lists.mplayer2.org/pipermail/mplayer2-announce/2011-March/000000.html)
+Reason: No reason found. Others have also tried to find a reason and didn't find (http://ostatic.com/blog/did-you-know-there-was-a-fork-of-mplayer)
+Outcome: Both exist and evolve
+Other:
+
+====
+
+Original: NCSA HTTPd (http://hoohoo.ncsa.uiuc.edu/ Dead link)
+Forked: Apache Web Server (http://httpd.apache.org)
+Type: Networking (Web server)
+Date: April 1996 (http://httpd.apache.org)
+Reason: Discontinuation of the original project - development of that httpd had stalled after Rob left NCSA in mid-1994 (http://httpd.apache.org/ABOUT_APACHE.html)
+Outcome: NCSA HTTPd server discontinued. Apache web server still active and evolving
+Other: 
+
+====
+
+Original: GNU libc (http://www.gnu.org/software/libc)
+Forked: Linux libc
+Type: API
+Date: February 1994 (http://blogs.fsfe.org/ciaran/?p=85)
+Reason: Technical - the C library was too slow and not responding to Linux needs (http://blogs.fsfe.org/ciaran/?p=85)
+Outcome: Remerged January 1997. Actually, I would say the Linux libc died out as changes that had been made in Linux libc could not be merged back into glibc because the authorship status of that code was unclear and the GNU project is quite strict about recording copyright and authors (http://linuxmafia.com/faq/Licensing_and_Law/forking.html#foot25).
+Other: 
+
+More in "History of glibc and Linux libc" at http://blogs.fsfe.org/ciaran/?p=85
+
+From the glibc Wikipedia page (http://en.wikipedia.org/wiki/GNU_C_Library):
+"""
+In the early 1990s, the developers of the Linux kernel forked glibc. Their fork, called "Linux libc", was maintained separately for years and released versions 2 through 5.
+
+When FSF released glibc 2.0 in January 1997, it had much more complete POSIX standards support, better internationalisation/multilingual support, support for IPv6, 64-bit data access, support for multithreaded applications, future version compatibility support, and the code was more portable (http://web.archive.org/web/20040411191201/http://people.redhat.com/~sopwith/old/glibc-vs-libc5.html). At this point, the Linux kernel developers discontinued their fork and returned to using FSF's glibc (http://www.linux.com/archive/feature/3874).
+
+The last used version of Linux libc used the internal name (soname) libc.so.5. Following on from this, glibc 2.x on Linux uses the soname libc.so.6 (http://linuxmafia.com/faq/Licensing_and_Law/forking.html) (Alpha and IA64 architectures now use libc.so.6.1, instead). The soname is often abbreviated as libc6 (for example in the package name in Debian) following the normal conventions for libraries.
+
+According to Richard Stallman, the changes that had been made in Linux libc could not be merged back into glibc because the authorship status of that code was unclear and the GNU project is quite strict about recording copyright and authors (http://linuxmafia.com/faq/Licensing_and_Law/forking.html#foot25).
+"""
+
+====
+
+Original: Sybase SQL Server (now Adaptative Server Enterprise, http://www.sybase.com/products/databasemanagement/adaptiveserverenterprise)
+Forked: Microsoft SQL Server (http://www.microsoft.com/sqlserver)
+Type: Database
+Date: 1993
+Reason: Company (commercial) strategy - The co-development licensing agreement between Microsoft and Sybase ended and the companies parted ways while continuing to develop their respective versions of the software.
+Outcome: Both exist and evolve
+Other: 
+
+From the Sybase SQL Server Wikipeida page (http://en.wikipedia.org/wiki/Sybase_SQL_Server):
+"""
+Originally for UNIX platforms in 1987, Sybase Corporation's primary relational database management system product was initially marketed under the name Sybase SQL Server. In 1988, SQL Server for OS/2 was co-developed for the PC by Sybase, Microsoft, and Ashton-Tate. Ashton-Tate divested its interest and Microsoft became the lead partner after porting SQL Server to Windows NT.
+
+Microsoft and Sybase sold and supported the product through version 4.21. In 1993 the co-development licensing agreement between Microsoft and Sybase ended and the companies parted ways while continuing to develop their respective versions of the software.
+"""
+
+From the Sybase Wikipedia page (http://en.wikipedia.org/wiki/Sybase):
+"""
+At the time, Sybase called the database server "Sybase SQL Server" and made a deal with Microsoft to share the source code for Microsoft to remarket on the OS/2 platform as "SQL Server". Until version 4.9, Sybase and Microsoft SQL Server were virtually identical. Due to disagreements between the two companies over revenue sharing (or lack thereof), Sybase and Microsoft decided to split the code-lines and went their own way, although the shared heritage is very evident in the Transact-SQL (T-SQL) procedural language as well as the basic process architecture. The big difference is that Sybase has a Unix heritage, while Microsoft SQL Server was adapted and optimized only for the Microsoft Windows NT operating system (vendor lock-in). Sybase continues to offer versions for Windows, several varieties of Unix, and for Linux.
+"""
+
+====
+
+Original: Nagios (http://www.nagios.org)
+Forked: Icinga (http://www.icinga.org)
+Type: Networking (Network monitoring)
+Date: May 2009 (http://news.cnet.com/8301-13505_3-10234275-16.html)
+Reason: More community-driven development - more responsive to user requests and faster in software development through the support of a broader developer community (http://www.icinga.org/2009/05/06/announcing-icinga/)
+Outcome: Both exist and evolve
+Other: 
+
+====
+
+Original: Openbravo (http://www.openbravo.com)
+Forked: OpenZ (http://zimmermann-software.de/, http://sourceforge.net/projects/openz/)
+Type: ERP
+Date: March 2011 (http://openz.sourceforge.net/)
+Reason: Company (commercial) strategy - Priority on fully interated ERP-Processes with emphasis on fully functional Modules especially for Countries with complex fiscal laws like Germany (http://openz.sourceforge.net/)
+Outcome: Both exist and evolve
+Other: 
+
+====
+
+Original: KOffice (http://www.koffice.org/)
+Forked: Calligra (http://www.calligra-suite.org)
+Type: Desktop (Office suite)
+Date: December 2010 (http://aseigo.blogspot.com/2010/12/rose-by-any-other-name.html)
+: Dispute among developer core team (http://aseigo.blogspot.com/2010/12/rose-by-any-other-name.html)
+Outcome: Both exist and evolve
+Other: 
+
+From "a rose by any other name" (http://aseigo.blogspot.com/2010/12/rose-by-any-other-name.html):
+"""
+KOffice has experienced an internal fork and in the process has been renamed "Calligra". The fork itself came about through unresolved differences between a member of the KOffice team and the rest of the members over how to manage both long term targets and day-to-day development. This eventually resulted in people coming to the conclusion that those differences were not only unresolved but also unresolvable. To call a one person schism a fork may seem a bit overly dramatic, but that's certainly how it felt to those involved and was not a triviality. Coming to a fork, the rest of the KOffice team took the opportunity of change to rethink various aspects, including the name.
+"""
+
+From the Calligra suite Wikipedia page (http://en.wikipedia.org/wiki/Calligra_Suite):
+"""
+In 2010 members of the KOffice development team announced a split of KOffice to two projects under the names KOffice and Calligra Suite. Most developers and maintainers of particular applications joined the Calligra project. Three applications, Kexi, Krita and KPlato and the user interfaces for mobile devices have been completely moved out of KOffice and are only available within Calligra. A new application called Braindump has been added to Calligra after the split.
+"""
+
+From the KOffice/Download page (http://userbase.kde.org/KOffice/Download):
+"""
+There are two similar office suites, KOffice and Calligra, which originate from the same base but have separate development tracks. For each download, therefore, two links are given. Please take care to select the appropriate one for your office installation
+"""
+
+====
+
+Original: SourceForge (http://www.sourceforge.net)
+Forked: GForge (http://www.gforge.org)
+Type: Development (Software forge)
+Date: 2001? 2002?
+Reason: Legal - SourceForge made proprietary ()
+Outcome: Both exist and evolve, Sourceforge as Sourceforge Enterprise Edition (although it seems this is a complete rewrite in Java)
+Other: 
+
+Sourceforge forks:
+http://linuxmafia.com/faq/Apps/sourceforge-forks.html
+From that page:
+"""
+GForge is a fork of the 2.6.1pre4 alexandria CVS checkout (snapshot), from just before VA Software disabled CVS access. Unlike the others, it has the distinction of being lead by primary SourceForge architect Tim Perdue, who has already cleaned up a great deal of VA Software-added cruft (foundries, caching, image servers) and done considerable code cleanup. Tim seems likely to take primary lead once more, in coordination with the Savane (formerly Savannah) group. http://gforge.org/
+
+Separately, Perdue's company GForge Group / GForge, LLC did a proprietary rewrite of GForge called GForge Advanced Server (GForge AS), and the open source main fork has been seldom maintained since 2005's 4.5.x releases.
+"""
+
+
+====
+
+Original: SourceForge (http://www.sourceforge.net)
+Forked: Savane (previously Savannah, http://gna.org/projects/savane)
+Type: Development (Software forge)
+Date: October 2001 (http://fsfe.org/news/2001/article2001-10-20-01.en.html)
+Reason: More community-driven development - SourceForge trying to lock users; and maybe proprietary in the near future (http://fsfe.org/news/2001/article2001-10-20-01.en.html)
+Outcome: Savane is being rewritten (http://savannah.gnu.org/maintenance/SavaneRewrite). Sourceforge as Sourceforge Enterprise Edition (although it seems this is a complete rewrite in Java)
+Other: 
+
+The FSF wanted to move from Savannah to GForge, but the move finally didn't occur (http://slashdot.org/story/04/04/13/150253/FSF-Migrating-From-Savannah-to-Gforge)
+
+====
+
+Original: Gforge (http://www.gforge.org)
+Forked: FusionForge (http://www.fusionforge.org)
+Type: Development (Software forge)
+Date: January 2009 (https://fusionforge.org/forum/forum.php?forum_id=7)
+Reason: Company (commercial) strategy - To avoid confusion with the proprietary versions of GForge (known as
+GForge Advanced Server, GForge Express Edition and GForge Community
+Edition), the free/libre/opensource codebase will from now on be
+separately maintained under the name FusionForge by the main
+developers of the free GForge 4.x codebase. (https://fusionforge.org/forum/forum.php?forum_id=7)
+Outcome: Both exist and evolve. 
+Other: 
+
+From http://linuxmafia.com/faq/Apps/sourceforge-forks.html:
+"""
+FusionForge was founded in January 2009 by three GForge contributors, merging a number of patches to alexandria ("SourceForge") and GForge that had been maintained out of tree. It seems likely to be the leading code branch.
+"""
+
+====
+
+Original: Samba (http://www.samba.org)
+Forked: Samba-TNG (http://www.samba-tng.org)
+Type: Networking (Network monitoring)
+Date: October 2000
+Reason: Experimental - Developers failed to come to an agreement on a development transition path which allowed the research version of Samba he was developing (known at the time as Samba-NTDOM) to slowly be integrated into Samba (http://us1.samba.org/samba/tng.html)
+Outcome: Samba-TNG is possibly unmaintained. Last release 2 years ago (December 2009)
+Other: 
+
+From the Samba-TNG wiki (http://wiki.samba-tng.org/doku.php/pages/faq#what_is_the_relationship_between_samba_and_samba-tng):
+"""
+Samba is a large, well-established project with a great deal of corporate interest and involvement. As such, they have to be very careful when making large changes to their code. This has led to the attitude that the code repository should be kept pretty much in working condition at all times, making it difficult to implement experimental changes and improvements.
+
+The Samba-TNG project started in late 1999 as a separate CVS branch of the Samba code, specifically to allow some of the more experimental code ideas to be fleshed out and tested without affecting the stability of Samba as a whole. Specifically, developer Luke Leighton had many new ideas about the design of the domain controller code, some of which were considered either too risky or too controversial for the main development codebase. Thus, the Samba-TNG branch was initially his playground for trying out these ideas.
+
+In October 2000 the project was moved to its own servers, mailing lists, etc. and the world heard about the “Samba fork”, which by then was actually old news.
+
+While there is rivalry between the two projects, it is not hostile. On the contrary, code is frequently synchronized between the two projects in areas where we agree. We also routinely refer prospective users to Samba in cases where it would better fit the user's needs.
+
+See this message from Andrew Tridgell for the “other side” of this story: http://us1.samba.org/samba/tng.html
+"""
+
+Interestingly enough, Andrew saw the fork as a positive view and both projects were not hostile.
+
+====
+
+Original: djbdns (http://cr.yp.to/djbdns.html)
+Forked: dbndns (http://packages.debian.org/dbndns)
+Type: Networking (naming service)
+Date: July 2008 (http://bugs.debian.org/472771)
+Reason: Legal - Integrated package with djbdns and other patches, e.g. IPv6 (http://bugs.debian.org/472771)
+Outcome: djbdns not maintained since 2001
+Other: 
+
+From the dbndns Wikipedia page (http://en.wikipedia.org/wiki/Dbndns):
+"""
+dbndns is a fork of the djbdns software package, maintained by the Debian Project, made possible by the release of djbdns to the public domain.
+
+Most notably, this now includes IPv6 support.
+
+Previously, it was necessary to get a special 'djbdns-installer' package that downloaded the djbdns source from the authors' site and apply a patch, but the free software status means this is no longer necessary, and debian can directly carry the source and patches, producing a redistributable binary deb package.
+
+This package has filtered through into ubuntu.
+"""
+
+From the "DNS Server (and Related) Software for Unix" page (http://linuxmafia.com/faq/Network_Other/dns-servers.html#djbdns):
+"""
+[dbjdns] Codebase has been unmaintained since v. 1.05 in 2001, except for through third-party patches. In consequence, until someone collects, merges, and harmonises a reasonable set of those patches (2009-09-08 note: There are now four forks, as noted below) , users must collect and apply the following fixes to the v. 1.05 source tree, and compile locally
+"""
+
+====
+
+Original: djbdns (http://cr.yp.to/djbdns.html)
+Forked: zinq-dbjdns (http://sourceforge.net/projects/zinq/)
+Type: Networking (naming service)
+Date: January 2009 (http://sourceforge.net/projects/zinq/files/zinq-djbdns/0.01/)
+Reason: Discontinuation of the original project - djbdns not maintainted
+Outcome: djbdns not maintained since 2001
+Other: 
+
+From http://linuxmafia.com/faq/Network_Other/dns-servers.html#zinq-djbdns:
+"""
+zinq-djbdns: (link) Mark Johnson has created a maintained fork of djbdns as part of his umbrella project of adopting Dan Bernstein's unmaintained software. Thus the term "zinq", which is from Zinq Is Not Qmail. As of v. 0.05, it adds these changes to Bernstein's v. 1.05:
+
+Updated obsolete root-nameservers roster "dnsroots.global"
+Uses automake/autoconf, instead of Bernstein's build process, and got rid of spurious compiler warnings.
+Applied the patch to dnscache to make it ignore SIGPIPE, which can be used to DoS it.
+Patched dnscache to quadruple its upper bound on cache size from 10^9 bytes to 4x10^9 bytes.
+Patched dnscache to prevent it erroneously returning SERVFAIL on some queries over TCP.
+Patched dnscache to support oversized UDP packets up to 4096 bytes in length (while still correctly truncating responses over 512 bytes when sending them to stub resolvers over UDP).
+Patched tinydns to add native support for SRV and NAPTR records.
+Supplied manpages, from Gerrit Pape's set.
+Patched axfrdns and tinydns to correct a security-damaging bug in large-packet TCP data handling that permits a limited form of cache poisoning.
+
+Coded in C by Mark Johnson and Daniel J. Bernstein. http://sourceforge.net/projects/zinq/ 
+Licence: Asserted to be "public domain".
+"""
+
+====
+
+Original: djbdns (http://cr.yp.to/djbdns.html)
+Forked: RH dbjdns (http://pjp.dgplug.org/djbdns/)
+Type: Networking (naming service)
+Date: March 2009 (http://linuxmafia.com/faq/Network_Other/dns-servers.html#rh-djbdns)
+Reason: Discontinuation of the original project - djbdns not maintainted
+Outcome: djbdns not maintained since 2001
+Other: 
+
+From http://linuxmafia.com/faq/Network_Other/dns-servers.html#rh-djbdns:
+"""
+RH djbdns: (link) Red Hat developer Prasad J. Pandit has created a djbdns fork and proposed it (2009-03) for inclusion in Fedora Project. As of v. 1.05.2 (2009-03-23), it adds these changes to Bernstein's v. 1.05:
+
+Uses automake/autoconf, instead of Bernstein's build process.
+Works with /sbin/service.
+No longer requires daemontools.
+Default installation destination prefix is /usr/ (in the RPM .spec file).
+Changed dnscache conffile to /etc/djbdns/dnscache.conf
+Changed dnscache to log to /var/log/dnscache.log", write PID file to /var/run/dnscache.pid, and accept some command-line options.
+Patched axfrdns and tinydns to correct a security-damaging bug in large-packet TCP data handling that permits a limited form of cache poisoning.
+Patched dnscache to prevent it erroneously returning SERVFAIL on some queries over TCP.
+Patched dnscache to update obsolete root nameservers list.
+Applied the patch to dnscache to make it ignore SIGPIPE, which can be used to DoS it.
+Patched to use system errno.h headers.
+Renamed CHANGES to ChangeLog, added Pandit's entries.
+Changed various utils to use system header files.
+Some comments added, and a more-conventional coding style applied.
+
+As of 1.05.2, only the following djbdns tools are (thus far) compiled/installed: dnscache, dnsipq, dnsq, dnstracesort. Pandit is proceeding to revamp the other pieces, gradually.
+
+Coded in C by Prasad J. Pandit and Daniel J. Bernstein. http://pjp.dgplug.org/djbdns/
+(.spec file, source, SRPM, bugzilla)
+Licence: GNU GPLv2 or later. (See .spec file.)
+"""
+
+====
+
+Original: djbdns (http://cr.yp.to/djbdns.html)
+Forked: LolDNS (http://www.lolware.net/)
+Type: Networking (naming service)
+Date: February 2009 (http://linuxmafia.com/faq/Network_Other/dns-servers.html#loldns)
+Reason: Discontinuation of the original project - djbdns not maintainted
+Outcome: djbdns not maintained since 2001
+Other: 
+
+From http://linuxmafia.com/faq/Network_Other/dns-servers.html#loldns:
+"""
+LolDNS: (link) Joshua Small created the LolDNS fork of djbdns 1.05 in February 2009, to "go beyond the many current forks of just perpetuating the product, and to actually do away with the things that djbdns used to get slammed for."
+
+Patched to use glibc, system errno.h headers.
+Patched to no longer require daemontools, ucspi-tcp.
+Patched to add an equivalent to BIND9's $GENERATE auto-generated entry directive.
+Patched to add support for SRV records.
+Patched to support binding to multiple IP addresses.
+Patched to call chroot() before dropping privilege.
+Adds new management and logging daemons.
+
+Coded in C by Joshua Small and Daniel J. Bernstein.
+http://www.lolware.net/
+http://www.lolware.net/loldns-STABLE5.tar.gz
+
+Note: Small recommends checking out the latest svn trunk snapshot, instead of using tarball code.
+
+Licence: Joshua Small has specified a licence of his own devising for his additions to Bernstein's code, the first two clauses of which grant a simple BSDish permissive licence (making code usable for any purpose; derivative works can be created and distributed by anyone), provided that there is no warranty (third clause) and that Small's small graphical "so much win" image remains included in some way (the fourth and final clause). Daniel Bernstein has asserted his v. 1.05 base code to be public domain".
+"""
+
+====
+
+Original: send-pr (part of GNATS: http://www.gnu.org/software/gnats)
+Forked: freebsd-sendpr (svn://svn.freebsd.org/base/head/gnu/usr.bin/send-pr)
+Type: Development (Problem report sender)
+Date: Unclear
+Reason: Technical - Submit bugs to FreeBSD bug report system, not to a GNATS database
+Outcome: Both exist and evolve
+Other: 
+
+send-pr and its fork are on-file 500-line (shell) scripts.
+
+From http://www.apt-get.co.uk/apt_get_freebsd-sendpr.html:
+"""
+You can download freebsd-sendpr from any mirror or source and then enjoy all it has to offer. FreeBSD fork of send-pr (from GNU GNATS) send-pr is a client utility for sending problem reports to a remote GNATS database. This is the FreeBSD version of send-pr, which contains a number of enhancements, and is primarily targeted at sending reports to the FreeBSD PR database. It is useful for Debian maintainers (or even users) of software originated in FreeBSD, as it provides an easy way to send patches or feedback to upstream.
+""
+
+====
+
+Original: vi (none)
+Forked: vim (http://www.vim.org) 
+Type: Utilities (Text editor)
+Date: Nov 1991 (http://www.free-soft.org/FSM/english/issue01/vim.html)
+Reason: Technical - "A long time ago I got myself an Amiga computer. Since I was used to editing with Vi, I looked around for a program like Vi for the Amiga. I did find a few so-called 'clones', but none of them was good enough; so I took the best one, and started improving it. At first the main goal was to be able to do all that Vi could do. Gradually I added some additional features, like multi-level undo." (http://www.free-soft.org/FSM/english/issue01/vim.html)
+Outcome: Both exist and evolve
+Other: 
+
+There is a complete list of vi "clones" at http://www.guckes.net/vi/clones.php3
+
+====
+
+Original: vi (none)
+Forked: Elvis (http://elvis.vi-editor.org/)
+Type: Utilities (Text editor)
+Date: April 1990 (http://groups.google.com/group/comp.editors/msg/f409553df27eb412?dmode=source&pli=1)
+Reason: Technical - "Elvis is a superset of vi. It runs on more operating systems than vi, it is free, and you can obtain the source code. Elvis also has many new features. These new features are described in the first chapter of the online manual, which hypertext links to the other parts of the manual where those features are described in detail" (http://elvis.vi-editor.org/elvisman/README.html)
+Outcome: Both exist and evolve
+Other: 
+
+There is a complete list of vi "clones" at http://www.guckes.net/vi/clones.php3
+
+====
+
+Original: Wine (http://www.winehq.org)
+Forked: Cedega (formerly WineX, http://www.cedega.com)
+Type: Emulator
+Date: 2002
+Reason: Company (commercial) strategy - Proprietary development (to port Windows games to Linux environments)
+Outcome: Cedega retired January 2011 (http://www.cedega.com/)
+Other: 
+
+From the Cedega Wikipedia page (http://en.wikipedia.org/wiki/Cedega_(software)):
+"""
+Cedega (formerly known as WineX) is TransGaming Technologies' proprietary fork of Wine (from the last version of Wine under the X11 license before switching to GNU LGPL
+"""
+
+====
+
+Original: Wine (http://www.winehq.org)
+Forked: Crossover (http://www.codeweavers.com)
+Type: Emulator
+Date: Not found
+Reason: Company (commercial) strategy - Proprietary development (to port Windows Office and other Windows software to Linux environments)
+Outcome: Both exist and evolve (now partially free (as in beer) versions of crossover)
+Other: 
+
+This is not a FORK! It seems that Crossover just uses Wine as a library (Wine is LGPL), releasing its improvements (and thus "giving back").
+
+====
+
+Original: Livejournal (http://www.livejournal.com/)
+Forked: Dreamwidth (http://www.dreamwidth.org)
+Type: Web (Weblog)
+Date: 11 June 2008 (http://synecdochic.dreamwidth.org/221888.html)
+Reason: Technical - Really, a mix between different way of doing things and technical issues; for instance, no advertisement module (http://synecdochic.dreamwidth.org/221888.html)
+Outcome: Both exist and evolve
+Other: 
+
+====
+
+Original: Links (http://links.twibright.com/)
+Forked: ELinks (http://www.elinks.cz)
+Type: Networking (web browser)
+Date: Late 2001
+Reason: Experimetnal - First as an experimental fork; then more enhanced or extended (http://elinks.or.cz/history.html)
+Outcome: Both exist and evolve (although slow)
+Other: 
+
+Note: there are more branches/forks related to Links. Maybe a closer look at them should be done.
+
+====
+
+Original: Blackbox (http://blackboxwm.sourceforge.net/)
+Forked: Fluxbox (http://www.fluxbox.org)
+Type: Desktop (Window Manager)
+Date: 0.1.1 release September 2001 (http://sourceforge.net/projects/fluxbox/files/fluxbox/0.1.1/)
+Reason: Technical - While Blackbox enforces its own minimalistic approach towards interface simplicity, Fluxbox added all kinds of features (such as a taskbar) which meet half-way with users who are not comfortable with the Blackbox way, but are still looking for a light and fast window manager. (http://blackboxwm.sourceforge.net/RelatedProjects#Fluxbox)
+Outcome: Fluxbox still under development. Blackbox last release November 2005. Blackbox page not updated since August 2006. 
+Other: 
+
+====
+
+Original: Blackbox (http://blackboxwm.sourceforge.net)
+Forked: Openbox (http://www.openbox.org)
+Type: Desktop (Window Manager)
+Date: April 2002 (http://freshmeat.net/projects/openbox/releases?page=5)
+Reason: Experimental "Openbox was written first to comply with standards and to work properly. Only when that was in place did the team turn to the visual interface." (http://blackboxwm.sourceforge.net/RelatedProjects#Openbox)
+Outcome: Blackbox last release November 2005. Blackbox page not updated since August 2006. Openbox 3 completely rewritten. Only Openbox 2 was based on Blackbox. Openbox 3.0 was release November 2003 (http://freshmeat.net/projects/openbox/releases?page=2)
+Other: 
+
+From the "Related Projects" at the Blackbox web (http://blackboxwm.sourceforge.net/RelatedProjects#Openbox):
+"""
+Since version 3, Openbox is not based upon any previously existing code base, although the visual appearance has been based upon that of Blackbox. Openbox 2 was based on the Blackbox 0.65.0 codebase.
+"""
+
+====
+
+Original: OpenWRT (http://openwrt.org/)
+Forked: FreeWRT (http://freewrt.org/trac/)
+Type: Linux distribution
+Date: May 2006 (http://www.awmn.net/archive/index.php/t-20313.html)
+Reason: Differences among developer team (http://www.awmn.net/archive/index.php/t-20313.html)
+Outcome: FreeWRT dormant since 2007. OpenWRT still under development
+Other: 
+
+====
+
+Original: ImageMagick (http://www.imagemagick.org/)
+Forked: GraphicsMagick (http://www.graphicsmagick.org/)
+Type: Graphics (Image conversion)
+Date: November 2002 (http://marc.info/?l=imagemagick-developer&m=104777007831767&w=2)
+Reason: More community-driven development - "At the end of November, 2002, Cristy (principle author of ImageMagick)
+decided to make ImageMagick a personal project again, as it had been
+from 1991 to 1998." (http://marc.info/?l=imagemagick-developer&m=104777007831767&w=2)
+Outcome: Both still in development
+Other: 
+
+From the GraphicsMagick FAQ (http://www.graphicsmagick.org/FAQ.html#how-does-graphicsmagick-differ-from-imagemagick):
+"""
+How does GraphicsMagick differ from ImageMagick?
+GraphicsMagick is originally based on (forked from) ImageMagick 5.5.2 in November 2002, from the version distributed by ImageMagick Studio LLC, which is itself forked in August 1999 from ImageMagick developed by E. I. du Pont de Nemours and Company starting in 1992. 
+[...]
+
+How often does GraphicsMagick pick up new code from ImageMagick?
+GraphicsMagick never picks up new code from ImageMagick as distributed by ImageMagick Studio LLC. Not long after the GraphicsMagick project was started in November 2002, ImageMagick from ImageMagick Studio LLC abandoned the MIT X11 style license it had been using since 1992, and switched between several different licenses until it ended up with one based on the Apache license, which is intended to penalize projects which borrow some of its source code, or fork from it. Since that time, GraphicsMagick has not incorporated any ImageMagick source code.
+
+On November 27, 2003 ImageMagick Studio LLC applied to register "ImageMagick" as its trademark, and it was awarded this registered trademark (serial number 78333969) on August 30, 2005. Those who re-distribute modified versions of "ImageMagick" (e.g. patched or improved) under license as "ImageMagick" now face the risk of arbitrary trademark infringement claims by ImageMagick Studio LLC.
+
+Authors of new features are encouraged to independently contribute their work to the GraphicsMagick project so that it can be released under GraphicsMagick's MIT X11 style license without additional encumberment. In order for a work to be accepted, it must have been developed entirely outside the ImageMagick source base to avoid any possibility of copyright taint.
+"""
+
+====
+
+Original: Joe's own editor (http://joe-editor.sourceforge.net/)
+Forked:  Jupp (https://www.mirbsd.org/jupp.htm)
+Type: Utilities (Text editor)
+Date: November 2004
+Reason: Discontinuation of the original project - Joe stagnated.
+Outcome: Jupp still evolving. Joe discontinued (at least since 2008)
+Other: 
+
+====
+
+Original: Koha (http://www.koha-community.org/)
+Forked: LibLime Enterprise Koha (http://www.liblime.com/)
+Type: API (Integrated Library System)
+Date: September 2009
+Reason: Company (commercial) strategy - company released a forked version of Koha (http://librariansmatter.com/blog/2009/09/19/the-koha-fork-and-being-the-change-you-want-to-see/)
+Outcome: Both exist and evolve
+Other: 
+
+From the "The Koha fork and being the change you want to see" blog entry (http://librariansmatter.com/blog/2009/09/19/the-koha-fork-and-being-the-change-you-want-to-see/)
+"""
+Liblime however,  own and administer the domain koha.org and have trademarked the name “Koha” in the United States, so they have played a key role in the Koha community up until now. Liblime deny that they are withdrawing from the Koha community, but this is not how the community is viewing it. Jo Ransom, who was instumental in creating Koha in New Zealand in 1999, claims that Liblime Forks Koha (http://library-matters.blogspot.com/2009/09/liblime-forks-koha.html).
+"""
+
+====
+
+Original: Koha (http://www.koha-community.org/)
+Forked: Koha Plus (http://sourceforge.net/projects/koha-plus/)
+Type: API (Integrated Library System)
+Date: June 2009 (http://koha-plus.sourceforge.net/)
+Reason: Not found.
+Outcome: Both exist and evolve
+Other: No releases of Koha Plus found.
+
+====
+
+Original: Nvu (http://www.nvu.com/)
+Forked: KompoZer (http://kompozer.net/)
+Type: Desktop (WYSIWYG HTML editor)
+Date: June 2005 (nvu sources can be found for that date at http://sourceforge.net/projects/kompozer/files/unsupported/)
+Reason: Discontinuation of the original project
+Outcome: Nvu discontinued (last release was June 2005). KompoZer lives and evolves
+Other: 
+
+From the Mini FAQ at Kompozer.net (http://kompozer.net/community.php)
+"""
+Why call it «KompoZer» instead of «Nvu»?
+
+Because “Nvu and the Nvu logo are trademarks of Linspire Inc.”
+As Linspire stopped the development of Nvu, there is no legal way to correct any bug in Nvu.
+"""
+
+====
+
+Original: Kowari (http://sourceforge.net/projects/kowari/)
+Forked: Mulgara (http://mulgara.org/)
+Type: Web (Semantic Web)
+Date: July 2006
+Reason: Legal - Legal issues by company that acquired the company that lead development
+Outcome: Kowari discontinued ("As of 2006-09-30, this project is no longer under active development." from http://sourceforge.net/projects/kowari/). Mulgara lives and evolves
+Other: 
+
+From the Mulgara Wikipedia page (http://en.wikipedia.org/wiki/Mulgara_(software)):
+"""
+In September 2005, Tucana [the original developers of Kowari] was bought by Northrop Grumman (http://www.irconnect.com/noc/press/pages/news_releases.html?d=86459). In January 2006, Northrop Grumman threatened a Kowari developer with legal action if he released any new version of Kowari (http://sourceforge.net/mailarchive/message.php?msg_name=6CF735F1-043E-4626-8115-B6D46FC7F183%40internode.on.net). As a consequence, Kowari was forked in July 2006. It was renamed to Mulgara as Northrop Grumman owned the Kowari trademark. All development on Kowari has stopped (http://sourceforge.net/projects/kowari/) and the community moved to Mulgara. The legal cloud surrounding Kowari was eventually resolved (http://www.topazproject.org/trac/ticket/26), one of the outcomes was the adoption of the Open Software License 3.0[citation needed]. Since 2008 all new code is being licensed with the Apache 2.0 License (http://mulgara.org/).
+"""
+
+====
+
+Original: FreeS/WAN (http://www.freeswan.org/)
+Forked: Openswan (http://www.openswan.org/)
+Type: Networking (IPSec implementation)
+Date: March 2004
+Reason: Discontinuation of the original project
+Outcome: FreeS/WAN now defunct (last version April 2004, http://it.slashdot.org/story/04/03/02/014215/FreeSWAN-Project-Bows-Out). Openswan lives and evolves
+Other: 
+
+====
+
+Original: FreeS/WAN (http://www.freeswan.org/)
+Forked: Strongswan (http://www.strongswan.org/)
+Type: Networking (IPSec implementation)
+Date: March 2004
+Reason: Discontinuation of the original project
+Outcome: FreeS/WAN now defunct (last version April 2004, http://it.slashdot.org/story/04/03/02/014215/FreeSWAN-Project-Bows-Out). Strongswan lives and evolves
+Other: 
+
+====
+
+Original: YukiWiki (http://www.hyuki.com/yukiwiki/)
+Forked: PukiWiki (http://pukiwiki.sourceforge.jp)
+Type: Web (Wiki)
+Date: 2001
+Reason: Not clear. Documentation only in Japanese; few in English
+Outcome: Last YukiWiki version from 2006. PukiWiki lives and evolves
+Other: 
+
+====
+
+Original: Qt Extended ()
+Forked: Qt Extended Improved (http://wiki.openmoko.org/wiki/Qt_Extended_Improved)
+Type: Application platform
+Date: March 2009 (http://wiki.openmoko.org/wiki/Qt_Extended_Improved#Community_Resources)
+Reason: Discontinuation of the original project - Qt Extended discontinued by Qt (March 2009, http://wiki.openmoko.org/wiki/Qt_Extended_Improved#Community_Resources)
+Outcome: Qt Extended discontinued (March 2009). Qt Extended Improved not clear (last version June 2009)
+Other: 
+
+====
+
+Original: PHPNuke (http://www.phpnuke.org/)
+Forked: RavenNuke (http://www.ravenphpscripts.com/)
+Type: Web (CMS)
+Date: November 2005 (http://www.ravenphpscripts.com/article1738.html)
+Reason: More community-driven development - Lack of support of PHPNuke author and fees to get access to the latest code (http://www.ravenphpscripts.com/article-293--0-0.html)
+Outcome: PHPNuke still alive, although the latest version requires to pay a fee (older versions do not). RavenNuke latest version November 2009.
+Other: 
+
+====
+
+Original: Skencil (formerly Sketch, http://www.skencil.org/) 
+Forked: sK1 (http://sk1project.org/)
+Type: Graphics (Vector graphics editor)
+Date: February 2003 ("derived from Sketch 0.6.15", http://sk1project.org/modules.php?name=Products&product=sk1)
+Reason: Technical - Change from Tk to GTK+ by Skencil developers 
+Outcome: Skencil seems unmaintained. sK1 lives and evolves
+Other: 
+
+From the "Skencil News" page (http://www.skencil.org/news.html#newsID21), after four years of no news:
+"""
+Skencil project is revitalized! Together with sK1 team we have fixed a lot of issues in project code
+"""
+
+But according to the SK1 Wikipedia page (http://en.wikipedia.org/wiki/SK1_(program)):
+"""
+Although an attempt was made to unify the project with Skencil, it failed.
+"""
+
+At least from th sk1 project page we can see that some work was done on Skencil:
+http://sk1project.org/viewpage.php?page_id=21
+
+====
+
+Original: Apache server (http://httpd.apache.org)
+Forked: Stronghold (http://www.redhat.com/software/stronghold/)
+Type: Networking (Web server)
+Date: Not found.
+Reason: Company (commercial) strategy - Commercial fork that included the Secure Socket Layer software to enable https.
+Outcome: Stronghold sales ended some years ago and the product's last support date was 2005-12-31.
+Other: 
+
+====
+
+Original: XEmacs (http://www.xemacs.org/)
+Forked: SXEmacs (http://www.sxemacs.org/)
+Type: Utilities (Text editor)
+Date: December 2004 (http://article.gmane.org/gmane.emacs.devel/31631)
+Reason: Technical and organizational reasons (http://article.gmane.org/gmane.emacs.devel/31631)
+Outcome: Both exist and evolve
+Other: 
+
+====
+
+Original: MediaWiki (http://www.mediawiki.org/)
+Forked: MindTouch Deki (http://developer.mindtouch.com/Deki)
+Type: Web (Wiki)
+Date: July 2006
+Reason: Not found
+Outcome: Both exist and evolve
+Other: 
+
+====
+
+Original: XBMC Media Center (formerly Xbox Media Center, http://xbmc.org/)
+Forked: Media Portal (http://www.team-mediaportal.com/)
+Type: Multimedia (media center)
+Date: 2004
+Reason: Technical - media portal started as a reworking of xbmc into c# many many years ago (http://forum.xbmc.org/archive/index.php/t-39410.html)
+Outcome: Both exist and evolve
+Other: 
+
+From http://www.geektonic.com/2008/12/mediaportal-leaves-beta-10-arrives.html
+"""
+After many years (five to be exact) in beta development, the MediaPortal team has released the 1.0 version (read: non-beta) of their popular HTPC software.  What started as a port from XBMC and eventually grew into a near-complete redesign of the software is now a fully-featured, opens-source, windows-based media center software.
+"""
+
+====
+
+Original: XBMC Media Center (formerly Xbox Media Center, http://xbmc.org/)
+Forked: Boxee (http://www.boxee.tv/)
+Type: Multimedia (media center)
+Date: June 2008 (http://blog.boxee.tv/2008/06/16/boxee-for-mac-is-available-for-download/)
+Reason: Company (commercial) strategy - Boxee uses XMBC as an application framework for its GUI and media player core platform, together with some custom and proprietary additions (http://www.gizmodo.com.au/2010/10/history-of-boxee-1-starting-with-a-different-kind-of-box/)
+Outcome: Both exist and evolve
+Other: 
+
+From the Boxee Wikipedia page (http://en.wikipedia.org/wiki/Boxee):
+"""
+Boxee source code is otherwise in majority based on the XBMC Media Center project's source code code which Boxee uses as its software framework, and the Boxee developers contribute changes to that part back upstream to the XBMC project (http://www.guardian.co.uk/technology/2009/oct/07/boxee-web-video-software, http://blog.boxee.tv/2008/05/30/xbmc-dev-con-hosted-by-boxee/, http://blog.boxee.tv/2008/07/05/vote-for-xbmc/). So Boxee is partially open source and those parts are distributed under the GNU General Public License, however Boxee's social networking layer library, "libboxee", is closed source as it deals with proprietary methods of communication with Boxee's online back-end server which handles the user account information and social network communications between the users in the Boxee userbase, it is not clear if this way of using closed source libraries with a GPL licensed software passes the GPL linking exception or not (http://app.boxee.tv/static/eula).
+"""
+
+====
+
+Original: XBMC Media Center (formerly Xbox Media Center, http://xbmc.org/)
+Forked: Plex (http://www.plexapp.com/)
+Type: Multimedia (media center)
+Date: May 2008 (http://elan.plexapp.com/2008/05/21/exodus/)
+Reason: Technical -it is a fork for the OS X- and personal disagreements (http://elan.plexapp.com/2008/05/21/exodus/)
+Outcome: Both exist and evolve
+Other: 
+
+From the Plex Wikipedia page (http://en.wikipedia.org/wiki/Plex_(software)):
+"""
+Plex began as a free software hobby project but since 2010 has evolved into a (freeware) project that is owned and developed by a single for-profit startup company, (Plex, Inc.). (http://www.engadget.com/2010/09/03/plex-announces-paternship-with-lg-pledges-to-beat-boxee-box-and/)
+
+[...]
+
+Plex media center software is licensed under the GNU General Public License (GPL) by the developers, meaning they allow anybody to redistribute the Plex media player source code under the conditions of that GPL license. Plex Media Server, the proprietary back-end server that all plugins for Plex are dependent on, is however closed source.
+"""
+
+====
+
+Original: HPFS
+Forked: NTFS
+Type: File system
+Date: Not found
+Reason: Not found
+Outcome: Not found
+Other: 
+
+Not clear this is a fork!
+
+====
+
+Original: Mozilla Firefox (http://www.firefox.com)
+Forked: GNU Icecat (formerly GNU Iceweasel, http://www.gnu.org/software/icecat/)
+Type: Networking (web browser)
+Date: August 2005 (http://savannah.gnu.org/task/?func=detailitem&item_id=4529)
+Reason: Legal issues
+Outcome: Both exist and evolve
+Other: 
+
+====
+
+Original: Mozilla Firefox (http://www.firefox.com)
+Forked: Iceweasel (http://wiki.debian.org/Iceweasel)
+Type: Networking (web browser)
+Date: February 2006
+Reason: Legal issues
+Outcome: Both exist and evolve
+Other: 
+
+====
+
+Original: Mozilla Thunderbird (http://www.mozilla.org/thunderbird/)
+Forked: Icedove
+Type: Networking (E-mail client)
+Date: February 2006
+Reason: Legal issues
+Outcome: Both exist and evolve
+Other: 
+
+====
+
+Original: SeaMonkey (http://www.seamonkey-project.org/)
+Forked: Iceape 
+Type: Networking (Internet suite)
+Date: February 2006
+Reason: Legal issues
+Outcome: As of Debian release Lenny (Lenny was released February 2009), Iceape has been removed due to lack of development support within the Debian community. 
+Other: 
+
+====
+
+Original: Mozilla Sunbird (http://www.mozilla.org/projects/calendar/)
+Forked: Iceowl
+Type: Calendar
+Date: February 2006
+Reason: Legal issues
+Outcome: Both exist and evolve
+Other: 
+
+====
+
+Original: Mozilla suite (http://www.mozilla.org/products/mozilla1.x/)
+Forked: Mozilla Firefox (http://www.firefox.com)
+Type: Networking (web browser)
+Date: September 2002 (http://www.mozilla.com/en-US/firefox/releases/0.1.html)
+Reason: Technical reasons ("to combat the perceived software bloat of the Mozilla Suite")
+Outcome: On March 10, 2005, the Mozilla Foundation announced that it would not release any official versions of Mozilla Application Suite beyond 1.7.x (http://www-archive.mozilla.org/seamonkey-transition.html)
+Other: 
+
+====
+
+Original: Mozilla suite (http://www.mozilla.org/products/mozilla1.x/)
+Forked: Seamonkey (http://www.seamonkey-project.org/)
+Type: Networking (Internet suite)
+Date: 2005
+Reason: Discontinuation of the original project - Continuation of suite with different name (and different governance board)
+Outcome: On March 10, 2005, the Mozilla Foundation announced that it would not release any official versions of Mozilla Application Suite beyond 1.7.x (http://www-archive.mozilla.org/seamonkey-transition.html)
+Other: 
+
+From the Seamonkey Wikipedia page (http://en.wikipedia.org/wiki/SeaMonkey):
+"""
+The development of SeaMonkey is community-driven, in contrast to the Mozilla Application Suite, which until its last released version (1.7.13) was governed by the Mozilla Foundation. The new project-leading group is the SeaMonkey Council.
+"""
+
+From (http://weblogs.mozillazine.org/asa/archives/008276.html):
+"""
+In case you ran across this report that the "Mozilla Suite aka Mozilla Application Suite aka Mozilla 1.x is changing name to SeaMonkey" I wanted to point out that it's inaccurate in several ways.
+
+First, the Mozilla Suite, aka Mozilla Application Suite, aka Mozilla 1.x is _not_ being renamed. It will never be renamed. Those names will continue to describe the suite of applications maintained by the Mozilla Foundation on the Mozilla 1.7 branch. The latest release of this product is Mozilla 1.7.8 and is available from here. Maintenance releases will continue from this branch so expect to see a Mozilla 1.7.9, Mozilla 1.7.10, Mozilla 1.7.11, etc.
+
+Second, there is a new project, organized by a new community group, to build and release a new suite (similar to the official Mozilla Application Suite which is now officially in maintenances mode). This new project will necessarily have a new name. That name is being worked on now and the current hope is to secure the name "Seamonkey" for this new project.
+
+To repeat, The Mozilla Application Suite is in maintenances mode on the 1.7 branch and will retain it's name(s) for as long as we continue to support it (years.) There is a new project with the goal of building a new application suite from the trunk. This project is not Mozilla 1.x (the Mozilla Application Suite, or the Mozilla Suite). This project is searching for a new name and hopes to secure the name "Seamonkey".
+
+If and when this new project does do a release, it will probably be called Seamonkey 1.0. It will not be the Mozilla Foundation supported upgrade path for Mozilla 1.x users. Those users are encouraged to migrate to Firefox and Thunderbird or continue to use the security maintenances releases of Mozilla 1.x. Again, this is a new project and it will necessarily have a new name. It is not the renaming of an old project.
+"""
+
+====
+
+Original: Mozilla suite (http://www.mozilla.org/products/mozilla1.x/)
+Forked: Gnuzilla (http://www.gnu.org/software/gnuzilla)
+Type: Networking (Internet suite)
+Date: January 2008
+Reason: Legal issues
+Outcome: Both exist and evolve
+Other: 
+
+From the Gnuzilla page (http://www.gnu.org/software/gnuzilla/):
+"""
+GNUzilla is the GNU version of the Mozilla suite, and GNU IceCat is the GNU version of the Firefox browser. Its main advantage is an ethical one: it is entirely free software. While the Firefox source code from the Mozilla project is free software, they distribute and recommend non-free software as plug-ins and addons.
+"""
+
+====
+
+Original: LimeWire (http://www.limewire.com/en)
+Forked: LionShare ()
+Type: Networking (p2p)
+Date: Not found.
+Reason: Experimental
+Outcome: Not found.
+Other:
+
+From the LionShare Wikipedia page (http://en.wikipedia.org/wiki/LionShare):
+"""
+LionShare began as an experimental software development project at Penn State University and has now grown to be a collaborative effort between researchers and developers at Penn State University, Massachusetts Institute of Technology, Simon Fraser University, and the Internet2 P2P Working Group. A grant from the Andrew W. Mellon Foundation funded the first two years of the project.
+"""
+
+====
+
+Original: LimeWire (http://www.limewire.com/en)
+Forked: Acquisition (http://www.acquisitionx.com/)
+Type: Networking (p2p)
+Date: Not found.
+Reason: Legal
+Outcome: Both exist and evolve
+Other: 
+
+From the Acquisition Wikipedia page (http://en.wikipedia.org/wiki/Acquisition_(software)):
+"""
+Acquisition uses parts of the LimeWire core libraries, licensed under the GNU General Public License (GPL). The graphical user interface and the open source, modified LimeWire core run as separate processes, communicating via Unix pipes, which allows parts of the software to be relicensed
+"""
+
+====
+
+Original: xpdf (http://www.foolabs.com/xpdf)
+Forked: Poppler (http://poppler.freedesktop.org/)
+Type: API (PDF library)
+Date: February 2005 (http://cgit.freedesktop.org/poppler/poppler/tree/README)
+Reason: Technical - 1. provide PDF rendering functionality as a shared library, to centralize the maintenance effort. 2. to move libpoppler forward in a number of areas
+that don't fit within the goals of xpdf (http://cgit.freedesktop.org/poppler/poppler/tree/README)
+Outcome: Both exist and evolve
+Other: 
+
+====
+
+Original: Trac (http://projects.edgewall.com/trac)
+Forked: DrProject (http://pyre.third-bit.com/drproject)
+Type: Development (Project management)
+Date: January 2005
+Reason: Technical - In 2005 the tool was forked to support the development of a project that targeted undergraduate programming projects. This process, and its implications, are the subject of this research. (Ernst et al. 2010)
+Outcome: 
+Other: 
+
+====
+
+Original: Bitstream Vera (http://www-old.gnome.org/fonts/)
+Forked: DejaVu (http://dejavu-fonts.org/)
+Type: Fonts (not software!)
+Date: 2004
+Reason: Technical reasons (coverage of Unicode) 
+Outcome: Note: these are fonts, not software. DejaVu "evolves" as it is not completed. Bitstream "discontinued" as it is finished
+Other: 
+
+====
+
+Original: OpenOffice.org (http://www.openoffice.org)
+Forked: go-oo.org (former ooo-build, http://go-oo.org/)
+Type: Desktop (Office suite)
+Date: October 2007 (http://slashdot.org/story/07/10/03/1212234/Sun-Refuses-LGPL-for-OpenOffice-Novell-forks)
+Reason: More community-driven development - Sun not accepting contributions from community and other companies (http://slashdot.org/story/07/10/03/1212234/Sun-Refuses-LGPL-for-OpenOffice-Novell-forks)
+Outcome: In September 2010 Go-oo was discontinued and became the basis of the new LibreOffice (http://lwn.net/Articles/407339/)
+Other: 
+
+====
+
+Original: GPL Ghostscript (http://www.ghostscript.com/)
+Forked: EPL Ghostscript (http://sourceforge.net/projects/espgs/)
+Type: Desktop (PS and PDF interpreter)
+Date: May 2001 (earliest release from http://sourceforge.net/projects/espgs/files/espgs/)
+Reason: Technical resons (improve compatibility with cups) 
+Outcome: EPL Ghostscript merged into GPL Ghostscript in August 2007 (http://www.cups.org/articles.php?L484)
+Other: 
+
+From the Ghostscript Wikipedia page (http://en.wikipedia.org/wiki/Ghostscript):
+"""
+ESP Ghostscript was distributed by Easy Software Products under the GPL. It was based on GPL Ghostscript and contains several modifications to improve compatibility with ESP's Common Unix Printing System. This version is no longer developed, since it was merged with GPL Ghostscript (http://www.cups.org/articles.php?L484)
+"""
+
+====
+
+Original: MOSIX ()
+Forked: OpenMOSIX (http://openmosix.sourceforge.net/)
+Type: Cluster management
+Date: February 2002
+Reason: Legal - MOSIX became proprietary
+Outcome: OpenMOSIX discontinued March 2008 (http://openmosix.sourceforge.net/)
+Other: 
+
+====
+
+Original: OpenMOSIX (http://openmosix.sourceforge.net/)
+Forked: LinuxPMI (http://linuxpmi.org/)
+Type: Cluster management
+Date: March 2008
+Reason: Discontinuation of the original project - OpenMOSIX discontinued March 2008 (http://openmosix.sourceforge.net/)
+Outcome: Linux PMI evolves
+Other: 
+
+====
+
+Original: Linux (http://www.kernel.org)
+Forked: ELKS (Embeddable Linux Kernel Subset, formerly Linux-8086, http://elks.sourceforge.net/)
+Type: Kernel of operating system
+Date: 1995
+Reason: Technical reasons (Linux for computers with limited resources)
+Outcome: Last release in May 2006 (http://sourceforge.net/projects/elks/files)
+Other: 
+
+====
+
+Original: NASA CDF ()
+Forked: NetCDF (http://www.unidata.ucar.edu/software/netcdf/)
+Type: API (scientific library)
+Date: Early 1988 (http://www.unidata.ucar.edu/downloads/netcdf/netcdf-3_5_1)
+Reason: 
+Outcome: 
+Other: 
+
+This is not a fork!!
+
+It seems NASA CDF is in Fortran and NetCDF in C from the very first minute (http://www.unidata.ucar.edu/downloads/netcdf/netcdf-3_5_1)
+
+====
+
+Original: RPM 
+Forked: RPM5 (http://rpm5.org/)
+Type: Software distribution (Package management)
+Date: December 2006 (https://www.redhat.com/archives/fedora-announce-list/2006-December/msg00003.html)
+Reason: Discontinuation of the original project
+Outcome: RPM5 exists and evolves
+Other: 
+
+From the RPM Wikipedia page (http://en.wikipedia.org/wiki/RPM_Package_Manager):
+"""
+As of June 2010, there are two versions of RPM in development – one led by the Fedora Project and Red Hat, and the other by a separate group led by a previous maintainer of RPM, a former employee of Red Hat.
+
+RPM.org
+
+The rpm.org community's first major code revision was in July 2007; version 4.8 was released in January 2010, and 4.9 in March 2011.
+
+This version is used by distributions such as Fedora, Red Hat Enterprise Linux, Novell's openSUSE and SUSE Linux Enterprise, CentOS and formerly Mandriva (only for 2009.0 - 2010.2).
+
+RPM v5
+
+The RPM maintainer since 1999, Jeff Johnson, continued development efforts together with participants from several other distributions. RPM version 5 was released in May 2007.
+
+This version is used by distributions such as Unity Linux and cAos Linux, and also by the OpenPKG project which provides packages for other common UNIX-platforms. Mandriva has currently switched to it for their development branch, with 2011.0 becoming its first release using it. ArkLinux also announced intention to move to RPM5 for its next release.
+"""
+
+====
+
+Original: RPM
+Forked: RPM.org (http://rpm.org/)
+Type: Software distribution (Package management)
+Date: December 2006 (https://www.redhat.com/archives/fedora-announce-list/2006-December/msg00003.html)
+Reason: Discontinuation of the original project - RPM development discontinued (https://www.redhat.com/archives/fedora-announce-list/2006-December/msg00003.html)
+Outcome: RPM.org exists and evolves
+Other: 
+
+From the RPM Wikipedia page (http://en.wikipedia.org/wiki/RPM_Package_Manager):
+"""
+As of June 2010, there are two versions of RPM in development – one led by the Fedora Project and Red Hat, and the other by a separate group led by a previous maintainer of RPM, a former employee of Red Hat.
+
+RPM.org
+
+The rpm.org community's first major code revision was in July 2007; version 4.8 was released in January 2010, and 4.9 in March 2011.
+
+This version is used by distributions such as Fedora, Red Hat Enterprise Linux, Novell's openSUSE and SUSE Linux Enterprise, CentOS and formerly Mandriva (only for 2009.0 - 2010.2).
+
+RPM v5
+
+The RPM maintainer since 1999, Jeff Johnson, continued development efforts together with participants from several other distributions. RPM version 5 was released in May 2007.
+
+This version is used by distributions such as Unity Linux and cAos Linux, and also by the OpenPKG project which provides packages for other common UNIX-platforms. Mandriva has currently switched to it for their development branch, with 2011.0 becoming its first release using it. ArkLinux also announced intention to move to RPM5 for its next release.
+"""
+
+====
+
+Original: MudOS (http://mudos.org/)
+Forked: LPMud ()
+Type: MUD driver
+Date: 
+Reason: 
+Outcome: 
+Other: 
+
+This is not a fork!
+
+====
+March 2012
+====
+
+Original: DimDim (http://dimdim.com)
+Forked: midmid (http://code.google.com/p/midmid/)
+Type: Web conferencing and collaboration
+Date: January 2011 (http://blogs.computerworlduk.com/open-enterprise/2011/01/dimdim-lives-up-to-its-name/index.htm)
+Reason: Legal - DimDim discontinued free software version (http://blogs.computerworlduk.com/open-enterprise/2011/01/dimdim-lives-up-to-its-name/index.htm)
+Outcome: DimDim bought 2011 by Salesforce.com, who still continues it (in a proprietary form). midmid still with no release as of March 2012
+Other: 
+
+From the midmid main page (http://code.google.com/p/midmid/)
+"""
+DimDim, the company, abandoned the community edition of the popular software in 2008. This project will host an open source web conferencing suite based from the original DimDim 4.1 code
+"""
+
+The last DimDim Community Edition is v4.5 release in December 2008 (http://sourceforge.net/projects/dimdim/files/). There is a Moodle integration Community Edition release March 2009, although this is not the core DimDim software, just an extension.
+
+On January 6, 2011 Dim Dim was acquired by Salesforce.com for USD $31M
+(see http://www.zdnet.com/blog/btl/salesforce-buys-dimdim-for-31-million-eyes-webex-gotomeeting-turf/43352)
+
+====
+
+Original: Redmine (http://www.redmine.org/)
+Forked: ChiliProject (https://www.chiliproject.org/)
+Type: Development (Project management) software, Bug tracking system
+Date: February 2011 (https://www.chiliproject.org/projects/chiliproject/wiki/Why_Fork)
+Reason: More community-driven development (https://www.chiliproject.org/projects/chiliproject/wiki/Why_Fork)
+Outcome: Both active (March 2012)
+Other: 
+
+From Why Fork? (https://www.chiliproject.org/projects/chiliproject/wiki/Why_Fork)
+"""
+However, in the view of some of Redmine's leading developers, the maintenance and evolution of Redmine has not been as predictable and responsive as its developer community is capable of. Integration of community-created patches were too sporadic, lacked a clear methodology, and was interfering with the effectiveness of the Redmine project for its users. Over the past two years, several members of Redmine's community worked to resolve management bottlenecks through clear suggestions and contributions. They also attempted to broaden and open up the development process to more contributors. But efforts via public and private forums to discuss the goals and future direction with the project manager of Redmine failed, as the current project manager did not share these priorities.
+
+A group of developers from the Redmine community has therefore concluded that the only way to ensure continued, sustained and stable development of our favorite project management solution is to fork it. We, long-standing community members and contributors, pledge to uphold the ideals of Free and Open Source Software ethics, governance and development practices in order to produce a reliable project management system released under the name of ChiliProject in February 2011.
+"""
+
+
+====
+
+Original: GNU GRUB (http://www.gnu.org/software/grub/)
+Forked: GRUB4DOS (http://gna.org/projects/grub4dos)
+Type: Bootloader
+Date: Feb 2007 (http://gna.org/projects/grub4dos)
+Reason: Discontinuation of the original project - GRUB 1 discontinued (http://web.archive.org/web/20080606001751/http://www.gnu.org/software/grub/grub-legacy.en.html)
+Outcome: GRUB 1 discontinued (GRUB 2 is a rewrite). GRUB4DOS discontinued (last version 0.4.4 is from June 2009)
+Other: 
+
+
+====
+
+Original: GNU GRUB (http://www.gnu.org/software/grub/)
+Forked: Super Grub Disk (http://www.supergrubdisk.org/)
+Type: Bootloader
+Date: Oct 2006 (https://forja.linex.org/projects/supergrub/)
+Reason: Discontinuation of the original project - GRUB 1 discontinued (http://web.archive.org/web/20080606001751/http://www.gnu.org/software/grub/grub-legacy.en.html)
+Outcome: GRUB 1 discontinued (GRUB 2 is a rewrite).  Super GRUB2 Disk is a complete rewrite of Super Grub Disk (still active - Last release Nov 2011)
+Other: 
+
+====
+
+Original: EliteIRCd (None)
+Forked: UnrealIRCd (http://www.unrealircd.com/)
+Type: Networking (IRC daemon)
+Date: May 1999 (http://www.irc-wiki.org/UnrealIRCd)
+Reason: Legal reasons (http://www.irc-wiki.org/EliteIRCd)
+Outcome: EliteIRCd discontinued. UnrealIRCd still active (last release Nov 2011). Main developer of EliteIRCd moved to UnrealIRCd
+Other: 
+
+From EliteIRCd - IRC wiki (http://www.irc-wiki.org/EliteIRCd):
+"""
+EliteIRCd is a historical IRCd. It was the first IRCd ever to implement hostmasking and channel owner modes. Unfortunately, in violation of the GPL, the maintainer decided to make EliteIRCd a commercial product using license terms which were in direct violation of the GPL. UnrealIRCd was forked from EliteIRCd 2.0b13 in order to provide a non-commercial alternative. Eventually, Potvin [the main author of EliteIRCd] just started contributing to UnrealIRCd instead.
+"""
+
+====
+
+Original: ircd-ratbox (http://www.ratbox.org/)
+Forked: charybdis (http://www.stack.nl/~jilles/irc/#charybdis)
+Type: Networking (IRC daemon)
+Date: 2005 (http://www.irc-wiki.org/Charybdis)
+Reason: Not found
+Outcome: ircd-ratbox still in development (last version 3.0.7 from Nov 2011). charybdis still in development (commits several hours ago in the git at http://git.atheme.org/charybdis/)
+Other: 
+
+
+====
+
+Original: ircII (http://www.eterna.com.au/ircii/)
+Forked: BitchX (http://www.bitchx.org/)
+Type: Networking (IRC client)
+Date: 1996 (http://www.irc-wiki.org/BitchX)
+Reason: Technical - Not found, but seems extra functionality for ircII (http://www.irc-wiki.org/BitchX)
+Outcome: ircII still active (last release Nov 2011). BitchX last version from May 2004, although a new version is announced.
+Other: 
+
+====
+
+Original: ircII (http://www.eterna.com.au/ircii/)
+Forked: EPIC (http://www.epicsol.org/)
+Type: Networking (IRC client)
+Date: fall 1994 (http://epicsol.org/?page=about)
+Reason: Technical - Not found, but seems extra functionality to ircII added
+Outcome: ircII still active (last release Nov 2011). EPIC still developed (last release April 2010)
+Other: 
+
+====
+
+Original: ircII (http://www.eterna.com.au/ircii/)
+Forked: ScrollZ (http://www.scrollz.com/)
+Type: Networking (IRC client)
+Date: 1994 (http://www.scrollz.com/home.php)
+Reason: Technical (http://www.scrollz.com/what.php)
+Outcome: ircII still active (last release Nov 2011). ScrollZ still active (last release Dec 2011)
+Other: 
+
+====
+
+Original: Roxen Challenger (http://www.roxen.com/)
+Forked: Cuadium (http://caudium.net/)
+Type: Networking (Web server)
+Date: July 2000 (http://caudium.net/server/history.rxml)
+Reason: Technical reasons (http://roxen.sodazitron.at/listarchive/article.php?id_article=2045&grp_id=4)
+Outcome: Roxen Challenger continues (last version Jan 2011). Caudium discontinued - last version from Mar 2008.
+Other: 
+
+====
+
+Original: Wiring (http://wiring.org.co/)
+Forked: Arduino (http://www.arduino.cc/)
+Type: Development (Software framework, IDE)
+Date: 2005 (http://spectrum.ieee.org/geek-life/hands-on/the-making-of-arduino/0)
+Reason: Technical - Not found, but probably Technical enhancement
+Outcome: Wiring still active (last release Oct 2011). Arduino still active.
+Other: 
+
+====
+
+Original: wxMusik (http://musik.berlios.de/)
+Forked: MusikCube (http://www.musikcube.com/, http://code.google.com/p/musikcube/wiki/AudioEngine)
+Type: Multimedia (Audio player)
+Date: 2005 (http://www.musikcube.com/wiki/FAQ)
+Reason: Technical. The author moved to MusikCube; the old was maintained by others (http://www.musikcube.com/wiki/FAQ, http://developer.berlios.de/forum/forum.php?max_rows=25&style=nested&offset=36&forum_id=2793)
+Outcome: wxMusik unmaintained (last commit in SVN two years ago). MusikCube seems still active (Last release of development version Apr 2010)
+Other: 
+
+====
+
+Original: OpenERP (http://www.openerp.com/)
+Forked: Tryton (http://www.tryton.org/)
+Type: ERP
+Date: Nov 2008 (http://en.wikipedia.org/wiki/OpenERP)
+Reason: Technical (http://www.tryton.org/documentation/faq.html)
+Outcome: Both still active.
+Other: 
+
+From Tryton - Documentation - FAQ (http://www.tryton.org/documentation/faq.html)
+"""
+So, why forking?
+
+The goal behind Tryton is not to create a direct competitor but to provide a new way to tackle the problem of programming a business software. The idea is to favor a solid and consistent solution over more cutting edge features.
+
+Practically this means that today (20 October 2008), compared to the version of Tiny ERP (4.2) that was the base of the fork:
+
+* More than 4000 lines of code have been removed and
+* more than 11000 lines of code have been added.
+
+Moreover, all the modules available in Tryton have been completely rewritten, which represent nearly 20000 lines of code. All this work was necessary from our point of view because most of the fundamental modules in Tiny ERP where written when some of the most advanced technical features were still missing. The result is a better harmonization between base modules, an optimized modularity and amore powerful platform for custom developments.
+Here is list of improvements made on Tryton compared to OpenERP.
+"""
+
+====
+
+Original: Nexuiz (http://www.nexuiz.com/)
+Forked: Xonotic (http://www.xonotic.org/)
+Type: Game (shooter game)
+Date: Mar 2010 (http://games.slashdot.org/story/10/03/22/1859212/Nexuiz-Founder-Licenses-It-For-Non-GPL-Use)
+Reason: Legal issues (http://www.xonotic.org/the-game/faq/#What_prompted_the_split_from_Nexuiz)
+Outcome:  Both still active.
+Other: 
+
+From Xonotic FAQ (http://www.xonotic.org/the-game/faq/#What_prompted_the_split_from_Nexuiz)
+"""
+What prompted the split from Nexuiz?
+
+Lee Vermeulen, the Nexuiz project founder, decided to license the Nexuiz code (with LordHavoc licensing the Darkplaces engine) to a new game development company named Illfonic so that they could develop a closed-source version for the PS3. As part of this deal, IllFonic acquired the rights to use the name Nexuiz along with the domain nexuiz.com, and are under no obligation to contribute code back to the open-source Nexuiz project (and have stated that they have no intention of doing so).
+
+When this was announced, the response from the Nexuiz community was overwhelming negative, even among the development team and main contributors. Vermeulen had not actively participated in the project for several years and all development had been done by the community. Most members have expressed a sense of betrayal and cited the project as an example of mushroom management. Vermeulen essentially cashed in on the hard work of others and sold the code, name and reputation that they had built up over years without him.
+
+Despite attempts to reason with IllFonic, they have refused to change the name of their project to a derivative name even though they have directly stated that their “version” of Nexuiz is a completely different game. The hijacking of the Nexuiz project by its absentee founder and IllFonic made it clear that it had no future as it stood and thus the community left to found Xonotic.
+"""
+
+====
+
+Original: GNU GIMP (http://www.gimp.org)
+Forked: CinePaint (first film GIMP, http://www.cinepaint.org/)
+Type: Graphics
+Date: Jul 2002 (http://www.cinepaint.org/more/about.html)
+Reason: Technical reasons (http://www.cinepaint.org/more/about.html)
+Outcome: Both still active
+Other: 
+
+From About CinePaint (http://www.cinepaint.org/more/about.html)
+"""
+So Why Not GIMP?
+
+We get this question a lot. Because CinePaint handles 8-bit images in common image formats such as JPEG, TIFF, and PNG, that makes CinePaint an alternative to ordinary image editing tools. However, CinePaint has fundamentally different design goals from projects like GIMP. We have the interest, expertise, experience, professionalism, and pro users needed when developing successful software for the high-end.
+
+Ever since CinePaint launched as a public project on SourceForge on July 4th, 2002, there's been quite a bit of hostility towards us from GIMP hackers. There seems to be a misconception that we're competitors. In our primary market, the film industry, our position is #2 and Adobe Photoshop is #1. GIMP is practically useless for filmmaking since it can't handle CIN, DPX or EXR files.
+
+GIMP has pursued an architectural overhaul called GEGL that's a very different design from Glasgow. They've been at it since 2000. Glasgow began in 2004.
+"""
+
+====
+
+Original: GNU arch (http://www.gnu.org/software/gnu-arch/)
+Forked: ArX (http://www.nongnu.org/arx/)
+Type: Development (Revision control)
+Date: Apr 2003 (http://osdir.com/ml/version-control.arch.user/2003-04/msg00071.html)
+Reason: Technical issues (http://osdir.com/ml/version-control.arch.user/2003-04/msg00071.html)
+Outcome: GNU arch discontinued (last version from 2006). ArX discontinued (latest version Nov 2005)
+Other: 
+
+====
+
+Original: GNU arch (http://www.gnu.org/software/gnu-arch/)
+Forked: Baz (http://wiki.bazaar.canonical.com/Baz1x)
+Type: Development (Revision control)
+Date: Oct 2004 (http://lists.gnu.org/archive/html/gnu-arch-users/2004-10/msg00712.html)
+Reason: Technical. 
+Outcome: GNU arch discontinued (last version from 2006). Baz deprecated (since 2006), but continued on a new project called Bazaar, which is still active. Not sure if Bazaar is a fork of Baz (and if it has code in common)
+Other: 
+
+More information can be obtained from HistoryOfBazaar (http://wiki.bazaar.canonical.com/HistoryOfBazaar)
+
+====
+
+Original: DansGuardian (http://dansguardian.org/)
+Forked: MinD (http://code.google.com/p/mindwebfilter/)
+Type: Content control
+Date: Jun 2011 (http://code.google.com/p/mindwebfilter/downloads/list)
+Reason: Technical (http://code.google.com/p/mindwebfilter/)
+Outcome: Both still active. 
+Other: 
+
+From the Mind web page (http://code.google.com/p/mindwebfilter/)
+"""
+Why Fork?
+
+First of all, I wish to thank Daniel Barron and Dansguardian team for the work they did.
+
+The only reason for this fork is the main target of both projects is significantly different. Dansguardian aims is to be a proxy, just a proxy like Squid. Moreover, MinD aims is to be a professional Web Content Adaptation and Filtering Tool for all the users. After exchanging some emails with Daniel, he gave us him approval for forking the project.
+"""
+
+
+====
+
+Original: GNU Zebra (http://www.gnu.org/software/zebra/)
+Forked: Quagga (http://www.nongnu.org/quagga/)
+Type: Networking (Routing)
+Date: Jul 2010 (http://savannah.nongnu.org/projects/quagga)
+Reason: More community-driven development (http://www.nongnu.org/quagga/)
+Outcome: Zebra has been decommissioned. Quagga still active
+Other: 
+
+From the Quagga web page (http://www.nongnu.org/quagga/)
+"""
+The Quagga tree aims to build a more involved community around Quagga than the current centralised model of GNU Zebra.
+"""
+
+====
+
+Original: Tux Racer (http://tuxracer.sourceforge.net/)
+Forked: Open Racer (http://moria.seul.org:8080/wf/dev/systems/OpenRacer/)
+Type: Game (racing)
+Date: Aug 2001 (http://www.linuxtoday.com/news_story.php3?ltsn=2001-08-02-011-20-NW-GM)
+Reason: Legal issues (http://www.linuxtoday.com/news_story.php3?ltsn=2001-08-02-011-20-NW-GM)
+Outcome: Tux Racer discontinued (in 2003, http://en.wikipedia.org/wiki/Tux_Racer). Open Racer abandoned (in 2001, http://moria.seul.org:8080/wf/dev/systems/OpenRacer/).
+Other: 
+
+From (http://www.linuxtoday.com/news_story.php3?ltsn=2001-08-02-011-20-NW-GM):
+"""
+Tux Racer to be closed source- GPL Project Continues
+Aug 2, 2001, 21 :36 UTC (40 Talkback[s]) (17005 reads)
+J. Nathan Matias writes:
+
+Sunspire Studios is going to release Tux Racer 1.0 as a closed source, commercial product. Tux Racer is the Free Software community's premier 3d game, and I only found out about the future closed source release in emails from Sunspire. They are following the procedures of relicensing allowed from the GPL, so everything is legal.
+
+In response to this, I have started a project called Open Racer whose purpose is to continue development of the GPL Tux Racer. Sunspire is ok (and, I believe, happy) with everything so long as the project doesn't go into direct competition with Tux Racer 1.0. It's my goal to develop the project in a different direction in accordance with Sunspire's wishes, but I'm still looking for ideas at this point.
+"""
+
+====
+
+Original: Tux Racer (http://tuxracer.sourceforge.net/)
+Forked: PlanetPenguin Racer (http://web.archive.org/web/20060101094408/projects.planetpenguin.de/racer/)
+Type: Game (racing)
+Date: Sep 2004 (http://developer.berlios.de/forum/forum.php?forum_id=7169)
+Reason: Discontinuation of the original project - Continuation of not-continued Tux Racer (due to change in license Aug 2001).
+Outcome: Tux Racer discontinued (in 2003, http://en.wikipedia.org/wiki/Tux_Racer). PlanetPenguin Racer abandoned (last version Sept 2005)
+Other: 
+
+====
+
+Original: PlanetPenguin Racer (http://web.archive.org/web/20060101094408/projects.planetpenguin.de/racer/)
+Forked: Extreme Tux Racer (http://extremetuxracer.com/)
+Type: Game (racing)
+Date: Jul 2007 (http://sourceforge.net/projects/extremetuxracer/)
+Reason: Continuation of not-continued PlanetPenguin Racer
+Outcome: PlanetPenguin Racer abandoned (last version Sept 2005). Extreme Tux Racer active (last commit 8 months ago)
+Other: 
+
+====
+
+Original: Apache CouchDB (http://couchdb.apache.org/)
+Forked: BigCouch (http://bigcouch.cloudant.com/)
+Type: Database (Document-oriented database)
+Date: Aug 2010 (http://blog.cloudant.com/cloudant-bigcouch-is-open-source/)
+Reason: Technical issues (http://bigcouch.cloudant.com/)
+Outcome: Both still active 
+Other: 
+
+From the BigCouch webpage (http://bigcouch.cloudant.com/):
+"""
+A Highly Available, Fault-tolerant, Clustered Version of Apache CouchDB
+
+While it appears to the end-user as one Apache CouchDB instance, it is in fact one or more BigCouch nodes in an elastic cluster, acting in concert to store and retrieve documents, index and serve views, and serve CouchApps. BigCouch has been developed and is continually maintained by Cloudant. Clusters behave according to concepts outlined in Amazon’s Dynamo paper, namely that each BigCouch node can accept requests, data is placed on partitions based on a consistent hashing algorithm, and quorum protocols are applied for read/write operations.
+"""
+
+
+====
+
+Original: Project Darkstar (http://www.projectdarkstar.com/)
+Forked: RedDwarf (http://www.reddwarfserver.org/)
+Type: Middleware
+Date: Feb 2010 (http://www.reddwarfserver.org/?q=content/welcome)
+Reason: More community-driven development - Oracle takeover of Sun (http://www.reddwarfserver.org/?q=content/welcome)
+Outcome: Project Darkstar discontinued (http://labs.oracle.com/projects/dashboard.php?id=168). Project RedDwarf still active.
+Other: 
+
+From Welcome | RedDwarf Server (http://www.reddwarfserver.org/?q=content/welcome)
+"""
+Welcome
+Submitted by owenkellett on Fri, 02/12/2010 - 16:32
+Welcome to the new community portal for RedDwarf Server.  RedDwarf is the official community fork of Project Darkstar, established because investment in that project has been discontinued by Oracle.  The first official release of RedDwarf, version 0.10.0, is available and consists of essentially a rebranded version of the most recent codebase from the trunk of the Project Darkstar repository on java.net.  Please feel free to look around, and join the community in continuing development of this great project.
+"""
+
+====
+
+Original: ispCP (http://isp-control.net/)
+Forked: i-MSCP Phoenix (http://i-mscp.net/)
+Type: Administration
+Date: Nov 2010 (http://www.linuxcompatible.org/news/story/ispcp_fork_i_mscp.html)
+Reason: Technical issues (http://www.linuxcompatible.org/news/story/ispcp_fork_i_mscp.html)
+Outcome: Both still active.
+Other: 
+
+====
+
+Original: Kamailio (formerly OpenSER, http://www.kamailio.org/w/)
+Forked: OpenSIPS (http://opensips.org/)
+Type: Networking (VoIP)
+Date: Aug 2008 (Spanish: http://saghul.net/blog/2008/08/04/nace-opensips-fork-de-kamailio-antes-openser/)
+Reason: Differences among developer team (Spanish: http://saghul.net/blog/2008/08/04/nace-opensips-fork-de-kamailio-antes-openser/)
+Outcome: Both still active.
+Other: 
+
+====
+
+Original: SER (http://www.iptel.org/ser/)
+Forked: Kamailio (formerly OpenSER, http://www.kamailio.org/w/)
+Type: Networking (VoIP)
+Date: Jun 2005 (http://www.kamailio.org/w/history/)
+Reason: More community-driven development (http://www.kamailio.org/w/history/)
+Outcome: On November 04, 2008 – Kamailio (OpenSER) and SIP Express Router (SER) started the SIP Router project. Still active.
+Other: 
+
+From Kamailio history (http://www.kamailio.org/w/history/):
+"""
+OpenSER venture was conducted by the different views in the management and development of the open source project (policy about contributions, release cycles and development effort).
+"""
+
+====
+
+Original: JSLint (http://www.jslint.com/)
+Forked: JSHint (http://www.jshint.com/)
+Type: Development (Static code analysis)
+Date: Feb 2011 (http://anton.kovalyov.net/2011/02/20/why-i-forked-jslint-to-jshint/)
+Reason: Technical issues (http://anton.kovalyov.net/2011/02/20/why-i-forked-jslint-to-jshint/)
+Outcome: Both still active
+Other: 
+
+From the JSHint About page (http://www.jshint.com/about/)
+"""
+JSHint is a fork of JSLint, the tool written and maintained by Douglas Crockford.
+
+The project originally started as an effort to make a more configurable version of JSLint—the one that doesn't enforce one particular coding style on its users—but then transformed into a separate static analysis tool with its own goals and ideals.
+"""
+====
+
+Original: Psi (http://psi-im.org/)
+Forked: Psi+ (http://www.psi-plus.com/)
+Type: Networking (Instant messaging client)
+Date: Mar 2009 (bottom of Changelog: https://raw.github.com/psi-plus/main/master/changelog.txt)
+Reason: Discontinuation of the original project - Not found, but seems because Pis is discontinued, althought when it started it just was a development "branch"
+Outcome: Psi seems stalled (No new version has been released since Dec 2009 (Psi 0.14)). Psi+ still active
+Other: 
+
+
+====
+
+Original: Nucleus CMS (http://nucleuscms.org/)
+Forked: Blog:CMS (http://blogcms.com/)
+Type: Web (Weblog)
+Date: May 2004 (http://forum.nucleuscms.org/viewtopic.php?t=3839)
+Reason: Differences among developer team (http://forum.nucleuscms.org/viewtopic.php?t=3815)
+Outcome: Both still active.
+Other: 
+
+
+====
+
+Original: Bible Reader for Palm (http://www.olivetree.com/palm/)
+Forked: Palm Bible+ (http://palmbibleplus.sourceforge.net/)
+Type: e-books
+Date: Jan 2003 (http://palmbibleplus.sourceforge.net/)
+Reason: Legal issues - Bible Reader for Palm author decided to close source ()
+Outcome: Bible Reader for Palm seems active. Palm Bible+ last release in 2008.
+Other: 
+
+From the Palm Bible+ web page (http://palmbibleplus.sourceforge.net/)
+"""
+Palm Bible+ was developed in 2003 out of an exension to the original Bible Reader by Poetry Poon and has since become one of the most famous pieces of software for users of Palm, Sony, GSL, and Handspring branded Palm OS mobile devices. In addition to providing a free Bible reader, the Bible+ website also serves as a portal for various resources and discussions towards developing and dissemenating electronic Biblical resources.
+"""
+
+====
+
+Original: b2/cafelog (http://cafelog.com/)
+Forked: WordPress (http://wordpress.org)
+Type: Web (Weblog)
+Date: May 2003 (http://wordpress.org/news/2003/05/wordpress-now-available/)
+Reason: Discontinuation of the original project - b2/cafelog maintainer hands over 'officially' to new developers (http://cafelog.com/index.php?p=500&c=1)
+Outcome: b2 discontinued. WordPress still active 
+Other: 
+
+
+====
+
+Original: b2/cafelog (http://cafelog.com/)
+Forked: b2evolution (http://b2evolution.net)
+Type: Web (Weblog)
+Date: Apr 2003 (http://b2evolution.net/about/evolutionofb2.html)
+Reason: Discontinuation of the original project - b2 developer disappeared (http://b2evolution.net/about/evolutionofb2.html)
+Outcome: b2 discontinued. b2evolution still active
+Other: 
+
+
+====
+
+Original: OpenDS (http://www.opends.org/)
+Forked: OpenDJ (http://forgerock.com/opendj.html)
+Type: Networking (Directory service)
+Date: Oct 2010 (http://blog.dzhuvinov.com/?p=599)
+Reason: Discontinuation of the original project - Oracle to discontinue development after takeover of Sun
+Outcome: OpenDS discontinued (last version Oct 2010). OpenDJ still active
+Other: 
+
+
+====
+
+Original: HoverRace (http://www.hoverrace.com/)
+Forked: HoverRace Plus (https://code.launchpad.net/~butterman/hoverrace/main)
+Type: Game
+Date: Summer 2008 (http://en.wikipedia.org/wiki/HoverRace)
+Reason: Discontinuation of the original project - No development in HoverRace (http://en.wikipedia.org/wiki/HoverRace)
+Outcome: HoverRace still active. HoverRace Plus defunct (last modificed Jun 2008)
+Other: 
+
+From the HoverRace WikiPedia page (http://en.wikipedia.org/wiki/HoverRace)
+"""
+From 2006 to summer 2008, little development was done on the source code. Without an active source code repository and bug-tracking website, and without motivated coders, nothing happened. Then, in summer 2008, a subversion repository was set up and development began. In addition to this version, managed by HoverRace.com, another member of the HoverRace community started HoverRace Plus, intending to fork the original HoverRace source code. HoverRace Plus is now defunct, as a new fork called OpenHover has similar goals, and made an alpha release on December 14, 2008. OpenHover is a fork of HoverRace.com's HoverRace 1.23, with some changes such as chat sounds, various bug fixes, and the distinction between non-registered users, and registered monitors.
+"""
+
+
+====
+
+Original: Fenix (http://fenix.divsite.net/)
+Forked: BennuGD (http://www.bennugd.org/)
+Type: Game engine
+Date: Feb 2008 (http://www.bennugd.org/?q=node/19#fork)
+Reason: Discontinuation of the original project - First BennuGD took over inactive Fenix, then forked it due to disagreements with other Fenix members (http://www.bennugd.org/?q=node/19#fork)
+Outcome: Fenix defunct. BennuGD still active. 
+Other: 
+
+From Community Interviews (Part I) (http://www.bennugd.org/?q=node/19#fork)
+"""
+Bennugd.org: When did you decide to take charge of Fenix? Why fork it?
+SplinterGU: In the year 2006, I wanted to create a game and looking for some game engine, I decided to visit the Fenix community again and found that it had been abandoned and its latest version was completely unstable and nobody used it because of how many bugs it had. I couldn't imagine how unstable it was, if I had, we wouldn't be taking this interview. At that time I decided to take charge of the project & resucitate the project.
+
+Around the year 2008 disagreement arose with some Fenix users that couldn't keep up with the update rhythm I followed and were most of the time nagging, trying to take me out of the project (and from the forum administrative roles) and complaining about every improvement I did to the language, saying such things as that the language belonged to the community and that I had no right to change it. It was then that I decided to change the name to the Fenix version that was under development (0.93) to "Bennu Game Development" and thus I wouldn't have to explain to anybody the improvements and corrections I did -and do- to the language. That's how the fork happened.
+"""
+
+
+====
+
+Original: FCE Ultra (http://www.geocities.co.jp/Playtown/2004/fce.htm)
+Forked: FCEUX (http://www.fceux.com/web/home.html)
+Type: Emulator
+Date: Mar 2006 (http://www.fceux.com/web/archive.html)
+Reason: Discontinuation of the original project - FCE Ultra development stopped Oct 2004 (http://www.fceux.com/web/archive.html)
+Outcome: FCE ultra defunct. FCEUX still active 
+Other: 
+
+From the FCEUX archived News (http://www.fceux.com/web/archive.html):
+"""
+18 March 2006
+
+The FCE Ultra project has been taken over! Our current goal is only to preserve the state of the project as it was left by the author, Xodnizel. But we'd love to get development going again, too. We'll post more information soon.
+
+29 October 2004
+
+No new *official* releases of FCE Ultra will be made. I mean it this time. :b
+
+The forum has been closed, as I will not be available to moderate it any longer, but the old posts will be viewable indefinitely.
+"""
+
+====
+
+Original: QTExtended (formerly Qtopia, formerly QPE, )
+Forked: OPIE (http://opie.sourceforge.net/cgi-bin/moin.cgi/)
+Type: Kernel
+Date: May 2002 (http://web.archive.org/web/20070504212706/http://www.linuxdevices.com/links/LK3806469853.html)
+Reason: More community-driven development - Open and public development practices (http://web.archive.org/web/20070504212706/http://www.linuxdevices.com/links/LK3806469853.html)
+Outcome: QTExtended discontinued by Trolltech March 2009. OPIE last version Dec 2010. 
+Other: 
+
+
+====
+
+Original: Dokeos (http://www.dokeos.com/)
+Forked: Chamilo (http://www.chamilo.org/)
+Type: Web (Learning Management System)
+Date: Jan 2010 (http://www.chamilo.org/en/about-chamilo)
+Reason: More community-driven development - Open and public development as Dokeos (company) development too narrow (http://6clearning.blogspot.com/2010/01/dokeos-open-course-lms-becomes-chamilo.html)
+Outcome: Both projects still active. 
+Other: 
+
+
+====
+
+Original: Claroline (http://www.claroline.net/)
+Forked: Dokeos (http://www.dokeos.com/)
+Type: Web (Learning Management System)
+Date: 2004 (http://forum.joomla.org/viewtopic.php?t=3648)
+Reason: Company (commercial) strategy - Main developer creating company and trademark issues with university hosting Claroline (http://forum.joomla.org/viewtopic.php?t=3648)
+Outcome: Both projects still active. 
+Other: 
+
+
+====
+
+Original: QtiPlot (http://soft.proindependent.com/qtiplot.html)
+Forked: SciDavis (http://scidavis.sourceforge.net/)
+Type: Graphics (Plotting)
+Date: Aug 2007 (http://dot.kde.org/2009/10/16/labplot-and-scidavis-collaborate-future-free-scientific-plotting)
+Reason: Differences among developer team (http://dot.kde.org/2009/10/16/labplot-and-scidavis-collaborate-future-free-scientific-plotting)
+Outcome: QtiPlot still active (last release Nov 2011). SciDavis not clear (last release Apr 2010)
+Other: 
+
+From LabPlot and SciDAVis Collaborate on the Future of Free Scientific Plotting (http://dot.kde.org/2009/10/16/labplot-and-scidavis-collaborate-future-free-scientific-plotting):
+"""
+As Knut puts it, the fork happened because they had “different ideas [than Ion Vasilief, QtiPlot's founder and main developer] about many things, including design goals, management of community resources and the right way to make money from a free software project”. Extensive sharing of code between QtiPlot and SciDAVis in the future is unlikely – Tilman explains that “SciDAVis 0.2.0 already features an almost complete rewrite of the table and matrix code to make (among other things) the undo/redo functionality possible”. However, Knut sees some libraries used in QtiPlot that may have an application in SciDAVis: “namely liborigin2 (an improved version of the liborigin project[...]) and libraries for exporting graphics from Qt to TeX and to EMF”.
+"""
+
+====
+
+Original: Frog CMS (http://www.madebyfrog.com/)
+Forked: Wolf CMS (http://www.wolfcms.org/)
+Type: Web (CMS)
+Date: Jul 2009 (http://vanderkleijn.net/articles/2009/07/10/forking-the-frog-project.html)
+Reason: Differences among developer team (http://vanderkleijn.net/articles/2009/07/10/forking-the-frog-project.html)
+Outcome: Frog CMS seems stalled (last version Apr 2009). Wolf CMS still active.
+Other: 
+
+
+====
+
+Original: AOLserver (http://www.aolserver.com/)
+Forked: NaviServer (http://wiki.tcl.tk/2090)
+Type: Networking (Web server)
+Date: Feb 2005 (http://wiki.tcl.tk/2090)
+Reason: Technical (http://middleware.sovibox.fi/naviserver/)
+Outcome: AOLServer seems discontinued (last news April 2010). NaviServer still active.
+Other: 
+
+
+====
+
+Original: XMBC (http://xbmc.org/)
+Forked: XMBC4Xbox (http://www.xbmc4xbox.org/)
+Type: Multimedia (media center)
+Date: May 2010 (http://www.cnet.com.au/xbox-no-longer-part-of-xbmc-339303489.htm)
+Reason: Technical - Xbox support by XMBC discontinued (http://www.xbmc4xbox.org/about)
+Outcome: Both still active.
+Other: 
+
+
+====
+
+Original: SharpDevelop (http://www.icsharpcode.net/)
+Forked: MonoDevelop (http://monodevelop.com/)
+Type: Development (IDE)
+Date: Late 2003 (http://tirania.org/blog/archive/2008/Mar-14.html)
+Reason: Technical (http://monodevelop.com/FAQ)
+Outcome: Both still active. 
+Other: 
+
+From MonoDevelop FAQ (http://monodevelop.com/FAQ):
+"""
+MonoDevelop was originally a port of the SharpDevelop IDE to Gtk#, but it has evolved a lot since the initial port.
+"""
+
+
+====
+
+Original: osCommerce (http://www.oscommerce.com/)
+Forked: Zen Cart (http://www.zen-cart.com/)
+Type: Web (Online store management)
+Date: June 2003 (http://www.zen-cart.com/wiki/index.php/Introduction)
+Reason: Not Found.
+Outcome: Both still active.
+Other: 
+
+====
+
+Original: osCommerce (http://www.oscommerce.com/)
+Forked: Batavi (http://www.batavi.org/)
+Type: Web (Online store management)
+Date: 2007 (http://en.wikipedia.org/wiki/Batavi_(software))
+Reason: Discontinuation of the original project - osCommerce development seemed stagnated (http://en.wikipedia.org/wiki/Batavi_(software))
+Outcome: Both still active.
+Other: 
+
+
+====
+
+Original: Hudson (http://hudson-ci.org/)
+Forked: Jenkins (http://jenkins-ci.org/)
+Type: Continuous integration
+Date: Jan 2011 (http://jenkins-ci.org/content/hudsons-future)
+Reason: Legal - trademark issues and Oracle leadership dispute (http://java.net/projects/hudson/lists/dev/archive/2011-02/message/0)
+Outcome: Both still active.
+Other: 
+
+From the Jenkins Wikipedia page (http://en.wikipedia.org/wiki/Jenkins_(software))
+"""
+Jenkins was originally developed as the Hudson project. During November 2010, an issue arose in the Hudson community with respect to the infrastructure used, which grew to encompass questions over the stewardship and control by Oracle.[7] Negotiations between the principal project contributors and Oracle took place, and although there were many areas of agreement a key sticking point was the trademarked name "Hudson".[8] As a result, on January 11, 2011, a call for votes was made to change the project name from "Hudson" to "Jenkins".[9] The proposal was overwhelmingly approved by community vote on January 29, 2011 creating the Jenkins project.[10][11] On February 1, 2011, Oracle said that they intended to continue development of Hudson, and considered Jenkins a fork rather than a rename.[12] Jenkins and Hudson therefore continue as two independent projects, each claiming the other is the fork.
+"""
+
+
+====
+
+Original: Synergy (http://synergy-foss.org/)
+Forked: Synergy+ (http://sourceforge.net/projects/synergy2/)
+Type: Hardware sharing
+Date: Jun 2010 (http://sourceforge.net/apps/trac/sourceforge/ticket/11846)
+Reason: Discontinuation of the original project - Synergy unmaintained (http://sourceforge.net/apps/trac/sourceforge/ticket/11846)
+Outcome: Both projects merged Aug 2010 (http://sourceforge.net/projects/synergy2/)
+Other: 
+
+====
+
+Original: NASA World Wind (http://worldwind.arc.nasa.gov/java/)
+Forked: Dapple (http://dapple.geosoft.com/)
+Type: Desktop (Virtual Globe)
+Date: Jul 2006 (http://dapple.geosoft.com/releasenotes.asp)
+Reason: Technical - Focus on specific users (http://dapple.geosoft.com/about.asp)
+Outcome: NASA World Wind still active. Dapple not active (last release: Mar 2010) 
+Other: 
+
+From About the Dapple open source project (http://dapple.geosoft.com/about.asp):
+"""
+The Dapple project is an open-source activity sponsored by Geosoft and derived from the NASA World Wind open source project. Dapple represents our effort to make this powerful technology accessible and useful to professional earth scientists.
+"""
+
+====
+
+Original: NASA World Wind (http://worldwind.arc.nasa.gov/java/)
+Forked: Punt (http://punt.sourceforge.net/new_svn/index.html)
+Type: Desktop (Virtual Globe)
+Date: Nov 2005 (http://punt.sourceforge.net/new_svn/releasenotes.html)
+Reason: Not found.
+Outcome: NASA World Wind still active. Punt not active (last version Apr 2006)
+Other: 
+
+
+====
+
+Original: FreeMind (http://freemind.sourceforge.net/wiki/index.php/Main_Page)
+Forked: Freeplane (http://freeplane.sourceforge.net/wiki/index.php/Main_Page)
+Type: Development (Project management)
+Date: Jul 2009 (http://freeplane.sourceforge.net/wiki/index.php/Relationship_to_FreeMind)
+Reason: Technical - architecture and development process (http://freeplane.sourceforge.net/wiki/index.php/Relationship_to_FreeMind)
+Outcome: Both still active.
+Other: 
+
+
+====
+
+Original: FreeMind (http://freemind.sourceforge.net/wiki/index.php/Main_Page)
+Forked: Docear (formerly SciPlore MindMapping, http://www.sciplore.org/software/sciplore_mindmapping/)
+Type: Development (Project management)
+Date: Feb 2010 (based on FreeMind (0.9 RC7 Max), http://www.sciplore.org/software/sciplore_mindmapping/, release date FreeMind 0.8 RC7: http://sourceforge.net/projects/freemind/forums/forum/22101/topic/3570559)
+Reason: Technical - Adding PDF functinoality (http://www.sciplore.org/software/sciplore_mindmapping/)
+Outcome: Both still active. SciPlore MindMapping announced to switch to Freeplane (another fork of FreeMind) Feb 2011
+Other: 
+
+From Good by FreeMind, welcome FreePlane (http://sciplore.org/2011/good-by-freemind-welcome-freeplane/):
+"""
+When we started the development of SciPlore MindMapping about a year ago we decided to use FreeMind as code base. That means we used FreeMind`s source code, modified it slightly, and added some new features. It was a straight forward decision: for many years, FreeMind was bascially the standard choice if you wanted a free open source mind mapping software and it was written in Java, our preferred programing language. However, time is changing and FreeMind unfortunately is not. Since a long time, the FreeMind team is releasing new versions very slowly, not to say the development of FreeMind almost pauses.
+
+Therefore we decided to switch to Freeplane as code base in near future (around July 2011). Freeplane was founded by Dimitry Polivaev, one of the core developers of FreeMind. Under his lead  Freeplane became a really, really nice mind mapping software over the last years. We also got many emails from our users who prefer Freeplane over FreeMind and we are sure that this is a huge improvement for all SciPlore MindMapping users.
+"""
+
+
+====
+
+Original: ntfsprogs (http://web.archive.org/web/20080522140207/http://www.linux-ntfs.org/doku.php?id=ntfsprogs)
+Forked: NTFS-3G (http://www.tuxera.com/community/ntfs-3g-download/)
+Type: File system driver
+Date: July 2006 (http://www.tuxera.com/community/release-history/)
+Reason: Differences among developer team (http://www.icpug.org.uk/national/freesw/060806fs.htm)
+Outcome: Both projects merged into NTFS-3G (http://www.tuxera.com/open-source/release-ntfs-3g-ntfsprogs-2011-4-12/)
+Other: 
+
+From LINUX AND NTFS (http://www.icpug.org.uk/national/freesw/060806fs.htm):
+"""
+Then we come to 14th July 2006. Apart from the French celebrating Bastille Day, this was notable for Linux-NTFS project member Szabolcs Szakacsits, (whom I shall refer to as SS from now on!), suddenly announcing the availability of ntfs-3g. This was a fork of ntfsmount, which gave it greater capability. In particular the 7 file in a folder creation limit was removed. SS made his announcement 2 days before he was off on an adventure trek for a month! My initial thought was to be deeply suspicious. What a wonderful way to introduce some malware to the community. Apparently give them something they desperately need and disappear for a month!
+
+In the two day period before SS left for his trip there were a number of exchanges between himself and Anton Altaparmakov, (AA), maintainer of the Linux-NTFS project.. It was clear that AA had done some review of the code SS had generated. This gave me some confidence that it was not a malware threat. As I read the exchange it was clear there were differences in opinion as to how ntfs-3g should develop if it were to be integrated into the Linux-NTFS project. I must admit that SS had a much more rigid definition than AA of what he considered was tested code and I liked the definition of SS! SS was aware of some things that still needed to be done but wanted to release the code before he left on his trip - to enable more testing to occur. ntfs-3g is regarded as beta code.
+"""
+
+====
+
+Original: Swing Application Framework (None)
+Forked: Better Swing Application Framework (http://kenai.com/projects/bsaf/pages/Home)
+Type: API
+Date: Aug 2009 (http://kenai.com/projects/bsaf/pages/Home)
+Reason: Discontinuation of the original project - Continuation of development (http://kenai.com/projects/bsaf/pages/Home)
+Outcome: Since August 2009, the original Swing Application Framework project has been on hold (http://kenai.com/projects/bsaf/pages/Home). The Better Swing Application Framework is still active.
+Other: 
+
+====
+
+Original: Swing Application Framework (None)
+Forked: Swing Application Framework Fork (404, https://github.com/hamnis/SAFF)
+Type: API
+Date: Aug 2009 (http://en.wikipedia.org/wiki/Swing_Application_Framework)
+Reason: Discontinuation of the original project - Continuation of development (http://en.wikipedia.org/wiki/Swing_Application_Framework#Forks_and_Alternatives)
+Outcome: Since August 2009, the original Swing Application Framework project has been on hold (http://kenai.com/projects/bsaf/pages/Home). The Swing Application Framework Fork is dormant since Oct 2009 (http://en.wikipedia.org/wiki/Swing_Application_Framework#Forks_and_Alternatives)
+Other: 
+
+====
+
+Original: FlowerSol (Not found)
+Forked: UltraSol (404, http://freecode.com/projects/ultrasol)
+Type: Game
+Date: Nov 2003 (http://solitaire.vegard2.no/pysol.html)
+Reason: Discontinuation of the original project - Not found, possibly FlowerSol discontinued develompent.
+Outcome: FlowerSol discontinued Mar 2001 (http://www.pysol.org/). Ultrasol discontinued (homepage disappeared 2007, http://solitaire.vegard2.no/pysol.html)
+Other: 
+
+Very complete story of PySol and family: http://solitaire.vegard2.no/pysol.html
+
+====
+
+Original: Pysol (http://www.pysol.org/)
+Forked: PySol Fan Club Edition (PySolFC) (http://pysolfc.sourceforge.net/)
+Type: Game
+Date: Oct 2005 (http://sourceforge.net/projects/pysolfc/)
+Reason: Discontinuation of the original project - Pysol discontinued develompent (http://www.pysol.org/)
+Outcome: Pysol discontinued Sept 2003 (http://www.pysol.org/). PySolFC still active.
+Other: 
+
+Very complete story of PySol and family: http://solitaire.vegard2.no/pysol.html
+
+====
+
+Original: Pysol (http://www.pysol.org/)
+Forked: FlowerSol (Not found)
+Type: Game
+Date: Oct 1999 (http://www.boutell.com/lsm/lsmbyid.cgi/000818)
+Reason: Not clear. It seems even that FlowerSol is really a plugin of Pysol (http://solitaire.vegard2.no/pysol.html)
+Outcome: Pysol discontinued Sept 2003 (http://www.pysol.org/). FlowerSol discontinued since Mar 2001 (http://solitaire.vegard2.no/pysol.html)
+Other: 
+
+Very complete story of PySol and family: http://solitaire.vegard2.no/pysol.html
+
+====
+
+Original: Pysol (http://www.pysol.org/)
+Forked: PySolitaire (Not found)
+Type: Game
+Date: Aug 2003 (http://solitaire.vegard2.no/pysol.html)
+Reason: Discontinuation of the original project - Not found, but possibly Pysol discontinued develompent
+Outcome: Pysol discontinued Sept 2003 (http://www.pysol.org/). It hand only one version (http://solitaire.vegard2.no/pysol.html)
+Other: 
+
+Very complete story of PySol and family: http://solitaire.vegard2.no/pysol.html
+
+====
+
+Original: L2J (http://www.l2jserver.com/)
+Forked: L2JFree (http://www.l2jfree.com)
+Type: Game server
+Date: Nov 2006 (Revision 1 of SVN, http://websvn.l2jfree.com/log.php?repname=l2jfree&path=%2Ftrunk%2Fl2jfree-core%2Fsrc%2Fmain%2Fjava%2Fcom%2Fl2jfree%2FConfig.java&rev=1&peg=8899)
+Reason: Not found
+Outcome: Both projects still active.
+Other: 
+
+
+====
+
+Original: L2J (http://www.l2jserver.com/)
+Forked: L2Emu (http://www.l2emuproject.net/, http://code.google.com/p/l2emu/)
+Type: Game server
+Date: Feb 2011 (revision 1 of SVN, http://code.google.com/p/l2emu/source/list?num=25&start=25)
+Reason: Not found
+Outcome: L2J still active. L2Emu last release Feb 2011; last commit Apr 2011 (http://code.google.com/p/l2emu/source/list)
+Other: 
+
+
+====
+
+Original: L2J (http://www.l2jserver.com/)
+Forked: L2J_JP (Seems to be http://www.l2j-jp.info/L2J_JP, found in Gentoo package: http://mannequeen.net/~rock/linux/gentoo/portage/dirtool.cgi?EXTRACT=1;TARGET=.%2Fgames-server%2Fl2j_jp-bin%2Fl2j_jp-bin-20080613.ebuild)
+Type: Game server
+Date: Not found
+Reason: Not found
+Outcome: L2J still active. L2J_JP recent activity not found
+Other: 
+
+
+====
+
+Original: L2J (http://www.l2jserver.com/)
+Forked: L2JTW (http://www.l2jtw.com/)
+Type: Game server
+Date: Not found
+Reason: Not found
+Outcome: L2J still active. L2JTW recent activity not found
+Other: 
+
+====
+
+Original: SugarCRM (http://www.sugarcrm.com/crm/)
+Forked: vtiger CRM (http://www.vtiger.com/)
+Type: CRM
+Date: Oct 2004 (Oldest product: http://www.vtiger.com/products/crm/download.html)
+Reason: Company (commercial) strategy - Not found explicitly. It seems that commercial reasons (http://www.zdnet.co.uk/news/application-development/2004/12/31/vtiger-launches-open-source-crm-39182958/)
+Outcome: Both projects still active.
+Other: 
+
+
+====
+
+Original: SQL-Ledger (http://www.sql-ledger.com/)
+Forked: LedgerSMB (http://ledgersmb.org/)
+Type: ERP
+Date: Sep 2006 (http://sourceforge.net/projects/ledger-smb/files/ledgersmb/)
+Reason: More community-driven development (http://en.wikipedia.org/wiki/LedgerSMB)
+Outcome: Both projects still active
+Other: 
+
+From the LedgerSMB Wikipedia page (http://en.wikipedia.org/wiki/LedgerSMB):
+"""
+Forking controversy
+
+The project began when Chris Travers, dissatisfied with the handling of security bugs in SQL-Ledger, partnered with Christopher Murtagh to produce a fix for CVE-2006-4244.[2] This bug was apparently reported to the SQL-Ledger author, Dieter Simader, several months prior[3] to the Chrises working on a patch. The initial release of LedgerSMB has SQL-Ledger 2.6.16 with the fix for CVE-2006-4244 as its base. This release, along with full disclosure of the bug on the main mailing list,[4] strained relations between SQL-Ledger supporters and the members of the nascent LedgerSMB project.
+
+The forking of LedgerSMB is considered by some[5] to be part of the reason for the anti-forking clause[6] in the short-lived SQL-Ledger Open Source License, the licence that was used for SQL-Ledger 2.8.0.
+"""
+
+====
+
+Original: WakkaWiki (http://web.archive.org/web/20030702070309/http://wakkawiki.com/WakkaWiki)
+Forked: CitiWiki (Not Found)
+Type: Web (Wiki)
+Date: Not found
+Reason: Discontinuation of the original project - Not found. Possibly, because of WakkaWiki discontinued
+Outcome: WakkaWiki discontinued (last release Sep 2003, http://web.archive.org/web/20030702070309/http://wakkawiki.com/WakkaWiki). Citiwiki possibly discontinued
+Other: 
+
+====
+
+Original: WakkaWiki (http://web.archive.org/web/20030702070309/http://wakkawiki.com/WakkaWiki)
+Forked: UniWakka (http://sourceforge.net/projects/uniwakka/)
+Type: Web (Wiki)
+Date: Jul 2004 (http://sourceforge.net/projects/uniwakka/)
+Reason: Discontinuation of the original project - Not found (explicitly). Possibly, because of WakkaWiki discontinued
+Outcome: WakkaWiki discontinued (last release Sep 2003, http://web.archive.org/web/20030702070309/http://wakkawiki.com/WakkaWiki). UniWakka discontinued (last update: 2009-07-17, http://sourceforge.net/projects/uniwakka/)
+Other: 
+
+====
+
+Original: WakkaWiki (http://web.archive.org/web/20030702070309/http://wakkawiki.com/WakkaWiki)
+Forked: WackoWiki (http://wackowiki.org/)
+Type: Web (Wiki)
+Date: Mar 2003 (http://wackowiki.sourceforge.net/doc/Dev/ChangeLog)
+Reason: Discontinuation of the original project - WakkaWiki discontinued (http://en.wikipedia.org/wiki/WackoWiki)
+Outcome: WakkaWiki discontinued (last release Sep 2003, http://web.archive.org/web/20030702070309/http://wakkawiki.com/WakkaWiki). WackoWiki still active.
+Other: 
+
+====
+
+Original: WakkaWiki (http://web.archive.org/web/20030702070309/http://wakkawiki.com/WakkaWiki)
+Forked: WikiNi (http://wikini.net/wakka.php?wiki=PagePrincipale)
+Type: Web (Wiki)
+Date: Jul 2003 (http://wikini.net/wakka.php?wiki=DownloadWikini)
+Reason: Discontinuation of the original project - Not found (explicitly). Possibly, because of WakkaWiki discontinued
+Outcome: WakkaWiki discontinued (last release Sep 2003, http://web.archive.org/web/20030702070309/http://wakkawiki.com/WakkaWiki). WikiNi discontinued (last version Dec 2007, http://wikini.net/wakka.php?wiki=DownloadWikini)
+Other: 
+
+====
+
+Original: WakkaWiki (http://web.archive.org/web/20030702070309/http://wakkawiki.com/WakkaWiki)
+Forked: WikkaWiki (http://wikkawiki.org/HomePage)
+Type: Web (Wiki)
+Date: May 2004 (http://docs.wikkawiki.org/WakkaWiki)
+Reason: Discontinuation of the original project - WakkaWiki discontinued (http://docs.wikkawiki.org/WakkaWiki)
+Outcome: WakkaWiki discontinued (last release Sep 2003, http://web.archive.org/web/20030702070309/http://wakkawiki.com/WakkaWiki). WikkaWiki still active.
+Other: 
+
+====
+
+Original: Frets on Fire (http://fretsonfire.sourceforge.net/)
+Forked: Frets on Fire X (FoFiX) (http://code.google.com/p/fofix/)
+Type: Multimedia (music)
+Date: May 2007 (version 1.2.451 - http://sourceforge.net/projects/fretsonfire/files/fretsonfire/. Source: http://code.google.com/p/fofix/issues/detail?id=1261)
+Reason: Not found
+Outcome: Frets on Fire discontinued (last version: Version 1.3.110 Nov 2008 - http://fretsonfire.svn.sourceforge.net/viewvc/fretsonfire/trunk/changelog.txt). Last FoFiX version from Nov 2010
+Other: 
+
+
+====
+
+Original: Frets on Fire (http://fretsonfire.sourceforge.net/)
+Forked: Blind Hero (http://web.archive.org/web/20100410175035/http://eelke.com/blindhero.html)
+Type: Multimedia (music)
+Date: Not found
+Reason: Experimental - Adapted to visually impaired (http://web.archive.org/web/20100410175035/http://eelke.com/blindhero.html)
+Outcome: Frets on Fire discontinued (last version: Version 1.3.110 Nov 2008 - http://fretsonfire.svn.sourceforge.net/viewvc/fretsonfire/trunk/changelog.txt). Blind Hero discontinued
+Other: 
+
+====
+
+Original: Tor (https://www.torproject.org/)
+Forked: IronKey Secure Sessions (https://www.ironkey.com/)
+Type: Security
+Date: 2005 (http://en.wikipedia.org/wiki/IronKey)
+Reason: Company (commercial) strategy - commercial closed-source fork
+Outcome: Tor still active. IronKey does not release software (Tor is BSD) 
+Other: 
+
+
+====
+
+Original: Greasemonkey (http://www.greasespot.net/)
+Forked: Lubemonkey (http://www.gamecore.org/)
+Type: Web (Augmented browsing)
+Date: Not found.
+Reason: Technical - adding sqlite support (http://www.gamecore.org/)
+Outcome: Both projects still active.
+Other: 
+
+
+====
+
+Original: dwm (http://dwm.suckless.org/)
+Forked: teslawm (http://teslawm.org/)
+Type: Desktop (Window Manager)
+Date: Oct 2007 (http://teslawm.org/)
+Reason: Technical (http://teslawm.org/)
+Outcome: Both projects still active.
+Other: 
+
+
+====
+
+Original: Centre SIS (http://www.centresis.org/)
+Forked:  Focus SIS (http://www.focus-sis.org/)
+Type: Web (Student Information System)
+Date: Not found
+Reason: Company (commercial) strategy - Not found. Probably commercial (Focus SIS is a company)
+Outcome: Centre SIS discontinued (last version Dec 2009, http://freecode.com/projects/centre). No release of Focus SIS found.
+Other: 
+
+
+====
+
+Original: RealmForge (http://www.visual3d.net/)
+Forked: ForgeRealm (http://sourceforge.net/apps/mediawiki/forgerealm/index.php?title=Main_Page)
+Type: Game engine
+Date: Feb 2009 (http://sourceforge.net/apps/mediawiki/forgerealm/index.php?title=ForgeRealm%27s_History)
+Reason: Discontinuation of the original project - RealmForge inactive (http://sourceforge.net/apps/mediawiki/forgerealm/index.php?title=Main_Page)
+Outcome: RealmForge defunct. ForgeRealm still active
+Other: 
+
+From ForgeRealm's History (http://sourceforge.net/apps/mediawiki/forgerealm/index.php?title=ForgeRealm%27s_History)
+"""
+The ForgeRealm project was started in Febuary of 2009 as an effort to continue the development of the RealmForge platform. Our goal is to complete the RealmForge framework and extend it to include more functionality.
+"""
+
+====
+
+Original: phpWebLog (http://sourceforge.net/projects/phpweblog/)
+Forked: GeekLog (http://www.geeklog.net/)
+Type: Web (Weblog)
+Date: Feb 2001 (http://www.geeklog.net/comment.php?mode=view&cid=682 phpWebLog v0.4.2, released Jan 2001 http://freecode.com/projects/phpweblog/releases/26143)
+Reason: Discontinuation of the original project - phpWebLog discontinued (http://freecode.com/projects/phpweblog)
+Outcome: phpWebLog discontinued 2001. GeekLog still active.
+Other: 
+
+
+====
+
+Original: phpWebLog (http://sourceforge.net/projects/phpweblog/)
+Forked: KorWebLog (http://sourceforge.net/projects/eunjea/)
+Type: Web (Weblog)
+Date: March 2001 (http://sourceforge.net/projects/eunjea/)
+Reason: Discontinuation of the original project - phpWebLog discontinued (http://freecode.com/projects/phpweblog)
+Outcome: phpWebLog discontinued 2001. KorWebLog discontinued 2004 (http://freecode.com/projects/korweblog)
+Other: 
+
+====
+
+Original: SysCP (https://github.com/flol/SysCP)
+Forked: Froxlor (http://www.froxlor.org/)
+Type: Control Panel
+Date: Feb 2010 (http://forum.froxlor.org/index.php?/topic/3-release-froxlor-09/)
+Reason: More community-driven development (http://forum.froxlor.org/index.php?/topic/3-release-froxlor-09/)
+Outcome: SysCP last commits 2 years ago (https://github.com/flol/SysCP). Froxlor still under development.
+Other: 
+
+From Release: Froxlor 0.9 (http://forum.froxlor.org/index.php?/topic/3-release-froxlor-09/)
+"""
+After this release, we will re-work the source, give it a new core and develop a more flexible 
+architecture which will make it easier to maintain and stabilize future releases.
+
+Behind the scenes a more democratic approach will be used. 
+There is not a single person who decides where to go and what to do - it's the team. 
+At least three team-members are needed to approve (bigger) decisions.
+"""
+
+====
+
+Original: UW IMAP (http://www.washington.edu/imap/)
+Forked: Panda IMAP (http://www.panda.com/imap/)
+Type: Networking (IMAP server)
+Date: May 2008 (http://www.panda.com/imap/)
+Reason: Company (commercial) strategy - UW IMAP development terminated (http://www.panda.com/imap/)
+Outcome: Both projects still active, although UW IMAP only maintenance releases
+Other: 
+
+UW IMAP is released under the Apache 2.0 license (http://www.washington.edu/imap/documentation/RELNOTES.html)
+Panda IMAP is not free software: "Panda IMAP is available by donation" (http://www.panda.com/imap/)
+
+====
+
+Original: TORCS (http://torcs.sourceforge.net/index.php)
+Forked: Speed Dreams (http://www.speed-dreams.org)
+Type: Game
+Date: Nov 2008 (https://sites.google.com/site/torcscreations/what-s-new/torcsng)
+Reason: More community-driven development (http://www.speed-dreams.org/#about)
+Outcome: Both projects still active.
+Other: 
+
+From About Speed Dreams (http://www.speed-dreams.org/#about)
+"""
+Speed Dreams is a fork of the famous open racing car simulator Torcs, aiming to implement exciting new features, cars, tracks and AI opponents to make a more enjoyable game for the player, as well as constantly improving visual and physics realism.
+
+In other words, Speed Dreams is the place:
+
+* where developers can try their ideas and have every chance to get them released to the end-users (democracy is the main principle ruling the dev team),
+* where end-users can enjoy the completion of these ideas and give their opinion about it, and/or make new suggestions.
+So, if you find your or some people's Torcs patch proposals don't integrate the official release as quickly as you would have loved, you have reached the right place !
+"""
+
+====
+
+Original: Hula (None)
+Forked: Bongo (http://bongo-project.org/Main_Page)
+Type: Web (Groupware)
+Date: Dec 2006 (http://planet.bongo-project.org/blog/announcements/)
+Reason: More community-driven development - unclear future of the Hula project (http://bongo-project.org/Documentation/Frequently_Asked_Questions)
+Outcome: Hula discontinued. Bongo still active
+Other: 
+
+From Bongo FAQ (http://bongo-project.org/Documentation/Frequently_Asked_Questions)
+"""
+What is this history of this project?
+This is an immediate descendant of the Hula project, which was a Novell-led project. Dissatisfied with the progress of the project, we "forked" when the future became extremely unclear - Novell had announced they were not committing further engineering resources to it.
+
+Hula was a descendant of the Netmail software produced by Novell, and that project along with the Netmail business was transferred to a company called Messaging Architects (MA). MA were early contributors to the Hula project, and former Hula engineers are now working for MA. We look forward to seeing how we can collaborate with them in the future.
+"""
+
+====
+
+Original: OpenPBS (http://www.mcs.anl.gov/research/projects/openpbs/)
+Forked: TORQUE (http://www.adaptivecomputing.com/products/torque.php)
+Type: Networking (Distributed resource manager)
+Date: 2003 (http://en.wikipedia.org/wiki/TORQUE_Resource_Manager)
+Reason: Discontinuation of the original project - OpenPBS discontinued in 2001 (http://www.pbsworks.com/ResLibSearchResult.aspx?keywords=openpbs&industry=All&pro)
+Outcome: OpenPBS discontinued. TORQUE still active
+Other: 
+
+OpenPBS and TORQUE have a non-free software license (http://wiki.debian.org/DFSGLicenses#License_for_OpenPBS_and_Torque)
+
+====
+
+Original: freeglut (http://freeglut.sourceforge.net/)
+Forked: OpenGLUT (http://sourceforge.net/projects/openglut/)
+Type: API
+Date: Mar 2004 (http://sourceforge.net/projects/openglut/)
+Reason: More community-driven development - Some members wanted to add features (http://en.wikipedia.org/wiki/Freeglut)
+Outcome: freeglut still active. OpenGLUT discontinued 2005 ("As of 2005-05-10, this project is no longer under active development." http://sourceforge.net/projects/openglut/)
+Other: 
+
+
+====
+
+Original: AtheOS (http://atheos.syllable.org/index.html)
+Forked: Syllable (http://web.syllable.org/pages/index.html)
+Type: Operating system
+Date: Jul 2002 (http://en.wikipedia.org/wiki/Syllable_(operating_system))
+Reason: Discontinuation of the original project - AtheOS stagnated (http://en.wikipedia.org/wiki/Syllable_(operating_system))
+Outcome: AtheOS discontinued. Syllable still active.
+Other: 
+
+
+====
+
+Original: BackupPC (http://backuppc.sourceforge.net/)
+Forked: BackupAFS (formerly BackupPC4AFS, http://www.physics.unc.edu/~stephen/BackupAFS/)
+Type: Backup
+Date: Oct 2010 (http://sourceforge.net/projects/backupafs/)
+Reason: Technical (http://sourceforge.net/projects/backupafs/)
+Outcome: BackupPC still active. BackupAFS no commit in the last year (http://sourceforge.net/projects/backupafs/stats/scm?repo=SVNRepository&dates=2011-01-07+to+2012-03-08) and latest release Nov 2010 (http://sourceforge.net/projects/backupafs/files/)
+Other: 
+
+
+====
+
+Original: TWiki (http://twiki.org/)
+Forked: Foswiki (http://foswiki.org/)
+Type: Web (Wiki)
+Date: Oct 2008 (http://en.wikipedia.org/wiki/TWiki)
+Reason: Company (commercial) strategy - Company taking control of TWiki (http://en.wikipedia.org/wiki/TWiki)
+Outcome: Both projects still active.
+Other: 
+
+From the TWiki Wikipedia page (http://en.wikipedia.org/wiki/TWiki)
+"""
+The TWiki project was founded by Peter Thoeny in 1998 as an open source wiki-based application platform. In October 2008, the company TWiki.net, created by Thoeny, assumed full control over the TWiki project[2] while nearly all of the remainder of the developer community[3][4] forked off the Foswiki project.[5]
+
+[2] a b Matt Asay (October 29, 2008). "TWiki's hunt for cash fractures its community". CNET.
+http://news.cnet.com/8301-13505_3-10078682-16.html
+[3] "TWiki Watch: TWiki Contributors".
+http://foswiki.org/Community/TWikiWatchTWikiContributors
+[4] "Development of Foswiki and TWiki - Get the Facts (Part 1)".
+http://blog.wikiring.com/Blog/BlogEntry36
+[5] R. Morin: TWiki and Foswiki: the road ahead
+http://www.cfcl.com/rdm/weblog/archives/001653.html
+"""
+
+====
+
+Original: Songbird (http://getsongbird.com/)
+Forked: Nightingale (http://getnightingale.com/)
+Type: Multimedia (Media player)
+Date: April 2010 (http://blog.songbirdnest.com/2010/04/02/songbird-singing-a-new-tune/)
+Reason: Technical - Linux support by Songbird discontinued (http://blog.songbirdnest.com/2010/04/02/songbird-singing-a-new-tune/)
+Outcome: Both projects still active. 
+Other: 
+
+
+====
+
+Original: .Text (included in Telligent Community, http://telligent.com/)
+Forked: Subtext (http://subtextproject.com)
+Type: Web (Weblog), photo gallery
+Date: May 2005 (http://haacked.com/archive/2005/05/04/announcing-subtext.aspx)
+Reason: Company (commercial) strategy - .Text further developed closed-sourced by company (http://haacked.com/archive/2005/05/04/announcing-subtext.aspx)
+Outcome: .Text integrated into Telligent Community (http://telligent.com/). Subtext discontinued (last release Jun 2010). 
+Other: 
+
+
+====
+
+Original: libj2k (Not found)
+Forked: OpenJPEG (http://www.openjpeg.org/)
+Type: API (graphics)
+Date: May 2004 (http://www.openjpeg.org/index.php?menu=news)
+Reason: Discontinuation of the original project - Not found. libj2k defunct?
+Outcome: OpenJPEG still active  
+Other: 
+
+
+====
+
+Original: KTooN (http://www.ktoon.net/)
+Forked: Tupi (http://www.maefloresta.com/)
+Type: Graphics (Animation)
+Date: Jan 2011 (http://libregraphicsworld.org/blog/entry/meet-tupi-ktoon-fork)
+Reason: Discontinuation of the original project - KTooN defunct (http://libregraphicsworld.org/blog/entry/meet-tupi-ktoon-fork)
+Outcome: KToon defunct (last release 0.9a from Jul 2010). Tupi still active.
+Other: 
+
+
+====
+
+Original: jMonkeyEngine (http://jmonkeyengine.org/)
+Forked: Ardor3D (http://ardor3d.com/)
+Type: Graphics engine
+Date: Sep 2008 (http://blog.renanse.com/2008/09/new-focus-ardor3d.html)
+Reason: Differences among developer team - irreconcilable issues with naming, provenance, licensing, and community structure in that engine (http://blog.renanse.com/2008/09/new-focus-ardor3d.html)
+Outcome: Both projects still active. 
+Other: 
+
+
+====
+
+Original: iODBC (http://www.iodbc.org/dataspace/iodbc/wiki/iODBC/)
+Forked: UnixODBC (http://www.unixodbc.org/)
+Type: API
+Date: Jan 1999 (http://www.unixodbc.org/)
+Reason: Legal issues ()
+Outcome: iODBC stagnated (latest activity Sep 2009). UnixODBC still active.
+Other: 
+
+From the UixODBC Wikipedia page (http://en.wikipedia.org/wiki/UnixODBC)
+"""
+History
+
+1999
+The unixODBC project was first started in the early months of 1999 (by Peter Harvey) and was created as at that time the developers of iODBC (another open source ODBC implementation) were not then willing to LGPL the code, expand the API to include the current ODBC 3 API specification, and did not consider the addition of GUI based configuration tools worthwhile. 
+"""
+
+====
+
+Original: Busybox (http://www.busybox.net/)
+Forked: Stablebox (http://code.google.com/p/stablebox/)
+Type: Utilities (Unix tools)
+Date: Nov 2006 (based on Busybox 1.2.2.1 http://code.google.com/p/stablebox/; Busybox 1.2.2.1 released Oct 2006 - http://www.busybox.net/oldnews.html)
+Reason: Technical - Stability (http://code.google.com/p/stablebox/)
+Outcome: Busybox still active. Stablebox unmaintained (last release Nov 2008 - http://code.google.com/p/stablebox/downloads/list)
+Other: 
+
+
+====
+
+Original: Aldrin (Not found)
+Forked: Neil (https://sites.google.com/site/neilsequencer/)
+Type: Multimedia (Digital music workstation)
+Date: 2009 (https://sites.google.com/site/neilsequencer/history)
+Reason: Differences among developer team (https://sites.google.com/site/neilsequencer/history)
+Outcome: Aldrin not found. Neil still active.
+Other: 
+
+From Neil History (https://sites.google.com/site/neilsequencer/history)
+"""
+I have started using Aldrin to make music on Linux somewhere around 2007. I liked it, because it was familiar and it retained a lot of the strengths of Buzz which were not retained in projects like Psycle. However at around 2009 I started to feel increasingly unhappy by the direction Aldrin was taking and there were many other smaller annoyances already in it. So I decided to fork it and start my own project where I was in charge and the risk of someone making it unusable for me was reduced. Coincidentally Leonar Ritter stopped working on Aldrin a year after I started my fork.
+"""
+
+====
+
+Original: RTMPdump (http://rtmpdump.mplayerhq.hu/)
+Forked: Flvstreamer (http://savannah.nongnu.org/projects/flvstreamer)
+Type: Networking (RMTP client)
+Date: Jun 2009 (http://savannah.nongnu.org/projects/flvstreamer)
+Reason: Legal issues - encrypted rtmp and swf verification support removed (https://savannah.nongnu.org/projects/flvstreamer/)
+Outcome: RTMPdump still active. Flvstreamer not active (last release Feb 2010)
+Other: 
+
+
+====
+
+Original: ONScripter-EN (http://unclemion.com/onscripter/releases/)
+Forked: PONScripter (http://unclemion.com/onscripter/releases/)
+Type: Game (Visual novel)
+Date: Not found
+Reason: i18n (http://en.wikipedia.org/wiki/ONScripter)
+Outcome: Both projects still active 
+Other: 
+
+It seems none of the programs is free software (but no reference found, and 
+by the time of search, access to the repository gave a 404)
+
+====
+
+Original: dwipe (http://www.dban.org/)
+Forked: Nwipe (http://sourceforge.net/projects/nwipe/)
+Type: Filesystem, security
+Date: Mar 2010 (http://sourceforge.net/projects/nwipe/)
+Reason: Technical (http://www.andybev.com/index.php/Nwipe)
+Outcome: Both projects still active.
+Other: 
+
+From (http://www.andybev.com/index.php/Nwipe):
+"""
+Nwipe was created out of my need to run the DBAN dwipe command outside of DBAN. This allows it to use any host distribution which gives better hardware support.
+"""
+
+====
+
+Original: FOX (http://fox-toolkit.org/)
+Forked: TnFOX (http://www.nedprod.com/TnFOX/)
+Type: API
+Date: Jun 2003 (http://www.nedprod.com/TnFOX/oldnews.html)
+Reason: Technical (http://www.nedprod.com/TnFOX/)
+Outcome: Both projects still active 
+Other: 
+
+From the TnFOX webpage (http://www.nedprod.com/TnFOX/):
+"""
+TnFOX is a modern, secure, robust, multithreaded, exception aware, internationalisable, portable GUI toolkit library designed for mission-critical work in C++ and Python forked from the FOX library.
+"""
+
+====
+
+Original: Squeak (http://www.squeak.org/)
+Forked: Pharo (http://www.pharo-project.org/home)
+Type: Development (IDE)
+Date: Dec 2008 (http://blog.ofset.org/hilaire/index.php?post/2008/12/12/Pharo-birth-of-a-free-software-project)
+Reason: Technical (http://www.pharo-project.org/about)
+Outcome: Both projects still active. 
+Other: 
+
+From Pharo About (http://www.pharo-project.org/about):
+"""
+Pharo is a fork from the Squeak open-source Smalltalk. We decided to start Pharo because as active Squeakers, and responsible for Squeak 3.9, we felt the need to reconsider choices made. We want to create a better Smalltalk and be free to enhance it without fear of backwards compatibility to Squeak.
+"""
+
+
+====
+
+Original: phpgroupware (formerly webdistro, http://www.manvswebapp.com/phpgroupware)
+Forked:  EGroupware (http://www.egroupware.org/)
+Type: Web (Groupware)
+Date: Apr 2003 (http://sourceforge.net/projects/egroupware/)
+Reason: More deverloper-driven development (http://www.egroupware.org/community)
+Outcome: phpgroupware stagnated (last release Jul 2010 - http://www.manvswebapp.com/phpgroupware). EGroupware still active.
+Other: 
+
+From the EGroupware about (http://www.egroupware.org/community):
+"""
+The roots of EGroupware are back the year 2000 where the development started as phpgroupware formerly known as webdistro.
+In 2003 EGroupware divided into its own project with the intention to continue development in a more open and community steered manner.
+The last admin election took place in April 2005. Current Project Admin is Ralf Becker.
+"""
+
+====
+
+Original: BlueFish (http://bluefish.openoffice.nl/index.html)
+Forked: WineFish (http://viettug.github.com/winefish/)
+Type: Utilities (Text editor)
+Date: 2005 (http://winefish.berlios.de/)
+Reason: Technical (http://winefish.berlios.de/)
+Outcome: BlueFish still active. WineFish discontinued (http://winefish.berlios.de/)
+Other: 
+
+From the Old WineFish webpage (http://winefish.berlios.de/)
+"""
+Winefish is an editor for experienced LaTeX Users. It supports UTF-8,
+syntax highlight, auto-completion and auto-text, but it isn't easy to use
+for any LaTeX newbies.
+
+Winefish is based on Bluefish HTML editor. Its first version was released
+in 2005, and the latest stable version is 1.3.3, which is released 2006.
+Many years have passed. Winefish is almost a zoombie... The original author
+(Anh Kỳ Huỳnh) don't use TeX anymore; he has no time to support Winefish :(
+"""
+
+====
+
+Original: Mambo (http://mambo-foundation.org/)
+Forked: MiaCMS (http://miacms.org/)
+Type: Web (CMS)
+Date: May 2008 (http://miacms.org/index.php?option=com_content&task=view&id=25&Itemid=1)
+Reason: More community-driven development (http://miacms.org/index.php?option=com_content&task=view&id=25&Itemid=1)
+Outcome: Mambo still active. MiaCMS defunct (last news from Jul 2009 - http://miacms.org/index.php?option=com_content&task=view&id=57&Itemid=1)
+Other: 
+
+From The MiaCMS story (http://miacms.org/index.php?option=com_content&task=view&id=25&Itemid=1)
+"""
+MiaCMS is a fork of the Mambo CMS. Why a fork? We felt that the policies, processes, and priorities of the official Mambo Foundation were having a negative impact on the code and the community. Innovation, creativity, and team spirit have all but been eliminated. Thus the fork.
+"""
+
+====
+
+Original: Blastwave.org (http://www.blastwave.org/)
+Forked: OpenCSW (http://www.opencsw.org/)
+Type: Software Distribution (Software packages)
+Date: Aug 2008 (http://www.h-online.com/open/news/item/Quarrels-about-Blastwave-Solaris-repository-736827.html)
+Reason: Differences among developer team (http://www.h-online.com/open/news/item/Quarrels-about-Blastwave-Solaris-repository-736827.html)
+Outcome: Blastwave seems outdated. OpenCSW still active.
+Other: 
+
+This is really a repository of packages for Solaris!
+
+From Quarrels about Blastwave Solaris repository (http://www.h-online.com/open/news/item/Quarrels-about-Blastwave-Solaris-repository-736827.html)
+"""
+The move was triggered by ongoing disputes about the general future direction of Blastwave. Dennis Clarke, the project's administrator who owns the Blastwave trademark and provides the project's hardware infrastructure, wanted to provide packages mainly for Solaris Express and OpenSolaris and thought the time had come to stop supporting Solaris 8. Many maintainers - including Philip Brown, the father of pkg-get - wanted to provide packages mainly for the stable Solaris versions 8-10, which are also officially supported by Sun. Quarrels initially flared up last May, when Dennis Clarke suspended Phil Brown's account for two weeks. No new packages were released during that time because only Phil Brown holds the signature key.
+"""
+
+====
+
+Original: OpenSTEP (http://www.gnustep.org/resources/OpenStepSpec/OpenStepSpec.html)
+Forked: Darwin (http://opensource.apple.com/)
+Type: Operating system
+Date: 2000 (http://en.wikipedia.org/wiki/Darwin_(operating_system))
+Reason: Company (commercial) strategy -released as free software (http://en.wikipedia.org/wiki/Darwin_(operating_system))
+Outcome: OpenSTEP defunct. Darwin still active.
+Other: 
+
+Complex story.
+
+====
+
+Original: DC++ (http://dcplusplus.sourceforge.net/)
+Forked: AirDC++ (http://www.airdcpp.net/)
+Type: Networking (p2p)
+Date: Jan 2007 (http://sourceforge.net/projects/airdc/)
+Reason: Techincal - More features (http://sourceforge.net/projects/airdc/)
+Outcome: Both projects still active.
+Other: 
+
+For all the forks on DC++ see http://upload.wikimedia.org/wikipedia/commons/7/7a/DC%2B%2B_derivatives_.svg
+
+====
+
+Original: DC++ (http://dcplusplus.sourceforge.net/)
+Forked: TkDC++ (http://sourceforge.net/projects/tkdcpp/)
+Type: Networking (p2p)
+Date: Oct 2010 (http://sourceforge.net/projects/tkdcpp/)
+Reason: Technical - Ligther version of DC++ (http://sourceforge.net/projects/tkdcpp/)
+Outcome: DC++ still acive. TkDC++ defunct (last version Oct 2010)
+Other: 
+
+For all the forks on DC++ see http://upload.wikimedia.org/wikipedia/commons/7/7a/DC%2B%2B_derivatives_.svg
+
+====
+
+Original: StrongDC++ (http://strongdc.sourceforge.net/)
+Forked: ApexDC++ (http://www.apexdc.net/)
+Type: Networking (p2p)
+Date: Jan 2006 (http://www.apexdc.net/history/)
+Reason: Not found (even if the story is explained in detail at http://www.apexdc.net/history/)
+Outcome: Both projects still acive.
+Other: 
+
+For all the forks on DC++ see http://upload.wikimedia.org/wikipedia/commons/7/7a/DC%2B%2B_derivatives_.svg
+
+====
+
+Original: DC++ (http://dcplusplus.sourceforge.net/)
+Forked: EiskaltDC++ (http://code.google.com/p/eiskaltdc/)
+Type: Networking (p2p)
+Date: Oct 2010 (http://code.google.com/p/eiskaltdc/downloads/list)
+Reason: Not found
+Outcome: Both projects still acive.
+Other: 
+
+For all the forks on DC++ see http://upload.wikimedia.org/wikipedia/commons/7/7a/DC%2B%2B_derivatives_.svg
+
+====
+
+Original: DC++ (http://dcplusplus.sourceforge.net/)
+Forked: FlylinkDC++ (http://code.google.com/p/flylinkdc/)
+Type: Networking (p2p)
+Date: May 2007 (http://code.google.com/p/flylinkdc/downloads/list)
+Reason: Not found (project is in Russian)
+Outcome: Both projects still acive.
+Other: 
+
+For all the forks on DC++ see http://upload.wikimedia.org/wikipedia/commons/7/7a/DC%2B%2B_derivatives_.svg
+
+====
+
+Original: DC++ (http://dcplusplus.sourceforge.net/)
+Forked: LinuxDC++ (https://launchpad.net/linuxdcpp)
+Type: Networking (p2p)
+Date: Sept 2005 (https://launchpad.net/linuxdcpp/+rdf)
+Reason: Technical - Linux fork (https://launchpad.net/linuxdcpp)
+Outcome: Both projects still acive.
+Other: 
+
+For all the forks on DC++ see http://upload.wikimedia.org/wikipedia/commons/7/7a/DC%2B%2B_derivatives_.svg
+
+====
+
+Original: DC++ (http://dcplusplus.sourceforge.net/)
+Forked: RSX++ (http://rsxplusplus.sourceforge.net/)
+Type: Networking (p2p)
+Date: Aug 2007 (http://rsxplusplus.sourceforge.net/)
+Reason: Not found
+Outcome: Both projects still acive.
+Other: 
+
+For all the forks on DC++ see http://upload.wikimedia.org/wikipedia/commons/7/7a/DC%2B%2B_derivatives_.svg
+
+====
+
+Original: DC++ (http://dcplusplus.sourceforge.net/)
+Forked: StrongDC++ (http://strongdc.sourceforge.net/)
+Type: Networking (p2p)
+Date: March 2007 (http://sourceforge.net/projects/strongdc/)
+Reason: Not found (web page is in Czech)
+Outcome: DC++ still acive. StrongDC++ defunct (last news Dec 2010)
+Other: 
+
+For all the forks on DC++ see http://upload.wikimedia.org/wikipedia/commons/7/7a/DC%2B%2B_derivatives_.svg

@@ -1,5 +1,5 @@
 #
-# ESEUR-config.r, 18 Jan 17
+# ESEUR-config.r,  6 Jun 17
 
 # Assume the current directory unless told otherwise
 ESEUR_dir=paste0(getwd(), "/")
@@ -11,7 +11,7 @@ library("colorspace")
 
 # Outer Margin Area, default: par(oma=c(3, 3, 3, 3))
 # Figure Margin, default: par(mar=c(5, 4, 4, 2)+0.1)
-ESEUP_set_par=function(OMA=c(2, 2, 1, 1), MAR=c(3, 4.2, 1, 1)+0.1)
+ESEUP_set_par=function(OMA=OMA_default, MAR=MAR_default)
 {
 # par(col="brown")
 # par(col.axis="black")
@@ -80,6 +80,9 @@ layout(matrix(1:1, nrow=1), widths=ESEUR_default_width*1.3, heights=ESEUR_defaul
 ESEUP_set_par()
 }
 
+
+OMA_default=c(2, 2, 1, 1)
+MAR_default=c(3, 4.2, 1, 1)+0.1
 
 # In centemeters
 ESEUR_max_width=16

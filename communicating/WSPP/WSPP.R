@@ -1,8 +1,8 @@
 #
-# WSPP.R, 25 Aug 15
+# WSPP.R, 14 Jul 17
 #
 # Data from:
-#
+# Data extracted from document pdfs by DJ
 #
 # Example from:
 # Empirical Software Engineering using R
@@ -31,8 +31,10 @@ interest_gr=graph.adjacency(interest, mode="directed")
 # V(interest_gr)[names(in_deg)]$size=3+in_deg^0.7
 V(interest_gr)$size=1
 # V(interest_gr)$color=brew_col[4]
+V(interest_gr)$label.color="red"
+V(interest_gr)$label.font=2 # bold font
 V(interest_gr)$label.cex=0.75
-E(interest_gr)$arrow.size=0.3
+E(interest_gr)$arrow.size=0.2
 
 plot(interest_gr)
 }

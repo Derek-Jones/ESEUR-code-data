@@ -65,7 +65,7 @@ right_sq(base_x+2*xl[1]+3*zl[1]+2*yl[1]+yl[1]+2*xl[1], base_y+2*xl[2]+3*zl[2]+2*
 }
 
 
-# bench=read.csv(paste0(ESEUR_dir, "developers/blockrot.csv"), as.is=TRUE)
+# bench=read.csv(paste0(ESEUR_dir, "developers/blockrot.csv.xz"), as.is=TRUE)
 
 # base=subset(bench, x < 1.0)
 

@@ -25,7 +25,7 @@ return(data.frame(loc=sum(t$loc, na.rm=TRUE), nofc=sum(t$nofc, na.rm=TRUE)))
 
 dir_str=paste0(ESEUR_dir, "src_measure/ICSE2010-cpp/")
 top_files=list.files(dir_str)
-top_files=subset(top_files, grepl("csv", top_files))
+top_files=subset(top_files, grepl("csv.xz", top_files))
 
 c_loc_nofc=adply(top_files, 1, merge_csv)
 c_loc_nofc$log_loc=log(c_loc_nofc$loc)

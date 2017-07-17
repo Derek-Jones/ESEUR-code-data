@@ -15,7 +15,7 @@ library(numDeriv)
 pal_col=rainbow(3)
 
 
-data=read.csv(paste0(ESEUR_dir, "economics/Givon_et_al_Software_piracy_data.csv"), as.is=TRUE)
+data=read.csv(paste0(ESEUR_dir, "economics/Givon_et_al_Software_piracy_data.csv.xz"), as.is=TRUE)
 
 # data=read.table(paste(currdir, "Givon_et_al_Software_piracy_data.txt", sep=""),  header=T)
 # attach(data)

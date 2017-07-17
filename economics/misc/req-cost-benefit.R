@@ -48,5 +48,4 @@ cost_benefit(0.7, "blue")
 cost_benefit(0.6, "green")
 
 
-legend(x="topleft", legend=c("Amdahl", "Quadratic", "Queueing"), bty="n", fill=pal_col, cex=1.2)
 

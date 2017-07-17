@@ -1,5 +1,5 @@
 #
-# linux-src-evol.R, 18 Aug 16
+# linux-src-evol.R, 10 Jun 17
 #
 # Data from:
 # Simone Livieri and Yoshiki Higo and Makoto Matsushita and Katsuro Inoue
@@ -18,18 +18,19 @@ evol=read.csv(paste0(ESEUR_dir, "evolution/linux-src-evol.csv.xz"), as.is=TRUE, 
 
 evol=as.matrix(evol)
 
-#pal_col=heat.colors(30)
+pal_col=rainbow(50)
 # Add white for the lowest value
 pal_col=c("#FFFFFFFF", pal_col)
 
 t=levelplot(evol, col.regions=pal_col,
-	scales=list(x=list(at=c(1, 130-60, 130),
+	scales=list(x=list(at=c(1, 130-60, 130), cex=0.6,
 			   label=c("1.2.0", "2.2.20", "2.6.18.3")),
-		    y=list(at=c(130, 60, 1),
+		    y=list(at=c(130, 60, 1), cex=0.6,
 				 label=c("1.2.0", "2.2.20", "2.6.18.3"))),
-	xlab="Linux version", ylab="Linux version")
+	colorkey=list(space="top", width=0.7, col=pal_col, labels=list(cex=0.6)),
+	xlab=list("Linux version", cex=0.8), ylab="")
 
-plot(t, panel.height=list(3.8, "cm"), panel.width=list(5.2, "cm"))
+plot(t, panel.height=list(5.8, "cm"), panel.width=list(4.9, "cm"))
 
 # The base library approach (with no legend)
 # image(evol, col=pal_col, axes=FALSE)

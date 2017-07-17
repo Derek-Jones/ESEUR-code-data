@@ -26,10 +26,10 @@ c_cnt <<- c_cnt+1
 }
 
 
-butts=read.csv(paste0(ESEUR_dir, "introduction/Butts_Nasa.csv"), as.is=TRUE)
+butts=read.csv(paste0(ESEUR_dir, "introduction/Butts_Nasa.csv.xz"), as.is=TRUE)
 butts$Name=tolower(butts$Name)
 
-spacecraft=read.csv(paste0(ESEUR_dir, "introduction/spacecraft.csv"), as.is=TRUE)
+spacecraft=read.csv(paste0(ESEUR_dir, "introduction/spacecraft.csv.xz"), as.is=TRUE)
 
 spacecraft$Launch.date=as.Date(spacecraft$Launch.date, format="%d %b %y")
 

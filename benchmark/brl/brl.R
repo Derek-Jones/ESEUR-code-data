@@ -11,15 +11,15 @@
 source("ESEUR_config.r")
 
 
-arith=read.csv(paste0(ESEUR_dir, "benchmark/brl/arith-time.csv"), as.is=TRUE)
+arith=read.csv(paste0(ESEUR_dir, "benchmark/brl/arith-time.csv.xz"), as.is=TRUE)
 
-cost=read.csv(paste0(ESEUR_dir, "benchmark/brl/cost.csv"), as.is=TRUE)
-power=read.csv(paste0(ESEUR_dir, "benchmark/brl/power.csv"), as.is=TRUE)
-word_len=read.csv(paste0(ESEUR_dir, "benchmark/brl/word-len.csv"), as.is=TRUE)
-cust_accept=read.csv(paste0(ESEUR_dir, "benchmark/brl/cust-accept.csv"), as.is=TRUE)
-crystal_diode=read.csv(paste0(ESEUR_dir, "benchmark/brl/crystal-diode.csv"), as.is=TRUE)
-drum_storage=read.csv(paste0(ESEUR_dir, "benchmark/brl/drum-storage.csv"), as.is=TRUE)
-vac_tubes=read.csv(paste0(ESEUR_dir, "benchmark/brl/vac-tubes.csv"), as.is=TRUE)
+cost=read.csv(paste0(ESEUR_dir, "benchmark/brl/cost.csv.xz"), as.is=TRUE)
+power=read.csv(paste0(ESEUR_dir, "benchmark/brl/power.csv.xz"), as.is=TRUE)
+word_len=read.csv(paste0(ESEUR_dir, "benchmark/brl/word-len.csv.xz"), as.is=TRUE)
+cust_accept=read.csv(paste0(ESEUR_dir, "benchmark/brl/cust-accept.csv.xz"), as.is=TRUE)
+crystal_diode=read.csv(paste0(ESEUR_dir, "benchmark/brl/crystal-diode.csv.xz"), as.is=TRUE)
+drum_storage=read.csv(paste0(ESEUR_dir, "benchmark/brl/drum-storage.csv.xz"), as.is=TRUE)
+vac_tubes=read.csv(paste0(ESEUR_dir, "benchmark/brl/vac-tubes.csv.xz"), as.is=TRUE)
 
 all=merge(arith, cost, all=TRUE)
 all=merge(all, power, all=TRUE)

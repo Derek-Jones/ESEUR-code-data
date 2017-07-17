@@ -1,0 +1,24 @@
+metrics
+---------
+trID: the assigned id of a transition
+time: the save time of the target schema
+oldVer: the file name of the source version
+newVer:  the file name of the target version
+#oldT:  the number of tables in the source version
+#newT: the number of tables in the target version
+#oldA: the number of attributes in all the tables of the source version
+#newA: the number of attributes in all the tables of the target version
+tIns:  The number of Tables inserted during the revision
+tDel: The number of Tables removed during the revision
+aIns: The number of Attributes inserted in Tables that exist in the source (oldest) version of a revision.
+aDel: The number of Attributes removed from Tables that reside in both versions of the revision.
+aTypeAlt: The number of Attributes that changed type during a revision.
+keyAlt: The number of Attributes that reversed their status concerning their participation to the primary key of a relation <96> specifically, the number of attributes that either became primary keys in the new version (while they were not in the old version) or stopped being primary keys in the new version while being primary keys in the old version.
+aTabIns: The cumulative number of Attributes of all the new Tables inserted in the database schema during a revision.
+aTabDel: The cumulative number of Attributes of all the Tables that were removed from the database schema during a revision (i.e., cease to exist in the new version of the revision, although present in the old version).
+
+Size
+-----
+For each table, for each revision, the number of attributes a table has at the target (newest) version of the revision.
+Revision 0 concerns the starting schema
+

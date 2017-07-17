@@ -1,5 +1,5 @@
 #
-# proj-t-clust.R,  5 Mar 16
+# proj-t-clust.R, 14 Jul 17
 #
 # Data from:
 # Right on Time: Measuring, Modelling and Managing Time-Constrained Software Development
@@ -46,14 +46,14 @@ return(effort_diff)
 }
 
 
-softw_req=get_effort("Fig32.zeroes.csv", "Fig32.sw_req.csv")
-top_lev_design=get_effort("Fig32.sw_req.csv", "Fig32.tlev-design.csv")
-coding=get_effort("Fig32.tlev-design.csv", "Fig32.code.csv")
-low_lev_test=get_effort("Fig32.code.csv", "Fig32.low-test.csv")
-req_test=get_effort("Fig32.low-test.csv", "Fig32.req-test.csv")
-sys_acc_test=get_effort("Fig32.req-test.csv", "Fig32.sys-acc-test.csv")
-manage=get_effort("Fig32.sys-acc-test.csv", "Fig32.manage.csv")
-hol_nonproj=get_effort("Fig32.manage.csv", "Fig32.hol-nonproj.csv")
+softw_req=get_effort("Fig32.zeroes.csv.xz", "Fig32.sw_req.csv.xz")
+top_lev_design=get_effort("Fig32.sw_req.csv.xz", "Fig32.tlev-design.csv.xz")
+coding=get_effort("Fig32.tlev-design.csv.xz", "Fig32.code.csv.xz")
+low_lev_test=get_effort("Fig32.code.csv.xz", "Fig32.low-test.csv.xz")
+req_test=get_effort("Fig32.low-test.csv.xz", "Fig32.req-test.csv.xz")
+sys_acc_test=get_effort("Fig32.req-test.csv.xz", "Fig32.sys-acc-test.csv.xz")
+manage=get_effort("Fig32.sys-acc-test.csv.xz", "Fig32.manage.csv.xz")
+hol_nonproj=get_effort("Fig32.manage.csv.xz", "Fig32.hol-nonproj.csv.xz")
 
 
 all_effort=cbind(softw_req, top_lev_design, coding, low_lev_test,
@@ -83,14 +83,14 @@ plot(0, 0, type="n",
 	xlim=c(0, 85), ylim=c(0, 1600),
 	xlab="Week", ylab="Effort (person hours)\n")
 
-plot_fill("Fig32.zeroes.csv", "Fig32.sw_req.csv", 1)
-plot_fill("Fig32.sw_req.csv", "Fig32.tlev-design.csv", 2)
-plot_fill("Fig32.tlev-design.csv", "Fig32.code.csv", 3)
-plot_fill("Fig32.code.csv", "Fig32.low-test.csv", 4)
-plot_fill("Fig32.low-test.csv", "Fig32.req-test.csv", 5)
-plot_fill("Fig32.req-test.csv", "Fig32.sys-acc-test.csv", 6)
-plot_fill("Fig32.sys-acc-test.csv", "Fig32.manage.csv", 7)
-plot_fill("Fig32.manage.csv", "Fig32.hol-nonproj.csv", 8)
+plot_fill("Fig32.zeroes.csv.xz", "Fig32.sw_req.csv.xz", 1)
+plot_fill("Fig32.sw_req.csv.xz", "Fig32.tlev-design.csv.xz", 2)
+plot_fill("Fig32.tlev-design.csv.xz", "Fig32.code.csv.xz", 3)
+plot_fill("Fig32.code.csv.xz", "Fig32.low-test.csv.xz", 4)
+plot_fill("Fig32.low-test.csv.xz", "Fig32.req-test.csv.xz", 5)
+plot_fill("Fig32.req-test.csv.xz", "Fig32.sys-acc-test.csv.xz", 6)
+plot_fill("Fig32.sys-acc-test.csv.xz", "Fig32.manage.csv.xz", 7)
+plot_fill("Fig32.manage.csv.xz", "Fig32.hol-nonproj.csv.xz", 8)
 
 
 

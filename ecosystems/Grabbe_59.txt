@@ -1,0 +1,155 @@
+Data from:
+Handbook of Automation, Computation, and Control, Volume 2: Computers and Data Processing
+Eugene M. Grabbe and Simon Ramo and Dean E. Wooldridge
+
+Computer System Name or      Developed by        Code M.L. Assem Inter Comp Oper-Date Indexing Fl-Pt Symb. Algeb.
+           Acronym   
+IBM 704 AFAC                 Allison G.M.         C                      X    Sep 57    M2       M    2      X
+        CAGE                 General Electric                 X          X    Nov 55    M2       M    2
+        FORC                 Redstone Arsenal                            X    Jun 57    M2       M    2      X
+        FORTRAN              IBM                  R                      X    Jan 57    M2       M    2      X
+        NYAP                 IBM                              X               Jan 56    M2       M    2
+        PACT IA              Pact Group                                  X    Jan 57    M2       M    1
+        REG-SYMBOLIC         Los Alamos                       X               Nov 55    M2       M    1
+        SAP                  United Aircraft      R           X               Apr 56    M2       M    2 
+        NYDPP                Servo Bur. Corp.                 X               Sep 57    M2       M    2 
+        KOMPILER3            UCRL Livermore                              X    Mar 58    M2       M    2      X
+IBM 701 ACOM                 Allison G.M.         C                X          Dec 54    S1       S    0
+        BACAIC               Boeing Seattle       A           X          X    Jul 55             S    1      X
+        BAP                  UC Berkeley                X     X               May 57                  2
+        DOUGLAS              Douglas SM                       X               May 53             S    1
+        DUAL                 Los Alamos                 X          X          Mar 53             S    1
+        607                  Los Alamos                       X               Sep 53                  1
+        FLOP                 Lockheed Calif.            X     X    X          Mar 53             S    1 
+        JCS 13               Rand Corp.                       X               Dec 53                  1
+        KOMPILER 2           UCRL Livermore                              X    Oct 55    S2            1      X
+        NAA ASSEMBLY         N. Am. Aviation                       X
+        PACT I               Pact Groupb          R                      X    Jun 55    S2            1
+        QUEASY               NOTS Inyokern                         X          Jan 55             S
+        QUICK                Douglas ES                            X          Jun 53             S    0
+        SHACO                Los Alamos                            X          Apr 53             S    1
+        SO 2                 IBM                              X               Apr 53                  1
+        SPEEDCODING          IBM                  R           X    X          Apr 53    S1       S    1
+IBM 705-1, 2 ACOM            Allison G.M.         C                X          Apr 57    S1            0
+        AUTOCODER            IBM                  R    X      X          X    Dec 56             S    2
+        ELI                  Equitable Life       C                X          May 57    S1            0
+        FAIR                 Eastman Kodak                         X          Jan 57             S    0
+        PRINT I              IBM                  R    X      X    X          Oct 56    82       S    2
+        SYMB. ASSEM.         IBM                              X               Jan 56             S    1
+        SOHIO                Std. Oil of Ohio          X      X    X          May 56    S1       S    1
+        FORTRAN              IBM-Guide            A                      X    Nov 58    S2       S    2      X
+        IT                   Std. Oil of Ohio     C                      X              S2       S    1      X
+        AFAC                 Allison G.M.         C                      X              S2       S    2      X
+IBM 705-3 FORTRAN            IBM-Guide            A                      X    Dec 58    M2       M    2      X
+        AUTOCODER            IBM                  A           X          X    Sep 58             S    2
+IBM 702 AUTOCODER            IBM                       X      X          X    Apr 55             S    1
+        ASSEMBLY             IBM                              X               Jun 54                  1
+        SCRIPT G. E.         Hanford              R    X      X    X     X    Jul 55    Sl       S    1 
+IBM 709 FORTRAN              IBM                  A                      X    Jan 59    M2       M    2      X
+        SCAT                 IBM-Share            R           X          X    Nov 58    M2       M    2
+IBM 650 ADES II              Naval Ord. Lab                              X    Feb 56    S2       S    1      X
+        BACAIC               Boeing Seattle       C           X    X     X    Aug 56             S    1      X
+        BALITAC              M.I.T.                    X      X          X    Jan 56    Sl            2
+        BELL L1              Bell Tel. Labs            X           X          Aug 55    Sl       S    0
+        BELL L2,L3           Bell Tel. Labs            X           X          Sep 55    Sl       S    0
+        DRUCO I              IBM                                   X          Sep 54             S    0
+        EASE II              Allison G.M.                     X    X          Sep 56    S2       S    2
+        ELI                  Equitable Life       C                X          May 57    Sl            0
+        ESCAPE               Curtiss-Wright                   X    X     X    Jan 57    Sl       S    2
+        FLAIR                Lockheed MSD, Ga.         X           X          Feb 55    Sl       S    0
+        FOR TRANSIT          IBM-Carnegie Tech.   A                      X    Oct 57    S2       S    2      X
+        IT                   Carnegie Tech.       C                      X    Feb 57    S2       S    1      X
+        MITILAC              M.I.T.                    X           X          Jul 55    Sl       S    2
+        OMNICODE             G. E. Hanford                         X     X    Dec 56    Sl       S    2
+        RELATIVE             Allison G.M.                     X               Aug 55    Sl       S    1
+        SIR                  IBM                                   X          May 56             S    2
+        SOAP I               IBM                              X               Nov 55                  2
+	SOAP II              IBM                  R           X               Nov 56    M        M    2
+        SPEED CODING         Redstone Arsenal          X           X          Sep 55    Sl       S    0
+        SPUR                 Boeing Wichita            X      X    X          Aug 56    M        S    1
+        FORTRAN (650T)       IBM                  A                      X    Jan 59    M2       M    2
+Sperry Rand 1103A COMPILER I  Boeing Seattle                  X          X    May 57             S    1      X
+        FAP                  Lockheed MSD              X           X          Oct 56    Sl       S    0
+        MISHAP               Lockheed MSD                     X               Oct 56    M1       S    1
+        RAWOOP-SNAP          Ramo-Wooldridge                  X    X          Jun 57    M1       M    1
+        TRANS-USE            Holloman A.F.B.                  X               Nov 56    M1       S    2
+        USE                  Ramo-Wooldridge      R           X          X    Feb 57    M1       M    2
+        IT                   Carn. Tech.-R-W      C                      X    Dec 57    S2       S    1      X
+        UNICODE              R Rand St. Paul      R                      X    Jan 59    S2       M    2      X
+Sperry Rand 1103 CHIP        Wright A.D.C.             X           X          Feb 56    S1       S    0
+        FLIP/SPUR            Convair San Diego         X           X          Jun 55    SI       S    0
+        RAWOOP               Ramo-Wooldridge      R           X               Mar 55    S1            1
+        8NAP                 Ramo-Wooldridge      R           X    X          Aug 55    S1       S    1
+Sperry Rand Univac I and II AO Remington Rand          X      X          X    May 52    S1       S    1
+        Al                   Remington Rand            X      X          X    Jan 53    S1       S    1
+        A2                   Remington Rand            X      X          X    Aug 53    S1       S    1
+        A3,ARITHMATIC        Remington Rand       C    X      X          X    Apr 56    SI       S    1
+        AT3,MATHMATIC        Remington Rand       C           X          X    Jun 56    SI       S    2      X
+        BO,FLOWMATIC         Remington Rand       A    X      X          X    Dec 56    S2       S    2
+        BIOR                 Remington Rand            X      X          X    Apr 55                  1
+        GP                   Remington Rand       R    X      X          X    Jan 57    S2       S    1
+        MJS (UNIVAC I)       UCRL Livermore            X      X               Jun 56                  1
+        NYU,OMNIFAX          New York Univ.                              X    Feb 54             S    1
+        RELCODE              Remington Rand            X      X               Apr 56                  1
+        SHORT CODE           Remington Rand            X           X          Feb 51             S    1
+        X-I                  Remington Rand       C    X      X               Jan 56                  1
+        IT                   Case Institute       C                      X              S2       S    1      X
+        MATRIX MATH          Franklin Inst.                              X    Jan 58    
+Sperry Rand File Compo ABC   R Rand St. Paul                                  Jun 58
+Sperry Rand Larc K5          UCRL Livermore                   X          X              M2       M    2      X
+        SAIL                 UCRL Livermore                   X                         M2       M    2
+Burroughs Datatron 201, 205 DATACODEI Burroughs                          X    Aug 57    MS1      S    1
+        DUMBO                Babcock and Wilcox                    X     X   
+        IT                   Purdue Univ.         A                      X    Jul 57    S2       S    1      X
+        SAC                  Electrodata               X      X               Aug 56             M    1
+        UGLIAC               United Gas Corp.                      X          Dec 56             S    0
+                               Dow Chemical                        X
+        STAR                 Electrodata                      X
+Burroughs UDEC III UDECIN-I  Burroughs                             X              57    M/S       S   1
+        UDECOM-3             Burroughs                                   X        57    M         S   1
+M.I.T. Whirlwind ALGEBRAIC   M.I.T.               R                      X              S2        S   1      X
+        COMPREHENSIVE        M.I.T.                    X      X    X          Nov 52    Sl        S   1
+        SUMMER SESSION       M.I.T.                                X          Jun 53    Sl        S   1
+Midac   EASIAC               Univ. of Michigan                     X     X    Aug 54    SI        S
+        MAGIC                Univ. of Michigan         X      X          X    Jan 54    Sl        S
+Datamatic ABC I              Datamatic Corp.                             X   
+Ferranti TRANSCODE           Univ. of Toronto     R           X    X     X    Aug 54    M1        S
+Illiac DEC INPUT             Univ. of Illinois    R           X               Sep 52    SI        S
+Johnniac EASY FOX            Rand Corp.           R           X               Oct 55              S
+Norc NORC COMPILER           Naval Ord. Lab                   X          X    Aug 55    M2        M
+Seac BASE 00                 Natl. Bur. Stds.          X           X
+        UNIV. CODE           Moore School                                X    Apr 55
+
+Code
+R = Recommended for this computer, sometimes only for heavy usage.
+C = Common language for more than one computer.
+A = System is both recommended and has common language.
+ 
+Indexing
+M = Actual Index registers or B boxes in machine hardware.
+S = Index registers simulated in synthetic language of system.
+1 = Limited form of indexing, either stopped undirectionally or by one word only, or having
+certain registers applicable to only certain variables, or not compound (by combination of
+contents of registers).
+2 = General form, any variable may be indexed by anyone or combination of registers which may
+be freely incremented or decremented by any amount.
+ 
+Floating point
+M = Inherent in machine hardware.
+S = Simulated in language.
+ 
+Symbolism
+0 = None.
+1 = Limited, either regional, relative or exactly computable.
+2 = Fully descriptive English word or symbol combination which is descriptive of the variable
+or the assigned storage.
+ 
+Algebraic
+A single continuous algebraic formula statement may be made. Processor has mechanisms for
+applying associative and commutative laws to form operative program.
+ 
+M.L. = Machine language.
+Assem. = Assemblers.
+Inter. = Interpreters.
+Compl. = Compilers.
+

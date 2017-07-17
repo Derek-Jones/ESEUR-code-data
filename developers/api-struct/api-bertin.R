@@ -17,7 +17,7 @@ library("grid") # Yes, seriation uses grid graphics
 # library("gridExtra")
 
 
-clust=read.csv(paste0(ESEUR_dir, "developers/api-struct/fieldclust.csv"), as.is=TRUE)
+clust=read.csv(paste0(ESEUR_dir, "developers/api-struct/fieldclust.csv.xz"), as.is=TRUE)
 rownames(clust)=clust$Subject
 clust$Subject=NULL
 

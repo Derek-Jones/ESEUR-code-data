@@ -16,7 +16,7 @@ library("foreign")
 
 
 # coc81=read.arff(paste0(ESEUR_dir, "regression/cocomo81/coc81.arff"))
-coc81=read.csv(paste0(ESEUR_dir, "regression/cocomo81/coc81.csv"), as.is=TRUE)
+coc81=read.csv(paste0(ESEUR_dir, "regression/cocomo81/coc81.csv.xz"), as.is=TRUE)
 
 # An outlier for the dataset taken as a whole and for the embedded subset
 coc81=coc81[-19,]

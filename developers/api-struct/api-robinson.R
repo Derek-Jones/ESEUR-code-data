@@ -18,7 +18,7 @@ library("grid") # Yes, seriation uses grid graphics
 
 pal_col=diverge_hcl(10)
 
-fields=read.csv(paste0(ESEUR_dir, "developers/api-struct/similar_08.csv"), as.is=TRUE)
+fields=read.csv(paste0(ESEUR_dir, "developers/api-struct/similar_08.csv.xz"), as.is=TRUE)
 rownames(fields)=colnames(fields)
 
 fmat=as.matrix(fields)

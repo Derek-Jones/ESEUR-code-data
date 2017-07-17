@@ -13,12 +13,12 @@ source("ESEUR_config.r")
 
 library("rpart")
 
-# mars=read.csv(paste0(ESEUR_dir, "introduction/tycho-brahe/mars-numbers.csv"), as.is=TRUE)
+# mars=read.csv(paste0(ESEUR_dir, "introduction/tycho-brahe/mars-numbers.csv.xz"), as.is=TRUE)
 # mars=subset(mars, !is.na(Hour))
 # mars=subset(mars, !is.na(Min))
 
 mars=read.csv(paste0(ESEUR_dir, "introduction/tycho-brahe/mars.csv.xz"), as.is=TRUE)
-pred_mars=read.csv(paste0(ESEUR_dir, "introduction/tycho-brahe/pred-mars.csv"), as.is=TRUE)
+pred_mars=read.csv(paste0(ESEUR_dir, "introduction/tycho-brahe/pred-mars.csv.xz"), as.is=TRUE)
 
 # table(mars$Hour, mars$Month)
 

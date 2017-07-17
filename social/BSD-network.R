@@ -1,5 +1,5 @@
 #
-# BSD-network.R, 29 Aug 16
+# BSD-network.R, 23 Jun 17
 #
 # Data from:
 # Social Interactions around Cross-System Bug Fixings: the Case of FreeBSD and OpenBSD
@@ -10,6 +10,11 @@
 # Derek M. Jones
 
 source("ESEUR_config.r")
+
+
+# The sna package (which might be loaded during book build)
+# contains functions found in igraph and called here, e.g., degree
+unloadNamespace("sna")
 
 library("igraph")
 

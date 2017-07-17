@@ -38,7 +38,7 @@ return(f_mod)
 }
 
 
-AF_code=read.csv(paste0(ESEUR_dir, "ecosystem/a174454.csv.xz"), as.is=TRUE)
+AF_code=read.csv(paste0(ESEUR_dir, "ecosystems/a174454.csv.xz"), as.is=TRUE)
 
 All=subset(AF_code, language == "All")
 Fortran=subset(AF_code, language == "Fortran")
