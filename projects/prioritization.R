@@ -1,5 +1,5 @@
 #
-# prioritization.R, 14 Jun 15
+# prioritization.R, 16 Oct 17
 #
 # Data from:
 # An industrial case study on distributed prioritisation in market-driven requirements engineering for packaged software
@@ -12,6 +12,8 @@
 source("ESEUR_config.r")
 
 library(plyr)
+
+pal_col=rainbow(2)
 
 high_level=read.csv(paste0(ESEUR_dir, "projects/high-level.csv.xz"), as.is=TRUE)
 detailed=read.csv(paste0(ESEUR_dir, "projects/detailed.csv.xz"), as.is=TRUE)
@@ -31,21 +33,25 @@ detailed=read.csv(paste0(ESEUR_dir, "projects/detailed.csv.xz"), as.is=TRUE)
 # 
 # mean(unlist(q))
 
-spend_per_req=rowSums(high_level[, -1]) / (ncol(high_level)-1)
+req_spend=high_level[, -1] # remove Requirements id
+num_reqs=nrow(req_spend)
+
+spend_per_req=rowSums(req_spend) / num_reqs
 
 req_rank=order(spend_per_req, decreasing=TRUE)
 
 # Calculate column sums with each prioritiser removed in turn
-spend_minus_one=sapply(2:ncol(high_level),
-			function(X) rowSums(high_level[, -c(1, X)]))
-spend_minus_one=spend_minus_one / (ncol(high_level)-2)
+spend_minus_one=sapply(1:ncol(req_spend),
+			function(X) rowSums(req_spend[, -c(1, X)]))
+# Expand to same number of requirements
+spend_minus_one=(num_reqs/(num_reqs-1))*spend_minus_one / (num_reqs-1)
 
 # Standard deviation for when one prioritiser is omitted
 req_spend_sd=apply(spend_minus_one, 1, sd)
 
-plot(spend_per_req[req_rank], type="l", col="red",
+plot(spend_per_req[req_rank], type="l", col=pal_col[1],
 	xlab="Requirement", ylab="Allocated funds\n")
-lines(spend_per_req[req_rank]+req_spend_sd[req_rank], col="blue")
-lines(spend_per_req[req_rank]-req_spend_sd[req_rank], col="blue")
+lines(spend_per_req[req_rank]+req_spend_sd[req_rank], col=pal_col[2])
+lines(spend_per_req[req_rank]-req_spend_sd[req_rank], col=pal_col[2])
 
 

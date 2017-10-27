@@ -13,10 +13,10 @@
 
 source("ESEUR_config.r")
 
-par(fin=c(4.0, 4.0))
 
 library("corrgram")
 
+par(fin=c(4.0, 4.0))
 
 homebrew_req=read.csv(paste0(ESEUR_dir, "communicating/pull-homebrew.csv.xz"), as.is=TRUE)
 

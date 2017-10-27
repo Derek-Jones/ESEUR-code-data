@@ -93,7 +93,7 @@ psw_prod=sapply(1:(num_reopened+num_notreopened),
 psw_m1_prod=sapply(1:(num_reopened+num_notreopened),
               function(x){w=psw.top50[x,] ; return(prod(1-w[w>0], na.rm=TRUE)) })
 
-# Naieve Bayes calculation
+# Naive Bayes calculation
 P=psw_prod/(psw_prod+psw_m1_prod)
 
 return (P)

@@ -1,5 +1,5 @@
 #
-# coderev.R, 22 Dec 15
+# coderev.R, 13 Oct 17
 #
 # Data from:
 # An empirical study on the effectiveness of security code review
@@ -23,11 +23,11 @@ rev_tf=read.csv(paste0(ESEUR_dir, "regression/coderev-cor_false.csv.xz"))
 #rev_tf=rev_tf[-c(28, 29, 30), ]
 #rev_tf=rev_tf[-c(11, 22, 24, 25, 26, 27, 28, 29, 30), ]
 
-plot(rev_tf$false_report, rev_tf$correct,
+plot(rev_tf$false_report, rev_tf$correct, col=point_col,
 	ylim=c(0, 5),
 	xlab="False reports", ylab="Correct reports")
 
-gl_mod=glm(correct ~ false_report, data=rev_tf, family=poisson)
+gl_mod=glm(correct ~ false_report, data=rev_tf, family=poisson(link="identity"))
 
 # summary(gl_mod)
 

@@ -39,7 +39,7 @@ swaps$variable=NULL
 ps_a_mod=glm(swaps ~ (alg+size+loadseg+pages)^2-alg:loadseg, data=swaps)
 
 
-# Multiplicarive model gives a much better fit.
+# Multiplicative model gives a much better fit.
 # LRU's advantage comes via interaction with pages
 ps_m_mod=glm(swaps ~ (alg+size+loadseg+pages)^2, data=swaps, family=poisson)
 

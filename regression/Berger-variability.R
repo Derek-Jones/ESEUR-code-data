@@ -1,5 +1,5 @@
 #
-# Berger-variability.R, 27 Jul 16
+# Berger-variability.R, 13 Oct 17
 #
 # Data from:
 # Variability Modeling in the Systems Software Domain
@@ -40,19 +40,21 @@ lines(loess.smooth(features$total, features$all, span=0.5), col=pal_col[1])
 
 feature_seq=seq(1, 6500, 100)
 
-# feat_pmod=glm(all ~ total, data=features, family=poisson)
+# Quadratic is slightly better fit
+# feat_pmod=glm(all ~ total+I(total^2), data=features, family=poisson)
 # 
 # feat_ppred=predict(feat_pmod, newdata=data.frame(total=feature_seq),
 # 				type="response", se.fit=FALSE)
-
+#
 # lines(feature_seq, feat_ppred, col="green")
-
+#
 # lower/higher 95% confidence intervals
-# cl=feat_pred$fit - 1.96*feat_pred$se.fit
-# ch=feat_pred$fit + 1.96*feat_pred$se.fit
+# Need to change to type="link" in predict
+# cl=exp(feat_pred$fit - 1.96*feat_pred$se.fit)
+# ch=exp(feat_pred$fit + 1.96*feat_pred$se.fit)
 
-# Count can never go below 1
-feat_mod=vglm(all ~ total, data=features, family=pospoisson)
+# Count can never go below 1, use a zero truncated poisson, i.e., pospoisson
+feat_mod=vglm(all ~ total+I(total^2), data=features, family=pospoisson)
 
 feat_pred=predict(feat_mod, newdata=data.frame(total=feature_seq),
 				type="response")

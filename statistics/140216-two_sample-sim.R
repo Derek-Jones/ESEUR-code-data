@@ -14,7 +14,7 @@ require(MASS)
 #require(graphics)
 
 #START INPUTS
-mynsim=100000  #number of simulatiobs to run
+mynsim=100000  #number of simulations to run
 
 #set mean and SD for sample 1 and sample 2
 #These values give 
@@ -30,7 +30,7 @@ outfile="run1.txt.xz" #name for output file
 
 #set min and max P values for "significance"
 myPmin=0.0
-myPmax=0.05  #plot the distribustions for control (sample 1) and treatemett (sample2)
+myPmax=0.05  #plot the distributions for control (sample 1) and treatment (sample2)
 
 #END OF INPUTS
 
@@ -159,7 +159,7 @@ mytruediff
 
 #count also the fraction of "significant" results that are
 #followed by a "non-sig' result 
-# where "signifant" means P<= 0.05 OR 0.01
+# where "significant" means P<= 0.05 OR 0.01
 myn05=0    #counts number of sig - non sig pairs for P=0.05
 myn051=0   # counts number of sig-sig pairs
 myn01=0    #counts number of sig-non sig pairs for P=0.05

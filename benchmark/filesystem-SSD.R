@@ -1,5 +1,5 @@
 #
-# filesystem-SSD.R,  2 Dec 15
+# filesystem-SSD.R, 13 Oct 17
 #
 # Data from:
 # An Empirical Study on the Interplay Between Filesystems and SSD
@@ -14,29 +14,26 @@ source("ESEUR_config.r")
 
 file_ssd=read.csv(paste0(ESEUR_dir, "benchmark/20120915-figures.csv.xz"), as.is=TRUE)
 
-brew_col=rainbow_hcl(4)
+brew_col=rainbow(4)
 
-plot_option=function(df, col_num)
+plot_option=function(df, col_num, f_str)
 {
 num_row=nrow(df)
-par(new=TRUE)
-plot(offset:(offset+num_row-1), df$nops, type="h", col=brew_col[col_num],
-	xaxt="n", yaxt="n",
-	xlab="", ylab="",
-	xlim=c(1, 32), ylim=c(0, 2000))
-points(offset:(offset+num_row-1), df$nops)
+
+lines(offset:(offset+num_row-1), df$nops, type="b", col=brew_col[col_num])
+mtext(f_str, 1, at=offset+num_row/2-0.5, padj=-1, cex=0.8)
 offset <<- offset+num_row
 }
 
-par(bty="n")
 offset=1
-plot(1, type="n",
-	xaxt="n", xlab="", ylab="Operations per second\n",
-	xlim=c(1, 32), ylim=c(0, 2000))
-plot_option(subset(file_ssd, filesystem=="e2"), 1)
-plot_option(subset(file_ssd, filesystem=="e3"), 2)
-plot_option(subset(file_ssd, filesystem=="rfs"), 3)
-plot_option(subset(file_ssd, filesystem=="xfs"), 4)
+plot(1, type="n", bty="n",
+	xaxt="n",
+	xlim=c(1, 32), ylim=c(0, 2000),
+	xlab="Filesystem", ylab="Operations per second\n")
+plot_option(subset(file_ssd, filesystem=="e2"), 1, "ext2")
+plot_option(subset(file_ssd, filesystem=="e3"), 2, "ext3")
+plot_option(subset(file_ssd, filesystem=="rfs"), 3, "rfs")
+plot_option(subset(file_ssd, filesystem=="xfs"), 4, "xfs")
 
 
 # common_option=subset(file_ssd, option %in% c("blk1k", "blk2k", "noatime", "none"))

@@ -17,7 +17,7 @@ source("ESEUR_config.r")
 # Q1.3: "Students: Self-assessed programming competence, Professionals: Number of projects where project leader"
 # Q1.4: Students: Experience as software professional
 # START: Time when task started
-# NACT: Number of activitites
+# NACT: Number of activities
 # MIN: Total minimum estimate
 # ML: Total most likely estimate
 # MAX: Total maximum estimate

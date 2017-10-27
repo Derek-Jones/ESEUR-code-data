@@ -1,5 +1,5 @@
 #
-# AltmannTraftonHambrick.R, 15 Dec 16
+# AltmannTraftonHambrick.R, 20 Oct 17
 # Data from:
 # Effects of Interruption Length on Procedural Errors
 # Erik M. Altmann and J. Gregory Trafton and David Z. Hambrick
@@ -27,7 +27,7 @@ base_err=subset(df, PB == "Base" & DM == "Data")
 post_mod=subset(df, PB == "Post" & DM == "Model")
 base_mod=subset(df, PB == "Base" & DM == "Model")
 
-plot(post_err$offset, post_err$errors, cex.axis=1.6, cex.lab=1.4, col=pal_col[1],
+plot(post_err$offset, post_err$errors, cex.axis=1.8, cex.lab=1.6, col=pal_col[1],
 	yaxs="i", yaxt=yaxt_str,
 	ylim=c(0, 6.3),
 	xlab="\nOffset", ylab=y_str)
@@ -38,7 +38,7 @@ lines(post_mod$offset[4:6], post_mod$errors[4:6], col=pal_col[1])
 lines(base_mod$offset[1:3], base_mod$errors[1:3], col=pal_col[2])
 lines(base_mod$offset[4:6], base_mod$errors[4:6], col=pal_col[2])
 
-text(0, 6, Inter_str, cex=1.6)
+text(0, 6, Inter_str, cex=2.0)
 
 df=subset(errbar, Int_len == Inter_str)
 post_bar=subset(df, PB == "Post")

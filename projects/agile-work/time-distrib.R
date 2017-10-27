@@ -183,9 +183,9 @@ gen.trun(par=0, family=NBII)
 
 
 # Fit a zero-truncated, type II, negative binomial distribution
-fit.NBII=function(day.list)
+fit.NBII=function(day_list)
 {
-g_NBIItr=gamlss(day.list ~ 1, family=NBIItr)
+g_NBIItr=gamlss(day_list ~ 1, family=NBIItr)
 
 print(summary(g_NBIItr))
 
@@ -399,9 +399,9 @@ ccf(all.features[-(1:100)], all.bug.prio[-(1:100)], lag.max=150,
 
 
 # Return vector of week information (i.e., sum of day information)
-get.week.totals=function(day.list)
+get.week.totals=function(day_list)
 {
-t=sapply(seq(1,end.day,by=7), function(x) sum(day.list[(0:6)+x]))
+t=sapply(seq(1, end.day, by=7), function(x) sum(day_list[(0:6)+x]))
 return(t[!is.na(t)])
 }
 

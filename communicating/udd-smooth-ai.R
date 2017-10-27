@@ -33,7 +33,7 @@ smoothScatter(udd$age, log(udd$insts),
 plot(udd$age, udd$insts, log="y", col=point_col,
 	xlab="Age (days)", ylab="Installations\n")
 
-# There is no log option, so we have to compress/expand outselves
+# There is no log option, so we have to compress/expand ourselves
 d2_den=kde2d(udd$age, log(udd$insts+1e-5), n=50)
 contour(d2_den$x, exp(d2_den$y), d2_den$z, nlevels=5, add=TRUE)
 

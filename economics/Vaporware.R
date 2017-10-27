@@ -1,5 +1,5 @@
 #
-# Vaporware.R, 28 Apr 17
+# Vaporware.R, 20 Oct 17
 # Data from:
 # PC-Letter's Vapor list
 # via
@@ -11,6 +11,7 @@
 # Derek M. Jones
 
 source("ESEUR_config.r")
+
 
 # email information from Barry Bayus:
 # ANNOUNC date of the first product preannouncement
@@ -28,11 +29,18 @@ pos_vapor=subset(vapor, T2_T1 >= 0)
 
 # plot(vapor$ANNOUN, vapor$INTRO_DA)
 
-plot(pos_vapor$T1_T0, pos_vapor$T2_T1, log="xy", col=point_col,
-	ylim=c(1, max(pos_vapor$T2_T1)),
+plot(pos_vapor$T1_T0, pos_vapor$T2_T1, log="x", col=point_col,
+	ylim=c(0, max(pos_vapor$T2_T1)),
 	xlab="Promised-Preannouncement (months)",
 	ylab="Actual-Promised (months)"
 	)
 
 lines(loess.smooth(pos_vapor$T1_T0, pos_vapor$T2_T1, span=0.3), col=loess_col)
+
+v_mod=glm(T2_T1 ~ T1_T0+I(T1_T0^0.5), data=pos_vapor, family=poisson)
+
+x_vals=1:25
+pred=predict(v_mod, newdata=data.frame(T1_T0=x_vals), type="response")
+lines(x_vals, pred, col=point_col)
+
 

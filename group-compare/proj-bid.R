@@ -1,5 +1,5 @@
 #
-# proj-bid.R, 24 Aug 16
+# proj-bid.R,  4 Oct 17
 #
 # Data from:
 # An Empirical Study of Software Project Bidding
@@ -23,7 +23,7 @@ plot(density(log(comp_A_pre$Bid), kernel="epanechnikov"),
 	xlim=c(9, 14), ylim=c(0, 0.7),
 #	xlim=c(0, 6e+5), ylim=c(0, 3.2e-6),
 	main="",
-	xaxt="n", yaxt="n", xlab="", ylab="")
+	xaxt="n", yaxt="n", xlab="Amount bid", ylab="Density")
 
 lines(density(log(comp_bid$Bid[1:17]), kernel="epanechnikov"),
 	col=brew_col[2])

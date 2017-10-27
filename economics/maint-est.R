@@ -44,6 +44,8 @@ lines(loess.smooth(maint$est_time, maint$act_time, span=0.3), col=loess_col)
 e_mod=glm(act_time ~ est_time, data=maint, family=quasipoisson(link="identity"))
 #e_mod=glm(act_time ~ est_time, data=maint, family=quasipoisson)
 
+xbounds=0:40
+
 e_pred=predict(e_mod, newdata=data.frame(est_time=xbounds), type="response", se.fit=TRUE)
 
 lines(xbounds, e_pred$fit, col="red")

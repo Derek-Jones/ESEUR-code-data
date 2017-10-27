@@ -41,7 +41,7 @@ cfl_week=ddply(cfl, .(week),
 					lines_deleted=sum(df$removed)))
 
 # Placement of vertical strips is sensitive to the range of
-# values on the y-axis, whichmay have to be compressed (e.q., sqrt(...).
+# values on the y-axis, which may have to be compressed (e.q., sqrt(...).
 t=xyplot(lines_added ~ week | equal.count(week, 4, overlap=0.1), cfl_week,
 		type="l", aspect="xy", strip=FALSE,
 		xlab="", ylab="Weekly total",

@@ -72,7 +72,7 @@ cran_dep$dep_sat[cran_dep$dep_sat == df] <<- exist_ver
 # package,version,dependency,constraint
 cran_dep=read.csv(paste0(ESEUR_dir, "ecosystems/SANER-2017/cran_dep.csv.xz"), as.is=TRUE)
 # cran_dep$version=gsub("-", ".", cran_dep$version)
-# cran_dep$contraint=gsub("-", ".", cran_dep$constraint)
+# cran_dep$constraint=gsub("-", ".", cran_dep$constraint)
 
 cran_dep$release=paste0(cran_dep$package, cran_dep$version)
 

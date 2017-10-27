@@ -9,7 +9,7 @@
 #Packets needed : mvtnorm (rmvnorm), RSVGTipsDevice (devSVGTips)
 #How to use: output()
 #
-#This is an translated version in R of an Matematica 6 code by Imagecreator.
+#This is an translated version in R of an Mathematica 6 code by Imagecreator.
 #
 # Example from:
 # Empirical Software Engineering using R

@@ -10,7 +10,7 @@
 
 source("ESEUR_config.r")
 
-# At the moment only horizontal planes work redictably...
+# At the moment only horizontal planes work predictably...
 
 library("scatterplot3d")
 

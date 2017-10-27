@@ -53,7 +53,7 @@ hm_RGB=hm[5925, 580:3204, ]
 # Map three RGB values to single number and find offset on 0..1 scale
 hm_scale=data.frame(RGB=map_RGB(hm_RGB),
 			scale=(1:nrow(hm_RGB))/nrow(hm_RGB))
-# Shink duplicate sequence of rows to a single row
+# Shrink duplicate sequence of rows to a single row
 uniq_scale=hm_scale[with(hm_scale,
 				c((RGB[-1] != head(RGB, n=-1)), TRUE)), ]
 # Make sure white is zero

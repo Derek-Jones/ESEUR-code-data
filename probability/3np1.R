@@ -54,7 +54,7 @@ tnb=fitdist(li, distr="nbinom")
 # summary(tnb)
 
 # gofstat is a simple 'universal' way of getting the values used for plotting
-# Distribuion order chosen to get the desired colors.
+# Distribution order chosen to get the desired colors.
 theo_vals=gofstat(list(tn, tp, tln, tnb),
 	chisqbreaks=1:120,
 	fitnames=c("Normal", "Poisson", "Lognormal", "Negative binomial"))

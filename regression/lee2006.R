@@ -62,7 +62,7 @@ l_mod_a=gam(sqrt(bips) ~ benchmark
                    # + s(depth, dcache_size, k=11)
                    # + s(depth, l2cache_size, k=12)
 
-                   ## interactions in memory hiearchy
+                   ## interactions in memory hierarchy
                    # + s(icache_size, l2cache_size, k=5)
                    # + s(dcache_size, l2cache_size, k=5)
 		   , select=TRUE

@@ -2,7 +2,7 @@
 # cpu-tuning.R, 19 Aug 16
 #
 # Data from:
-# Software knows best: A case for hardware transparancy and measureability
+# Software knows best: A case for hardware transparency and measureability
 # Bird
 #
 # Example from:

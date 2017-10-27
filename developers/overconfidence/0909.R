@@ -132,7 +132,7 @@ simk3optimize = function(x,y,error=error) simk3(x,y,error=error)[2]
 ## FUNCTION TO IDENTIFY EQUILIBRIA BASED ON ITERATED BEST REPLY
 bestreply=function(khats,error)
 {
-khatslist=paste(khats,collapse=" ") # initialize poulation list
+khatslist=paste(khats,collapse=" ") # initialize population list
 continue=TRUE # initialize continuation variable
 # start loop to search for best replies
 while(continue)

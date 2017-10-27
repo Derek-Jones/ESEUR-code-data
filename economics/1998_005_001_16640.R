@@ -1,7 +1,7 @@
 #
-# 1998_005_001_16640.R, 24 Feb 17
+# 1998_005_001_16640.R, 23 Oct 17
 # Data from:
-# Hughes Aircraft's} Widespread Deployment of a Continuously Improving Software Process
+# Hughes Aircraft's Widespread Deployment of a Continuously Improving Software Process
 # Ron R. Willis and Robert M. Rova and Mike D. Scott and Martha I. Johnson and John F. Ryskowski and Jane A. Moon and Ken C. Shumate and Thomas O. Winfield
 #
 # Example from:
@@ -28,7 +28,7 @@ x_at=1:length(b91$Phase)
 # axis(side=1, at=x_at, labels=b91$Phase, las=2)
 axis(1, at=x_at, labels=FALSE)
 text(x=x_at+0.3, y=par()$usr[3]-0.03*(par()$usr[4]-par()$usr[3]),
-                labels=b91$Phase, pos=2, srt=30, cex=1.1)
+                labels=b91$Phase, pos=2, srt=30, cex=1.1, xpd=TRUE)
 
 col_num=1
 lines(b91$Prelim.Design, col=pal_col[2])

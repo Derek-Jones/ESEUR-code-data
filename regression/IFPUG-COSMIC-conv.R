@@ -2,8 +2,8 @@
 # IFPUG-COSMIC-conv.R, 15 Sep 16
 #
 # Data from:
-# Javad Mohammadian Amiri and Venkata Vinod Kumar Padmanabhuni
 # A Comprehensive Evaluation of Conversion Approaches for Different Function Points
+# Javad Mohammadian Amiri and Venkata Vinod Kumar Padmanabhuni
 #
 # Example from:
 # Empirical Software Engineering using R

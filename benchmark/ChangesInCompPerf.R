@@ -38,7 +38,7 @@ over_30=subset(fifties, Sci.sec.dol > 30)
 
 # sci_mod=glm(Sci.sec.dol ~ Sci.l.ops.sec+I(Sci.l.ops.sec^2), data=bench, family=gaussian(link="log"))
 
-# Quandratic is a slightly better fit
+# Quadratic is a slightly better fit
 sci_mod=glm(Sci.sec.dol ~ Sci.l.ops.sec+I(Sci.l.ops.sec^2)+year, data=fifties, family=gaussian(link="log"))
 # Remove the largest outliers
 # sci_mod=glm(Sci.sec.dol ~ Sci.l.ops.sec+year, data=fifties[-c(111, 179, 158),], family=gaussian(link="log"))

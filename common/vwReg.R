@@ -40,7 +40,7 @@
  
 # Version history:
 # 0.1: original code
-# 0.1.1: changed license to FreeBSD; re-established compability to ggplot2 (new version 0.9.2)
+# 0.1.1: changed license to FreeBSD; re-established compatibility to ggplot2 (new version 0.9.2)
  
 ## Visually weighted regression / Watercolor plots
 ## Idea: Solomon Hsiang, with additional ideas from many blog commenters
@@ -53,14 +53,14 @@
 # spag: plot spaghetti lines?
 # spag.color: color of spaghetti lines
 # mweight: should the median smoother be visually weighted?
-# show.lm: should the linear regresison line be plotted?
+# show.lm: should the linear regression line be plotted?
 # show.CI: should the 95% CI limits be plotted?
 # show.median: should the median smoother be plotted?
 # median.col: color of the median smoother
 # shape: shape of points
 # method: the fitting function for the spaghettis; default: loess
 # bw = TRUE: define a default b&w-palette
-# slices: number of slices in x and y direction for the shaded region. Higher numbers make a smoother plot, but takes longer to draw. I wouldn'T go beyond 500
+# slices: number of slices in x and y direction for the shaded region. Higher numbers make a smoother plot, but takes longer to draw. I wouldn't go beyond 500
 # palette: provide a custom color palette for the watercolors
 # ylim: restrict range of the watercoloring
 # quantize: either "continuous", or "SD". In the latter case, we get three color regions for 1, 2, and 3 SD (an idea of John Mashey)

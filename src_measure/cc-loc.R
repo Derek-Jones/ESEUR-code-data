@@ -20,8 +20,8 @@ library("lme4")
 cc_loc=read.csv(paste0(ESEUR_dir, "src_measure/cc-loc.csv.xz"), as.is=TRUE)
 cc_loc$logloc=log(cc_loc$sloc)
 
-gloc_mod=glm(cc ~ sloc, data=cc_loc)
-loc_mod=glm(cc ~ logloc, data=cc_loc, family=poisson)
+# gloc_mod=glm(cc ~ sloc, data=cc_loc)
+# loc_mod=glm(cc ~ logloc, data=cc_loc, family=poisson)
 
 #loc_mix=glmer(cc ~ logloc+ (logloc | project)
 #                        , data=cc_loc, family=poisson)

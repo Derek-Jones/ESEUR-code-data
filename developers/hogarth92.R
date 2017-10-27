@@ -1,5 +1,5 @@
 #
-# template.R, 26 Mar 17
+# hogarth92.R, 26 Mar 17
 # Data from:
 # Learning From Feedback: {Exactness} and Incentives
 # Robin M. Hogarth and Craig R. M. McKenzie and Brian J. Gibbs and Margaret A. Marquis",

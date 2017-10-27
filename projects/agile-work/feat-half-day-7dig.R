@@ -31,6 +31,6 @@ return(2*cycle_list-dither)
 }
 
 
-#fit_quality(p$Cycle.Time[Done_day < 650])
-#rowMeans(replicate(1000, fit_quality(sub_divide(p$Cycle.Time[Done_day < 650]))))
+fit_quality(p$Cycle.Time[Done_day < 650])
+rowMeans(replicate(1000, fit_quality(sub_divide(p$Cycle.Time[Done_day < 650]))))
 

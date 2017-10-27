@@ -28,7 +28,7 @@ names(Groovy_ans)=c("subject", "language", "T1", "T2", "T3", "S1", "S2", "T4", "
 # G is Groovy first
 Groovy_ans$order=as.factor(1+(GJ$Start != "G"))
 
-# Melt will assume factors are id varaibles if none are specified
+# Melt will assume factors are id variables if none are specified
 all_ans=melt(rbind(Java_ans, Groovy_ans), variable.name="CIT", value.name="Time")
 
 

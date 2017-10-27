@@ -38,7 +38,7 @@ brew_col=rainbow(4)
 v3=subset(browser_ms, browser == "v3.0")
 
 plot(v3$date, v3$market_share, col=point_col,
-	xlab="Days since verson 1.0 released", ylab="Firefox v3 percentage market share\n")
+	xlab="Days since version 1.0 released", ylab="Firefox v3 percentage market share\n")
 
 plot_market_share("v3.0", brew_col[1], 0.75)
 plot_market_share("v3.0", brew_col[2], 0.6)
