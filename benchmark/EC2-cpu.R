@@ -11,6 +11,7 @@
 
 source("ESEUR_config.r")
 
+
 plot_layout(2, 1)
 
 brew_col=rainbow(2)
@@ -39,7 +40,7 @@ SmallEU$seconds=as.POSIXct(paste0(SmallEU$date, " ", SmallEU$time),
 			format="%m/%d/%y %I:%M:%s")
 
 plot(SmallEU$seconds, SmallEU$Ubench, col=brew_col[1],
-	xlab="2009-2010", ylab="")
+	xlab="2009-2010", ylab="Ubench cpu performance\n")
 
 SmallUS=read.csv(paste0(ESEUR_dir, "benchmark/cpuSmallUS.csv.xz"), sep="\t", as.is=TRUE)
 

@@ -1,0 +1,77 @@
+Information kindly provided by Benno Luthiger.
+
+QuestionnaireID,numerical,11,0,QuestionnaireID
+sLanguage,numerical,1,0,Language
+bAnonymous,numerical,4,0,Anonymous
+nResponseTime,numerical,8,2,ResponseTime
+q52,numerical,8,2,How much time did it take you to answer this questionnaire?
+reliRespDiff,numerical,8,2,External Reliability: Time to respond: Time difference.
+reliRespTime,numerical,4,0,External Reliability: Time to respond.
+nSite,numerical,4,0,Site
+q1,numerical,4,0,I lose my sense of time.
+q2,numerical,4,0,I cannot say how long I've been with programming.
+q3,numerical,4,0,I am in a state of flow when I'm working.
+q4,numerical,4,0,I forget all my worries when I'm working.
+q5,numerical,4,0,It's easy for me to concentrate.
+q6,numerical,4,0,I'm all wrapped up in the action.
+q7,numerical,4,0,I am absolutely focused on what I'm programming.
+q8,numerical,4,0,The requirements of my work are clear to me.
+q9,numerical,4,0,I hardly think of the past or the future.
+q10,numerical,4,0,I know exactly what is required of me.
+q11,numerical,4,0,There are many things I would prefer doing.
+q12,numerical,4,0,I feel that I can cope well with the demands of the situation.
+q13,numerical,4,0,My work is solely motivated by the fact that it will pay for me.
+q14,numerical,4,0,I always know exactly what I have to do.
+q15,numerical,4,0,I'm very absent-minded.
+q16,numerical,4,0,I don't have to muse over other things.
+q17,numerical,4,0,I know how to set about it.
+q18,numerical,4,0,I'm completely focused.
+q19,numerical,4,0,I feel able to handle the problem.
+q20,numerical,4,0,I am extremely concentrated.
+q21,numerical,4,0,I'm looking forward to my programming work.
+q22,numerical,4,0,I enjoy my work.
+q23,numerical,4,0,I feel the demands upon me are excessive.
+q24,numerical,4,0,Things just seem to fall into place.
+q25,numerical,4,0,I forget everything around me.
+q26,numerical,4,0,I accomplish my work for its own sake.
+q27,numerical,4,0,I completely concentrate on my programming work.
+q28,numerical,4,0,I am easily distracted by other things.
+q29,numerical,4,0,I'm looking forward to further development activities for open source software.
+q30,numerical,4,0,I'm prepared to increase my future commitment in the development of open source software.
+q31,numerical,4,0,"With one more hour in the day, I would program open source software."
+q32,numerical,4,0,How often are the open source projects you work on based on a definite project vision?
+q33,numerical,4,0,How often is there a deadline for your open source projects?
+q34,numerical,4,0,How important is the vision behind an open source project for you to participate in the project?
+q35,numerical,4,0,How important is the professional competence of the project leader for your commitment in an open source project?
+q36_1,numerical,4,0,As member: It was important for my work to have a certain functionality; that's why I joined the open source project and got involved.
+q36_2,numerical,4,0,As member: My employer asked me to participate in the open source project because he needed its functionality.
+q36_3,numerical,4,0,As member: Because I wanted to do something for the open source community.
+q36_4,numerical,4,0,As member: The project promised to be fun.
+q36_5,numerical,4,0,As member: My colleagues motivated me to participate in the open source project.
+q36_6,numerical,4,0,As member: By participating in the open source project you could become famous.
+q36_7,numerical,4,0,As member: Because I wanted to learn and develop new skills.
+q37_1,numerical,4,0,"As leader: I needed a certain functionality for my work, and I wanted to make this functionality available as an open source application."
+q37_2,numerical,4,0,As leader: My employer asked me to start the open source project because he needed the functionality.
+q37_3,numerical,4,0,As leader: My employer asked me to start the open source project because he could earn money with the application.
+q37_4,numerical,4,0,As leader: Because I wanted to do something for the open source community.
+q37_5,numerical,4,0,"As leader: One open source project in the past didn't develop as desired, therefore I had to start my own."
+q37_6,numerical,4,0,As leader: The project promised to be fun.
+q37_7,numerical,4,0,As leader: I needed assistants to complete a software project.
+q37_8,numerical,4,0,As leader: With an open source project you could become famous.
+q38,numerical,4,0,How many patches have you developed for open source software?
+q39,numerical,4,0,How many classes/modules/files etc. have you developed for open source software?
+q40,numerical,8,2,Please estimate the time you spend for the development of open source software (average hours per week).
+q41,numerical,4,0,"Of the total time spent for the development of open source software, how much in percent is part of your spare time?"
+sparePerc,numerical,8,0,"Of the total time spent for the development of open source software, how much in percent is part of your spare time?"
+q42,numerical,4,0,"How much (on average, in percent) of your spare time do you spend on activities concerning open source projects?"
+q43,numerical,4,0,Please specify the most important position you hold or held in an open source project.
+q44,numerical,11,0,Please state the year in which you started to develop open source software.
+startYearCat,numerical,5,0,Please state the year in which you started to develop open source software. (In Bereiche eingeteilt)
+q45,numerical,4,0,How old were you when you started to develop open source software?
+ageThenCategory,numerical,5,0,How old were you when you started to develop open source software? (In Bereiche eingeteilt)
+q46,numerical,4,0,Do you have children?
+q47,numerical,4,0,Are there other adults living in the same household with you?
+q48,numerical,4,0,How many pastimes (including programming) do you have?
+q49,numerical,4,0,Gender
+q50,characters,3,0,Nationality
+q51,numerical,4,0,Occupation

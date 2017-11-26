@@ -43,7 +43,7 @@ par(mar=MAR)
 }
 
 plot_layout=function(num_down, num_across,
-		default_width=ESEUR_default_height, default_height=ESEUR_default_height,
+		default_width=ESEUR_default_width, default_height=ESEUR_default_height,
 		max_width=ESEUR_max_width, max_height=ESEUR_max_height)
 {
 if (num_across > 1)

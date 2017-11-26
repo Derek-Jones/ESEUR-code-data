@@ -1,5 +1,5 @@
 #
-# 1998_005_001_16640.R, 23 Oct 17
+# 1998_005_001_16640a.R, 16 Nov 17
 # Data from:
 # Hughes Aircraft's Widespread Deployment of a Continuously Improving Software Process
 # Ron R. Willis and Robert M. Rova and Mike D. Scott and Martha I. Johnson and John F. Ryskowski and Jane A. Moon and Ken C. Shumate and Thomas O. Winfield
@@ -21,7 +21,7 @@ b91=b91[-10, ] # Last row contains the average
 
 plot(b91$SRS_IRS, type="l", col=pal_col[1],
 	xaxt="n",
-	ylim=c(0, 4),
+	ylim=c(0, 4.1),
 	xlab="", ylab="Effort per fault (days)")
 
 x_at=1:length(b91$Phase)

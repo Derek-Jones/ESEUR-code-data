@@ -1,5 +1,5 @@
 #
-# soft-company.R,  5 Jul 17
+# soft-company.R, 20 Nov 17
 #
 # Data from:
 # OpenCorporates.org
@@ -35,7 +35,7 @@ t$Date=as.Date(t$Var1, format="%Y-%m-%d")
 
 plot(t$Date, t$Freq, log="y", col=pal_col[1],
 	xlim=range(ch$IncorporationDate),
-	xlab="Date", ylab="Monthly total")
+	xlab="Date", ylab="New company registrations")
 
 t=as.data.frame(table(comp$Incorporation_M_Y))
 t$Date=as.Date(t$Var1, format="%Y-%m-%d")

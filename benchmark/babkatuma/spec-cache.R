@@ -1,5 +1,5 @@
 #
-# spec-cache.R,  8 Jan 16
+# spec-cache.R, 23 Nov 17
 #
 # Data from:
 # Improving Accuracy of Software Performance Models on Multicore Platforms with Shared Caches
@@ -14,7 +14,7 @@
 source("ESEUR_config.r")
 
 
-par(fin=c(4.5, 3.5))
+# par(fin=c(4.5, 3.5))
 
 isol=read.csv(paste0(ESEUR_dir, "benchmark/babkatuma/tbl_isol_means.tbl"), sep=" ", as.is=TRUE)
 hit=read.csv(paste0(ESEUR_dir, "benchmark/babkatuma/tbl_hit_means.tbl"), sep=" ", as.is=TRUE)
@@ -32,10 +32,10 @@ barplot(rbind(hit$time[ordr]/isol$time[ordr]*100-100,
 		miss$time[ordr]/isol$time[ordr]*100-100,
 		cap$time[ordr]/isol$time[ordr]*100-100,
 		mem$time[ordr]/isol$time[ordr]*100-100),
-	beside=TRUE, col=pal_col,
+	beside=TRUE, col=pal_col, border=NA, cex.names=0.95,
 	ylab="Slowdown percentage\n",
 	names.arg=apply(t(isol$benchmark[ordr]), 1, substring,1,8), las=2,
-	args.legend=list(x="topright", bty="n", cex=1.3),
+	args.legend=list(x="topright", bty="n", cex=1.2),
 	legend.text=c("shared cache: Hits",
 			"shared cache: Conflict misses",
 			"shared cache: Capacity misses",

@@ -1,10 +1,13 @@
 #
-# hardware-market.R,  6 Jul 17
+# hardware-market.R, 21 Nov 17
 #
 # Data from:
 # Mainframe & mini sales
 # The Postwar Evolution of Computer Prices
 # Robert J. Gordon
+# plus, a correction from Einstein and Franklin table 1
+# The 1992 Annual Computer Industry Almanac (page 502) has
+# much larger numbers for Mini units and ???
 #
 # http://jeremyreimer.com/m-item.lsp?i=137
 # Posted by: Jeremy Reimer on Fri Dec 7 11:06:14 2012.

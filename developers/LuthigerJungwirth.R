@@ -1,5 +1,5 @@
 #
-# LuthigerJungwirth.R,  4 Jan 17
+# LuthigerJungwirth.R, 14 Nov 17
 # Data from:
 # Pervasive Fun
 # Benno Luthiger and Carola Jungwirth
@@ -13,7 +13,7 @@ source("ESEUR_config.r")
 library("dplyr")
 library("ordinal")
 
-
+# See LuthigerJungwirth.txt for information on columns
 fasd=read.csv(paste0(ESEUR_dir, "developers/LuthigerJungwirth.csv.xz"), as.is=TRUE)
 
 fasd[fasd == -1]=NA
@@ -27,8 +27,9 @@ fasd=mutate_if(fasd, is.numeric, as.factor)
 #                   q31+q32+q33+q34+q35,
 # 			data=fasd)
 
-fun_mod=clm(q42 ~          q6+   
+fun_mod=clm(q42 ~                q6+   
                           q23+                    q29,
 			data=fasd)
 summary(fun_mod)
+
 

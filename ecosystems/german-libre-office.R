@@ -1,5 +1,5 @@
 #
-# german-libre-office.R,  2 Jun 17
+# german-libre-office.R,  6 Nov 17
 #
 # Data from:
 #
@@ -24,7 +24,7 @@ plot(lb$date, lb$lines, log="y", col=point_col,
 axis(3, at=lb$date, labels=lb$version)
 mtext("Version", padj=-1.8, cex=0.7)
 
-gc_mod=glm(lines ~ as.numeric(date), data=lb, family=gaussian(link="log"))
+gc_mod=glm(lines ~ as.numeric(date), data=lb, family=poisson)
 pred=predict(gc_mod, type="response")
 lines(lb$date, pred, col=pal_col[1])
 

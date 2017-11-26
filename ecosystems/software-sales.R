@@ -1,5 +1,5 @@
 #
-# software-sales.R, 12 Jul 17
+# software-sales.R, 17 Nov 17
 # Data from:
 # Data Processing Technology and Economics
 # Montgomery Phister, Jr.
@@ -21,5 +21,5 @@ plot(phister$Year, phister$Total.Packages, type="l", col=pal_col[1], log="y",
 	xlab="Year", ylab="Dollars (billion)\n")
 lines(phister$Year, phister$Custom, col=pal_col[2])
 
-legend(x="bottomright", legend=c("Packed software (total)", "Custom software"), bty="n", fill=pal_col, cex=1.2)
+legend(x="bottomright", legend=c("Packaged software (total)", "Custom software"), bty="n", fill=pal_col, cex=1.2)
 

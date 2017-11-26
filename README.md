@@ -21,5 +21,5 @@ This file sets the variable ESEUR_dir to contain the base directory containing a
 
 The .R files are a superset of what appear in the book.  If some data was analyzed and I thought it useful, but could not find a place for it in the book, it was put in a misc/ directory (some files may not have been moved).
 
-The data was very recently compressed to get under Github size limits and reduce download time.  You might find some filename strings are missing a .xz.
+The data has been compressed to get under Github size limits and reduce download time.  You might find some filename strings are missing a .xz.
 
