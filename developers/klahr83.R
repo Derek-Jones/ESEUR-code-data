@@ -15,6 +15,7 @@ library("diagram")
 
 elpos=coordinates (c(6, 6, 6, 6, 6, 6, 6, 6))
 
+# Nodes appear left to right, starting top left, finish bottom right
 names=c("1", "2", "3", "4", "5", "6",
 	"A", "H", "L", "Q", "U", "W",
 	"B", "I", "M", "R", "V", "X",

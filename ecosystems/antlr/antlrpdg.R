@@ -1,5 +1,5 @@
 #
-# antlrpdg.R,  8 Jan 16
+# antlrpdg.R, 15 Mar 18
 #
 # Data from:
 # Hussain Abdullah A. Al-Mutawa
@@ -15,7 +15,9 @@ library("igraph")
 library("plyr")
 library("RJSONIO")
 
-plot_layout(5, 1)
+
+# Increasing default_width does not seem to have any/much effect
+plot_layout(5, 1, default_width=ESEUR_default_width+4)
 par(oma=OMA_default+c(-1.5, 0, -0.5, 0))
 par(mar=MAR_default+c(-1.5, 0, -0.2, 0))
 

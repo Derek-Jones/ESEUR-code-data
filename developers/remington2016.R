@@ -72,10 +72,12 @@ lines(loess.smooth(s204$CurrentScreen, s204$TimeUsed, span=0.3), col="green")
 # 		data=C02,
 # 		start=c(b=4000, c=-0.27))
 # summary(nlme_C02_mod)
+# confint(nlme_C02_mod)
 # 
 # nlme_C01_mod=nlmer(TimeUsed ~ power.f(CurrentScreen, b, c) ~ (b | SubjectID) + (b | Action),
 # 		nAGQ=0,
 # 		data=C01,
 # 		start=c(b=1000, c=-0.05))
 # summary(nlme_C01_mod)
-
+# confint(nlme_C01_mod)
+# 

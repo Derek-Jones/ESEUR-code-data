@@ -1,5 +1,5 @@
 #
-# 500K_inputs.R,  5 Aug 16
+# 500K_inputs.R, 22 Feb 18
 #
 # Data from:
 # An Experiment in Software Reliability
@@ -12,32 +12,38 @@
 source("ESEUR_config.r")
 
 
-plot_layout(2, 1)
+library("reshape2")
 
-plot_test=function(test_num)
+pal_col=rainbow(4)
+
+
+fit_mod=function(df)
 {
-lines(tests[test_num, ], 1:ncol(tests), col=brew_col[test_num])
+AT_mod=glm(failure ~ log(F), data=df)
+# f_mod=glm(failure ~ log(F)+I(log(F)^2), data=all_fails)
+
+pred=predict(AT_mod, newdata=data.frame(F=exp(0:14)))
+
+lines(exp(0:14), pred, col="grey")
+
+return(AT_mod)
 }
 
 
 tests=read.csv(paste0(ESEUR_dir, "reliability/19860020075-500.csv.xz"), as.is=TRUE)
-
 tests$Code=NULL
 tests$Rep=NULL
 
-max_test=max(tests[1:4, ], na.rm=TRUE)
+all_fails=reshape(tests, varying=colnames(tests), timevar="failure", dir="long", sep="")
 
-brew_col=rainbow(4)
+plot(all_fails$F, all_fails$failure, log="x", col=pal_col[1+(all_fails$id %% 4)],
+	xlab="Input cases", ylab="Failure")
 
-plot(1, type="n",
-	xlim=c(1, max_test), ylim=c(1, ncol(tests)),
-	xlab="", ylab="Failure count")
-dummy=sapply(1:4, plot_test)
+# The two programs (Application tasks) containing mistakes
+AT1=subset(all_fails, id <= 4)
+AT3=subset(all_fails, id > 4)
 
-
-plot(1, log="x", type="n",
-	xlim=c(1, max_test), ylim=c(1, ncol(tests)),
-	xlab="Input cases", ylab="Failure count")
-dummy=sapply(1:4, plot_test)
+AT1_mod=fit_mod(AT1)
+AT3_mod=fit_mod(AT3)
 
 

@@ -65,12 +65,15 @@ plot(m_marks$PT_p, m_marks$P_score)
 
 s_2012=fit_mod(2012)
 summary(s_2012)
+# confint(s_2012)
 
 s_2013=fit_mod(2013)
 summary(s_2013)
+# confint(s_2013)
 
 s_2014=fit_mod(2014)
 summary(s_2014)
+# confint(s_2014)
 
 # bootstrap mean and get confidence interval
 boot.ci(mean_marks(2012))

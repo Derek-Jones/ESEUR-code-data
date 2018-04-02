@@ -63,10 +63,12 @@ dev_long$Task_num=1+as.numeric(dev_long$Task)
 # # t_lme=lmer(Time ~ Task+Subj_lev+(1 | Subj_num), data=dev_long)
 # t_lme=lmer(Time ~ Task_num*Subj_lev+(1 | Subj_num), data=dev_long)
 # summary(t_lme)
+# confint(t_lme)
 
 # lt_lme=lmer(log(Time) ~ Task+Subj_lev+(1 | Subj_num), data=dev_long)
 # lt_lme=lmer(log(Time) ~ Task_num*Subj_lev+(1 | Subj_num), data=dev_long)
 # summary(lt_lme)
+# confint(lt_lme)
 
 # plot(0,.1 type="n",
 # 	xlim=c(3, 8), ylim=c(0.85, 1.4),

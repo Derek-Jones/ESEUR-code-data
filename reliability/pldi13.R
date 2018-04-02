@@ -1,5 +1,5 @@
 #
-# pldi13.R, 11 Jul 16
+# pldi13.R, 26 Mar 18
 # Data from:
 #
 # Taming Compiler Fuzzers
@@ -12,11 +12,18 @@
 source("ESEUR_config.r")
 
 
+# The igraph package (which might be loaded when building the book)
+# contains functions found in gnm.  The treemap package might also have
+# been loaded, and its 'load' of igraph cannot be undone without first
+# unloading treemap!
+unloadNamespace("FrF2")
+unloadNamespace("treemap")
+unloadNamespace("igraph")
 library("gnm")
+
 
 plot_layout(2, 1)
 pal_col=rainbow(3)
-
 
 
 wrong=read.csv(paste0(ESEUR_dir, "reliability/wrong.csv.xz"), as.is=TRUE)

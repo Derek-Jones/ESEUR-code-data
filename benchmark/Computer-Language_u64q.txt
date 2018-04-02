@@ -1,0 +1,131 @@
+> cl_mod=glm(log(cpu.s.) ~ name+lang, data=cl)
+> summary(cl_mod)
+
+Call:
+glm(formula = log(cpu.s.) ~ name + lang, data = cl)
+
+Deviance Residuals: 
+    Min       1Q   Median       3Q      Max  
+-8.1036  -0.8511   0.4800   1.1471   5.9560  
+
+Coefficients:
+                    Estimate Std. Error t value Pr(>|t|)    
+(Intercept)         1.299246   0.176825   7.348 2.28e-13 ***
+namechameneosredux  0.499162   0.149960   3.329 0.000878 ***
+namefannkuchredux   1.407449   0.111391  12.635  < 2e-16 ***
+namefasta           0.002456   0.106468   0.023 0.981595    
+nameknucleotide     1.334063   0.117815  11.323  < 2e-16 ***
+namemandelbrot      1.024380   0.105869   9.676  < 2e-16 ***
+namemeteor         -2.083929   0.150525 -13.844  < 2e-16 ***
+namenbody           0.789205   0.107385   7.349 2.25e-13 ***
+namepidigits       -0.680800   0.121745  -5.592 2.34e-08 ***
+nameregexredux      0.312285   0.124990   2.498 0.012498 *  
+namerevcomp        -1.325144   0.108547 -12.208  < 2e-16 ***
+namespectralnorm    0.567844   0.109691   5.177 2.33e-07 ***
+namethreadring      1.244750   0.148536   8.380  < 2e-16 ***
+langclojure         1.209892   0.208456   5.804 6.79e-09 ***
+langcsharpcore      0.524843   0.185627   2.827 0.004708 ** 
+langdart            1.039288   0.248837   4.177 3.00e-05 ***
+langerlang          1.624063   0.237144   6.848 8.18e-12 ***
+langfpascal         0.306824   0.219873   1.395 0.162927    
+langfsharp          0.976974   0.235544   4.148 3.40e-05 ***
+langfsharpcore      0.661517   0.189906   3.483 0.000499 ***
+langgcc            -0.297268   0.187818  -1.583 0.113531    
+langghc             0.503310   0.207606   2.424 0.015364 *  
+langgnat            0.215802   0.208704   1.034 0.301173    
+langgo              0.217664   0.191829   1.135 0.256556    
+langgpp            -0.258344   0.180767  -1.429 0.153011    
+langhack            1.167805   0.258906   4.511 6.58e-06 ***
+langhipe            1.448175   0.231989   6.242 4.59e-10 ***
+langifc            -0.043085   0.218035  -0.198 0.843361    
+langjava            0.566450   0.188990   2.997 0.002735 ** 
+langjruby           2.784858   0.232342  11.986  < 2e-16 ***
+langkotlin          0.337376   0.420149   0.803 0.422011    
+langlua             1.544600   0.268540   5.752 9.25e-09 ***
+langmri             2.604685   0.255336  10.201  < 2e-16 ***
+langnode            0.627797   0.218055   2.879 0.004002 ** 
+langocaml          -0.892398   0.232203  -3.843 0.000123 ***
+langperl            1.576135   0.223517   7.052 1.96e-12 ***
+langphp             0.466772   0.231999   2.012 0.044267 *  
+langpython3         1.780178   0.234932   7.577 4.04e-14 ***
+langracket          1.000907   0.211157   4.740 2.18e-06 ***
+langrust           -0.300184   0.199238  -1.507 0.131947    
+langsbcl            0.425214   0.202167   2.103 0.035481 *  
+langscala           0.761639   0.227153   3.353 0.000804 ***
+langswift           0.232800   0.214864   1.083 0.278638    
+langtypescript      0.512692   0.238222   2.152 0.031423 *  
+langvw              1.400417   0.252442   5.547 3.02e-08 ***
+langyarv            1.436265   0.217590   6.601 4.43e-11 ***
+---
+Signif. codes:  0 ‘***’ 0.001 ‘**’ 0.01 ‘*’ 0.05 ‘.’ 0.1 ‘ ’ 1
+
+(Dispersion parameter for gaussian family taken to be 3.546031)
+
+    Null deviance: 29610  on 6283  degrees of freedom
+Residual deviance: 22120  on 6238  degrees of freedom
+AIC: 25836
+
+Number of Fisher Scoring iterations: 2
+
+
+> cm_mod=lmer(log(cpu.s.) ~ lang +(1 | name), data=cl)
+> summary(cm_mod)
+Linear mixed model fit by REML ['lmerMod']
+Formula: log(cpu.s.) ~ lang + (1 | name)
+   Data: cl
+
+REML criterion at convergence: 25879.3
+
+Scaled residuals: 
+    Min      1Q  Median      3Q     Max 
+-4.3013 -0.4524  0.2556  0.6107  3.1628 
+
+Random effects:
+ Groups   Name        Variance Std.Dev.
+ name     (Intercept) 1.109    1.053   
+ Residual             3.546    1.883   
+Number of obs: 6284, groups:  name, 13
+
+Fixed effects:
+               Estimate Std. Error t value
+(Intercept)     1.53621    0.33272   4.617
+langclojure     1.21182    0.20845   5.814
+langcsharpcore  0.52869    0.18561   2.848
+langdart        1.04208    0.24882   4.188
+langerlang      1.62668    0.23712   6.860
+langfpascal     0.30763    0.21986   1.399
+langfsharp      0.98214    0.23553   4.170
+langfsharpcore  0.66511    0.18989   3.503
+langgcc        -0.29460    0.18781  -1.569
+langghc         0.50164    0.20760   2.416
+langgnat        0.21884    0.20869   1.049
+langgo          0.21937    0.19182   1.144
+langgpp        -0.25761    0.18076  -1.425
+langhack        1.17069    0.25889   4.522
+langhipe        1.45088    0.23197   6.255
+langifc        -0.03998    0.21801  -0.183
+langjava        0.56822    0.18898   3.007
+langjruby       2.78251    0.23234  11.976
+langkotlin      0.34190    0.42012   0.814
+langlua         1.54035    0.26853   5.736
+langmri         2.60130    0.25533  10.188
+langnode        0.63062    0.21804   2.892
+langocaml      -0.88721    0.23219  -3.821
+langperl        1.57538    0.22351   7.048
+langphp         0.46570    0.23198   2.008
+langpython3     1.77667    0.23492   7.563
+langracket      1.00224    0.21115   4.747
+langrust       -0.29823    0.19923  -1.497
+langsbcl        0.42923    0.20215   2.123
+langscala       0.76394    0.22715   3.363
+langswift       0.23641    0.21485   1.100
+langtypescript  0.51535    0.23820   2.164
+langvw          1.40088    0.25244   5.549
+langyarv        1.43484    0.21758   6.594
+
+Correlation matrix not shown by default, as p = 34 > 12.
+Use print(x, correlation=TRUE)  or
+         vcov(x)         if you need it
+
+
+

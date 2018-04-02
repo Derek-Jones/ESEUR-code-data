@@ -17,7 +17,7 @@ plot_layout(1, 2)
 par(bty="n")
 
 
-bug_rep=read.csv(paste0(ESEUR_dir, "regression/10-cscw-data.csv.xz"), as.is=TRUE)
+bug_rep=read.csv(paste0(ESEUR_dir, "communicating/10-cscw-data.csv.xz"), as.is=TRUE)
 
 eclipse_rep=subset(bug_rep, bug_rep$project == "Eclipse")
 

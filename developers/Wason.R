@@ -11,7 +11,7 @@
 source("ESEUR_config.r")
 
 
-plot_layout(1, 1, default_height=3)
+plot_layout(1, 1, default_width=11, default_height=5)
 
 mk_card=function(x_pos, sym_str)
 {

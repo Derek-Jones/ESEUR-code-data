@@ -1,10 +1,10 @@
 #
-# patch-baysal.R, 10 Jul 17
+# patch-baysal.R,  1 Mar 18
 #
 # Data from:
 # The Influence of Non-Technical Factors on Code Review
 # Olga Baysal and Oleksii Kononenko and Reid Holmes and Michael W. Godfrey
-# SQL cur-pasted from personal email from Olga Baysal
+# SQL cut-pasted from personal email from Olga Baysal
 #
 # Example from:
 # Empirical Software Engineering using R
@@ -18,6 +18,9 @@ library("RSQLite")
 
 
 # plot_wide()
+# The default size produces a plot that is smaller than the available space
+plot_layout(1, 1, default_width=ESEUR_default_width+2,
+			default_height=ESEUR_default_height+2)
 
 
 con=dbConnect(RSQLite::SQLite(), dbname=paste0(ESEUR_dir, "faults/patch-baysal.sqlite"))

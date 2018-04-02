@@ -58,7 +58,7 @@ acf(b_ts, lag.max=lag, xlab=paste("Ignore =", ignore, collapse=","))
 
 
 # Project A
-bt_a=read.csv("/usr1/data-rbook/Buettner/Buettner_T31.csv", as.is=TRUE)
+bt_a=read.csv("/usr1/data-rbook/Buettner/Buettner_T31.csv.xz", as.is=TRUE)
 bt_a=subset(bt_a, !is.na(bt_a$Day))
 
 # Sum faults reported in each day
@@ -74,7 +74,7 @@ acf(ba_ts, lag.max=100)
 
 
 # Project C
-bt_c=read.csv(paste0(ESEUR_dir, "time-series/Buettner/Buettner_T32.csv"), as.is=TRUE)
+bt_c=read.csv(paste0(ESEUR_dir, "time-series/Buettner/Buettner_T32.csv.xz"), as.is=TRUE)
 bt_c=subset(bt_c, !is.na(bt_c$Day))
 
 dt_c=ddply(bt_c, .(Day), function(df) return(nrow(df)))

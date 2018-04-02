@@ -1,5 +1,5 @@
 #
-# trick93.R, 15 Nov 17
+# trick93.R, 15 Mar 18
 # Data from:
 # What Enumeration Studies Can Show Us About Spatial Attention: {Evidence} for Limited Capacity Preattentive Processing
 # Lana M. Trick and Zenon W. Pylyshyn
@@ -40,9 +40,9 @@ text(3.1, 6.2,"O", cex=2.2)
 text(5, 2, "O", cex=2.2)
 text(8, 6, "O", cex=2.2)
 
-plot(trick$response, type="n", cex.axis=1.5, cex.lab=1.3,
+plot(trick$response, type="n", cex.axis=1.5,
 	xlim=c(1, 8),
-	xlab="Items", ylab="Response time\n")
+	xlab="Items", ylab="")
 
 OX=subset(trick, symbol == "OX")
 d_ply(OX, .(distractors), plot_resp)
@@ -64,9 +64,9 @@ text(4.1, 7.0, "O", cex=2.2)
 text(6.7, 7.1, "O", cex=2.2)
 
 
-plot(trick$response, type="n", cax.axis=1.5, cex.lab=1.3,
+plot(trick$response, type="n", cex.lab=1.6,
 	xlim=c(1, 8),
-	xlab="Items", ylab="")
+	xlab="Items", ylab="Response time\n")
 
 OQ=subset(trick, symbol == "OQ")
 d_ply(OQ, .(distractors), plot_resp)

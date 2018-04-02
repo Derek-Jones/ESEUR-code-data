@@ -1,8 +1,7 @@
 #
-# michael_time_to_bug.R, 28 Oct 15
+# michael_time_to_bug.R, 29 Dec 17
 #
 # Data from:
-#
 # Program Analyses for Automatic and Precise Error Detection
 # Michael Pradel
 #
@@ -14,28 +13,31 @@
 source("ESEUR_config.r")
 
 
+library("lattice")
 library("plyr")
 
 
-plot_times=function(df)
+mean_times=function(df)
 {
-t=sort(df$user_mode)
-lines(t, col=pal_col[col_count])
-col_count <<- col_count+1
-}
+df$mean_time=mean(log(df$user_mode))
 
+return(df)
+}
 
 
 # wallclock,user_mode,kernel_mode,class
 time_bug=read.csv(paste0(ESEUR_dir, "reliability/michael_time_to_bug.csv.xz"), as.is=TRUE)
 
-pal_col=rainbow(length(unique(time_bug$class)))
+time_bug=ddply(time_bug, .(class), mean_times)
 
-col_count=1
-plot(1, type="n", log="y",
-	xlim=c(1, 10), ylim=range(time_bug$user_mode),
-	xlab="Runs", ylab="Seconds\n")
+time_bug$class_num=as.numeric(as.factor(time_bug$class))
 
-d_ply(time_bug, .(class), plot_times)
+ylabs=0:5
 
+t=bwplot(log10(user_mode) ~ reorder(as.factor(class_num), mean_time), data=time_bug,
+	scales=list(y=list(at=ylabs, label=10^ylabs)),
+	panel=panel.violin,
+	xlab="Fault", ylab="Seconds")
+
+plot(t)
 

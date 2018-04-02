@@ -12,7 +12,7 @@
 source("ESEUR_config.r")
 
 
-best_1st=read.csv(paste0(ESEUR_dir, "hardware/Blue-Gene.log/Best.1st-loc.xz"), sep= " ", header=FALSE, fill=TRUE)
+best_1st=read.csv(paste0(ESEUR_dir, "data-check/Blue-Gene.log/Best.1st-loc.xz"), sep= " ", header=FALSE, fill=TRUE)
 
 start_secs=as.numeric(as.POSIXct(substr(best_1st$V1[1], 1, 19), format="%Y-%m-%d-%H.%M.%S"))
 

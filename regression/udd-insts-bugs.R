@@ -1,14 +1,11 @@
 #
-# udd-insts-bugs.R, 15 Jul 16
-#
-# R code for book "Empirical Software Engineering using R"
-# Derek M. Jones, http://shape-of-code.coding-guidelines.com
+# udd-insts-bugs.R,  1 Jan 18
 #
 # From an idea published in:
 # Impact of Installation Counts on Perceived Quality: A Case Study of Debian
 # Israel Herraiz and Emad Shihab and Thanh H. D. Nguyen and Ahmed E. Hassan
 #
-# Data extract fromt he Postgress databased used by UDD as follows:
+# Data extract from the Postgress databased used by UDD as follows:
 #
 # drv = dbDriver("PostgreSQL")
 # con = dbConnect(drv,
@@ -49,35 +46,41 @@ q10=read.csv(paste0(ESEUR_dir, "regression/Q10_udd.csv.xz"), as.is=TRUE)
 udd=merge(q1, q10)
 
 plot(udd$insts, udd$bugs, log="xy", col=point_col,
-	xlab="Installs", ylab="Bugs reported\n")
+	xlab="Installs", ylab="Reported faults\n")
 
-t=glm(bugs ~ log(insts), data=udd, family=poisson)
+t=glm(log(bugs) ~ log(insts), data=udd)
+# t=glm(bugs ~ log(insts), data=udd, family=poisson)
 q=predict(t, newdata=data.frame(insts=1:200000), type="response", se.fit=TRUE)
-lines(q$fit, col=pal_col[1])
-#lines(q$fit+1.96*q$se.fit, col="blue")
-#lines(q$fit-1.96*q$se.fit, col="blue")
+lines(exp(q$fit), col=pal_col[1])
+#lines(q$fit, col=pal_col[1])
+#lines(exp(q$fit+1.96*q$se.fit), col="blue")
+#lines(exp(q$fit-1.96*q$se.fit), col="blue")
 
-t=loess(bugs ~ insts, data=udd, span=0.2)
+t=loess(log(bugs) ~ insts, data=udd, span=0.2)
 q=predict(t, newdata=data.frame(insts=1:200000))
 # plot(udd$insts, udd$bugs, log="y")
-lines(q, col=pal_col[2])
+lines(exp(q), col=pal_col[2])
 
 
 plot(udd$age, udd$bugs, log="y", col=point_col,
-	xlab="Age in days", ylab="")
+	xlab="Age (days)", ylab="Reported faults\n")
 
-t=glm(bugs ~ age, data=udd, family=poisson)
+t=glm(log(bugs) ~ age, data=udd)
+# t=glm(bugs ~ age, data=udd, family=poisson)
 q=predict(t, newdata=data.frame(age=1:6000), type="response", se.fit=TRUE)
-lines(q$fit, col=pal_col[1])
-#lines(q$fit+1.96*q$se.fit, col="blue")
-#lines(q$fit-1.96*q$se.fit, col="blue")
+lines(exp(q$fit), col=pal_col[1])
+# lines(q$fit, col=pal_col[1])
+#lines(exp(q$fit+1.96*q$se.fit), col="blue")
+#lines(exp(q$fit-1.96*q$se.fit), col="blue")
 
-t=loess(bugs ~ age, data=udd, span=0.2)
+t=loess(log(bugs) ~ age, data=udd, span=0.2)
 q=predict(t, newdata=data.frame(age=1:6000))
 # plot(udd$age, udd$bugs, log="y")
-lines(q, col=pal_col[2])
+lines(exp(q), col=pal_col[2])
 
 
+# udd_mod=glm(log(bugs) ~ log(insts)*age, data=udd)
 # udd_mod=glm(bugs ~ log(insts)*age, data=udd, family=poisson)
 # summary(udd_mod)
+# aov(udd_mod)
 

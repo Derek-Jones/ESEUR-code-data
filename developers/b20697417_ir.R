@@ -88,7 +88,7 @@ d_ply(pair_solo, .(Team), function(df) lines(df$Round, df$Solo_time, col=df$col)
 # 		data=pair_solo,
 # 		start=c(a=500, b=-1, c=-0.5))
 # summary(nlme_mod)
-# 
+# confint(nlme_mod)
 # 
 # pnls_mod=nls(Pair_time ~ a*(b*AB_score_base^3+Round)^c, data=pair_solo,
 # 		start=list(a=900, b=0.001, c=-0.5), trace=TRUE)
@@ -104,5 +104,6 @@ d_ply(pair_solo, .(Team), function(df) lines(df$Round, df$Solo_time, col=df$col)
 # 		data=pair_solo,
 # 		start=c(a=700, b=0.001, c=-0.3), verbose=2)
 # summary(nlme_mod)
+# confint(nlme_mod)
  
  

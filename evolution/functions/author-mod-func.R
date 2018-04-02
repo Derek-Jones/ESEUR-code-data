@@ -1,5 +1,5 @@
 #
-# author-mod-func.R,  6 May 17
+# author-mod-func.R, 25 Mar 18
 #
 # Data from:
 # Modification and developer metrics at the function level: Metrics for the study of the evolution of a software project
@@ -11,6 +11,13 @@
 
 
 source("ESEUR_config.r")
+
+# The igraph package (which might be loaded when building the book)
+# contains functions found in gnm.  The treemap package might also have
+# been loaded, and its 'load' of igraph cannot be undone without first
+# unloading treemap!
+unloadNamespace("treemap")
+unloadNamespace("igraph")
 
 library("gnm")
 library("plyr")
@@ -96,7 +103,7 @@ D_I_2=(1-s2)^2/s2
 author_mods=ddply(total_mods, .(num_authors), function(df) sum(df$V1))
 
 plot(author_mods$num_authors, author_mods$V1, log="y", col=point_col,
-	xlab="Authors", ylab="Functions")
+	xlab="Authors", ylab="Functions\n")
 
 # a1_authors=glm(V1 ~ num_authors, data=author_mods[-1, ], family=poisson)
 # lines(1:15, exp(predict(a1_authors, newdata=data.frame(num_authors=1:15), type="link")), col=pal_col[1])

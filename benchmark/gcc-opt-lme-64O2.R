@@ -1,6 +1,6 @@
 #
-# gcc-opt-lme-64O2.R,  1 Jun 14
-#
+# gcc-opt-lme-64O2.R, 14 Jan 18
+# Data from:
 # SPEC2000 results for various versions of gcc, obtained from:
 # Vladimir N. Makarow http://vmakarov.fedorapeople.org/spec/index.html
 #
@@ -49,4 +49,6 @@ return(t_lme_slope)
 }
 
 O3_64=lme_model(bc_64[bc_64$Opt == "O3", 3:9], "SPECint2000")
+
+# confint(O3_64)
 

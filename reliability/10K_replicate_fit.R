@@ -11,6 +11,10 @@
 
 source("ESEUR_config.r")
 
+library("lme4")
+library("reshape2")
+
+
 MAX_BREW=8
 
 brew_col=rainbow(MAX_BREW)
@@ -29,9 +33,6 @@ T3$F3=NULL
 T3$F4=NULL
 T3$F7=NULL
 
-
-library("lme4")
-library("reshape2")
 
 T1_sort=data.frame(apply(T1[ , 2:9], 1, sort, na.last=TRUE))
 T1_sort$failures=1:nrow(T1_sort)

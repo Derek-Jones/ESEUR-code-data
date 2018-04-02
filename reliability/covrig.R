@@ -1,5 +1,5 @@
 #
-# covrig.R,  8 Jan 16
+# covrig.R, 17 Feb 18
 #
 # Data from:
 # COVRIG: A Framework for the Analysis of Code, Test, and Coverage Evolution in Real Software
@@ -11,8 +11,6 @@
 
 source("ESEUR_config.r")
 
-
-# par(fin=c(4.5, 3.5))
 
 library("plyr")
 
@@ -35,26 +33,24 @@ prog=subset(bench, program != "Binutils")
 #	col=point_col, pch=point_pch, type="b",
 # 	xlab="Year", ylab="Coverage")
 
-xrange=range(prog$time, na.rm=TRUE)
 
 all_progs=function(df)
 {
-points(df$time, df$cov_ratio,
-	col=pal_col[col_num], pch=2)
-points(df$time, df$br_cov_ratio,
-	col=pal_col[col_num], pch="*")
-col_num <<- col_num+1
+points(df$time, df$cov_ratio, col=df$col_str)
+
+# points(df$time, df$br_cov_ratio, col=df$col_str, pch="*")
 }
 
+prog_names=unique(prog$program)
 
-pal_col=rainbow(length(unique(prog$program)))
+pal_col=rainbow(length(prog_names))
+
+prog$col_str=mapvalues(prog$program, prog_names, pal_col)
 
 plot(1, type="n",
-	xlim=xrange, ylim=c(0, 82),
+	xlim=range(prog$time, na.rm=TRUE), ylim=c(0, 82),
 	xlab="Year", ylab="Statement coverage\n")
-col_num=1
 d_ply(prog, .(program), all_progs)
 
-legend(x="bottomleft", legend=unique(prog$program),
-			bty="n", fill=pal_col, cex=1.2)
+legend(x="bottomleft", legend=prog_names, bty="n", fill=pal_col, cex=1.2)
 

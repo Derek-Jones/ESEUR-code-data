@@ -1,5 +1,5 @@
 #
-# Business_Cycles.R 23 Nov 17
+# Business_Cycles.R  2 Apr 18
 # Data from:
 # http://www.ggdc.net/maddison/oriindex.htm
 # Cited:
@@ -47,7 +47,8 @@ gdp_change=100*(tail(gdp$A_world, n=-1)/head(gdp$A_world, n=-1)-1)
 # igraph defines a spectrum function, and during build this is used
 pow_gdp=stats::spectrum(gdp_change, plot=FALSE)
 plot(1/pow_gdp$freq, pow_gdp$spec, log="x", type="l", col=point_col,
-	xlab="Years", ylab="Spectral density")
+	xaxs="i", yaxs="i",
+	xlab="Years", ylab="Spectral density\n")
 
 # gdp_WWII=subset(gdp, Year <= 1940)
 #

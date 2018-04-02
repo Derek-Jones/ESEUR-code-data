@@ -23,18 +23,21 @@ gan77$subject=as.factor(gan77$subject)
 gan_mod=lmer(Errors ~ Lang+Order+ (Lang+Order | Subject), data=gan77)
 
 summary(gan_mod)
+# confint(gan_mod)
 Anova(gan_mod)
 
 
 gan_mod=lmer(Occur ~ Lang+Order+ (Lang+Order | Subject), data=gan77)
 
 summary(gan_mod)
+# confint(gan_mod)
 Anova(gan_mod)
 
 
 gan_mod=lmer(Error_Runs ~ Lang+Order+ (Lang+Order | Subject), data=gan77)
 
 summary(gan_mod)
+# confint(gan_mod)
 Anova(gan_mod)
 
 

@@ -1,5 +1,5 @@
 #
-# submission-ct.R,  6 Jul 17
+# submission-ct.R, 15 Mar 18
 # Data from:
 # Exploring Network Modelling and Strategy in the {Dutch} Product Software Ecosystem
 # Wesley Crooymans and Priyanka Pradhan and Slinger Jansen
@@ -12,6 +12,11 @@ source("ESEUR_config.r")
 
 
 library(igraph)
+
+
+plot_layout(1, 1, default_width=ESEUR_default_width+2,
+                        default_height=ESEUR_default_height+2)
+
 
 cust_sup=read.csv(paste0(ESEUR_dir, "ecosystems/submission-ct.csv.xz"), as.is=TRUE)
 

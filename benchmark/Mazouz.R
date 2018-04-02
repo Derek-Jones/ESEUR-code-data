@@ -33,5 +33,5 @@ plot(t, panel.height=list(2.5, "cm"),
 # library("lme4")
 # t_mod=lmer(time ~ (threads+compiler+affinity)^2-compiler:affinity+(threads+compiler | program), data=bench)
 # summary(t_mod)
-
+# confint(t_mod)
 

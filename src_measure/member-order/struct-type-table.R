@@ -1,6 +1,8 @@
 #
-# struct-type-table.R,  4 Jan 16
-#
+# struct-type-table.R,  2 Jan 18
+# Data from:
+# ???
+# Derek Jones
 #
 # Example from:
 # Empirical Software Engineering using R
@@ -34,12 +36,13 @@ type_comb$seq_prob=pbinom(type_comb$num.grouped-1, type_comb$occurrences,
                             type_comb$rand_prob, lower.tail=FALSE)
 
 book_table=with(type_comb, data.frame(num.members, type.seq, occurrences,
-                                      num.grouped, rand_prob, seq_prob))
+                                      num.grouped, rand_prob,
+				  paste0("&zs;", signif(seq_prob, 3), "&ze;")))
 
 names(book_table)=c("Total members", "Type sequence", "structs seen",
 			"Grouped occurrences", "Random probability",
 			"Occurrence probability")
 
 print(ascii(head(book_table), include.rownames=FALSE,
-                format=c("d", "s", "d", "d", "f", "e")))
+                format=c("d", "s", "d", "d", "f", "s")))
 

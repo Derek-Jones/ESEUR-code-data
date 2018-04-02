@@ -61,4 +61,5 @@ d_ply(imp_alg, .(algorithm), plot_alg)
 # # a_lme=lmer(log(total) ~ language+iteration+(iteration | algorithm), data=imp_alg)
 # a_lme=lmer(log(coding) ~ language+iteration+(iteration | algorithm), data=imp_alg)
 # summary(a_lme)
+# confint(a_lme)
 

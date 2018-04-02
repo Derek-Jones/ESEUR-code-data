@@ -1,5 +1,5 @@
 #
-# jones_bin_prec.R, 25 Nov 17
+# jones_bin_prec.R,  4 Jan 18
 # Data from:
 # Developer Beliefs about Binary Operator Precedence
 # Derek M. Jones
@@ -62,7 +62,7 @@ pair_01=subset(pair_info, !is.na(op_freq))
 pair_01$per_cor=pair_01$per_cor*0.99999+1e-6
 
 plot(pair_info$op_freq, pair_info$per_cor, log="x", col=point_col,
-	xlab="Operator pairs (percentage)", ylab="Correct (fraction)\n")
+	xlab="Source code occurrence (percentage)", ylab="Correct answer (fraction)\n")
 
 # t=loess.smooth(log(pair_info$op_freq), pair_info$per_cor, span=0.3)
 # lines(exp(t$x), t$y, col=loess_col)

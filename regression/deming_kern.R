@@ -40,7 +40,7 @@ yx_line = glm(y ~ x) # Assume x values do not contain any error
 xy_line = glm(x ~ y) # Assume y values do not contain any error
 
 plot(y ~ x,
-	xlab="Developers", ylab="Commits")
+	xlab="Developers", ylab="Commits\n")
 abline(reg=yx_line, col="red")
 
 # Draw error lines to fitted line
@@ -48,7 +48,7 @@ segments(x, y, x, fitted(yx_line), lty = 2, col = "red") # vertical line
 
 par(new=FALSE)
 plot(y ~ x,
-	xlab="Developers", ylab="Commits")
+	xlab="Developers", ylab="Commits\n")
 
 abline(reg=yx_line, col="red")
 

@@ -1,5 +1,5 @@
 #
-# boot-power.R, 17 Aug 16
+# boot-power.R, 17 Mar 18
 # Data from:
 #
 # Example from:
@@ -12,7 +12,7 @@ source("ESEUR_config.r")
 
 a_test_stat=function(sample_1, sample_2, alpha)
 {
-# Use the 'manual' test known to work for this case, so things run a bit faster
+# The 'manual' test known to work for this case, so things run a bit faster
 t=t.test(sample_1, sample_2)
 return(t$p.value)
 }
@@ -59,6 +59,7 @@ t_pow=mean_diff_pow()
 pal_col=rainbow(ncol(t_pow))
 
 plot(0, type="n",
+	yaxs="i",
 	xlim=range(possible_sample_sizes), ylim=c(0, 1),
 	xlab="Sample size", ylab="Power")
 

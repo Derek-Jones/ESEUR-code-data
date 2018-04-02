@@ -1,5 +1,5 @@
 #
-# kubovy08.R, 17 Dec 16
+# kubovy08.R, 15 Mar 18
 # Data from:
 # The Whole Is Equal to the Sum of Its Parts: {A} Probabilistic Model of Grouping by Proximity and Similarity in Regular Patterns
 # Michael Kubovy and Martin {van den Berg}
@@ -11,8 +11,7 @@
 source("ESEUR_config.r")
 
 
-set_width_height(default_height=9)
-plot_layout(1, 1)
+plot_layout(1, 1, default_height=12)
 par(mar=c(1, 1, 1, 0))
 
 
