@@ -1,0 +1,856 @@
+Lang	Occurrences	Message
+Java	702102	cannot find symbol - variable <NAME>
+Java	407776	';' expected
+Java	280874	cannot find symbol - method <NAME>
+Java	197213	cannot find symbol - class <NAME>
+Java	183908	incompatible types
+Java	180287	')' expected
+Java	173091	illegal start of expression
+Java	147787	<identifier> expected
+Java	132080	<METHOD> cannot be applied to <TYPE>
+Java	120817	not a statement
+Java	113686	reached end of file while parsing
+Java	96703	missing return statement
+Java	91452	class, interface, or enum expected
+Java	78561	variable <NAME> is already defined in <METHOD>
+Java	66082	variable <VARIABLE> might not have been initialized
+Java	58164	possible loss of precision, found: <TYPE> required: <TYPE>
+Java	56830	package <PACKAGE> does not exist
+Java	56407	invalid <METHOD>; return type required
+Java	48925	'.class' expected
+Java	43056	illegal start of type
+Java	37386	bad operand types <TYPE> for binary operator ' ' First type: <TYPE> Second type: <TYPE>
+Java	35179	no suitable method found for <NAME>
+Java	31518	illegal character <NAME>
+Java	29965	unclosed string literal
+Java	29134	'else' without 'if'
+Java	28854	unexpected type, found: <TYPE> required: <TYPE>
+Java	26058	'(' or '[' expected
+Java	25389	java.lang.NullPointerException
+Java	21414	non-static <METHOD> cannot be referenced from a static context
+Java	20995	'(' expected
+Java	20232	java.lang.ArrayIndexOutOfBoundsException
+Java	20111	cannot return a value from <METHOD> result type is void
+Java	19528	non-static <VARIABLE> cannot be referenced from a static context
+Java	19373	<CLASS> is public and should be declared in a file named <FILE>
+Java	18898	java.util.InputMismatchException
+Java	18782	<NAME> is not abstract and does not override abstract method <METHOD> in <CLASS>
+Java	18413	missing <METHOD>, or declare abstract
+Java	18229	<TYPE> cannot be dereferenced
+Java	18177	unreachable statement
+Java	16475	no suitable constructor found for <NAME>
+Java	16340	incompatible types - found: <TYPE> but expected <TYPE>
+Java	16336	'{' expected
+Java	14834	<NAME> has private access in <NAME>
+Java	13420	java.lang.StringIndexOutOfBoundsException
+Java	11303	incomparable types: <TYPE> and <TYPE>
+Java	11239	unclosed character literal
+Java	10673	java.lang.NumberFormatException # is an invalid <TYPE>
+Java	10464	unreported exception <NAME> thrown
+Java	10323	']' expected
+Java	8204	'void' type not allowed here
+Java	7145	java.lang.ArithmeticException Division by zero.
+Java	6861	illegal escape character
+Java	6744	unmappable character for encoding <NAME>
+Java	6600	integer number too large: #
+Java	6453	cannot find symbol - constructor <NAME>
+Java	5616	while expected
+Java	5388	array required, but <TYPE> found
+Java	4977	class expected
+Java	4920	bad operand type <TYPE> for unary operator ' '
+Java	4267	java.lang.StackOverflowError
+Java	3807	inconvertible types, found: <TYPE> required: <TYPE>
+Java	3728	array dimension missing
+Java	3639	java.lang.IndexOutOfBoundsException
+Java	3344	missing return value
+Java	3071	java.util.IllegalFormatConversionException
+Java	2711	cannot access <NAME>
+Java	2636	'.' expected
+Java	2633	illegal initializer for <NAME>
+Java	2620	empty character literal
+Java	2522	<NAME> is abstract; cannot be instantiated
+Java	2388	> expected
+Java	2373	modifier (enum/abstract/final/private/static/protected/public) not allowed here
+Java	2346	unclosed comment
+Java	2318	java.lang.IllegalArgumentException Invalid argument.
+Java	2312	java.lang.IllegalMonitorStateException
+Java	2282	orphaned case
+Java	2191	java.util.NoSuchElementException
+Java	2185	: expected
+Java	2042	'}' expected
+Java	2037	'[' expected
+Java	1974	cannot assign a value to final variable <NAME>
+Java	1952	'try' without 'catch', 'finally' or resource declarations
+Java	1948	break outside switch or loop
+Java	1843	<METHOD> is not public in <CLASS>; cannot be accessed from outside package
+Java	1701	call to <NAME> must be first statement in constructor
+Java	1649	duplicate class: <CLASS>
+Java	1613	java.util.UnknownFormatConversionException
+Java	1574	java.util.MissingFormatArgumentException
+Java	1553	java.lang.NoClassDefFoundError <CLASS>
+Java	1462	case, default, or '}' expected
+Java	1396	error while writing: (Access is denied)
+Java	1344	'catch' without 'try'
+Java	1305	java.util.InputMismatchException For input string: "#"
+Java	1303	incompatible types: <TYPE> cannot be converted to <TYPE>
+Java	1256	Illegal static declaration in inner class <CLASS> modifier 'static' is only allowed in constant <VARIABLE>
+Java	1214	illegal line end in character literal
+Java	1114	for-each not applicable to expression type\n required: <TYPE> found: <TYPE>
+Java	1083	java.io.FileNotFoundException (The system cannot find the file specified)
+Java	1023	exception <NAME> is never thrown in body of corresponding try statement
+Java	999	<METHOD> in <CLASS> cannot override <METHOD> in <CLASS>: return type <TYPE> is not compatible with <TYPE>
+Java	978	return outside method
+Java	944	<METHOD> in <CLASS> cannot override <METHOD> in <CLASS>: attempting to assign weaker access privileges; was public/protected/package
+Java	917	malformed floating point literal
+Java	893	cannot reference <NAME> before supertype <CONSTRUCTOR> been called
+Java	827	<METHOD> in <CLASS> cannot implement <METHOD> in <CLASS>: attempting to assign weaker access privileges; was public/protected/package
+Java	804	java.lang.AssertionError
+Java	727	local variable <NAME> final
+Java	674	interface expected here
+Java	653	<METHOD> not override or implement a <METHOD> a supertype
+Java	633	illegal combination of modifiers (abstract/final/private/static/volatile/protected/public)
+Java	616	repeated modifier
+Java	611	type <TYPE> does not take parameters
+Java	607	java.lang.ClassCastException <CLASS> cannot be cast to <CLASS>
+Java	582	java.util.NoSuchElementException No line found
+Java	555	java.util.ConcurrentModificationException
+Java	534	java.util.IllegalFormatPrecisionException
+Java	483	java.lang.OutOfMemoryError Java heap space
+Java	475	error while writing: (Zugriff verweigert)
+Java	467	java.lang.NoSuchMethodError <METHOD>
+Java	465	recursive <CONSTRUCTOR>
+Java	451	duplicate case label
+Java	437	<NAME> has protected access in <NAME>
+Java	407	java.net.SocketException Connection reset
+Java	406	orphaned default
+Java	390	java.io.FileNotFoundException (No such file or directory)
+Java	382	#NAME?
+Java	371	cyclic inheritance involving <NAME>
+Java	356	illegal forward reference
+Java	350	reference to <METHOD> is ambiguous, both <METHOD> in <CLASS> and <METHOD> in <CLASS> match
+Java	341	constant expression required
+Java	336	no interface expected here
+Java	331	java.lang.Exception
+Java	325	<METHOD> in <CLASS> cannot override <METHOD> in <CLASS>: overridden <METHOD> static/final
+Java	301	abstract methods cannot have a body
+Java	280	',', '}', or ';' expected
+Java	255	continue outside of loop
+Java	254	interface methods cannot have body
+Java	252	error reading: error in opening zip file
+Java	245	java.util.regex.PatternSyntaxException
+Java	235	undefined label: <NAME>
+Java	223	java.lang.IllegalStateException Scanner closed
+Java	219	wrong number of type arguments; required #
+Java	215	generic array creation
+Java	213	java.lang.RuntimeException The UI was not initialised or had been quit
+Java	205	illegal unicode escape
+Java	203	error while writing: (Acceso denegado)
+Java	199	'try' without 'catch' or 'finally'
+Java	196	self-reference in initializer
+Java	189	java.util.MissingFormatWidthException
+Java	177	floating point number too large
+Java	151	java.lang.ClassNotFoundException <CLASS>
+Java	143	java.util.FormatFlagsConversionMismatchException
+Java	136	array required: <TYPE> found: <TYPE>
+Java	128	error while writing: (Toegang geweigerd)
+Java	116	error while writing: (Permission denied)
+Java	111	java.lang.IllegalAccessError tried to access class <CLASS> or field <FIELD> or method <METHOD>
+Java	110	<METHOD> in <CLASS> cannot implement <METHOD> in <CLASS>: overridden <METHOD> not throw <NAME>
+Java	110	as of release #, ' as an identifier)
+Java	109	java.util.EmptyStackException
+Java	105	<METHOD> in <CLASS> cannot implement <METHOD> in <CLASS>: overridden <METHOD> static/final
+Java	104	name clash: <NAME> and <NAME> other
+Java	98	variable <VARIABLE> might already have been assigned
+Java	93	exception <NAME> has already been caught
+Java	92	not an enclosing class: <CLASS>
+Java	91	enum types must not be local
+Java	89	java.lang.IllegalStateException This actor is not in a grid.
+Java	89	illegal underscore
+Java	87	error while writing: (Acesso negado)
+Java	86	java.io.FileNotFoundException (The system cannot find the path specified)
+Java	85	java.lang.NullPointerException <NAME> must not be null.
+Java	82	floating point number too small
+Java	82	foreach not applicable to expression type
+Java	79	java.lang.UnsatisfiedLinkError no <?> in java.library.path
+Java	75	becker.robots.RobotException
+Java	75	package <PACKAGE> clashes with <CLASS> same name
+Java	73	java.util.IllegalFormatFlagsException
+Java	73	<METHOD> in <CLASS> cannot implement <METHOD> in <CLASS>: return type <TYPE> is not compatible with <TYPE>
+Java	72	an enum switch case label must be the unqualified name of an enumeration constant
+Java	70	java.lang.IllegalStateException No robot has been created yet
+Java	70	inner classes cannot have static declarations
+Java	67	abstract method <METHOD> cannot be accessed directly
+Java	66	annotation type not applicable to this kind of declaration
+Java	65	cannot inherit from final <NAME>
+Java	61	java.lang.NegativeArraySizeException
+Java	60	non-static type <VARIABLE> cannot be referenced from a static context
+Java	59	java.util.InputMismatchException Value out of range: #
+Java	59	enum types may not be instantiated
+Java	57	java.awt.AWTError BoxLayout can't be shared
+Java	53	java.lang.IllegalStateException This actor is already contained in a grid.
+Java	52	<METHOD> in <CLASS> cannot override <METHOD> in <CLASS>: overridden <METHOD> not throw <NAME>
+Java	51	java.lang.UnsupportedClassVersionError major.minor version #.#
+Java	51	error: error reading: cannot read zip file
+Java	50	hexadecimal numbers must contain at least one hexadecimal digit
+Java	49	illegal start of statement
+Java	48	cannot infer type arguments for <TYPE>;
+Java	46	error reading: cannot read zip file
+Java	45	java.net.BindException Address already in use: #
+Java	38	java.lang.ArrayStoreException
+Java	38	java.lang.IllegalThreadStateException
+Java	37	'finally' without 'try'
+Java	37	type argument <NAME> is not within bounds of type variable <NAME>
+Java	36	java.io.IOException Stream closed
+Java	36	error while writing: (Read-only file system)
+Java	35	java.sql.SQLException
+Java	35	an enclosing instance that contains <NAME> is required
+Java	34	duplicate default label
+Java	33	java.io.FileNotFoundException (Access is denied)
+Java	32	illegal generic type for instanceof
+Java	31	java.net.ConnectException Connection refused
+Java	30	java.util.InputMismatchException The Text Pane says ' '
+Java	30	error reading: (Access is denied)
+Java	29	com.vmware.vim25.InvalidLogin
+Java	27	java.io.IOException Cannot run program "#": CreateProcess error=2, The system cannot find the file specified
+Java	26	java.util.InputMismatchException radix 1 less than Character.MIN_RADIX
+Java	25	-> expected
+Java	24	java.lang.NoSuchFieldError <FIELD>
+Java	24	java.util.DuplicateFormatFlagsException
+Java	24	<NAME> cannot be inherited with different arguments: <1> and <2>
+Java	24	final parameter <NAME> assigned
+Java	23	java.net.UnknownHostException <HOST>
+Java	23	code too large
+Java	21	java.lang.IllegalStateException No match found
+Java	21	java.lang.OutOfMemoryError Requested array size exceeds VM limit
+Java	21	error while writing: No space left on device
+Java	20	java.io.FileNotFoundException
+Java	20	java.lang.RuntimeException java.io.FileNotFoundException (No such file or directory)
+Java	20	error while writing: (Keine Berechtigung)
+Java	20	error while writing: There is not enough space on the disk
+Java	19	acm.util.ErrorException Main class does not specify a program
+Java	19	java.io.IOException File not found:
+Java	19	java.rmi.RemoteException VI SDK invoke exception
+Java	19	ListIndexOutOfBoundsException
+Java	18	java.io.FileNotFoundException (The filename, directory name, or volume label syntax is incorrect)
+Java	18	java.lang.IllegalStateException
+Java	18	java.lang.OutOfMemoryError GC overhead limit exceeded
+Java	18	illegal qualifer: <NAME> class
+Java	18	variable <VARIABLE> might be assigned in loop
+Java	17	java.awt.IllegalComponentStateException The frame is displayable.
+Java	17	java.io.UnsupportedEncodingException
+Java	17	java.lang.UnsupportedOperationException getTime() is no longer supported - use System.currentTimeMillis() instead
+Java	17	java.util.InputMismatchException JSON string for member of congress in wrong format
+Java	17	javax.crypto.BadPaddingException Data must start with zero
+Java	17	duplicate annotation
+Java	16	java.net.MalformedURLException no protocol: <PROTOCOL>
+Java	16	java.util.MissingResourceException Can't find bundle for base name <BASENAME>
+Java	15	java.lang.RuntimeException Input buffer broken
+Java	15	<VARIABLE> not allowed here
+Java	15	incompatible types; no instance(s) of type variable(s) <TYPE> exist so that <TYPE> conforms to <TYPE>
+Java	15	initializer must be able to complete normally
+Java	14	java.lang.IllegalStateException Unfinished shape cannot run method: <METHOD> setPosition
+Java	13	com.mysql.jdbc.exceptions.jdbc4.MySQLIntegrityConstraintViolationException Duplicate entry(' ')
+Java	13	java.lang.RuntimeException JOptionPane: type must be one of JOptionPane.ERROR_MESSAGE, JOptionPane.INFORMATION_MESSAGE, JOptionPane.WARNING_MESSAGE, JOptionPane.QUESTION_MESSAGE or JOptionPane.PLAIN_MESSAGE
+Java	13	error reading: zip file is empty
+Java	13	not a loop label: <NAME>
+Java	12	java.lang.UnsupportedOperationException
+Java	12	java.util.IllegalFormatWidthException
+Java	12	error while writing: Disc quota exceeded
+Java	11	java.io.NotSerializableException
+Java	11	java.lang.IllegalStateException Unfinished shape cannot run method: <METHOD> setSize
+Java	11	java.lang.NullPointerException <NAME>
+Java	11	java.lang.UnsatisfiedLinkError Library ' '
+Java	11	java.net.BindException Permission denied
+Java	11	error while writing: (The media is write protected)
+Java	11	illegal reference to static field from initializer
+Java	10	java.lang.RuntimeException JOptionPane: option type must be one of JOptionPane.DEFAULT_OPTION, JOptionPane.YES_NO_OPTION, JOptionPane.YES_NO_CANCEL_OPTION or JOptionPane.OK_CANCEL_OPTION
+Java	10	binary numbers must contain at least one binary digit
+Java	10	error while writing: (The process cannot access <NAME>
+Java	10	error while writing: could not create parent directories
+Java	10	name clash: <NAME> and <NAME> erasure
+Java	9	com.mysql.jdbc.exceptions.jdbc4.CommunicationsException
+Java	9	java.lang.ArithmeticException BigInteger: modulus not positive
+Java	9	java.lang.IllegalStateException Name must not be empty.
+Java	9	java.lang.InstantiationError Object
+Java	9	java.lang.RuntimeException java.lang.ArrayIndexOutOfBoundsException
+Java	9	NullDivision
+Java	9	org.openqa.selenium.NoSuchElementException unable to locate node using <INPUT>
+Java	9	as of release #, ' is allowed as the parameter name for the receiver type only, which has to be the first parameter
+Java	9	error while writing: (The file cannot be accessed by the system)
+Java	8	acm.util.ErrorException java.io.FileNotFoundException (The process cannot access the file because it is being used by another process)
+Java	8	edu.cmu.sphinx.util.props.InternalConfigurationException Can't locate resource
+Java	8	java.io.FileNotFoundException (The process cannot access the file because it is being used by another process)
+Java	8	java.lang.NullPointerException No robot world has been created to place the robot in.
+Java	8	java.lang.RuntimeException Could not read from the file ' '
+Java	8	java.lang.RuntimeException java.sql.SQLException
+Java	8	java.lang.UnsatisfiedLinkError lejos.nxt.SensorPort.setPowerTypeById(II)V
+Java	8	java.lang.UnsatisfiedLinkError: Can't load IA 32-bit .dll on a AMD 64-bit platform
+Java	8	javax.imageio.IIOException Can't read input file!
+Java	8	error reading: error reading zip file
+Java	8	error: Exception thrown while constructing Processor object: com/jogamp/gluegen/structgen/CStructAnnotationProcessor : Unsupported major.minor version 51.0
+Java	8	interface not allowed here
+Java	7	ClaveDuplicadaException
+Java	7	java.awt.AWTError Illegal request
+Java	7	java.io.EOFException
+Java	7	java.lang.IllegalStateException Provider may only be changed before input is created!
+Java	7	java.nio.BufferUnderflowException
+Java	7	javax.sound.sampled.UnsupportedAudioFileException could not get audio input stream from input file <FILE>
+Java	7	Alternatives in a multi-catch statement cannot be related by subclassing
+Java	7	anonymous <CLASS> interface; cannot have arguments
+Java	7	error while writing: (No space left on device)
+Java	6	com.db4o.ext.DatabaseClosedException
+Java	6	com.jme3.asset.AssetNotFoundException textures/doty.gif (Flipped) (Mipmapped)
+Java	6	gumball.HasQuarterException
+Java	6	java.lang.IllegalStateException just testing!
+Java	6	java.lang.IncompatibleClassChangeError Expected static method <METHOD>
+Java	6	java.lang.UnsatisfiedLinkError NativeProcess.createProcess(Ljava/lang/String;Ljava/lang/String;ZLjava/io/FileDescriptor;Ljava/io/FileDescriptor;Ljava/io/FileDescriptor;)I
+Java	6	java.net.BindException Address already in use
+Java	6	java.net.MalformedURLException Unsupported protocol: <PROTOCOL>
+Java	6	java.security.InvalidKeyException Wrong algorithm: AES or Rijndael required
+Java	6	java.util.NoSuchElementException The queue is currently empty.
+Java	6	LengthException
+Java	6	OverflowException
+Java	6	SpaceOccupiedException
+Java	6	error while writing: (Permiso denegado)
+Java	6	non-static method <T>getList(T...) cannot be referenced from a static context
+Java	5	EmptyListException
+Java	5	InvalidInputException
+Java	5	InvalidMoveException
+Java	5	java.awt.geom.IllegalPathStateException missing initial moveto in path definition
+Java	5	java.awt.image.RasterFormatException Transformed height/width (0) is less than or equal to 0.
+Java	5	java.lang.ClassFormatError Truncated class file
+Java	5	java.lang.Error Could not find class ' ' while reading a city.
+Java	5	java.lang.IllegalStateException Invalid boundary limits.
+Java	5	java.net.MalformedURLException unknown protocol: <PROTOCOL>
+Java	5	java.text.ParseException Unparseable date: "#"
+Java	5	javax.imageio.IIOException Unsupported Image Type
+Java	5	javax.media.opengl.GLException No default device available
+Java	5	StackUnderflowException Stack Underflow
+Java	5	TerminalException
+Java	5	utils.NotFoundException Not Found
+Java	5	constant string too long
+Java	5	error reading: (The system cannot find the file specified)
+Java	5	error while writing: (The requested operation cannot be performed on a file with a user-mapped section open)
+Java	4	com.vmware.vim25.DuplicateName
+Java	4	java.io.IOException Server returned HTTP response code: 400 for URL
+Java	4	java.lang.ArithmeticException Non-terminating decimal expansion; no exact representable decimal result.
+Java	4	java.lang.IllegalStateException Either the name or phone must not be blank.
+Java	4	java.lang.IllegalStateException Worth must not be negative.
+Java	4	java.lang.RuntimeException JOptionPane: parentComponent does not have a valid parent
+Java	4	java.lang.Throwable
+Java	4	java.lang.UnsatisfiedLinkError lejos.nxt.LCD.getSystemFont()[B
+Java	4	java.lang.UnsupportedOperationException getGraphics() not valid for images created with createImage(producer)
+Java	4	java.net.ConnectException Connection timed out: connect
+Java	4	java.nio.file.InvalidPathException Illegal Char <CHAR>
+Java	4	javax.crypto.IllegalBlockSizeException Data must not be longer than 64 bytes
+Java	4	javax.mail.SendFailedException Invalid Addresses
+Java	4	UnderflowException
+Java	4	UnexpectedTextfileFormatException Unexpected Length Of Line in <FILE>: # at #
+Java	4	bad initializer for for-loop
+Java	4	illegal '.'
+Java	3	com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException Unknown column ' '
+Java	3	com.vmware.vim25.NotSupported
+Java	3	ElementNotFoundException The target element is not in this <STRUCTURE>
+Java	3	gumball.NoQuarterException
+Java	3	InvalidPositionException
+Java	3	java.awt.IllegalComponentStateException The frame is decorated
+Java	3	java.io.FileNotFoundException (The device is not ready)
+Java	3	java.io.FileNotFoundException <FILE>
+Java	3	java.lang.ArithmeticException Rounding necessary
+Java	3	java.lang.Error setAccelerator() is not defined for JMenu. Use setMnemonic() instead.
+Java	3	java.lang.IllegalStateException Object creation failed, invalid state.
+Java	3	java.lang.IllegalStateException Timer already cancelled.
+Java	3	java.lang.RuntimeException Do not recognize shape
+Java	3	java.lang.RuntimeException Invalid card specification
+Java	3	java.lang.RuntimeException java.io.FileNotFoundException (The system cannot find the file specified)
+Java	3	java.lang.RuntimeException Live cache invalid or missing for Corn
+Java	3	java.lang.RuntimeException missing Flickr API key
+Java	3	java.lang.SecurityException Unexpected Error in Resourcefile: currentLine.length(): 1
+Java	3	java.lang.UnsatisfiedLinkError: Can't find dependent libraries
+Java	3	java.net.BindException Cannot assign requested address: #
+Java	3	MatrixMathException Inverse Error: Matrix is singular and does not have an inverse
+Java	3	MyError java.io.FileNotFoundException:
+Java	3	ThirteenException Use thirteen letter words and stainless steel to protect yourself!
+Java	3	utils.EmptyException StringIntMap.entries
+Java	3	<CLASS>
+Java	3	cannot create array with '<>'
+Java	3	error while writing: (Accesso negato)
+Java	3	non-static <CLASS> cannot be referenced from a static context
+Java	3	repeated interface
+Java	3	unqualified enumeration constant name required
+Java	3	unreported exception <NAME> constructor
+Java	2	acm.util.ErrorException Cannot determine the main class.
+Java	2	anException nahhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+Java	2	com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException Table ' ' doesn't exist
+Java	2	eduLine.eduJava$CrossRoadsException DeviceProblem.openUSB
+Java	2	IndexException
+Java	2	java.awt.color.CMMException Invalid image format
+Java	2	java.awt.IllegalComponentStateException The window is showing on screen.
+Java	2	java.io.InvalidClassException local class incompatible: stream classdesc serialVersionUID = 1390623405567409529, local class serialVersionUID = -4616381250237435092
+Java	2	java.io.IOException Cannot run program "#": CreateProcess error=740, The requested operation requires elevation
+Java	2	java.io.IOException Cannot run program "#": error=2, No such file or directory
+Java	2	java.io.IOException Cannot run program # in directory "C:\"): CreateProcess error=2, The system cannot find the file specified
+Java	2	java.io.IOException Cannot run program # in directory "Desktop"): CreateProcess error=267, The directory name is invalid
+Java	2	java.io.IOException could not create audio stream from input file <FILE>
+Java	2	java.io.IOException Failed to open file <FILE> Error message: A device attached to the system is not functioning.
+Java	2	java.io.IOException Negative seek offset
+Java	2	java.io.IOException Stream not marked
+Java	2	java.lang.ArithmeticException NAN
+Java	2	java.lang.ClassFormatError javax/swing/plaf/basic/BasicOptionPaneUI$MultiplexingTextField
+Java	2	java.lang.Error Division by zero.
+Java	2	java.lang.IllegalStateException Cannot get a numeric value from a text cell
+Java	2	java.lang.IllegalStateException No current robot. Specify robot to move using an argument or create a robot first.
+Java	2	java.lang.IllegalStateException There is already some food
+Java	2	java.lang.InternalError Could not create a buffer strategy
+Java	2	java.lang.LinkageError loader constraint violation: when resolving method "bst.BinarySearchTree.insert(Lki/KeyedItem;)V" the class loader (instance of java/net/URLClassLoader) of the current class, TreeSort, and the class loader (instance of sun/misc/Launcher$AppClassLoader) for resolved class, bst/BinarySearchTree, have different Class objects for the type V used in the signature
+Java	2	java.lang.OutOfMemoryError PermGen space
+Java	2	java.lang.RuntimeException File not found
+Java	2	java.lang.RuntimeException java.lang.InstantiationException: blackjack.Player$NotifyWon
+Java	2	java.lang.RuntimeException Matrix is singular or nearly singular
+Java	2	java.lang.RuntimeException Resource not found:
+Java	2	java.lang.RuntimeException Stack underflow
+Java	2	java.lang.SecurityException Access to default session denied
+Java	2	java.lang.ThreadDeath
+Java	2	java.lang.UnsatisfiedLinkError com.sun.midp.main.Configuration.getProperty0(Ljava/lang/String;)Ljava/lang/String;
+Java	2	java.lang.UnsatisfiedLinkError lejos.nxt.MotorPort.getTachoCountById(I)I
+Java	2	java.lang.UnsatisfiedLinkError lejos.nxt.NXT.getUserPages()I
+Java	2	java.lang.UnsatisfiedLinkError MyObject.getClassName()Ljava/lang/String;
+Java	2	java.lang.UnsatisfiedLinkError: Can't load library: <LIBRARY>
+Java	2	java.net.NoRouteToHostException No route to host: connect
+Java	2	java.nio.BufferOverflowException
+Java	2	java.nio.file.NoSuchFileException
+Java	2	java.util.NoSuchElementException No next element
+Java	2	javax.crypto.BadPaddingException Given final block not properly padded
+Java	2	jpl.PrologException PrologException: error(syntax_error(operator_expected), string(' ', 9))
+Java	2	NotImplementedException
+Java	2	NullDisivion
+Java	2	org.apache.poi.openxml4j.exceptions.OpenXML4JRuntimeException Fail to save: an error occurs while saving the package : null
+Java	2	org.restlet.resource.ResourceException Connection Error
+Java	2	OutOfRangeException Input value is out of range: #
+Java	2	QueueUnderflowException There is not any code integer to remove.
+Java	2	StackException List is empty!
+Java	2	StackUnderflowException Operation attempted on an empty stack.
+Java	2	UnsupportedDocumentTypeException
+Java	2	util.LiveCache$InvalidException Live cache invalid or missing for ASX
+Java	2	ValueException error
+Java	2	ZeroDenominatorException denominator = 0
+Java	2	>, extends, or super expected
+Java	2	enum declarations allowed only in static contexts
+Java	2	error while writing: (Acces refuzat)
+Java	2	incompatible types for ?: neither is a subtype of the other
+Java	2	label <NAME> already in use
+Java	2	legacy array notation not allowed on variable-arity parameter
+Java	2	name clash: <NAME> and <NAME> t
+Java	2	no enclosing instance of type <TYPE> scope
+Java	2	removeUpdate(javax.swing.text.AbstractDocument.DefaultDocumentEvent) in MyPanel.CustomTextArea.MyTextDocument cannot override removeUpdate(javax.swing.text.AbstractDocument.DefaultDocumentEvent) in javax.swing.text.PlainDocument\n overridden <METHOD> n
+Java	2	TypewriterEffect.type <TYPE> does not override abstract <METHOD> in java.util.TimerTask
+Java	1	AgeNotNegativeException Message:- Age Can't be -ve dear.. :) :P
+Java	1	anException nahhhhhhhhhhhhhhhhhhhhhhh dont do that, dawg.
+Java	1	BadCostException Price cannot be negative
+Java	1	com.db4o.ext.DatabaseFileLockedException
+Java	1	com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException Undeclared variable: division
+Java	1	com.mysql.jdbc.exceptions.jdbc4.MySQLSyntaxErrorException You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ' ' at line 1
+Java	1	com.vmware.vim25.InvalidArgument
+Java	1	eduLine.eduJava$CrossRoadsException DeviceProblem.setOutput
+Java	1	EmptyCanException
+Java	1	EmptyCollectionException no data in tree
+Java	1	EmptyListaException listapp is empty
+Java	1	Exception_Database Database Error: null
+Java	1	GameRuntimeException All positions have been assigned a player!
+Java	1	GameRuntimeException That command is not understood
+Java	1	InsufficientFunds
+Java	1	java.awt.AWTError Invalid axis
+Java	1	java.awt.datatransfer.UnsupportedFlavorException Unicode String
+Java	1	java.awt.IllegalComponentStateException component must be showing on the screen to determine its location
+Java	1	java.awt.image.RasterFormatException (y + height/width) is outside of Raster
+Java	1	java.io.FileNotFoundException (A required privilege is not held by the client)
+Java	1	java.io.FileNotFoundException (Too many open files)
+Java	1	java.io.IOException Cannot run program # in directory "Desktop:"): CreateProcess error=267, The directory name is invalid
+Java	1	java.io.IOException invalid integer
+Java	1	java.io.StreamCorruptedException invalid stream header: 6D617269
+Java	1	java.lang.AbstractMethodError Laptop.compareTo(LComparable;)I
+Java	1	java.lang.ArithmeticException
+Java	1	java.lang.ArithmeticException BigInteger not invertible.
+Java	1	java.lang.ArithmeticException ERROR
+Java	1	java.lang.ArithmeticException Invalid operation
+Java	1	java.lang.ClassFormatError Unknown constant tag 0 in class file javax/swing/JTextField
+Java	1	java.lang.Error Input contains characters that aren't alphabetic or whitespace.
+Java	1	java.lang.Error Player must be Black or White
+Java	1	java.lang.Error Unresolved compilation problem: \n
+Java	1	java.lang.Error Unresolved compilation problems: \n Syntax error, insert ";" to complete Statement\n Syntax error on token "else", delete this token\n Syntax error, insert ";" to complete ReturnStatement\n Syntax error on token "else", delete this token\n Syntax error on token "}", delete this token\n
+Java	1	java.lang.IllegalStateException Door is already closed
+Java	1	java.lang.IllegalStateException getPipSum called, but dice not rolled
+Java	1	java.lang.IllegalStateException javax.swing.JLabel[,0,0,0x0,invalid,alignmentX=0.0,alignmentY=0.0,border=,flags=8388608,maximumSize=,minimumSize=,preferredSize=,defaultIcon=,disabledIcon=,horizontalAlignment=LEADING,horizontalTextPosition=TRAILING,iconTextGap=4,labelFor=,text=Mening,verticalAlignment=CENTER,verticalTextPosition=CENTER] is not attached to a horizontal group
+Java	1	java.lang.IllegalStateException oh snap, something went wrong!
+Java	1	java.lang.IllegalStateException OutOfBeepers
+Java	1	java.lang.IllegalStateException The grid contains a different actor at location (0, 9).
+Java	1	java.lang.IllegalStateException The multishape has to have at least one part
+Java	1	java.lang.IllegalStateException Unknown doneness
+Java	1	java.lang.IncompatibleClassChangeError Expected static field <FIELD>
+Java	1	java.lang.LinkageError loader constraint violation: when resolving method "bst.BinarySearchTree.retrieve(Ljava/lang/Comparable;)Lki/KeyedItem;" the class loader (instance of java/net/URLClassLoader) of the current class, TreeSort, and the class loader (instance of sun/misc/Launcher$AppClassLoader) for resolved class, bst/BinarySearchTree, have different Class objects for the type retrieve used in the signature
+Java	1	java.lang.NullPointerException Division by zero.
+Java	1	java.lang.RuntimeException
+Java	1	java.lang.RuntimeException cannot delete
+Java	1	java.lang.RuntimeException Date string <19-8-2013 11:00:00> not recognised because it contains extra characters after a date.
+Java	1	java.lang.RuntimeException Error
+Java	1	java.lang.RuntimeException Error. You have not entered enough values
+Java	1	java.lang.RuntimeException Failed : HTTP error code : 403
+Java	1	java.lang.RuntimeException imageWidth: 422 != imageHeight: 357
+Java	1	java.lang.RuntimeException Input integer must be greater than 2.
+Java	1	java.lang.RuntimeException Invalid response
+Java	1	java.lang.RuntimeException java.io.FileNotFoundException (Not a directory)
+Java	1	java.lang.RuntimeException No background cache for ASX
+Java	1	java.lang.RuntimeException No console class
+Java	1	java.lang.RuntimeException No file inputed
+Java	1	java.lang.RuntimeException Room outside the main entrance of the university already contains torch.
+Java	1	java.lang.UnsatisfiedLinkError Cannot load 32-bit SWT libraries on 64-bit JVM
+Java	1	java.lang.UnsatisfiedLinkError Expecting an absolute path of the library: <LIBRARY>
+Java	1	java.lang.UnsupportedOperationException Java Runtime Environment (JRE) version 1.7 is not supported by this driver. Use the sqljdbc4.jar class library, which provides support for JDBC 4.0.
+Java	1	java.lang.UnsupportedOperationException No default technique on material ' '\n is supported by the video hardware. The caps [GLSL100] are required.
+Java	1	java.lang.UnsupportedOperationException Not supported yet.
+Java	1	java.lang.UnsupportedOperationException Not yet implemented
+Java	1	java.net.SocketException Network is unreachable
+Java	1	java.net.SocketException socket closed
+Java	1	java.nio.channels.NotYetConnectedException
+Java	1	java.rmi.ConnectException Connection refused
+Java	1	java.security.InvalidKeyException Invalid AES key length: 8 bytes
+Java	1	java.security.InvalidKeyException No installed provider supports this key: javax.crypto.spec.SecretKeySpec
+Java	1	java.security.InvalidKeyException Parameters missing
+Java	1	java.security.InvalidParameterException RSA keys must be at least 512 bits long
+Java	1	java.security.NoSuchAlgorithmException Cannot find any provider supporting DES/ECB/PKS5Padding
+Java	1	java.security.NoSuchAlgorithmException RSA KeyGenerator not available
+Java	1	java.util.IllegalFormatCodePointException
+Java	1	java.util.InputMismatchException Sorry but you can only enter integers
+Java	1	java.util.NoSuchElementException Error 404: intelligence not found (you can't remove from an empty queue)
+Java	1	javax.crypto.BadPaddingException Message is larger than modulus
+Java	1	javax.crypto.IllegalBlockSizeException Input length must be multiple of 16 when decrypting with padded cipher
+Java	1	javax.media.nativewindow.NativeWindowException X11Util.Display: Unable to create a display(:0.0) connection. Thread main
+Java	1	javax.media.NoPlayerException Cannot find a Player for :file:/C:/Users/Sam/Downloads/Eng Analyzer Basic Operation.wmv
+Java	1	javax.media.NoPlayerException Error instantiating class: com.sun.media.protocol.file.DataSource : java.io.IOException: File Not Found
+Java	1	junit.framework.AssertionFailedError null
+Java	1	ListArray$ListIndexOutOfBoundsException
+Java	1	MissingCharacterException The Character " " isn't encoded in ASCII!
+Java	1	MyRuntimeException THIS IS MY RUNTIME EXCEPTION!
+Java	1	org.apache.commons.codec.DecoderException Odd integer of characters.
+Java	1	org.apache.poi.poifs.filesystem.OfficeXmlFileException The supplied data appears to be in the Office 2007+ XML. You are calling the part of POI that deals with OLE2 Office Documents. You need to call a different part of POI to process this data (eg XSSF instead of HSSF)
+Java	1	org.openqa.selenium.InvalidSelectorException The xpath expression ' ' cannot be evaluated
+Java	1	org.openqa.selenium.StaleElementReferenceException Element appears to be stale. Did you navigate away from the page that contained it? And is the current window focussed the same as the one holding this element?
+Java	1	org.openqa.selenium.WebDriverException java.net.MalformedURLException: no protocol: <PROTOCOL>
+Java	1	QueueUnderflowException
+Java	1	QueueUnderflowException Queue is Empty!
+Java	1	StackOverflowException Stack Overflow
+Java	1	Stop
+Java	1	Stop2
+Java	1	sun.awt.X11.XException Cannot write XdndAware property
+Java	1	TextFileErrorException Unexpected Exception in <FILE>: # at #
+Java	1	TextFileErrorException Unexpected Length Of Line in <FILE>: # at #
+Java	1	VendingMachineException Invalid code for vending machine item
+Java	1	<METHOD> in <CLASS> is defined in an inaccessible <CLASS> interface
+Java	1	a generic <CLASS> not extend <NAME>
+Java	1	annotation <NAME> is missing value for the attribute value
+Java	1	C:\Users\Yanez\Desktop\desk\suma.java:10: cannot find symbol - variable <NAME>
+Java	1	cannot create array with type arguments
+Java	1	cannot declare both main(java.lang.String...) and main(java.lang.String[]) in squaresofintegers
+Java	1	cannot find symbol - static Out
+Java	1	diamond operator is not supported in -source 1.5\n (use -source 7 or higher to enable diamond operator)
+Java	1	error reading: (Das System kann die angegebene Datei nicht finden)
+Java	1	error reading: (Permission denied)
+Java	1	error reading: (The system cannot find the path specified)
+Java	1	error while writing: (Acces refuse)
+Java	1	error while writing: (Invalid argument)
+Java	1	error while writing: (The drive cannot find the sector requested)
+Java	1	error while writing: (The handle is invalid)
+Java	1	error while writing: (The operation could not be completed because the volume is dirty.
+Java	1	error while writing: The system cannot find the file specified
+Java	1	error while writing: The volume for a file has been externally altered so that the opened file is no longer valid
+Java	1	error: error reading: (bad signature)
+Java	1	improperly formed type, some parameters are missing
+Java	1	improperly formed type, type arguments given on a raw type
+Java	1	multi-catch parameter <NAME> may not be assigned
+Java	1	onCommand(org.bukkit.command.CommandSender,org.bukkit.command.Command,java.lang.String,java.lang.String[]) in accretion.AccretionMusic cannot implement onCommand(org.bukkit.command.CommandSender,org.bukkit.command.Command,java.lang.String,java.lang.String
+Java	1	qualified new of static class
+Java	1	static import declarations are not supported in -source 1.4\n (use -source 5 or higher to enable static import declarations)
+Java	1	try-with-resources not applicable to <VARIABLE>\n required: <TYPE> found: <TYPE>
+Python	179624	SyntaxError: invalid syntax
+Python	97186	NameError: name '' is not defined
+Python	76026	EOFError: EOF when reading a line
+Python	26097	SyntaxError: unexpected EOF while parsing
+Python	20758	IndentationError: unindent does not match any outer indentation level
+Python	16673	SyntaxError: EOL while scanning string literal
+Python	16166	IndentationError: unexpected indent
+Python	13599	TabError: inconsistent use of tabs and spaces in indentation
+Python	11788	IndentationError: expected an indented block
+Python	11592	ValueError: invalid literal for func() with base #: ''
+Python	10327	TypeError: '' object is not iterable
+Python	9762	TypeError: '' object is not callable
+Python	9656	TypeError: can't multiply sequence by non-int of type ''
+Python	8851	TypeError: unsupported operand type(s) for +: '' and ''
+Python	8073	NameError: global name '' is not defined
+Python	6843	TypeError: unsupported operand type(s) for -: '' and ''
+Python	6707	IndexError: string index out of range
+Python	6326	SyntaxError: unexpected character after line continuation character
+Python	6005	TypeError: Can't convert '' object to str implicitly
+Python	5874	TypeError: unsupported operand type(s) for //: '' and ''
+Python	5627	AttributeError: '' object has no attribute ''
+Python	5584	TypeError: '' object is not subscriptable
+Python	5553	TypeError: string indices must be integers
+Python	5030	IndexError: list index out of range
+Python	4005	SyntaxError: can't assign to function call
+Python	3360	UnboundLocalError: local variable '' referenced before assignment
+Python	3277	SyntaxError: can't assign to operator
+Python	2712	ValueError: could not convert string to float: ''
+Python	2656	TypeError: unorderable types: func() > func()
+Python	2643	TypeError: not all arguments converted during string formatting
+Python	2633	TypeError: object of type '' has no func()
+Python	2455	TypeError: '' object cannot be interpreted as an integer
+Python	2266	TypeError: list indices must be integers, not <TYPE>
+Python	2208	TypeError: an integer is required
+Python	2080	TypeError: unsupported operand type(s) for /: '' and ''
+Python	2026	TypeError: func() expected string of length #, but <TYPE> found
+Python	2025	RuntimeError: maximum recursion depth exceeded while calling a Python object
+Python	1995	TypeError: unsupported operand type(s) for ** or func(): '' and ''
+Python	1734	IndexError: list assignment index out of range
+Python	1702	TypeError: slice indices must be integers or None or have an __index__ method
+Python	1658	TypeError: unsupported operand type(s) for *: '' and ''
+Python	1475	SyntaxError: break outside loop
+Python	1453	TypeError: func() expected a character, but string of length # found
+Python	1431	SyntaxError: return outside function
+Python	1345	SyntaxError: can't assign to literal
+Python	1330	TypeError: unorderable types: func() < func()
+Python	1209	ValueError: ? is not in list
+Python	1133	TypeError: func() argument must be a string or a number, not ''
+Python	1090	TypeError: can only concatenate list (not "") to list
+Python	1070	TypeError: '' object does not support item assignment
+Python	1062	ValueError: math domain error
+Python	923	SyntaxError: invalid token
+Python	912	TypeError: func() takes exactly # arguments (# given)
+Python	867	RuntimeError: maximum recursion depth exceeded in comparison
+Python	832	TypeError: '' is an invalid keyword argument for this function
+Python	806	TypeError: unorderable types: func() >= func()
+Python	784	SyntaxError: invalid character in identifier
+Python	749	TypeError: func() missing # required positional arguments: ''
+Python	721	MemoryError
+Python	648	TypeError: bad operand type for unary +: ''
+Python	634	ZeroDivisionError: integer division or modulo by zero
+Python	585	SyntaxError: continue not properly in loop
+Python	480	TypeError: unsupported operand type(s) for ^: '' and ''
+Python	426	TypeError: func() takes at least # arguments (# given)
+Python	403	TypeError: bad operand type for unary -: ''
+Python	394	SyntaxError: keyword can't be an expression
+Python	373	RuntimeError: maximum recursion depth exceeded
+Python	360	TypeError: descriptor '' requires a '' object but received a ''
+Python	353	TypeError: func() takes no arguments (# given)
+Python	346	ValueError: list.remove(x): x not in list
+Python	344	ZeroDivisionError: division by zero
+Python	335	TypeError: a float is required
+Python	323	TypeError: func() argument must be a string or a number
+Python	310	SyntaxError: can use starred expression only as assignment target
+Python	284	TypeError: unorderable types: func() <= func()
+Python	271	PermissionError: [Errno #] Permission denied: ''
+Python	261	TypeError: func() takes # positional arguments but # were given
+Python	248	TypeError: can only concatenate tuple (not "") to tuple
+Python	224	TypeError: argument of type '' is not iterable
+Python	210	ImportError: No module named ''
+Python	203	TypeError: unsupported operand type(s) for %: '' and ''
+Python	189	SyntaxError: non-keyword arg after keyword arg
+Python	185	TypeError: func() argument after * must be a sequence, not <TYPE>
+Python	185	TypeError: unsupported operand type(s) for +=: '' and ''
+Python	178	TypeError: func() takes no keyword arguments
+Python	173	SyntaxError: EOF while scanning triple-quoted string literal
+Python	170	ValueError: substring not found
+Python	168	TypeError: func() expected # arguments, got #
+Python	144	ZeroDivisionError: float division by zero
+Python	130	AttributeError: type object '' has no attribute ''
+Python	125	IndexError: pop index out of range
+Python	117	TypeError: func() takes at most # arguments (# given)
+Python	114	ValueError: func() arg is an empty sequence
+Python	107	TypeError: func() expected at most # arguments, got #
+Python	101	ValueError: func() arg not in range(Ox#)
+Python	92	TypeError: unsupported operand type(s) for &: '' and ''
+Python	89	IndexError: tuple index out of range
+Python	87	TypeError: func() can't convert non-string with explicit base
+Python	86	SyntaxWarning: name '' is assigned to before global declaration
+Python	84	BlockingIOError: [Errno #] Resource temporarily unavailable
+Python	84	FileNotFoundError: [Errno #] No such file or directory: ''
+Python	79	ValueError: could not convert string to float:
+Python	76	TypeError: descriptor '' of '' object needs an argument
+Python	68	ValueError: too many values to unpack (expected #)
+Python	60	TypeError: '' requires string as left operand, not <TYPE>
+Python	56	SyntaxError: can't delete function call
+Python	55	SyntaxError: name '' is parameter and global
+Python	52	TypeError: integer argument expected, got float
+Python	51	TypeError: func() first arg must be str or a tuple of str, not <TYPE>
+Python	51	TypeError: int object argument after * must be a sequence, not <TYPE>
+Python	50	TypeError: func() argument # must be str, not <TYPE>
+Python	48	ValueError: empty separator
+Python	47	SyntaxError: can't assign to comparison
+Python	46	TypeError: func() arg # must be a type or tuple of types
+Python	44	ValueError: slice step cannot be zero
+Python	43	AttributeError: '' object attribute '' is read-only
+Python	43	KeyError: ?
+Python	43	TypeError: '' object doesn't support item deletion
+Python	39	ImportError: No module named ''; math is not a package
+Python	38	OverflowError: (#, 'Numerical result out of range')
+Python	38	PermissionError: [Errno #] Operation not permitted
+Python	38	ValueError: not allowed to raise maximum limit
+Python	36	ValueError: need more than # value to unpack
+Python	36	socket.gaierror: [Errno -#] Name or service not known
+Python	35	TypeError: func() takes # or # arguments
+Python	34	ValueError: func() arg # must be >= # and <= #
+Python	33	TypeError: '' object does not support item deletion
+Python	32	TypeError: decoding str is not supported
+Python	32	UnicodeEncodeError: '' codec can't encode character '' in position #: surrogates not allowed
+Python	30	TypeError: source code string cannot contain null bytes
+Python	26	TypeError: func() got an unexpected keyword argument
+Python	25	SyntaxError: assignment to keyword
+Python	24	TypeError: func() does not take keyword arguments
+Python	24	TypeError: sequence item #: expected str instance, <TYPE> found
+Python	23	SyntaxError: only named arguments may follow *expression
+Python	23	ValueError: attempt to assign sequence of size # to extended slice of size #
+Python	21	TypeError: bad operand type for func(): ''
+Python	20	SyntaxError: duplicate argument '' in function definition
+Python	18	TypeError: (Raised by CS Circles) func() can only be applied to numbers
+Python	18	TypeError: not enough arguments for format string
+Python	18	TypeError: unsupported operand type(s) for |: '' and ''
+Python	18	ValueError: func() arg # must not be zero
+Python	18	ValueError: need more than # values to unpack
+Python	18	ZeroDivisionError: float modulo
+Python	17	TypeError: func() expected at least # arguments, got #
+Python	16	TypeError: unhashable type: ''
+Python	16	TypeError: unsupported operand type(s) for -=: '' and ''
+Python	15	TypeError: must assign iterable to extended slice
+Python	14	TypeError: Required argument '' (pos #) not found
+Python	13	StderrExample
+Python	13	SyntaxError: keyword argument repeated
+Python	13	TypeError: can only assign an iterable
+Python	13	TypeError: must use keyword argument for key function
+Python	12	TypeError: '' object does not support indexing
+Python	12	TypeError: func() arg must be None or str
+Python	12	ValueError: unsupported format character '' () at index #
+Python	11	ImportError: cannot import name ?
+Python	11	IndexError: range object index out of range
+Python	11	SyntaxError: (unicode error) '' codec can't decode bytes in position #-#: truncated \\xXX escape
+Python	11	SyntaxError: can't delete literal
+Python	11	TypeError: coercing to str: need bytes, bytearray or buffer-like object, <TYPE> found
+Python	11	ZeroDivisionError: float func()
+Python	10	NotADirectoryError: [Errno #] Not a directory: ''
+Python	10	SyntaxError: illegal expression for augmented assignment
+Python	10	SyntaxError: yield outside function
+Python	10	TypeError: %d format: a number is required, not <TYPE>
+Python	10	TypeError: __str__ returned non-string (type <TYPE>)
+Python	10	TypeError: end must be None or a string, not <TYPE>
+Python	10	TypeError: func() arg # must be a string, bytes or code object
+Python	10	TypeError: type <TYPE> doesn't define ? method
+Python	9	TypeError: can't set attributes of built-in/extension type ''
+Python	9	TypeError: string argument expected, got ''
+Python	9	ZeroDivisionError: #.# cannot be raised to a negative power
+Python	8	AssertionError
+Python	8	SyntaxError: (unicode error) '' codec can't decode bytes in position #-#: truncated \\uXXXX escape
+Python	8	SyntaxWarning: name '' is used prior to global declaration
+Python	7	AttributeError: __exit__
+Python	7	SyntaxError: can't assign to conditional expression
+Python	7	TypeError: (Raised by CS Circles) func() can only be applied to non-negative integers
+Python	7	TypeError: NoneType object argument after * must be a sequence, not <TYPE>
+Python	7	TypeError: float object argument after * must be a sequence, not <TYPE>
+Python	7	TypeError: unsupported operand type(s) for <<: '' and ''
+Python	6	OSError: [Errno #] File too large
+Python	6	SyntaxError: starred assignment target must be in a list or tuple
+Python	6	TypeError: str object argument after * must be a sequence, not <TYPE>
+Python	6	ValueError: Unknown format code '' for object of type ''
+Python	5	PermissionError: [Errno #] Permission denied
+Python	5	TypeError: The fill character cannot be converted to Unicode
+Python	5	TypeError: expected # arguments, got #
+Python	5	TypeError: type object argument after * must be a sequence, not <TYPE>
+Python	5	ValueError: incomplete format
+Python	5	socket.gaierror: [Errno -#] No address associated with hostname
+Python	4	IndexError: pop from empty list
+Python	4	OverflowError: long int too large to convert to float
+Python	4	RuntimeError: maximum recursion depth exceeded while getting the repr of a list
+Python	4	SyntaxError: (unicode error) '' codec can't decode bytes in position #-#: end of string in escape sequence
+Python	4	SyntaxError: can't assign to ()
+Python	4	TypeError
+Python	4	TypeError: can't convert complex to float
+Python	4	TypeError: can't take floor of complex number.
+Python	4	TypeError: must be bytes, not <TYPE>
+Python	4	TypeError: unsupported operand type(s) for >>: '' and ''
+Python	4	TypeError: unsupported operand type(s) for func(): '' and ''
+Python	4	ValueError: Invalid format specifier
+Python	4	ValueError: tuple.index(x): x not in tuple
+Python	3	IndentationError: unexpected unindent
+Python	3	IsADirectoryError: [Errno #] Is a directory: ''
+Python	3	OSError: [Errno #] Function not implemented
+Python	3	OverflowError: signed integer is greater than maximum
+Python	3	SyntaxError: (unicode error) '' codec can't decode bytes in position #-#: truncated \\UXXXXXXXX escape
+Python	3	SyntaxError: Generator expression must be parenthesized if not sole argument
+Python	3	SyntaxError: can't delete ()
+Python	3	SyntaxError: cannot mix bytes and nonbytes literals
+Python	3	TypeError: %i format: a number is required, not <TYPE>
+Python	3	TypeError: '' does not support the buffer interface
+Python	3	TypeError: '' object is not an iterator
+Python	3	TypeError: The fill character must be exactly one character long
+Python	3	TypeError: can't convert complex to int
+Python	3	TypeError: format requires a mapping
+Python	3	TypeError: func() argument after ** must be a mapping, not <TYPE>
+Python	3	TypeError: func() got an unexpected keyword argument ''
+Python	3	TypeError: sep must be None or a string, not <TYPE>
+Python	3	ValueError: could not convert string to float: ""
+Python	3	__main__.BailOut
+Python	2	NameError: free variable '' referenced before assignment in enclosing scope
+Python	2	OverflowError: cannot fit '' into an index-sized integer
+Python	2	OverflowError: math range error
+Python	2	RuntimeError: can't start new thread
+Python	2	RuntimeError: maximum recursion depth exceeded while getting the repr of a tuple
+Python	2	StopIteration
+Python	2	SyntaxError: (unicode error) '' codec can't decode bytes in position #-#: malformed \\N character escape
+Python	2	SyntaxError: (unicode error) '' codec can't decode bytes in position #-#: unknown Unicode character name
+Python	2	SyntaxError: no binding for nonlocal '' found
+Python	2	TypeError: bad operand type for unary ~: ''
+Python	2	TypeError: func() can't sum strings [use ''.join(seq) instead]
+Python	2	TypeError: object does not provide __dir__
+Python	2	TypeError: tuple indices must be integers, not <TYPE>
+Python	2	UnicodeEncodeError: '' codec can't encode characters in position #-#: ordinal not in range(#)
+Python	2	ValueError: Unknown conversion specifier b
+Python	2	ValueError: func() only accepts integral values
+Python	2	urllib.error.URLError: <urlopen error [Errno -#] Name or service not known>
+Python	1	AssertionError: You are mathing wrong
+Python	1	FAILED (errors=#)
+Python	1	FileNotFoundError: [Errno #] No such file or directory
+Python	1	ImportError: No module named ''; datetime is not a package
+Python	1	ImportError: No module named ''; random is not a package
+Python	1	OSError: [Errno #] Address already in use
+Python	1	OSError: out of pty devices
+Python	1	ProcessLookupError: [Errno #] No such process
+Python	1	RuntimeError: dictionary changed size during iteration
+Python	1	SyntaxError: can't assign to Ellipsis
+Python	1	SyntaxError: can't delete operator
+Python	1	SyntaxError: from __future__ imports must occur at the beginning of the file
+Python	1	TypeError: Input must be an integer.
+Python	1	TypeError: Tuple or struct_time argument required
+Python	1	TypeError: argument # must have a "" method
+Python	1	TypeError: argument to func() must be a sequence
+Python	1	TypeError: array item must be unicode character
+Python	1	TypeError: bytes expected instead of str instance
+Python	1	TypeError: cannot convert dictionary update sequence element ## to a sequence
+Python	1	TypeError: expected string or buffer
+Python	1	TypeError: func() argument # must be tuple, not <TYPE>
+Python	1	TypeError: func() must have at least two arguments.
+Python	1	TypeError: must be a unicode character, not <TYPE>
+Python	1	TypeError: must be str, not <TYPE>
+Python	1	TypeError: range indices must be integers or slices, not <TYPE>
+Python	1	TypeError: str object argument after ** must be a mapping, not <TYPE>
+Python	1	TypeError: string argument without an encoding
+Python	1	TypeError: unsupported operand type(s) for *=: '' and ''
+Python	1	TypeError: unsupported type for timedelta days component: str
+Python	1	TypeError: zip argument ## must support iteration
+Python	1	UnicodeDecodeError: '' codec can't decode byte Ox# in position #: invalid start byte
+Python	1	ValueError: Format specifier missing precision
+Python	1	ValueError: Nothing to see here!
+Python	1	ValueError: Precision not allowed in integer format specifier
+Python	1	ValueError: Sign not allowed in string format specifier
+Python	1	ValueError: Single '' encountered in format string
+Python	1	ValueError: dictionary update sequence element ## has length #; # is required
+Python	1	ValueError: empty range for func() (#,#, -#)
+Python	1	ValueError: func() not defined for negative values
+Python	1	ValueError: unmatched '' in format
+Python	1	mainfile: error: must provide name of pdb file
+Python	1	sre_constants.error: redefinition of group name '' as group #; was group #

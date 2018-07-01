@@ -1,0 +1,101 @@
+.1C
+.ft C
+.na
+.nf
+\s-4
+.vs 9p
+.pl 12i
+.SM
+.B1
+#        <      . >
+
+#                    13
+#                     0
+#                     1
+
+                  (             [],
+                       *           )
+{
+     ,
+            ;
+
+*           =          ;
+        =      (        );
+   (         >             )
+   {
+   *           =            ;
+   }
+
+   {
+       ( =0;   <         ;  ++)
+      {
+         ((        [ ] < '0') ||
+          (        [ ] > '9'))
+         {
+         *           =            ;
+         }
+      }
+   }
+}
+.B2
+.B1
+ include  string h 
+
+ define MAX_CNUM_LEN
+ define VALID_CNUM
+ define INVALID_CNUM
+
+int chk_cnum_valid char cust_num
+                   int  cnum_status 
+ 
+int i 
+    cnum_len 
+
+ cnum_status VALID_CNUM 
+cnum_len strlen cust_num
+if  cnum_len   MAX_CNUM_LEN
+
+    cnum_status INVALID_CNUM 
+
+else
+
+   for  i    i   cnum_len  i
+
+      if   cust_num i
+           cust_num i
+
+          cnum_status INVALID_CNUM
+.B2
+.B1
+#include <string.h>
+
+#define v1 13
+#define v2  0
+#define v3  1
+
+int v4(char v5[],
+       int *v6)
+{
+int v7,
+    v8;
+
+*v6=v2;
+v8=strlen(v5);
+if (v8 > v1)
+   {
+   *v6=v3;
+   }
+else
+   {
+   for (v7=0; v7 < v8; v7++)
+      {
+      if ((v5[v7] < '0') ||
+          (v5[v7] > '9'))
+         {
+         *v6=v3;
+         }
+      }
+   }
+}
+.B2
+

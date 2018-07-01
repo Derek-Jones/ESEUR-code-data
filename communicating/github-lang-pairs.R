@@ -1,5 +1,5 @@
 #
-# github-lang-pairs.R, 14 May 14
+# github-lang-pairs.R, 31 May 18
 #
 # Data from:
 # Popularity, interoperability, and impact of programming languages in 100,000 open source projects
@@ -15,7 +15,7 @@ library("igraph")
 library("plyr")
 
 
-git_lang=read.csv(paste0(ESEUR_dir, "src_measure/github-lang-use.csv.xz"), as.is=TRUE)
+git_lang=read.csv(paste0(ESEUR_dir, "sourcecode/github-lang-use.csv.xz"), as.is=TRUE)
 
 git_lang=subset(git_lang, language != "")
 

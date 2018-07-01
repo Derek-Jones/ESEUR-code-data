@@ -1,5 +1,5 @@
 #
-# param-cnt.R, 16 Jun 17
+# param-cnt.R, 18 Jun 18
 #
 # Data from:
 # Why {SpecInt95} Should Not Be Used to Benchmark Embedded Systems Tools
@@ -47,9 +47,9 @@ plot(params$params, params$percent, type="n",
 lines(embed$params, embed$percent, col=pal_col[2])
 lines(cbook$params, cbook$percent, col=pal_col[2])
 embed_pois=glm(embed_pc ~ 1, family=poisson(link="identity"))
-points(0:8, dpois(0:8, 0.808)*100, col=pal_col[1])
+points(0:8, dpois(0:8, coef(embed_pois)[1])*100, col=pal_col[1])
 cbook_pois=glm(cb_cp ~ 1, family=poisson(link="identity"))
-points(0:8, dpois(0:8, 1.98)*100, col=pal_col[3])
+points(0:8, dpois(0:8, coef(cbook_pois)[1])*100, col=pal_col[3])
 
 legend(x="topright", legend=c("C book", "Fitted model", "Embedded"), bty="n", fill=pal_col, cex=1.2)
 

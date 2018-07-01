@@ -1,5 +1,5 @@
 #
-# Austin-group-Jul-17.R,  5 Jul 17
+# Austin-group-Jul-17.R, 25 Apr 18
 # Data from:
 # austingroupbugs.net
 # via Andrew Josey
@@ -25,7 +25,7 @@ omission=subset(posix_dr, Type == "Omission")
 
 
 plot(sort(error$Date.Submitted), 1:nrow(error), type="l", col=pal_col[1],
-	xlab="Date submitted", ylab="Reported problems\n")
+	xlab="Date", ylab="Reported problems\n")
 lines(sort(clarif$Date.Submitted), 1:nrow(clarif), col=pal_col[2])
 lines(sort(enhance$Date.Submitted), 1:nrow(enhance), col=pal_col[3])
 lines(sort(omission$Date.Submitted), 1:nrow(omission), col=pal_col[4])

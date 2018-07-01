@@ -1,5 +1,5 @@
 #
-# eurosys2016.R, 14 Jun 17
+# eurosys2016.R, 29 Apr 18
 # Data from:
 # {POSIX} Abstractions in Modern Operating Systems: {The} Old, the New, and the Missing
 # Vaggelis Atlidakis and Jeremy Andrus and Roxana Geambasu and Dimitris Mitropoulos and Jason Nieh
@@ -20,7 +20,7 @@ plot(sort(static$Android, decreasing=TRUE), type="l", log="y", col=pal_col[1],
 	xlab="Function rank", ylab="Packages")
 lines(sort(static$Ubuntu, decreasing=TRUE), col=pal_col[2])
 
-legend(x="topright", legend=c("Android", "Ubuntu"), bty="n", fill=pal_col, cex=1.2)
+legend(x="topright", legend=c("Android apps", "Ubuntu packages"), bty="n", fill=pal_col, cex=1.2)
 
 # For the dynamic study we trace: 372 out of the 821 C
 # POSIX functions implemented in Android; 462 out of the
@@ -39,6 +39,6 @@ legend(x="topright", legend=c("Android", "Ubuntu"), bty="n", fill=pal_col, cex=1
 # lines(sort(dynamic$Ubuntu_Invocations, decreasing=TRUE), col=pal_col[2])
 # lines(sort(dynamic$OSX_Invocations, decreasing=TRUE), col=pal_col[3])
 # 
-# legend(x="topright", legend=c("Android", "Ubuntu", "OS X"), bty="n", fill=pal_col, cex=1.2)
+# legend(x="topright", legend=c("Android apps", "Ubuntu packages", "OS X"), bty="n", fill=pal_col, cex=1.2)
 # 
 
