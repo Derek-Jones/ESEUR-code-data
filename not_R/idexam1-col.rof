@@ -1,10 +1,10 @@
-.MC 24.5 1.5
-.ft H
+.1C
+.ft C
 .na
 .nf
+\s-4
 .vs 9p
-.ll +0.45i
-.pl 8i
+.pl 12i
 .SM
 .B1
 #        <      . >
@@ -65,10 +65,6 @@ else
            cust_num i
 
           cnum_status INVALID_CNUM
-
-
-
-
 .B2
 .B1
 #include <string.h>

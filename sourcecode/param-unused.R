@@ -1,12 +1,15 @@
 #
-# param-unused.R, 20 Aug 16
+# param-unused.R, 30 Jul 18
 #
 # Data from:
+# The New {C Standard}: {An} Economic and Cultural Commentary
 # Derek M. Jones
 #
 # Example from:
 # Empirical Software Engineering using R
 # Derek M. Jones
+#
+# TAG C function parameter unused
 
 
 source("ESEUR_config.r")
@@ -32,11 +35,12 @@ pred_unused=sapply(x, function(X) sum(num_unused$num_funcs[X:8]/(7*(X:8))))
 lines(pred_unused, col=pal_col[3])
 
 # A linear regression of the actual data
-y=log10(num_unused$unused_param)
-est_mod=glm(y~x)
+est_mod=glm(log(num_unused$unused_param) ~ x)
+
+summary(est_mod)
 
 pred=predict(est_mod)
-lines(10^pred, col=pal_col[4])
+lines(exp(pred), col=pal_col[4])
 
-legend(x="bottomleft", legend=c("Total functions measured", "Total unused parameters", "Wet finger model fit", "Linear fit"), bty="n", fill=pal_col, cex=1.2)
+legend(x="bottomleft", legend=c("Functions", "Unused parameters", "Wet finger fit model", "Regression fit"), bty="n", fill=pal_col, cex=1.2)
 

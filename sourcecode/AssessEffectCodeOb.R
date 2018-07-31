@@ -1,15 +1,15 @@
 #
-# AssessEffectCodeOb.R, 12 Jul 16
+# AssessEffectCodeOb.R, 16 Jul 18
 #
 # Data from:
-#
 # A Family of Experiments to Assess the Effectiveness and Efficiency of Source Code Obfuscation Techniques
 # Mariano Ceccato and Massimiliano {Di Penta} and Paolo Falcarin and Filippo Ricca and Marco Torchiano and Paolo Tonella
 #
 # Example from:
 # Empirical Software Engineering using R
 # Derek M. Jones
-
+#
+# TAG experiment students source-code identifier control-flow
 
 source("ESEUR_config.r")
 
@@ -28,7 +28,7 @@ codeob$Average[13:14]=30
 
 # codeob$Average=NULL
 
-# bachelors did not do any 'clear' tests
+# bachelors did not do any 'clear' tests, i.e., no controls
 codeob=subset(codeob, Level != "bachelor")
 
 # T1_codeob=na.omit(codeob[ , 1:10])
@@ -74,7 +74,7 @@ T3_codeob=subset(codeob, !is.na(Time3))
 # T3_codeob=na.omit(codeob[ , 1:14])
 
 gan_mod_3=lmer(Time3 ~ Level+Treatment
-			+(Treatment | ID),
+			+(1 | ID),
 				data=T3_codeob)
 Anova(gan_mod_3)
 summary(gan_mod_3)
@@ -84,7 +84,7 @@ summary(gan_mod_3)
 T4_codeob=na.omit(codeob[ , 1:16])
 
 gan_mod_4=lmer(Time4 ~ Level+Treatment+Application
-			+(Treatment+Application-1 | ID),
+			+(1 | ID),
 				data=T4_codeob)
 Anova(gan_mod_4)
 summary(gan_mod_4)

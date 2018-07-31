@@ -8,7 +8,7 @@
 # Empirical Software Engineering using R
 # Derek M. Jones
 #
-# TAG C statement select nesting source-code
+# TAG C statement selection nesting source-code
 
 
 source("ESEUR_config.r")
@@ -21,7 +21,7 @@ sn=read.csv(paste0(ESEUR_dir, "sourcecode/select_nesting.csv.xz"), as.is=TRUE)
 
 plot(sn$nesting, sn$occurrences, log="y", col=point_col,
 	xlim=c(0, 25),
-	xlab="Selection statement nesting", ylab="Occurrences\n")
+	xlab="Nesting level", ylab="Selection-statements\n")
 
 mod_17=glm(log(occurrences) ~ nesting, data=sn, subset=2:8)
 pred=predict(mod_17)

@@ -15,3 +15,6 @@ for f in *.pic
 #   ./bndpdf.sh $filename.ps > $filename.pdf
    done 
 
+
+$GROFF -ms -Tpdf < idexam1.rof > idexam1.pdf
+

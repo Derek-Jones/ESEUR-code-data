@@ -1,14 +1,16 @@
 #
-# maint-est.R,  4 Aug 16
+# maint-est.R,  9 Jul 18
 #
 # Data from:
-#
 # How accurately do engineers predict software maintenance tasks?
 # Les Hatton
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering using R
 # Derek M. Jones
+#
+# TAG predict effort maintenance
+
 
 source("ESEUR_config.r")
 
@@ -32,6 +34,11 @@ plot(jitter(maint$est_time), jitter(maint$act_time), col=point_col,
 t=ddply(maint, .(est_time, act_time), nrow)
 plot(t$est_time, t$act_time, cex=log(1+t$V1), pch=1, col=point_col,
 	xlab="", ylab="Actual hours\n")
+
+# est_mod=glm(log(act_time) ~ log(est_time), data=maint)
+# est_mod=glm(log(act_time) ~ log(est_time)+I(log(est_time)^2), data=maint)
+# summary(est_mod)
+
 
 
 fit_maint=function(maint)

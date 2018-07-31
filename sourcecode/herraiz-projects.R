@@ -6,9 +6,10 @@
 # Israel Herraiz Tabernero
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering using R
 # Derek M. Jones
-
+#
+# TAG files SLOC projects
 
 source("ESEUR_config.r")
 

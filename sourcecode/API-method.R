@@ -1,5 +1,5 @@
 #
-# API-method.R, 26 Dec 15
+# API-method.R, 29 Jul 18
 #
 # Data from:
 # Large-scale, AST-based API-usage of open source Java projects
@@ -8,23 +8,27 @@
 # Example from:
 # Empirical Software Engineering using R
 # Derek M. Jones
+#
+# TAG Java API method project calls
 
 
 source("ESEUR_config.r")
 
 
-api_method=read.csv(paste0(ESEUR_dir, "sourcecode/ZipfCombined.csv.xz"), as.is=TRUE)
+pal_col=rainbow(2)
 
-api_method=na.omit(api_method)
-api_method$l_Non_API=log(api_method$Non_API)
-api_method$l_API=log(api_method$API)
 
-plot(api_method$API, api_method$Non_API, log="xy", col=point_col,
-	xlab="API calls", ylab="Non-API calls\n")
+api_method=read.csv(paste0(ESEUR_dir, "sourcecode/APIMethodsToProjectSize.csv.xz"), as.is=TRUE)
 
-a_mod=glm(l_Non_API ~ l_API, data=api_method)
+
+plot(api_method$Size, api_method$API.Methods, log="xy", col=pal_col[2],
+	xlab="Project size (method calls)", ylab="API methods (distinct)\n")
+
+a_mod=glm(log(API.Methods) ~ log(Size), data=api_method)
+
+summary(a_mod)
 
 pred=predict(a_mod, type="response", se.fit=TRUE)
 
-lines(api_method$API, exp(pred$fit), col="red")
+lines(api_method$Size, exp(pred$fit), col=pal_col[1])
 
