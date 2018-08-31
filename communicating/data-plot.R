@@ -12,13 +12,14 @@
 #This is a translated version in R of Mathematica 6 code by Imagecreator.
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 
 source("ESEUR_config.r")
 
 
 library(mvtnorm)
+
 
 plot_layout(4, 2, 10)
 

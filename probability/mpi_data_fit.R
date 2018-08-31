@@ -1,16 +1,21 @@
 #
-# mpi_data_fit.t, 13 Dec 15
+# mpi_data_fit.t, 30 Aug 18
 #
 # Data from:
 # Reproducible {MPI} Micro-Benchmarking Isn't As Easy As You Think
 # Sascha Hunold and  Alexandra Carpen-Amarie and Jesper Larsson Tr{\"a}ff
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG benchmark MPI
 
 
 source("ESEUR_config.r")
+
+
+pal_col=rainbow(2)
 
 
 # "";"test";"count";"size";"time";"nodes";"nnp";"rank";"exp"
@@ -50,8 +55,6 @@ scan_dist=normalmixEM(fig1_Allreduce$time)
 
 # summary(scan_dist)
 # t=boot.se(scan_dist)
-
-pal_col=rainbow(2)
 
 # The most likely behavior is not the default!
 plot(scan_dist, whichplots=2, main2="", col2=pal_col,

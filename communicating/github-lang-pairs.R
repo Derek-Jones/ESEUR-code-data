@@ -1,15 +1,19 @@
 #
-# github-lang-pairs.R, 31 May 18
+# github-lang-pairs.R, 27 Aug 18
 #
 # Data from:
 # Popularity, interoperability, and impact of programming languages in 100,000 open source projects
 # Tegawend\'{e} F. Bissyand\'{e} and Ferdian Thung and David Lo and Lingxiao Jiang and Laurent R\'{e}veill\`{e}re
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG programming-language popularity github language-pairs
+
 
 source("ESEUR_config.r")
+
 
 library("igraph")
 library("plyr")
@@ -58,7 +62,7 @@ E(lang_graph)$color=l_col[1+log_max_weight-log(E(lang_graph)$weight)]
 V(lang_graph)$shape="rectangle"
 
 # layout.kamada.kawai seems to give the best results of those tried
-plot(lang_graph, edge.width=log(E(lang_graph)$weight),
+plot(lang_graph, edge.width=0.5+(E(lang_graph)$weight)^0.15,
 	layout=layout.kamada.kawai,
 	vertex.size=5+nchar(V(lang_graph)$name)*3, vertex.size2=10,
 	vertex.frame.color="white")

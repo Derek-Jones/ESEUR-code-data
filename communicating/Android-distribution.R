@@ -1,13 +1,16 @@
 #
-# Android-distribution.R,  5 Jan 16
+# Android-distribution.R, 22 Aug 18
 #
 # Data from:
 #
 # http://www.bidouille.org/misc/androidcharts
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG Android market-share ecosystem
+
 
 source("ESEUR_config.r")
 

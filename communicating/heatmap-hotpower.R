@@ -1,13 +1,16 @@
 #
-# heatmap-hotpower.R,  6 Oct 17
+# heatmap-hotpower.R, 22 Aug 18
 #
 # Data from:
 # Memory Performance at Reduced {CPU} Clock Speeds: {An} Analysis of Current x86\_64 Processor
 # Robert Sch{\"o}ne and Daniel Hackenberg and Daniel Molka
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG cache performance clock-frequencyi cpu-core x86
+
 
 source("ESEUR_config.r")
 

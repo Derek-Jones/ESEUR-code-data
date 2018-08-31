@@ -1,12 +1,14 @@
 #
-# postmortem-answers.R, 20 Sep 16
+# postmortem-answers.R, 22 Aug 18
 #
 # Data from:
 # Plat_Forms 2007: The web development platform comparison - evaluation and results
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG experiment programming-language
 
 source("ESEUR_config.r")
 

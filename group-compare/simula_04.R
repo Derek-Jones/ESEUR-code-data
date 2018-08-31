@@ -6,8 +6,10 @@
 # Magne J{\o}rgensen and Kjetil Mol{\o}kken
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG estimate-effort overconfidence project
 
 
 source("ESEUR_config.r")

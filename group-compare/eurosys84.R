@@ -5,8 +5,11 @@
 # Edmund B. Nightingale and John R. Douceur and Vince Orgovan
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG hardware failure cpu dram
+
 
 source("ESEUR_config.r")
 

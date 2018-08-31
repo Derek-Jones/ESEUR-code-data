@@ -1,13 +1,15 @@
 #
-# nasa-ada-fortran.R, 10 Jun 16
+# nasa-ada-fortran.R, 23 Aug 18
 #
 # Data from:
 # IMPACT OF ADA AND OBJECT-ORIENTED DESIGN IN THE FLIGHT DYNAMICS DIVISION AT GODDARD SPACE FLIGHT CENTER
 # Sharon Waligora and John Bailey and Mike Stark
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG Ada Fortran design coding testing
 
 
 source("ESEUR_config.r")
@@ -24,19 +26,19 @@ nasa$all[5]=6114
 # If this function was not passed to pairs, each plot would contain just crosses.
 panel.language=function(x, y, language)
 {
-par(cex.axis=1.1)
-Ada=(language == "Ada")
-points(x[Ada], y[Ada], col=pal_col[2])
-lines(loess.smooth(x[Ada], y[Ada], span=0.7), col=pal_col[2])
+   fit_language=function(lang_index, col_str)
+   {
+   points(x[lang_index], y[lang_index], col=pal_col[col_str])
+   lines(loess.smooth(x[lang_index], y[lang_index], span=0.7), col=pal_col[col_str])
+   }
 
-Fortran=(language != "Ada")
-points(x[Fortran], y[Fortran], col=pal_col[1])
-lines(loess.smooth(x[Fortran], y[Fortran], span=0.7), col=pal_col[1])
+fit_language(language == "Ada", 2)
+fit_language(language != "Ada", 1)
 }
 
 # pairs( ~ duration+lines+design+coding+testing+other, data=nasa, subset=(language == "Ada"))
 # rows 28 and 30 are zero
-pairs(log(nasa[-c(28, 30) , 16:19]), panel = panel.language, language=nasa$language, cex.labels=1.3)
+pairs(log(nasa[-c(28, 30) , 16:19]), panel = panel.language, language=nasa$language, cex.labels=1.4)
 
 
 

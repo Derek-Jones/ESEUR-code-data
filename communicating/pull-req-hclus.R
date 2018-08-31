@@ -1,13 +1,18 @@
 #
-# pull-req-hclus.R, 10 Oct 16
+# pull-req-hclus.R, 24 Aug 18
 #
 # Data from:
 # Georgios Gousios and Andy Zaidman
 # A Dataset for Pull Request Research
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# Empirical Software Engineering using R
+#
+# TAG change-control
+
 
 source("ESEUR_config.r")
 
@@ -35,7 +40,7 @@ ctab = cor(used, method = "spearman", use="complete.obs")
 
 pull_dist=as.dist((1-ctab)^2)
 t=hclust(pull_dist)
-plot(t, main="", sub="",
+plot(t, main="", sub="", col=point_col,
 	xlab="Pull related variables", ylab="Height\n")
 
 # A packaged way of doing things

@@ -1,12 +1,15 @@
 #
-# agreement.R, 12 Oct 16
+# agreement.R, 30 Aug 18
 # Data from:
 # Determining the Distribution of Maintenance Categories: Survey versus Measurement
 # Stephen R. Schach and Bo Jin and Liguo Yu and Gillian Z. Heller and Jeff Offutt
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG maintenance survey
+
 
 source("ESEUR_config.r")
 

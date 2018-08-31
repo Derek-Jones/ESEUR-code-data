@@ -1,5 +1,5 @@
 #
-# pull-req-cor.R,  5 Jan 16
+# pull-req-cor.R, 22 Aug 18
 #
 # Data from:
 #
@@ -8,8 +8,11 @@
 # Code below is a modified version of code supplied with the data.
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG pull-request development
+
 
 source("ESEUR_config.r")
 

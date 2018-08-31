@@ -5,13 +5,16 @@
 # Impact of Installation Counts on Perceived Quality: A Case Study of Debian
 # Israel Herraiz and Emad Shihab and Thanh H. D. Nguyen and Ahmed E. Hassan
 #
-# R code for book "Empirical Software Engineering using R"
-# Derek M. Jones, http://shape-of-code.coding-guidelines.com
+# Evidence-based Software Engineering: based on the publicly available data
+# Derek M. Jones
 #
 #
 # Example from:
 # Empirical Software Engineering using R
 # Derek M. Jones
+#
+# TAG debian package installs package-age
+
 
 source("ESEUR_config.r")
 

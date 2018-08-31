@@ -1,5 +1,5 @@
 #
-# opensignal-tree.R, 14 Aug 15
+# opensignal-tree.R, 22 Aug 18
 #
 # Data from:
 #
@@ -8,8 +8,11 @@
 # If you have any questions on OpenSignal data licensing or anything else please email sam@opensignal.com
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG Android market-share hardware phone
+
 
 source("ESEUR_config.r")
 

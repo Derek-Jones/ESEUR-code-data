@@ -1,13 +1,15 @@
 #
-# pullreqs-q19-coded.R,  8 May 15
+# pullreqs-q19-coded.R, 27 Aug 18
 #
 # Data from:
 # Work Practices and Challenges in Pull-Based Development: {The} Integrator's Perspective
 # Georgios Gousios and Andy Zaidman and Margaret-Anne Storey and Arie van Deursen
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG work-practice pullrequest Github
 
 
 source("ESEUR_config.r")

@@ -1,13 +1,16 @@
 #
-# 16.R, 27 Aug 16
+# 16.R, 30 Aug 18
 #
 # Data from:
 # Taghi Javdani Gandomani and Koh Tieng Wei and Abdulelah Khaled Binhamid
 # A Case Study Research on Software Cost Estimation Using Experts? Estimates, Wideband Delphi, and Planning Poker Technique
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG cost-estimation planning-poker delphi experiment
+
 
 source("ESEUR_config.r")
 

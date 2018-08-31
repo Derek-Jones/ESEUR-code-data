@@ -5,8 +5,11 @@
 # Lutz Prechelt
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG experiment developer performance
+
 
 source("ESEUR_config.r")
 

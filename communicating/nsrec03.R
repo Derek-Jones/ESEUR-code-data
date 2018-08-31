@@ -1,12 +1,15 @@
 #
-# nsrec03.R, 28 Feb 17
+# nsrec03.R, 22 Aug 18
 # Data from:
 # In-Flight Observations of Long-Term Single-Event Effect ({SEE}) Performance on {Orbview-2} Solid State Recorders ({SSR})
 # Christian Poivey and Janet L. Barth and Kenneth A. LaBel and George Gee and Harvey Safren
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG cosmic-ray hardware fault memory
+
 
 source("ESEUR_config.r")
 
