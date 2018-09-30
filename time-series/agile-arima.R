@@ -5,8 +5,10 @@
 # http://www.7digital.com
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG agile feature duration
 
 source("ESEUR_config.r")
 
@@ -20,6 +22,6 @@ day_starts[t$x]=t$freq
 
 weekdays=day_starts[-weekends]
 
-print(arima(diff(log(weekdays+1e-8)), order=c(1, 0, 2)))
+print(arima(diff(log(weekdays+1e-5)), order=c(1, 0, 2)))
 
 

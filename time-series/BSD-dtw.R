@@ -1,5 +1,5 @@
 #
-# BSD-dtw.R, 20 Feb 16
+# BSD-dtw.R, 29 Sep 18
 #
 # Data from:
 #
@@ -7,16 +7,18 @@
 # Israel Herraiz Tabernero
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG FreeBSD NetBSD evolution LOC
 
 
 source("ESEUR_config.r")
 
+
 library("dtw")
 library("plyr")
 
-plot_wide()
 
 pal_col=rainbow(2)
 
@@ -49,8 +51,14 @@ netbsd_weeks=plot_acf(netbsd$sloc)
 
 bsd_align=dtw(freebsd_weeks, netbsd_weeks, keep=TRUE,
 		step=asymmetric, open.end=TRUE, open.begin=TRUE)
-plot(bsd_align, type="twoway", offset=1, col=pal_col, cex.lab=1.5,
-	xlab="Weeks", ylab="FreeBSD\n")
+
+# First 100 weeks
+bsd_100_align=dtw(head(freebsd_weeks, n=100), head(netbsd_weeks, n=100),
+		keep=TRUE,
+		step=asymmetric, open.end=TRUE, open.begin=TRUE)
+plot(bsd_100_align, type="twoway", offset=0, col=pal_col, cex.lab=1.5,
+	xaxs="i",
+	xlab="Weeks", ylab="LOC\n")
 
 # bsd_align=dtw(psql_weeks, freebsd_weeks,
 # 		keep=TRUE, step=asymmetric, open.end=TRUE, open.begin=TRUE)

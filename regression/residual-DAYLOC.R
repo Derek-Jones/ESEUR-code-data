@@ -1,18 +1,21 @@
 #
-# residual-DAYLOC.R, 18 Aug 16
+# residual-DAYLOC.R, 24 Sep 18
 # Data from:
 # The {Linux} Kernel as a Case Study in Software Evolution
 # Ayelet Israeli and Dror G. Feitelson
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG Linux evolution residual
+
 
 source("ESEUR_config.r")
 
 
 plot_layout(2, 1)
-pal_col=rainbow(2)
+pal_col=rainbow(4)
 
 # Lines of code in each release
 ll=read.csv(paste0(ESEUR_dir, "regression/Linux-LOC.csv.xz"), as.is=TRUE)
@@ -55,14 +58,14 @@ m1=glm(LOC ~ Number_days, data=latest_version)
 
 # m2=glm(LOC ~ Number_days+I(Number_days^2), data=latest_version)
 
-plot(m1, which=1, caption="", sub.caption="", col=point_col)
+plot(m1, which=1, caption="", sub.caption="", col=pal_col[3])
 
 
-plot(latest_version$Number_days, latest_version$LOC, col=point_col,
+plot(latest_version$Number_days, latest_version$LOC, col=pal_col[3],
 	xlab="Days", ylab="Total lines of code\n")
 
 pred=predict(m1, type="response", se.fit=TRUE)
 lines(latest_version$Number_days, pred$fit, col=pal_col[1])
 lines(loess.smooth(latest_version$Number_days, latest_version$LOC, span=0.3),
-		col=pal_col[2])
+		col=pal_col[4])
 

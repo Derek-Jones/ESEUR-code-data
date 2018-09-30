@@ -1,23 +1,27 @@
 #
-# icse14-mut-beta.R,  9 Jul 16
+# icse14-mut-beta.R, 21 Sep 18
 #
 # Data from:
 # Code Coverage for Suite Evaluation by Developers
 # Rahul Gopinath and Carlos Jensen and Alex Groce
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG coverage testing mutants
 
 source("ESEUR_config.r")
 
 library("betareg")
+library("boot")
 
 
-plot_layout(2, 2)
+# plot_layout(2, 2)
+line_col=rainbow(3)
+
 
 load(paste0(ESEUR_dir, "reliability/o.db.rda"))
-
 
 cov_info=subset(o.db, loc > 0)
 cov_info$log_loc=log(cov_info$loc)
@@ -28,6 +32,15 @@ cov_info$path_cov=cov_info$mockit.path.num/cov_info$mockit.path.total
 cov_info$mut_cov=cov_info$pit.mutation.num/cov_info$pit.mutation.total
 
 max_loc=max(cov_info$log_loc)
+
+
+boot_reg=function(data, indices)
+{
+cov_data = data[indices, ] # select obs. in bootstrap sample
+b_mod=betareg(mut_cov ~ I(path_cov^0.5), data=cov_data)
+# A vector must be returned, i.e., no dataframes
+return(predict(b_mod, newdata=data.frame(path_cov=x_vals)))
+}
 
 
 mut_coverage=function(x_measure, y_measure, x_str, y_str, legend_pos)
@@ -53,6 +66,11 @@ cov_mod=betareg(y_measure ~ I(x_measure^0.5))
 pred=predict(cov_mod, newdata=data.frame(x_measure=x_vals))
 lines(x_vals, pred, col=line_col[1])
 
+# q_pred=predict(cov_mod, newdata=data.frame(x_measure=x_vals),
+# 			type="quantile", at=c(0.025, 0.975))
+# lines(x_vals, q_pred[, 1], col=line_col[1])
+# lines(x_vals, q_pred[, 2], col=line_col[1])
+
 cov_gmod=glm(y_measure ~ I(x_measure^0.5))
 g_pred=predict(cov_gmod, newdata=data.frame(x_measure=x_vals))
 lines(x_vals, g_pred, col=line_col[2])
@@ -64,7 +82,6 @@ return(cov_mod)
 }
 
 
-line_col=rainbow(2)
 x_vals=seq(0, 1, by=0.01)
 
 # mut_coverage(cov_info$line_cov, cov_info$mut_cov,
@@ -73,6 +90,15 @@ x_vals=seq(0, 1, by=0.01)
 mod=mut_coverage(cov_info$path_cov, cov_info$mut_cov,
 	"Path coverage", "Percentage mutants killed", "bottomright")
 # summary(mod)
+
+pm_info=subset(cov_info, (path_cov > 0) & (mut_cov > 0) & (mut_cov < 1) &
+				 !(is.na(path_cov) | is.na(mut_cov)))
+
+cov_boot=boot(pm_info, boot_reg, R = 4999)
+
+ci=apply(cov_boot$t, 2, function(X) quantile(X, c(0.025, 0.975)))
+lines(x_vals, ci[1, ], col=line_col[3])
+lines(x_vals, ci[2, ], col=line_col[3])
 
 # clean_cov=subset(cov_info, (path_cov > 0) & (mut_cov > 0) & (mut_cov < 1) & !(is.na(path_cov) | is.na(mut_cov)))
 # cov_nls_mod=nls(mut_cov ~ a+b*path_cov^c, data=clean_cov,

@@ -1,5 +1,5 @@
 #
-# Herraiz-BSD-season.R,  3 Mar 16
+# Herraiz-BSD-season.R, 23 Sep 18
 #
 # Data from:
 #
@@ -7,11 +7,15 @@
 # Israel Herraiz Tabernero
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG FreeBSD evolution LOC
 
 
 source("ESEUR_config.r")
+
+pal_col=rainbow(3)
 
 
 fit_and_summary=function(kind_bsd)
@@ -30,7 +34,7 @@ rad_per_day=(2*pi)/365
 kind_bsd$rad_Number_days=rad_per_day*kind_bsd$Number_days
 
 season_mod=glm(sloc ~ Number_days+
-                        I(sin(rad_Number_days))+I(cos(rad_Number_days)),
+                        sin(rad_Number_days)+cos(rad_Number_days),
                                                      data=kind_bsd)
 print(summary(season_mod))
 }

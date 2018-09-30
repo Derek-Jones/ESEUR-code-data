@@ -1,5 +1,5 @@
 #
-# ESEUR-config.r,  6 Jun 17
+# ESEUR-config.r, 22 Sep 18
 
 # Assume the current directory unless told otherwise
 ESEUR_dir=paste0(getwd(), "/")
@@ -102,6 +102,8 @@ ESEUR_default_width <<- default_width
 ESEUR_default_height <<- default_height
 }
 
+
+ESEUR_orig_par_values=par(no.readonly=TRUE)
 
 point_pch=3
 point_col="salmon3"

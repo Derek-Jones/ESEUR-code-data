@@ -1,13 +1,15 @@
 #
-# lines-hour-influence.R, 27 Jul 16
+# lines-hour-influence.R, 29 Sep 18
 #
 # Data from:
 # On the effectiveness of early life cycle defect prediction with Bayesian Nets
 # Norman Fenton and Martin Neil and William Marsh and Peter Hearty and {\L}ukasz Radli\'{n}ski and Paul Krause
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG effort LOC
 
 source("ESEUR_config.r")
 
@@ -26,5 +28,5 @@ row.names(loc_hour)=1:nrow(loc_hour)
 all_mod=glm(KLoC ~ I(Hours^0.5), data=loc_hour)
 
 influenceIndexPlot(all_mod, main="", col=point_col,
-		cex.axis=0.9, cex.lab=1.0)
+		grid=FALSE, cex.axis=1.0, cex.lab=1.4)
 

@@ -1,13 +1,16 @@
 #
-# commit-components.R, 12 Feb 16
+# commit-components.R, 26 Sep 18
 #
 # Data from:
 # Do time of day and developer experience affect commit bugginess?
 # Jon Eyolfson and Lin Tan and Patrick Lam
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG time day commit faults
+
 
 source("ESEUR_config.r")
 
@@ -38,9 +41,9 @@ linux_hr=table((as.numeric(local_time)+shift_weekend) %% week_secs)
 hr_ts=ts(linux_hr, start=c(0, 0), frequency=24)
 plot(stl(hr_ts, s.window="periodic"), col=point_col,
 	set.pars = list(mar = c(0, 6, 0, 6), oma = c(6, 0, 4, 0),
-			las=0, cex.axis=1.1, cex.lab=0.8,
+			las=0, cex.axis=1.3, # cex.lab=2.0, no effect
 			tck = -0.01, mfrow = c(4, 1)))
-#	xlab="Days of week")
+#	xlab="Days of week") # "time" is hard coded in the R source
 
 
 # win = window(hr_ts, start=0)

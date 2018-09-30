@@ -1,15 +1,19 @@
 #
 # sample-median-dis.R, 20 Aug 16
-#
+# Data from:
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG example median mean binomial-distribution
+
 
 source("ESEUR_config.r")
 
 
 plot_layout(2, 1)
+
 
 NUM_REPLICATE=1000
 

@@ -1,10 +1,13 @@
 #
 # pop-sub-sample.R, 20 Sep 14
-#
+# Data from:
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG example
+
 
 source("ESEUR_config.r")
 

@@ -6,7 +6,7 @@
 # Andy Zaidman, Bart Van Rompaey, Arievan Deursen, Serge Demeyer
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 
 # Commit to version mapping for ArgoUML

@@ -6,14 +6,17 @@
 # Thorsten Berger and Steven She and Rafael Lotufo and Andrzej W\c{a}sowski and Krzysztof Czarnecki
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG feature build
 
 source("ESEUR_config.r")
 
 
 library("plyr")
 library("VGAM")
+
 
 pal_col=rainbow(2)
 

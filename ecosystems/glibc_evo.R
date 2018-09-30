@@ -1,15 +1,20 @@
 #
-# glibc_evo.R,  6 Nov 14
+# glibc_evo.R, 22 Sep 18
 #
 # Data from:
 # Studying the laws of software evolution in a long-lived FLOSS project
 # Jesus M. Gonzalez-Barahona and Gregorio Robles and Israel Herraiz and Felipe Ortega
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG C glibc evolution LOC
+
 
 source("ESEUR_config.r")
+
+pal_col=rainbow(2)
 
 
 # id,branch_id,date,loc,sloc,files
@@ -28,11 +33,11 @@ x_bounds=min(glibc_main$Number_days):max(glibc_main$Number_days)
 # They are probably already sorted by date
 glibc_main=glibc_main[order(glibc_main$Number_days), ]
 
-plot(glibc_main$Number_days, glibc_main$sloc, col=point_col,
+plot(glibc_main$Number_days, glibc_main$sloc, col=pal_col[2],
 	xlab="Days since 1 Jan 1990", ylab="SLOC\n")
 
 l_mod=nls(sloc ~ SSfpl(Number_days, a, b, c, d), data=glibc_main)
 pred=predict(l_mod, list(Number_days=x_bounds))
 
-lines(x_bounds, pred, col="red")
+lines(x_bounds, pred, col=pal_col[1])
 

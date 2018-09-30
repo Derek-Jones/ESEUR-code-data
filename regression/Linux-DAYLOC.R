@@ -1,13 +1,15 @@
 #
-# Linux-DAYLOC.R, 16 Jul 16
+# Linux-DAYLOC.R, 23 Sep 18
 #
 # Data from:
 # The {Linux} Kernel as a Case Study in Software Evolution
 # Ayelet Israeli and Dror G. Feitelson
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG Linux evolution LOC day
 
 
 source("ESEUR_config.r")
@@ -57,7 +59,7 @@ latest_version=ld_ordered[c(TRUE, keep_version), ]
 x_lim=c(1, max(latest_version$Number_days))
 y_lim=c(1, max(latest_version$LOC))
 
-plot(latest_version$Number_days, latest_version$LOC, col=point_col,
+plot(latest_version$Number_days, latest_version$LOC, col=pal_col[2],
        xlim=x_lim, ylim=y_lim,
        xlab="Days", ylab="Total lines of code\n")
 
@@ -68,14 +70,14 @@ lines(latest_version$Number_days, pred$fit, col=pal_col[1])
 #lines(latest_version$Number_days, pred$fit+1.96*pred$se.fit)
 #lines(latest_version$Number_days, pred$fit-1.96*pred$se.fit)
 
-plot(latest_version$Number_days, latest_version$LOC, col=point_col,
+plot(latest_version$Number_days, latest_version$LOC, col=pal_col[2],
        xlim=x_lim, ylim=y_lim,
-       xlab="Days", ylab="")
+       xlab="Days", ylab="Total lines of code\n")
 
 m2=glm(LOC ~ Number_days+I(Number_days^2), data=latest_version)
 
 pred=predict(m2, type="response", se.fit=TRUE)
-lines(latest_version$Number_days, pred$fit, col=pal_col[2])
+lines(latest_version$Number_days, pred$fit, col=pal_col[1])
 
 # m3=glm(LOC ~ Number_days+I(Number_days^2)+I(Number_days^3), data=latest_version)
 # 

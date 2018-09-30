@@ -1,19 +1,22 @@
 #
-# nonlin-ex.R, 20 Sep 16
+# nonlin-ex.R, 29 Sep 18
 # Data from:
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG example
+
 
 source("ESEUR_config.r")
 
 
-plot_layout(2, 4)
-
-par(mar=c(3, 2.5, 1, 0.7)+0.1)
+plot_layout(3, 3, max_width=9)
+par(mar=c(1.0, 1.0, 0.5, 0.5))
 
 pal_col=rainbow(3)
+
 
 init_plot=function(expr_str)
 {
@@ -21,7 +24,7 @@ plot(-1, -1,
 	xaxt="n", yaxt="n",
 	xlim=range(x), ylim=c(0, 1),
 	xlab="", ylab="")
-text(8, 0.2, expr_str, pos=2, cex=1.4)
+text(8, 0.2, expr_str, pos=2, cex=1.6)
 }
 
 

@@ -1,18 +1,20 @@
 #
-# param-cnt.R, 18 Jun 18
+# param-cnt.R, 18 Sep 18
 #
 # Data from:
 # Why {SpecInt95} Should Not Be Used to Benchmark Embedded Systems Tools
 # Jakob Engblom
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG embedded SPEC benchmark parameters function
+
 
 source("ESEUR_config.r")
 
 
-library("gamlss")
 library("plyr")
 
 # source,params,count,percent
@@ -53,6 +55,8 @@ points(0:8, dpois(0:8, coef(cbook_pois)[1])*100, col=pal_col[3])
 
 legend(x="topright", legend=c("C book", "Fitted model", "Embedded"), bty="n", fill=pal_col, cex=1.2)
 
+
+# library("gamlss")
 
 # zp_mod=gamlss(embed_pc ~ 1, family=ZIP)  # ZIP2 supports dispersion
 

@@ -5,8 +5,10 @@
 # http://www.7digital.com
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG agile feature duration
 
 source("ESEUR_config.r")
 
@@ -22,7 +24,7 @@ day_starts[t$x]=t$freq
 weekdays=day_starts[-weekends]
 
 dur_ar=data.frame(
-	AR=head(coef(arima(diff(log(weekdays+1e-8)), order=c(5, 0, 1))), n=5),
+	AR=head(coef(arima(diff(log(weekdays+1e-5)), order=c(5, 0, 1))), n=5),
 	Duration=head(count(p$Cycle.Time)$freq/sum(count(p$Cycle.Time)$freq), n=5))
 
 print(ascii(signif(dur_ar, digits=2)))

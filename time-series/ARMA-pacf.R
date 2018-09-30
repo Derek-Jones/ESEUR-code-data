@@ -1,10 +1,12 @@
 #
-# ARMA-pacf.R, 18 Aug 16
+# ARMA-pacf.R, 29 Sep 18
 #
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG example
 
 source("ESEUR_config.r")
 
@@ -12,7 +14,8 @@ source("ESEUR_config.r")
 # Calling arima.sim would have been simpler, but the following
 # makes what is going on explicit
 
-plot_layout(4, 1)
+plot_layout(4, 1, max_height=14.0)
+
 
 next_AR_step=function(theta)
 {

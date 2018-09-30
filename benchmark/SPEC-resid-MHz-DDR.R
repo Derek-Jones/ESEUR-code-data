@@ -1,19 +1,24 @@
 #
-# SPEC-resid-MHz-DDR.R,  9 Sep 16
+# SPEC-resid-MHz-DDR.R, 25 Sep 18
 #
 # Data from:
 # www.spec.org/cpu2006/results
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG SPEC benchmark
+
 
 source("ESEUR_config.r")
 
 
 library("car")
 
-plot_layout(3, 1)
+
+plot_layout(3, 1, max_height=14.0)
+par(mar=c(2.5, 1.0, 1, 0.5))
 
 
 cpu2006=read.csv(paste0(ESEUR_dir, "benchmark/cpu2006-results-20140206.csv.xz"), as.is=TRUE)
@@ -65,9 +70,11 @@ cint$main_proc=sub("([^ ]+ [^ ]+) .*$", "\\1", x=cint$Processor)
 spec_mod=glm(Result ~ Processor.MHz + mem_rate + mem_freq
     			, data=cint)
 
-# crPlots(spec_mod, terms= ~ ., layout=c(3, 1),
-# 			main="", cex.lab=0.9, cex.axis=0.9)
- 
+# No ability to control the size
+# crPlots(spec_mod, term= ~ ., layout=c(3, 1), col=point_col,
+# 		main="", cex.lab=1.5, cex.axis=1.5,
+# 	ylab="Component+Residuals\n")
+
 crPlot(spec_mod, variable="Processor.MHz", col=point_col)
 crPlot(spec_mod, variable="mem_freq", col=point_col)
 crPlot(spec_mod, variable="mem_rate", col=point_col)

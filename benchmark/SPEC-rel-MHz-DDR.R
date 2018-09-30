@@ -1,12 +1,15 @@
 #
-# SPEC-rel-MHz-DDR.R,  2 Jan 16
+# SPEC-rel-MHz-DDR.R, 22 Sep 18
 #
 # Data from:
 # www.spec.org/cpu2006/results
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG SPEC benchmark
+
 
 source("ESEUR_config.r")
 
@@ -68,7 +71,13 @@ spec_mod=glm(Result ~ Processor.MHz + I(Processor.MHz^2)+mem_rate + I(mem_rate^2
 
 # How much does each explanatory variable contribute?
 t=calc.relimp(spec_mod, type = c("first", "last", "betasq", "lmg"))
+
+# Stop the line wrapping for book
+orig_digits=options(digits=4)
+
 print(t)
+
+options(orig_digits)
 
 # imp_boot=boot.relimp(spec_mod, type = c("lmg", "last", "first", "betasq"), fixed = FALSE)
 # plot(booteval.relimp(imp_boot), main="")

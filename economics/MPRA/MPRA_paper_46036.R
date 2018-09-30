@@ -1,10 +1,13 @@
 #
-# MPRA_paper_46036.R,  3 Mar 17
+# MPRA_paper_46036.R, 28 Sep 18
 # Data from:
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG economics piracy
+
 
 source("ESEUR_config.r")
 
@@ -15,7 +18,7 @@ library(numDeriv)
 pal_col=rainbow(3)
 
 
-data=read.csv(paste0(ESEUR_dir, "economics/Givon_et_al_Software_piracy_data.csv.xz"), as.is=TRUE)
+data=read.csv(paste0(ESEUR_dir, "economics/MPRA/Givon_et_al_Software_piracy_data.txt"), as.is=TRUE, sep="\t")
 
 # data=read.table(paste(currdir, "Givon_et_al_Software_piracy_data.txt", sep=""),  header=T)
 # attach(data)

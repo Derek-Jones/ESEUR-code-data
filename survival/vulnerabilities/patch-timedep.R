@@ -6,8 +6,11 @@
 # Ashish Arora and Ramayya Krishnan and Rahul Telang and Yubao Yang
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG release-time vendor vulnerability patch
+
 
 source("ESEUR_config.r")
 
@@ -180,6 +183,7 @@ min_p_mod=coxph(Surv(patch_days, !is_censored) ~
 				+os:s_app
 				+s_app:y2
  				, data=ISR_split)
+
 
 print(summary(min_p_mod, conf.int=FALSE))
 

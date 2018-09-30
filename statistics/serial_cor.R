@@ -1,9 +1,13 @@
 #
 # serial_cor.R, 15 Jul 16
+# Data from:
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG example
+
 
 source("ESEUR_config.r")
 
@@ -12,6 +16,7 @@ source("ESEUR_config.r")
 
 plot_layout(2, 1)
 pal_col=rainbow(12)
+
 
 sample_var=function(var_cor, sample_size)
 {

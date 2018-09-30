@@ -1,13 +1,15 @@
 #
-# comp-mask.R, 26 Dec 15
+# comp-mask.R, 14 Sep 18
 #
 # Data from:
 # A Characterization of Instruction-level Error Derating and its Implications for Error Detection
 # Jeffrey J. Cook and Craig Zilles
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG hardware-error compiler optimization
 
 
 source("ESEUR_config.r")
@@ -25,4 +27,11 @@ bitflip_mod=glm(pass.masked ~ opt_level, data=bitflip)
 print(summary(bitflip_mod))
 
 # summary-breakdown.csv  summary-breakdown.pdf
+
+# library("betareg")
+# 
+# bitflip$pm_perc=bitflip$pass.masked/100
+# 
+# tflip_beta=betareg(pm_perc ~ opt_level, data=bitflip)
+
 

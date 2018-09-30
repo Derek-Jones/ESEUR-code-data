@@ -1,13 +1,13 @@
 #
-# contam-norm.R, 16 Dec 15
-#
-# R code for book "Empirical Software Engineering using R"
-# Derek M. Jones, http://shape-of-code.coding-guidelines.com
-#
+# contam-norm.R,  6 Sep 18
+# Data from:
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG example normal distribution contaminated
+
 
 source("ESEUR_config.r")
 

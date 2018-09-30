@@ -12,13 +12,17 @@
 #This is an translated version in R of an Mathematica 6 code by Imagecreator.
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG example
+
 
 source("ESEUR_config.r")
 
 library(mvtnorm)
 # library(RSVGTipsDevice)
+
 
 MyPlot <- function(xy, xlim = c(-4, 4), ylim = c(-4, 4), eps = 1e-15) {
 title = round(cor(xy[,1], xy[,2]), 1)

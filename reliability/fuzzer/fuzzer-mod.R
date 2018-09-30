@@ -1,13 +1,15 @@
 #
-# fuzzer-mod.R, 13 Jul 16
+# fuzzer-mod.R, 21 Sep 18
 #
 # Data from:
 # Comparative Language Fuzz Testing: Programming Languages vs. Fat Fingers
 # Diomidis Spinellis and Vassilios Karakoidas and Panos Louridas
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG fuzzing testing
 
 
 source("ESEUR_config.r")

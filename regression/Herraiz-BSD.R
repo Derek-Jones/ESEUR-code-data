@@ -1,5 +1,5 @@
 #
-# Herraiz-BSD.R, 29 Dec 15
+# Herraiz-BSD.R, 23 Sep 18
 #
 # Data from:
 #
@@ -7,11 +7,14 @@
 # Israel Herraiz Tabernero
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
-
+#
+# TAG FreeBSD evolution LOC
 
 source("ESEUR_config.r")
+
+pal_col=rainbow(2)
 
 
 fit_and_plot=function(kind_bsd)
@@ -26,14 +29,14 @@ kind_bsd$Number_days=as.integer(difftime(kind_bsd$date,
 x_lim=c(1, max(kind_bsd$Number_days))
 y_lim=c(1, max(kind_bsd$sloc))
 
-plot(kind_bsd$Number_days, kind_bsd$sloc, col=point_col,
+plot(kind_bsd$Number_days, kind_bsd$sloc, col=pal_col[2],
        xlim=x_lim, ylim=y_lim,
        xlab="Elapsed days", ylab="Lines of code\n")
 
 lin_mod=glm(sloc ~ Number_days, data=kind_bsd)
 
 lin_pred=predict(lin_mod)
-lines(lin_pred, col="red")
+lines(lin_pred, col=pal_col[1])
 }
 
 

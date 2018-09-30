@@ -1,13 +1,16 @@
 #
-# a174454-reg.R,  1 Aug 16
+# a174454-reg.R, 19 Sep 18
 #
 # Data from:
 # A Study of Software Maintenance Costs of {Air Force} Large Scale Computer Systems
 # Robert E. NeSmith II
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG Fortran Cobol assembler maintenance-cost
+
 
 source("ESEUR_config.r")
 
@@ -26,7 +29,7 @@ f_mod=glm(log(dev.cost) ~ log(LOC), data=df)
 fg_pred=predict(f_mod, type="response")
 lines(df$LOC, exp(fg_pred), col=pal_col[1])
 
-fp_mod=glm(dev.cost ~ log(LOC), data=df, family=poisson)
+fp_mod=glm(dev.cost ~ log(LOC), data=df, family=gaussian(link=log))
 fp_pred=predict(fp_mod, type="response")
 lines(df$LOC, fp_pred, col=pal_col[2])
 
@@ -49,7 +52,7 @@ Assembler=subset(AF_code, language == "Assembler")
 
 F_clean=subset(Fortran, LOC < 1e8)
 
-plot(F_clean$LOC, F_clean$dev.cost, col=point_col, log="xy",
+plot(F_clean$LOC, F_clean$dev.cost, col=pal_col[3], log="xy",
 	xlab="LOC", ylab="Development cost\n")
 
 f_mod=fit_line(F_clean)

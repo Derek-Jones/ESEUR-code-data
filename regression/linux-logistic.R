@@ -1,14 +1,19 @@
 #
-# Linux-logistic.R, 11 Sep 16
+# Linux-logistic.R, 23 Sep 18
 # Data from:
 # The {Linux} Kernel as a Case Study in Software Evolution
 # Ayelet Israeli and Dror G. Feitelson
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG Linux LOC evolution
 
 source("ESEUR_config.r")
+
+
+pal_col=rainbow(2)
 
 
 ll=read.csv(paste0(ESEUR_dir, "regression/Linux-LOC.csv.xz"), as.is=TRUE)
@@ -46,7 +51,7 @@ first_3000=subset(all_days, Number_days <= 3400)
 
 x_bounds=0:6000
 
-plot(all_days$Number_days, all_days$LOC, col=point_col,
+plot(all_days$Number_days, all_days$LOC, col=pal_col[2],
 	xlim=range(x_bounds),
 	xlab="Days", ylab="Total lines of code\n")
 
@@ -62,6 +67,6 @@ plot(all_days$Number_days, all_days$LOC, col=point_col,
 m3=nls(LOC ~ SSfpl(Number_days, a, b, c, d), data=all_days)
 y=predict(m3, list(Number_days=x_bounds))
 
-lines(x_bounds, y, col="red")
+lines(x_bounds, y, col=pal_col[1])
 
 

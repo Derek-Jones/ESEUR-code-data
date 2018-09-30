@@ -1,14 +1,19 @@
 #
-# hotpower-mix-plot.R, 12 Sep 16
+# hotpower-mix-plot.R, 26 Sep 16
 # Data from:
 # Accurate Characterization of the Variability in Power Consumption in Modern Mobile Processors
 # Bharathan Balaji and John McCullough and Rajesh K. Gupta and Yuvraj Agarwal
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG power-consumption processor benchmark
+
 
 source("ESEUR_config.r")
+
+unloadNamespace("ordinal") # defines a ranef
 
 library("lattice")
 library("lme4")

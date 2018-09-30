@@ -1,18 +1,22 @@
 #
-# boot-power.R, 17 Mar 18
+# boot-power.R,  9 Sep 18
 # Data from:
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG example statistical-power
+
 
 source("ESEUR_config.r")
 
 
-
 a_test_stat=function(sample_1, sample_2, alpha)
 {
-# The 'manual' test known to work for this case, so things run a bit faster
+# Really ought to use the bootstrap here, but it takes forever.
+# Cheat and use the 'manual' test, which is known to work for this case,
+# so things run a bit faster.
 t=t.test(sample_1, sample_2)
 return(t$p.value)
 }

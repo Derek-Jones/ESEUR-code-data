@@ -1,12 +1,15 @@
 #
-# composite-variation.R, 16 Aug 17
+# composite-variation.R, 12 Sep 18
 # Data from:
 # Cost and Schedule Estimation Study Report
 # Steve Condon and Myrna Regardie and Mike Stark and Sharon Waligora
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG experiment estimation composite project schedule
+
 
 source("ESEUR_config.r")
 

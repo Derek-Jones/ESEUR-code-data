@@ -1,10 +1,13 @@
 #
-# true-false-tree.R, 16 Dec 15
-#
+# true-false-tree.R,  6 Sep 18
+# Data from:
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG example
+
 
 source("ESEUR_config.r")
 
@@ -42,7 +45,8 @@ M[names[2], names[5]]=paste0(100-power, "%")
 M[names[3], names[6]]=paste0(100-pvalue, "%")
 M[names[3], names[7]]=paste0(pvalue, "%")
 
-plotmat(t(M), pos=node_layout, lwd=0.8, curve=0, arr.pos=0.6, arr.length=0.2,
+plotmat(t(M), pos=node_layout, lwd=0.8, lcol=point_col,
+	curve=0, arr.pos=0.6, arr.length=0.2,
 	latex=TRUE,
         box.type="rect", box.prop=0.5, box.size=0.08, box.lcol="white",
 	txt.col=tcol,

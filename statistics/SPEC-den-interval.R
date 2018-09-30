@@ -5,8 +5,11 @@
 # www.spec.org/cpu2006/results
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG benchmark SPEC
+
 
 source("ESEUR_config.r")
 

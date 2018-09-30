@@ -1,17 +1,20 @@
 #
-# 74-267-1-PB.R, 16 Oct 16
+# 74-267-1-PB.R, 20 Sep 18
 # Data from:
-# Andreas H{\"o}fer
 # Exploratory comparison of expert and novice pair programmers
+# Andreas H{\"o}fer
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG pair-programming student professional
+
 
 source("ESEUR_config.r")
 
 
-pal_col=rainbow(2)
+pal_col=rainbow(3)
 
 
 devs=read.csv(paste0(ESEUR_dir, "developers/74-267-1-PB.csv.xz"), as.is=TRUE)
@@ -24,32 +27,34 @@ test_change_out=devs[7,] # An outlier for another variable
 devs=devs[-7,] # An outlier for another variable
 
 # devs=devs[-3,] # An outlier for one variable
-plot(devs[,c(2:9, 13)])
-cor(devs[,c(2:9, 13)], method="spearman")
+# plot(devs[,c(2:9, 13)])
+# cor(devs[,c(2:9, 13)], method="spearman")
 
-plot(devs$test_changes, devs$pair == "E", col=point_col,
+plot(devs$test_changes, devs$pair == "E", col=pal_col[1],
+	yaxt="n",
 	xlim=range(orig_devs$test_changes),
-	xlab="Test changes", ylab="Pair")
-points(test_change_out$test_changes, test_change_out$pair == "E", col="green")
+	xlab="Test code changed LOC", ylab="")
+axis(side=2, at=c(0, 1), label=c("Student", "Professional"))
 
+points(test_change_out$test_changes, test_change_out$pair == "E", col="grey")
 
+xbounds=1:300
 
 dev_mod=glm(pair=="E" ~ 
 			#log(impl_time)
 			#+line_cov
 			#+method_cov
-			log(test_changes)
+			test_changes
 			#+app_code_changes
 			#+log(accept_tests)
 			#+acceptance_passed
 			#+log(drive_time)
-			, data=orig_devs, family=binomial)
-summary(dev_mod)
+			, data=devs)
+# summary(dev_mod)
 
-xbounds=1:300
 dev_pred=predict(dev_mod, type="response", newdata=data.frame(test_changes=xbounds))
 
-lines(xbounds, dev_pred, col=pal_col[1])
+lines(xbounds, dev_pred, col=pal_col[2])
 
 
 dev_mod=glm(pair=="E" ~ 
@@ -62,12 +67,10 @@ dev_mod=glm(pair=="E" ~
 			#+acceptance_passed
 			#+log(drive_time)
 			, data=devs, family=binomial)
-summary(dev_mod)
+# summary(dev_mod)
 
-xbounds=1:300
 dev_pred=predict(dev_mod, type="response", newdata=data.frame(test_changes=xbounds))
 
-lines(xbounds, dev_pred, col=pal_col[2])
-
+lines(xbounds, dev_pred, col=pal_col[3])
 
 

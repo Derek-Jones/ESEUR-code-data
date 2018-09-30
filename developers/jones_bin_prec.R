@@ -5,8 +5,10 @@
 # Derek M. Jones
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG experiment binary developer-belief operator
 
 source("ESEUR_config.r")
 
@@ -76,7 +78,7 @@ x_vals=seq(1e-3, 20, by=1e-3)
 # lines(x_vals, pred$fit+1.96*pred$se.fit, col="pink")
 # lines(x_vals, pred$fit-1.96*pred$se.fit, col="pink")
 
-# betareg has no builtin support for confidence intervals
+# betareg does not have any builtin support for confidence intervals
 pb_mod=betareg(per_cor ~ l_op_freq, data=pair_01)
 
 # Quadratic is a much better fit to the data, but the model produces

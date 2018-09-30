@@ -1,23 +1,29 @@
 #
-# upgrade-languages.R,  2 Mar 17
+# upgrade-languages.R, 20 Sep 18
 # Data from:
 # Information Goods Upgrades: {Theory} and Evidence
 # V. Brian Viard
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG economics cost-retail upgrade compiler
+
 
 source("ESEUR_config.r")
 
 
+library("plyr")
+
+
 pal_col=rainbow(2)
 
-library("plyr")
 
 full_price=function(df)
 {
-lines(df$Date, df$Full.Price, col="blue")
+df=df[order(df$Date), ]
+lines(df$Date, df$Full.Price, col=df$col[1])
 }
 
 
@@ -28,21 +34,17 @@ cc_cpp$Date=as.Date(paste0("01-", cc_cpp$Date), format="%d-%b-%y")
 
 # table(cc_cpp$OS, cc_cpp$Cpp)
 
+# table(cc_cpp$Product, cc_cpp$Firm)
+
 cc=subset(cc_cpp, Cpp == 0)
 no_Watcom=subset(cc_cpp, Firm != "Watcom")
 
-plot(no_Watcom$Full.Price, no_Watcom$Upg.Price, col=point_col,
-        xlab="Full retail price ($)", ylab="Upgrade price ($)\n")
+Vis_Cpp=subset(cc_cpp, Product == "Visual C++")
+# Product == "Turbo C++" an earlier product targeting a different market
+Bor_Cpp=subset(cc_cpp, Product == "C++")
 
-plot(cc_cpp$Date, cc_cpp$Full.Price, col=point_col,
-        xlab="Date", ylab="Full or Update price ($)\n")
-d_ply(cc_cpp, .(Product), full_price)
-
-points(cc_cpp$Date, cc_cpp$Upg.Price, col="green")
-
-
-upg_mod=glm(Upg.Price ~ Full.Price, data=no_Watcom)
-summary(upg_mod)
+# upg_mod=glm(Upg.Price ~ Full.Price, data=no_Watcom)
+# summary(upg_mod)
 
 
 # Did vendors charge more for Windows versions, compared to DOS,
@@ -64,5 +66,7 @@ lines(x_vals, predict(b_sl, newdata=data.frame(Full.Price=x_vals), type="respons
 
 prod_b_sl=glm(OS ~ Full.Price:Cpp, data=no_Watcom, family=binomial)
 summary(prod_b_sl)
+
+lines(x_vals, predict(prod_b_sl, newdata=data.frame(Full.Price=x_vals, Cpp=1), type="response"), col=pal_col[2])
 
 

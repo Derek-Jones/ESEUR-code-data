@@ -1,10 +1,13 @@
 #
 # response-power.R, 18 Aug 16
-#
+# Data from:
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG example statistical-power
+
 
 source("ESEUR_config.r")
 

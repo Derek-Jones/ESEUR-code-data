@@ -1,13 +1,16 @@
 #
-# firefox.R, 15 Jul 16
+# firefox.R, 10 Sep 18
 #
 # Data from:
 # Does Hardware Configuration and Processor Load Impact Software Fault Observability?
 # Raza Abbas Syed, Brian Robinson and Laurie Williams
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG faults statistical-power
+
 
 source("ESEUR_config.r")
 
@@ -15,10 +18,11 @@ source("ESEUR_config.r")
 library("pwr")
 
 
-ff=read.csv(paste0(ESEUR_dir, "faults/firefox.csv.xz"), as.is=TRUE)
-
 plot_layout(2, 1)
 pal_col=rainbow(3)
+
+
+ff=read.csv(paste0(ESEUR_dir, "faults/firefox.csv.xz"), as.is=TRUE)
 
 fit_fails=function(fail_count, ff_data, is_quasi)
 {
@@ -57,7 +61,7 @@ return(t)
 
 power.test=function(base_prob, p_diff, num_runs = 10, req_pow = NULL)
 {
-t = pwr.2p.test(h = 2*(asin(sqrt(base_prob+p_diff))-asin(sqrt(base_prob))),
+t = pwr.2p.test(h = ES.h(base_prob+p_diff, base_prob),
                 n = num_runs,
                 sig.level = 0.05,
                 power = req_pow)
@@ -67,26 +71,27 @@ return(t)
 
 # The test is symmetric about 0.5
 
-power.test(0.0, 0.3) # 494116 & 264562
-power.test(0.7, 0.3) # 380417
-power.test(0.3, 0.2)
-power.test(0.3, 0.1)
+# power.test(0.0, 0.3) # 494116 & 264562
+# power.test(0.7, 0.3) # 380417
+# power.test(0.3, 0.2)
+# power.test(0.3, 0.1)
 
 # How many runs to have 90% probability of detection?
-power.test(0.0, 0.3, NULL, 0.9)
-power.test(0.0, 0.2, NULL, 0.9)
-power.test(0.0, 0.1, NULL, 0.9)
+# power.test(0.0, 0.3, NULL, 0.9)
+# power.test(0.0, 0.2, NULL, 0.9)
+# power.test(0.0, 0.1, NULL, 0.9)
 
 # Repeat for a higher base rate
-power.test(0.5, 0.3, NULL, 0.9)
-power.test(0.5, 0.2, NULL, 0.9)
-power.test(0.5, 0.1, NULL, 0.9)
+# power.test(0.5, 0.3, NULL, 0.9)
+# power.test(0.5, 0.2, NULL, 0.9)
+# power.test(0.5, 0.1, NULL, 0.9)
 
 base_p=c(0.5, 2.5, 5.0)
 
 plot(1, type="n",
+	xaxs="i", yaxs="i",
 	xlim=range((1:45)/100), ylim=c(0, 0.9),
-        xlab="Proportion difference", ylab="Power\n")
+        xlab="Difference", ylab="Power\n")
 for (ip in 1:3)
    {
    pow=sapply(1:45, function(X)
@@ -100,11 +105,12 @@ text(0.20, 0.7, "50")
 text(0.25, 0.3, "10")
 title("Power of experiment", cex.main=1.1)
 legend("bottomright", legend=as.character(base_p/10), bty="n",
-       title="Base p", fill=pal_col, cex=1.3)
+       title="Before", fill=pal_col, cex=1.3)
 
 plot(1, type="n", log="y",
+	xaxs="i", yaxs="i",
 	xlim=range((1:45)/100), ylim=c(10, 1000),
-        xlab="Proportion difference", ylab="Number of Runs\n")
+        xlab="Difference", ylab="Runs\n")
 for (ip in 1:3)
    {
    pow=sapply(1:45, function(X)
@@ -113,6 +119,6 @@ for (ip in 1:3)
    }
 title("Runs needed", cex.main=1.1)
 legend("bottomleft", legend=as.character(base_p/10), bty="n",
-       title="Base p", fill=pal_col, cex=1.3)
+       title="Before", fill=pal_col, cex=1.3)
 
  

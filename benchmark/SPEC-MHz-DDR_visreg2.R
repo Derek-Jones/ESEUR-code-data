@@ -1,5 +1,5 @@
 #
-# SPEC-quad-MHz-DDR.R,  2 Jan 16
+# SPEC-MHz-DDR_visreg2.R, 22 Sep 18
 #
 # Data from:
 # www.spec.org/cpu2006/results
@@ -15,9 +15,6 @@ source("ESEUR_config.r")
 
 
 library("visreg")
-
-
-plot_layout(3, 1)
 
 
 cpu2006=read.csv(paste0(ESEUR_dir, "benchmark/cpu2006-results-20140206.csv.xz"), as.is=TRUE)
@@ -69,7 +66,16 @@ spec_mod=glm(Result ~ Processor.MHz + I(Processor.MHz^2)+mem_rate + I(mem_rate^2
 # spec_mod=glm(Result ~ Processor.MHz + mem_rate + mem_freq
     			, data=cint)
 
-t=visreg(spec_mod, plot=FALSE)
-plot(t)
+# visreg with plot.type="image" requires a full sized page.
+# It calls filled.contour, which has this restriction.
+par(ESEUR_orig_par_values)
 
+par(oma=c(2, 2, 1, 1))
+par(mar=c(4, 5, 1, 2)+0.1)
+
+
+t=visreg2d(spec_mod, "Processor.MHz", "mem_rate", plot.type="persp",
+			 plot=FALSE)
+plot(t, color=c("red", "green", "blue"),
+      ylab="mem_rate\n", zlab="")
 

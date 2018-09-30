@@ -5,7 +5,7 @@
 # IRAN RODRIGUES GONZAGA JUNIOR
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
 # TAG Java parameters globals

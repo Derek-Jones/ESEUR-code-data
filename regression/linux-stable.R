@@ -6,8 +6,10 @@
 # Jonathan Corbet and Greg Kroah-Hartman and Amanda McPherson
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG Linux LOC evolution developers 2012
 
 source("ESEUR_config.r")
 

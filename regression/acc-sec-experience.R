@@ -1,13 +1,16 @@
 #
-# acc-sec-experience.R.R, 29 Jan 16
+# acc-sec-experience.R.R, 23 Sep 18
 #
 # Data from:
 # An empirical study on the effectiveness of security code review
 # Anne Edmundson and Brian Holtkamp and Emanuel Rivera and Matthew Finifter and Adrian Mettler and David Wagner
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG experiment fault-detection employment
+
 
 source("ESEUR_config.r")
 
@@ -32,7 +35,7 @@ year_span=0:8
 
 loess_mod=loess(accuracy ~ years.in.security, data=rev_acc, span=0.9)
 loess_pred=predict(loess_mod, newdata=data.frame(years.in.security=year_span))
-lines(year_span, loess_pred, col="blue")
+lines(year_span, loess_pred, col=pal_col[2])
 
 gl_mod=glm(accuracy ~ years.in.security, data=rev_acc)
 

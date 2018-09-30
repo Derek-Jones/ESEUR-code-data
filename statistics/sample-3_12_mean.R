@@ -1,5 +1,5 @@
 #
-# sample-3_12_mean.R, 15 Dec 15
+# sample-3_12_mean.R, 29 Sep 18
 #
 # Data from:
 #
@@ -7,8 +7,10 @@
 # Tianshi Chen and Yunji Chen and Qi Guo and Olivier Temam and Tue Wu and Weiwu Hu
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG benchmark performance hardware
 
 source("ESEUR_config.r")
 
@@ -39,10 +41,11 @@ m_12=density(size_12[1,])
 ybounds=range(m_12$y)
 
 plot(m_3, col=pal_col[1], main="",
-	xlab="", ylab="Density\n",
-	xlim=xbounds, ylim=ybounds)
+	xaxs="i", yaxs="i",
+	xlim=xbounds, ylim=ybounds,
+	xlab="", ylab="Density\n")
 lines(m_12, col=pal_col[2])
 
 legend(x="topright", legend=c("3 items", "12 items"),
-			bty="n", fill=pal_col, cex=1.2)
+		bty="n", fill=pal_col, cex=1.2)
 

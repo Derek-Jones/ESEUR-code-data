@@ -1,17 +1,23 @@
 #
-# BTH2011Padmanabhuni.R,  6 Jan 16
+# BTH2011Padmanabhuni.R,  6 Sep 18
 #
 # Data from:
 # Javad Mohammadian Amiri Venkata Vinod Kumar Padmanabhuni
 # A Comprehensive Evaluation of Conversion Approaches for Different Function Points
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG function-points CFP estimation
+
 
 source("ESEUR_config.r")
 
+
 library("plyr")
+
+pal_col=rainbow(4)
 
 
 plot_who=function(who, line_col)
@@ -19,7 +25,6 @@ plot_who=function(who, line_col)
 points(who$CFP, who$FP, col=who$col)
 lines(loess.smooth(who$CFP, who$FP, span=0.5, family="gaussian"), col=line_col)
 }
-
 
 
 bench=read.csv(paste0(ESEUR_dir, "statistics/BTH2011Padmanabhuni.csv.xz"), as.is=TRUE)
@@ -38,7 +43,6 @@ conv_mod=glm(FP ~ (who_FP+CFP)^2+kind+Dataset, data=no_students)
 conv_mod=glm(FP ~ (who_FP+who_CFP+log(CFP))^2-who_FP:who_CFP+kind, family=poisson, data=no_students)
 # summary(conv_mod)
 
-pal_col=rainbow(4)
 D_names=unique(no_students$Dataset)
 D_cols=rainbow(length(D_names))
 no_students$col=mapvalues(no_students$Dataset, D_names, D_cols)

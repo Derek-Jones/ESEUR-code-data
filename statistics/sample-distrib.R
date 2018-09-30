@@ -1,11 +1,14 @@
 #
-# sample-distrib.R, 14 Oct 16
+# sample-distrib.R, 29 Sep 18
 #
 # Data from:
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG example
+
 
 source("ESEUR_config.r")
 
@@ -13,8 +16,8 @@ source("ESEUR_config.r")
 library("VGAM")
 
 
-plot_layout(3, 2, max_width=6)
-par(mar=c(2.0, 1.0, 1, 0.5))
+plot_layout(3, 2, max_width=6, max_height=11.0)
+par(mar=c(1.0, 1.0, 1, 0.5))
 
 pal_col=rainbow(2)
 
@@ -57,7 +60,7 @@ lines(c(q[2], q[2]), c(0, max(y_bounds)/3), col=pal_col[2])
 # lines(c(rep_mean, rep_mean), c(0, max(y_bounds)), col=pal_col[1])
 
 legend(x="topright", legend=c(paste0("size=", sample_size)), title=dist_str,
-				bty="n", cex=1.2)
+				bty="n", cex=1.3)
 }
 
 

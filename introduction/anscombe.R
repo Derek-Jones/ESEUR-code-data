@@ -1,19 +1,24 @@
 #
-# anscombe.R, 12 Mar 14
+# anscombe.R, 29 Sep 18
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG example
 
 source("ESEUR_config.r")
+
+
+plot_layout(4, 1, max_height=12)
+par(mar=c(2.2, 2.2, 0.5, 0.5))
+
 
 # anscombe is an object defined in the base package
 a1=with(anscombe, data.frame(x=c(x1), y=c(y1)))
 a2=with(anscombe, data.frame(x=c(x2), y=c(y2)))
 a3=with(anscombe, data.frame(x=c(x3), y=c(y3)))
 a4=with(anscombe, data.frame(x=c(x4), y=c(y4)))
-
-plot_layout(4, 1)
 
 plot_anscombe=function(x_y)
 {
@@ -23,7 +28,7 @@ y_max=13
 x_min=4
 x_max=19
 
-plot(x_y, col="red",
+plot(x_y, col="red", cex=1.4, cex.lab=1.4,
 	xlim=c(x_min, x_max), ylim=c(y_min, y_max))
 
 glm_fit=glm(y ~ x, data=x_y)

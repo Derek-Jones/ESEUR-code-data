@@ -6,7 +6,7 @@
 # Downloaded from http://rsos.royalsocietypublishing.org/on February 1, 2015
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 
 #Two_mean_simulation

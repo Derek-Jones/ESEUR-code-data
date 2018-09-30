@@ -1,5 +1,5 @@
 #
-# Alemzadeh-mininf.R, 23 Sep 18
+# Alemzadeh-chngpt.R, 29 Sep 18
 #
 # Data from:
 # Analysis of safety-critical computer failures in medical devices
@@ -48,42 +48,16 @@ plot(t2, type="p", col=pal_col[3],
 # Just fit everything before the send of 2010
 recall_subset=subset(comp_recalls, Date <= as.Date("2010-12-31"))
 
-# t1=cut(recall_subset$Date, breaks=60)
 t1=cut(comp_recalls$Date, breaks=60)
 t2=table(t1)
 
 bined_recalls=data.frame(fortnight=1:length(t2), recalls=as.vector(t2))
 
 fit=chngptm(recalls ~ 1, ~fortnight, family="gaussian", data=bined_recalls,
+#		type="stegmented",
 		type="segmented",
-		est.method="fastgrid", var.type="bootstrap", save.boot=TRUE)
+		var.type="bootstrap", save.boot=TRUE)
 
-# sl_mod=glm(recalls ~ fornight, family=quasipoisson(link="identity"),
-					 data=bined_recalls)
-# sl_mod=glm(recalls ~ fortnight, data=bined_recalls)
-subset_pred=predict(fit, se.fit=TRUE)
+plot(fit, which=1)
 
-lines(sx_axis, subset_pred$fit, col=pal_col[1])
-lines(sx_axis, subset_pred$fit+1.96*subset_pred$se.fit, col=pal_col[2])
-lines(sx_axis, subset_pred$fit-1.96*subset_pred$se.fit, col=pal_col[2])
-
-recall_subset=subset(comp_recalls, Date > as.Date("2010-12-31"))
-
-t1=cut(recall_subset$Date, breaks=12)
-t2=table(t1)
-
-sx_axis=60+(1:length(t2))
-sy_axis=as.vector(t2)
-
-# sl_mod=glm(sy_axis ~ sx_axis, family=quasipoisson(link="identity"))
-sl_mod=glm(sy_axis ~ sx_axis)
-subset_pred=predict(sl_mod, se.fit=TRUE)
-
-lines(sx_axis, subset_pred$fit, col=pal_col[1])
-lines(sx_axis, subset_pred$fit+1.96*subset_pred$se.fit, col=pal_col[2])
-lines(sx_axis, subset_pred$fit-1.96*subset_pred$se.fit, col=pal_col[2])
-
-# influenceIndexPlot(l_mod, main="")
-
-# influenceIndexPlot(l_mod, main="")
 
