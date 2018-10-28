@@ -6,8 +6,10 @@
 # Ashish Arora and Ramayya Krishnan and Rahul Telang and Yubao Yang
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG release fault-survival vendor 
 
 source("ESEUR_config.r")
 

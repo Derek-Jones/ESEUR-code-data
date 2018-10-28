@@ -1,11 +1,13 @@
 #
-# asymm-circ-dist.R, 18 Aug 16
-#
+# asymm-circ-dist.R, 14 Oct 18
 # Data from:
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG example circular
+
 
 source("ESEUR_config.r")
 
@@ -14,8 +16,8 @@ library("circular")
 
 pal_col=rainbow(5)
 
-plot_layout(3, 1)
-par(mar=c(0.2, 1.0, 0.2, 0.8))
+plot_layout(2, 2, max_height=12.0)
+par(mar=c(0.5, 0.0, 0.5, 0.0))
 # par(oma=c(0.5, 1, 0.5, 1))
 
 
@@ -62,7 +64,9 @@ return(pdfval)
 
 plot_asymm=function(xi, kappa, psi)
 {
-curve.circular(aeJPPDF(x, xi, kappa, psi, 0, ncon), n=360, join=TRUE, cex=0.7, shrink=2.1, col=pal_col[1])
+# Changing ylim from c(-1, 1) brings the plots closer together
+curve.circular(aeJPPDF(x, xi, kappa, psi, 0, ncon), n=360, join=TRUE,
+			cex=1.6, tcl.text=0.4, shrink=2.1, col=pal_col[1], ylim=c(-0.4, 1.0))
 y = aeJPPDF(theta, xi, kappa, psi, 0.25, ncon)
 lines(theta, y, col=pal_col[2])
 y = aeJPPDF(theta, xi, kappa, psi, 0.5, ncon)

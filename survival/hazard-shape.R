@@ -1,9 +1,12 @@
 #
-# hazard-shape.R,  6 Mar 16
+# hazard-shape.R,  3 Oct 18
+# Data from:
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG example
 
 source("ESEUR_config.r")
 
@@ -11,6 +14,7 @@ source("ESEUR_config.r")
 pal_col=rainbow(3)
 
 plot(0, type="n",
+	xaxs="i", yaxs="i",
 	xlim=c(0, 1), ylim=c(0, 1),
 	xlab="Time", ylab="h(t)\n")
 
@@ -30,6 +34,6 @@ down_weib=(0.6+x_vals)^-0.9 -0.7
 lines(x_vals, down_weib, col=pal_col[3])
 
 
-legend(x="topleft", legend=c("Lognormal", "Weibull", "Weibull"),
+legend(x="top", legend=c("Lognormal", "Weibull", "Weibull"),
 				bty="n", fill=pal_col, cex=1.2)
 

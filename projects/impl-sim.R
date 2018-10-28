@@ -6,7 +6,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG example
+# TAG example simulation-discrete_event
 
 
 source("ESEUR_config.r")

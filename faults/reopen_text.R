@@ -6,8 +6,11 @@
 # Emad Shihab and Akinori Ihara and Yasutaka Kamei and Walid M. Ibrahim and Masao Ohira and Bram Adams and Ahmed E. Hassan and Ken-ichi Matsumoto
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG faults-reopened Eclipse
+
 
 source("ESEUR_config.r")
 

@@ -6,7 +6,7 @@
 # Les Hatton
 #
 # Example from:
-# Evidence-based Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
 # TAG predict effort maintenance

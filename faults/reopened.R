@@ -1,25 +1,32 @@
 #
-# reopened.R, 14 Jun 16
+# reopened.R, 22 Oct 18
 #
 # Data and (modified) code from:
 # Predicting Re-opened Bugs: A Case Study on the Eclipse Project
 # Emad Shihab and Akinori Ihara and Yasutaka Kamei and Walid M. Ibrahim and Masao Ohira and Bram Adams and Ahmed E. Hassan and Ken-ichi Matsumoto
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG fault eclipse reopened
+
 
 source("ESEUR_config.r")
 
-library(rpart)
 
-plot_wide()
+library("rpart")
+library("rpart.plot")
+
+# plot_wide()
+plot_layout(1, 1, default_width=ESEUR_default_width*2.0, default_height=ESEUR_default_height*1.6)
+
 
 mk_decision_tree= function(raw_data, data_weight)
 {
 # Does not include input from words in text columns given in paper
 # bug_id,remod,time,week_day,month_day,month,severity,priority,time_days,num_fix_files,num_cc,description_size,num_comments,comments_size,pri_chng,fixer_exp,reporter_exp,prev_state,component,platform,reporter_name,fixer_name,description,comments
-rpart(remod ~ time+week_day+month_day+month+time_days+
+dt=rpart(remod ~ time+week_day+month_day+month+time_days+
               severity+priority+pri_chng+
               num_fix_files+num_cc+prev_state+
               description_size+
@@ -36,7 +43,10 @@ rpart(remod ~ time+week_day+month_day+month+time_days+
         weight=data_weight,
         method="class",
         x=TRUE,
+	model=TRUE,
         parms=list(split="information"))
+
+return(dt)
 }
 
 test_predictor = function(reopen_model, test_data)
@@ -72,11 +82,19 @@ weighted_model=mk_decision_tree(reopened_data, data_weight)
 
 # printcp(weighted_model)
 
+# prp(weighted_model, cex=1.2, box.palette=c("green", "red"), type=4)
+
+rpart.plot(weighted_model, cex=1.2, split.font=1,
+		 under=TRUE, under.col=point_col, under.cex=1.0,
+		 box.palette=c("green", "red"), branch.col="grey",
+                 type=4, extra=100, branch=0.3, faclen=2)
+
 
 # test_predictor(weighted_model, reopened_data)
 
-plot(weighted_model)
-text(weighted_model, use.n=TRUE, cex=1.0)
+# plot(weighted_model, uniform=TRUE, compress=TRUE, col=point_col,
+# 		margin=0.1)
+# text(weighted_model, use.n=TRUE, cex=1.3)
 
 # Sample the faults so there is an equal number of reopened/non-reopened faults
 # The following numbers seems to work reasonably well

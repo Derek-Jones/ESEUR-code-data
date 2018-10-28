@@ -6,13 +6,15 @@
 # John Businge and Alexander Serebrenik and Mark van den Brand
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
-
+#
+# TAG Eclipse plugin API survival
 
 source("ESEUR_config.r")
 
 library("survival")
+
 
 pal_col=rainbow(2)
 

@@ -1,5 +1,9 @@
 Change log
 
+28 Oct 18
+
+Survival, circular, compositional and miscellaneous, plus more data
+
 30 Sep 18
 
 Statistics, Regression and time-series update, plus more data
@@ -90,13 +94,11 @@ Added userbenchmark.com data
 
 21 Aug 16
 
-Lots of minor tweaks to fix stuff that gets noticed when the plots
-appear stand-alone
+Lots of minor tweaks to fix stuff that gets noticed when the plots appear stand-alone
 
 24 Jul 16
 
-Switch to multiple plots appearing vertically, rather than horizontally
-Plus, the usual scattered number of small updates
+Switch to multiple plots appearing vertically, rather than horizontally.  Plus, the usual scattered number of small updates
 
  4 Jul 16
 

@@ -1,5 +1,5 @@
 #
-# Elliott_77.R,  7 Aug 18
+# Elliott_77.R, 28 Oct 18
 # Data from:
 # Life Cycle Planning for a Large Mix of Commercial Systems
 # I. R. Elliott
@@ -16,10 +16,11 @@ source("ESEUR_config.r")
 
 # The igraph package (which might be loaded when building the book)
 # contains functions found in gnm.  The treemap package might also have
-# been loaded, and its 'load' of igraph cannot be undone without first
-# unloading treemap!
+# been loaded (as might phangorn), and its 'load' of igraph cannot be
+# undone without first unloading treemap!
 unloadNamespace("FrF2")
 unloadNamespace("treemap")
+unloadNamespace("phangorn")
 unloadNamespace("igraph")
 
 library("gnm")

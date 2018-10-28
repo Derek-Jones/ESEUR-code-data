@@ -6,9 +6,10 @@
 # Jon Eyolfson and Lin Tan and Patrick Lam
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
-
+#
+# TAG commit faults time-of-day
 
 source("ESEUR_config.r")
 
@@ -54,6 +55,7 @@ DoW=circular((360/days_per_week)*week_days, units="degrees", rotation="clock")
 HoW=circular((360/hrs_per_week)*week_hr, units="degrees", rotation="clock")
 MoW=circular((360/mins_per_week)*week_mins, units="degrees", rotation="clock")
 
+# Mean values for minute, hour, and day measurement granularity.
 print(c(mean(DoW)[[1]], rho.circular(DoW)))
 print(c(mean(HoW)[[1]], rho.circular(HoW)))
 print(c(mean(MoW)[[1]], rho.circular(MoW)))

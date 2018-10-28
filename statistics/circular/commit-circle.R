@@ -1,13 +1,15 @@
 #
-# commit-circle.R, 16 Jul 16
+# commit-circle.R, 14 Oct 18
 #
 # Data from:
 # Do time of day and developer experience affect commit bugginess?
 # Jon Eyolfson and Lin Tan and Patrick Lam
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG commit Linux OpenBSD faults
 
 
 source("ESEUR_config.r")
@@ -15,7 +17,9 @@ source("ESEUR_config.r")
 library("circular")
 
 
-plot_layout(2, 1)
+plot_layout(2, 1, max_height=12.0)
+par(mar=c(0.5, 1.0, 1, 0.5))
+
 pal_col=rainbow(3)
 
 # id repository_id raw_author_id sha1 merge utc_time local_time

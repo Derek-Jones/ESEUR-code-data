@@ -1,13 +1,15 @@
 #
-# api-robinson.R,  8 Oct 16
+# api-bertin.R, 23 Oct 18
 #
 # Data from:
 # Developer characterization of data structure fields decisions
 # Derek M. Jones
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG API data-structure field
 
 source("ESEUR_config.r")
 
@@ -36,7 +38,8 @@ fmat=as.matrix(clust)
 
 fser=seriate(fmat, method="BEA",  control = list(rep = 10))
 bertinplot(fmat, fser, options=list(panel=panel.squares, spacing=0,
-			mar=c(10, 10, 10, 10),
+			mar=c(10, 10, 10, 12),
+			gp_panels=gpar(col="grey", fill=point_col),
 			gp_labels=gpar(cex=0.6, newpage=FALSE)))
 
 
