@@ -1,13 +1,15 @@
 # 
-# Mazouz.R, 31 Aug 16
+# Mazouz.R,  7 Nov 18
 #
 # Data from:
 # An Empirical Study of Program Performance of {OpenMP} Applications on Multicore Platforms
 # Abdelhafid Mazouz
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG benchmark OpenMP multicore
 
 
 source("ESEUR_config.r")
@@ -20,7 +22,7 @@ bench=read.csv(paste0(ESEUR_dir, "benchmark/Mazouz.csv.xz"), as.is=TRUE)
 
 art_m=subset(bench, program == "330.art_m")
 
-t=bwplot(time ~ affinity | as.character(threads)+compiler, data=art_m,
+t=bwplot(time ~ affinity | compiler+as.character(threads), data=art_m,
 		layout=c(2, 3), col="yellow",
 		panel=panel.violin,
                 par.strip.text=list(cex=0.75),

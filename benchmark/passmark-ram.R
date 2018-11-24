@@ -1,18 +1,22 @@
 #
-# passmark-ram.R, 17 Jul 16
+# passmark-ram.R, 24 Nov 18
 #
 # Data from:
 # www.passmark.com
 # David Wren
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG benchmark computer memory end_user
 
 
 source("ESEUR_config.r")
 
-plot_layout(2, 1)
+
+pal_col=rainbow(2)
+
 
 # BaselineId,module type,part density,DDR,number modules,revision,speed,CAS latency,extras,RAM Size,CPU Company,CPU Name,CPU speed,Read Speed MB/Sec
 mp=read.csv(paste0(ESEUR_dir, "benchmark/passmark-ram.csv.xz"), as.is=TRUE)
@@ -47,20 +51,20 @@ plot(q$Read.Speed.MB.Sec, col=point_col,
 # loess_mod=loess(Read.Speed.MB.Sec ~ CAS.latency, data=t_middle)
 # loess_pred=predict(loess_mod, newdata=data.frame(CAS.latency=speed_range))
 # lines(speed_range, loess_pred, col="green")
-
-t_middle$revision=NULL
-t_middle$extras=NULL
-
-t_scale=data.frame(scale(t_middle, center=FALSE)*100)
-
-t_mod=glm(Read.Speed.MB.Sec ~  speed+CAS.latency+RAM.Size
-				+I(speed*CAS.latency^2),
-				data=t_middle, family=quasipoisson)
-
-t_pred=predict(t_mod, se.fit=TRUE, type="response")
-
-plot(t_middle$Read.Speed.MB.Sec, col=point_col,
-	xlim=c(1, nrow(t_middle)), ylim=c(13500, 18000),
-	xlab="Sorted order", ylab="Read speed (MB/sec)\n")
-points(t_pred$fit, col="red")
-
+# 
+# t_middle$revision=NULL
+# t_middle$extras=NULL
+# 
+# t_scale=data.frame(scale(t_middle, center=FALSE)*100)
+# 
+# t_mod=glm(Read.Speed.MB.Sec ~  speed+CAS.latency+RAM.Size
+# 				+I(speed*CAS.latency^2),
+# 				data=t_middle, family=quasipoisson)
+# 
+# t_pred=predict(t_mod, se.fit=TRUE, type="response")
+# 
+# plot(t_middle$Read.Speed.MB.Sec, type="l", col=pal_col[1],
+# 	xlim=c(1, nrow(t_middle)), ylim=c(13500, 18000),
+# 	xlab="Sorted order", ylab="Read speed (MB/sec)\n")
+# points(t_pred$fit, col=pal_col[2])
+# 

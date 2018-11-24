@@ -1,17 +1,17 @@
 #
-# 1509-all64.R, 28 May 18
+# 1509-all64.R,  7 Nov 18
 # Data from:
 # Array Layouts for Comparison-Based Searching
 # Paul-Virak Khuong and Pat Morin
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG benchmark array algorithm-searching
+
 
 source("ESEUR_config.r")
-
-
-# library("dplyr")
 
 
 pal_col=rainbow(5)

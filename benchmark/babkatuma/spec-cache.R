@@ -6,10 +6,11 @@
 # Vlastimil Babka
 # Code adapted from that kindly provided by: Vlastimil Babka
 #
-#
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG benchmark cpu-cache
 
 source("ESEUR_config.r")
 

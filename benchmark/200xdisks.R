@@ -1,19 +1,25 @@
 #
-# 200xdisks.R, 16 Jul 16
+# 200xdisks.R, 24 Nov 18
 #
 # Data from:
 # Disks are like snowflakes: No two are alike
 # Elie Krevat and Joseph Tucek and Gregory R. Ganger
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG benchmark hard_disc performance
+
 
 source("ESEUR_config.r")
 
 library("plyr")
 
-plot_layout(2, 1)
+
+# Shrink to accommodate other plots in same margin of the book
+plot_layout(2, 1, max_height=12)
+par(mar=MAR_default-c(0.8, 0, 0, 0))
 brew_col=rainbow_hcl(12)
 
 
@@ -31,7 +37,7 @@ disk2002$disk=as.factor(disk2002$disk)
 
 bw_range=range(disk2002$bandwidth)
 off_range=range(disk2002$offset)
-plot(1, type="n",
+plot(1, type="n", cex.axis=1.5, cex.lab=1.5,
 	xlim=off_range, ylim=bw_range,
 	xlab="Offset (GB)", ylab="Bandwidth (MB sec)\n")
 
@@ -48,7 +54,7 @@ disk2006$disk=as.factor(disk2006$disk)
 
 bw_range=range(disk2006$bandwidth)
 off_range=range(disk2006$offset)
-plot(1, type="n",
+plot(1, type="n", cex.axis=1.5, cex.lab=1.5,
 	xlim=off_range, ylim=bw_range,
 	xlab="Offset (GB)", ylab="Bandwidth (MB sec)\n")
 

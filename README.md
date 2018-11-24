@@ -5,8 +5,6 @@ The code and data used to create the examples in "Evidence-based Software Engine
 
 [Books' webpage](http://www.knosof.co.uk/ESEUR/index.html).
 
-[Blog post](http://shape-of-code.coding-guidelines.com/2012/06/22/background-to-my-book-project-empirical-software-engineering-with-r/) giving some background on the book.
-
 If you know of any software engineering data that you think should be included, please let me know.
 
 To install all of the R library packages used by the code type:
@@ -21,5 +19,5 @@ This file sets the variable ESEUR_dir to contain the base directory containing a
 
 The .R files are a superset of what appear in the book.  If some data was analyzed and I thought it useful, but could not find a place for it in the book, it was put in a misc/ directory (some files may not have been moved).
 
-The data has been compressed to get under Github size limits and reduce download time.  You might find some filename strings are missing a .xz.
+The data has been compressed to stay under Github size limits and reduce download time.  You might find some filename strings are missing a .xz.
 

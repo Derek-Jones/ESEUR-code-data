@@ -1,17 +1,23 @@
 #
-# cpu-mem-power.R, 18 Feb 17
+# cpu-mem-power.R, 24 Nov 18
 #
 # Data from:
 # Predictive Power Management for Multi-Core Processors
 # William Lloyd Bircher
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG benchmark cpu memory power
+
 
 source("ESEUR_config.r")
 
-plot_layout(2, 1)
+# Shrink to accommodate other plots in same margin of the book
+plot_layout(2, 1, max_height=11)
+par(mar=MAR_default-c(2.5, 0, 0, 0))
+
 pal_col=rainbow_hcl(3)
 
 
@@ -37,10 +43,10 @@ rect(num_power-0.2, power$lower+power$core_4, num_power+0.2, power$upper, col="b
 lines(c(0, nrow(power)), c(middle, middle), col="grey")
 
 # offset=0.0 has a useful effect!
-text(num_power, power$lower, paste0(power$benchmark, " "), pos=2, offset=0.0, srt=45, col="black", cex=0.9)
+text(num_power, power$lower, paste0(power$benchmark, " "), pos=2, offset=0.0, srt=45, col="black", cex=1.1)
 
 ticks=seq(0, middle*2, 5)
-axis(2, at=ticks, labels=abs(ticks-middle))
+axis(2, at=ticks, labels=abs(ticks-middle), cex.axis=1.5)
 
 
 power=read.csv(paste0(ESEUR_dir, "benchmark/bircher_F46.csv.xz"), as.is=TRUE)
@@ -50,8 +56,8 @@ power$workload=sub("_", "\n", power$workload)
 
 pal_col=rainbow_hcl(nrow(power))
 
-barplot(as.matrix(power[, -1]), col=pal_col, srt=40,
-	ylab="Power (watts)", cex.names=0.9,
+barplot(as.matrix(power[, -1]), col=pal_col, srt=40, cex.axis=1.5,
+	ylab="Power (watts)\n", cex.names=1.1,
 	legend.text=power$workload,
         args.legend=list(x="topright", bty="n"))
 

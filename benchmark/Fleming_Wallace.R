@@ -1,12 +1,15 @@
 #
-# Fleming_Wallace.R, 25 May 17
+# Fleming_Wallace.R, 16 Nov 18
 # Data from:
 # Philip J. Fleming and John J. Wallace
 # How Not to Lie With Statistics: {The} Correct Way to Summarize Benchmark Results
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG benchmark statistics
+
 
 source("ESEUR_config.r")
 
@@ -20,12 +23,14 @@ rownames(bench)=bench$Prog
 bench$Prog=NULL
 
 bench$"R/M"=bench$R/bench$M
-bench$"M/M"=bench$M/bench$M
+bench$"M/R"=bench$M/bench$R
+
+bench$"R/Z"=bench$R/bench$Z
+bench$"Z/R"=bench$Z/bench$R
+
+bench$"M/Z"=bench$M/bench$Z
 bench$"Z/M"=bench$Z/bench$M
 
-bench$"R/R"=bench$R/bench$R
-bench$"M/R"=bench$M/bench$R
-bench$"Z/R"=bench$Z/bench$R
 
 arithmean=colMeans(bench)
 geomean=apply(bench, 2, prod)^(1/nrow(bench))
