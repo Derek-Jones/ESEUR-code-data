@@ -1,5 +1,5 @@
 #
-# residual-DAYLOC.R, 24 Sep 18
+# residual-DAYLOC.R,  2 Mar 19
 # Data from:
 # The {Linux} Kernel as a Case Study in Software Evolution
 # Ayelet Israeli and Dror G. Feitelson
@@ -14,7 +14,10 @@
 source("ESEUR_config.r")
 
 
-plot_layout(2, 1)
+# Need to get this plot to fit in the margin, along with the plot before it
+plot_layout(2, 1, max_height=12)
+par(mar=MAR_default-c(0.8, 0, 0.0, 0))
+
 pal_col=rainbow(4)
 
 # Lines of code in each release
@@ -58,10 +61,12 @@ m1=glm(LOC ~ Number_days, data=latest_version)
 
 # m2=glm(LOC ~ Number_days+I(Number_days^2), data=latest_version)
 
-plot(m1, which=1, caption="", sub.caption="", col=pal_col[3])
+plot(m1, which=1, caption="", sub.caption="", col=pal_col[3],
+		cex.axis=1.4, cex.lab=1.4)
 
 
 plot(latest_version$Number_days, latest_version$LOC, col=pal_col[3],
+	cex.axis=1.4, cex.lab=1.4,
 	xlab="Days", ylab="Total lines of code\n")
 
 pred=predict(m1, type="response", se.fit=TRUE)

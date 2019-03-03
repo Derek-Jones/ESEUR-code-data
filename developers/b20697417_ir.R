@@ -1,12 +1,15 @@
 #
-# b20697417_ir.R, 11 Nov 17
+# b20697417_ir.R, 21 Feb 19
 # Data from:
 # Pair programming productivity: Novice–novice vs. expert–expert
 # Kim Man Lui and Keith C.C. Chan
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG experiment developers project learning performance reimplementation-time
+
 
 source("ESEUR_config.r")
 
@@ -33,13 +36,14 @@ pair_solo$col=pal_col[pair_solo$Team]
 plot(0, type="n", xaxp=c(1, 4, 3),
 	xlim=range(pair_solo$Round), ylim=range(pair_solo$Solo_time),
 	xlab="Round", ylab="Time (minutes)\n")
-d_ply(pair_solo, .(Team), function(df) lines(df$Round, df$Solo_time, col=df$col))
+d_ply(pair_solo, .(Team), function(df)
+			lines(df$Round, df$Solo_time, type="b", col=df$col))
 # snls_mod=nls(Solo_time ~ a*exp(c*(b*AB_score_base+Round)), data=pair_solo,
 # 		start=list(a=900, b=0.001, c=-0.5))
 # Power law is a very marginal better fit to the data
 # (and its the brand name equation to use).
 # snls_mod=nls(Solo_time ~ a*(b*AB_score_base+Round)^c, data=pair_solo,
-# 		start=list(a=900, b=0.01, c=-0.5))
+# 		start=list(a=900, b=0.0001, c=-0.4))
 # pair_solo$s_pred=predict(snls_mod)
 # d_ply(pair_solo, .(Team), function(df) points(df$Round, df$s_pred, col=df$col))
 # 

@@ -1,13 +1,15 @@
 #
-# treisman85.R,  5 Dec 16
+# treisman85.R, 18 Feb 19
 #
 # Data from:
 # Search Asymmetry: {A} Diagnostic for Preattentive Processing of Separable Features
 # Anne Treisman and Janet Souther
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG example vision
 
 
 source("ESEUR_config.r")
@@ -49,7 +51,7 @@ lines(c(x, x), c(y, y-1.1), col=point_col)
 }
 
 
-circum=c(seq(0, 0.70, by=0.01), 0.7071)
+circum=c(seq(0, 0.70, by=0.01), 0.5^0.5)
 circle_x_pts=c(circum, rev(circum), -circum, -rev(circum))
 circle_y_pts=c(-sqrt(0.5-circum^2), +sqrt(0.5-rev(circum)^2),
 		sqrt(0.5-circum^2), -sqrt(0.5-rev(circum)^2))

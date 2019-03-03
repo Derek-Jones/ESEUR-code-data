@@ -1,5 +1,5 @@
 #
-# break-continue.R, 12 Jan 17
+# break-continue.R,  4 Jan 19
 # Data from:
 # The New C Standard: An Economic and Cultural Commentary
 # Derek M. Jones
@@ -39,8 +39,8 @@ nbi_bmod=gamlss(breaks ~ 1, family=NBI)
 
 # glm_mod=glm(breaks ~ 1, family=poisson)
 
-# Scale the probability distribution by the maximum number of functions
-plot(function(y) max(jumps$breaks, na.rm=TRUE)*
+# Scale the probability distribution by the number of functions
+plot(function(y) sum(jumps$breaks, na.rm=TRUE)*
 			dNBI(y, mu=exp(coef(nbi_bmod, what="mu")),
 				sigma=exp(coef(nbi_bmod, what="sigma"))),
 	from=0, to=30, n=30+1,
@@ -54,7 +54,7 @@ points(jumps$occur, jumps$breaks, col=pal_col[2])
 # nbi_cmod=gamlss(continues ~ 1, family=NBI)
 # summary(nbi_cmod)
 
-# plot(function(y) max(jumps$continues, na.rm=TRUE)*
+# plot(function(y) sum(jumps$continues, na.rm=TRUE)*
 # 			dNBI(y, mu=exp(coef(nbi_cmod, what="mu")),
 # 				sigma=exp(coef(nbi_cmod, what="sigma"))),
 # 	from=0, to=30, n=30+1,

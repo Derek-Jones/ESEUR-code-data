@@ -1,17 +1,20 @@
 #
-# adelson1981.R, 12 May 18
+# adelson1981.R, 20 Feb 19
 # Data from:
 # Problem solving and the development of abstract categories in programming languages
 # Beth Adelson
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment cognition memory-recall
+# TAG experiment cognition source memory-recall
 
 
 source("ESEUR_config.r")
+
+
+library("dendextend")
 
 
 plot_layout(2, 1)
@@ -85,7 +88,11 @@ teacher_dist=teacher_dist+calc_dist(adel$e10p)
 d_dist=dist(teacher_dist/5)
 hc=hclust(d_dist)
 
-plot(hc, main="Teachers", sub="", col=point_col,
+hcd=as.dendrogram(hc)
+col_hcd=color_branches(hcd, k=3)
+
+labels_colors(col_hcd)=c(rep(2, 5), rep(3, 5), rep(4, 6))
+plot(col_hcd, main="Teachers", sub="",
 	xlab="Items", ylab="")
 
 
@@ -100,7 +107,11 @@ rownames(student_dist)=paste0(line_loc, "-", line_kind)
 d_dist=dist(student_dist/5)
 hc=hclust(d_dist)
 
-plot(hc, main="Students", sub="", col=point_col,
+hcd=as.dendrogram(hc)
+col_hcd=color_branches(hcd, k=5)
+
+labels_colors(col_hcd)=c(rep(2, 4), rep(3, 3), rep(4, 1), rep(5, 4), rep(6, 4))
+plot(col_hcd, main="Students", sub="",
 	xlab="Items", ylab="")
 
 

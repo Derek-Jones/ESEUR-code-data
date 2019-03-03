@@ -1,25 +1,28 @@
 #
-# TR_73-096.R, 11 Nov 17
+# TR_73-096.R, 21 Feb 19
 #
 # Data from:
 # AN EXPERIMENT IN ALGORITHM IMPLEMENTATION
 # Paul M. Zislis
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG experiment developer performance implementation
+
 
 source("ESEUR_config.r")
 
 
 # library("lattice")
-library("lme4")
+# library("lme4")
 library("plyr")
 
 
 plot_alg=function(df)
 {
-lines(df$iteration, df$total, col=pal_col[df$col_num])
+lines(df$iteration, df$total, type="b", col=pal_col[df$col_num])
 }
 
 

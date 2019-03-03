@@ -3,13 +3,13 @@
 
 .PS 4.0 2.5
 
-# shep61_f2.pic, 13 Oct 01
+# shep61_f2.pic, 22 Feb 19
 
 define triangle {
 
 move left $1/2
 move down $1/2
-line right $1 then up $1 left $1/2 then down $1 left $1/2
+line right $1 then up $1 left $1/2 then down $1 left $1/2 outline "green"
 }
 
 define fill_triangle {
@@ -20,58 +20,58 @@ for len=0 to $1/2 by $1 / 100 do
    {
    move up $1 / 200
    move right $1 / 200
-   line right $1-2*len then up $1-2*len left ($1-2*len)/2 then down $1-2*len left ($1-2*len)/2
+   line right $1-2*len then up $1-2*len left ($1-2*len)/2 then down $1-2*len left ($1-2*len)/2 outline "red"
    }
 }
 
 define square_ring {
-C: circle
+C: circle outline "grey"
    move to last circle.c
    fill_triangle(0.08)
    move to last circle.s
-   line down 0.3 "\s+3Shape\s-3" rjust
+   line down 0.3 "\s+3Shape\s-3" rjust outline "blue"
    move to last circle.se
-   line down 0.1 right 0.2
-   circle
+   line down 0.1 right 0.2 outline "blue"
+   circle outline "grey"
    move to last circle.c
    fill_triangle(0.03)
    move to last circle.s
-   line down 0.3
+   line down 0.3 outline "blue"
    move to last circle.e
-   line right 0.3
-   circle
+   line right 0.3 outline "blue"
+   circle outline "grey"
    move to last circle.c
    triangle(0.03)
    move to last circle.s
-   line down 0.3
+   line down 0.3 outline "blue"
    move to last circle.nw
-   line up 0.1 left 0.2
-   circle
+   line up 0.1 left 0.2 outline "blue"
+   circle outline "grey"
    move to last circle.c
    triangle(0.08)
    move to last circle.s
-   line down 0.3
+   line down 0.3 outline "blue"
    move to last circle.w
-   line left 0.3 "\s+3Color\s-3" above
+   line left 0.3 "\s+3Color\s-3" above outline "blue"
    
    move to C.s
    move down 0.3
-   circle
-   box ht 0.07 wid 0.07 fill at last circle.c
+   circle outline "grey"
+   box ht 0.07 wid 0.07 fill colored "red" at last circle.c
    move to last circle.se
-   line down 0.1 right 0.2 "\s+3Size\s-3" rjust below
-   circle
-   box ht 0.03 wid 0.03 fill at last circle.c
+   line down 0.1 right 0.2 "\s+3Size\s-3" rjust below outline "blue"
+   circle outline "grey"
+   box ht 0.03 wid 0.03 fill colored "red" at last circle.c
    move to last circle.e
-   line right 0.3
-   circle
-   box ht 0.03 wid 0.03 at last circle.c
+   line right 0.3 outline "blue"
+   circle outline "grey"
+   box ht 0.03 wid 0.03 outline "green" at last circle.c
    move to last circle.nw
-   line up 0.1 left 0.2
-   circle
-   box ht 0.07 wid 0.07 at last circle.c
+   line up 0.1 left 0.2 outline "blue"
+   circle outline "grey"
+   box ht 0.07 wid 0.07 outline "green" at last circle.c
    move to last circle.w
-   line left 0.3
+   line left 0.3 outline "blue"
   
    }
 

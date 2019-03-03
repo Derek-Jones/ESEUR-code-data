@@ -1,12 +1,15 @@
 #
-# trick93.R, 15 Mar 18
+# trick93.R, 24 Feb 19
 # Data from:
 # What Enumeration Studies Can Show Us About Spatial Attention: {Evidence} for Limited Capacity Preattentive Processing
 # Lana M. Trick and Zenon W. Pylyshyn
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG experiment human attention
+
 
 source("ESEUR_config.r")
 
@@ -27,7 +30,7 @@ lines(df$response, col=pal_col[3-df$distractors/2])
 }
 
 
-plot(0, type="n", bty="o",
+plot(0, type="n", bty="o", fg="grey",
 	xaxt="n", yaxt="n",
 	xlim=c(0, 10), ylim=c(0, 10),
 	xlab="", ylab="")
@@ -50,7 +53,7 @@ d_ply(OX, .(distractors), plot_resp)
 legend(x="topleft", legend=c("4 distractors", "2 distractors", "0 distractors"), bty="n", fill=pal_col, cex=1.9)
 
 
-plot(0, type="n", bty="o",
+plot(0, type="n", bty="o", fg="grey",
 	xaxt="n", yaxt="n",
 	xlim=c(0, 10), ylim=c(0, 10),
 	xlab="", ylab="")

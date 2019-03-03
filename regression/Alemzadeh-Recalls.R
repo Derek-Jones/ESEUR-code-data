@@ -14,7 +14,11 @@
 
 source("ESEUR_config.r")
 
+# Need to get this plot to fit in the margin, along with the plot before it
+# plot_layout(2, 1, max_height=12)
+# par(mar=MAR_default-c(0.8, 0, 0.0, 0))
 plot_layout(2, 1)
+
 pal_col=rainbow(4)
 
 # Recall_Number,Date,Year,Trade_Name,Recalling_Firm,Recall_Class,Reason_Recall,Action
@@ -33,6 +37,7 @@ y_bounds=range(y_axis)
 
 plot(t2, type="p", col=pal_col[3],
 	ylim=y_bounds,
+#	cex.axis=1.4, cex.lab=1.4,
 	xlab="Fortnights", ylab="Reported product recalls\n")
 
 loess_mod=loess(y_axis ~ x_axis, span=0.3)
@@ -67,6 +72,7 @@ y_axis=as.vector(t2)
 
 plot(t2, type="p", col=pal_col[3],
 	ylim=y_bounds,
+#	cex.axis=1.4, cex.lab=1.4,
 	xlab="Fortnights", ylab="Recalls\n")
 
 loess_mod=loess(y_axis ~ x_axis, span=0.3)

@@ -5,8 +5,10 @@
 # Rados{\l}aw Hofman
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG
 
 source("ESEUR_config.r")
 

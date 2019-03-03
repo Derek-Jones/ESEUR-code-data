@@ -53,7 +53,7 @@ lines(year_range, year_sum, col=pal_col[X])
 # T,ACTIVITIES OF HOUSEHOLDS AS EMPLOYERS; UNDIFFERENTIATED GOODS-AND SERVICES-PRODUCING ACTIVITIES OF HOUSEHOLDS FOR OWN USE
 # U,ACTIVITIES OF EXTRATERRITORIAL ORGANISATIONS AND BODIES
 
-ONS=read.csv(paste0(ESEUR_dir, "economics/ONS_software.csv"), as.is=TRUE)
+ONS=read.csv(paste0(ESEUR_dir, "economics/ONS_software.csv.xz"), as.is=TRUE)
 
 # Map quarters to dates
 ONS$Date=sub("Q1", " 3 31", ONS$Date)

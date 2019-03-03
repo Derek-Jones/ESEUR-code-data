@@ -6,14 +6,15 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG example
+# TAG example statistical_power
 
 
 source("ESEUR_config.r")
 
 
-plot_layout(3, 1)
-par(mar=c(2, 1, 0.5, 1)+0.1)
+# Need to get this plot to fit in the margin, along with the plot before it
+plot_layout(3, 1, max_height=11)
+par(mar=MAR_default-c(1.8, 0, 0.5, 0))
 
 pal_col=rainbow(3)
 fill_col=rainbow_hcl(2)
@@ -25,6 +26,7 @@ max_y=max(ypoints)
 # One-tailed significance test
 plot(xpoints, ypoints, type="l", col=pal_col[1], fg="grey", col.axis="grey", yaxt="n",
 	bty="n", yaxt="n",
+	cex.axis=1.4,
 	xlim=c(2, 7),
 	xlab="", ylab="")
 q=norm_mean+qn

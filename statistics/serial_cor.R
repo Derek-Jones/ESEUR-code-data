@@ -1,12 +1,12 @@
 #
-# serial_cor.R, 15 Jul 16
+# serial_cor.R,  2 Mar 19
 # Data from:
 #
 # Example from:
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG example
+# TAG example correlation_serial
 
 
 source("ESEUR_config.r")
@@ -14,7 +14,10 @@ source("ESEUR_config.r")
 
 # library("sandwich")
 
-plot_layout(2, 1)
+# Need to get this plot to fit in the margin, along with the plot before it
+plot_layout(2, 1, max_height=12)
+par(mar=MAR_default-c(0.8, 0, 0.0, 0))
+
 pal_col=rainbow(12)
 
 
@@ -81,6 +84,7 @@ lines(sample_sizes, adjust_mean, col=col_str)
 
 
 plot(1, type="n", log="x",
+	cex.axis=1.4, cex.lab=1.4,
 	xlim=range(sample_sizes), ylim=c(0, 2.0),
 	xlab="Sample size", ylab="Bias in standard deviation of mean\n")
 
@@ -97,8 +101,8 @@ mean_var_adj(-0.5, pal_col[10])
 # mean_var_adj(-0.7, pal_col[11])
 # mean_var_adj(-0.9, pal_col[12])
 
-legend(x="topright", legend=rev(cor_vals), bty="n", fill=rev(pal_col[1:6]), cex=1.2)
-legend(x="bottomright", legend=-cor_vals[1:4], bty="n", fill=pal_col[7:10], cex=1.2)
+legend(x="topright", legend=rev(cor_vals), bty="n", fill=rev(pal_col[1:6]), cex=1.4)
+legend(x="bottomright", legend=-cor_vals[1:4], bty="n", fill=pal_col[7:10], cex=1.4)
 
 
 variance_adj=function(serial_cor, col_str)
@@ -110,6 +114,7 @@ lines(sample_sizes, adjust_cor, col=col_str)
 }
 
 plot(1, type="n", log="x",
+	cex.axis=1.4, cex.lab=1.4,
 	xlim=range(sample_sizes), ylim=c(8e-1, 1.2),
 	xlab="Sample size", ylab="Bias in standard deviation of sample\n")
 

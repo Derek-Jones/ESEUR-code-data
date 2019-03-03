@@ -5,10 +5,14 @@
 # Peter Naur and Brian Randell
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG IBM OS LOC
+
 
 source("ESEUR_config.r")
+
 
 plot_model=function(df, pos_val=4)
 {
