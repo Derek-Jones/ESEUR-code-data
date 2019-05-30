@@ -1,5 +1,5 @@
 
-The code and data used to create the examples in "Evidence-based Software Engineering based on the publicly available data" by Derek M. Jones.
+The code and data used to create the examples in "Evidence-based Software Engineering: Based on the publicly available data" by Derek M. Jones.
 
 [Plots of the data](http://www.knosof.co.uk/ESEUR/figures/index.html).
 

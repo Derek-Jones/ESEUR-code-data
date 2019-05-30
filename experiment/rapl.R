@@ -11,8 +11,8 @@
 source("ESEUR_config.r")
 
 
-# bench=read.csv(paste0(ESEUR_dir, "sourcecode/gtx480.csv"), as.is=TRUE)
-rapl=read.csv(paste0("/home/data-rbook/rapl_DAT-19Jun2014/", "all-c.csv"), as.is=TRUE)
+# bench=read.csv(paste0(ESEUR_dir, "sourcecode/gtx480.csv.xz"), as.is=TRUE)
+rapl=read.csv(paste0("/home/data-rbook/rapl_DAT-19Jun2014/", "all-c.csv.xz"), as.is=TRUE)
 
 # $ Running         : chr  "static" "static" "static" "static" ...
 # $ Hostname        : chr  "both" "both" "both" "both" ...

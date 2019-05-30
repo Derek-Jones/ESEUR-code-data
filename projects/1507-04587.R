@@ -1,12 +1,15 @@
 #
-# 1507-04587.R, 23 Nov 17
+# 1507-04587.R, 24 May 19
 # Data from:
 # Lessons learned from applying social network analysis on an industrial Free/Libre/Open Source Software ecosystem
 # Jose Teixeira and Gregorio Robles and Jes{\'u}s M. Gonz{\'a}lez-Barahona
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG releases OpenStack developer_employment
+
 
 source("ESEUR_config.r")
 
@@ -40,6 +43,8 @@ x_at=1:8
 axis(1, at=x_at, labels=FALSE)
 text(x=x_at+0.3, y=par()$usr[3]-0.03*(par()$usr[4]-par()$usr[3]),
                 labels=releases, pos=2, srt=30, cex=1.1, xpd=TRUE)
+text(x=4.5, y=par()$usr[3]-0.13*(par()$usr[4]-par()$usr[3]),
+                labels="Releases", cex=1.2, xpd=TRUE)
 
 d_ply(os, .(Company), plot_devs)
 

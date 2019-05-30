@@ -32,7 +32,7 @@ library("arules")
 # 
 # d=ddply(drool, .(fqCaller), split_calls)
 # 
-# write.csv(d, file="drools.csv", row.names=FALSE)
+# write.csv(d, file="drools.csv.xz", row.names=FALSE)
 
 
 drools=read.transactions(paste0(ESEUR_dir, "odds-and-ends/drools.csv.xz"),

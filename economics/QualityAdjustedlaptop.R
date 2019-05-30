@@ -1,12 +1,15 @@
 #
-# QualityAdjustedlaptop.R,  9 Sep 17
+# QualityAdjustedlaptop.R, 25 May 19
 # Data from:
 # What We Are Paying for: A Quality Adjusted Price Index for Laptop Microprocessors
 # Sophie Sun
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG benchmark price cpu product_introduction
+
 
 source("ESEUR_config.r")
 
@@ -29,7 +32,7 @@ i_lapcpu=read.csv(paste0(ESEUR_dir, "economics/QualityAdjustedlaptop.csv.xz"), a
 pal_col=rainbow(length(unique(i_lapcpu$Introduction)))
 
 plot(i_lapcpu$Intro.Price, i_lapcpu$wPrime32, type="n", log="xy",
-	xlab="Price", ylab="wPrime32 performance\n")
+	xlab="Price", ylab="wPrime32 (time)\n")
 
 d_ply(i_lapcpu, .(Introduction), function(df)
 					points(df$Intro.Price, df$wPrime32,

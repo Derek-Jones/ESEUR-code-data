@@ -1,20 +1,22 @@
 #
-# alaris.R, 21 Feb 16
+# alaris.R, 25 May 19
 #
 # Data from:
 # Devices, Errors and Improving Interaction Design - A case study using an Infusion Pump
 # Patrick Oladimeji
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG errors user-interface hardware
 
 
 source("ESEUR_config.r")
 
 library(igraph)
+library(jsonlite)
 library(plyr)
-library(RJSONIO)
 
 
 plot_wide()

@@ -1,5 +1,5 @@
 #
-# proj-lifespan.R, 27 Nov 18
+# proj-lifespan.R, 16 Mar 19
 #
 # Data from:
 # Mainframe data:
@@ -87,6 +87,6 @@ lines(mainf$days, predict(yr1_mod, type="response"), col=pal_col[1])
 
 # lines(predict(q), col=pal_col[3])
 
-legend(x="bottomleft", legend=c("Mainframe", "Google"), bty="n", fill=pal_col, cex=1.2)
+legend(x="topright", legend=c("Mainframe", "Google"), bty="n", fill=pal_col, cex=1.2)
 
 
