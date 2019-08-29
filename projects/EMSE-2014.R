@@ -4,8 +4,9 @@
 # How the {Apache} Community Upgrades Dependencies: {An} Evolutionary Study?
 # Gabriele Bavota and Gerardo Canfora and Massimiliano {Di Penta} and Rocco Oliveto and Sebastiano Panichella
 # Kindly provided by Panichella
+#
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
 # TAG Java dependencies evolution projects

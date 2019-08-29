@@ -1,5 +1,5 @@
 #
-# ONS_industry.R, 29 Oct 18
+# ONS_industry.R, 29 Aug 19
 # Data from:
 #
 # http://www.ons.gov.uk/ons/rel/bus-invest/business-investment/index.html
@@ -74,7 +74,7 @@ year_range=1997:2017
 
 plot(1, type="n", log="y",
 	xlim=range(year_range), ylim=c(4, max(soft_own, na.rm=TRUE)*3.5),
-	xlab="Year", ylab="Million (£)\n")
+	xlab="Year", ylab="Software spend (£million)\n")
 
 dummy=sapply(1:ncol(soft_own), annual_total)
 

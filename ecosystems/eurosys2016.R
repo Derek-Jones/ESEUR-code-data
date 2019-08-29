@@ -1,12 +1,15 @@
 #
-# eurosys2016.R, 29 Apr 18
+# eurosys2016.R, 27 Aug 19
 # Data from:
 # {POSIX} Abstractions in Modern Operating Systems: {The} Old, the New, and the Missing
 # Vaggelis Atlidakis and Jeremy Andrus and Roxana Geambasu and Dimitris Mitropoulos and Jason Nieh
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG POSIX_functions Android_Apps Ubuntu_packages
+
 
 source("ESEUR_config.r")
 
@@ -17,7 +20,8 @@ pal_col=rainbow(2)
 static=read.csv(paste0(ESEUR_dir, "ecosystems/static_POSIX.csv.xz"), as.is=TRUE)
 
 plot(sort(static$Android, decreasing=TRUE), type="l", log="y", col=pal_col[1],
-	xlab="Function rank", ylab="Packages")
+	xaxs="i", yaxs="i",
+	xlab="POSIX function (in ranked order)", ylab="Packages")
 lines(sort(static$Ubuntu, decreasing=TRUE), col=pal_col[2])
 
 legend(x="topright", legend=c("Android apps", "Ubuntu packages"), bty="n", fill=pal_col, cex=1.2)

@@ -1,12 +1,15 @@
 #
 # brl.R,  9 May 16
 # Data from:
-# Martin H. Weik 
 # A SURVEY OF DOMESTIC ELECTRONIC DIGITAL COMPUTING SYSTEMS
+# Martin H. Weik 
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG hardware_survey computer_performance 1950
+
 
 source("ESEUR_config.r")
 
@@ -33,5 +36,5 @@ all=merge(all, vac_tubes, all=TRUE)
 plot( ~ ADD.MICROSEC+ MULTIPLY.MICROSEC+ DIVIDE.MICROSEC+
 		DOLLARS+ KW+ WORD.LENGTH+
 		CRYSTAL.DIODES+VAC.TUBES+
-		DRUM.CAPACITY, data=all, log="xy")
+		DRUM.CAPACITY, data=all, log="xy", col=point_col)
 

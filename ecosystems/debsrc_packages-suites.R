@@ -1,13 +1,16 @@
 #
-# debsrc_packages-suites.R,  6 May 15
+# debsrc_packages-suites.R, 26 Aug 19
 #
 # Data from:
 # Debsources: Live and Historical Views on Macro-Level Software Evolution∗
 # Matthieu Caneill and Stefano Zacchirol
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG Debian_package package_survival package_version
+
 
 source("ESEUR_config.r")
 
@@ -16,22 +19,13 @@ library("plyr")
 library("survival")
 
 
-# Get date of first/last date that package was included in a distribution
+pal_col=rainbow(2)
+
+
+# Get first/last date that package was included in a distribution
 package_lifetime=function(df)
 {
-df=df[order(df$s_date), ]
-
-return(data.frame(s_date=df$s_date[1], e_date=df$e_date[nrow(df)]))
-}
-
-
-# TODO
-package_history=function(df)
-{
-df=df[order(df$date), ]
-# Get the first occurrence of a version in the sequence
-first_use=c(1, head(cumsum(rle(df$version)$lengths+1), -1))
-
+return(data.frame(s_date=min(df$s_date), e_date=max(df$e_date)))
 }
 
 
@@ -56,10 +50,21 @@ released$e_date=e_date[released$suite]
 p_dates=ddply(released, .(package), package_lifetime)
 
 suite_surv=Surv(as.numeric(p_dates$e_date)-as.numeric(p_dates$s_date),
-                 event=p_dates$e_date != last_date, type="right")
+                 event=(p_dates$e_date != last_date), type="right")
 suite_mod=survfit(suite_surv ~ 1)
 
-plot(suite_mod, col="red",
+plot(suite_mod, col=pal_col[1],
+	yaxs="i",
 	xlab="Days", ylab="Survival rate\n")
 
+
+pv_dates=ddply(released, .(package, version), package_lifetime)
+
+suite_surv=Surv(as.numeric(pv_dates$e_date)-as.numeric(pv_dates$s_date),
+                 event=(pv_dates$e_date != last_date), type="right")
+suite_mod=survfit(suite_surv ~ 1)
+
+lines(suite_mod, col=pal_col[2])
+
+legend(x="topright", legend=c("Package (latest version)", "Package (any version)"), bty="n", fill=pal_col, cex=1.2)
 

@@ -1,11 +1,11 @@
 #
-# eindor1985.R,  1 Jun 18
+# eindor1985.R,  7 Jun 19
 # Data from:
 # Grosch's Law Re-revisited: {CPU} Power and the Cost of Computation
 # Phillip Ein-Dor
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
 # TAG hardware performance MIPS cost memory
@@ -19,8 +19,8 @@ library("plyr")
 
 plot_pts=function(df)
 {
-points(df$Max_Memory, df$Average_cost, col=df$col_str)
-# points(df$MIPS, df$Average_cost, col=df$col_str)
+# points(df$Relative_Perf, df$Average_cost, col=df$col_str)
+points(df$MIPS, df$Price, col=df$col_str)
 }
 
 
@@ -31,9 +31,8 @@ pal_col=rainbow(length(cat_str))
 ein$col_str=mapvalues(ein$Category, cat_str, pal_col)
 
 plot(0.1, type="n", log="xy",
-	yaxs="i",
-	xlim=range(ein$Max_Memory), ylim=c(1, 800),
-	xlab="Maximum memory (Kbytes)", ylab="Average cost\n")
+	xlim=range(ein$MIPS), ylim=range(ein$Price),
+	xlab="Performance (MIPS)", ylab="Price ($thousand)\n")
 
 d_ply(ein, .(Category), plot_pts)
 

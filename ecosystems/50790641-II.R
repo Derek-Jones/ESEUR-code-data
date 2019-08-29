@@ -1,13 +1,16 @@
 #
-# 50790641-II.R,  3 Apr 17
+# 50790641-II.R, 11 Aug 19
 # Data from:
 # Employment of trained computer personnel\textemdash {A} quantitative survey
 # Bruce Gilchrist and Richard E. Weber
 # Table II
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG jobs 1960 computer_personel
+
 
 source("ESEUR_config.r")
 

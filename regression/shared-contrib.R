@@ -1,10 +1,13 @@
 #
-# shared-contrib.R, 10 Sep 16
-#
+# shared-contrib.R,  2 Aug 19
+# Data from:
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG example
+
 
 source("ESEUR_config.r")
 
@@ -15,13 +18,12 @@ library("VennDiagram")
 pal_col=rainbow_hcl(3)
 
 
-# This package used the grid package for its graphics
+# This package uses the grid package for its graphics
 grid.newpage()
 vp=viewport(width=0.4, height=0.4)
 pushViewport(vp)
 
 venn.plot = draw.triple.venn(
-#	overrideTriple="blah", euler.d=FALSE, scaled=FALSE,
 		area1 = 90,
 		area2 = 75,
 		area3 = 100,

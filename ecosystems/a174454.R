@@ -1,13 +1,16 @@
 #
-# a174454.R, 19 Jun 17
+# a174454.R, 10 Aug 19
 #
 # Data from:
 # A Study of Software Maintenance Costs of {Air Force} Large Scale Computer Systems
 # Robert E. NeSmith II
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG Fortran Cobol SLOC cost
+
 
 source("ESEUR_config.r")
 
@@ -61,7 +64,7 @@ lines(Assembler$year, Assembler$LOC/1e6, col=pal_col[4])
 legend(x="topleft", legend=c("Cobol", "Fortran", "Other", "Assembler"), bty="n", fill=pal_col, cex=1.2)
 
 plot(Cobol$year, Cobol$dev.cost/1e6, col=pal_col[1], log="y", type="l",
-	xlab="Year", ylab="Development cost (million dollars)\n")
+	xlab="Year", ylab="Development cost ($million)\n")
 
 lines(Fortran$year, Fortran$dev.cost/1e6, col=pal_col[2])
 lines(Other$year, Other$dev.cost/1e6, col=pal_col[3])

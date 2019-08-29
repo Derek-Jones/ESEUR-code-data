@@ -1,19 +1,22 @@
 #
-# antlrpdg.R, 15 Mar 18
+# antlrpdg.R, 28 Aug 19
 #
 # Data from:
 # Hussain Abdullah A. Al-Mutawa
 # On the Classification of Cyclic Dependencies in Java Programs
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG Java dependency cycles
+
 
 source("ESEUR_config.r")
 
 library("igraph")
 library("plyr")
-library("RJSONIO")
+library("jsonlite")
 
 
 # Increasing default_width does not seem to have any/much effect
@@ -41,13 +44,15 @@ plot_PDG=function(file_str)
 {
 ant=fromJSON(paste0(dir_str, file_str))
 
-from_to=ldply(ant$edge, get_src_tgt)
+from_to=adply(ant$edges, 1, get_src_tgt)
+f_t=data.frame(from=from_to$V1, to=from_to$V2)
 
-ant_g=graph.data.frame(unique(from_to), directed=TRUE)
+ant_g=graph.data.frame(unique(f_t), directed=TRUE)
 V(ant_g)$label=NA
-E(ant_g)$arrow.size=0.4
+E(ant_g)$arrow.size=0.3
 
-plot(ant_g, main=sub("\\.json.xz", "", file_str))
+plot(ant_g, main=sub("\\.json.xz", "", file_str),
+	vertex.frame.color="white")
 }
 
 

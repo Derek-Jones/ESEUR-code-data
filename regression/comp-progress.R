@@ -1,14 +1,16 @@
 #
-# comp-progress.R, 17 Sep 15
+# comp-progress.R,  5 Jun 19
 #
 # Data from:
-#
 # The Progress of Computing
 # William D. Nordhaus
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG cost_date operations_cost
+
 
 source("ESEUR_config.r")
 
@@ -24,7 +26,7 @@ pal_col[tech_vec]=rainbow(length(tech_vec))
 
 plot(0, type="n", log="y",
 	xlim=range(bench$Date), ylim=range(bench$total_cost_mill_ops),
-	xlab="Year", ylab="Cost per million ops\n")
+	xlab="Date", ylab="Cost per million ops\n")
 
 d_ply(bench, .(technology), function(df)
 			points(df$Date, df$total_cost_mill_ops,

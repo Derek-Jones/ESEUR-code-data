@@ -1,11 +1,11 @@
 #
-# icsm2013_apache.R, 27 May 18
+# icsm2013_apache.R,  2 Aug 19
 # Data from:
 # The Evolution of Project Inter-Dependencies in a Software Ecosystem: the Case of {Apache}
 # Gabriele Bavota and Gerardo Canfora and Massimiliano {Di Penta} and Rocco Oliveto and Sebastiano Panichella
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
 # TAG Java evolution dependencies methods classes projects
@@ -23,7 +23,7 @@ icsm$DATE=as.Date(icsm$DATE, format="%d/%m/%y")
 plot(icsm$DATE, icsm$LOC, type="l", log="y", col=pal_col[1],
 	xaxs="i", yaxs="i",
 	ylim=c(1, 4e7),
-	xlab="Date", ylab="Count\n")
+	xlab="Date", ylab="Occurrences\n")
 
 lines(icsm$DATE, icsm$METHODS, col=pal_col[2])
 lines(icsm$DATE, icsm$CLASSES, col=pal_col[3])

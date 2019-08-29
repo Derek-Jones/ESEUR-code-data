@@ -1,5 +1,5 @@
 #
-# ONS_software.R, 18 Nov 18
+# ONS_software.R, 28 Aug 19
 # Data from:
 #
 # http://www.ons.gov.uk/ons/rel/bus-invest/business-investment/index.html
@@ -58,7 +58,7 @@ ONS$Date=sub("Q4", " 12 31", ONS$Date)
 ONS$Date=as.Date(ONS$Date, format="%Y %m %d")
 
 plot(ONS$Date, ONS$Total_pur/1000, col=pal_col[1],
-	xlab="Year (quarterly)", ylab="Billion (£)\n")
+	xlab="Year (quarterly)", ylab="Business investment (£billion)\n")
 points(ONS$Date, ONS$Total_own/1000, col=pal_col[2])
 points(ONS$Date, ONS$Total_hard/1000, col=pal_col[3])
 

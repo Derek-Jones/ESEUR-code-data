@@ -1,12 +1,15 @@
 #
-# DRAMTFSC-dram.R, 22 May 17
+# DRAMTFSC-dram.R, 28 Aug 19
 # Data from:
 # DRAMs as Model Organisms for Study of Technological Evolution
 # Nadejda M. Victor and Jesse H. Ausubel
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG DRAM_shipped evolution_memory product_shipments
+
 
 source("ESEUR_config.r")
 
