@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG projects economics cost time
+# TAG project_cost project_time economics cost time
 
 source("ESEUR_config.r")
 

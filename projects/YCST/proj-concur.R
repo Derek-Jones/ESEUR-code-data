@@ -1,14 +1,16 @@
 #
-# proj-concur.R,  5 Mar 16
+# proj-concur.R, 25 Sep 19
 #
 # Data from:
 # Right on Time: Measuring, Modelling and Managing Time-Constrained Software Development
 # Antony Lee Powell
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
+# TAG project effort
+
 
 source("ESEUR_config.r")
 
@@ -24,10 +26,11 @@ fig_2=read.csv(paste0(ESEUR_dir, "projects/YCST/", file_2), as.is=TRUE)
 
 polygon(c(fig_1$Time, rev(fig_2$Time)),
 	c(fig_1$Effort, rev(fig_2$Effort)),
-	col=brew_col[col_ind])
+	col=brew_col[col_ind], border="grey", lwd=0.5)
 }
 
 plot(0, 0, type="n",
+	xaxs="i", yaxs="i",
 	xlim=c(0, 84), ylim=c(0, 1600),
 	xlab="Week", ylab="Effort (person hours)\n")
 
@@ -37,4 +40,6 @@ plot_fill("YCST-Fig31.B.csv.xz", "YCST-Fig31.C.csv.xz", 3)
 plot_fill("YCST-Fig31.C.csv.xz", "YCST-Fig31.D.csv.xz", 4)
 plot_fill("YCST-Fig31.D.csv.xz", "YCST-Fig31.non-proj.csv.xz", 5)
 plot_fill("YCST-Fig31.non-proj.csv.xz", "YCST-Fig31.holiday.csv.xz", 6)
+
+# legend(x="left", legend=c("Amdahl", "Quadratic", "Queueing"), bty="n", fill=pal_col, cex=1.2)
 

@@ -1,13 +1,16 @@
 #
-# Regression-models.R,  1 Oct 17
+# Regression-models.R,  3 Oct 19
 #
 # Data from:
 # Regression Models of Software Development Effort Estimation Accuracy and Bias
 # Magne J{\o}rgensen
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG estimate_effort estimate_actual
+
 
 source("ESEUR_config.r")
 

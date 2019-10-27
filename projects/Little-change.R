@@ -1,13 +1,16 @@
 #
-# Little-change.R, 23 Oct 17
+# Little-change.R, 29 Sep 19
 #
 # Data from:
 # Schedule Estimation and Uncertainty Surrounding the Cone of Uncertainty
 # Todd Little
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG project_estimate estimate_percentage-complete
+
 
 source("ESEUR_config.r")
 
@@ -16,7 +19,7 @@ library("plyr")
 
 # plot_layout(2, 1)
 
-pal_col=rainbow(2)
+pal_col=rainbow(3)
 
 # Project Code,Week End Date,Target RelDate,Env,Plan,Dev,Stab,Mob,Adj Week,Est EndDate,First Est,Actual Release,Start Date,X,Absolute Ratio,Relative Ratio,Update,Absolute ratio without factor 2,,Eind project,Oppervlakte,Counter,Som oppervlakte,EQF all,EQF end,Eind project factor 2,Oppervlakte factor 2,Counter factor 2,Som oppervlakte factor 2,EQF all factor 2,EQF end factor 2
 # 1,12/01/00,03/01/01,C,C,I,,,12/01/00,03/01/01,03/01/01,08/22/01,12/01/00,0.00,0.6770156819,2.95,1,0.33851,,0,0.0085951791,1,0,4235.7284514877,0,0,0.0176034663,1,0,#DIV/0!,0
@@ -84,7 +87,7 @@ change_percent=function(df)
 {
 points(100*tail(as.integer(df$Week.End.Date-df$Start.Date)/as.integer(df$Target.RelDate-df$Start.Date), n=-1),
        100*diff(df$Target.RelDate)/as.integer(tail(df$Target.RelDate-df$Start.Date, n=-1)),
-	col=point_col)
+	col=pal_col[2])
 df$percent_done=100*as.integer(df$Week.End.Date-df$Start.Date)/as.integer(df$Target.RelDate-df$Start.Date)
 # Using NA as the last element generates the error:
 # Error in FUN(X[[i]], ...) : 'tim' is not character or numeric
@@ -127,7 +130,7 @@ lines(loess.smooth(t$percent_done, t$ratio, span=0.3), col=pal_col[1])
 
 q=density(t$percent_done, from=0, to=100)
 q$y=q$y*150/max(q$y)-75
-lines(q, col=pal_col[2])
+lines(q, col=pal_col[3])
 
 # plot(density(t$percent_done, from=0, to=100), col=point_col,
 # 		main="",

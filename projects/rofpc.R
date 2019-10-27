@@ -1,21 +1,27 @@
 #
-# rofpc.R, 17 Oct 17
+# rofpc.R, 29 Sep 19
 # Data from:
 # Reliability of function point counts
 # P. Kampstra and C. Verhoef
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG function-points project_cost
+
 
 source("ESEUR_config.r")
 
 
+pal_col=rainbow(2)
+
+
 rofpc=read.csv(paste0(ESEUR_dir, "projects/rofpc.csv.xz"), as.is=TRUE)
-# We know one set of extracte dvalues must be integer
+# We know one set of extracted values must be integer
 rofpc$Function.points=as.integer(0.1+rofpc$Function.points)
 
-plot(rofpc$Function.points, rofpc$Cost.index, log="xy", col=point_col,
+plot(rofpc$Function.points, rofpc$Cost.index, log="xy", col=pal_col[2],
 	xlab="Function points", ylab="Cost\n")
 
 # Quadratic is a slightly better fit, but predicts eventual decline of costs
@@ -30,7 +36,7 @@ xbounds=20:2000
 
 pred=predict(rof_mod, newdata=data.frame(Function.points=xbounds), type="response")
 
-lines(xbounds, exp(pred), col=point_col)
+lines(xbounds, exp(pred), col=pal_col[1])
 
 # Cost has been normalised, should use beta distribution.
 # But the fit is almost identical...

@@ -1,14 +1,14 @@
 #
-# Elliott_77.R, 28 Oct 18
+# Elliott_77.R, 17 Oct 19
 # Data from:
 # Life Cycle Planning for a Large Mix of Commercial Systems
 # I. R. Elliott
 #
 # Example from:
-# Evidence-based Software Engineering: based on the available data
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG lifetime staffing systems rewrite
+# TAG system_lifetime staffing system_rewrite
 
 
 source("ESEUR_config.r")
@@ -34,7 +34,8 @@ peak=subset(staff, P_A == "Peak")
 average=subset(staff, P_A == "Average")
 
 plot(average$Years, average$Staff, log="y", col=pal_col[2],
-	xlab="Lifetime (years)", ylab="Staff")
+	ylim=c(50, 210),
+	xlab="Lifetime (years)", ylab="Staff\n")
 
 aver_mod=gnm(Staff ~ instances(Mult(1, Exp(Years)), 2)-1,
                 data=average, verbose=FALSE, trace=FALSE,

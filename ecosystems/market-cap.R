@@ -1,13 +1,16 @@
 #
-# market-cap.R, 15 Jul 16
+# market-cap.R, 22 Oct 19
 #
 # Data from:
 # Daily chart for April 21 2015 on The Economist webpage
 # Economist {Data team}
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG company_capitalization company_shares market-capitalization
+
 
 source("ESEUR_config.r")
 
@@ -75,7 +78,7 @@ mc=ddply(valu_bounds, .(ticker), total_valu)
 
 plot(0, type="n",
 	xlim=c(1980, 2015), ylim=c(0, 70),
-	xlab="Date", ylab="Market cap\n")
+	xlab="Date", ylab="Market capitalization\n")
 
 # d_ply(mc, .(ticker), plot_lines)
 

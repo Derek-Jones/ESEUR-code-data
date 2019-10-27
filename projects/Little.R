@@ -1,19 +1,23 @@
 #
-# Little.R, 22 Sep 17
+# Little.R, 29 Sep 19
 #
 # Data from:
 # Schedule Estimation and Uncertainty Surrounding the Cone of Uncertainty
 # Todd Little
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG project_estimate estimate_initial
 
 source("ESEUR_config.r")
 
 
 library("plyr")
 
+
+pal_col=rainbow(2)
 
 # Project Code,Week End Date,Target RelDate,Env,Plan,Dev,Stab,Mob,Adj Week,Est EndDate,First Est,Actual Release,Start Date,X,Absolute Ratio,Relative Ratio,Update,Absolute ratio without factor 2,,Eind project,Oppervlakte,Counter,Som oppervlakte,EQF all,EQF end,Eind project factor 2,Oppervlakte factor 2,Counter factor 2,Som oppervlakte factor 2,EQF all factor 2,EQF end factor 2
 # 1,12/01/00,03/01/01,C,C,I,,,12/01/00,03/01/01,03/01/01,08/22/01,12/01/00,0.00,0.6770156819,2.95,1,0.33851,,0,0.0085951791,1,0,4235.7284514877,0,0,0.0176034663,1,0,#DIV/0!,0
@@ -46,8 +50,8 @@ return(data.frame(est_duration=df$est_duration[1], num_reest=nrow(df)))
 u_est=ddply(est, .(Project.Code), mk_target_unique)
 t_sum=ddply(u_est, .(Project.Code), target_summary)
 
-plot(t_sum$est_duration,t_sum$num_reest, col=point_col,
+plot(t_sum$est_duration,t_sum$num_reest, col=pal_col[2],
 	xlab="Initial estimated duration (days)", ylab="Number of estimates")
 
-lines(loess.smooth(t_sum$est_duration, t_sum$num_reest, span=0.5, family="gaussian"), col="green")
+lines(loess.smooth(t_sum$est_duration, t_sum$num_reest, span=0.5, family="gaussian"), col=pal_col[1])
 

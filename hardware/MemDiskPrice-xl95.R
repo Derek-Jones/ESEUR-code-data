@@ -8,8 +8,11 @@
 # Economic Perspectives on Software Design: {PC} Operating Systems and Platforms
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG storage_cost disc_cost floppy_cost flash_cost DVD_cost
+
 
 source("ESEUR_config.r")
 

@@ -1,10 +1,11 @@
 #
-# pclint.R,  6 Apr 18
+# pclint.R, 18 Oct 19
 # Data from:
 # Software That Checks Software: The Impact of PC-lint
 # James Gimpel
+#
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
 # TAG C tool sales documentation product
@@ -22,15 +23,16 @@ pclint$Date=as.Date(pclint$Date, format="%d/%m/%Y")
 
 # plot( ~ Lines+Messages+Manual.Kwords+I(Options^2), data=pclint)
 
-plot(pclint$Date, pclint$Messages, col=pal_col[1],
-	ylim=c(5, 1100),
+plot(pclint$Date, pclint$Messages, type="b", col=pal_col[1],
+	yaxs="i",
+	ylim=c(0, 1200),
 	xlab="Date", ylab="")
 
-points(pclint$Date, pclint$Manual.Kwords, col=pal_col[2])
-points(pclint$Date, pclint$Options, col=pal_col[3])
-points(pclint$Date, pclint$Lines/1e3, col=pal_col[4])
+points(pclint$Date, pclint$Manual.Kwords, col=pal_col[2], type="b")
+points(pclint$Date, pclint$Options, col=pal_col[3], type="b")
+points(pclint$Date, pclint$Lines/1e3, col=pal_col[4], type="b")
 
-legend(x="topleft", legend=c("Messages", "Manual Kwords", "Options", "Source KLOC"), bty="n", fill=pal_col, cex=1.2)
+legend(x="topleft", legend=c("Messages", "Manual K words", "Options", "Source KLOC"), bty="n", fill=pal_col, cex=1.2)
 
 # This model fits really well :-)
 # pc_mod=glm(Lines ~ Messages+Manual.Kwords:I(Options^2), data=pclint)

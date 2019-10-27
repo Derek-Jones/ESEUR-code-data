@@ -1,12 +1,14 @@
 #
-# a085323.R, 29 Sep 17
+# a085323.R,  5 Oct 19
 # Data from:
 # Evaluation of software life cycle data from the PAVE PAWS project
 # Bill Curtis and Sylvia B. Sheppard and Elizabeth Kruesi
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG
 
 source("ESEUR_config.r")
 
@@ -17,7 +19,7 @@ pal_col=rainbow(5)
 
 
 # Total person hours and mean date (data was extracted so date values
-# contain jitter).
+# contain uncertainty).
 sum_mean=function(df)
 {
 return(data.frame(total=sum(df$P_hours), M_mean=mean(df$Month)))

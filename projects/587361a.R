@@ -1,12 +1,14 @@
 #
-# 587361a.R, 26 Sep 17
+# 587361a.R,  6 Oct 19
 # Data from:
 # Field studies into the dynamics of product development tasks
 # K. E. {van Oorschot} and J. W. M. Bertrand and C. G. Rutte
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG project_duration management_estimate
 
 source("ESEUR_config.r")
 
@@ -16,14 +18,25 @@ library("plyr")
 pal_col=rainbow(8)
 
 
+# Draw normalised line
+estimate_line=function(df)
+{
+tot_proj=sum(df$Projects)
+
+lines(df$Days, 100*df$Projects/tot_proj, col=pal_col[df$Estimate])
+}
+
+
 proj=read.csv(paste0(ESEUR_dir, "projects/587361a.csv.xz"), as.is=TRUE)
 
 plot(proj$Days, proj$Projects, type="n",
-	xlim=c(1, 16),
-	xlab="Duration (weeks)", ylab="Projects")
+	yaxs="i",
+	xlim=c(1, 18), ylim=c(0, 50),
+	xlab="Duration (weeks)", ylab="Projects (percentage)\n")
 
-d_ply(proj, .(Estimate), function(df) lines(df$Days, df$Projects, col=pal_col[df$Estimate]))
+d_ply(proj, .(Estimate), estimate_line)
 
+legend(x="topright", legend=paste0(1:8, " weeks"), bty="n", fill=pal_col, cex=1.2)
 
 # Overlay an estimated lognormal distribution...
 # Est=4

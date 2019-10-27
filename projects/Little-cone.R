@@ -1,13 +1,16 @@
 #
-# Little-cone.R, 22 Sep 17
+# Little-cone.R, 17 Oct 19
 #
 # Data from:
 # Schedule Estimation and Uncertainty Surrounding the Cone of Uncertainty
 # Todd Little
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG project_estimate project_actual project_percentage-complete
+
 
 source("ESEUR_config.r")
 
@@ -15,7 +18,7 @@ source("ESEUR_config.r")
 library("plyr")
 
 
-pal_col=rainbow(2)
+pal_col=rainbow(3)
 
 # Project Code,Week End Date,Target RelDate,Env,Plan,Dev,Stab,Mob,Adj Week,Est EndDate,First Est,Actual Release,Start Date,X,Absolute Ratio,Relative Ratio,Update,Absolute ratio without factor 2,,Eind project,Oppervlakte,Counter,Som oppervlakte,EQF all,EQF end,Eind project factor 2,Oppervlakte factor 2,Counter factor 2,Som oppervlakte factor 2,EQF all factor 2,EQF end factor 2
 # 1,12/01/00,03/01/01,C,C,I,,,12/01/00,03/01/01,03/01/01,08/22/01,12/01/00,0.00,0.6770156819,2.95,1,0.33851,,0,0.0085951791,1,0,4235.7284514877,0,0,0.0176034663,1,0,#DIV/0!,0
@@ -46,11 +49,13 @@ return(df[t, ])
 est=subset(est, Week.End.Date <= Actual.Release)
 u_est=ddply(est, .(Project.Code), mk_target_unique)
 
-plot(u_est$percent_comp,u_est$AE_ratio, col=point_col,
+plot(u_est$percent_comp,u_est$AE_ratio, log="y", col=pal_col[2],
+	xaxs="i",
+	xlim=c(-1, 100),
 	xlab="Percentage completed", ylab="Actual/Estimated")
 
 x_vals=10:100
 lines(x_vals, 100/x_vals, col=pal_col[1])
 
-lines(c(0, 100), c(1, 1), col=pal_col[2])
+lines(c(0, 100), c(1, 1), col=pal_col[3])
 

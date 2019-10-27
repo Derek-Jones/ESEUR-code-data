@@ -1,13 +1,16 @@
 #
-# cost-value.R, 16 Jun 15
+# cost-value.R,  9 Oct 19
 #
 # Data from:
 # A Cost-Value Approach for Prioritizing Requirements
 # Joachim Karlsson and Kevin Ryan
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG
+
 
 source("ESEUR_config.r")
 
@@ -22,7 +25,8 @@ bench=read.csv(paste0(ESEUR_dir, "projects/requirements/cost-value.csv.xz"), as.
 RAN=subset(bench, project == "RAN")
 PMR=subset(bench, project == "PMR")
 
-plot(RAN$cost, RAN$value, col=pal_col[1])
+plot(RAN$cost, RAN$value, col=pal_col[1],
+	xlab="Cost", ylab="Value")
 points(PMR$cost, PMR$value, col=pal_col[3])
 
 lines(c(0, 10), c(0,20), col=pal_col[2]) # One cost/benefit choice

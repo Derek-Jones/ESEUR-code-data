@@ -1,5 +1,5 @@
 #
-# sloc_sd.R,  4 Oct 17
+# sloc_sd.R,  1 Oct 19
 # Data from:
 # The Effectiveness of Software Diversity
 # Meine Jochum Peter {van der Meulen}
@@ -17,8 +17,10 @@
 # Bente C.D. Anda and Dag I.K. Sjøberg and Audris Mockus
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG SLOC_mean SLOC_sd program_SLOC
 
 source("ESEUR_config.r")
 
@@ -29,7 +31,7 @@ pal_col=rainbow(8)
 plot_dist=function(lines, col_num)
 {
 t=data.frame(m=mean(lines), s=sd(lines))
-points(t$m, t$s, col=pal_col[col_num])
+points(t$m, t$s, col=pal_col[col_num], lwd=1.5)
 
 return(t)
 }
@@ -50,7 +52,7 @@ jorg=read.csv(paste0(ESEUR_dir, "projects/Simula.2116.csv.xz"), as.is=TRUE)
 anda=c(7937, 14549, 7208, 8293)
 
 plot(1, type="n", log="xy",
-	xlim=c(10, 1e4), ylim=c(10, 1e4),
+	xlim=c(40, 1e4), ylim=c(10, 1e4),
 	xlab="Mean LOC", ylab="Standard deviation\n")
 
 # The defintion of a line of code is unlikely to be consistent
