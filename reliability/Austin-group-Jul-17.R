@@ -1,12 +1,14 @@
 #
-# Austin-group-Jul-17.R, 25 Apr 18
+# Austin-group-Jul-17.R, 21 Nov 19
 # Data from:
 # austingroupbugs.net
 # via Andrew Josey
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG POSIX_defect-report requirements_error
 
 source("ESEUR_config.r")
 
@@ -25,6 +27,7 @@ omission=subset(posix_dr, Type == "Omission")
 
 
 plot(sort(error$Date.Submitted), 1:nrow(error), type="l", col=pal_col[1],
+	xaxs="i", yaxs="i",
 	xlab="Date", ylab="Reported problems\n")
 lines(sort(clarif$Date.Submitted), 1:nrow(clarif), col=pal_col[2])
 lines(sort(enhance$Date.Submitted), 1:nrow(enhance), col=pal_col[3])

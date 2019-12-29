@@ -1,14 +1,15 @@
 #
-# 19820013026-trend.R,  04 Mar 18
+# 19820013026-trend.R,  25 Dec 19
 #
 # Data from:
 # Software Reliability: Repetitive Run Experimentation and Modeling
 # Phyllis M. Nagel and James A. Skrivan
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
-
+#
+# TAG experiment_software reliability input
 
 source("ESEUR_config.r")
 
@@ -76,7 +77,7 @@ cases=subset(A2_un, select=grepl("case", colnames(A2)))
 errs=subset(A2_un, select=grepl("err", colnames(A2)))
 
 plot(1, log="x", type="n",
-		xlim=c(1, 33000), ylim=c(1, 5),
+		xlim=c(1.3, 33000), ylim=c(1.1, 5),
 		xlab="Inputs processed", ylab="Faults experienced\n")
 
 dummy=sapply(1:nrow(cases), function(X) lines(cumsum(t(cases[X, ])), 1:6, col=pal_col[X]))
@@ -85,8 +86,9 @@ dummy=sapply(1:nrow(cases), function(X) lines(cumsum(t(cases[X, ])), 1:6, col=pa
 pal_col=rainbow(5)
 
 plot(1, log="y", type="n",
-		xlim=c(1, 50), ylim=c(1, 33000),
-		xlab="Sorted order", ylab="Inputs processed\n")
+	xaxs="i",
+	xlim=c(0, 50), ylim=c(1, 33000),
+	xlab="Sorted order", ylab="Inputs processed\n")
 
 legend(x="topright", legend=paste0("Fault ", c("a", "b", "c", "d", "e")),
 					 bty="n", fill=pal_col, cex=1.2)

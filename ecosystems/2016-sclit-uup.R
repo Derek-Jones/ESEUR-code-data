@@ -5,8 +5,11 @@
 # Milo\u{s} Savi{\'c} and Mirjana Ivanovi{\'c} and Zoran Budimac and Milo\u{s} Radovanovi{\'c}
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG experiment_human programming-language_skill
+
 
 source("ESEUR_config.r")
 
@@ -50,7 +53,7 @@ marks$PT2_p=marks$PT2/10.0
 marks$PT3_p=marks$PT3/20.0
 marks$PT4_p=marks$PT4/20.0
 
-# So student practical marks improve with practice?
+# Do student practical marks improve with practice?
 m_marks=melt(marks, measure.vars=c("PT1_p", "PT2_p", "PT3_p", "PT4_p"),
 		variable.name="PT", value.name="P_score")
 

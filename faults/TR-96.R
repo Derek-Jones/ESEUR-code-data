@@ -1,28 +1,31 @@
 #
-# TR-96.csv,  5 Mar 18
+# TR-96.csv, 18 Nov 19
 #
 # Data from:
 # Software Reliability Growth Models
 # Alan Wood
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG testing_fault-experience
 
 
 source("ESEUR_config.r")
 
-brew_col=rainbow(4)
+pal_col=rainbow(4)
 
 #   Week R1.hrs R1.defects R2.hrs R2.defects R3.hrs R3.defects R4.hrs R4.defects
 defects=read.csv(paste0(ESEUR_dir, "faults/TR-96.csv.xz"), as.is=TRUE)
 
 plot_defects=function(test_time, total_defects, col_ind)
 {
-lines(test_time, total_defects, col=brew_col[col_ind])
+lines(test_time, total_defects, col=pal_col[col_ind])
 }
 
 plot(1, type="n",
+	xaxs="i", yaxs="i",
 	xlim=c(0, 12000), ylim=c(0, 120),
 	xlab="Hours of testing", ylab="Faults experienced\n")
 

@@ -1,13 +1,15 @@
 #
-# covrig.R, 17 Feb 18
+# covrig.R, 23 Nov 19
 #
 # Data from:
 # COVRIG: A Framework for the Analysis of Code, Test, and Coverage Evolution in Real Software
 # Paul Marinescu and Petr Hosek and Cristian Cadar
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG testing_evolution coverage_statement
 
 source("ESEUR_config.r")
 
@@ -48,6 +50,7 @@ pal_col=rainbow(length(prog_names))
 prog$col_str=mapvalues(prog$program, prog_names, pal_col)
 
 plot(1, type="n",
+	yaxs="i",
 	xlim=range(prog$time, na.rm=TRUE), ylim=c(0, 82),
 	xlab="Year", ylab="Statement coverage\n")
 d_ply(prog, .(program), all_progs)

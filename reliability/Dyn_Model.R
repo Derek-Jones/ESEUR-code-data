@@ -1,12 +1,14 @@
 #
-# Dyn_Model.R, 19 Mar 18
+# Dyn_Model.R, 23 Nov 19
 # Data from:
 # Dynamic model for the system testing process
 # Gábor Stikkel
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG testing_effort fault_testing
 
 source("ESEUR_config.r")
 
@@ -40,6 +42,8 @@ plot(diff(P1$Normalized_count)/P1$STE_Manhour[-1], type="l", log="y", col=pal_co
 	xlab="Week", ylab="Normalised faults per man-hour\n")
 lines(diff(P2$Normalized_count)/P2$STE_Manhour[-1], col=pal_col[2])
 lines(diff(P3$Normalized_count)/P3$STE_Manhour[-1], col=pal_col[3])
+
+legend(x="bottomright", legend=paste0("Project P", 1:3), bty="n", fill=pal_col, cex=1.2)
 
 # plot(diff(P1$Normalized_count), P1$STE_Manhour[-1])
 # plot(diff(P2$Normalized_count), P2$STE_Manhour[-1])

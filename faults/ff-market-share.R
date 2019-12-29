@@ -1,12 +1,14 @@
 #
-# ff-market-share.R, 10 Mar 18
+# ff-market-share.R, 20 Nov 19
 #
 # Data from:
 # http://www.w3schools.com
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG firefox_market-share
 
 
 source("ESEUR_config.r")
@@ -17,11 +19,11 @@ study_end=as.Date("1-October-2010", format="%d-%B-%Y")
 last_estimate=as.Date("30-April-2007", format="%d-%B-%Y")
 
 # browser market share
-browser_ms=read.csv(paste0(ESEUR_dir, "faults/milk-wine/w3stats_browser.csv.xz"), as.is=TRUE)
+browser_ms=read.csv(paste0(ESEUR_dir, "faults/w3stats_browser.csv.xz"), as.is=TRUE)
 browser_ms$date=as.Date(browser_ms$date, format="%m/%d/%Y")-study_start
-xbounds=c(0, max(browser_ms$date))
+xbounds=c(0, max(browser_ms$date)+30) # add 30 to extend x-axis
 max_ms=max(browser_ms$market_share)
-ybounds=c(0, max_ms+0.5)
+ybounds=c(0, max_ms+1.9)
 
 
 plot_market_share=function(ver_str, color)
@@ -36,8 +38,9 @@ text(x, y, substring(ver_str, 2), pos=3, cex=1.3)
 brew_col=rainbow(6)
 
 plot(1, type="n",
-	xlab="Days since version 1.0 released", ylab="Browser market share (%)\n",
-	xlim=xbounds, ylim=ybounds)
+	xaxs="i", yaxs="i",
+	xlim=xbounds, ylim=ybounds,
+	xlab="Days since version 1.0 released", ylab="Browser market share (%)\n")
 plot_market_share("v1.0", brew_col[1])
 plot_market_share("v1.5", brew_col[2])
 plot_market_share("v2.0", brew_col[3])

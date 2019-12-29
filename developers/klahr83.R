@@ -1,16 +1,22 @@
 #
-# klahr83.R,  4 Nov 16
+# klahr83.R, 12 Dec 19
 # Data from:
 # Structure and Process in Alphabetic Retrieval
 # David Klahr and William G. Chase and Eugene A.  Lovelace
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG experiment_human memory_retrieval information_structure
+
 
 source("ESEUR_config.r")
 
 library("diagram")
+
+
+pal_col=rainbow(2)
 
 
 elpos=coordinates (c(6, 6, 6, 6, 6, 6, 6, 6))
@@ -50,7 +56,8 @@ M["Q", "R"]="" ; M["R", "S"]="" ; M["S", "T"]="" ;
 M["U", "V"]="" ;
 M["W", "X"]="" ; M["X", "Y"]="" ; M["Y", "Z"]="" ;
 
-plotmat(t(M), pos=elpos, lwd=1, arr.lcol="green", arr.pos=0.6, arr.length=0.15, cex=1.2,
-	 box.lcol="white", box.prop=0.5, box.size=0.05, box.cex=1.2, shadow.size=0)
+plotmat(t(M), pos=elpos, lwd=1, arr.lcol=pal_col[2], arr.pos=0.6, arr.length=0.15, cex=1.2,
+	txt.col=pal_col[1],
+	box.lcol="white", box.prop=0.5, box.size=0.05, box.cex=1.2, shadow.size=0)
 
 

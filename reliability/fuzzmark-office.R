@@ -1,12 +1,15 @@
 #
-# fuzzmark-office.R, 22 Feb 18
+# fuzzmark-office.R,  7 Nov 19
 # Data from:
 # Showing How Security Has (And Hasn't) Improved, After Ten Years Of Trying
 # Dan Kaminsky and Michael Eddington and Adam Cecchetti
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG Microsoft_Word fuzzing_Word Crash_frequency
+
 
 source("ESEUR_config.r")
 
@@ -36,8 +39,9 @@ w07=major_count(y2007)
 w10=major_count(y2010)
 
 plot(sort(w03$freq, decreasing=TRUE), log="y", col=pal_col[1],
+	xaxs="i",
 	xlim=c(1, 45),
-	xlab="Crash fault", ylab="Occurrences\n")
+	xlab="Crash location ID", ylab="Crashes\n")
 
 points(sort(w07$freq, decreasing=TRUE), col=pal_col[2])
 points(sort(w10$freq, decreasing=TRUE), col=pal_col[3])
@@ -57,11 +61,11 @@ w03_mod=gnm(freq ~ instances(Mult(1, Exp(duplicates)), 2)-1,
 
 exp_coef=as.numeric(coef(w03_mod))
 
-lines(w03$duplicates, exp_coef[1]*exp(exp_coef[2]*w03$duplicates), col=pal_col[4])
-lines(w03$duplicates, exp_coef[3]*exp(exp_coef[4]*w03$duplicates), col=pal_col[5])
+# lines(w03$duplicates, exp_coef[1]*exp(exp_coef[2]*w03$duplicates), col=pal_col[4])
+# lines(w03$duplicates, exp_coef[3]*exp(exp_coef[4]*w03$duplicates), col=pal_col[5])
 
-# pred=predict(w03_mod)
-# lines(w03$duplicates, pred, col=pal_col[2])
+pred=predict(w03_mod)
+lines(w03$duplicates, pred, col=pal_col[1])
 
 w07=w07[order(w07$freq, decreasing=TRUE), ]
 w07$duplicates=1:nrow(w07)
@@ -76,11 +80,11 @@ w07_mod=gnm(freq ~ instances(Mult(1, Exp(duplicates)), 2)-1,
 
 exp_coef=as.numeric(coef(w07_mod))
 
-lines(w07$duplicates, exp_coef[1]*exp(exp_coef[2]*w07$duplicates), col=pal_col[4])
-lines(w07$duplicates, exp_coef[3]*exp(exp_coef[4]*w07$duplicates), col=pal_col[5])
+# lines(w07$duplicates, exp_coef[1]*exp(exp_coef[2]*w07$duplicates), col=pal_col[4])
+# lines(w07$duplicates, exp_coef[3]*exp(exp_coef[4]*w07$duplicates), col=pal_col[5])
 
-# pred=predict(w07_mod)
-# lines(w07$duplicates, pred, col=pal_col[2])
+pred=predict(w07_mod)
+lines(w07$duplicates, pred, col=pal_col[2])
 
 
 w10=w10[order(w10$freq, decreasing=TRUE), ]
@@ -96,10 +100,10 @@ w10_mod=gnm(freq ~ instances(Mult(1, Exp(duplicates)), 2)-1,
 
 exp_coef=as.numeric(coef(w10_mod))
 
-lines(w10$duplicates, exp_coef[1]*exp(exp_coef[2]*w10$duplicates), col=pal_col[4])
-lines(w10$duplicates, exp_coef[3]*exp(exp_coef[4]*w10$duplicates), col=pal_col[5])
+# lines(w10$duplicates, exp_coef[1]*exp(exp_coef[2]*w10$duplicates), col=pal_col[4])
+# lines(w10$duplicates, exp_coef[3]*exp(exp_coef[4]*w10$duplicates), col=pal_col[5])
 
-# pred=predict(w10_mod)
-# lines(w10$duplicates, pred, col=pal_col[2])
+pred=predict(w10_mod)
+lines(w10$duplicates, pred, col=pal_col[3])
 
 

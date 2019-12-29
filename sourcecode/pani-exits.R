@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG loop source C
+# TAG loop basic-block source C_loop
 
 
 source("ESEUR_config.r")

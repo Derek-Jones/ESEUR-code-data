@@ -1,12 +1,14 @@
 #
-# template.R,  5 Nov 16
+# template.R, 18 Nov 19
 # Data from:
 # Optimizing Preventive Service of Software Products
 # Edward N. Adams
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG product_usage product_fault fault_usage-time
 
 source("ESEUR_config.r")
 
@@ -21,7 +23,7 @@ adams=read.csv(paste0(ESEUR_dir, "reliability/adams84.csv.xz"), as.is=TRUE)
 
 
 plot(adams$P1, adams$P2, type="l", log="xy", col=pal_col[1],
-	xlab="Product usage time (years)", ylab="Percentage of reported faults\n")
+	xlab="Product usage time (years)", ylab="Reported fault experiences (percentage)\n")
 lines(adams$P1, adams$P3, col=pal_col[2])
 lines(adams$P1, adams$P4, col=pal_col[3])
 lines(adams$P1, adams$P5, col=pal_col[4])

@@ -1,12 +1,14 @@
 #
-# issta16.R,  3 Dec 17
+# issta16.R, 28 Dec 19
 # Data from:
 # Toward Understanding Compiler Bugs in GCC and LLVM
 # Chengnian Sun and Vu Le and Qirun Zhang and Zhendong Su
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG compiler_fault GCC_fault LLVM_fault fault_duplicate
 
 source("ESEUR_config.r")
 
@@ -25,7 +27,7 @@ llvm=subset(dupbug, compiler == "llvm")
 llvm=llvm[-7, ]
 
 plot(gcc$duplicates, gcc$reported, log="y", col=point_col,
-	xlab="Duplicates", ylab="Reported bugs\n")
+	xlab="Duplicate reports", ylab="Occurrences\n")
 
 gcc_mod=gnm(reported ~ instances(Mult(1, Exp(duplicates)), 2)-1,
                 data=gcc, verbose=FALSE,
@@ -46,7 +48,7 @@ lines(gcc$duplicates, pred, col=pal_col[2])
 
 # 
 # plot(llvm$duplicates, llvm$reported, log="y", col=point_col,
-# 	xlab="Duplicates", ylab="Reported bugs\n")
+# 	xlab="Duplicate reports", ylab="Occurrences\n")
 # llvm_mod=gnm(reported ~ instances(Mult(1, Exp(duplicates)), 2)-1,
 #                 data=llvm, verbose=FALSE,
 #                 start=c(12000.0, -1.6, 300.0, -0.1),

@@ -2,7 +2,7 @@
 # hogarth92.R, 22 Feb 19
 # Data from:
 # Learning From Feedback: {Exactness} and Incentives
-# Robin M. Hogarth and Craig R. M. McKenzie and Brian J. Gibbs and Margaret A. Marquis",
+# Robin M. Hogarth and Craig R. M. McKenzie and Brian J. Gibbs and Margaret A. Marquis
 #
 # Example from:
 # Evidence-based Software Engineering: based on the publicly available data

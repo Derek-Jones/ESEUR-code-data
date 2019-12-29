@@ -1,17 +1,23 @@
 #
-# 1703-06337-dup.R, 19 Mar 18
+# 1703-06337-dup.R, 13 Nov 19
 # Data from:
 # Rediscovery Datasets: Connecting Duplicate Reports
 # Mefta Sadat and Ayse Basar Bener and Andriy V. Miranskyy
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG fault-report_duplicate
+
 
 source("ESEUR_config.r")
 
 
 library("diagram")
+
+
+pal_col=rainbow(2)
 
 rep_pos=coordinates(c(3, 1, 3, 4, 2, 2))
 
@@ -35,6 +41,8 @@ M["19760", "19274"]=""; M["19760", "19128"]=""
 
 M["19274", "23194"]=""; M["19274", "23196"]=""
 
-plotmat(t(M), pos=rep_pos, lwd=1, arr.lcol="green", arr.pos=0.6, arr.length=0.15, cex=1.2,
-         box.lcol="white", box.prop=0.5, box.size=0.05, box.cex=1.2, shadow.size=0)
+plotmat(t(M), pos=rep_pos, lwd=1,
+	arr.lcol=pal_col[2], arr.pos=0.6, arr.length=0.15, cex=1.2,
+        box.lcol="white", box.prop=0.5, box.size=0.05, box.cex=1.2,
+	txt.col=pal_col[1], shadow.size=0)
 

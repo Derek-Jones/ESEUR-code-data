@@ -1,22 +1,28 @@
 #
-# fault-states.R, 25 Feb 18
+# fault-states.R, 17 Nov 19
 #
 # Data from:
 # Software Reliability: Repetitive Run Experimentation and Modeling
 # Phyllis M. Nagel and James A. Skrivan
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG
 
 source("ESEUR_config.r")
 
 
 library("diagram")
 
+
 # The default size produces an plot that is smaller than the available space
 plot_layout(1, 1, default_width=ESEUR_default_width+2,
 			default_height=ESEUR_default_height+2)
+
+pal_col=rainbow(3)
+
 
 names=c("A2-0",
 	"1", "2",
@@ -54,8 +60,9 @@ M["124", "1234"]=30
 M["134", "1234"]=1
 M["1234", "12345"]=22
 
-plotmat(t(M), pos=c(1, 2, 3, 4, 2, 1), lwd=1, lcol="grey", txt.col="red",
-	 arr.pos=0.4, arr.width=0.1, cex=1.2,
-	 box.type="rect", box.prop=0.5, box.size=0.05, box.cex=1.2, box.lwd=0.01,
-	 shadow.size=0)
+par(col=pal_col[3]) # No obvious way of setting color of arrow-head text
+plotmat(t(M), pos=c(1, 2, 3, 4, 2, 1), lwd=1, lcol="grey", txt.col=pal_col[1],
+	 arr.col=pal_col[3], arr.lcol=pal_col[2], arr.pos=0.4, arr.width=0.1,
+	 box.prop=0.5, box.size=0.05, box.cex=1.2, box.lcol="white", 
+	 cex=1.2, shadow.size=0)
 

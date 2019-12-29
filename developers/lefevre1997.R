@@ -1,5 +1,5 @@
 #
-# lefevre1997.R, 25 Feb 19
+# lefevre1997.R,  7 Dec 19
 # Data from:
 # The Role of Experience in Numerical Skill: {Multiplication} Performance in Adults from {Canada} and {China}
 # Jo-Anne LeFevre and Jing Liu
@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment human arithmetic performance
+# TAG experiment_human arithmetic_performance
 
 
 source("ESEUR_config.r")
@@ -106,7 +106,8 @@ china=subset(lef, culture == "CH")
 # legend(x="topleft", legend=c("Canadian", "Chinese"), bty="n", fill=pal_col, cex=1.2)
 
 plot(0, type="n",
-	xlim=c(0, 9), ylim=c(0, 7),
+	xaxs="i", yaxs="i",
+	xlim=c(0, 9), ylim=c(0, 7.1),
 	xlab="Operand family", ylab="Incorrect (%)")
 
 family_error(canada, pal_col[1])

@@ -1,14 +1,15 @@
 #
-# ff-ms-predict.R, 19 Aug 16
+# ff-ms-predict.R, 17 Dec 19
 #
 # Data from:
 # W3Counter global web stats
 # www.w3counter.com
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
-
+#
+# TAG
 
 source("ESEUR_config.r")
 
@@ -19,7 +20,7 @@ last_estimate=as.Date("30-April-2007", format="%d-%B-%Y")
 
 
 # browser market share
-browser_ms=read.csv(paste0(ESEUR_dir, "faults/milk-wine/w3stats_browser.csv.xz"), as.is=TRUE)
+browser_ms=read.csv(paste0(ESEUR_dir, "faults/w3stats_browser.csv.xz"), as.is=TRUE)
 browser_ms$date=as.numeric(as.Date(browser_ms$date, format="%m/%d/%Y")-study_start)
 
 plot_market_share=function(ver_str, color, span_val)

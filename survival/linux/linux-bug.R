@@ -1,16 +1,18 @@
 #
-# linux-bug.R,  8 Jan 16
+# linux-bug.R, 25 Dec 19
 #
 # Data from:
 # Faults in Linux: Ten Years Later
 # Nicolas Palix and Suman Saha and Ga\"{e}l Thomas and Christophe Calv\'{e}s and Julia Lawall and Gilles Muller
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
-
+#
+# TAG Linux_faults device-drivers_faults fault_survival
 
 source("ESEUR_config.r")
+
 
 library("survival")
 
@@ -37,25 +39,28 @@ others=subset(bug_life, top_dir != "drivers")
 
 # By version
 
-d_mod=survfit(Surv(drivers$end-drivers$start+1, drivers$end == 33) ~ 1)
-plot(d_mod, col=pal_col[1],
-	xlab="Version", ylab="Survival\n")
-
-o_mod=survfit(Surv(others$end-others$start+1, others$end == 33) ~ 1)
-lines(o_mod, col=pal_col[2])
-
-legend(x="topright", legend=c("drivers", "others"),
-		text.col=pal_col, bty="n", cex=1.3)
-
-# By days
-
-# d_mod=survfit(Surv(drivers$end_day-drivers$start_day+1, drivers$end == 33) ~ 1)
-# plot(d_mod, xlab="Number of days", ylab="Survival\n", col=pal_col[1])
+# d_mod=survfit(Surv(drivers$end-drivers$start+1, drivers$end == 33) ~ 1)
+# plot(d_mod, col=pal_col[1],
+# 	yaxs="i",
+# 	xlab="Version", ylab="Fault survival rate\n")
 # 
-# o_mod=survfit(Surv(others$end_day-others$start_day+1, others$end == 33) ~ 1)
+# o_mod=survfit(Surv(others$end-others$start+1, others$end == 33) ~ 1)
 # lines(o_mod, col=pal_col[2])
 # 
 # legend(x="topright", legend=c("drivers", "others"),
 # 		text.col=pal_col, bty="n", cex=1.3)
+
+# By days
+
+d_mod=survfit(Surv(drivers$end_day-drivers$start_day+1, drivers$end == 33) ~ 1)
+plot(d_mod, col=pal_col[1],
+	yaxs="i",
+	xlab="Number of days", ylab="Survival\n")
+# 
+o_mod=survfit(Surv(others$end_day-others$start_day+1, others$end == 33) ~ 1)
+lines(o_mod, col=pal_col[2])
+
+legend(x="topright", legend=c("drivers", "others"),
+		text.col=pal_col, bty="n", cex=1.3)
 
 

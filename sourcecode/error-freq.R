@@ -1,14 +1,14 @@
 #
-# error-freq.R, 21 Jun 18
+# error-freq.R, 28 Dec 19
 # Data from:
 # Frequency Distribution of Error Messages
 # David Pritchard
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG student mistakes messages Java Python
+# TAG student_mistake compiler_messages Java_mistake Python_mistake
 
 
 source("ESEUR_config.r")
@@ -23,7 +23,7 @@ Java=subset(ef, Lang == "Java")
 Python=subset(ef, Lang == "Python")
 
 plot(Java$Occurrences, log="xy", col=pal_col[1],
-	xlab="Error message rank", ylab="Occurrences")
+	xlab="Error message rank", ylab="Occurrences\n")
 points(Python$Occurrences, col=pal_col[2])
 
 legend(x="bottomleft", legend=c("Java", "Python"), bty="n", fill=pal_col, cex=1.2)

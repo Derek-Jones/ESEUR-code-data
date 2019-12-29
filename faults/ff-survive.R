@@ -1,17 +1,16 @@
 #
-# ff-survive.R,  4 Aug 13
-#
-# R code for book "Empirical Software Engineering using R"
-# Derek M. Jones, http://shape-of-code.coding-guidelines.com
+# ff-survive.R, 21 Nov 19
 #
 # Uses data from:
 # After-Life Vulnerabilities: A Study on Firefox Evolution, its Vulnerabilities, and Fixes
 # Fabio Massacci and Stephen Neuhaud and Viet Hung Nguyen
 #
-#
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG firefox vulnerability_survival
+
 
 source("ESEUR_config.r")
 
@@ -27,13 +26,13 @@ every_day=seq(study_start, study_end, by=1)
 
 # version,v1.0,v1.5,v2.0,v3.0,v3.5,v3.6
 # Treat column 1 as the rownames
-version_fault=read.csv(paste0(ESEUR_dir, "faults/milk-wine/ff-version-fault.csv.xz"), row.names=1, as.is=TRUE)
+version_fault=read.csv(paste0(ESEUR_dir, "faults/ff-version-fault.csv.xz"), row.names=1, as.is=TRUE)
 vf_names=colnames(version_fault)
 
 # version,release,retire
 # date format: 9-November-2004
 # Treat column 1 as the rownames
-version_dates=read.csv(paste0(ESEUR_dir, "faults/milk-wine/ff-release-retire.csv.xz"), row.names=1, as.is=TRUE)
+version_dates=read.csv(paste0(ESEUR_dir, "faults/ff-release-retire.csv.xz"), row.names=1, as.is=TRUE)
 version_dates$release=as.Date(version_dates$release, format="%d-%B-%Y")
 version_dates$retire=as.Date(version_dates$retire, format="%d-%B-%Y")
 version_dates$retire[version_dates$retire > study_end]=study_end
@@ -175,7 +174,7 @@ return(t)
 # Take the original data format and convert to the one used here.
 # Convert a list of values into a 2-D matrix
 #
-# src_version=read.csv(paste0(ESEUR_dir, "faults/milk-wine/orig-ff-src-version.csv.xz"), as.is=TRUE)
+# src_version=read.csv(paste0(ESEUR_dir, "faults/orig-ff-src-version.csv.xz"), as.is=TRUE)
 # 
 # q=matrix(data=0, nrow=6, ncol=6)
 # rownames(q)=c("v1.0", "v1.5", "v2.0", "v3.0", "v3.5", "v3.6")
@@ -184,7 +183,7 @@ return(t)
 # q[cbind(src_version[, 2], src_version[, 1])] = src_version[, 3]
 # write.csv(q, file="ff-src-version.csv.xz")
 
-src_LOC=read.csv(paste0(ESEUR_dir, "faults/milk-wine/ff-src-version.csv.xz"), row.names=1, as.is=TRUE)
+src_LOC=read.csv(paste0(ESEUR_dir, "faults/ff-src-version.csv.xz"), row.names=1, as.is=TRUE)
 LOC_diag=diag(src_LOC)
 
 src_percent=src_LOC/diag(as.matrix(src_LOC))
@@ -210,7 +209,7 @@ return(data.frame(total_usage))
 }
 
 
-browser_ms=read.csv(paste0(ESEUR_dir, "faults/milk-wine/w3stats_browser.csv.xz"), as.is=TRUE)
+browser_ms=read.csv(paste0(ESEUR_dir, "faults/w3stats_browser.csv.xz"), as.is=TRUE)
 browser_ms$date=as.Date(browser_ms$date, format="%m/%d/%Y")
 # plot(browser_ms$market_share[browser_ms$browser == "v1.0"])
 
@@ -226,7 +225,7 @@ daily_ff_ms=predict(l_mod, newdata=data.frame(date=as.numeric(every_day)))
 
 # Estimate the number of Internet users on every day of the study period
 # ITU gives figures per 100 head of population
-i_users=read.csv(paste0(ESEUR_dir, "faults/milk-wine/itu-internet-users.csv.xz"), as.is=TRUE)
+i_users=read.csv(paste0(ESEUR_dir, "faults/itu-internet-users.csv.xz"), as.is=TRUE)
 i_users$year=as.Date(i_users$year)
 user_mod=lm(Developed ~ year, data=i_users)
 daily_i_users=predict(user_mod, newdata=data.frame(year=every_day))

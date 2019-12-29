@@ -5,12 +5,16 @@
 # Glenford J. Myers
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG experiment_human code-review_experiment testing_experiment
+
 
 source("ESEUR_config.r")
 
 
+# "X" indicates the detected mistakes
 myers=read.csv(paste0(ESEUR_dir, "reliability/myers1978.csv.xz"), as.is=TRUE)
 
 A=subset(myers, Material == "Spec")

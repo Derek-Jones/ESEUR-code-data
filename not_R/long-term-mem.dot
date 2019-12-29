@@ -62,7 +62,7 @@ Nonassociative_learning -> Reflex;
 	 Facts[label="Facts\n\n"];
 	 Events[label="Events\n\n"];
 	 Procedural[label="Procedural\n(skills &\nhabits)"];
-	 Priming[label="Prining &\nperceptual\nlearning"];
+	 Priming[label="Priming &\nperceptual\nlearning"];
 	 Simple_classical_conditioning[label="Simple\nclassical\nlearning"];
 	 Nonassociative_learning[label="Nonassociative\nlearning\n"];
    }

@@ -1,9 +1,23 @@
 #
-# udd-insts-bugs.R,  1 Jan 18
+# udd-insts-bugs.R, 25 Dec 19
 #
 # From an idea published in:
 # Impact of Installation Counts on Perceived Quality: A Case Study of Debian
 # Israel Herraiz and Emad Shihab and Thanh H. D. Nguyen and Ahmed E. Hassan
+#
+# Example from:
+# Evidence-based Software Engineering: based on the publicly available data
+# Derek M. Jones
+#
+# TAG Debian_packages packages_installations
+
+source("ESEUR_config.r")
+
+
+plot_layout(2, 1)
+pal_col=rainbow(2)
+
+
 #
 # Data extract from the Postgress databased used by UDD as follows:
 #
@@ -29,16 +43,6 @@
 # 
 # dbDisconnect(con)
 #
-# Example from:
-# Empirical Software Engineering using R
-# Derek M. Jones
-
-source("ESEUR_config.r")
-
-
-plot_layout(2, 1)
-pal_col=rainbow(2)
-
 
 q1=read.csv(paste0(ESEUR_dir, "regression/Q1_udd.csv.xz"), as.is=TRUE)
 q10=read.csv(paste0(ESEUR_dir, "regression/Q10_udd.csv.xz"), as.is=TRUE)
@@ -46,7 +50,7 @@ q10=read.csv(paste0(ESEUR_dir, "regression/Q10_udd.csv.xz"), as.is=TRUE)
 udd=merge(q1, q10)
 
 plot(udd$insts, udd$bugs, log="xy", col=point_col,
-	xlab="Installs", ylab="Reported faults\n")
+	xlab="Installs", ylab="Fault reports\n")
 
 t=glm(log(bugs) ~ log(insts), data=udd)
 # t=glm(bugs ~ log(insts), data=udd, family=poisson)
@@ -63,7 +67,9 @@ lines(exp(q), col=pal_col[2])
 
 
 plot(udd$age, udd$bugs, log="y", col=point_col,
-	xlab="Age (days)", ylab="Reported faults\n")
+	xaxs="i",
+	xlim=c(0, max(udd$age)),
+	xlab="Age (days)", ylab="Fault reports\n")
 
 t=glm(log(bugs) ~ age, data=udd)
 # t=glm(bugs ~ age, data=udd, family=poisson)

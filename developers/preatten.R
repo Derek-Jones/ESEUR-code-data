@@ -1,5 +1,5 @@
 #
-# preatten.R,  1 Mar 19
+# preatten.R,  7 Dec 19
 # Data from:
 # Based on example in:
 # Information Visualization Perception for Design
@@ -152,7 +152,7 @@ a_circle(0.82, 0.7, 1.2)
 plot(0, type="n", bty="o", xaxt="n", yaxt="n", fg="grey",
         xlim=c(0, 1), ylim=c(0, 1),
         xlab="", ylab="")
-axis(1, at=0.5, label="size")
+axis(1, at=0.5, label="color")
 
 a_circle(0.1, 0.1, 2)
 a_circle(0.05, 0.6, 2)

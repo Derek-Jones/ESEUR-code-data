@@ -1,5 +1,5 @@
 #
-# IWSECO2015.R,  2 Aug 19
+# IWSECO2015.R,  8 Dec 19
 # Data from:
 # On the Development and Distribution of R Packages: {An} Empirical Analysis of the R Ecosystem
 # Alexandre Decan and Tom Mens and Maelick Claes and Philippe Grosjean
@@ -45,8 +45,8 @@ venn.plot = draw.triple.venn(
 # Scaling does not have the desired effect,
 # which might not be mathematically possible anyway.
                 euler.d=TRUE, scaled=TRUE, overrideTriple=TRUE,
-                cex = 1.2,
-                cat.cex = 1.3,
+                cex = 1.0,
+                cat.cex = 1.0,
                 # cat.col = c("blue", "red", "green"),
                 cat.dist = c(0.01, 0.02, 0.01),
                 cat.pos = c(165, 200, 0),

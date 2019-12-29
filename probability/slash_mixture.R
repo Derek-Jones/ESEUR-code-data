@@ -1,13 +1,16 @@
 #
-# slash_mixture.R,  5 Aug 16
+# slash_mixture.R, 17 Dec 19
 #
 # Data from:
 # Homogeneous temporal activity patterns in a large online communication space
 # Andreas Kaltenbrunner and Vicen\c{c} G\'{o}mez and Ayman Moghnieh and Rodrigo Meza and Josep Blat and Vicente L\'{o}pez
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG
+
 
 source("ESEUR_config.r")
 
@@ -20,7 +23,7 @@ slash = read.csv(paste0(ESEUR_dir, "probability/0708.1579v1.fig6.csv.xz"), as.is
 
 slash_mod=REBMIX(Dataset=list(data.frame(users=log(slash$users))),
  		Preprocessing="histogram",
- 		cmax=5,
+ 		cmax=7,
  		Variables="continuous",
  		pdf="normal",
  		K=7:45)
@@ -59,10 +62,12 @@ work_den=density(log(slash$users), adjust=0.5)
 # Plot REBMIX fit
 plot_REBMIX_dist=function(dist_num)
 {
-y_vals=dnorm(x_vals, mean=as.numeric(slash_mod$Theta[[1]][2, dist_num]),
-		 sd=as.numeric(slash_mod$Theta[[1]][3, dist_num]))
+# @, rather than $, is used because slash_mod is an S4 class,
+# and no coef is supplied!
+y_vals=dnorm(x_vals, mean=as.numeric(slash_mod@Theta[[1]][2+(dist_num-1)*3]),
+		 sd=as.numeric(slash_mod@Theta[[1]][3+(dist_num-1)*3]))
 
-lines(x_vals, slash_mod$w[[1]][1, dist_num]*y_vals, col=pal_col[dist_num])
+lines(x_vals, slash_mod@w[[1]][dist_num]*y_vals, col=pal_col[dist_num])
 }
 
 

@@ -5,8 +5,10 @@
 # Ping Wang
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG fashion_IT
 
 source("ESEUR_config.r")
 
@@ -16,6 +18,7 @@ product=read.csv(paste0(ESEUR_dir, "introduction/Wang2010a_Fig2.csv.xz"), as.is=
 pal_col=rainbow(ncol(product)-1)
 
 plot(0, type="n",
+	yaxs="i",
 	xlim=c(1987, 2003), ylim=c(0, 175),
 	xlab="Date", ylab="Occurrences\n")
 

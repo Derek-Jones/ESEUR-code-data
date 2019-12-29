@@ -1,12 +1,14 @@
 #
-# office-faults.R, 11 Mar 18
+# office-faults.R, 18 Nov 19
 # Data from:
 # Showing How Security Has (And Hasn't) Improved, After Ten Years Of Trying
 # Dan Kaminsky and Michael Eddington and Adam Cecchetti
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG
 
 source("ESEUR_config.r")
 
@@ -47,6 +49,9 @@ library("iNEXT") # defines its own ChaoSpecies function
 
 off_pop=iNEXT(office_releases, endpoint=5e4)
 
-t=ggiNEXT(off_pop, type=1)
+t=ggiNEXT(off_pop, type=1)+
+		scale_x_continuous(expand=c(0,0))+
+		scale_y_continuous(expand=c(0,0))+
+		theme_bw()
 plot(t)
 

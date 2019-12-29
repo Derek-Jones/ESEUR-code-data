@@ -6,8 +6,10 @@
 # Analysis of Cross-System Porting and Porting Errors in Software Projects
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG evolution_BSD porting_BSD
 
 source("ESEUR_config.r")
 

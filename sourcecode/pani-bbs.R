@@ -1,5 +1,5 @@
 #
-# pani-bbs.csv.R, 13 Aug 18
+# pani-bbs.R.R, 13 Aug 18
 # Data from:
 # Loop Patterns in C Programs
 # Thomas Pani
@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG loop source C
+# TAG loop basic-block source C_loop
 
 
 source("ESEUR_config.r")

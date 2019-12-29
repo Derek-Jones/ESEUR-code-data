@@ -1,13 +1,15 @@
 #
-# 500K_inputs.R, 22 Feb 18
+# 500K_inputs.R, 18 Nov 19
 #
 # Data from:
 # An Experiment in Software Reliability
 # Janet R. Dunham and John L. Pierce
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG experiment fault-experience
 
 source("ESEUR_config.r")
 
@@ -37,7 +39,7 @@ tests$Rep=NULL
 all_fails=reshape(tests, varying=colnames(tests), timevar="failure", dir="long", sep="")
 
 plot(all_fails$F, all_fails$failure, log="x", col=pal_col[1+(all_fails$id %% 4)],
-	xlab="Input cases", ylab="Failure")
+	xlab="Input cases", ylab="Fault experience")
 
 # The two programs (Application tasks) containing mistakes
 AT1=subset(all_fails, id <= 4)

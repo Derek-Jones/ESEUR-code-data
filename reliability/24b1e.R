@@ -1,16 +1,17 @@
 #
 # 24b1e.R, 14 Jan 19
 # Data from:
-# "James R. Lewis
 # Evaluation of Procedures for Adjusting Problem-Discovery Rates Estimated From Small Samples
+# James R. Lewis
 #
 # Example from:
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment human usability
+# TAG experiment_human experiment_usability problem-discovery
 
 source("ESEUR_config.r")
+
 
 library("plyr")
 
@@ -18,19 +19,21 @@ library("plyr")
 pal_col=rainbow(4)
 
 
-# How many problems were found by the people selected?
+# How many issues were found by the subjects selected?
 probs_found=function(df)
 {
+# For each row, did at least one subject find the issue?
 t=apply(df, 1, function(X) as.numeric(sum(X) != 0))
 
 return(sum(t))
 }
 
 
-# Generate all poissible combinations of subjects, counting all problems
-# found and plot the probability of finding a given number of problems.
+# Generate all possible combinations of subjects, counting all issues
+# found, and plot the probability of finding a given number of issues.
 plot_group=function(grp_size)
 {
+# Generate all combinations of n elements, taken m at a time
 g=combn(num_subj, grp_size, function(X) probs_found(usis[ , X]))
 
 totals=count(g)

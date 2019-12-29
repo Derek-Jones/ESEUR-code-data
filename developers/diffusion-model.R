@@ -1,5 +1,5 @@
 #
-# diffusion-model.R, 15 Feb 19
+# diffusion-model.R,  6 Dec 19
 # Data from:
 #
 # Example from:
@@ -22,6 +22,8 @@ y_points=1+x_points/2+0.15*rnorm(length(x_points))
 thresh=which(y_points > 2)
 
 lines(x_points[1:thresh[1]], y_points[1:thresh[1]], col=col_str)
+
+text(x_points[thresh[1]-1]+0.01, 2, labels="X", col="green")
 }
 
 

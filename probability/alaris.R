@@ -1,5 +1,5 @@
 #
-# alaris.R, 25 May 19
+# alaris.R, 17 Dec 19
 #
 # Data from:
 # Devices, Errors and Improving Interaction Design - A case study using an Infusion Pump
@@ -32,10 +32,10 @@ plot_wide()
 
 get_transition=function(df)
 {
-t=ldply(df$neighbours, function(n) data.frame(to=n["stateName"], button=n["button"]))
+t=ldply(df$neighbours, function(n) data.frame(stateName=n["stateName"], button=n["button"]))
 
 # The call to igraph needs the first two columns to have specific names
-res=data.frame(from=df$stateName, to=t$to, button=t$button)
+res=data.frame(from=df$stateName, to=t$stateName, button=t$button)
 
 # print(res)
 
@@ -46,10 +46,9 @@ return(res)
 alaris=fromJSON(paste0(ESEUR_dir, "probability/Patrick_Oladimeji-alaris.json"))
 
 
-# states=unlist(lapply(alaris$"device spec", function(l) l$stateName))
-
-fsm=ldply(alaris$"device spec", get_transition)
-
+t_fsm=adply(alaris$"device spec", 1, get_transition)
+# graph.data.frame requires that from/to be the first and second columns :-|
+fsm=data.frame(from=t_fsm$from, to=t_fsm$to, button=t_fsm$button)
 
 fsm_graph=graph.data.frame(fsm, directed=TRUE)
 

@@ -1,5 +1,5 @@
 #
-# LandyGuayMarghetis-PBR.R, 11 Feb 19
+# LandyGuayMarghetis-PBR.R,  7 Dec 19
 # Data from:
 # Bias and ignorance in demographic perception
 # D. Landy and B. Guay and T. Marghetis
@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment human subject
+# TAG experiment_human human_bias probability_estimate
 
 source("ESEUR_config.r")
 
@@ -47,7 +47,8 @@ pal_col=rainbow(length(u_type))
 lgm$col_str=mapvalues(lgm$type, u_type, pal_col)
 
 plot(-1, type="n",
-	xlim=c(0, 1), ylim=c(0, 1),
+	xaxs="i", yaxs="i",
+	xlim=c(-0.01, 1), ylim=c(0, 1),
 	xlab="Actual proportion", ylab="Estimated proportion\n")
 lines(c(0, 1), c(0, 1), col="grey")
 legend(x="bottomright", legend=u_type, bty="n", fill=pal_col, cex=1.2)

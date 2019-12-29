@@ -1,5 +1,5 @@
 #
-# Herraiz-BSD.R, 23 Sep 18
+# Herraiz-BSD.R, 18 Dec 19
 #
 # Data from:
 #
@@ -26,14 +26,11 @@ kind_bsd$Number_days=as.integer(difftime(kind_bsd$date,
                                          units="days"))
 # Order by days since first release
 
-x_lim=c(1, max(kind_bsd$Number_days))
-y_lim=c(1, max(kind_bsd$sloc))
+plot(kind_bsd$Number_days, kind_bsd$ksloc, col=pal_col[2],
+	xaxs="i", yaxs="i",
+	xlab="Elapsed days", ylab="Lines of code (thousands)\n")
 
-plot(kind_bsd$Number_days, kind_bsd$sloc, col=pal_col[2],
-       xlim=x_lim, ylim=y_lim,
-       xlab="Elapsed days", ylab="Lines of code\n")
-
-lin_mod=glm(sloc ~ Number_days, data=kind_bsd)
+lin_mod=glm(ksloc ~ Number_days, data=kind_bsd)
 
 lin_pred=predict(lin_mod)
 lines(lin_pred, col=pal_col[1])
@@ -45,6 +42,9 @@ lines(lin_pred, col=pal_col[1])
 # fit_and_plot(netbsd)
 
 freebsd=read.csv(paste0(ESEUR_dir, "regression/Herraiz-freebsd.txt.xz"), as.is=TRUE)
+
+freebsd$ksloc=freebsd$sloc/1e3
+
 fit_and_plot(freebsd)
 
 

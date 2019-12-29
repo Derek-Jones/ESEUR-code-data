@@ -1,12 +1,14 @@
 #
-# Haskel_T1.R, 13 Mar 17
+# Haskel_T1.R,  6 Dec 19
 # Data from:
 # Estimating {UK} investment in intangible assets and Intellectual Property Rights
 # Peter Goodridge and Jonathan Haskel and Gavin Wallis
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG UK investment intangible
 
 source("ESEUR_config.r")
 
@@ -17,6 +19,7 @@ pal_col=rainbow(5)
 econ=read.csv(paste0(ESEUR_dir, "economics/Haskel_T1.csv.xz"), as.is=TRUE)
 
 plot(econ$Year, econ$All.intangibles, type="l", col=pal_col[1],
+	yaxs="i",
 	ylim=c(0, 140),
 	xlab="Year", ylab="£ Billion\n")
 

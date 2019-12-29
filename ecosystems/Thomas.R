@@ -1,18 +1,23 @@
 #
-# Thomas.R, 17 Mar 18
+# Thomas.R, 12 Nov 19
 # Data from:
 # Security metrics for computer systems
 # Daniel R. Thomas
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG software_update Android hardware_software-update
+
 
 source("ESEUR_config.r")
 
 
 library("diagram")
 
+
+pal_col=rainbow(3)
 
 plot_layout(1, 1, default_width=ESEUR_default_width+1,
 		default_height=ESEUR_default_height+3)
@@ -40,6 +45,9 @@ M["Device manufacturer\n(402)", "Network operator\n(1,650)"]=""
 M["Device manufacturer\n(402)", "Device\n(24,600)"]=""
 M["Network operator\n(1,650)", "Device\n(24,600)"]="1650"
 
-plotmat(t(M), pos=elpos, lwd=1, arr.lcol="green", arr.pos=0.6, arr.length=0.15, cex=1.2,
-         box.lcol="white", box.prop=0.5, box.size=0.05, box.cex=1.2, shadow.size=0)
+par(col=pal_col[3])
+
+plotmat(t(M), pos=elpos, lwd=1, arr.lcol=pal_col[2], arr.pos=0.6, arr.length=0.15, cex=1.2,
+        arr.col=pal_col[3], txt.col=pal_col[1],
+	box.lcol="white", box.prop=0.5, box.size=0.05, box.cex=1.2, shadow.size=0)
 

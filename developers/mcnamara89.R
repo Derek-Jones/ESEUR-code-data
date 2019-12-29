@@ -1,11 +1,15 @@
-# mcnamara89.R, 23 Jan 17
+#
+# mcnamara89.R,  7 Dec 19
 # Data from:
 # Subjective Hierarchies in Spatial Memory
 # Timothy P. McNamara and James K. Hardy and Stephen C. Hirtle
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG experiment_human human_memory memory_organization
+
 
 source("ESEUR_config.r")
 
@@ -14,13 +18,17 @@ plot_layout(2, 1)
 par(mar=c(1, 1, 1, 1)+0.1)
 
 
+pal_col=rainbow(2)
+
+
 place_item=function(item_str, x, y)
 {
-text(x, y, item_str, cex=1.2, col=point_col)
+text(x, y, item_str, cex=1.2, col=pal_col[1])
 }
 
 
-plot(0, type="n", bty="o", xaxt="n", yaxt="n",
+plot(0, type="n", bty="o", fg="grey",
+	xaxt="n", yaxt="n",
 	xlim=c(0, 125), ylim=c(0, 125),
 	xlab="", ylab="")
 place_item("gun", 15, 9)
@@ -53,7 +61,8 @@ place_item("cigarettes", 54, 120)
 place_item("radio", 84, 121)
 
 
-plot(0, type="n", bty="n", xaxt="n", yaxt="n",
+plot(0, type="n", bty="n",
+	xaxt="n", yaxt="n",
 	xlim=c(0, 3.7), ylim=c(-1.9, 1.8),
 	xlab="", ylab="")
 
@@ -65,7 +74,7 @@ y_cur_pos=0
 root_branch=function(x, y)
 {
 lines(c(x_base, x_base+x/2.0),
-      c(y_base, y_base+x*(14.5-y)/14.5), col=point_col)
+      c(y_base, y_base+x*(14.5-y)/14.5), col=pal_col[2])
 x_cur_pos<<-x_base+x/2.0
 y_cur_pos<<-y_base+x*(14.5-y)/14.5
 }
@@ -73,7 +82,7 @@ y_cur_pos<<-y_base+x*(14.5-y)/14.5
 sub_branch=function(x, y)
 {
 lines(c(x_cur_pos, x_cur_pos + x/2.0),
-      c(y_cur_pos, y_cur_pos + x*(14.5-y)/29), col=point_col)
+      c(y_cur_pos, y_cur_pos + x*(14.5-y)/29), col=pal_col[2])
 x_cur_pos<<-x_cur_pos+x/2.0
 y_cur_pos<<-y_cur_pos+x*(14.5-y)/29
 }
@@ -81,8 +90,8 @@ y_cur_pos<<-y_cur_pos+x*(14.5-y)/29
 leaf=function(str, y)
 {
 lines(c(x_cur_pos, 2.5),
-      c(y_cur_pos, 2-y/7), col=point_col)
-text(2.5, 2-y/7, str, pos=4, cex=1.1)
+      c(y_cur_pos, 2-y/7), col=pal_col[2])
+text(2.5, 2-y/7, str, pos=4, cex=1.1, col=pal_col[1])
 }
 
 leaf("screw", 16)

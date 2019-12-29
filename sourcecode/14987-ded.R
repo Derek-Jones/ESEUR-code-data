@@ -5,7 +5,7 @@
 # W. Eric Wong and Swapna S. Gokhale and Joseph R. Horgan
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
 # TAG basic-block runtime feature source-file

@@ -1,13 +1,15 @@
 #
-# Icse15_real-bug-fixes.R, 13 Mar 18
+# Icse15_real-bug-fixes.R, 22 Nov 19
 # Data from:
 # An Empirical Study on Real Bug Fixes
 # Hao Zhong and Zhendong Su
 # via:
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG fault_files file_changes
 
 source("ESEUR_config.r")
 
@@ -40,7 +42,7 @@ return(file_tab)
 }
 
 
-plot(0.1, type="n", log="y",
+plot(0.1, type="n", log="xy",
 	yaxs="i",
 	xlim=c(1, 9), ylim=c(1, 105),
 	xlab="Files", ylab="Commits (normalised)\n")

@@ -1,12 +1,14 @@
 #
-# Ranking-Based.R, 30 Mar 18
+# Ranking-Based.R, 22 Nov 19
 # Data from:
 # Ranking-Based Approaches for Localizing Faults
 # Lucia Lucia
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG file_changes module_changes line_changes fault_changes
 
 source("ESEUR_config.r")
 
@@ -21,7 +23,7 @@ aj$F_perc=100*aj$F_Faults/total_faults
 aj$M_perc=100*aj$M_Faults/total_faults
 aj$L_perc=100*aj$L_Faults/total_faults
 
-plot(aj$Occurrences, aj$F_perc, log="y", col=pal_col[1],
+plot(aj$Occurrences, aj$F_perc, log="xy", col=pal_col[1],
 	ylim=c(1, 75),
 	xlab="Lines/Modules/Files", ylab="Faults (percent)\n")
 points(aj$Occurrences, aj$M_perc, col=pal_col[2])

@@ -1,0 +1,151 @@
+#  [Test your vocab](http://testyourvocab.com/): [The
+Blog](http://testyourvocab.com/blog)
+
+( _Please also see the[main blog page](http://testyourvocab.com/blog), with
+all entries._ )
+
+##  [ Results by country ](http://testyourvocab.com/blog/2011-09-10-Results-
+by-country)
+
+### 10 September 2011
+
+As previously promised... we are releasing the average English vocabulary
+levels per-country, for non-native speakers. Please keep in mind, this is
+_not_ scientific in the slightest, but rather just for fun.
+
+First, the map and ranking:
+
+5,2015,20116,29116,291
+
+16,291
+
+Average English vocabulary levels by country (non-native
+speakers)05,00010,00015,00020,000DenmarkNorwayFinlandSwedenBelgiumCroatiaRomaniaSloveniaPortugalNetherlandsSerbiaGreeceMexicoFranceItalyArgentinaAustriaIsraelChileIndonesiaIcelandSouth
+KoreaGermanySpainLithuaniaHungaryEstoniaUnited Arab EmiratesCzech
+RepublicVenezuelaBulgariaColombiaSwitzerlandSlovakiaMalaysiaPolandLatviaThailandEgyptJapanTaiwanBrazilTurkeyHong
+KongMoldovaRussiaUzbekistanChinaUkraineKazakhstanVietnamBelarusSaudi
+ArabiaIranAverage English vocabulary sizeCountry
+
+| Country| Average English vocabulary size  
+---|---  
+Denmark| 16,291  
+Norway| 16,159  
+Finland| 15,317  
+Sweden| 15,147  
+Belgium| 15,107  
+Croatia| 14,760  
+Romania| 13,870  
+Slovenia| 13,807  
+Portugal| 13,647  
+Netherlands| 13,381  
+Serbia| 13,183  
+Greece| 13,165  
+Mexico| 12,852  
+France| 12,528  
+Italy| 12,047  
+Argentina| 12,028  
+Austria| 11,939  
+Israel| 11,918  
+Chile| 11,641  
+Indonesia| 11,434  
+Iceland| 10,919  
+South Korea| 10,471  
+Germany| 10,409  
+Spain| 10,357  
+Lithuania| 10,313  
+Hungary| 10,238  
+Estonia| 10,065  
+United Arab Emirates| 10,056  
+Czech Republic| 10,033  
+Venezuela| 9,987  
+Bulgaria| 9,965  
+Colombia| 9,950  
+Switzerland| 9,822  
+Slovakia| 9,806  
+Malaysia| 9,451  
+Poland| 9,272  
+Latvia| 9,180  
+Thailand| 9,058  
+Egypt| 8,964  
+Japan| 8,522  
+Taiwan| 8,301  
+Brazil| 7,886  
+Turkey| 7,696  
+Hong Kong| 7,608  
+Moldova| 7,245  
+Russia| 6,781  
+Uzbekistan| 6,647  
+China| 6,636  
+Ukraine| 6,615  
+Kazakhstan| 6,613  
+Vietnam| 6,593  
+Belarus| 6,390  
+Saudi Arabia| 6,292  
+Iran| 5,201  
+  
+non-native speakers)
+
+It is clear that the real "winner" here is Northern Europe: the first four
+places are Denmark, Norway, Finland and Sweden. After that, Europe as a whole
+has a relatively strong showing, along with Mexico, Argentina, Israel, Chile,
+and Indonesia.
+
+But, what does this chart really mean? Besides being based normally on the
+vocabulary test results, there are three limits placed on the data:
+
+**Non-native.** It is based on speakers self-identified as non-native speakers
+_only_ , so an American living in China should not affect the data for China.
+
+**No English as an official language.** We have _not_ included results for
+countries where English is one of the official languages. This means no US,
+Canada, Australia, New Zealand, India, Pakistan, Philippines, or Singapore.
+While many of these countries had high numbers of respondents who self-
+identified as non-native English speakers, comparison with other countries
+would not be very meaningful.
+
+**At least 300 respondents.** Less than this, and the data for the country is
+really not very meaningful at all. (Interestingly, China, Iran and Russia are
+by far our largest participants, with over 60,000 test-takers each. Next comes
+Ukraine at 23,000, and then Germany at 12,000.)
+
+And then, there are two big caveats to keep in mind:
+
+**Internet participation.** It is based only on people who took the survey,
+without any kind of scientific control, or guarantee that the participants are
+representative of the overall population as a whole. In fact, they almost
+surely aren't, since Internet users tend to be better educated and fall into
+particular age groups. Strictly speaking, this means the comparative data is
+totally useless, because it is theoretically possible that, for example, the
+test was popular among top students in Denmark, and among low-performing
+students in Iran. Such an extreme example is probably not the case, but
+whether participation in a particular country came via an article on a high-
+brow news site, or was spread by a particular group of people on a certain
+social network, could certainly have an influence.
+
+**IP addresses.** Countries were calculated automatically from the IP
+addresses of test-takers. These are mostly accurate, but not perfect. Some
+respondents also provided their nationality in the survey. Many countries show
+self-reported nationalities and IP addresses matching up over 95% of the time,
+while other countries have a somewhat lower rate. So country identification,
+while good, is not absolutely perfect.
+
+So have fun with the rankings, but don't take them too seriously. And if you
+have further interest, check out the [EF English Proficiency
+Index](http://www.ef.com/epi/ef-epi-ranking/), which shows very similar
+results which come from a completely different survey, and also has a PDF
+report with interesting profiles of English usage in a number of countries.
+
+“One forgets words as one forgets names. One's vocabulary needs constant
+fertilizing or it will die.”  
+  
+
+— Evelyn Waugh  
+  
+[Home](http://testyourvocab.com/) \- [About](http://testyourvocab.com/about)
+\- [FAQ](http://testyourvocab.com/faq) \- [Hard
+Words](http://testyourvocab.com/hard) \- [Nitty-
+Gritty](http://testyourvocab.com/details) \-
+[Blog](http://testyourvocab.com/blog) \-
+[Related](http://testyourvocab.com/related) \-
+[Contact](http://testyourvocab.com/contact) |  
+

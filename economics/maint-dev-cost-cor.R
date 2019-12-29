@@ -5,8 +5,11 @@
 # Laurence Michael Dunn
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG
+
 
 source("ESEUR_config.r")
 
@@ -35,8 +38,7 @@ sd(maint_boot$t)
 
 boot.ci(maint_boot)
 
-t=cor.test(dme$maint.effort, dme$dev.effort,
-            method="spearman")
+t=cor.test(dme$maint.effort, dme$dev.effort, method="spearman")
 
 print(t$estimate)
 

@@ -1,12 +1,15 @@
 #
-# 1703-06337.R,  2 Apr 18
+# 1703-06337.R, 28 Dec 19
 # Data from:
 # Mefta Sadat and Ayse Basar Bener and Andriy V. Miranskyy
 # Rediscovery Datasets: Connecting Duplicate Reports
-
+#
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG fault_duplicate KDE_fault-report
+
 
 source("ESEUR_config.r")
 
@@ -43,7 +46,6 @@ dups=subset(kde, !is.na(root_id))
 # 
 # 
 
-# Cannot get any convergence if the first count is included
 dup_cnt=count(count(dups$root_id)$freq)
 
 # plot(dup_cnt$freq, log="y", col=point_col,
@@ -64,21 +66,26 @@ dup_cnt=count(count(dups$root_id)$freq)
 # lines(t, col=pal_col[2])
 
 
-plot(dup_cnt$freq, log="y", col=point_col,
-        xlab="Fault report", ylab="Duplicates\n")
+plot(dup_cnt$x, dup_cnt$freq, log="y", col=point_col,
+	xaxs="i",
+	xlim=c(1, 170),
+        xlab="Fault report ID", ylab="Occurrences\n")
+
+# Cannot get any convergence if the first count is included
+dup2_cnt=dup_cnt[-1, ]
 
 fail_mod=gnm(freq ~ instances(Mult(1, Exp(x)), 3)-1,
-                data=dup_cnt[-1, ], verbose=FALSE, trace=FALSE,
+                data=dup2_cnt, verbose=FALSE, trace=FALSE,
                 start=c(230000.0, -1.0, 2100.0, -0.3, 21, -0.03),
                 family=poisson(link="identity"))
 summary(fail_mod)
 
 exp_coef=as.numeric(coef(fail_mod))
 
-lines(exp_coef[1]*exp(exp_coef[2]*dup_cnt$x), col=pal_col[1])
-lines(exp_coef[3]*exp(exp_coef[4]*dup_cnt$x), col=pal_col[3])
-lines(exp_coef[5]*exp(exp_coef[6]*dup_cnt$x), col=pal_col[4])
+lines(dup2_cnt$x, exp_coef[1]*exp(exp_coef[2]*dup2_cnt$x), col=pal_col[1])
+lines(dup2_cnt$x, exp_coef[3]*exp(exp_coef[4]*dup2_cnt$x), col=pal_col[3])
+lines(dup2_cnt$x, exp_coef[5]*exp(exp_coef[6]*dup2_cnt$x), col=pal_col[4])
 
 t=predict(fail_mod)
-lines(t, col=pal_col[2])
+lines(dup2_cnt$x, t, col=pal_col[2])
 

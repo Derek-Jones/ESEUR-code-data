@@ -1,5 +1,5 @@
 #
-# alteneder1935.R, 21 Feb 19
+# alteneder1935.R,  7 Dec 19
 # Data from:
 # The Learning Curve in Solving a Jig-Saw Puzzle: {A} Teaching Device
 # Louise E. Alteneder
@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment human learning
+# TAG experiment_human learning
 
 
 source("ESEUR_config.r")
@@ -20,6 +20,7 @@ jigsaw=read.csv(paste0(ESEUR_dir, "developers/alteneder1935.csv.xz"), as.is=TRUE
 jigsaw$trial=1:nrow(jigsaw)
 
 plot(jigsaw$first, log="x", col=pal_col[1],
+	yaxs="i",
 	ylim=range(jigsaw),
 	xlab="Trial", ylab="Time taken (minutes)\n")
 points(jigsaw$second, col=pal_col[2])

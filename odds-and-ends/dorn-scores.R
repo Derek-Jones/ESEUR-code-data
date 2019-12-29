@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment developers readability source-code
+# TAG experiment_human source-code_readability
 
 source("ESEUR_config.r")
 

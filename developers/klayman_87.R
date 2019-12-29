@@ -1,13 +1,15 @@
 #
-# klayman_87.R,  5 Jan 18
+# klayman_87.R,  7 Dec 19
 # Data from:
 # Based on plot in:
 # Joshua Klayman and Young-Won Ha
 # Confirmation, Disconfirmation, and Information in Hypothesis Testing
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG example
 
 source("ESEUR_config.r")
 
@@ -32,9 +34,9 @@ plot(0, type="n", bty="o", cex.lab=1.6,
 	xlim=c(0, 7/4), ylim=c(0, 1),
 	xlab=x_str, ylab="")
 
-text(1.6, 0.9, "A", cex=2, col=pal_col[1])
-text(0.6, 0.5, "E", cex=2, col=pal_col[2])
-text(1.0, 0.5, "S", cex=2, col=pal_col[3])
+text(1.6, 0.9, "A", cex=3.1, col=pal_col[1])
+text(0.6, 0.5, "E", cex=3.1, col=pal_col[2])
+text(1.0, 0.5, "S", cex=3.1, col=pal_col[3])
 }
 
 plot_universe("1")
@@ -61,12 +63,12 @@ plot(0, type="n", bty="n",
         xlim=c(0, 7/4), ylim=c(0, 1),
         xlab="", ylab="")
 
-text(0.2, 0.7, "A", cex=2, col=pal_col[1])
+text(0.2, 0.7, "A", cex=2.6, col=pal_col[1])
 text(0.23, 0.68, "ll possible rules", cex=2, pos=4)
 
-text(0.2, 0.5, "E", cex=2, col=pal_col[2])
+text(0.2, 0.5, "E", cex=2.6, col=pal_col[2])
 text(0.23, 0.48, "xperimenter rule", cex=2, pos=4)
 
-text(0.2, 0.3, "S", cex=2, col=pal_col[3])
+text(0.2, 0.3, "S", cex=2.6, col=pal_col[3])
 text(0.23, 0.28, "ubject hypothesis", cex=2, pos=4)
 
