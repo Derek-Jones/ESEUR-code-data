@@ -1,21 +1,29 @@
 #
-# func-mod-interval.R, 15 Jul 16
+# func-mod-interval.R,  4 Jan 20
 #
 # Data from:
 # Modification and developer metrics at the function level: Metrics for the study of the evolution of a software project
 # Gregorio Robles and Israel Herraiz and Daniel M. Germ{\'a}n and Daniel Izquierdo-Cort{\'a}zar
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG evolution_function function_modification-time
+
 
 source("ESEUR_config.r")
 
 
-funcs=read.csv(paste0(ESEUR_dir, "evolution/functions/ev_funcmod.tsv.xz"), as.is=TRUE, sep="\t")
+pal_col=rainbow(2)
+
+
+func_mod_density=function(func_file, rev_file)
+{
+funcs=read.csv(paste0(ESEUR_dir, "evolution/", func_file), as.is=TRUE, sep="\t")
 # revid,date_time
 # 1,2008-03-24 21:31:02
-revdate=read.csv(paste0(ESEUR_dir, "evolution/functions/ev_rev_date.csv.xz"), as.is=TRUE)
+revdate=read.csv(paste0(ESEUR_dir, "evolution/", rev_file), as.is=TRUE)
 #revdate=rbind(revdate, c(NA, NA))
 
 revdate$date_time=as.POSIXct(revdate$date_time, format="%Y-%m-%d %H:%M:%S")
@@ -27,9 +35,20 @@ funcs$prevdate=revdate$date_time[funcs$revprev]
 time_between=funcs$revdate-funcs$prevdate
 
 q=density(as.numeric(time_between)/(60*60), adjust=0.5, na.rm=TRUE)
-plot(q, log="y", col=point_col,
-	main="",
-	xlab="Hours", ylab="Modification density\n",
-	xlim=c(2, 20000), ylim=c(1e-8,1e-2))
+return(q)
+}
 
+
+ev_den=func_mod_density("ev_funcmod.tsv.xz", "ev_rev_date.csv.xz")
+ap_den=func_mod_density("ap_funcmod.tsv.xz", "ap_rev_date.csv.xz")
+
+plot(ev_den, log="y", col=pal_col[1],
+	main="",
+	xaxs="i", yaxs="i",
+	xlim=c(0, 20000), ylim=c(1e-8,1e-2),
+	xlab="Hours", ylab="Modification density\n")
+
+lines(ap_den, col=pal_col[2])
+
+legend(x="topright", legend=c("Evolution", "Apache"), bty="n", fill=pal_col, cex=1.2)
 
