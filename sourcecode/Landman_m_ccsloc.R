@@ -1,12 +1,12 @@
 #
-# Landman_m_ccsloc.R, 11 Jun 18
+# Landman_m_ccsloc.R, 24 Feb 20
 #
 # Data from:
 # Empirical analysis of the relationship between {CC} and {SLOC} in a large corpus of {Java} methods and {C} functions
 # Davy Landman and Alexander Serebrenik and Eric Bouwers and Jurgen J. Vinju
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
 # TAG source methods sloc C Java
@@ -23,22 +23,35 @@ pal_col=rainbow(2)
 # lang,cc,sloc
 cc_loc=read.csv(paste0(ESEUR_dir, "sourcecode/Landman_m_ccsloc.csv.xz"), as.is=TRUE)
 cc_loc=subset(cc_loc, cc != 0)
-cc_loc$logloc=log(cc_loc$sloc)
 
 C_loc=subset(cc_loc, lang == "C")
 Java_loc=subset(cc_loc, lang == "Java")
 
 
+# cc_loc$logloc=log(cc_loc$sloc)
+# x_bounds=seq(log(1), log(1e5), 0.1)
 # # The simpler form is not quite as good a fit.
 # # Cloc_mod=glm(log(cc) ~ logloc, data=C_loc)
-# # 0.6 is an ever so slightly better fit.
-# # Cloc_mod=glm(log(cc) ~ logloc+I(logloc^0.6), data=C_loc)
 # Cloc_mod=glm(log(cc) ~ logloc+I(logloc^0.5), data=C_loc)
 # summary(Cloc_mod)
+# 
+# plot(C_loc$sloc, C_loc$cc, log="xy")
+# 
+# pred=predict(Cloc_mod, newdata=data.frame(logloc=x_bounds))
+# lines(exp(x_bounds), exp(pred), col="green")
+#
+# # The 'best' fit found
+# Cloc_nls=nls(log(cc) ~ a+b*logloc^c, data=C_loc,
+#                 start=c(a=1, b=0.7, c=1.1))
+# summary(Cloc_nls)
+# 
+# pred=predict(Cloc_nls, newdata=data.frame(logloc=x_bounds))
+# lines(exp(x_bounds), exp(pred), col="red")
 # 
 # # The simpler form is almost as good a fit.
 # # Jloc_mod=glm(log(cc) ~ logloc, data=Java_loc)
 # Jloc_mod=glm(log(cc) ~ logloc+I(logloc^0.5), data=Java_loc)
+
 # summary(Jloc_mod)
 
 t_C=count(C_loc$sloc)
@@ -53,6 +66,7 @@ points(t_J, col=pal_col[2])
 legend(x="topright", legend=c("C", "Java"), bty="n", fill=pal_col, cex=1.2)
 
 
+# Is some range of the data fitted by a power-law?
 # library("poweRlaw")
 # 
 # pow_mod=displ$new(t_C$freq)

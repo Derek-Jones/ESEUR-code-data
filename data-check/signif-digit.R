@@ -1,15 +1,15 @@
 #
-# signif-digit.R,  8 Jan 16
+# signif-digit.R, 29 Feb 20
 #
 # Data from:
-#
-# The New C Standard
+# The New C Standard: An Economic and Cultural Commentary
 # Derek M. Jones
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
-
+#
+# TAG C_literal literal_first-digit literal_Benford
 
 source("ESEUR_config.r")
 
@@ -18,8 +18,11 @@ pal_col=rainbow(4)
 
 
 plot(100*log10(1+1/(1:9)), type="l", col=pal_col[1],
-	xlim=c(1, 15), ylim=c(0, 40),
-	xlab="Digit", ylab="Percent occurrence\n")
+	xaxt="n", yaxs="i",
+	xlim=c(1, 15), ylim=c(0, 45),
+	xlab="Digit", ylab="Numeric literal (percent)\n")
+
+axis(1, at=0:15, label=c(as.character(0:9), "A", "B", "C", "D", "E", "F"))
 
 plot_ben=function(digit_cnt, color)
 {

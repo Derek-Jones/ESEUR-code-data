@@ -2,12 +2,14 @@
 # litvals.R, 24 Apr 18
 # Data from:
 #
-# The New C Standard
+# The New C Standard: An Economic and Cultural Commentary
 # Derek M. Jones
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG
 
 source("ESEUR_config.r")
 

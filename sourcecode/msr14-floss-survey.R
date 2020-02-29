@@ -1,5 +1,5 @@
 #
-# msr14-floss-survey.R, 13 Jan 16
+# msr14-floss-survey.R, 18 Jan 20
 #
 # Data from:
 #
@@ -7,13 +7,16 @@
 # Gregorio Robles and Laura Arjona Reina and Alexander Serebrenik and Bogdan Vasilescu and Jes{\'u}s M. Gonz{\'a}lez-Barahona
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG
+
 
 source("ESEUR_config.r")
 
 
-library("Matrix") # sparse.model.matrix is referenced by a function in quantreg
+library("Matrix") # quantreg does not automatically include this!
 library("quantreg")
 
 

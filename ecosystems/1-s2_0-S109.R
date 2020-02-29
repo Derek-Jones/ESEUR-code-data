@@ -1,17 +1,19 @@
 #
-# 1-s2_0-S109.R, 10 Jan 18
+# 1-s2_0-S109.R, 18 Jan 20
 # Data from:
 # Optimising human community sizes
 # Robin I. M. Dunbar and Richard Sosis
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG community_size community_lifespan human_community
+
 
 source("ESEUR_config.r")
 
 
-# library("Matrix") # sparse.model.matrix is referenced by a function in quantreg
 # library("quantreg")
 
 pal_col=rainbow(2)

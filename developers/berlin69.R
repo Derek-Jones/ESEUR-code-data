@@ -1,18 +1,21 @@
 #
-# berlin69.R, 12 Dec 16
+# berlin69.R,  1 Feb 20
 # Data from:
 # Basic Color Terms: {Their} Universality and Evolution
 # Brent Berlin and Paul Kay
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG experiment_human
+
 
 source("ESEUR_config.r")
 
 
 plot(0, type="n", bty="n", xaxt="n", yaxt="n", xaxs="i", yaxs="i",
-	xlim=c(0.2, 3.2), ylim=c(0.8, 11.7),
+	xlim=c(0.75, 3.2), ylim=c(0.8, 11.7),
 	xlab="", ylab="")
 
 text(1, 11.3, "Purple", col="purple", cex=1.3)

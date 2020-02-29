@@ -1,5 +1,5 @@
 #
-# antlrpdg.R, 28 Aug 19
+# antlrpdg.R, 17 Jan 20
 #
 # Data from:
 # Hussain Abdullah A. Al-Mutawa
@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG Java dependency cycles
+# TAG Java dependency-cycles
 
 
 source("ESEUR_config.r")
@@ -20,9 +20,9 @@ library("jsonlite")
 
 
 # Increasing default_width does not seem to have any/much effect
-plot_layout(5, 1, default_width=ESEUR_default_width+4)
-par(oma=OMA_default+c(-1.5, 0, -0.5, 0))
-par(mar=MAR_default+c(-1.5, 0, -0.2, 0))
+plot_layout(3, 2, max_width=ESEUR_default_width+2)
+par(oma=OMA_default+c(-1.5, -1.0, -0.2, -0.5))
+par(mar=MAR_default+c(-1.5, -3, -0.1, -0.5))
 
 
 # Remove last name on path (which is assumed to be method name)
@@ -51,14 +51,15 @@ ant_g=graph.data.frame(unique(f_t), directed=TRUE)
 V(ant_g)$label=NA
 E(ant_g)$arrow.size=0.3
 
-plot(ant_g, main=sub("\\.json.xz", "", file_str),
+plot(ant_g, # main=sub("\\.json.xz", "", file_str), # cex.main=2 has no effect!
 	vertex.frame.color="white")
+title(sub("\\.json.xz", "", file_str), cex.main=1.6)
 }
 
 
-dir_str=paste0(ESEUR_dir, "ecosystems/antlr/")
+dir_str=paste0(ESEUR_dir, "ecosystems/")
 top_files=list.files(dir_str)
-top_files=top_files[grep(".*\\.json.xz$", top_files)]
+top_files=top_files[grep("antlr-.*\\.json.xz$", top_files)]
 
 dummy=sapply(top_files, plot_PDG)
 

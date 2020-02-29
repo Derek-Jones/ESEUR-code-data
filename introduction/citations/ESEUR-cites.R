@@ -33,7 +33,7 @@ plot(c_year, log="y", col=pal_col[2],
 
 points(d_year, col=pal_col[1])
 
-legend(x="topleft", legend=c("Works", "Data"), bty="n", fill=rev(pal_col), cex=1.2)
+legend(x="topleft", legend=c("Research", "Data"), bty="n", fill=rev(pal_col), cex=1.2)
 
 
 c_mod=glm(log(freq) ~ x, data=c_year, subset=(x > 1940) & (x < 2017))
@@ -50,4 +50,7 @@ d_mod=glm(log(freq) ~ x, data=d_year, subset=(x > 1940) & (x < 2017))
 pred=predict(d_mod, newdata=data.frame(x=years))
 
 lines(years, exp(pred), col=pal_col[1])
+
+# lines(loess.smooth(d_year$x, d_year$freq, span=0.3), col=pal_col[3])
+# legend(x="topleft", legend=c("Research", "Data"), bty="n", fill=rev(pal_col[-3]), cex=1.4)
 

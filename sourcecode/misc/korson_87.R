@@ -1,5 +1,5 @@
 #
-# korson_87.R, 28 Feb 19
+# korson_87.R, 11 Feb 20
 # Data from:
 # An empirical study of the effects of modularity on program modifiability
 # Timothy D. Korson and Vijay K. Vaishnavi
@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG
+# TAG experiment_human modularity Pascal
 
 source("ESEUR_config.r")
 
@@ -16,6 +16,8 @@ source("ESEUR_config.r")
 library("lme4")
 
 
+# Seven professional developers (mostyly those working in the University),
+# plus nine students.
 kor=read.csv(paste0(ESEUR_dir, "sourcecode/korson_87.csv.xz"), as.is=TRUE)
 
 kor$total=kor$code+kor$syntax+kor$logic

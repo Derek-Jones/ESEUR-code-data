@@ -1,5 +1,5 @@
 #
-# 14987-ded.R, 15 Jun 18
+# 14987-ded.R, 20 Feb 20
 # Data from:
 # Quantifying the closeness between program components and features
 # W. Eric Wong and Swapna S. Gokhale and Joseph R. Horgan
@@ -32,7 +32,7 @@ pmat=as.matrix(ded[, 2:7])
 
 fser=seriate(pmat)
 
-pimage(pmat, fser, col=rev(pal_col), key=FALSE, cex.lab=1.6,
+pimage(pmat, fser, col=rev(pal_col), key=FALSE, gp=gpar(cex=1.4),
         xlab="Features", ylab="Files")
 
 #
@@ -46,7 +46,7 @@ pimage(pmat, fser, col=rev(pal_col), key=FALSE, cex.lab=1.6,
 # 
 # fser=seriate(pmat)
 # 
-# pimage(pmat, fser, col=rev(pal_col), key=FALSE, cex.lab=1.6,
+# pimage(pmat, fser, col=rev(pal_col), key=FALSE, gp=gpar(cex=1.4),
 #         xlab="Features", ylab="Files")
 # 
 

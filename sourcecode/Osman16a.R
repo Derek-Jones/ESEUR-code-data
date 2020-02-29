@@ -5,10 +5,10 @@
 # Haidar Osman Manuel Leuenberger Mircea Lungu Oscar Nierstrasz 
 #
 # Example from:
-# Evidence-based Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG Java null if-statement
+# TAG Java null-check if-statement_null-check
 
 
 source("ESEUR_config.r")

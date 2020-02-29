@@ -5,8 +5,11 @@
 # Steven T. Piantadosi
 #
 # Example from:
-# Evidence-based Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG number_word English_word Russian_word Italian_word
+
 
 source("ESEUR_config.r")
 
@@ -36,7 +39,7 @@ r_mean=ddply(rus, .(Value), mean_val)
 
 plot(e_mean$Value, e_mean$Occurrences, log="xy", col=pal_col[1],
 	ylim=range(c(e_mean$Occurrences, i_mean$Occurrences)),
-	xlab="Numeric word value", ylab="Occurrences\n")
+	xlab="Numeric word value", ylab="Words\n")
 
 points(r_mean$Value, r_mean$Occurrences, col=pal_col[2])
 points(i_mean$Value, i_mean$Occurrences, col=pal_col[3])

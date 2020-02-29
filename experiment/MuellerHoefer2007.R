@@ -1,5 +1,5 @@
 #
-# MuellerHoefer2007.R, 24 Aug 18
+# MuellerHoefer2007.R, 18 Feb 20
 #
 # Data from:
 # The Effect of Experience on the Test-Driven Development Process
@@ -40,7 +40,7 @@ r_ex=cor(x[expert], y[expert])
 r_nov=cor(x[!expert], y[!expert])
 
 txt = paste0("e= ", round(r_ex, 2), "\n", "n= ", round(r_nov, 2))
-text(0.1, 0.5, txt, pos=4, cex=1.6)
+text(0.0, 0.5, txt, pos=4, cex=1.6)
 }
 
 panel_boxplot = function(x, user)

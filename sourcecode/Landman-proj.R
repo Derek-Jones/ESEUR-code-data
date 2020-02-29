@@ -5,10 +5,8 @@
 # Empirical analysis of the relationship between {CC} and {SLOC} in a large corpus of Java methods
 # Davy Landman and Alexander Serebrenik and Jurgen Vinju
 #
-# Davy Landman 
-#
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
 # TAG source methods sloc files projects Java
@@ -74,6 +72,7 @@ legend(x="topright", legend=c("SLOC", "Methods", "Files"), bty="n", fill=pal_col
 # # sloc_mod=glm(log(sloc) ~ log(methods)+I(log(methods)^0.1)
 # #				+log(files)+I(log(files)^3), data=proj_info)
 # sloc_mod=glm(log(sloc) ~ log(methods)+log(files), data=proj_info)
+# sloc_mod=glm(log(sloc) ~ log(methods), data=proj_info)
 # summary(sloc_mod)
 # 
 # 

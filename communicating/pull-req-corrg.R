@@ -1,5 +1,5 @@
 #
-# pull-req-corrg.R, 22 Aug 18
+# pull-req-corrg.R, 15 Feb 20
 #
 # Data from:
 #
@@ -11,7 +11,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG pull-request development
+# TAG pull-request development correlation
 
 source("ESEUR_config.r")
 
@@ -42,6 +42,6 @@ used = subset(homebrew_req, select=columns)
 ctab = cor(used, method = "spearman", use="complete.obs")
 
 
-corrgram(ctab, upper.panel=panel.pie, lower.panel=panel.shade)
+corrgram(ctab, upper.panel=panel.pie, lower.panel=panel.cor, cex.cor=0.7)
 
 

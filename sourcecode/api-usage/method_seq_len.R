@@ -1,18 +1,21 @@
 #
-# method_seq_len.R, 12 Jun 18
+# method_seq_len.R,  4 feb 20
 #
 # Data from:
 # Empirical Evidence of Large-Scale Diversity in {API} Usage of Object-Oriented Software
 # Diego Mendez and Benoit Baudry and Martin Monperrus
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
 # TAG Java method call-sequence source-usage
 
 
 source("ESEUR_config.r")
+
+
+library("plyr")
 
 
 pal_col=rainbow(2)
@@ -33,7 +36,7 @@ u_cnt=count(msc$uses)
 plot(u_cnt, log="xy", col=pal_col[1],
 	xaxs="i",
 	xlim=c(0.9, 5e3),
-	xlab="Uses/Length", ylab="Sequences\n")
+	xlab="Uses/Length", ylab="Method sequences\n")
 
 m_cnt=count(msc$num_methods)
 points(m_cnt, col=pal_col[2])

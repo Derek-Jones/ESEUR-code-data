@@ -1,5 +1,5 @@
 #
-# lewicki1988.R, 30 Sep 19
+# lewicki1988.R, 31 Jan 20
 # Data from:
 # Acquisition of Procedural Knowledge about a Pattern Stimuli That Cannot be Articulated
 # Pawel Lewicki and Thomas Hill and Elizabeth Bizot
@@ -20,7 +20,7 @@ pal_col=rainbow(2)
 lew=read.csv(paste0(ESEUR_dir, "developers/lewicki1988.csv.xz"), as.is=TRUE)
 
 plot(lew$Segment, lew$Response, col=pal_col[2],
-	xlab="Segment (240 trials)", ylab="Response (msec)\n")
+	xlab="Segment (240 trials)", ylab="Response time (msec)\n")
 
 # r_mod=glm(log(Response) ~ Segment, data=lew, subset=1:15)
 r_mod=glm(log(Response) ~ Segment, data=lew, subset=2:15)

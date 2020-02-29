@@ -1,14 +1,14 @@
 #
-# daneman1980.R, 12 Jul 18
+# daneman1980.R, 29 Jan 20
 # Data from:
 # Individual Differences in Working Memory and Reading
 # Meredyth Daneman and Patricia A. Carpenter
 #
 # Example from:
-# Evidence-based Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment reading prose comprehension
+# TAG experiment_human reading prose comprehension
 
 
 source("ESEUR_config.r")
@@ -32,7 +32,7 @@ dane$col_str=mapvalues(dane$Read_span, 2:5, pal_col)
 plot(0, type="n",
 	xaxt="n",
 	xlim=c(1, 3), ylim=range(dane$Correct),
-	xlab="Sentences between information", ylab="Correct (percent)\n")
+	xlab="Sentences between information", ylab="Correct responses (percent)\n")
 axis(1, at=1:3, labels=c("2-3", "4-5", "6-7"))
 
 d_ply(dane, .(Read_span), plot_span)

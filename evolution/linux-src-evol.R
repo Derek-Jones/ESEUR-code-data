@@ -2,12 +2,14 @@
 # linux-src-evol.R, 10 Jun 17
 #
 # Data from:
-# Simone Livieri and Yoshiki Higo and Makoto Matsushita and Katsuro Inoue
 # Analysis of the {Linux} Kernel Evolution Using Code Clone Coverage
+# Simone Livieri and Yoshiki Higo and Makoto Matsushita and Katsuro Inoue
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG Linux_evolution
 
 source("ESEUR_config.r")
 

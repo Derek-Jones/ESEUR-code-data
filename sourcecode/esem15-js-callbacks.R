@@ -5,7 +5,7 @@
 # Keheliya Gallaba and Ali Mesbah and Ivan Beschastnikh
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
 # TAG javascript callbacks arguments anonymous

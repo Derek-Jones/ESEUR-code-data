@@ -1,12 +1,12 @@
 #
-# method-usage.R, 12 Jun 18
+# method-usage.R,  3 Feb 20
 #
 # Data from:
 # Empirical Evidence of Large-Scale Diversity in {API} Usage of Object-Oriented Software
 # Diego Mendez and Benoit Baudry and Martin Monperrus
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
 # TAG string call-sequence source-usage Java
@@ -18,6 +18,9 @@ source("ESEUR_config.r")
 library("diagram")
 
 plot_wide()
+
+pal_col=rainbow(2)
+
 
 # method-seq,uses,num-methods
 # append,353547,1
@@ -46,7 +49,7 @@ M[names[8], names[10]]=""
 
 plotmat(t(M), pos=c(3, 4, 1, 2), lwd=1, curve=0, cex=1.4,
 	arr.type="triangle", arr.pos=0.63, endhead=TRUE, arr.width=0.15,
-	arr.length=0.15, arr.lcol="grey", cex.txt=1.0,
-        box.type="ellipse", box.prop=0.5, box.lcol="white", box.cex=1.6,
-	txt.col=point_col, shadow.size=0)
+	arr.length=0.15, arr.lcol=pal_col[2], cex.txt=1.1,
+        box.type="ellipse", box.prop=0.5, box.lcol="white", box.cex=2.1,
+	txt.col=pal_col[1], shadow.size=0)
 

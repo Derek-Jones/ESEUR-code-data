@@ -1,5 +1,5 @@
 #
-# pani-exits.R, 13 Aug 18
+# pani-exits.R, 15 Jan 20
 # Data from:
 # Loop Patterns in C Programs
 # Thomas Pani
@@ -8,23 +8,23 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG loop basic-block source C_loop
+# TAG loop_exits source-code_loop C_loop
 
 
 source("ESEUR_config.r")
 
 
-library("gnm")
+# library("gnm")
 
 
 plot_layout(2, 1)
-pal_col=rainbow(3)
+pal_col=rainbow(2)
 
 
 fit_exits=function(df, ex_1, ex_2)
 {
-plot(df$num, df$bound, log="y", col=pal_col[2],
-	xlab="exists", ylab="Loops\n")
+plot(df$num, df$bound, log="xy", col=pal_col[2],
+	xlab="Exits", ylab="Loops\n")
 
 # It's count data, so try Poisson
 # maxexits=rep(df$num, times=df$bound)
@@ -33,25 +33,29 @@ plot(df$num, df$bound, log="y", col=pal_col[2],
 # lines(1:18, dgamma(1:18, coef(cb_mod)[1])*sum(maxexits), col=pal_col[1])
 
 
-cb_mod=gnm(bound ~ instances(Mult(1, Exp(num)), 2)-1,
-                data=df, verbose=TRUE, trace=TRUE,
-                start=c(ex_1, -1.2, ex_2, -0.1))
-summary(cb_mod)
+cb_mod=gnm(log(bound) ~ log(num), data=df)
+
+# cb_mod=gnm(bound ~ instances(Mult(1, Exp(num)), 2)-1,
+#                 data=df, verbose=TRUE, trace=TRUE,
+#                 start=c(ex_1, -1.2, ex_2, -0.1))
+# lines(df$num, pred, col=pal_col[1])
+#
+# summary(cb_mod)
 
 pred=predict(cb_mod)
-lines(df$num, pred, col=pal_col[2])
+lines(df$num, exp(pred), col=pal_col[1])
 
-exp_coef=as.numeric(coef(cb_mod))
-
-lines(df$num, exp_coef[1]*exp(exp_coef[2]*df$num), col=pal_col[1])
-lines(df$num, exp_coef[3]*exp(exp_coef[4]*df$num), col=pal_col[3])
+# exp_coef=as.numeric(coef(cb_mod))
+# 
+# lines(df$num, exp_coef[1]*exp(exp_coef[2]*df$num), col=pal_col[1])
+# lines(df$num, exp_coef[3]*exp(exp_coef[4]*df$num), col=pal_col[3])
 
 return(cb_mod)
 }
 
 
 ex=read.csv(paste0(ESEUR_dir, "sourcecode/pani-exits.csv.xz"), as.is=TRUE)
-ex=subset(ex, num > 0)
+ex=subset(ex, (num > 0) & (bound > 0))
 
 ex$allbound=ex$bound+ex$nonbound
 

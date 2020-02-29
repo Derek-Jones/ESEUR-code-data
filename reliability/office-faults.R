@@ -1,5 +1,5 @@
 #
-# office-faults.R, 18 Nov 19
+# office-faults.R, 29 Feb 20
 # Data from:
 # Showing How Security Has (And Hasn't) Improved, After Ten Years Of Trying
 # Dan Kaminsky and Michael Eddington and Adam Cecchetti
@@ -8,13 +8,16 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG
+# TAG Office_faults fuzzing
 
 source("ESEUR_config.r")
 
 
 library("plyr")
 library("SpadeR")
+
+library("ggplot2")
+library("iNEXT") # defines its own ChaoSpecies function
 
 
 major_count=function(df)
@@ -44,14 +47,13 @@ w07_pred=ChaoSpecies(w07$freq, datatype = "abundance")
 w10_pred=ChaoSpecies(w10$freq, datatype = "abundance")
 
 
-library("ggplot2")
-library("iNEXT") # defines its own ChaoSpecies function
-
 off_pop=iNEXT(office_releases, endpoint=5e4)
 
 t=ggiNEXT(off_pop, type=1)+
 		scale_x_continuous(expand=c(0,0))+
 		scale_y_continuous(expand=c(0,0))+
-		theme_bw()
+		theme(legend.position=c(0.15, 0.85),
+			panel.background=element_rect(fill="white",
+							color="grey50"))
 plot(t)
 

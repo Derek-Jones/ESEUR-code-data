@@ -1,11 +1,11 @@
 #
-# robbesAl-emse2015.R, 29 Jun 18
+# robbesAl-emse2015.R,  8 Feb 20
 # Data from:
 # Object-oriented software extensions in practice
 # Romain Robbes and David R{\'o}thlisberger and {\'E}ric Tanter
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
 # TAG Smalltalk class data-extension extension hierarchy source-code
@@ -17,6 +17,8 @@ source("ESEUR_config.r")
 pal_col=rainbow(2)
 
 visit=read.csv(paste0(ESEUR_dir, "sourcecode/robbesAl-emse2015.csv.xz"), as.is=TRUE)
+
+x_bounds=exp(seq(0, log(500), by=0.5))
 
 # The two plots appearing as Fig 9 in the paper (except the paper
 # figures have mislabelled the x/y axis (they are switched; cannot tell
@@ -31,7 +33,6 @@ visit=read.csv(paste0(ESEUR_dir, "sourcecode/robbesAl-emse2015.csv.xz"), as.is=T
 # oo_mod=glm(log(oo) ~ log(classes)+I(log(classes)^2), data=visit_oo)
 # summary(oo_mod)
 # 
-# x_bounds=exp(seq(0, log(500), by=0.5))
 # pred=predict(oo_mod, newdata=data.frame(classes=x_bounds))
 # lines(x_bounds, exp(pred), col="red")
 # 
@@ -62,7 +63,7 @@ visit=read.csv(paste0(ESEUR_dir, "sourcecode/robbesAl-emse2015.csv.xz"), as.is=T
 
 visit_oo_adt=subset(visit, (oo > 0) & (adt > 0))
 
-plot(visit_oo_adt$adt, visit_oo_adt$oo, log="xy", col=pal_col[2],
+plot(jitter(visit_oo_adt$adt), jitter(visit_oo_adt$oo), log="xy", col=pal_col[2],
 	xlim=c(1, 100), ylim=c(1, 100), 
 	xlab="Operation extensions", ylab="Data extensions\n")
 

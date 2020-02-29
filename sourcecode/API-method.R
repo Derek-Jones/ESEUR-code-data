@@ -6,7 +6,7 @@
 # Ralf L{\"a}mmel and Ekaterina Pek and J{\"u}rgen Starek
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
 # TAG Java API method project calls
