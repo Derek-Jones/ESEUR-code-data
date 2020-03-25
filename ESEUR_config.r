@@ -1,9 +1,11 @@
 #
-# ESEUR-config.r, 22 Sep 18
+# ESEUR-config.r, 23 Mar 20
 
 # Assume the current directory unless told otherwise
-ESEUR_dir=paste0(getwd(), "/")
-#ESEUR_dir="/usr1/rbook/examples/"
+ESEUR_dir=Sys.getenv("ESEUR_dir")
+if (ESEUR_dir == "")
+   ESEUR_dir=getwd()
+ESEUR_dir=paste0(ESEUR_dir, "/")
 
 
 library("colorspace")
@@ -74,9 +76,10 @@ ESEUP_set_par()
 }
 
 
-plot_wide=function()
+plot_wide=function(w_width=ESEUR_default_width*1.3,
+			w_height=ESEUR_default_height*0.8)
 {
-layout(matrix(1:1, nrow=1), widths=ESEUR_default_width*1.3, heights=ESEUR_default_height*0.8, TRUE)
+layout(matrix(1:1, nrow=1), widths=w_width, heights=w_height, TRUE)
 ESEUP_set_par()
 }
 

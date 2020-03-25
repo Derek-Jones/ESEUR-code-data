@@ -24,8 +24,9 @@ FreeBSD_count=rep(FreeBSD$features, times=FreeBSD$count)
 Linux_count=rep(Linux$features, times=Linux$count)
 
 plot(table(Linux_count), type="b", col=pal_col[1],
+	xaxs="i", yaxs="i",
 	xlim=c(0, 8),
-	xlab="Number of features", ylab="Occurrences\n")
+	xlab="Number of features", ylab="Conditionally compiled sequences\n")
 lines(table(FreeBSD_count), col=pal_col[2], type="b")
 
 

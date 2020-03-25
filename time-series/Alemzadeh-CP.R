@@ -1,5 +1,5 @@
 #
-# Alemzadeh-CP.R, 25 Sep 18
+# Alemzadeh-CP.R, 24 Mar 20
 #
 # Data from:
 # Analysis of safety-critical computer failures in medical devices
@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG change-point medical hardware failure
+# TAG change-point medical_hardware hardware_failure
 
 
 source("ESEUR_config.r")
@@ -17,7 +17,9 @@ source("ESEUR_config.r")
 library("changepoint")
 
 
-plot_layout(2, 1)
+plot_layout(2, 1, max_height=8.5, default_width=5)
+par(mar=MAR_default-c(0.6, 0, 0.8, 0))
+
 
 pal_col=rainbow(2)
 
@@ -34,10 +36,12 @@ t2=table(t1)
 # change_at=cpt.mean(as.vector(t2), test.stat="CUSUM", penalty="Manual", pen.value="log(n"))
 change_at=cpt.mean(as.vector(t2))
 plot(change_at, col=pal_col[2], cpt.col=pal_col[1],
+	xaxs="i",
 	xlab="", ylab="Reported product recalls\n")
 
 change_at=cpt.mean(as.vector(t2), method="PELT")
 plot(change_at, col=pal_col[2], cpt.col=pal_col[1],
+	xaxs="i",
 	xlab="Fortnights", ylab="Reported product recalls\n")
 
 

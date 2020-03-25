@@ -1,11 +1,14 @@
 #
-# noisey-data.R, 12 Jul 16
+# noisey-data.R, 24 Mar 20
 #
 # Data from:
+# Example
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG Example ratio-test
 
 source("ESEUR_config.r")
 
@@ -13,9 +16,10 @@ source("ESEUR_config.r")
 library("plyr")
 
 
-plot_layout(2, 2)
-pal_col=rainbow(3)
+plot_layout(2, 2, max_height=12)
+par(mar=MAR_default-c(0.6, -1, 0.8, 1))
 
+pal_col=rainbow(3)
 
 
 fit_and_plot=function(x, y)
@@ -28,16 +32,16 @@ p_mod=glm(y ~ x, family=poisson)
 l_mod=glm(y ~ log(x), family=poisson)
 q_mod=glm(y ~ I(x^2))
 
-print(summary(l_mod))
-print(summary(p_mod))
-print(summary(q_mod))
+# print(summary(l_mod))
+# print(summary(p_mod))
+# print(summary(q_mod))
 
-plot(x, y, log="y", col=point_col,
-	ylab="y\n")
+plot(x, y, log="y", col=pal_col[2],
+	xlab="X", ylab="Y\n")
 # pred=predict(l_mod, newdata=data.frame(x=1:100), type="response")
 # lines(pred, col=pal_col[1])
 pred=predict(p_mod, newdata=data.frame(x=1:100), type="response")
-lines(pred, col=pal_col[2])
+lines(pred, col=pal_col[1])
 pred=predict(q_mod, newdata=data.frame(x=1:100))
 lines(pred, col=pal_col[3])
 }
@@ -55,14 +59,14 @@ p_mod=glm(y ~ x, data=peak_vals, family=poisson)
 l_mod=glm(y ~ log(x), data=peak_vals, family=poisson)
 q_mod=glm(y ~ I(x^2), data=peak_vals)
 
-print(summary(l_mod))
-print(summary(p_mod))
-print(summary(q_mod))
+# print(summary(l_mod))
+# print(summary(p_mod))
+# print(summary(q_mod))
 
 # pred=predict(l_mod, newdata=data.frame(x=1:100), type="response")
 # lines(pred, col=pal_col[1])
 pred=predict(p_mod, newdata=data.frame(x=1:100), type="response")
-lines(pred, col=pal_col[2])
+lines(pred, col=pal_col[1])
 pred=predict(q_mod, newdata=data.frame(x=1:100))
 lines(pred, col=pal_col[3])
 }
@@ -71,7 +75,7 @@ lines(pred, col=pal_col[3])
 ratio_test=function(x, y)
 {
 plot(0, type="n", log="y",
-	xlab="x", ylab="Ratio\n",
+	xlab="X", ylab="Ratio\n\n",
 	xlim=range(x), ylim=c(1e-6, 100))
 points(x, y/exp(x/5), col=pal_col[2])
 points(x, y/x^2, col=pal_col[3])

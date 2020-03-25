@@ -1,5 +1,5 @@
 #
-# feat-zero-trunc-nb-7dig.R,  6 Aug 16
+# feat-zero-trunc-nb-7dig.R,  5 Mar 20
 #
 # Data from:
 #
@@ -20,6 +20,9 @@ source("ESEUR_config.r")
 
 library(gamlss)
 library(gamlss.tr)
+
+
+pal_col=rainbow(2)
 
 
 p=read.csv(paste0(ESEUR_dir, "projects/agile-work/7digital2012.csv.xz"))
@@ -50,12 +53,12 @@ g.NBIItr=gamlss(day.list ~ 1, family=NBIItr)
 NBII.mu=exp(coef(g.NBIItr, "mu"))
 NBII.sigma=exp(coef(g.NBIItr, "sigma"))
 
-plot(table(day.list), log="xy", type="p", col=point_col,
+plot(table(day.list), log="xy", type="p", col=pal_col[2],
 	xlim=c(1, 90), ylim=c(1, 1200),
 	xlab="Elapsed working days", ylab="Features\n")
 
 lines(dNBIItr(1:93, mu=NBII.mu, sigma=NBII.sigma)*length(day.list),
-	col="red")
+	col=pal_col[1])
 
 return(c(AIC=as.numeric(AIC(g.NBIItr)),
          log.likelihood=as.numeric(logLik(g.NBIItr))))

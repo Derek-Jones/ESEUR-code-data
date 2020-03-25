@@ -1,19 +1,21 @@
 #
-# L-pref-attach-access.R, 20 Jul 16
+# W-pref-attach-access.R,  4 Mar 20
 #
 # Simulate weighted preferential attachment process
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG example preferential-attachment
 
 
 source("ESEUR_config.r")
 
 library("plyr")
 
-plot_layout(4, 1)
-# par(mai=c(0.7, 0.7, 0.1, 0.2))
+plot_layout(4, 1, max_height=ESEUR_max_height-2)
+par(mar=MAR_default-c(0.7, 0.0, 0.5, 0.0))
 
 
 MAX_LOCALS=100
@@ -108,8 +110,9 @@ b100=band_obj(b_center)
 b100=100*b100/b100[1]
 
 plot(b100, ylim=c(0, 100), col="blue",
-	ylab="Occurrences", xlab="Read accesses")
-text(13, 90, paste0("Total access=", b_center))
+        cex.axis=1.4, cex.lab=1.4,
+	ylab="Variables\n", xlab="Read accesses")
+text(13, 90, paste0("Total access=", b_center), cex=1.4)
 
 # Create a specific fit for this data
 # nls_mod=nls(b100 ~ a*exp(b*access_bounds), start=list(a=100, b=-0.1))

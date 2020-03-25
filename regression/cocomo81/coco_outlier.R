@@ -1,13 +1,16 @@
 #
-# coco_outlier.R, 23 Jul 16
+# coco_outlier.R, 24 Mar 20
 # Data from:
 # Software Engineering Economics
 # Barry W. Boehm
 # by way of the PROMISE repository
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG effort_man-months SLOC
+
 
 source("ESEUR_config.r")
 
@@ -15,7 +18,10 @@ source("ESEUR_config.r")
 library("foreign")
 
 
-plot_layout(2, 1)
+# Tuning for book layout purposes
+plot_layout(2, 1, default_width=5, max_height=9)
+par(mar=MAR_default-c(0.6, 0, 0.8, 0))
+
 pal_col=rainbow(5)
 
 # coc81=read.arff(paste0(ESEUR_dir, "regression/cocomo81/coc81.arff"))
@@ -36,7 +42,7 @@ semid=subset(coc81, dev_mode == "semidetached")
 fit_dev_mode=function(df)
 {
 plot(df$loc, df$r_actual, log="xy",
-	xlab="kSLOC", ylab="Man months\n")
+	xlab="KSLOC", ylab="Man months\n")
 
 #lines(loess.smooth(df$loc, df$r_actual, span=0.3), col=loess_col)
 

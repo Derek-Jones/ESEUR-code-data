@@ -1,12 +1,15 @@
 #
-# rabbit.R, 11 Dec 16
+# rabbit.R, 24 Mar 20
 # Equations from:
 # Grapher Pics
 # Jerome A. White
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG example equation_plotting
+
 
 source("ESEUR_config.r")
 
@@ -48,7 +51,7 @@ dummy=sapply(x, function(X) points(rep(X, 18), c(
 	(-0.3*(abs(X)-c(1.6, 1, 0.4))^2-c(1.6, 1.9, 2.1))/
 		as.numeric(c(0.9, 0.7, 0.6) <= abs(X) & abs(X) <= c(2.6, 2.3, 2))
 						),
-					pch="."
+					pch=".", col=point_col
 					))
 
 # 

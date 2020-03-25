@@ -14,9 +14,6 @@
 source("ESEUR_config.r")
 
 
-library("chngpt")
-
-
 pal_col=rainbow(4)
 
 # Recall_Number,Date,Year,Trade_Name,Recalling_Firm,Recall_Class,Reason_Recall,Action
@@ -43,7 +40,7 @@ y_bounds=range(y_axis)
 
 plot(t2, type="p", col=pal_col[3],
 	ylim=y_bounds,
-	xlab="Fortnights", ylab="Recalls")
+	xlab="Fortnights", ylab="Recalls\n")
 
 # Just fit everything before the send of 2010
 recall_subset=subset(comp_recalls, Date <= as.Date("2010-12-31"))
@@ -52,6 +49,8 @@ t1=cut(recall_subset$Date, breaks=60)
 # t1=cut(comp_recalls$Date, breaks=60)
 t2=table(t1)
 
+# library("chngpt")
+# 
 # bined_recalls=data.frame(fortnight=1:length(t2), recalls=as.vector(t2))
 # 
 # fit=chngptm(recalls ~ 1, ~fortnight, family="gaussian", data=bined_recalls,

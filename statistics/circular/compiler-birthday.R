@@ -1,14 +1,14 @@
 #
-# compiler-birthday.R, 14 Oct 18
+# compiler-birthday.R, 24 Mar 20
 # Data from:
-#
+# Survey
 # Derek M. Jones
 #
 # Example from:
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG survey compiler-writer birthday
+# TAG survey_birthday compiler-writer_birthday
 
 source("ESEUR_config.r")
 
@@ -56,7 +56,8 @@ cir_comp=circular(compiler$mval, units = "hours", template = "clock12")
 
 # watson.williams.test(cir_ncomp, cir_comp)
 
-rose.diag(cir_comp, bins=12, shrink=1.1, prop=3, axes=FALSE, col="red")
+rose.diag(cir_comp, bins=12, shrink=1.1, prop=3, col="red", border="grey",
+		axes=FALSE,  control.circle=circle.control(col="grey", lwd=0.5))
 axis.circular(at=circular((1:12)-0.5, units="hours", template="clock12"),
 				col="blue", labels=months)
 

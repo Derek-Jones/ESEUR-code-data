@@ -1,5 +1,5 @@
-#
-# github-lang-pairs.R, 27 Aug 18
+
+# github-lang-pairs.R,  4 Mar 20
 #
 # Data from:
 # Popularity, interoperability, and impact of programming languages in 100,000 open source projects
@@ -62,8 +62,8 @@ E(lang_graph)$color=l_col[1+log_max_weight-log(E(lang_graph)$weight)]
 V(lang_graph)$shape="rectangle"
 
 # layout.kamada.kawai seems to give the best results of those tried
-plot(lang_graph, edge.width=0.5+(E(lang_graph)$weight)^0.15,
+plot(lang_graph, edge.width=0.1+log(E(lang_graph)$weight)^0.5,
 	layout=layout.kamada.kawai,
-	vertex.size=5+nchar(V(lang_graph)$name)*3, vertex.size2=10,
-	vertex.frame.color="white")
+	vertex.size=20+nchar(V(lang_graph)$name)*3, vertex.size2=15,
+	vertex.frame.color="white", vertex.label.cex=1.5)
 

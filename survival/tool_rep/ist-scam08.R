@@ -1,13 +1,16 @@
 #
-# ist-scam08.R, 17 Jul 16
+# ist-scam08.R, 22 Mar 20
 #
 # Data from:
 # The Life and Death of Statically Detected Vulnerabilities: an Empirical Study
 # Massimiliano {Di Penta} and Luigi Cerulo and Lerina Aversano
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG mistake_survival survival_competing-risks
+
 
 source("ESEUR_config.r")
 
@@ -45,6 +48,7 @@ t=cuminc(rats$failtime, rats$type, cencode=0,
 	subset=(rats$SYSTEM == sys_str))
 
 plot(t, col=pal_col, cex=1.25,
+	xaxs="i", yaxs="i",
 	curvlab=c("was removed", "disappeared"),
 	xlab="Snapshot", ylab="Proportion flagged issues 'dead'\n")
 

@@ -1,5 +1,5 @@
 #
-# ETP-BLD.R, 21 Feb 16
+# ETP-BLD.R, 22 Mar 20
 #
 # Data from:
 # Survival of Eclipse Third-party Plug-ins
@@ -9,9 +9,10 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG Eclipse plugin API survival
+# TAG Eclipse_plugin plugin_survival API_survival
 
 source("ESEUR_config.r")
+
 
 library("survival")
 
@@ -25,6 +26,8 @@ bld_surv=Surv(bld_API$year_end-bld_API$year_start,
 bld_mod=survfit(bld_surv ~ bld_API$API)
 
 plot(bld_mod, col=pal_col, conf.int=TRUE,
-	xlim=c(0,7), xlab="Years")
+	xaxs="i", yaxs="i",
+	xlim=c(0,7),
+	xlab="Years", ylab="Survival\n")
 
 

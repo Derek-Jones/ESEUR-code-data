@@ -1,5 +1,5 @@
 #
-# agile-week-acf.R, 14 Oct 16
+# agile-week-acf.R, 21 Mar 20
 #
 # Data from:
 # http://www.7digital.com
@@ -8,12 +8,14 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG agile feature duration
+# TAG agile_feature feature_duration
 
 source("ESEUR_config.r")
 
 
-plot_layout(2, 1)
+plot_layout(2, 1, max_height=12)
+
+par(mar=MAR_default-c(0.5, 0, 0.8, 0))
 
 source(paste0(ESEUR_dir, "projects/agile-work/feat-common-7dig.R"))
 
@@ -26,9 +28,17 @@ day_starts[t$x]=t$freq
 # acf(diff(diff(log(day_starts+1e-5)), lag=7))
 
 weekdays=day_starts[-weekends]
+
+lwd=log(weekdays+1e-1) # handle days with zero values
+# lwd[is.infinite(lwd)]=0 # handle days with zero values
+
 # pacf(diff(weekdays), xlab="Lag (working days)")
-acf(diff(log(weekdays+1e-5)), xlab="Lag (working days)", col=point_col)
-pacf(diff(log(weekdays+1e-5)), xlab="Lag (working days)", col=point_col)
+acf(lwd, col=point_col,
+	yaxs="i",
+	xlab="Lag (working days)", ylab="ACF\n")
+pacf(lwd, col=point_col,
+	yaxs="i",
+	xlab="Lag (working days)", ylab="Partial ACF\n")
 
 
 # weeks=sapply(seq(0, length(weekdays)-1, by=5), function(X) sum(weekdays[X:(X+4)]))

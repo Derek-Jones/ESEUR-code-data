@@ -1,5 +1,5 @@
 #
-# lin-log-plot.R, 22 Feb 18
+# lin-log-plot.R, 24 Mar 20
 #
 # Data from:
 # An Experiment in Software Reliability
@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG reliability experiment input
+# TAG experiment_reliability faults_input-values
 
 
 source("ESEUR_config.r")
@@ -18,7 +18,8 @@ source("ESEUR_config.r")
 library("reshape2")
 
 
-plot_layout(2, 1)
+plot_layout(2, 1, max_height=10.5)
+par(mar=MAR_default-c(0.7, 0.0, 0.7, 0.0))
 
 pal_col=rainbow(4)
 
@@ -29,7 +30,7 @@ tests$Rep=NULL
 
 all_fails=reshape(tests, varying=colnames(tests), timevar="failure", dir="long", sep="")
 
-plot(1, type="n",
+plot(1, type="n", cex.axis=1.8, cex.lab=1.8,
 	xlim=range(all_fails$F, na.rm=TRUE), ylim=range(all_fails$failure, na.rm=TRUE),
 	xlab="Input cases", ylab="Failure")
 
@@ -40,7 +41,7 @@ dummy=sapply(1:4, function(X)
 		})
 
 
-plot(1, type="n", log="x",
+plot(1, type="n", log="x", cex.axis=1.8, cex.lab=1.8,
 	xlim=range(all_fails$F, na.rm=TRUE), ylim=range(all_fails$failure, na.rm=TRUE),
 	xlab="Input cases", ylab="Failure")
 

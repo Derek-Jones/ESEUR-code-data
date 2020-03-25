@@ -1,7 +1,8 @@
 #
-# ternary-plot.R, 23 Sep 16
+# ternary-plot.R,  4 Mar 20
 #
 # Data from:
+# Example
 #
 # Example from:
 # Evidence-based Software Engineering: based on the publicly available data
@@ -13,6 +14,10 @@ source("ESEUR_config.r")
 library("compositions")
 
 plot_layout(2, 1)
+# Attempt to reduce the space between triangles.  Does not seem to work.
+par(mar=MAR_default-c(2.5, 0, 0.5, 0))
+par(oma=OMA_default-c(1.5, 0, 0.5, 0))
+
 
 pal_col=rainbow(4)
 hcl_col=rainbow_hcl(4)

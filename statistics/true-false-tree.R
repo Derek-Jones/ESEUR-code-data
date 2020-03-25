@@ -1,18 +1,28 @@
 #
-# true-false-tree.R,  6 Sep 18
+# true-false-tree.R, 24 Mar 20
 # Data from:
+# Example
 #
 # Example from:
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG example
+# TAG example sample_example statistical-power_example
 
 
 source("ESEUR_config.r")
 
 
 library("diagram")
+
+
+# Tuned for page layout reasons
+plot_layout(3, 1, default_width=5.7, max_height=4.1)
+par(mar=MAR_default-c(3.0, 4.0, 1.0, 0.0))
+par(oma=OMA_default-c(1.5, 1.0, 1.0, 0.0))
+
+# par(fin=c(default_width/2.54, default_height/2.54)) # cm -> inches
+
 
 plot_discovery=function(power, pvalue, prevalence)
 {
@@ -48,20 +58,16 @@ M[names[3], names[7]]=paste0(pvalue, "%")
 plotmat(t(M), pos=node_layout, lwd=0.8, lcol=point_col,
 	curve=0, arr.pos=0.6, arr.length=0.2,
 	latex=TRUE,
-        box.type="rect", box.prop=0.5, box.size=0.08, box.lcol="white",
+        box.type="rect", box.prop=0.4, box.size=0.07, box.lcol="white",
+	box.cex=1.2, cex.txt=1.2,
 	txt.col=tcol,
 	shadow.size=0)
 }
 
 
-node_layout=matrix(c(0.1, 0.5, 0.5, 0.9, 0.9, 0.9, 0.9,
+node_layout=matrix(c(0.18, 0.5, 0.5, 0.82, 0.82, 0.82, 0.82,
 		     5/9, 3/9, 7/9, 2/9, 4/9, 6/9, 8/9), ncol=2)
 
-
-par(mfcol=c(3,1))
-
-par(oma=c(1, 2, 1, 1))
-par(mar=c(1, 2, 1, 1))
 
 plot_discovery(80, 5, 1)
 plot_discovery(80, 5, 50)

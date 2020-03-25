@@ -1,5 +1,5 @@
 #
-# Alemzadeh-Recalls.R, 23 Sep 18
+# Alemzadeh-Recalls.R, 24 Mar 20
 #
 # Data from:
 # Analysis of safety-critical computer failures in medical devices
@@ -14,10 +14,11 @@
 
 source("ESEUR_config.r")
 
-# Need to get this plot to fit in the margin, along with the plot before it
-# plot_layout(2, 1, max_height=12)
-# par(mar=MAR_default-c(0.8, 0, 0.0, 0))
-plot_layout(2, 1)
+
+# # Need to get this plot to fit in the margin, along with the plot before it
+# plot_layout(2, 1, max_height=14)
+# # plot_layout(2, 1)
+# par(mar=MAR_default-c(0.6, 0, 0.8, 0))
 
 pal_col=rainbow(4)
 
@@ -37,7 +38,7 @@ y_bounds=range(y_axis)
 
 plot(t2, type="p", col=pal_col[3],
 	ylim=y_bounds,
-#	cex.axis=1.4, cex.lab=1.4,
+	cex.axis=1.4, cex.lab=1.4,
 	xlab="Fortnights", ylab="Reported product recalls\n")
 
 loess_mod=loess(y_axis ~ x_axis, span=0.3)
@@ -60,32 +61,34 @@ lines(x_axis, pred$fit-1.96*pred$se.fit, col=pal_col[2])
 
 #influenceIndexPlot(l_mod, main="")
 
+# Fit regression model after removing two central outliers
 
-# l_mod=glm(y_axis ~ x_axis, family=quasipoisson(link="identity"))
-l_mod=glm(y_axis ~ x_axis)
-orig_pred=predict(l_mod)
-
-t2[33]=round(mean(y_axis))
-#t2[34]=round(mean(y_axis))
-t2[67]=round(mean(y_axis))
-y_axis=as.vector(t2)
-
-plot(t2, type="p", col=pal_col[3],
-	ylim=y_bounds,
-#	cex.axis=1.4, cex.lab=1.4,
-	xlab="Fortnights", ylab="Recalls\n")
-
-loess_mod=loess(y_axis ~ x_axis, span=0.3)
-
-fortnight_pred=predict(loess_mod)
-
-lines(x_axis, fortnight_pred, col=loess_col)
-
-# l_mod=glm(y_axis ~ x_axis, family=quasipoisson(link="identity"))
-l_mod=glm(y_axis ~ x_axis)
-
-fortnight_pred=predict(l_mod)
-
-lines(x_axis, orig_pred, col=pal_col[1])
-lines(x_axis, fortnight_pred, col=pal_col[4])
-
+# 
+# # l_mod=glm(y_axis ~ x_axis, family=quasipoisson(link="identity"))
+# l_mod=glm(y_axis ~ x_axis)
+# orig_pred=predict(l_mod)
+# 
+# t2[33]=round(mean(y_axis))
+# #t2[34]=round(mean(y_axis))
+# t2[67]=round(mean(y_axis))
+# y_axis=as.vector(t2)
+# 
+# plot(t2, type="p", col=pal_col[3],
+# 	ylim=y_bounds,
+# 	cex.axis=1.4, cex.lab=1.4,
+# 	xlab="Fortnights", ylab="Recalls\n")
+# 
+# loess_mod=loess(y_axis ~ x_axis, span=0.3)
+# 
+# fortnight_pred=predict(loess_mod)
+# 
+# lines(x_axis, fortnight_pred, col=loess_col)
+# 
+# # l_mod=glm(y_axis ~ x_axis, family=quasipoisson(link="identity"))
+# l_mod=glm(y_axis ~ x_axis)
+# 
+# fortnight_pred=predict(l_mod)
+# 
+# lines(x_axis, orig_pred, col=pal_col[1])
+# lines(x_axis, fortnight_pred, col=pal_col[4])
+# 

@@ -1,5 +1,5 @@
 #
-# Android-distribution.R, 22 Aug 18
+# Android-distribution.R,  4 Mar 20
 #
 # Data from:
 #
@@ -16,6 +16,7 @@ source("ESEUR_config.r")
 
 
 plot_layout(2, 2)
+par(mar=MAR_default-c(0.0, 0.0, 0.7, 0.0))
 
 
 avd=read.csv(paste0(ESEUR_dir, "communicating/Android-version-distribution_data.csv.xz"), as.is=TRUE)
@@ -42,11 +43,13 @@ plot_time_poly=function()
 {
 # A plot frame is needed
 plot(avd$Date, avd[ , 1+1], type="n",
+	xaxs="i", yaxs="i",
 	ylim=c(0, max_perc),
 	xlab="", ylab="Percentage of market\n")
 dummy=sapply(1:num_col, disp_time)
 
 plot(avd$Date, rep(0, length(avd$Date)), type="n",
+	xaxs="i", yaxs="i",
 	ylim=c(0, 100),
 	xlab="Date", ylab="Percentage of market\n")
 

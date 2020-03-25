@@ -1,5 +1,5 @@
 #
-# 13-emse.R, 16 Jul 16
+# 13-emse.R, 24 Mar 20
 #
 # Data from:
 # Do time of day and developer experience affect commit bugginess?
@@ -8,14 +8,17 @@
 # Example from:
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
-
+#
+# TAG
 
 source("ESEUR_config.r")
 
 library("circular")
 
 
-plot_layout(2, 1)
+plot_layout(2, 1, max_height=11.0)
+par(mar=MAR_default-c(2.5, 0, 0.5, 0))
+
 pal_col=rainbow(3)
 
 # id repository_id raw_author_id sha1 merge utc_time local_time
@@ -37,10 +40,11 @@ plot_commits=function(df, repo_str, col_str)
 {
 HoW=circular(df$hour, units="hours", rotation="clock")
 #plot(HoW, stack=TRUE, shrink=3, axes=FALSE, cex=0.01, col=col_str)
-rose.diag(HoW, bins=24, shrink=1.1, prop=3, axes=FALSE, col=col_str)
+rose.diag(HoW, bins=24, shrink=1.1, prop=3, col=col_str, border="grey",
+		axes=FALSE,  control.circle=circle.control(col="grey", lwd=0.5))
 axis.circular(at=circular(0:23, units="hours", rotation="clock"))
 
-text(0.8, 1, repo_str, cex=1.4)
+text(0.8, 1.2, repo_str, cex=1.4)
 
 arrows.circular(mean(HoW), y=rho.circular(HoW), col=pal_col[2], lwd=3)
 # print(c(mean(HoW)[[1]], rho.circular(HoW)))

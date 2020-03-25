@@ -71,4 +71,10 @@ lines(java_cnt$x, t, col=pal_col[1])
 # lines(java_cnt$x, exp(pred), col="red")
 
 
+# library("pracma")
+# 
+# # A third exponential does not improve things
+# me_mod=mexpfit(java_cnt$x, java_cnt$freq, p0=c(-0.9, -0.1, -0.01))
+# print(me_mod)
+
 

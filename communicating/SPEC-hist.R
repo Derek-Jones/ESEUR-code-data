@@ -1,5 +1,5 @@
 #
-# SPEC-hist.R,  2 Mar 19
+# SPEC-hist.R,  4 Mar 20
 #
 # Data from:
 # www.spec.org/cpu2006/results
@@ -8,14 +8,15 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG SPEC computer benchmark
+# TAG benchmark_SPEC
 
 
 source("ESEUR_config.r")
 
 # Need to get this plot to fit in the margin, along with the plot before it
 plot_layout(2, 1, max_height=12)
-par(mar=MAR_default-c(0.8, 0, 0, 0))
+
+par(mar=MAR_default-c(0.8, -2, 0.5, 0))
 
 
 cpu2006=read.csv(paste0(ESEUR_dir, "benchmark/cpu2006-results-20140206.csv.xz"), as.is=TRUE)
@@ -35,7 +36,7 @@ hist(cint$Result, main="", col=point_col,
 
 plot(density(cint$Result), col=point_col, main="",
 	cex.axis=1.4, cex.lab=1.4,
-	yaxs="i",
-	xlab="SPECint result", ylab="Density (of number of computers)\n")
+	xaxs="i", yaxs="i",
+	xlab="SPECint result", ylab="Density (of number of computers)\n\n")
 
 

@@ -1,5 +1,5 @@
 #
-# Gonzaga.R, 26 Feb 20
+# Gonzaga.R,  6 Mar 20
 # Data from:
 # Empirical Studies on Fine-Grained Feature Dependencies
 # IRAN RODRIGUES GONZAGA JUNIOR
@@ -110,8 +110,8 @@ mean(num_param$av_ngparam)-mean(num_param$av_gparam)
 # Difference in means of two samples
 mean_param_diff=function(params, num_no_glob, num_glob)
 {
-t=mean(params[sample(num_no_glob)])-
-		mean(params[sample(num_glob)])
+t=mean(params[sample(num_no_glob, replace=TRUE)])-
+		mean(params[sample(num_glob, replace=TRUE)])
 }
 
 
@@ -126,11 +126,11 @@ no_glob=subset(df, !Ref_globals)
 # Actual difference in means
 act_mean=mean(no_glob$Parameters)-mean(glob$Parameters)
 
-# Not bootstrap
+# Now bootstrap
 param_diff=replicate(4999, mean_param_diff(df$Parameters, nrow(no_glob), nrow(glob)))
 
-# How many samples had a mean this large?
-return(length(which(act_mean < param_diff)))
+# What percentage of bootstrap samples had a mean this large?
+return(100*length(which(act_mean <= param_diff))/(1+length(param_diff)))
 }
 
 # Iterate over all projects

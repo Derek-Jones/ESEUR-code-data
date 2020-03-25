@@ -1,5 +1,5 @@
 #
-# Lunesu_PhD.R, 13 Oct 18
+# Lunesu_PhD.R, 22 Mar 20
 # Data from:
 # Process Software Simulation Model of {Lean-Kanban} Approach
 # Maria Ilaria Lunesu
@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG maintenance issues evolution
+# TAG maintenance_issues maintenance_evolution Lean-Kanban
 
 source("ESEUR_config.r")
 
@@ -16,6 +16,7 @@ source("ESEUR_config.r")
 library("survival")
 
 plot_layout(2, 1)
+
 pal_col=rainbow(3)
 
 
@@ -82,7 +83,8 @@ km1=survfit(Surv(P1$time_taken, !P1$is_censored) ~ 1)
 # 
 
 plot(km1, col=pal_col[1],
-	xlab="Days", ylab="Survival")
+	xaxs="i", yaxs="i",
+	xlab="Days", ylab="Survival\n")
 
 P2=subset(L2007, Report.Date-start_date >= 400 & Report.Date-start_date < 800)
 P2$is_censored=is.na(P2$Verify.Date) | !(P2$Verify.Date-start_date < 800)

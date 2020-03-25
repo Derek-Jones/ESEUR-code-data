@@ -1,12 +1,13 @@
 #
-# contam-norm.R,  6 Sep 18
+# contam-norm.R,  6 Mar 20
 # Data from:
+# Example
 #
 # Example from:
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG example normal distribution contaminated
+# TAG example distribution_normal normal_contaminated
 
 
 source("ESEUR_config.r")
@@ -32,8 +33,9 @@ normal_vals=rnorm(10000)
 
 plot(density(contam_vals), col=pal_col[1],
 	main="",
+	yaxs="i",
 	xlab="", ylab="",
-	xlim=c(-4, 4), ylim=c(0, 0.45))
+	xlim=c(-4, 4), ylim=c(0, 0.41))
 q=quantile(contam_vals, c(0.025, 0.975))
 lines(c(q[1], q[1]), c(0, 0.1), col=pal_col[1])
 lines(c(q[2], q[2]), c(0, 0.1), col=pal_col[1])

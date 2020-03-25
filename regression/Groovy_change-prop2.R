@@ -1,27 +1,30 @@
 #
-# Groovy_change-prop2.R,  8 Jan 16
+# Groovy_change-prop2.R, 14 Mar 20
 #
 # Data from:
-#
 # Growth and change dynamics in open source software systems
 # Rajesh Vasa
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
-
+#
+# TAG
 
 source("ESEUR_config.r")
 
 
-groovy=read.csv(paste0(ESEUR_dir, "regression/Groovy_change-prop2.csv.xz"), as.is=TRUE)
+pal_col=rainbow(3)
 
-pal_col=rainbow(2)
+
+groovy=read.csv(paste0(ESEUR_dir, "regression/Groovy_change-prop2.csv.xz"), as.is=TRUE)
 
 # There are multiple metrics per program, pick one
 groovy=subset(groovy, Name == "Groovy")
 
-plot(groovy$Age, groovy$Classes, col=point_col,
+plot(groovy$Age, groovy$Classes, col=pal_col[2],
+	xaxs="i",
+	xlim=c(0, max(groovy$Age)),
 	xlab="Days since version 1.0.0", ylab="Number of classes\n")
 
 all_mod=glm(Classes ~ Age+I(Age^2), data=groovy)
@@ -39,7 +42,7 @@ p1_mod=glm(Classes ~ Age+I(Age^2), data=phase_1)
 
 pred=predict(p1_mod, se.fit=TRUE)
 
-lines(phase_1$Age, pred$fit, col=pal_col[2])
+lines(phase_1$Age, pred$fit, col=pal_col[3])
 # lines(groovy$Age, pred$fit+1.96*pred$se.fit)
 # lines(groovy$Age, pred$fit-1.96*pred$se.fit)
 
@@ -50,7 +53,7 @@ p2_mod=glm(Classes ~ Age+I(Age^2), data=phase_2)
 
 pred=predict(p2_mod, se.fit=TRUE)
 
-lines(phase_2$Age, pred$fit, col=pal_col[2])
+lines(phase_2$Age, pred$fit, col=pal_col[3])
 # lines(groovy$Age, pred$fit+1.96*pred$se.fit)
 # lines(groovy$Age, pred$fit-1.96*pred$se.fit)
 

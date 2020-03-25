@@ -1,6 +1,7 @@
 #
-# sample-median-dis.R,  2 Mar 19
+# sample-median-dis.R,  6 Mar 20
 # Data from:
+# Example
 #
 # Example from:
 # Evidence-based Software Engineering: based on the publicly available data
@@ -31,12 +32,12 @@ samp_median=replicate(NUM_REPLICATE, median(discrete_sample(30)))
 
 plot(table(samp_median), yaxt="n", col=point_col,
 	cex.axis=1.4, cex.lab=1.4,
-	xlab="Median", ylab="Occurrences")
+	xlab="Median", ylab="Samples")
 
 # Explicitly draw x-axis to cure spurious choice of axis values.
 plot(table(samp_mean), yaxt="n", col=point_col,
 	xaxt="n",
 	cex.axis=1.4, cex.lab=1.4,
-	xlab="Mean", ylab="Occurrences")
+	xlab="Mean", ylab="Samples")
 axis(1, at=c(5.5, 6, 6.5, 7), cex.axis=1.4)
 

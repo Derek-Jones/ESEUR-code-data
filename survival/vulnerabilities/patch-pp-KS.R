@@ -1,13 +1,15 @@
 #
-# patch-pp-KS.R,  4 Oct 16
+# patch-pp-KS.R, 22 Mar 20
 #
 # Data from:
 # An empirical analysis of software vendors' patch release behavior: Impact of vulnerability disclosure
 # Ashish Arora and Ramayya Krishnan and Rahul Telang and Yubao Yang
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG software-vendor_patching patch-behavior software-vendor_publicity fault_publicity fault_patch
 
 source("ESEUR_config.r")
 
@@ -101,6 +103,7 @@ ISR_disc=subset(ISR, notify == publish)
 
 p_sfit_priv_priv=survfit(Surv(ISR_priv_priv$patch_days, !ISR_priv_priv$is_censored) ~ 1)
 plot(p_sfit_priv_priv, xlim=c(0, 600), col=pal_col[1],
+	xaxs="i", yaxs="i",
 	xlab="Time to release patch", ylab="Survival rate\n")
 
 p_sfit_priv_disc=survfit(Surv(ISR_priv_disc$patch_days, !ISR_priv_disc$is_censored) ~ 1)

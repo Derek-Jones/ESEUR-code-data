@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG release-time vendor vulnerability patch
+# TAG patch_release-time vendor_patch vulnerability_patch
 
 
 source("ESEUR_config.r")
@@ -185,7 +185,12 @@ min_p_mod=coxph(Surv(patch_days, !is_censored) ~
  				, data=ISR_split)
 
 
+cur_width=options("width")
+options(width=90)
+
 print(summary(min_p_mod, conf.int=FALSE))
+
+options(cur_width)
 
 # exp(0.912-(0.34*c(0.8, 1.8,2.3)))
 

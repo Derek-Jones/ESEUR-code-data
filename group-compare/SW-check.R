@@ -1,7 +1,8 @@
 #
-# SW-check.R,  6 Jan 16
+# SW-check.R,  5 Mar 20
 #
 # Data from:
+# Example
 #
 # Example from:
 # Evidence-based Software Engineering: based on the publicly available data
@@ -14,6 +15,7 @@ source("ESEUR_config.r")
 
 
 pal_col=rainbow(4)
+
 
 num_replications=1000
 
@@ -35,8 +37,9 @@ return(length(which(c_exp < 0.05)))
 
 c_exp=sapply(3:50, function(X) SW_rep(X, rexp))
 plot(c_exp/num_replications, col=pal_col[1],
+	xaxs="i", yaxs="i",
 	xlab="Items in dataset", ylab="Correct decision probability\n",
-	ylim=c(0, 1))
+	xlim=c(0, 50), ylim=c(0, 1))
 
 c_unif=sapply(3:50, function(X) SW_rep(X, runif))
 points(c_unif/num_replications, col=pal_col[2])

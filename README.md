@@ -15,6 +15,8 @@ at the R command line (if binaries are not available for your system, then they 
 
 All programs read the file: ESEUR_config.r.  Put a copy of this file in what R considers to be its home directory.
 
+The ESEUR_dir environment variable can be set to the directory containing these files.
+
 This file sets the variable ESEUR_dir to contain the base directory containing all the code+data.  The default value is R's home directory.
 
 The .R files are a superset of what appear in the book.  If some data was analyzed and I thought it useful, but could not find a place for it in the book, it was put in a misc/ directory (some files may not have been moved).

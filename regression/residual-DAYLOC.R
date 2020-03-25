@@ -1,5 +1,5 @@
 #
-# residual-DAYLOC.R,  2 Mar 19
+# residual-DAYLOC.R, 24 Mar 20
 # Data from:
 # The {Linux} Kernel as a Case Study in Software Evolution
 # Ayelet Israeli and Dror G. Feitelson
@@ -8,17 +8,17 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG Linux evolution residual
+# TAG Linux_evolution regression_residual
 
 
 source("ESEUR_config.r")
 
 
 # Need to get this plot to fit in the margin, along with the plot before it
-plot_layout(2, 1, max_height=12)
-par(mar=MAR_default-c(0.8, 0, 0.0, 0))
+# plot_layout(2, 1, max_height=12)
+# par(mar=MAR_default-c(0.8, 0, 0.0, 0))
 
-pal_col=rainbow(4)
+pal_col=rainbow(2)
 
 # Lines of code in each release
 ll=read.csv(paste0(ESEUR_dir, "regression/Linux-LOC.csv.xz"), as.is=TRUE)
@@ -57,20 +57,21 @@ keep_version=sapply(2:nrow(ld_ordered),
 latest_version=ld_ordered[c(TRUE, keep_version), ]
 
 
-m1=glm(LOC ~ Number_days, data=latest_version)
+latest_version$MLOC=latest_version$LOC/1e6
 
-# m2=glm(LOC ~ Number_days+I(Number_days^2), data=latest_version)
+m1=glm(MLOC ~ Number_days, data=latest_version)
 
-plot(m1, which=1, caption="", sub.caption="", col=pal_col[3],
-		cex.axis=1.4, cex.lab=1.4)
+# m2=glm(MLOC ~ Number_days+I(Number_days^2), data=latest_version)
 
+plot(m1, which=1, caption="", sub.caption="", col=pal_col[2])
 
-plot(latest_version$Number_days, latest_version$LOC, col=pal_col[3],
-	cex.axis=1.4, cex.lab=1.4,
-	xlab="Days", ylab="Total lines of code\n")
-
-pred=predict(m1, type="response", se.fit=TRUE)
-lines(latest_version$Number_days, pred$fit, col=pal_col[1])
-lines(loess.smooth(latest_version$Number_days, latest_version$LOC, span=0.3),
-		col=pal_col[4])
-
+# plot(latest_version$Number_days, latest_version$MLOC, col=pal_col[2],
+# 	cex.axis=1.4, cex.lab=1.4,
+# 	xaxs="i", yaxs="i",
+# 	xlab="Days", ylab="Total lines of code (MLOC)\n")
+# 
+# pred=predict(m1, type="response", se.fit=TRUE)
+# lines(latest_version$Number_days, pred$fit, col=pal_col[1])
+# lines(loess.smooth(latest_version$Number_days, latest_version$MLOC, span=0.3),
+# 		col=pal_col[3])
+# 

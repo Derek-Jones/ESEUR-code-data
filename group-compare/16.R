@@ -1,5 +1,5 @@
 #
-# 16.R, 30 Aug 18
+# 16.R,  6 Mar 20
 #
 # Data from:
 # Taghi Javdani Gandomani and Koh Tieng Wei and Abdulelah Khaled Binhamid
@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG cost-estimation planning-poker delphi experiment
+# TAG experiment_human estimation_cost planning-poker delphi
 
 
 source("ESEUR_config.r")
@@ -37,14 +37,15 @@ est_2=read.csv(paste0(ESEUR_dir, "group-compare/16_2.csv.xz"), as.is=TRUE)
 est_mean_diff=abs(mean(est_2$expert)-mean(est_2$planning.poker))
 len_est_2=nrow(est_2)
 
-t=replicate(4999, mean_diff()) # Implement our own bootstrap
+t=replicate(4999, mean_diff()) # Run the bootstrap
 
 plot(density(t))
 
 mean(t)
 sd(t)
 
-length(t[abs(t) > est_mean_diff]) # How many means this extreme?
+# What percentage of means are as large as the experiment?
+100*length(which(abs(t) >= est_mean_diff))/(1+length(t))
 
 
 # pal_col=rainbow(3)

@@ -1,5 +1,5 @@
 #
-# JMPiracyArticle.R, 28 Sep 18
+# JMPiracyArticle.R, 21 Mar 20
 # Data from:
 # Software Piracy: {Estimation} of Lost Sales and the Impact on Software Diffusion
 # Moshe Givon and Vijay Mahajan and Eitan Muller
@@ -8,12 +8,17 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG sales PC spreadsheet wordprocessor
+# TAG PC_spreadsheet_sales wordprocessor_sales
 
 source("ESEUR_config.r")
 
 
 library("forecast")
+
+par(mar=MAR_default+c(0.0, 2, 0, 0))
+
+
+pal_col=rainbow(2)
 
 
 sales=read.csv(paste0(ESEUR_dir, "economics/MPRA/Givon_et_al_Software_piracy_data.txt"), as.is=TRUE, sep="\t")
@@ -45,7 +50,7 @@ sales=read.csv(paste0(ESEUR_dir, "economics/MPRA/Givon_et_al_Software_piracy_dat
 Ar_mod=Arima(sales$Spreadsheets, order=c(1, 0, 1), include.drift=TRUE)
 
 f_pred=forecast(Ar_mod, h=12)
-plot(f_pred, col=point_col, main="",
+plot(f_pred, col=pal_col[2], fcol=pal_col[1], main="",
 	xaxs="i",
-        xlab="Month", ylab="Monthly units sold\n")
+        xlab="Month", ylab="Units sold\n\n")
 

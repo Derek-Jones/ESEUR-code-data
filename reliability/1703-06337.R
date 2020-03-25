@@ -89,3 +89,10 @@ lines(dup2_cnt$x, exp_coef[5]*exp(exp_coef[6]*dup2_cnt$x), col=pal_col[4])
 t=predict(fail_mod)
 lines(dup2_cnt$x, t, col=pal_col[2])
 
+
+# library("pracma")
+#
+# # A different fit, constant offset makes a difference
+# me_mod=mexpfit(dup2_cnt$x, dup2_cnt$freq, p0=c(-0.9, -0.1, -0.01))
+# print(me_mod)
+

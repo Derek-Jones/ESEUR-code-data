@@ -1,5 +1,5 @@
 #
-# patchinf.R,  2 Mar 19
+# patchinf.R,  4 Mar 20
 #
 # Data from:
 # A Study of Linux File System Evolution
@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG Linux filesystem evolution
+# TAG Linux_filesystem evolution_filesystem
 
 
 source("ESEUR_config.r")
@@ -40,8 +40,9 @@ pal_col=rainbow(5)
 
 plot(0, log="xy", type="n",
 	cex.axis=1.4, cex.lab=1.4,
+	xaxs="i",
 	xlim=c(1, 100), ylim=c(1, 60),
-	xlab="Lines of code", ylab="Occurrences")
+	xlab="Lines of code", ylab="Commits\n")
 plot_patch(subset(ext3, patch == "b"), 1)
 plot_patch(subset(ext3, patch == "m"), 2)
 plot_patch(subset(ext3, patch == "p"), 3)
@@ -52,8 +53,9 @@ plot_patch(subset(ext3, patch == "f"), 5)
 
 plot(0, type="n", log="x",
 	cex.axis=1.4, cex.lab=1.4,
-	xlim=c(1, 100), ylim=c(0.001, 0.06),
-	xlab="Lines of code", ylab="Occurrences (density)\n")
+	xaxs="i", yaxs="i",
+	xlim=c(1, 100), ylim=c(0, 0.065),
+	xlab="Lines of code", ylab="Commits (density)\n")
 
 plot_density(subset(ext3, patch == "b"), 1)
 plot_density(subset(ext3, patch == "m"), 2)

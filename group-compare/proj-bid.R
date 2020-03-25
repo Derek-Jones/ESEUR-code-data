@@ -21,8 +21,8 @@ comp_A_pre=read.csv(paste0(ESEUR_dir, "economics/proj-bid-Apre.csv.xz"), as.is=T
 
 brew_col=rainbow(3)
 
-plot(density(log(comp_A_pre$Bid), kernel="epanechnikov"),
-	col=brew_col[1],
+plot(density(log(comp_A_pre$Bid), kernel="epanechnikov"), col=brew_col[1],
+	yaxs="i",
 	xlim=c(9, 14), ylim=c(0, 0.7),
 #	xlim=c(0, 6e+5), ylim=c(0, 3.2e-6),
 	main="",

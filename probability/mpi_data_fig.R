@@ -1,5 +1,5 @@
 #
-# mpi_data_fig.R, 30 Aug 18
+# mpi_data_fig.R,  5 Mar 20
 #
 # Data from:
 # Reproducible {MPI} Micro-Benchmarking Isn't As Easy As You Think
@@ -27,7 +27,8 @@ fig1_Allreduce=subset(fig1_Allreduce, time < 60)
 fig1_Scan=subset(fig1, test == "Scan")
 
 plot(density(fig1_Allreduce$time), col=pal_col[2], main="",
-	xlim=c(15, 120),
+	xaxs="i", yaxs="i",
+	xlim=c(15, 120), ylim=c(0, 0.125),
 	xlab="Runtime (micro secs)", ylab="Density\n")
 
 lines(density(fig1_Scan$time), col=pal_col[1])

@@ -1,12 +1,15 @@
 #
-# WSPP.R, 14 Jul 17
+# WSPP.R,  4 Mar 20
 #
 # Data from:
-# Data extracted from document pdfs by DJ
+# Data extracted from Microsoft WSPP document pdfs by DJ
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG Microsoft_WSPP documentation_links
+
 
 source("ESEUR_config.r")
 
@@ -16,6 +19,7 @@ library("igraph")
 library("sna")
 
 plot_layout(2, 1)
+par(mar=MAR_default-c(2.7, 0.0, 1.0, 0.0))
 
 
 plot_dot=function(dot_file)
@@ -33,7 +37,7 @@ V(interest_gr)$size=1
 # V(interest_gr)$color=brew_col[4]
 V(interest_gr)$label.color="red"
 V(interest_gr)$label.font=2 # bold font
-V(interest_gr)$label.cex=0.75
+V(interest_gr)$label.cex=0.85
 E(interest_gr)$arrow.size=0.2
 
 plot(interest_gr)

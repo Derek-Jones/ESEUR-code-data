@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG work-practice pullrequest Github
+# TAG work-practice pull-request Github
 
 
 source("ESEUR_config.r")

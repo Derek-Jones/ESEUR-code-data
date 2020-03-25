@@ -1,13 +1,17 @@
 #
-# feat-bug-corr-7dig.R, 14 Feb 16
+# feat-bug-corr-7dig.R, 20 Mar 20
 #
 # Various analysis of http://www.7digital.com feature data
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG
+
 
 source("ESEUR_config.r")
+
 
 plot_layout(2, 1)
 par(mai=c(1, 0.8, 0.0, 0.1))
@@ -34,7 +38,7 @@ return(dl)
 
 
 hol_days=as.vector(get_ph_days())-base_day
-hol_days=hol_days[hol_days > 0 & !is.na(hol_days)]
+hol_days=subset(hol_days, (hol_days > 0) & !is.na(hol_days))
 
 
 # Plot cross-correlation between bugs and non-bugs
@@ -58,10 +62,10 @@ non_bug_done=rollmean(non_bug_done, 3)
 # first 100 workdays so we are probably only checking for a correlation
 # where one might exist
 ccf(non_bug_done[-(1:100)], all_bug_prio[-(1:100)], lag.max=150,
-        xlab="Work days (nonbug features)", ylab="Cross correlation",
+        xlab="Work days (nonbug features)", ylab="Cross correlation\n",
         main="")
 ccf(all_features[-(1:100)], all_bug_prio[-(1:100)], lag.max=150,
-        xlab="Work days (all features)", ylab="Cross correlation",
+        xlab="Work days (all features)", ylab="Cross correlation\n",
         main="")
 
 

@@ -1,5 +1,5 @@
 #
-# putnam-MTTF-lin.R,  4 Aug 16
+# putnam-MTTF-lin.R,  4 Mar 20
 #
 # Data from:
 # Measures for Excellence: Reliable software on time, within budget
@@ -7,14 +7,18 @@
 # Figure 8.3
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG afilure_mean-time
+
 
 source("ESEUR_config.r")
 
 
 plot_layout(1, 2)
-pal_col=rainbow(3)
+par(mar=MAR_default-c(0.0, 0.6, 0.0, 1.0))
+
 
 
 MTTF=read.csv(paste0(ESEUR_dir, "regression//putnam-MTTF.csv.xz"), as.is=TRUE)

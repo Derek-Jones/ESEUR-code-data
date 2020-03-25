@@ -5,8 +5,11 @@
 # Rodrigo Queiroz and Leonardo Passos and Marco Tulio Valente and Claus Hunsen and Sven Apel and Krzysztof Czarnecki
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG C_preprocessor feature-code_preprocessor
+
 
 source("ESEUR_config.r")
 
@@ -40,10 +43,10 @@ lines(exp_mod, col=pal_col[2])
 
 # Test hypothesis that sample follows a power law, use bootstrap
 bs_p=bootstrap_p(pow_mod, threads=4, no_of_sims=500, xmax=5e3)
-text(50, 0.5, bs_p$p, pos=2, cex=1.3, col=pal_col[1])
+text(50, 0.5, bs_p$p, pos=2, cex=1.2, col=pal_col[1])
 
 bs_e=bootstrap_p(exp_mod, threads=4, no_of_sims=500, xmax=5e3)
-text(7, 0.02, bs_e$p, pos=2, cex=1.3, col=pal_col[2])
+text(7, 0.02, bs_e$p, pos=2, cex=1.2, col=pal_col[2])
 
 # t=count(FS$sd)
 # 

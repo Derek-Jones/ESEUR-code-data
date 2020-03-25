@@ -1,5 +1,5 @@
 #
-# maint-est.R,  9 Jul 18
+# maint-est.R,  4 Mar 20
 #
 # Data from:
 # How accurately do engineers predict software maintenance tasks?
@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG predict effort maintenance
+# TAG effort_predict maintenance_effort
 
 
 source("ESEUR_config.r")
@@ -18,21 +18,27 @@ source("ESEUR_config.r")
 library("plyr")
 
 
-plot_layout(3, 1)
+plot_layout(3, 1, max_height=ESEUR_max_height-2)
+par(mar=MAR_default-c(1.0, 0.0, 1.0, 0.0))
+
+
 brew_col=rainbow_hcl(3)
 
 
 # est_adapt,est_correct,est_perfect,act_adapt,act_correct,act_perfect,est_time,act_time
 maint=read.csv(paste0(ESEUR_dir, "economics/exportdata.csv.xz"), as.is=TRUE)
 
-plot(maint$est_time, maint$act_time, col=point_col,
+plot(maint$est_time, maint$act_time, col=point_col, cex=1.4,
+	cex.axis=1.5, cex.lab=1.5,
 	xlab="", ylab="Actual hours\n")
 
-plot(jitter(maint$est_time), jitter(maint$act_time), col=point_col,
+plot(jitter(maint$est_time), jitter(maint$act_time), col=point_col, cex=1.4,
+	cex.axis=1.5, cex.lab=1.5,
 	xlab="Estimated hours", ylab="Actual hours\n")
 
 t=ddply(maint, .(est_time, act_time), nrow)
 plot(t$est_time, t$act_time, cex=log(1+t$V1), pch=1, col=point_col,
+	cex.axis=1.5, cex.lab=1.5,
 	xlab="", ylab="Actual hours\n")
 
 # est_mod=glm(log(act_time) ~ log(est_time), data=maint)

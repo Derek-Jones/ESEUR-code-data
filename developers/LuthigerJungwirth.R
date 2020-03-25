@@ -72,7 +72,7 @@ pred=predict(f_mod, newdata=data.frame(q31=1:6))
 plot(-1, type="n",
 	xaxs="i", yaxs="i",
 	xlim=c(1, 6), ylim=c(0, 0.6),
-	xlab="q31", ylab="Probability\n")
+	xlab="Answer given to q31", ylab="Probability\n")
 
 dummy=sapply(1:10, function(X)
 			lines(1:6, pred$fit[ ,X], col=pal_col[X]))

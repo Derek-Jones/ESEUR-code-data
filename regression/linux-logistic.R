@@ -1,5 +1,5 @@
 #
-# Linux-logistic.R, 23 Sep 18
+# Linux-logistic.R, 15 Mar 20
 # Data from:
 # The {Linux} Kernel as a Case Study in Software Evolution
 # Ayelet Israeli and Dror G. Feitelson
@@ -25,6 +25,7 @@ loc_date=merge(ll, ld)
 loc_date$Release_date=as.Date(loc_date$Release_date, format="%d-%b-%Y")
 start_date=loc_date$Release_date[1]
 
+loc_date$MLOC=loc_date$LOC/1e6
 loc_date$Number_days=as.integer(difftime(loc_date$Release_date,
                                          start_date,
                                          units="days"))
@@ -51,9 +52,10 @@ first_3000=subset(all_days, Number_days <= 3400)
 
 x_bounds=0:6000
 
-plot(all_days$Number_days, all_days$LOC, col=pal_col[2],
+plot(all_days$Number_days, all_days$MLOC, col=pal_col[2],
+	xaxs="i",
 	xlim=range(x_bounds),
-	xlab="Days", ylab="Total lines of code\n")
+	xlab="Days since version 1.0 release", ylab="Total lines of code (MLOC)\n")
 
 
 # m3=nls(LOC ~ SSfpl(Number_days, a, b, c, d), data=first_3000)
@@ -64,7 +66,7 @@ plot(all_days$Number_days, all_days$LOC, col=pal_col[2],
 # m3=nls(LOC ~ a+(b-a)/(1+exp((c-Number_days)/d)), data=all_days,
 #                  start=list(a=-3e+05, b=4e+6, c=2000, d=800))
 
-m3=nls(LOC ~ SSfpl(Number_days, a, b, c, d), data=all_days)
+m3=nls(MLOC ~ SSfpl(Number_days, a, b, c, d), data=all_days)
 y=predict(m3, list(Number_days=x_bounds))
 
 lines(x_bounds, y, col=pal_col[1])

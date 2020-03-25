@@ -6,10 +6,13 @@
 # Homa Alemzadeh and Ravishankar K. Iyer and Zbigniew Kalbarczyk and Jai Raman
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG hardware-recall safety-critical medical
 
 source("ESEUR_config.r")
+
 
 brew_col=rainbow(3)
 

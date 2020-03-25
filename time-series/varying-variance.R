@@ -37,6 +37,10 @@ for (i in 2:total_points)
    a[i]=w[i]*sqrt(h[i])
    }
 
-acf(a, col=point_col)
-acf(a^2, col=point_col)
+acf(a, col=point_col,
+	yaxs="i",
+	ylab="ACF\n")
+acf(a^2, col=point_col,
+	yaxs="i",
+	ylab="ACF\n")
 

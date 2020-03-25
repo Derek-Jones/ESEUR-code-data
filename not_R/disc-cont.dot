@@ -6,7 +6,7 @@ digraph G {
    ranksep = 0.3;
    arrowsize=0.3;
    size = "6.0,4.0";
-   edge [fontsize = 12, penwidth=0.2];
+   edge [fontsize = 12, penwidth=0.2, color="blue"];
    node [color = white, shape = plaintext, fontsize = 15];
 
    {

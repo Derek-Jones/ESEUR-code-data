@@ -1,13 +1,16 @@
 #
-# 10-1002_maint-task-data.R,  1 Aug 16
+# 10-1002_maint-task-data.R, 15 Mar 20
 #
 # Data from:
 # An Empirical Study of Software Maintenance Tasks
 # Magne J{\o}rgensen
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG maintenance_effort maintenance_lines-added
+
 
 source("ESEUR_config.r")
 
@@ -25,7 +28,7 @@ maint_all$lins_up=log(maint_all$ins_up)
 maint=subset(maint_all, EFFORT > 0.1)
 maint=subset(maint, ins_up > 0.0)
 
-plot(maint$ins_up, maint$EFFORT, log="xy", col=point_col,
+plot(maint$ins_up, maint$EFFORT, log="xy", col=pal_col[2],
 	xlab="Lines added+updated", ylab="Effort (days)\n")
 
 maint_mod=glm(EFFORT ~ lins_up, data=maint, family=gaussian(link="log"),

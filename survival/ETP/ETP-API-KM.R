@@ -1,5 +1,5 @@
 #
-# ETP-API-KM.R, 26 Oct 18
+# ETP-API-KM.R, 22 Mar 20
 #
 # Data from:
 # Survival of Eclipse Third-party Plug-ins
@@ -9,10 +9,11 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG Eclipse plugin API survival
+# TAG Eclipse_plugin plugin_survival API_survival
 
 
 source("ESEUR_config.r")
+
 
 library("survival")
 
@@ -25,7 +26,10 @@ all_API=read.csv(paste0(ESEUR_dir, "survival/ETP/ETP-all-rel.csv.xz"), as.is=TRU
 api_surv=Surv(all_API$year_end-all_API$year_start,
 		 event=all_API$survived == 0, type="right")
 api_mod=survfit(api_surv ~ all_API$API)
+
 plot(api_mod, col=pal_col, conf.int=TRUE,
-	xlim=c(0,7), xlab="Years")
+	xaxs="i", yaxs="i",
+	xlim=c(0,7),
+	xlab="Years", ylab="Survival\n")
 
 

@@ -51,6 +51,10 @@ lines(average$Years, exp_coef[1]*exp(exp_coef[2]*average$Years), col=pal_col[1])
 lines(average$Years, exp_coef[3]*exp(exp_coef[4]*average$Years), col=pal_col[3])
 
 
+# # The models constant offset has a big impact
+# me_mod=mexpfit(average$Years, average$Staff, p0=c(-0.9, -0.1))
+# print(me_mod)
+
 # peak_mod=gnm(Staff ~ instances(Mult(1, Exp(Years)), 2)-1,
 #                 data=peak, verbose=TRUE, trace=TRUE,
 #                 start=c(300, -1, 100, -0.1))

@@ -1,5 +1,5 @@
 #
-# Maint_Dec2005.R, 28 Oct 18
+# Maint_Dec2005.R, 24 Mar 20
 # Data from:
 # How accurately do engineers predict software maintenance tasks?
 # Les Hatton
@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG maintenance estimating
+# TAG maintenance_estimating
 
 
 source("ESEUR_config.r")
@@ -16,6 +16,9 @@ source("ESEUR_config.r")
 
 library("compositions")
 library("plyr")
+
+
+pal_col=rainbow(2)
 
 
 maint=read.csv(paste0(ESEUR_dir, "economics/exportdata.csv.xz"), as.is=TRUE)
@@ -47,7 +50,7 @@ act_cnt=count(maint, vars=c("act_adapt",
                         "act_correct",
                         "act_perfect"))
 
-# Adding a very small value ensures that no points are treated as contining
+# Adding a very small value ensures that no points are treated as containing
 # a missing value (which are plotted differently).
 est_comp=acomp(est_cnt+1e-7, parts=c("est_adapt",
                         "est_correct",
@@ -56,8 +59,12 @@ act_comp=acomp(act_cnt+1e-5, parts=c("act_adapt",
                         "act_correct",
                         "act_perfect"))
 
-plot(act_comp, pch=21, cex=1+sqrt(act_cnt$freq), col="red", colMissingTck="red", labels="", mp=NULL)
-plot(est_comp, pch=21, cex=1+sqrt(est_cnt$freq), col="green", colMissingTck="red", add=TRUE, labels="", mp=NULL)
+plot(act_comp, pch=21, cex=1+sqrt(act_cnt$freq), col=pal_col[1],
+		colMissingTck="green", labels="", mp=NULL)
+plot(est_comp, pch=21, cex=1+sqrt(est_cnt$freq), col=pal_col[2],
+		colMissingTck="green", add=TRUE, labels="", mp=NULL)
 ternaryAxis(side=0, small=TRUE, aspanel=TRUE,
                 Xlab="Adaptive", Ylab="Corrective", Zlab="Perfective")
+
+legend(x="topright", legend=c("Actual", "Estimate"), bty="n", fill=pal_col, cex=1.2)
 

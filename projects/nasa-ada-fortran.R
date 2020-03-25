@@ -1,5 +1,5 @@
 #
-# nasa-ada-fortran.R, 23 Aug 18
+# nasa-ada-fortran.R,  4 Mar 20
 #
 # Data from:
 # IMPACT OF ADA AND OBJECT-ORIENTED DESIGN IN THE FLIGHT DYNAMICS DIVISION AT GODDARD SPACE FLIGHT CENTER
@@ -38,7 +38,7 @@ fit_language(language != "Ada", 1)
 
 # pairs( ~ duration+lines+design+coding+testing+other, data=nasa, subset=(language == "Ada"))
 # rows 28 and 30 are zero
-pairs(log(nasa[-c(28, 30) , 16:19]), panel = panel.language, language=nasa$language, cex.labels=1.4)
+pairs(log(nasa[-c(28, 30) , 16:19]), panel = panel.language, language=nasa$language, cex.labels=2.0)
 
 
 

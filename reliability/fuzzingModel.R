@@ -74,4 +74,11 @@ legend(x="bottomright", legend=c("Amdahl", "Quadratic", "Queueing"), bty="n", fi
 #                 start=c(60, -0.5, 20, -0.1),
 #                 family=poisson(link="identity"))
 # summary(fail_mod)
-# 
+#
+
+# library("pracma")
+#
+# # Obtain some idea about parameter values
+# me_mod=mexpfit(java_cnt$x, java_cnt$freq, p0=c(-0.9, -0.1, -0.01))
+# print(me_mod)
+

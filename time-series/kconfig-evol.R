@@ -1,9 +1,9 @@
 #
-# kconfig.evol.R, 16 Jan 20
+# kconfig-evol.R, 23 Mar 20
 #
 # Data from:
 # Evolution of the Linux kernel variability model
-# Lutufo, She, Berger, Czarnecki and Wasowski
+# Lotufo, She, Berger, Czarnecki and Wasowski
 # Figure 3
 #
 # Example from:
@@ -15,30 +15,118 @@
 source("ESEUR_config.r")
 
 
-# changes=read.csv(paste0(ESEUR_dir, "time-series/kconfig.csv.xz"), as.is=TRUE)
-changes=read.csv(paste0(ESEUR_dir, "time-series/splc-2010-fm-evol-files-commit-date.gz"), as.is=TRUE)
+library("lubridate")
+library("plyr")
 
-# changes$date=as.POSIXct(changes$date, format="%a %B %d %H:%M:%S %Y %z")))
-changes$date=as.Date(changes$date, format="%a %B %d %H:%M:%S %Y %z")))
+
+pal_col=rainbow(2)
+
+
+# Some day dates are missing from the data.  Add them in as zeroes.
+day_count=function(df$date)
+{
+t=count(df$date)
+
+d_cnt=data.frame(date=seq(min(t$x), max(t$x), "days"), freq=0)
+d_cnt$freq[d_cnt$date %in% t$x]=t$freq
+
+return(d_cnt)
+}
+
+
+
+# changes=read.csv(paste0(ESEUR_dir, "time-series/kconfig.csv.xz"), as.is=TRUE)
+changes=read.csv(paste0(ESEUR_dir, "time-series/splc-2010-fm-evol-files-commit-date.xz"), as.is=TRUE)
+
+# changes$date=as.POSIXct(changes$date, format="%a %B %d %H:%M:%S %Y %z")
+changes$date=as.Date(changes$date, format="%a %B %d %H:%M:%S %Y %z")
 changes=subset(changes, !is.na(changes$date))
 
 # Round date to help smooth things
-changes$rnd_date=as.numeric(changes$date) %/% 7
+changes$rnd_date=round_date(changes$date, unit="week")
 
 kconfig=subset(changes, kconfig == "Kconfig")
 linux=subset(changes, kconfig == "Not Kconfig")
 
-kconfig_hours=table(kconfig$rnd_date)
-linux_hours=table(linux$rnd_date)
+kconfig_day=day_count(kconfig$date)
+linux_day=day_count(linux$date)
 
-acf(linux_hours, lag.max=50)
+kconfig_week=count(kconfig$rnd_date)
+linux_week=count(linux$rnd_date)
 
-ccf(linux_hours, kconfig_hours, lag.max=50)
+# acf(linux_day$freq, lag.max=50)
+# 
+# ccf(linux_day$freq, kconfig_day$freq, lag.max=50)
+# 
+# plot(linux_day$x, linux_day$freq, type="l", log="y", col=pal_col[2],
+# 	xaxs="i",
+# 	ylim=c(1, 2600),
+# 	xlab="Date", ylab="Commits\n")
+# lines(kconfig_day, col=pal_col[1])
+# 
+# legend(x="bottomright", legend=c("Kconfig", "Linux"), bty="n", fill=pal_col, cex=1.2)
 
-xbounds=range(changes$rnd_date)
+start_day=linux_week$x[1]+60
+end_day=start_day+144
 
-plot(linux_hours, log="y",
-	xlim=xbounds, ylim=c(1, 2600))
-points(kconfig_hours, col="red")
+# Overlay plots, so we can see which series is the 'oldest',
+# i.e., which peak starts first
+plot(linux_week$x, linux_week$freq, type="l", log="y", col=pal_col[2],
+        xlim=c(start_day, end_day), ylim=c(50, 1200),
+        xlab="Date", ylab="Commits\n")
+
+lines(kconfig_week$x, kconfig_week$freq*10, col=pal_col[1])
+
+legend(x="bottomright", legend=c("Kconfig", "Linux kernel"), bty="n", fill=pal_col, cex=1.2)
+
+lag.plot(ts(log(linux_day$freq+1e-5)), lags=16, layout=c(4, 4))
+
+
+# Did not spot anything interesting using matrix profile
+library("tsmp")
+
+
+d_m=tsmp(linux_day$freq, window_size=7)
+motif=find_motif(d_m)
+plot(motif)
+
+seg=fluss(motif)
+
+l_d=dist_profile(linux_day$freq, kconfig_day$freq, window_size=15)
+plot(l_d$distance_profile, type="l")
+
+
+# Cointegration regression
+library("cointReg")
+
+deter=rep(1, length(kconfig_day$freq))
+
+# Lengths have to be the same, lag is a more consistent match if zero appended
+ci_mod=cointRegFM(x=head(log(linux_day$freq+1e-1), -2), y=log(kconfig_day$freq+1e-1), deter=deter)
+ci_mod
+
+
+library("tsDyn")
+
+# Oldest comes first
+# By week
+lags.select(cbind(head(log(linux_week$freq), -1), log(kconfig_week$freq)))
+# By day
+lags.select(cbind(head(log(linux_day$freq+1e-1), -2), log(kconfig_day$freq+1e-1)))
+
+l_mod=linear(log(linux_day$freq), m=2)
+summary(l_mod)
+
+sa_mod=setar(log(linux_day$freq), m=1)
+summary(sa_mod)
+
+day_mod=lineVar(cbind(head(log(linux_day$freq+1e-1), -2), log(kconfig_day$freq+1e-1)),
+		lag=9)
+summary(day_mod)
+
+week_mod=lineVar(cbind(head(log(linux_week$freq), -1), log(kconfig_week$freq)),
+		lag=2)
+summary(week_mod)
+
 
 

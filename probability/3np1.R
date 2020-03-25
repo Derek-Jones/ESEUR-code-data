@@ -1,13 +1,16 @@
 #
-# 3np1.R,  6 Jan 16
+# 3np1.R,  5 Mar 20
 #
 # Data from:
 # The Effectiveness of Software Diversity
 # Meine Jochum Peter {van der Meulen}
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG 3n+1 source-code_length
+
 
 source("ESEUR_config.r")
 
@@ -65,8 +68,9 @@ lines(theo_vals$chisqbreaks, head(theo_vals$chisqtable[, 1+dist_num], -1), col=p
 }
 
 plot(theo_vals$chisqbreaks, head(theo_vals$chisqtable[, 1], -1), type="h",
-	ylim=c(0, 300),
-	xlab="Program length", ylab="Number of programs\n")
+	xaxs="i", yaxs="i",
+	xlim=c(0, 120), ylim=c(0, 300),
+	xlab="Program length", ylab="Programs\n")
 plot_distrib(1)
 plot_distrib(2)
 plot_distrib(3)

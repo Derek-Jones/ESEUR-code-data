@@ -1,12 +1,13 @@
 #
 # hist-log.R, 19 Nov 18
 # Data from:
+# Example
 #
 # Example from:
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG example  histogram
+# TAG example histogram_log
 
 
 source("ESEUR_config.r")

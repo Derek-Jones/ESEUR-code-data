@@ -1,5 +1,5 @@
 #
-# 19820068861-prech.R, 20 Nov 18
+# 19820068861-prech.R,  7 Mar 20
 # Data from:
 # EXPERIMENTAL RESULTS ON SOFTWARE DEBUGGING
 # Sylvia B. Sheppard and Phil Milliman and Bill Curtis
@@ -32,7 +32,7 @@ return(mean(ifelse(t1_sample[indices[1:13]]<t1_sample[indices[14:26]],
 pair_all=function()
 {
 # The number of subjects is 27, pair two lots of 16
-p1=sample(1:t1_len)
+p1=sample(1:t1_len, replace=TRUE)
 return(mean(ifelse(t1$time[p1[1:13]]<t1$time[p1[14:26]],
                    t1$time[p1[1:13]], t1$time[p1[14:26]])))
 }

@@ -1,5 +1,5 @@
 #
-# sample-1000.R,  9 Jan 16
+# sample-1000.R,  6 Mar 20
 #
 # Data from:
 #
@@ -10,7 +10,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG benchmark performance hardware
+# TAG benchmark_hardware performance
 
 
 source("ESEUR_config.r")
@@ -24,6 +24,7 @@ clock_den=density(bench_pop$clocks)
 max_y=max(clock_den$y)
 
 plot(clock_den, main="",
+	yaxs="i",
 	ylim=range(clock_den$y)*1.02, # a hack so that 'median' is not cropped
 	xlab="Execution time", ylab="Density\n")
 

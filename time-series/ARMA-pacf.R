@@ -1,6 +1,6 @@
 #
-# ARMA-pacf.R, 29 Sep 18
-#
+# ARMA-pacf.R, 21 Mar 20
+# Example
 #
 # Example from:
 # Evidence-based Software Engineering: based on the publicly available data
@@ -14,7 +14,8 @@ source("ESEUR_config.r")
 # Calling arima.sim would have been simpler, but the following
 # makes what is going on explicit
 
-plot_layout(4, 1, max_height=14.0)
+plot_layout(4, 1, max_height=12.0)
+par(mar=MAR_default-c(0.6, 0, 0.5, 0))
 
 
 next_AR_step=function(theta)
@@ -41,22 +42,30 @@ return(y)
 
 cur_y=0
 time_8_series=replicate(1000, next_AR_step(0.8))
-pacf(time_8_series, lag=10, col=point_col)
+pacf(time_8_series, lag=10, col=point_col,
+	yaxs="i",
+	ylab="Partial ACF\n")
 text(5, 0.6, expression(paste(x[t], " = 0.8", x[t-1], "+", w[t])), cex=1.3)
 
 cur_y=0
 time_m5_series=replicate(1000, next_AR_step(-0.5))
-pacf(time_m5_series, lag=10, col=point_col)
+pacf(time_m5_series, lag=10, col=point_col,
+	yaxs="i",
+	ylab="Partial ACF\n")
 text(5, -0.4, expression(paste(x[t], " = -0.5", x[t-1], "+", w[t])), cex=1.3)
 
 cur_y=0
 time_m5_series=replicate(1000, next_MA_step(0.8))
-pacf(time_m5_series, lag=10, col=point_col)
+pacf(time_m5_series, lag=10, col=point_col,
+	yaxs="i",
+	ylab="Partial ACF\n")
 text(5, 0.4, expression(paste(x[t], " = 0.8", w[t-1], "+", w[t])), cex=1.3)
 
 cur_y=0
 time_m5_series=replicate(1000, next_MA_step(-0.5))
-pacf(time_m5_series, lag=10, col=point_col)
+pacf(time_m5_series, lag=10, col=point_col,
+	yaxs="i",
+	ylab="Partial ACF\n")
 text(5, -0.25, expression(paste(x[t], " = -0.5", w[t-1], "+", w[t])), cex=1.3)
 
 

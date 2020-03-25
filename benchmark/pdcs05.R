@@ -7,10 +7,19 @@
 # See www.spec.org/sdm91
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG example_benchmark benchmark_SPARC SPARC_SPEC
+
 
 source("ESEUR_config.r")
+
+
+# The following package might not yet be available on CRAN.
+# It can be downloaded at: www.perfdynamics.com/Tools
+library("pdq")
+
 
 brew_col=rainbow(3)
 
@@ -21,7 +30,8 @@ cpu8$norm_throughput=cpu8$throughput/cpu8$throughput[1]
 xbounds=seq(1, 151, by=5)
 
 plot(cpu8$workload, cpu8$norm_throughput,
-	xlim=range(xbounds), ylim=c(1, 20),
+	xaxs="i",
+	xlim=range(c(0, xbounds)), ylim=c(1, 20),
 	xlab="Concurrent Workload", ylab="Throughput (jobs per unit time)\n")
 
 a_mod=nls(norm_throughput ~ workload/(1+alpha*(workload-1)), data=cpu8,
@@ -35,10 +45,6 @@ ab_mod=nls(norm_throughput ~ workload/(1+alpha*(workload-1)+alpha*beta*workload*
 
 lines(xbounds, predict(ab_mod, newdata=data.frame(workload=xbounds)), col=brew_col[2])
 
-
-# The following package might not yet be available on CRAN.
-# It can be downloaded at: www.perfdynamics.com/Tools
-library(pdq)
 
 Dmax    = 1/max(cpu8$throughput) # hours
 think   = 1/cpu8$throughput[1]-Dmax # hours

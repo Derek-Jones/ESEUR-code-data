@@ -9,11 +9,14 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG time day commit faults
+# TAG day_time commit_time faults_commit
 
 
 source("ESEUR_config.r")
 
+
+# The extra height does not appear to have any effect
+plot_layout(1, 1, default_height=ESEUR_default_height+5)
 
 # id repository_id raw_author_id sha1 merge utc_time local_time
 commits=read.csv(paste0(ESEUR_dir, "time-series/commits/scc_commit.tsv.xz"), sep="\t", as.is=TRUE)

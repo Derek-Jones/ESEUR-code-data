@@ -8,6 +8,8 @@
 # Example from:
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG
 
 
 source("ESEUR_config.r")
@@ -15,7 +17,10 @@ source("ESEUR_config.r")
 library("circular")
 library("plyr")
 
-plot_layout(2, 1)
+
+plot_layout(2, 1, max_height=13)
+par(mar=MAR_default-c(0.8, 0, 0.5, 0))
+
 pal_col=rainbow(3)
 
 
@@ -62,6 +67,7 @@ basic_2mod = nls(freq ~ gam0+gam1*cos(omega*hour-phi+nu*cos(omega*hour-phi))+gam
 		data=week_basic)
 
 plot(week_basic$hour, week_basic$freq, col=pal_col[2],
+	xaxs="i",
 	xlab="Hour", ylab="non-fault commits\n")
 
 pred=predict(basic_mod, newdata=data.frame(hour=day))
@@ -80,6 +86,7 @@ lines(day, fault_pred, col=pal_col[1])
 
 
 plot(week_basic$hour, week_basic$freq, col=pal_col[2],
+	xaxs="i",
 	xlab="Hour", ylab="non-fault commits\n")
 
 pred=predict(basic_2mod, newdata=data.frame(hour=day))

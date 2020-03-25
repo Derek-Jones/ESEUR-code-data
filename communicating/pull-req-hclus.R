@@ -1,5 +1,5 @@
 #
-# pull-req-hclus.R, 24 Aug 18
+# pull-req-hclus.R,  4 Mar 20
 #
 # Data from:
 # Georgios Gousios and Andy Zaidman
@@ -9,12 +9,18 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 #
-# TAG change-control
+# TAG change-control pull-requests
 
 
 source("ESEUR_config.r")
+
+
+library("dendextend")
+
+
+par(mar=MAR_default+c(7, 0, 0, 0))
 
 
 homebrew_req=read.csv(paste0(ESEUR_dir, "communicating/pull-homebrew.csv.xz"), as.is=TRUE)
@@ -39,9 +45,13 @@ used = subset(homebrew_req, select=columns)
 ctab = cor(used, method = "spearman", use="complete.obs")
 
 pull_dist=as.dist((1-ctab)^2)
-t=hclust(pull_dist)
-plot(t, main="", sub="", col=point_col,
-	xlab="Pull related variables", ylab="Height\n")
+t=as.dendrogram(hclust(pull_dist), hang=0.2)
+col_pull=color_labels(t, k=5)
+col_pull=color_branches(col_pull, k=2)
+plot(col_pull, main="", sub="", col=point_col,
+	xlab="", ylab="Height\n")
+
+mtext("Pull related variables", side=1, padj=14, cex=0.7)
 
 # A packaged way of doing things
 # library("Hmisc")

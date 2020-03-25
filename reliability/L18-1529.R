@@ -1,5 +1,5 @@
 #
-# L18-1529.R,  8 Dec 19
+# L18-1529.R,  1 Mar 20
 # Data from:
 # Grounding Gradable Adjectives through Crowdsourcing
 # Rebecca Sharp and Mithun Paul and Ajay Nagesh and Dane Bell and Mihai Surdeanu
@@ -96,8 +96,8 @@ rd2_subset=subset(rd2_subset, respdev < 8)
 adj_ord=with(rd2_subset, reorder(adjective, respdev))
 
 vioplot(respdev ~ adj_ord, data=rd2_subset, 
-        horizontal=TRUE, cex.axis=0.7,
-        col=brew_col, border=brew_col,
+        horizontal=TRUE, cex.axis=1.1, cex=1, # cex needed for cex.axis to work
+        col=brew_col, border=brew_col, lineCol="grey",
 	xaxs="i",
         ylim=c(0, 8),
         xlab="Response (standard deviations)", ylab="")

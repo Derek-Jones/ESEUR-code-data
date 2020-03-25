@@ -6,7 +6,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG example
+# TAG example non-linear
 
 
 source("ESEUR_config.r")
@@ -29,7 +29,7 @@ text(8, 0.2, expr_str, pos=2, cex=1.6)
 
 
 x=seq(0, 8, by=0.25)
-init_plot("Michaelis-Menten")
+init_plot("   Michaelis-Menten")
 
 mm=function(a, b, l_col)
 {
@@ -44,7 +44,7 @@ mm(2, 2, pal_col[3])
 
 
 x=seq(0, 8, by=0.25)
-init_plot("Exponential")
+init_plot("Exponential  ")
 
 ep=function(a, b, l_col)
 {
@@ -58,7 +58,7 @@ ep(1, 0.5, pal_col[3])
 
 
 x=seq(0, 8, by=0.25)
-init_plot("Logistic")
+init_plot("Logistic  ")
 
 lo=function(a, b, c=0, d=1, l_col)
 {
@@ -72,7 +72,7 @@ lo(0, 1, 6, 3, pal_col[3])
 
 
 x=seq(0, 8, by=0.25)
-init_plot("Weibull")
+init_plot("Weibull   ")
 
 we=function(a, b, c, d, l_col)
 {
@@ -86,7 +86,7 @@ we(1, 1, 0.1, 2, pal_col[3])
 
 
 x=seq(0, 8, by=0.25)
-init_plot("Gompertz")
+init_plot("Gompertz  ")
 
 gm=function(a, b, c, l_col)
 {

@@ -1,14 +1,16 @@
 #
-# proj-t-clust.R, 14 Jul 17
+# proj-t-clust.R, 18 Mar 20
 #
 # Data from:
 # Right on Time: Measuring, Modelling and Managing Time-Constrained Software Development
 # Antony Lee Powell
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
+# TAG project_effort  effort_time-series
+
 
 source("ESEUR_config.r")
 
@@ -63,9 +65,11 @@ all_effort=cbind(softw_req, top_lev_design, coding, low_lev_test,
 # COR  and EUCL are two of the 22 possible METHODs (which must be in UPPER case)
 eff_dist=diss(t(all_effort), METHOD="COR")
 plot(hclust(eff_dist), main="", sub="", cex=1.4,
+	yaxs="i",
 	xlab="", ylab="Correlation distance\n")
 eff_dist=diss(t(all_effort), METHOD="EUCL")
 plot(hclust(eff_dist), main="", sub="", cex=1.4,
+	yaxs="i",
 	xlab="", ylab="Euclidean distance\n")
 
 # The following only works if every layer covers the layer beneath it
@@ -80,6 +84,7 @@ polygon(c(fig_1$Week, rev(fig_2$Week)),
 }
 
 plot(0, 0, type="n",
+	xaxs="i", yaxs="i",
 	xlim=c(0, 85), ylim=c(0, 1600),
 	xlab="Week", ylab="Effort (person hours)\n")
 

@@ -1,13 +1,16 @@
 #
-# smr-ccf.R, 20 Feb 16
+# smr-ccf.R, 20 Mar 20
 #
 # Data from:
 # Studying the laws of software evolution in a long-lived {FLOSS} project
 # Jes{\'u}s M. Gonz{\'a}lez-Barahona and Gregorio Robles and Israel Herraiz and Felipe Ortega
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG project_evolution
+
 
 source("ESEUR_config.r")
 
@@ -53,6 +56,7 @@ cfl_week=ddply(cfl, .(week),
 # auto.arima(cfl_week$lines_deleted)
 
 ccf(cfl_week$lines_added, cfl_week$lines_deleted, col=point_col,
-	xlab="Weeks")
+	yaxs="i",
+	xlab="Weeks", ylab="ACF\n")
 
 

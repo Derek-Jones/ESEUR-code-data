@@ -1,5 +1,5 @@
 #
-# slash_mixture.R, 17 Dec 19
+# slash_mixture.R,  5 Mar 20
 #
 # Data from:
 # Homogeneous temporal activity patterns in a large online communication space
@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG
+# TAG Slashdot_page-accesses
 
 
 source("ESEUR_config.r")
@@ -72,7 +72,8 @@ lines(x_vals, slash_mod@w[[1]][dist_num]*y_vals, col=pal_col[dist_num])
 
 
 plot(work_den, main="",
-	xlim=c(0, 10), ylim=c(0, 0.36),
+	xaxs="i", yaxs="i",
+	xlim=c(0, 10), ylim=c(0, 0.38),
 	xlab="", ylab="Access density\n")
 plot_REBMIX_dist(1)
 plot_REBMIX_dist(2)
@@ -89,7 +90,8 @@ lines(x_vals, slash_dist$lambda[dist_num]*y_vals, col=pal_col[dist_num])
 
 
 plot(work_den, main="",
-	xlim=c(0, 10), ylim=c(0, 0.36),
+	xaxs="i", yaxs="i",
+	xlim=c(0, 10), ylim=c(0, 0.38),
 	xlab="log(Minutes)", ylab="Access density\n")
 plot_mix_dist(1)
 plot_mix_dist(2)
