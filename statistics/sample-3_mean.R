@@ -1,8 +1,7 @@
 #
-# sample-3_mean.R,  8 Sep 15
+# sample-3_mean.R, 25 Mar 20
 #
 # Data from:
-#
 # Statistical Performance Comparisons of Computers
 # Tianshi Chen and Yunji Chen and Qi Guo and Olivier Temam and Tue Wu and Weiwu Hu
 #
@@ -10,12 +9,14 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG benchmark performance hardware
+# TAG benchmark_computer performance_sample
 
 source("ESEUR_config.r")
 
 
 bench_pop=read.csv(paste0(ESEUR_dir, "statistics/office_rsynth.gcc.basetime.csv.xz"))
+
+bench_pop$clocks=bench_pop$clocks/1e9
 
 NUM_SAMPLES=100
 
@@ -30,8 +31,8 @@ return(c(mean(a_sample), sd(a_sample)))
 
 plot_sample=function(sample_vec)
 {
-plot(1, log="y", xaxt="n", bty="n",
-	ylab="Cycles\n", xlab="",
+plot(0.1, log="y", xaxt="n", bty="n",
+	ylab="Execution time (billion cycles)\n", xlab="",
 	xlim=c(1, ncol(size_3)), ylim=c(min(sample_vec[1,])/10,
 					max(sample_vec[1,])*2))
 

@@ -1,5 +1,5 @@
 #
-# passmark-ram.R, 24 Nov 18
+# passmark-ram.R,  8 Apr 20
 #
 # Data from:
 # www.passmark.com
@@ -39,8 +39,24 @@ q=t[order(t$Read.Speed.MB.Sec), ]
 # 13800 and 18000 picked by 'eye'
 t_middle=subset(q, Read.Speed.MB.Sec > 13800 & Read.Speed.MB.Sec < 18000)
 
-plot(q$Read.Speed.MB.Sec, col=point_col,
-	xlab="Sorted order", ylab="Read speed (MB/sec)\n")
+q$Read.Speed.GB.Sec=q$Read.Speed.MB.Sec/1024
+plot(q$Read.Speed.GB.Sec, col=pal_col[2],
+	xaxs="i",
+	xlab="Sorted order", ylab="Read speed (GB/sec)\n")
+
+# Pick offset in the middle of the data
+# q$Read.Speed.GB.Sec[trunc(nrow(q)/2)] # 14.8417
+
+# Map sorted order to 0..1, except have to start just above 0
+frac_ord=seq(1/nrow(q), 1, by=1/(1+nrow(q)))
+
+# Fit a general logit
+rd_mod =nls(Read.Speed.GB.Sec ~ 14.8+a*log((b-frac_ord)/(c*frac_ord)),
+		trace=FALSE,
+		start=list(a=14.8, b=1, c=1), data=q)
+# summary(rd_mod)
+pred=predict(rd_mod)
+lines(pred, col=pal_col[1])
 
 # plot(t$Read.Speed.MB.Sec ,  t$number.modules)
 

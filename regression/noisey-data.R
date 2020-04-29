@@ -1,6 +1,5 @@
 #
 # noisey-data.R, 24 Mar 20
-#
 # Data from:
 # Example
 #

@@ -1,5 +1,5 @@
 #
-# company-growth.R, 18 Apr 19
+# company-growth.R, 24 Apr 20
 # Data from:
 # From Airline Reservations to {Sonic} the {Hedgehog}: {A} History of the Software Industry
 # Martin Campbell-Kelly
@@ -33,11 +33,12 @@ cg$col_str=mapvalues(cg$Company, companies, pal_col)
 cg$Revenues[cg$Company == "SAP"]=cg$Revenues[cg$Company == "SAP"]*0.92
 
 plot(1, type="n", log="y",
+	xaxs="i",
 	# xlim=range(cg$Year), ylim=c(1e-5, 2e1),
 	xlim=range(cg$Year), ylim=c(3, 5e4),
 	xlab="Year", ylab="Employees\n")
 
 d_ply(cg, .(Company), plot_revenue)
 
-legend(x="bottomright", legend=companies, bty="n", fill=pal_col, cex=1.2)
+legend(x="topleft", legend=companies, bty="n", fill=pal_col, cex=1.2)
 

@@ -1,5 +1,5 @@
 #
-# Akdemir_Kirmani.R, 20 Jul 19
+# Akdemir_Kirmani.R, 24 Apr 20
 # Data from:
 # Synergy: {A} Synthetic Study on Teams
 # Fahri Akdemir and Farooq Ahmad Kirmani
@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG team performance student
+# TAG team_performance student
 
 
 source("ESEUR_config.r")
@@ -16,6 +16,8 @@ source("ESEUR_config.r")
 
 library("plyr")
 
+
+par(mar=MAR_default+c(0.0, 0.7, 0, 0))
 
 pal_col=rainbow(5)
 
@@ -41,7 +43,7 @@ T_mean=ddply(ak, .(Year, Team), team_means)
 plot(-200, type="n", main="",
 	yaxs="i",
 	xlim=range(T_mean$Ip - T_mean$T_mean), ylim=c(0, 0.036),
-	xlab="Individual minus Team performance", ylab="Individuals (density)\n")
+	xlab="Individual minus Team performance", ylab="Individuals (density)\n\n")
 
 lines(c(0, 0), c(0, 0.04), col="grey")
 

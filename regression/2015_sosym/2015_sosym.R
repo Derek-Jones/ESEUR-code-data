@@ -1,5 +1,5 @@
 #
-# 2015_sosym.R,  2 Jul 16
+# 2015_sosym.R, 27 Apr 20
 # Data from:
 # The shape of feature code: an analysis of twenty {C}-preprocessor-based systems
 # Rodrigo Queiroz and Leonardo Passos and Marco Tulio Valente and Claus Hunsen and Sven Apel and Krzysztof Czarnecki
@@ -19,6 +19,9 @@ library("poweRlaw")
 
 
 plot_layout(5, 4)
+par(mar=MAR_default-c(0.7, 1.9, 0.7, 0.7))
+
+
 pal_col=rainbow(2)
 
 

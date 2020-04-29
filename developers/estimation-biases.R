@@ -27,6 +27,8 @@ dev_est=read.csv(paste0(ESEUR_dir, "developers/SendAway2013.csv.xz"), as.is=TRUE
 est_mod=glm(LOC.Prod ~ Country:Gender+LOC.Group,
 				data=dev_est)
 Anova(est_mod)
+
+# Value of interest is LOC.Group
 summary(est_mod)
 
 

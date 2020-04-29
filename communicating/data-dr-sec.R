@@ -1,5 +1,5 @@
 #
-# data.dr-sec.R,  3 Mar 20
+# data.dr-sec.R, 10 Apr 20
 # Data from:
 # Data-Driven Security: Analysis, Visualization and Dashboards
 # Jay Jacobs and Bob Rudis
@@ -14,13 +14,15 @@
 source("ESEUR_config.r")
 
 
+par(mar=MAR_default+c(0.0, 0.7, 0, 0))
+
 pal_col=rainbow(2)
 
 
 ip_ufo=read.csv(paste0(ESEUR_dir, "communicating/county-data.csv.xz"), as.is=TRUE)
 
 plot(ip_ufo$ufo2010, ip_ufo$ipaddr, log="xy", col=pal_col[2],
-	xlab="UFO reports", ylab="Virus infections reported\n")
+	xlab="UFO reports", ylab="Virus infections reported\n\n")
 
 ufo_mod=glm(log(ipaddr) ~ log(ufo2010), data=ip_ufo,
 					subset=(ipaddr > 0) & (ufo2010 > 0))

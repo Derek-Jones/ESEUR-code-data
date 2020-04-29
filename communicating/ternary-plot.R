@@ -1,5 +1,5 @@
 #
-# ternary-plot.R,  4 Mar 20
+# ternary-plot.R, 25 Apr 20
 #
 # Data from:
 # Example
@@ -7,15 +7,19 @@
 # Example from:
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG example_ternary-plot
+
 
 source("ESEUR_config.r")
 
 
 library("compositions")
 
-plot_layout(2, 1)
+
+plot_layout(2, 1, max_height=15)
 # Attempt to reduce the space between triangles.  Does not seem to work.
-par(mar=MAR_default-c(2.5, 0, 0.5, 0))
+par(mar=MAR_default-c(2.5, 3.6, 0.7, 0.6))
 par(oma=OMA_default-c(1.5, 0, 0.5, 0))
 
 

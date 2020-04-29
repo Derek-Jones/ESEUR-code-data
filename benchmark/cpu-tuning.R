@@ -6,8 +6,11 @@
 # Bird
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG performance_tuning Intel_cpu
+
 
 source("ESEUR_config.r")
 

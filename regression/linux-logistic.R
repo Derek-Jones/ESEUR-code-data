@@ -1,5 +1,5 @@
 #
-# Linux-logistic.R, 15 Mar 20
+# Linux-logistic.R, 23 Apr 20
 # Data from:
 # The {Linux} Kernel as a Case Study in Software Evolution
 # Ayelet Israeli and Dror G. Feitelson
@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG Linux LOC evolution
+# TAG Linux_LOC LOC_evolution
 
 source("ESEUR_config.r")
 
@@ -53,7 +53,7 @@ first_3000=subset(all_days, Number_days <= 3400)
 x_bounds=0:6000
 
 plot(all_days$Number_days, all_days$MLOC, col=pal_col[2],
-	xaxs="i",
+	xaxs="i", yaxs="i",
 	xlim=range(x_bounds),
 	xlab="Days since version 1.0 release", ylab="Total lines of code (MLOC)\n")
 

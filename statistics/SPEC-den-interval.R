@@ -37,8 +37,7 @@ res_sample=sample(cint$Result, size=1000)
 sm.density(res_sample, h=4, col=point_col, se=TRUE,
 	rugplot=FALSE,
 	# xaxs="i", yaxs="i", # not available
-	xlim=c(0, 81),
-	ylim=c(0, 0.033),
+	xlim=c(0, 81), ylim=c(0, 0.033),
 	xlab="SPECint Result", ylab="Density\n\n")
 
 

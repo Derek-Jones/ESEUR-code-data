@@ -1,26 +1,30 @@
 #
-# Grochowski.R, 15 Nov 14
+# Grochowski.R, 23 Apr 20
 # Data from:
 # Future Technology Challenges For NAND Flash and HDD Products
 # Edward Grochowski and Robert E. Fontana, Jr.
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
-
+#
+# TAG hard-disk_density
 
 source("ESEUR_config.r")
 
 
 # library("gnm")
 
-all_den=read.csv(paste0(ESEUR_dir, "regression/20120821_S102A_Grochowski.csv.xz"), as.is=TRUE)
+par(mar=MAR_default+c(0.0, 0.7, 0, 0))
 
 pal_col=rainbow(3)
 
 
+all_den=read.csv(paste0(ESEUR_dir, "regression/20120821_S102A_Grochowski.csv.xz"), as.is=TRUE)
+
 plot(all_den, log="y", col=point_col,
-	xlab="Production Date", ylab="Areal Density (gigabits/m^2)\n")
+	xaxs="i",
+	xlab="Production Date", ylab="Areal Density (gigabits/m^2)\n\n")
 
 all_den$log_ad=log(all_den$areal_density)
 
@@ -35,9 +39,12 @@ plot_subset=function(product_run, date_range, col_num=1)
 # 	data=product_run, family=gaussian("log"),
 # 	start=c(inter=0.5, a=5, b=2000, c=1))
 
+# a=0.5; b=3; c=2000; d=0.75
 # m3=nls(log_ad ~ SSlogis(date, a, b, c), data=product_run, algorithm="port")
 m3=nls(log_ad ~ SSfpl(date, a, b, c, d), data=product_run,
  		control= nls.control(warnOnly=TRUE))
+
+# print(summary(m3))
 
 y=predict(m3, newdata=data.frame(date=date_range), type="response")
 lines(date_range, exp(y), col=pal_col[col_num])
@@ -47,9 +54,9 @@ lines(date_range, exp(y), col=pal_col[col_num])
 # return(m3)
 }
 
-# The following generates: ...singular gradient...
+# First one generates: ...singular gradient...
 # plot_subset(MRhead, seq(1990, 1999, by=0.2), 1)
-t=plot_subset(GMRhead, seq(1996, 2002, by=0.2), 2)
+plot_subset(GMRhead, seq(1996, 2002, by=0.2), 2)
 plot_subset(AFCmedia, seq(2000, 2011, by=0.2), 3)
 
 text(MRhead$date[1], MRhead$areal_density[1], "1st MR head", pos=4, cex=1.3)

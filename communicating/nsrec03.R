@@ -1,5 +1,5 @@
 #
-# nsrec03.R, 22 Aug 18
+# nsrec03.R, 25 Apr 20
 # Data from:
 # In-Flight Observations of Long-Term Single-Event Effect ({SEE}) Performance on {Orbview-2} Solid State Recorders ({SSR})
 # Christian Poivey and Janet L. Barth and Kenneth A. LaBel and George Gee and Harvey Safren
@@ -22,7 +22,7 @@ library(maps)
 library(sp)
 # library(rgdal)
 
-par(mar=c(1,1,1,1)+0.1, xpd=NA)
+par(mar=c(0,0,0,0)+0.1, xpd=NA)
 
 nsrec=read.csv(paste0(ESEUR_dir, "communicating/nsrec03.csv.xz"), as.is=TRUE)
 event_coord=SpatialPoints(cbind(nsrec$Longitude, nsrec$Latitude))

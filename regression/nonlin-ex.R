@@ -1,19 +1,20 @@
 #
-# nonlin-ex.R, 29 Sep 18
+# nonlin-ex.R, 23 Apr 20
 # Data from:
+# Example
 #
 # Example from:
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG example non-linear
+# TAG example_non-linear
 
 
 source("ESEUR_config.r")
 
 
 plot_layout(3, 3, max_width=9)
-par(mar=c(1.0, 1.0, 0.5, 0.5))
+par(mar=MAR_default-c(2.8, 3.7, 0.8, 0.8))
 
 pal_col=rainbow(3)
 

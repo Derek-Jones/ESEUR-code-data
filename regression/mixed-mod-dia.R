@@ -1,10 +1,14 @@
 #
-# mixed-mod-dia.R, 17 Jul 16
-#
+# mixed-mod-dia.R, 23 Apr 20
+# Data from:
+# Example
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG example
+
 
 source("ESEUR_config.r")
 
@@ -14,11 +18,13 @@ plot_layout(3, 1)
 num_lines=6
 pal_col=rainbow(num_lines)
 
+
 base_plot=function()
 {
 plot(-1, -1, lab=c(1, 1, 2),
-	xlab="", ylab="",
-	xlim=c(0, 1), ylim=c(0, 1))
+	xaxs="i", yaxs="i",
+	xlim=c(0, 1), ylim=c(0, 1),
+	xlab="", ylab="")
 }
 
 

@@ -1,5 +1,5 @@
 #
-# MemDiskPrice-xl95.R, 10 Feb 18
+# MemDiskPrice-xl95.R, 14 Apr 20
 # Data from:
 # www.jcmit.com
 # copyright 2000, 2004, 2007 John C. McCallum
@@ -17,6 +17,9 @@
 source("ESEUR_config.r")
 
 
+par(mar=MAR_default+c(0.0, 0.7, 0, 0))
+
+
 pal_col=rainbow(5)
 
 mag=read.csv(paste0(ESEUR_dir, "hardware/MemDiskPrice-mag.csv.xz"), as.is=TRUE)
@@ -28,7 +31,7 @@ hd=subset(mag, Type != "floppy")
 floppy=subset(mag, Type == "floppy")
 
 plot(hd$date, hd$Cost.US./hd$Size.MBytes, log="y", col=pal_col[1],
-	xlab="Date", ylab="Dollars per MB\n")
+	xlab="Date", ylab="Dollars per MB\n\n")
 
 points(floppy$date, floppy$Cost.US./floppy$Size.MBytes, col=pal_col[2])
 

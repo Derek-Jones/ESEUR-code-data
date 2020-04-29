@@ -1,5 +1,5 @@
 #
-# array-access.R, 16 Jul 16
+# array-access.R, 22 Apr 20
 #
 # Data from:
 #
@@ -17,7 +17,7 @@ source("ESEUR_config.r")
 
 
 plot_layout(2, 1, max_height=8.5, default_width=5)
-par(mar=MAR_default-c(0.6, 0, 0.8, 0))
+par(mar=MAR_default-c(0.6, -1.4, 0.8, 0))
 
 pal_col=rainbow(3)
 
@@ -33,7 +33,7 @@ pal_col=rainbow(3)
 # bench=read.csv(paste0(ESEUR_dir, "benchmark/bounds_chk.csv.xz"))
 bench=read.csv(paste0(ESEUR_dir, "benchmark/bounds_7_chk.csv.xz"))
 
-bench$time=bench$time/1000000
+bench$time=bench$time/1e6
 
 v0_cell=function(O_str)
 {
@@ -46,9 +46,9 @@ return(t1)
 to0=v0_cell("o0")
 plot(to0$time, col=point_col, cex.axis=1.5, cex.lab=1.5,
 	xaxs="i",
-	xlab="Successive measurements", ylab="Time\n")
+	xlab="Successive measurements", ylab="Time\n\n")
 to3=v0_cell("o3")
 plot(to3$time, col=point_col, cex.axis=1.5, cex.lab=1.5,
 	xaxs="i",
-	xlab="Successive measurements", ylab="Time\n")
+	xlab="Successive measurements", ylab="Time\n\n")
 

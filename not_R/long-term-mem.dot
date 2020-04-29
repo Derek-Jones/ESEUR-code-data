@@ -19,6 +19,8 @@ digraph G {
    node [color = white, shape = plaintext, fontsize = 16];
 /*   rankdir = TB;  */
 
+   edge [fontsize = 14, penwidth=0.2, color="cyan"];
+
 Memory -> Declarative;
 Memory -> Nondeclarative;
 

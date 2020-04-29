@@ -1,5 +1,5 @@
 #
-# Linux-DAYLOC-pred.R, 14 Mar 20
+# Linux-DAYLOC-pred.R, 19 Apr 20
 # Data from:
 # The {Linux} Kernel as a Case Study in Software Evolution
 # Ayelet Israeli and Dror G. Feitelson
@@ -71,9 +71,9 @@ the_future=3000:7500
 future_range=range(the_future)
 
 plot(latest_version$Number_days, latest_version$MLOC, col=pal_col[2],
-	yaxs="i",
+	xaxs="i", yaxs="i",
 	xlim=future_range, ylim=y_lim,
-	xlab="Days", ylab="Total lines of code (MLOC)\n")
+	xlab="Days", ylab="Linux kernel size (MLOC)\n")
 
 
 y=predict(m3, newdata=list(Number_days=the_future))

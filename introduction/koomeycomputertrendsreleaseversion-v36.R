@@ -1,14 +1,20 @@
 #
-# koomeycomputertrendsreleaseversion-v36.R,  7 Nov 17
+# koomeycomputertrendsreleaseversion-v36.R, 15 Apr 20
 # Data from:
 # Implications of Historical Trends in the Electrical Efficiency of Computing
 # Jonathan G. Koomey and Stephen Berard and Marla Sanchez and Henry Wong
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG
+
 
 source("ESEUR_config.r")
+
+
+par(mar=MAR_default+c(0.0, 0.7, 0, 0))
 
 
 pal_col=rainbow(3)
@@ -22,7 +28,7 @@ koomey$Watt_comp=koomey$Active.Power.watts/(1e6*koomey$MCPS)
 
 plot(1, type="n", log="y",
 	xlim=range(koomey$Year), ylim=range(koomey$Watt_comp),
-	xlab="Year", ylab="Watts per computation\n")
+	xlab="Year", ylab="Watts per computation\n\n")
 
 tubes=subset(koomey, grepl("tubes", Notes.on.transistors.tubes))
 points(tubes$Year, tubes$Watt_comp, col=pal_col[1])
@@ -37,5 +43,9 @@ legend(x="topright", legend=c("Vacuum tubes", "Transistors", "Microprocessor"), 
 
 
 a_mod=glm(log(Watt_comp) ~ Year, data=koomey)
-summary(a_mod)
+# summary(a_mod)
+d_bounds=seq(min(koomey$Year), max(koomey$Year))
+pred=predict(a_mod, newdata=data.frame(Year=d_bounds))
+
+lines(d_bounds, exp(pred), col="yellow")
 

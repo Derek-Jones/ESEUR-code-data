@@ -1,5 +1,5 @@
 #
-# LEVARI2018COMPLETE.R,  4 Feb 19
+# LEVARI2018COMPLETE.R, 21 Apr 20
 # Data from:
 # Prevalence-induced concept change in human judgment
 # David E. Levari and Daniel T. Gilbert and Timothy D. Wilson and Beau Sievers and David M. Amodio and Thalia Wheatley
@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment human judgment
+# TAG experiment_human judgment
 
 source("ESEUR_config.r")
 
@@ -48,7 +48,7 @@ st5_mod=binomial_fit(cond, 5, pal_col[cond*2+2])
 legend(x="bottomright",
 	legend=c("First 200 dots (constant blue)", "Last 200 dots (constant blue)",
 		 "First 200 dots (decreased blue)", "Last 200 dots (decreased blue)"),
-	bty="n", fill=pal_col, cex=1.2)
+	bty="n", fill=pal_col, cex=1.1)
 
 }
 

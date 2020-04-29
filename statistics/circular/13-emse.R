@@ -1,5 +1,5 @@
 #
-# 13-emse.R, 24 Mar 20
+# 13-emse.R, 23 Apr 20
 #
 # Data from:
 # Do time of day and developer experience affect commit bugginess?
@@ -9,7 +9,8 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG
+# TAG commit_time-of-day faults_time-of-day
+
 
 source("ESEUR_config.r")
 
@@ -44,12 +45,12 @@ rose.diag(HoW, bins=24, shrink=1.1, prop=3, col=col_str, border="grey",
 		axes=FALSE,  control.circle=circle.control(col="grey", lwd=0.5))
 axis.circular(at=circular(0:23, units="hours", rotation="clock"))
 
-text(0.8, 1.2, repo_str, cex=1.4)
+text(0.8, 1.1, repo_str, cex=1.4)
 
 arrows.circular(mean(HoW), y=rho.circular(HoW), col=pal_col[2], lwd=3)
 # print(c(mean(HoW)[[1]], rho.circular(HoW)))
 
-lines(density(HoW, bw=30))
+lines(density(HoW, bw=30), col=point_col)
 
 return(HoW)
 }
@@ -58,7 +59,7 @@ return(HoW)
 F=plot_commits(week_fault, "Fault", pal_col[1])
 B=plot_commits(week_basic, "non-Fault", pal_col[3])
 
-# Two sample QQ plot from Circular statistics in R page 132-133
+# Two sample QQ plot from "Circular statistics in R", page 132-133
 # Cleaned up a bit
 TwoSampleQQ = function(cdat1, cdat2)
 {

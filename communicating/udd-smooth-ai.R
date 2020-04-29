@@ -1,5 +1,5 @@
 #
-# udd-smooth-ai.R,  4 Mar 20
+# udd-smooth-ai.R, 22 Apr 20
 #
 # Data from:
 # Impact of Installation Counts on Perceived Quality: A Case Study of Debian
@@ -20,8 +20,9 @@ source("ESEUR_config.r")
 
 library("MASS")
 
+
 plot_layout(3, 1, max_height=ESEUR_max_height-2)
-par(mar=MAR_default-c(0.7, 0.0, 1.0, 0.0))
+par(mar=MAR_default-c(0.6, 0.0, 1.0, 0.0))
 
 
 q1=read.csv(paste0(ESEUR_dir, "regression/Q1_udd.csv.xz"), as.is=TRUE)
@@ -30,13 +31,16 @@ q10=read.csv(paste0(ESEUR_dir, "regression/Q10_udd.csv.xz"), as.is=TRUE)
 udd=merge(q1, q10)
 
 plot(udd$age, udd$insts, log="y", col=point_col,
+	xaxs="i",
 	cex.axis=1.5, cex.lab=1.5,
 	xlab="Age (days)", ylab="Installations\n")
 smoothScatter(udd$age, log(udd$insts),
+	xaxs="i",
 	cex.axis=1.5, cex.lab=1.5,
 	xlab="Age (days)", ylab="log(Installations)\n")
 
 plot(udd$age, udd$insts, log="y", col=point_col,
+	xaxs="i",
 	cex.axis=1.5, cex.lab=1.5,
 	xlab="Age (days)", ylab="Installations\n")
 

@@ -1,13 +1,16 @@
 #
-# L2-miss-penalty.R, 31 Aug 16
+# L2-miss-penalty.R,  5 Apr 20
 #
 # Data from:
 # Investigating Cache Parameters of x86 Family Processors
 # Vlastimil Babka and Petr T{\ra}ma
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG Experiment_hardware x86_cache
+
 
 source("ESEUR_config.r")
 
@@ -34,9 +37,10 @@ text(max(cc_mean$cache_line_offset)/2, max(cc_mean$V1)+4, stride,
 }
 
 
-xbounds=c(1, 4000)
+xbounds=c(0, 4000)
 ybounds=c(220, 300)
 plot(0, type="n",
+	xaxs="i",
 	xlim=xbounds, ylim=ybounds,
 	xlab="Byte offset within page", ylab="Access time\n")
 

@@ -1,25 +1,30 @@
 #
-# accu-exp-wr.R, 23 Nov 17
+# accu-exp-wr.R,  5 Apr 20
 # Data from:
 # ACCU experiments 2003-2007
 # Derek M. Jones
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG experiment_human developer_code-written developer_code-read
 
 
 source("ESEUR_config.r")
 
 
+pal_col=rainbow(3)
+
+
 dev=read.csv(paste0(ESEUR_dir, "developers/accu-exp-wr.csv.xz"), as.is=TRUE)
 dev$k_written=dev$written/1e3
-
-pal_col=rainbow(3)
 
 # plot(dev$read, dev$k_written), col=point_col,
 # 	xlab="Read (lines)", ylab="Written (thousand lines)")
 plot(jitter(dev$experience), jitter(dev$k_written), col=point_col,
+	xaxs="i", yaxs="i",
+	xlim=c(0, 30),
 	xlab="Experiences (years)", ylab="Written (thousand lines)\n")
 
 wr_mod=glm(k_written ~ experience+I(experience^2), data=dev)

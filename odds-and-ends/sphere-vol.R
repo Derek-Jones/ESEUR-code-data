@@ -1,25 +1,33 @@
 #
-# sphere-vol.R, 28 Mar 16
-#
+# sphere-vol.R,  4 Apr 20
 # Data from:
+# Example
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG example_sphere-volume
+
 
 source("ESEUR_config.r")
 
+
+par(mar=MAR_default+c(0.0, 0.7, 0, 0))
+
+
 n=50
 
-# Initial values that result in 2-D/3-D circle/sphere having correct values
-sphere_vol=1
-sphere_vol[2]=2
+# Values for a recurence relationship
+# sphere_vol[1]=1
+# sphere_vol[2]=2
+# d=3:n
+#sphere_vol=sphere_vol[d-2]*2*pi/d
+d=1:n
+sphere_vol=pi^(d/2)/gamma(1+d/2)
 
-# R indexes from 1, not zero, so we are off by one
-for (d in 3:n)
-   sphere_vol[d]=sphere_vol[d-2]*2*pi/(d-1)
-
-plot(1:n, sphere_vol, log="y", col=point_col,
-	xlab="Dimensions", ylab="Volume\n")
+plot(sphere_vol, log="y", col=point_col,
+	xaxs="i",
+	xlab="Dimensions", ylab="Volume\n\n")
 
 

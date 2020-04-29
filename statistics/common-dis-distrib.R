@@ -1,6 +1,7 @@
 #
-# common-dis-distrib.R,  6 Aug 16
+# common-dis-distrib.R, 12 Apr 20
 # Data from:
+# Example
 #
 # Example from:
 # Evidence-based Software Engineering: based on the publicly available data
@@ -14,7 +15,7 @@ source("ESEUR_config.r")
 
 plot_layout(4, 1)
 
-par(mar=c(1.2, 2.0, 1, 0.8))
+par(mar=MAR_default-c(2.0, 3.5, 0, 0))
 brew_col=rainbow(3)
 
 plot(c(0, 1, 2, 3, 4, 5), c(0, 0.25, 0.25, 0.25, 0.25, 0), type="h",

@@ -1,18 +1,24 @@
 #
-# remington2016.R, 28 Jan 17
+# remington2016.R, 21 Apr 20
 # Data from:
 # With Practice, Keyboard Shortcuts Become Faster Than Menu Selection: {A} Crossover Interaction
 # Roger W. Remington and Ho Wang Holman Yuen and Harold Pashler
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG experiment_human keyboard menue
+
 
 source("ESEUR_config.r")
 
 
 library("lme4")
 # library("plyr")
+
+
+pal_col=rainbow(2)
 
 
 add_seq_num=function(df)
@@ -36,14 +42,18 @@ s204=subset(C02, SubjectID == 204)
 s208=subset(C01, SubjectID == 208)
 
 plot(0, type="n",
-	xlim=c(1, 30), ylim=c(1000, 7000),
-	xlab="Trial", ylab="Response time\n")
+	xaxs="i",
+	xlim=c(0, 30), ylim=c(1, 7),
+	xlab="Trial", ylab="Response time (seconds)\n")
 
 # s204_sn=ddply(s204, .(Item), add_seq_num)
 
-points(s204$CurrentScreen, s204$TimeUsed, col=point_col)
+s204$SecsUsed=s204$TimeUsed/1e3
 
-lines(loess.smooth(s204$CurrentScreen, s204$TimeUsed, span=0.3), col="green")
+
+points(s204$CurrentScreen, s204$SecsUsed, col=pal_col[2])
+
+lines(loess.smooth(s204$CurrentScreen, s204$SecsUsed, span=0.3), col=pal_col[1])
 # lines(loess.smooth(s208$CurrentScreen, s208$TimeUsed, span=0.3), col="red")
 
 # Fit a power law of practice

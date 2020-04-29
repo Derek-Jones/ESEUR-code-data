@@ -1,5 +1,5 @@
 #
-# Vaporware.R, 20 Oct 17
+# Vaporware.R, 24 Apr 20
 # Data from:
 # PC-Letter's Vapor list
 # via
@@ -7,11 +7,16 @@
 # Barry L. Bayus and Sanjay Jain and Ambar G. Rao
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG vaporware_promised vaporware_actual
+
 
 source("ESEUR_config.r")
 
+
+pal_col=rainbow(2)
 
 # email information from Barry Bayus:
 # ANNOUNC date of the first product preannouncement
@@ -29,10 +34,11 @@ pos_vapor=subset(vapor, T2_T1 >= 0)
 
 # plot(vapor$ANNOUN, vapor$INTRO_DA)
 
-plot(pos_vapor$T1_T0, pos_vapor$T2_T1, log="x", col=point_col,
+plot(pos_vapor$T1_T0, pos_vapor$T2_T1, log="x", col=pal_col[2],
+	yaxs="i",
 	ylim=c(0, max(pos_vapor$T2_T1)),
 	xlab="Promised-Preannouncement (months)",
-	ylab="Actual-Promised (months)"
+	ylab="Actual-Promised (months)\n"
 	)
 
 lines(loess.smooth(pos_vapor$T1_T0, pos_vapor$T2_T1, span=0.3), col=loess_col)
@@ -41,6 +47,6 @@ v_mod=glm(T2_T1 ~ T1_T0+I(T1_T0^0.5), data=pos_vapor, family=poisson)
 
 x_vals=1:25
 pred=predict(v_mod, newdata=data.frame(T1_T0=x_vals), type="response")
-lines(x_vals, pred, col=point_col)
+lines(x_vals, pred, col=pal_col[1])
 
 

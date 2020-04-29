@@ -1,5 +1,5 @@
 #
-# 31-249-1-PB.R, 19 Feb 19
+# 31-249-1-PB.R, 19 Apr 20
 # Data from:
 # Simple and Complex Working Memory Tasks Allow Similar Benefits of Information Compression
 # Fabien Mathy and Mustapha Chekaf and Nelson Cowan
@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG example experiment human memory
+# TAG experiment_human memory_human
 
 source("ESEUR_config.r")
 
@@ -87,7 +87,7 @@ stimuli_line=function(df, col_str)
 i_mean=plot_point(subset(df, stimuliType == "irregular"), col_str, 1)
 r_mean=plot_point(subset(df, stimuliType == "rule"), col_str, 2)
 
-print(c(i_mean, r_mean))
+# print(c(i_mean, r_mean))
 
 lines(c(1, 2), c(i_mean, r_mean), col=col_str)
 }
@@ -102,9 +102,9 @@ comp=subset(PB, taskType == "complex")
 plot(0, type="n",
 	xaxt="n", yaxp=c(1, 4, 3),
 	xlim=c(0.8, 2.2), ylim=c(1, 4.5),
-	xlab="", ylab="Span")
+	xlab="", ylab="Recall span")
 
-axis(1, at=c(1, 2), labels=c("irregular", "rule"))
+axis(1, at=c(1, 2), labels=c("Non-chunkable", "Chunkable"))
 
 stimuli_line(simp, pal_col[1])
 stimuli_line(comp, pal_col[2])

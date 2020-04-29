@@ -90,6 +90,7 @@ obs_sub$st_aut3=(1-obs_sub$nsrfc)*obs_sub$aut3
 non_std=subset(obs_sub, exiType == 3 & ttlDur<2007 & stbafl1yr>=50)
 std=subset(obs_sub, exiType == 4 & ttlDur<2007 & stbafl1yr>=50)
 plot(non_std$stbafl1yr, non_std$ttlDur, col=hcl_col[2],
+	yaxs="i",
 	ylim=c(0, 1500),
 	xlab="Suit-share", ylab="Production time (days)\n")
 points(std$stbafl1yr, std$ttlDur, col=hcl_col[1])

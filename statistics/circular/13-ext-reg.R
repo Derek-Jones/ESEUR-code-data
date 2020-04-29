@@ -1,5 +1,5 @@
 #
-# 13-ext-reg.R, 16 Jul 16
+# 13-ext-reg.R, 23 Apr 20
 #
 # Data from:
 # Do time of day and developer experience affect commit bugginess?
@@ -18,10 +18,7 @@ library("circular")
 library("plyr")
 
 
-plot_layout(2, 1, max_height=13)
-par(mar=MAR_default-c(0.8, 0, 0.5, 0))
-
-pal_col=rainbow(3)
+pal_col=rainbow(4)
 
 
 sum_commits=function(df)
@@ -51,26 +48,27 @@ week_fault=subset(fault_total, week_day < 5)
 week_basic=subset(basic_total, week_day < 5)
 
 plot(week_basic$hour, week_basic$freq, col=pal_col[2],
-	xaxs="i",
-	xlab="Hour", ylab="non-fault commits\n")
+	xaxs="i", yaxs="i",
+	ylim=c(0, 3500),
+	xlab="Hour", ylab="Commits\n")
+
+legend(x="topleft", legend=c("non-fault commits", "fault commits"), bty="n", fill=c(pal_col[2], pal_col[4]), cex=1.2)
 
 basic_mod = nls(freq ~ gam0+gam1*cos(omega*hour-phi+nu*cos(omega*hour-phi)),
                 start = list(gam0 = 800, gam1 = 700, omega=0.3, phi = 1, nu = 0),
 		data=week_basic)
 
 pred=predict(basic_mod, newdata=data.frame(hour=day))
-lines(day, pred, col=pal_col[3])
+lines(day, pred, col=pal_col[1])
 
 
-plot(week_fault$hour, week_fault$freq, col=pal_col[2],
-	xaxs="i",
-	xlab="Hour", ylab="Fault commits\n")
+points(week_fault$hour, week_fault$freq, col=pal_col[4])
 
 fault_mod = nls(freq ~ gam0+gam1*cos(omega*hour-phi+nu*cos(omega*hour-phi)),
                 start = list(gam0 = 800, gam1 = 700, omega=0.3, phi = 1, nu = 0),
 		data=week_fault)
 
 pred=predict(fault_mod, newdata=data.frame(hour=day))
-lines(day, pred, col=pal_col[1])
+lines(day, pred, col=pal_col[3])
 
 

@@ -1,5 +1,5 @@
 #
-# jones_prec.R, 21 Oct 18
+# jones_prec.R,  2 Apr 20
 # Data from:
 # Developer Beliefs about Binary Operator Precedence
 # Derek M. Jones
@@ -15,6 +15,9 @@ source("ESEUR_config.r")
 
 
 library("BradleyTerry2")
+
+
+pal_col=rainbow(2)
 
 
 # subj_num,first_op,second_op,prec_order,is_correct,years_exp
@@ -40,12 +43,25 @@ prec_BT=BTm(cbind(first_wl, second_wl), first_op, second_op, data=nodraws)
 # summary(prec_BT)
 
 
-# t=BTabilities(prec_BT)
-# plot(qvcalc(t[order(t[, 1]),]))
+t=BTabilities(prec_BT)
+bt=data.frame(ability=t[, 1], se=t[, 2])
+bt=bt[order(bt$ability), ]
 
-plot(qvcalc(BTabilities(prec_BT)), col=point_col,
-	main="",
-	xlab="Operator", ylab="Relative order")
+plot(-5, type="n",
+	xlim=c(-2.5, 1.5), ylim=c(1, nrow(bt)),
+	yaxt="n",
+	xlab=expression(beta), ylab="Operator\n")
+axis(2, at=1:nrow(bt), label=rownames(bt))
+
+dum=sapply(1:nrow(bt), function(X)
+			{
+			lines(c(-bt$se[X], bt$se[X])+bt$ability[X], c(X, X), col=pal_col[2])
+			lines(c(bt$ability[X], bt$ability[X]), c(-0.1, 0.1)+X, col=pal_col[1])
+			})
+
+# plot(qvcalc(BTabilities(prec_BT)), col=point_col,
+# 	main="",
+# 	xlab="Operator", ylab="Relative order")
 
 
 # Check for a home team effect, i.e., a preference for the

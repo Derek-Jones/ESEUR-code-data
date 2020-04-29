@@ -1,13 +1,16 @@
 #
-# MemoPower03_design.R,  1 Sep 16
+# MemoPower03_design.R,  5 Apr 20
 #
 # Data from:
 # "Look It up" or "Do the Math": An Energy, Area, and Timing Analysis of Instruction Resuse and Memoization
 # Daniel Citron and Dror G. Feitelson
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG
+
 
 source("ESEUR_config.r")
 
@@ -31,7 +34,8 @@ Memo$replacement=as.factor(Memo$replacement)
 
 
 plot.design(cint ~ size+associativity+mapping+replacement, data=Memo,
-			cex=1.2, cex.lab=1.0, cex.axis=0.9, col=point_col,
-			xlab="", ylab="Mean cint\n")
+		cex=1.2, cex.lab=1.1, cex.axis=0.9, col=point_col,
+		xaxs="i",
+		xlab="", ylab="Mean cint\n")
 
 

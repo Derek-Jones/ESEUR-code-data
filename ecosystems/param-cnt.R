@@ -1,5 +1,5 @@
 #
-# param-cnt.R, 18 Sep 18
+# param-cnt.R, 14 Apr 20
 #
 # Data from:
 # Why {SpecInt95} Should Not Be Used to Benchmark Embedded Systems Tools
@@ -44,7 +44,8 @@ embed$int_p=round(embed$percent)
 embed_pc=rep(0:(nrow(embed)-1), embed$int_p)
 
 plot(params$params, params$percent, type="n",
-	xlim=c(0, 10),
+	xaxs="i", yaxs="i",
+	xlim=c(-0.05, 10),
 	xlab="Number of parameters", ylab="Function definitions (percentage)\n")
 lines(embed$params, embed$percent, col=pal_col[2])
 lines(cbook$params, cbook$percent, col=pal_col[2])

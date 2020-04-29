@@ -1,5 +1,5 @@
 #
-# simula_04.R,  6 Mar 20
+# simula_04.R, 13 Apr 20
 #
 # Data from:
 # Eliminating Over-Confidence in Software Development Effort Estimates
@@ -15,6 +15,9 @@
 source("ESEUR_config.r")
 
 
+par(mar=MAR_default+c(0.0, 0.7, 0, 0))
+
+
 pal_col=rainbow(2)
 
 # Team,Group,Estimate,Minimum,Maximum
@@ -24,7 +27,7 @@ plot(density(subset(est, Group =="A")$Estimate, from=0), col=pal_col[1],
 	main="",
 	xaxs="i", yaxs="i",
 	xlim=c(0, max(est$Estimate)), ylim=c(0, 9e-4),
-	xlab="Estimate", ylab="Density\n")
+	xlab="Estimate", ylab="Density\n\n")
 lines(density(subset(est, Group !="A")$Estimate, from=0), col=pal_col[2])
 
 legend(x="topright", legend=c("No instructions", "With instructions"), bty="n", fill=pal_col, cex=1.2)

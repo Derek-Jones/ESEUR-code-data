@@ -1,5 +1,5 @@
 #
-# usa-infra.R,  6 Dec 19
+# usa-infra.R, 29 Apr 20
 #
 # Data from:
 # Long Waves, Technology Diffusion, and Substitution
@@ -20,9 +20,9 @@ pal_col=rainbow(6)
 infra=read.csv(paste0(ESEUR_dir, "ecosystems/usa-infra.csv.xz"), as.is=TRUE)
 
 plot(infra$year, 100*infra$canals/max(infra$canals), type="l", col=pal_col[1],
-	yaxs="i",
+	xaxs="i", yaxs="i",
 	xlab="Year", ylab="Percentage of known maximum\n",
-	xlim=c(1805,1995), ylim=c(0, 100))
+	xlim=c(1800,2000), ylim=c(0, 100))
 lines(infra$year, 100*infra$railways/max(infra$railways, na.rm=TRUE),
 	col=pal_col[2])
 lines(infra$year, 100*infra$surfaced.roads/max(infra$surfaced.roads, na.rm=TRUE),
@@ -35,6 +35,6 @@ lines(infra$year, 100*infra$oil.pipelines/max(infra$oil.pipelines, na.rm=TRUE),
 lines(infra$year, 100*infra$gas.pipelines/max(infra$gas.pipelines, na.rm=TRUE),
 	col=pal_col[6])
 
-legend(x="topleft", legend=c("canals", "railways", "telegraph wire", "oil pipelines", "surfaced roads", "gas pipelines"),
-			bty="n", fill=pal_col, cex=1.2)
+legend(x="bottomleft", legend=c("canals", "railways", "telegraph wire", "oil pipelines", "surfaced roads", "gas pipelines"),
+			inset=c(0.02, 0), bty="n", fill=pal_col, cex=1.2)
 

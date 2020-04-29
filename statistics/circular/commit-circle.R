@@ -1,5 +1,5 @@
 #
-# commit-circle.R, 23 Mar 20
+# commit-circle.R, 23 Apr 20
 #
 # Data from:
 # Do time of day and developer experience affect commit bugginess?
@@ -18,7 +18,7 @@ library("circular")
 
 
 plot_layout(2, 1, max_height=11.0)
-par(mar=MAR_default-c(2.5, 0, 0.5, 0))
+par(mar=MAR_default-c(2.7, 3.7, 0.5, 0.7))
 
 pal_col=rainbow(3)
 

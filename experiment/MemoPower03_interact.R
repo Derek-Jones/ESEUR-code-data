@@ -1,5 +1,5 @@
 #
-# MemoPower03_interact.R,  5 Nov 18
+# MemoPower03_interact.R,  5 Apr 20
 #
 # Data from:
 # "Look It up" or "Do the Math": An Energy, Area, and Timing Analysis of Instruction Resuse and Memoization
@@ -16,6 +16,9 @@ source("ESEUR_config.r")
 
 
 # plot_layout(2, 1)
+
+pal_col=rainbow(2)
+
 
 Memo=read.csv(paste0(ESEUR_dir, "experiment/MemoPower03.csv.xz"), as.is=TRUE)
 
@@ -34,6 +37,6 @@ Memo$replacement=as.factor(Memo$replacement)
 
 with(Memo,
 	interaction.plot(size, mapping, cint,
-		cex=1.3, col=point_col,
-		xlab="size", ylab="Mean cint performance"))
+		cex=1.3, col=pal_col,
+		xlab="size", ylab="Mean cint performance\n"))
 

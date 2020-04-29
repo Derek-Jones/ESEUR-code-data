@@ -1,5 +1,5 @@
 #
-# Haskel_T1.R,  6 Dec 19
+# Haskel_T1.R, 14 Apr 20
 # Data from:
 # Estimating {UK} investment in intangible assets and Intellectual Property Rights
 # Peter Goodridge and Jonathan Haskel and Gavin Wallis
@@ -19,7 +19,7 @@ pal_col=rainbow(5)
 econ=read.csv(paste0(ESEUR_dir, "economics/Haskel_T1.csv.xz"), as.is=TRUE)
 
 plot(econ$Year, econ$All.intangibles, type="l", col=pal_col[1],
-	yaxs="i",
+	xaxs="i", yaxs="i",
 	ylim=c(0, 140),
 	xlab="Year", ylab="£ Billion\n")
 

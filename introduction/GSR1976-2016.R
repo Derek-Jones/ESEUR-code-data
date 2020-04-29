@@ -1,5 +1,5 @@
 #
-# GSR1976-2016.R, 28 Feb 17
+# GSR1976-2016.R, 14 Apr 20
 # Data from:
 # Semiconductor monthly sales volume: 1975-2016
 # {World Semiconductor Trade Statistics}
@@ -31,6 +31,7 @@ Asia_Pac=subset(year_reg, Region == "Asia Pacific")
 China=subset(year_reg, Region == "China")
 
 plot(world$Date, world$value/1e6, type="l", col=pal_col[1], log="y",
+	xaxs="i",
 	xlab="Year", ylab="Monthly sales (billion dollars)\n")
 lines(Asia_Pac$Date, Asia_Pac$value/1e6, col=pal_col[2])
 lines(Americas$Date, Americas$value/1e6, col=pal_col[3])

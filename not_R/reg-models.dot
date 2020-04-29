@@ -1,4 +1,4 @@
-                    /* reg-models.dot, 27 Dec 15 */
+                    /* reg-models.dot, 13 Apr 20 */
 
 digraph G {
 
@@ -6,8 +6,8 @@ digraph G {
    ranksep = 0.3;
    arrowsize=0.2;
    size = "6.0,6.0";
-   edge [fontsize = 13, penwidth=0.2];
-   node [color = white, shape = plaintext, fontsize = 16];
+   edge [fontsize = 14, penwidth=0.2, color="cyan"];
+   node [color = white, shape = plaintext, fontname="Helvetica", fontsize=15];
 
    general_linear_models -> generalized_linear_models[label="non-normal errors\nnonlinearity"] ;
    general_linear_models -> nonlinear_least_squares[label="nonlinearity"] ;

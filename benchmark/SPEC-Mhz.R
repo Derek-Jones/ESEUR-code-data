@@ -1,5 +1,5 @@
 #
-# SPEC-Mhz.R,  3 Jul 16
+# SPEC-Mhz.R, 25 Mar 20
 #
 # Data from:
 # www.spec.org/cpu2006/results
@@ -48,7 +48,7 @@ cint=subset(cint, mem_rate >= 3200)
 # plot(cint$Test.Date, cint$Result,
 # 	xlab="Measurement date", ylab="SPEC2006 int")
 plot(cint$Processor.MHz, cint$Result, col=point_col,
-	xlab="Processor speed MHz", ylab="SPEC2006 int")
+	xlab="Processor speed MHz", ylab="SPEC2006 int\n")
 
 PC2=subset(cint, mem_kind == "PC2")
 PC3=subset(cint, mem_kind != "PC2")
@@ -73,13 +73,13 @@ rates=unique(cint$mem_rate)
 pal_col=rainbow(length(rates))
 rate_map=mapvalues(cint$mem_rate, rates, 1:length(rates))
 plot(cint$Processor.MHz, cint$Result, col=pal_col[rate_map],
-	xlab="Processor speed MHz", ylab="SPEC2006 int")
+	xlab="Processor speed MHz", ylab="SPEC2006 int\n")
 
 cpu_freq=unique(cint$Processor.MHz)
 pal_col=rainbow(length(cpu_freq))
 cpu_freq_map=mapvalues(cint$Processor.MHz, cpu_freq, 1:length(cpu_freq))
 plot(cint$mem_rate, cint$Result, col=pal_col[cpu_freq_map],
-	xlab="Memory peak transfer rate (MB/sec)", ylab="SPEC2006 int")
+	xlab="Memory peak transfer rate (MB/sec)", ylab="SPEC2006 int\n")
 
 # freqs=unique(cint$mem_freq)
 # pal_col=rainbow(length(freqs))

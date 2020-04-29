@@ -1,5 +1,5 @@
 #
-# msr2018b_lic-ver.R, 10 Apr 19
+# msr2018b_lic-ver.R, 24 Apr 20
 # Data from:
 # Understanding the Usage, Impact, and Adoption of Non-{OSI} Approved Licenses
 # R\^{o}mulo Meloca and Gustavo Pinto and Leonardo Baiser and Marco Mattos and Ivanilton Polato and Igor Scaliante Wiese and Daniel M. German
@@ -17,11 +17,15 @@ source("ESEUR_config.r")
 pal_col=rainbow(3)
 
 
+par(mar=MAR_default+c(0.0, 0.7, 0, 0))
+
+
 lv=read.csv(paste0(ESEUR_dir, "economics/msr2018b_lic-ver.csv.xz"), as.is=TRUE)
 
 plot(lv$Licenses, lv$NPM, log="y", type="b", col=pal_col[1],
+	xaxs="i", yaxs="i",
 	xlim=c(0, 6), ylim=c(1, 3e6),
-	xlab="Licenses", ylab="Packages\n")
+	xlab="Licenses", ylab="Packages\n\n")
 points(lv$Licenses, lv$RubyGems, type="b", col=pal_col[2])
 points(lv$Licenses, lv$CRAN, type="b", col=pal_col[3])
 

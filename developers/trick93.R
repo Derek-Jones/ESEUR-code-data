@@ -1,5 +1,5 @@
 #
-# trick93.R, 24 Feb 19
+# trick93.R, 21 Apr 20
 # Data from:
 # What Enumeration Studies Can Show Us About Spatial Attention: {Evidence} for Limited Capacity Preattentive Processing
 # Lana M. Trick and Zenon W. Pylyshyn
@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment human attention
+# TAG experiment_human attention respones-time
 
 
 source("ESEUR_config.r")
@@ -17,7 +17,7 @@ source("ESEUR_config.r")
 library("plyr")
 
 plot_layout(2, 2, max_width=6.5, max_height=6.5)
-par(mar=c(1.2, 4.4, 0, 0.0))
+par(mar=MAR_default-c(2.2, -0.2, 0.8, 0.8))
 
 pal_col=rainbow(3)
 
@@ -43,7 +43,7 @@ text(3.1, 6.2,"O", cex=2.2)
 text(5, 2, "O", cex=2.2)
 text(8, 6, "O", cex=2.2)
 
-plot(trick$response, type="n", cex.axis=1.5,
+plot(trick$response, type="n", cex.axis=1.8,
 	xlim=c(1, 8),
 	xlab="Items", ylab="")
 
@@ -67,7 +67,7 @@ text(4.1, 7.0, "O", cex=2.2)
 text(6.7, 7.1, "O", cex=2.2)
 
 
-plot(trick$response, type="n", cex.lab=1.6,
+plot(trick$response, type="n", cex.axis=1.5, cex.lab=1.7,
 	xlim=c(1, 8),
 	xlab="Items", ylab="Response time\n")
 

@@ -1,7 +1,7 @@
 #
-# chisq-norm.R,  2 Dec 15
-#
+# chisq-norm.R, 13 Apr 20
 # Data from:
+# Example
 #
 # Example from:
 # Evidence-based Software Engineering: based on the publicly available data
@@ -12,6 +12,9 @@
 
 source("ESEUR_config.r")
 
+
+plot_layout(1, 1, default_height=5) 
+par(mar=MAR_default-c(2.0, 2.7, 0.5, 0))
 
 pal_col=rainbow(3)
 

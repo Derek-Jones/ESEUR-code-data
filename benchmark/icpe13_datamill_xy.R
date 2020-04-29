@@ -1,13 +1,16 @@
 #
-# icpe13_datamill_xy.R,  8 Jan 16
+# icpe13_datamill_xy.R,  5 Apr 20
 #
 # Data from:
 # DataMill: Rigorous Performance Evaluation Made Easy
 # Augusto Born de Oliveira and Jean-Christophe Petkovich and Thomas Reidemeister and Sebastian Fischmeister
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG
+
 
 source("ESEUR_config.r")
 
@@ -46,7 +49,9 @@ processors=c("1.6GHz Nano X2","600MHz ARM","3.2GHz P4","3.4GHz i7","3.3GHz i5","
 opt_levels=c("-O0", "-O1", "-Os", "-O2", "-O3")
 bench$opt_flag=mapvalues(bench$opt_flag, opt_levels, 1:length(opt_levels))
 
-xsub = subset(bench, type=="xz")
+xsub=subset(bench, type=="xz")
+xsub$task_clock=xsub$task_clock/1e3
+xsub=subset(xsub, task_clock > 1)
 
 pal_col=rainbow(length(unique(xsub$hostname)))
 
@@ -55,7 +60,7 @@ ybounds=range(xsub$task_clock)
 plot(1, type="n",
 	xlim=c(1, length(opt_levels)), ylim=ybounds,
 	xaxt="n",
-	xlab="Optimization level", ylab="Clock time (ms)\n")
+	xlab="Optimization level", ylab="Clock time (secs)\n")
 
 axis(1, at=1:length(opt_levels), labels=opt_levels)
 

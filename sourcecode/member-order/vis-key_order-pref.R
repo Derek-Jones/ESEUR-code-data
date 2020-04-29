@@ -1,22 +1,22 @@
 #
-# vis-key_order-pref.R,  7 Jun 18
+# vis-key_order-pref.R,  2 Apr 20
 #
 # Data from:
 # The Order of Things: {How} Developers Sort Fields and Methods
 # Benjamin Biegel and Fabian Beck and Willi Hornig and Stephan Diehl
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG Java_declaration method_visibility variable_visibility
 
 source("ESEUR_config.r")
 
 
 library("plyr")
-library("prefmod") # Needed for pattR.fit and patt.worth
+library("PlackettLuce")
 
-
-par(bty="n")
 
 # fully_qualified_name;file;line_number;entity_category;method_subcategory;visibility;lexico_index;lexico_field_index;lexico_method_index;semantic_cluster_index
 
@@ -202,13 +202,12 @@ vis_pref[vis_vec]=1:length(vis_vec)
 
 # duplicate the observed number of occurrences
 t=matrix(rep(vis_pref, each=vis_info$V1), ncol=length(attribute_list))
-colnames(t)=attribute_list
 
 return(t)
 }
 
 
-bld_pattR_data=function(vis_pref_data, ent_str)
+bld_PL_array=function(vis_pref_data, ent_str)
 {
 # Build visibility preference list for input to pattR.fit
 
@@ -217,7 +216,7 @@ t=dlply(vis_pref_data, 1, function(X) bld_vis_pref(X))
 # concatenate the list of arrays returned
 all_vis_pref=do.call(rbind, t)
 
-return(data.frame(all_vis_pref, ent_kind=ent_str))
+return(all_vis_pref)
 }
 
 
@@ -225,38 +224,27 @@ get_vis_plot=function(ent_str, vis_func)
 {
 # Build visibility preference information and fit it ready for plotting
 t=ent_vis_order(ent_str, vis_func)
-ent=bld_pattR_data(t, ent_str)
-pt=pattR.fit(ent, length(attribute_list))
-pw=patt.worth(pt)
-colnames(pw)=ent_str
+ent=bld_PL_array(t, ent_str)
+colnames(ent)=attribute_list
+pt=PlackettLuce(ent)
 
-return(pw)
+plot(qvcalc(pt), main="", col=point_col,
+	ylab=expression(beta))
+
+return(pt)
 }
 
 
-# We cannot use the covariance features of pattR.fitt because
-# this requires that a decent number of rows not contain NAs :-(
-#all_ent=rbind(ent1, ent2)
-#pt=pattR.fit(all_ent, length(visibility_key),
-#			 formel= ~ ent_kind, elim= ~ ent_kind)
 
 # 90% cutoff counters
 seq_count = 0
 multiseq_count = 0
 vis_less_90 = 0
 attribute_list=visibility_key
-vis_plot_1=get_vis_plot(pref_ent_order[1], visible_order)
-vis_plot_2=get_vis_plot(pref_ent_order[2], visible_order)
-vis_plot_3=get_vis_plot(pref_ent_order[3], visible_order)
-vis_plot_4=get_vis_plot(pref_ent_order[4], visible_order)
+# vis_plot_1=get_vis_plot(pref_ent_order[1], visible_order)
+# vis_plot_2=get_vis_plot(pref_ent_order[2], visible_order)
+# vis_plot_3=get_vis_plot(pref_ent_order[3], visible_order)
+vis_plot_4=get_vis_plot(pref_ent_order[4], visible_order) # methods
 
 # print(c(seq_count, multiseq_count, vis_less_90))
-
-all_plots=cbind(vis_plot_1, vis_plot_2, vis_plot_3, vis_plot_4)
-class(all_plots)=class(vis_plot_1)
-
-
-plot(all_plots, main="",
-	xaxt="n", yaxt="n",
-	ylab="Worth estimate\n")
 

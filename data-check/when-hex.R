@@ -30,5 +30,5 @@ axis(1, at=seq(2, 14, by=2), labels=c("2", "4", "6", "8", "a", "c", "e"))
 points(g_hex$hex, g_hex$g_percent, col=pal_col[2], type="b")
 
 legend(x="top", legend=c("C source", "Google books"),
-				bty="n", fill=pal_col, cex=1.3)
+				bty="n", fill=pal_col, cex=1.2)
 

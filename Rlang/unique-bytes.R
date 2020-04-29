@@ -1,10 +1,13 @@
 #
-# unique-bytes.R, 16 Jul 16
-#
+# unique-bytes.R, 11 Apr 20
+# Data from:
+# Example
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG
 
 source("ESEUR_config.r")
 
@@ -21,6 +24,8 @@ cnt_points=seq(1, length(t)-window_width, 5)
  
 u=sapply(cnt_points, function(X) length(unique(t[X:(X+window_width)])))
 plot(u/256, type="l", col=point_col,
+	xaxs="i",
+	xlim=c(0, length(u)),
 	xlab="File offset", ylab="Fraction Unique\n")
  
 return(u)

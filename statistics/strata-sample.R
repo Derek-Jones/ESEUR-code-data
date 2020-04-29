@@ -1,6 +1,7 @@
 #
-# strata-sample.R, 14 Dec 15
+# strata-sample.R, 22 Apr 20
 # Data from:
+# Example
 #
 # Example from:
 # Evidence-based Software Engineering: based on the publicly available data
@@ -10,6 +11,9 @@
 
 
 source("ESEUR_config.r")
+
+
+par(mar=MAR_default-c(2.0, 3.7, 0, 0.7))
 
 
 draw_circle=function(x, y, rad)

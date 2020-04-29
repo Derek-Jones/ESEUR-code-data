@@ -1,13 +1,16 @@
 #
-# C-type-comb.R, 28 Aug 15
+# C-type-comb.R, 22 Apr 20
 #
 # Data from:
 # Developer characterization of data structure fields decisions
 # Derek M. Jones
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG experiment_human C_struct field_type
+
 
 source("ESEUR_config.r")
 
@@ -37,8 +40,8 @@ pal_col=rainbow(3)
 
 comb_4_8=subset(type_comb, type_comb$num.members <= 8)
 
-plot(comb_4_8$actual_percent*100, comb_4_8$rand_percent,
-	col=pal_col[1],
+plot(comb_4_8$actual_percent*100, comb_4_8$rand_percent, col=pal_col[1],
+	xaxs="i", yaxs="i",
 	xlab="Measured percent", ylab="Random selection probability\n",
 	xlim=c(0, 100), ylim=c(0.0, 0.5))
 

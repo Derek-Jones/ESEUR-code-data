@@ -1,5 +1,5 @@
 #
-# color-shape.R,  4 Mar 20
+# color-shape.R, 24 Mar 20
 # Data from:
 # Example
 #
@@ -12,8 +12,8 @@
 source("ESEUR_config.r")
 
 
-plot_layout(2, 1, max_height=9)
-par(mar=MAR_default-c(2.7, 0.0, 0.5, 0.0))
+plot_layout(2, 1, max_height=8.5)
+par(mar=MAR_default-c(2.9, 0.0, 0.9, 0.0))
 
 
 pal_col=rainbow(2)

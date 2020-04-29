@@ -1,6 +1,7 @@
 #
 # impl-sim.R, 16 May 17
 # Data from:
+# Example
 #
 # Example from:
 # Evidence-based Software Engineering: based on the publicly available data
@@ -14,6 +15,8 @@ source("ESEUR_config.r")
 
 library(gamlss.tr)
 library("simmer")
+
+# A very very basic model
 
 # Create a zero truncated Poisson distribution
 gen.trun(family=PO)

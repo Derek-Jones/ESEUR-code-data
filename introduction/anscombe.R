@@ -1,17 +1,20 @@
 #
-# anscombe.R, 29 Sep 18
+# anscombe.R, 23 Apr 20
+# Data from:
+# Example
 #
 # Example from:
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG example
+# TAG example_anscombe
 
 source("ESEUR_config.r")
 
 
-plot_layout(4, 1, max_height=12)
-par(mar=c(2.2, 2.2, 0.5, 0.5))
+# Tuning for book layout purposes
+plot_layout(4, 1, max_height=7, default_width=4.5)
+par(mar=MAR_default-c(0.6, 0, 0.8, 0))
 
 
 # anscombe is an object defined in the base package
@@ -28,8 +31,9 @@ y_max=13
 x_min=4
 x_max=19
 
-plot(x_y, col="red", cex=1.4, cex.lab=1.4,
-	xlim=c(x_min, x_max), ylim=c(y_min, y_max))
+plot(x_y, col="red", cex=1.4, cex.axis=1.5, cex.lab=1.6,
+	xlim=c(x_min, x_max), ylim=c(y_min, y_max),
+	ylab="y\n")
 
 glm_fit=glm(y ~ x, data=x_y)
 abline(reg=glm_fit, col="green")

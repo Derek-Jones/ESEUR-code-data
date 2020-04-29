@@ -1,5 +1,5 @@
 #
-# comp-progress.R,  5 Jun 19
+# comp-progress.R, 14 Apr 20
 #
 # Data from:
 # The Progress of Computing
@@ -11,11 +11,14 @@
 #
 # TAG cost_date operations_cost
 
-
 source("ESEUR_config.r")
 
 
 library("plyr")
+
+
+par(mar=MAR_default+c(0.0, 0.7, 0, 0))
+
 
 bench=read.csv(paste0(ESEUR_dir, "regression/comp-progress.csv.xz"), as.is=TRUE)
 
@@ -26,7 +29,7 @@ pal_col[tech_vec]=rainbow(length(tech_vec))
 
 plot(0, type="n", log="y",
 	xlim=range(bench$Date), ylim=range(bench$total_cost_mill_ops),
-	xlab="Date", ylab="Cost per million ops\n")
+	xlab="Date", ylab="Cost per million ops\n\n")
 
 d_ply(bench, .(technology), function(df)
 			points(df$Date, df$total_cost_mill_ops,

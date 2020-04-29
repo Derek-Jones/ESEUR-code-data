@@ -1,18 +1,23 @@
 #
-# EC2-cpu.r,  2 Dec 15
+# EC2-cpu.r,  8 Apr 20
 #
 # Data from:
 # Runtime Measurements in the Cloud: Observing, Analysing, and Reducing Variance
 # J\"{o}rg Schad and Jens Dittrich and Jorge-Arnulfo Quian\'{e}-Ruiz
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG benchmark_cloud
+
 
 source("ESEUR_config.r")
 
 
 plot_layout(2, 1)
+par(mar=MAR_default+c(0.0, 0.7, 0, 0))
+
 
 brew_col=rainbow(2)
 
@@ -24,7 +29,8 @@ LargeEU$seconds=as.POSIXct(paste0(LargeEU$date, " ", LargeEU$time),
 			format="%Y-%m-%d %I:%M:%s")
 
 plot(LargeEU$seconds, LargeEU$Ubench, col=brew_col[1],
-	xlab="2009-2010", ylab="Ubench cpu performance\n")
+	xaxs="i",
+	xlab="2009-2010", ylab="Ubench cpu performance\n\n")
 
 LargeUS=read.csv(paste0(ESEUR_dir, "benchmark/cpuLargeUS.csv.xz"), sep="\t", as.is=TRUE)
 
@@ -40,7 +46,8 @@ SmallEU$seconds=as.POSIXct(paste0(SmallEU$date, " ", SmallEU$time),
 			format="%m/%d/%y %I:%M:%s")
 
 plot(SmallEU$seconds, SmallEU$Ubench, col=brew_col[1],
-	xlab="2009-2010", ylab="Ubench cpu performance\n")
+	xaxs="i",
+	xlab="2009-2010", ylab="Ubench cpu performance\n\n")
 
 SmallUS=read.csv(paste0(ESEUR_dir, "benchmark/cpuSmallUS.csv.xz"), sep="\t", as.is=TRUE)
 

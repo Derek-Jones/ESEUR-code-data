@@ -1,5 +1,5 @@
 #
-# hardware-market.R, 21 Nov 17
+# hardware-market.R, 14 Apr 20
 #
 # Data from:
 # Mainframe & mini sales
@@ -16,8 +16,10 @@
 # Gartner, via https://en.wikipedia.org/wiki/Mobile_operating_system
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG computer_price-evolution smartphone_sales mainframe_sales, minicomputer_sales Macintosh_sales
 
 
 source("ESEUR_config.r")
@@ -26,6 +28,8 @@ source("ESEUR_config.r")
 library(lubridate)
 library(plyr)
 
+
+par(mar=MAR_default+c(0.0, 0.7, 0, 0))
 pal_col=rainbow(5)
 
 
@@ -53,8 +57,9 @@ phones_year=subset(phones_year, Year < 2017)
 y_bound=c(0.1, max(phones_year$smartphones, na.rm=TRUE))
 
 plot(mmm_sales$year, mmm_sales$MF_units/1e3, type="l", log="y", col=pal_col[1],
+	xaxs="i",
 	xlim=c(1955, 2016), ylim=y_bound,
-	xlab="Year", ylab="Units shipped (thousands)\n")
+	xlab="Year", ylab="Units shipped (thousands)\n\n")
 lines(mmm_sales$year, mmm_sales$mini_units/1e3, col=pal_col[2])
 # text(1962, 20, "Mainframes", cex=1.3)
 # text(1975, 50, "Minicomputers", cex=1.3)

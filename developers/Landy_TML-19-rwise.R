@@ -1,17 +1,26 @@
 #
-# Landy_TML-19-rwise.R, 15 Jan 17
+# Landy_TML-19-rwise.R, 21 Apr 20
 # Data from:
 # Categories of Large Numbers in Line Estimation
 # David Landy and Arthur Charlesworth and Erin Ottmar
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG experiment_human number_representation
+
 
 source("ESEUR_config.r")
 
 
 library("plyr")
+
+
+plot_layout(2, 2, max_width=6.5, max_height=6.5)
+par(mar=MAR_default-c(2.0, -0.6, 0.8, 0.8))
+
+pal_col=rainbow(3)
 
 
 lin_log=function(df)
@@ -20,6 +29,7 @@ thousand=subset(df, stimulus < 1e6)
 million=subset(df, (stimulus >= 1e6) & (stimulus < 1e9))
 
 plot(thousand$stimulus, thousand$xPosProportion, col=pal_col[thousand$outlier+1],
+	xaxs="i", yaxs="i",
 	xlim=c(0, 2e6), ylim=c(0, 1),
 	xlab="Value", ylab="Proportion of line\n")
 points(1e6+million$stimulus/1e3, million$xPosProportion, col=pal_col[million$outlier+1])
@@ -43,14 +53,15 @@ thousand=subset(df, stimulus < 1e6)
 million=subset(df, (stimulus >= 1e6) & (stimulus < 1e9))
 
 plot(thousand$stimulus, thousand$xPosProportion, col=point_col,
-	xaxt="n", cex.axis=1.8, cex.lab=1.7,
+	xaxt="n", cex.axis=1.9, cex.lab=1.7,
+	xaxs="i", yaxs="i",
         xlim=c(0, 2e6), ylim=c(0, 1),
         xlab="", ylab=y_str)
-axis(1, at=c(0, 5e5, 1e6, 1.5e6, 2e6), cex.axis=1.35,
-	labels=c("0", "500\nThousand", "Million", "500\nMillion", "Billion"))
+axis(1, at=c(0, 5e5, 1e6, 1.5e6, 2e6), cex.axis=1.65,
+	labels=c("0", "500\nThousand", "Million", "500\nMillion", "Billion   "))
 points(1e6+million$stimulus/1e3, million$xPosProportion, col=point_col)
 
-text(5e5, 0.9, paste0("Subject ", df$sID[1]), cex=1.8)
+text(5e5, 0.9, paste0("Subject ", df$sID[1]), cex=1.9)
 
 lines(loess.smooth(thousand$stimulus, thousand$xPosProportion, span=0.3), col=pal_col[2])
 lines(loess.smooth(1e6+million$stimulus/1e3, million$xPosProportion, span=0.3), col=pal_col[3])
@@ -68,7 +79,8 @@ pred=predict(thou_mod)
 thousand$outlier=abs(thousand$xPosProportion-pred)/pred > 0.5
 
 plot(thousand$stimulus, thousand$xPosProportion, col=pal_col[thousand$outlier+1],
-        xlim=c(0, 2e6), ylim=c(0, 1),
+        xaxs="i", yaxs="i",
+	xlim=c(0, 2e6), ylim=c(0, 1),
         xlab="Value", ylab="Proportion of line\n")
 points(1e6+million$stimulus/1e3, million$xPosProportion, col=pal_col[thousand$outlier+1])
 
@@ -83,10 +95,6 @@ million$outlier=abs(million$xPosProportion-pred)/pred > 0.5
 return(rbind(thousand, million))
 }
 
-plot_layout(2, 2, max_width=6.5, max_height=6.5)
-par(mar=c(1.2, 4.4, 0, 0.0))
-
-pal_col=rainbow(3)
 
 # block: stimuli were presented in random order, but split into blocks.  All the items in block m were presented before any in block m+1.
 # index: a number corresponding to the specific stimulus item

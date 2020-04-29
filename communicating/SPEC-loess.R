@@ -1,5 +1,5 @@
 #
-# SPEC-loess.R, 26 Aug 18
+# SPEC-loess.R, 22 Apr 20
 #
 # Data from:
 # www.spec.org/cpu2006/results
@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG SPEC benchmark
+# TAG benchmark_SPEC SPEC_results
 
 
 source("ESEUR_config.r")
@@ -30,6 +30,7 @@ res_tab=as.data.frame(table(cint$Result))
 res_tab$Var1=as.numeric(res_tab$Var1)
 
 plot(res_tab$Var1, res_tab$Freq, col=pal_col[2],
+	xaxs="i", yaxs="i",
 	xlab="SPECint result", ylab="Number of computers\n")
 
 lines(loess.smooth(res_tab$Var1, res_tab$Freq, span=0.3), col=pal_col[1])

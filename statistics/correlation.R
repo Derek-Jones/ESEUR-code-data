@@ -1,5 +1,6 @@
 #
-# correlation.R,  9 Jan 15
+# correlation.R, 25 Apr 20
+# Data from:
 #
 # Modified version of...
 #
@@ -15,7 +16,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG example
+# TAG example_correlation
 
 
 source("ESEUR_config.r")
@@ -83,7 +84,7 @@ Others <- function(n = 1000) {
 
 output <- function() {
 #   devSVGTips(width = 7, height = 3.2) # remove first and last line for no svg exporting
-   par(mfrow = c(3, 7), oma = c(0,0,0,0), mar=c(2,2,2,0))
+   par(mfrow = c(3, 7), oma = c(0,0,0,0), mar=c(0.7,2,0.7,0))
    MvNormal(800, c(1.0, 0.8, 0.4, 0.0, -0.4, -0.8, -1.0));
    RotNormal(200, c(0, pi/12, pi/6, pi/4, pi/2-pi/6, pi/2-pi/12, pi/2));
    Others(800)

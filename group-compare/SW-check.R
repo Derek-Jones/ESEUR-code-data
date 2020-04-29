@@ -1,5 +1,5 @@
 #
-# SW-check.R,  5 Mar 20
+# SW-check.R, 22 Apr 20
 #
 # Data from:
 # Example
@@ -52,5 +52,5 @@ points(c_norm/num_replications, col=pal_col[4])
 
 
 legend(x="topleft", legend=c("exponential", "uniform", "log normal", "normal"),
-			bty="n", fill=pal_col, cex=1.2)
+			inset=c(-0.02, -0.04), bty="n", fill=pal_col, cex=1.2)
 

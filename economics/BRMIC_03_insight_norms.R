@@ -1,5 +1,5 @@
 #
-# BRMIC_03_insight_norms.R, 27 May 19
+# BRMIC_03_insight_norms.R, 24 Apr 20
 # Data from:
 # Normative data for 144 compound remote associate problems
 # Edward M. Bowden and Mark Jung-Beeman
@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment human Eureka-problem word-association
+# TAG experiment_human Eureka-problem word-association
 
 source("ESEUR_config.r")
 
@@ -55,6 +55,7 @@ BR_30=subset(BR, sec == 30)
 pal_col=rainbow(3)
 
 plot(BR_7$p_solved, BR_7$time, col=pal_col[1],
+	xaxs="i",
 	xlim=c(0, 100), ylim=c(3, 19),
 	xlab="Solved (percent)", ylab="Time (secs)")
 points(BR_15$p_solved, BR_15$time, col=pal_col[2])

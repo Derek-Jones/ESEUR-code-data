@@ -1,5 +1,5 @@
 #
-# 200xdisks.R, 24 Nov 18
+# 200xdisks.R,  5 Apr 20
 #
 # Data from:
 # Disks are like snowflakes: No two are alike
@@ -20,6 +20,8 @@ library("plyr")
 # Shrink to accommodate other plots in same margin of the book
 plot_layout(2, 1, max_height=12)
 par(mar=MAR_default-c(0.8, 0, 0, 0))
+
+
 brew_col=rainbow_hcl(12)
 
 
@@ -36,8 +38,9 @@ disk2002$offset=disk2002$offset / 1000
 disk2002$disk=as.factor(disk2002$disk)
 
 bw_range=range(disk2002$bandwidth)
-off_range=range(disk2002$offset)
+off_range=range(c(0, disk2002$offset))
 plot(1, type="n", cex.axis=1.5, cex.lab=1.5,
+	xaxs="i",
 	xlim=off_range, ylim=bw_range,
 	xlab="Offset (GB)", ylab="Bandwidth (MB sec)\n")
 
@@ -53,8 +56,9 @@ disk2006=subset(disk2006, sd_id == "sda")
 disk2006$disk=as.factor(disk2006$disk)
 
 bw_range=range(disk2006$bandwidth)
-off_range=range(disk2006$offset)
+off_range=range(c(0, disk2006$offset))
 plot(1, type="n", cex.axis=1.5, cex.lab=1.5,
+	xaxs="i",
 	xlim=off_range, ylim=bw_range,
 	xlab="Offset (GB)", ylab="Bandwidth (MB sec)\n")
 

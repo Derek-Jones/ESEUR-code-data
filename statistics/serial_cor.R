@@ -1,6 +1,7 @@
 #
-# serial_cor.R,  2 Mar 19
+# serial_cor.R, 22 Apr 20
 # Data from:
+# Example
 #
 # Example from:
 # Evidence-based Software Engineering: based on the publicly available data
@@ -131,6 +132,6 @@ variance_adj(-0.5, pal_col[10])
 variance_adj(-0.7, pal_col[11])
 variance_adj(-0.9, pal_col[12])
 
-legend(x="bottomright", legend=cor_vals, bty="n", fill=pal_col[1:6], cex=1.2)
-legend(x="topright", legend=rev(-cor_vals), bty="n", fill=rev(pal_col[7:12]), cex=1.2)
+legend(x="bottomright", legend=cor_vals, bty="n", fill=pal_col[1:6], cex=1.4)
+legend(x="topright", legend=rev(-cor_vals), bty="n", fill=rev(pal_col[7:12]), cex=1.4)
 

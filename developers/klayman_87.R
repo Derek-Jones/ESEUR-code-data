@@ -1,5 +1,5 @@
 #
-# klayman_87.R,  7 Dec 19
+# klayman_87.R, 20 Apr 20
 # Data from:
 # Based on plot in:
 # Joshua Klayman and Young-Won Ha
@@ -29,7 +29,7 @@ polygon(xt, yt, border="grey")
 
 plot_universe=function(x_str)
 {
-plot(0, type="n", bty="o", cex.lab=1.6,
+plot(0, type="n", bty="o", cex.lab=1.9,
 	xaxt="n", yaxt="n",
 	xlim=c(0, 7/4), ylim=c(0, 1),
 	xlab=x_str, ylab="")

@@ -1,5 +1,5 @@
 #
-# market-cap.R,  6 Dec 19
+# market-cap.R, 14 Apr 20
 #
 # Data from:
 # Daily chart for April 21 2015 on The Economist webpage
@@ -77,7 +77,7 @@ valu_bounds=subset(m_cap, round == 2)
 mc=ddply(valu_bounds, .(ticker), total_valu)
 
 plot(0, type="n",
-	yaxs="i",
+	xaxs="i", yaxs="i",
 	xlim=c(1980, 2015), ylim=c(0, 70),
 	xlab="Date", ylab="Market capitalization\n")
 
@@ -87,14 +87,14 @@ aapl=plot_ticker("AAPL", pal_col[1])
 ibm=plot_ticker("IBM", pal_col[2])
 MSFT=plot_ticker("MSFT", pal_col[3])
 
-legend(x="topright", legend=rev(c("Apple", "IBM", "Microsoft")), bty="n", fill=rev(pal_col), cex=1.1)
+legend(x="topright", legend=rev(c("Apple", "IBM", "Microsoft")), bty="n", fill=rev(pal_col), cex=1.2)
 
 
 tmc=ddply(mc, .(year), sum_market_cap)
 mc$tech_market_cap=tmc$V1
 
 plot(0, type="n",
-	yaxs="i",
+	xaxs="i", yaxs="i",
 	xlim=c(1980, 2015), ylim=c(0, 80),
 	xlab="Date", ylab="Tech market capital share (%)\n")
 
@@ -102,5 +102,5 @@ aapl=plot_percent("AAPL", pal_col[1])
 ibm=plot_percent("IBM", pal_col[2])
 MSFT=plot_percent("MSFT", pal_col[3])
 
-legend(x="topright", legend=rev(c("Apple", "IBM", "Microsoft")), bty="n", fill=rev(pal_col), cex=1.1)
+legend(x="topright", legend=rev(c("Apple", "IBM", "Microsoft")), bty="n", fill=rev(pal_col), cex=1.2)
 

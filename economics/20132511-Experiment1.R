@@ -1,5 +1,5 @@
 #
-# 20132511-Experiment1.R, 16 Apr 19
+# 20132511-Experiment1.R, 24 Apr 20
 # Data from:
 # Sociality influences cultural complexity
 # Michael Muthukrishna and Ben W. Shulman and Vlad Vasilescu and Joseph Henrich
@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment human learning
+# TAG experiment_human learning
 
 source("ESEUR_config.r")
 
@@ -22,6 +22,7 @@ gc1=subset(ex1, GroupCondition == 0)
 gc5=subset(ex1, GroupCondition == 1)
 
 plot(gc1$Generation, gc1$Rating, col=pal_col[1],
+	xaxs="i",
 	xlab="Generation", ylab="Rating\n")
 points(gc5$Generation, gc5$Rating, col=pal_col[2])
 

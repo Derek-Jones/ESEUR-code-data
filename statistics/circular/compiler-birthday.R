@@ -1,5 +1,5 @@
 #
-# compiler-birthday.R, 24 Mar 20
+# compiler-birthday.R, 23 Apr 20
 # Data from:
 # Survey
 # Derek M. Jones
@@ -16,6 +16,8 @@ source("ESEUR_config.r")
 library("circular")
 library("plyr")
 
+
+par(mar=MAR_default-c(2.7, 2.7, 0.7, 0.7))
 
 pal_col=rainbow(3)
 

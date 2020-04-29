@@ -1,5 +1,5 @@
 #
-# linux-logistic-fut.R, 15 Mar 20
+# linux-logistic-fut.R, 19 Apr 20
 # Data from:
 # The {Linux} Kernel as a Case Study in Software Evolution
 # Ayelet Israeli and Dror G. Feitelson
@@ -56,9 +56,9 @@ all_days=strip_support_v(h1, 5)
 x_bounds=0:6000
 
 plot(all_days$Number_days, all_days$MLOC, col=point_col,
-	xaxs="i",
+	xaxs="i", yaxs="i",
 	xlim=range(x_bounds),
-	xlab="Days since version 1.0 release", ylab="Total lines of code (MLOC)\n")
+	xlab="Days since version 1.0 release", ylab="Linux kernel size (MLOC)\n")
 
 # For some values of Number_days the following error occurs:
 # step factor 0.000488281 reduced below 'minFactor' of 0.000976562

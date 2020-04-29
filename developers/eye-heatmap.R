@@ -1,13 +1,16 @@
 #
-# eye-heatmap.R, 12 Jan 17
+# eye-heatmap.R, 20 Apr 20
 #
 # Data from:
 # An Empirical Study on Requirements Traceability Using Eye-Tracking
 # Nasir Ali and Zohreh Sharafi and Yann-Ga{\"e}l Gu{\'e}h{\'e}neuc and Giuliano Antoniol
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG experiment_human eye-tracking
+
 
 # Thanks to Tarn Diong for showing how to use kde...
 
@@ -19,16 +22,18 @@ library("ks")
 
 # plot_wide()
 
+par(mar=c(0,0,0,0))
+
 
 prob2=readPNG(paste0(ESEUR_dir, "developers/2.png"), TRUE)
 subject06=read.csv(paste0(ESEUR_dir, "developers/subject06.csv.xz"), as.is=TRUE)
 
 # Each pixel is a possible gaze location
-xbounds=c(1, ncol(prob2))
-ybounds=c(1, nrow(prob2))
+xbounds=c(0, ncol(prob2))
+ybounds=c(0, nrow(prob2))
 
-par(mar=c(0,0,0,0))
 plot(1, type="n",
+	xaxs="i", yaxs="i",
 	xlim=xbounds, ylim=ybounds,
 	xlab="x", ylab="y")
 

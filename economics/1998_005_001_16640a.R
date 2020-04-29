@@ -1,14 +1,20 @@
 #
-# 1998_005_001_16640a.R, 16 Nov 17
+# 1998_005_001_16640a.R, 24 Apr 20
 # Data from:
 # Hughes Aircraft's Widespread Deployment of a Continuously Improving Software Process
 # Ron R. Willis and Robert M. Rova and Mike D. Scott and Martha I. Johnson and John F. Ryskowski and Jane A. Moon and Ken C. Shumate and Thomas O. Winfield
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG fault_effort fault_phase
+
 
 source("ESEUR_config.r")
+
+
+par(mar=MAR_default+c(0.7, 0.3, 0, 0)) # Prevent x-axis labels clipping
 
 
 pal_col=rainbow(7)
@@ -21,7 +27,8 @@ b91=b91[-10, ] # Last row contains the average
 
 plot(b91$SRS_IRS, type="l", col=pal_col[1],
 	xaxt="n",
-	ylim=c(0, 4.1),
+	yaxs="i",
+	ylim=c(0, 4.3),
 	xlab="", ylab="Effort per fault (days)")
 
 x_at=1:length(b91$Phase)

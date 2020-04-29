@@ -1,15 +1,19 @@
 #
-# meeting-duration.R, 30 Jul 16
+# meeting-duration.R, 22 Apr 20
 #
 # Data from:
 # Understanding the Sources of Variation in Software Inspection
 # Adam Porter and Harvey Siy and Audris Mockus and Lawrence Votta
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG experiment_human code-review_experiment
+
 
 source("ESEUR_config.r")
+
 
 pal_col=rainbow(3)
 
@@ -19,8 +23,8 @@ meeting=read.csv(paste0(ESEUR_dir, "experiment/porter-siy/meeting.csv.xz"), as.i
 meeting=meeting[-39, ]
 
 
-plot(meeting$S_NCSL, meeting$S_MEETDUR,
-	col=point_col,
+plot(meeting$S_NCSL, meeting$S_MEETDUR, col=point_col,
+	xaxs="i",
 	xlab="Non-comment source lines", ylab="Meeting duration (hours)\n")
 
 lines(loess.smooth(meeting$S_NCSL, meeting$S_MEETDUR, span=0.3), col=loess_col)

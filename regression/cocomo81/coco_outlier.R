@@ -19,7 +19,7 @@ library("foreign")
 
 
 # Tuning for book layout purposes
-plot_layout(2, 1, default_width=5, max_height=9)
+plot_layout(2, 1) #, default_width=5, max_height=9)
 par(mar=MAR_default-c(0.6, 0, 0.8, 0))
 
 pal_col=rainbow(5)

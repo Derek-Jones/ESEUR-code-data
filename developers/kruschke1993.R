@@ -1,5 +1,5 @@
 #
-# kruschke1993.R, 11 Jan 19
+# kruschke1993.R, 20 Apr 20
 # Data from:
 # John K. Kruschke
 # Human Category Learning: {Implications} for Backpropagation Models
@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment subject learning
+# TAG experiment_human category_learning
 
 source("ESEUR_config.r")
 
@@ -86,8 +86,9 @@ cond_3=subset(kr, cat_cond == 3)
 cond_4=subset(kr, cat_cond == 4)
 
 plot(0, type="n",
-	xlim=c(1, 8), ylim=c(0.45, 1),
-	xlab="Block", ylab="Probability correct\n")
+	xaxs="i", yaxs="i",
+	xlim=c(1, 8), ylim=c(0.5, 1),
+	xlab="Block", ylab="Correct (probability)\n")
 
 cc_1=mean_correct(cond_1)
 draw_correct(cc_1, pal_col[1])

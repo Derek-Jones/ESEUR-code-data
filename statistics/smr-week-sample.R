@@ -1,5 +1,5 @@
 #
-# smr-week-sample.R, 29 Sep 18
+# smr-week-sample.R, 25 Apr 20
 #
 # Data from:
 # Studying the laws of software evolution in a long-lived {FLOSS} project
@@ -18,8 +18,8 @@ library("lubridate")
 library("plyr")
 
 
-plot_layout(4, 6)
-par(mar=c(2.5, 2.2, 1, 1))
+plot_layout(6, 4, max_height=30)
+par(mar=MAR_default-c(0.8, 1.7, 0.7, 0.7))
 
 scm=read.csv(paste0(ESEUR_dir, "time-series/smr1615/scmlog.csv.xz"),
 				 as.is=TRUE, quote="\'")
@@ -46,10 +46,10 @@ cfl$year=year(cfl$date)
 
 # Dates start with Thursday as zero, so need to shift up to make Monday zero
 plot(table(trunc(as.numeric(3+cfl$date) %% 7)), col=point_col, cex=1.3,
-		cex.lab=1.8, xlab="Total", ylab="")
+		cex.lab=1.4, xlab="Total", ylab="")
 
 d_ply(cfl, .(year), function(df) plot(table(trunc(as.numeric(3+df$date) %% 7)),
-					 col=point_col, cex=1.3, cex.lab=1.8,
+					 col=point_col, cex=1.3, cex.lab=1.4,
 					 xlab=df$year[1], ylab=""))
 
 

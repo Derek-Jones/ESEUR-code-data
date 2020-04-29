@@ -45,6 +45,7 @@ no_Watcom=subset(cc_cpp, Firm != "Watcom")
 #         xlab="Full retail price ($)", ylab="Upgrade price ($)\n")
 
 plot(cc_cpp$Date, cc_cpp$Full.Price, col=point_col, type="n",
+	xaxs="i",
         xlab="Date", ylab="Full or Update price ($)\n")
 d_ply(cc_cpp, .(Product), full_price)
 

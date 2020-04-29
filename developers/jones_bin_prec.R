@@ -1,5 +1,5 @@
 #
-# jones_bin_prec.R,  4 Jan 18
+# jones_bin_prec.R, 21 Apr 20
 # Data from:
 # Developer Beliefs about Binary Operator Precedence
 # Derek M. Jones
@@ -8,14 +8,16 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment binary developer-belief operator
+# TAG experiment_human operator_precedence developer_belief operator_binary
 
 source("ESEUR_config.r")
 
 
 library("betareg")
-library("car")
 library("plyr")
+
+
+pal_col=rainbow(2)
 
 
 sum_pair=function(df)
@@ -63,7 +65,8 @@ pair_01=subset(pair_info, !is.na(op_freq))
 # 0/1 values cannot occur
 pair_01$per_cor=pair_01$per_cor*0.99999+1e-6
 
-plot(pair_info$op_freq, pair_info$per_cor, log="x", col=point_col,
+plot(pair_info$op_freq, pair_info$per_cor, log="x", col=pal_col[2],
+	yaxs="i",
 	xlab="Source code occurrence (percentage)", ylab="Correct answer (fraction)\n")
 
 # t=loess.smooth(log(pair_info$op_freq), pair_info$per_cor, span=0.3)
@@ -86,17 +89,15 @@ pb_mod=betareg(per_cor ~ l_op_freq, data=pair_01)
 # pb_mod=betareg(per_cor ~ I(l_op_freq^2), data=pair_01)
 
 pred=predict(pb_mod, newdata=data.frame(l_op_freq=log(x_vals)))
-lines(x_vals, pred, col="red")
+lines(x_vals, pred, col=pal_col[1])
 
-pb_boot=Boot(pb_mod)
 
-ci_95=confint(pb_boot)
-
-pb_inv=pb_mod$link$mean$linkinv
-
-ci_low=pb_inv(ci_95[1, 1]+log(x_vals)*ci_95[2, 1])
-lines(x_vals, ci_low, col="pink")
-
-ci_high=pb_inv(ci_95[1, 2]+log(x_vals)*ci_95[2, 2])
-lines(x_vals, ci_high, col="pink")
-
+# library("car")
+# 
+# pb_boot=Boot(pb_mod)
+# 
+# confint is the confidence intervals of the coefficients, not the mean.
+# For a two parameter family, working out the min/max is hard,
+# and I could not find any suggestions about how to do it easily.
+# ci_95=confint(pb_boot)
+# 

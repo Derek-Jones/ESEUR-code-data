@@ -1,12 +1,15 @@
 #
-# nembard2001.R,  4 Jul 17
+# nembard2001.R, 24 Apr 20
 # Data from:
 # An Empirical Comparison of Forgetting Models
 # David A. Nembhard and Napassavong Osothsilp
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG experiment_human memory_human production-time
+
 
 source("ESEUR_config.r")
 
@@ -26,7 +29,7 @@ if(nrow(df) < 5)
 
 # An exponential model was investigated by Nembhard,
 # and it is easily fitted for an example :-)
-pow_mod=nls(prod_time ~ a*exp(b*production), data=df, trace=TRUE,
+pow_mod=nls(prod_time ~ a*exp(b*production), data=df, trace=FALSE,
                         start=list(a=0.07, b=-0.001))
 pred=predict(pow_mod)
 lines(df$production, pred, col=pal_col[1])
@@ -39,6 +42,7 @@ nem_breaks=read.csv(paste0(ESEUR_dir, "ecosystems/nembard-breaks.csv.xz"), as.is
 prod_breaks=c(0, nem_breaks$production, max(nem$production))
 
 plot(nem$production, nem$prod_time, col=pal_col[2],
+	xaxs="i",
 	xlab="Units produced", ylab="Production time\n")
 
 odd=seq(1, nrow(nem_breaks), by=2)

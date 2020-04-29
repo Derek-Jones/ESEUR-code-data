@@ -1,5 +1,5 @@
 #
-# dataset6_N.R, 20 Oct 18
+# dataset6_N.R, 29 Mar 20
 # Data from:
 # Approximating the Evolution History of Software from Source Code
 # Tetsuya Kanda and Takashi Ishio and Katsuro Inoue
@@ -14,6 +14,9 @@ source("ESEUR_config.r")
 
 
 library("phangorn")
+
+
+pal_col=rainbow(2)
 
 
 # Used to prevent clicking on left/right
@@ -41,5 +44,5 @@ d6_dist=as.dist(d6_mat)
 # dUPGMA=upgma(d6_dist)
 # plot(dUPGMA)
 dNJ=NJ(d6_dist)
-plot(dNJ, "unrooted", cex=1.2, edge.color="grey", tip.color=point_col)
+plot(dNJ, "unrooted", cex=1.2, edge.color=pal_col[2], tip.color=pal_col[1])
 

@@ -1,5 +1,5 @@
 #
-# Kruschke1996CSdata.R, 11 Jan 19
+# Kruschke1996CSdata.R, 20 Apr 20
 # Data from:
 # John K. Kruschke
 # Dimensional Relevance Shifts in Category Learning
@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment subject learning
+# TAG experiment_human category_learning
 
 source("ESEUR_config.r")
 
@@ -55,7 +55,8 @@ sg_3=subset(ks, shift_group == 3)
 sg_4=subset(ks, shift_group == 4)
 
 plot(0, type="n",
-	xlim=c(1, 32), ylim=c(0.45, 1),
+	xaxs="i",
+	xlim=c(0, 32), ylim=c(0.45, 1),
 	xlab="Block", ylab="Probability correct\n")
 
 cc_1=mean_correct(sg_1)
@@ -68,6 +69,6 @@ cc_4=mean_correct(sg_4)
 draw_correct(cc_4, pal_col[4])
 
 
-legend(x="bottom", legend=c("Reversal", "1-characteristic", "2-characteristics", "3-characteristics"),
-			bty="n", fill=pal_col, cex=1.2)
+legend(x="bottomleft", legend=c("Reversal", "1-characteristic", "2-characteristics", "3-characteristics"),
+			inset=c(0.15, 0), bty="n", fill=pal_col, cex=1.2)
  

@@ -15,9 +15,8 @@
 
 source("ESEUR_config.r")
 
-plot_layout(2, 1, max_height=12)
-
-par(mar=MAR_default+c(0, 0.8, -0.5, 0))
+plot_layout(2, 1, max_height=13, default_width=6)
+par(mar=MAR_default+c(-0.5, 0.8, -0.5, -0.5))
 
 pal_col=rainbow(3)
 
@@ -27,7 +26,7 @@ langpop$log_github=log(langpop$github)
 
 plot(langpop$github, langpop$stackoverflow, log="xy", col=pal_col[2],
 	yaxs="i",
-	xlab="", ylab="Stackoverflow: language tags\n\n")
+	xlab="Github: lines checked in", ylab="Stackoverflow: language tags\n\n")
 
 plot(langpop$github, langpop$stackoverflow, log="xy", col=pal_col[2],
 	yaxs="i",

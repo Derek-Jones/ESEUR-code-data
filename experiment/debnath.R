@@ -1,14 +1,20 @@
 #
-# debnath.R, 23 Nov 17
+# debnath.R,  5 Apr 20
 # Data from:
 # Exploiting the Impact of Database System Configuration Parameters: {A} Design of Experiments Approach
 # Biplob K. Debnath and Mohamed F. Mokbel and David J. Lilja
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG
+
 
 source("ESEUR_config.r")
+
+
+library("FrF2")
 
 
 deb=read.csv(paste0(ESEUR_dir, "experiment/debnath.csv.xz"), as.is=TRUE)

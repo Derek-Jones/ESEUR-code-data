@@ -1,5 +1,5 @@
 #
-# 13-cmp-ext-reg.R, 16 Jul 16
+# 13-cmp-ext-reg.R, 23 Apr 20
 #
 # Data from:
 # Do time of day and developer experience affect commit bugginess?
@@ -21,7 +21,7 @@ library("plyr")
 plot_layout(2, 1, max_height=13)
 par(mar=MAR_default-c(0.8, 0, 0.5, 0))
 
-pal_col=rainbow(3)
+pal_col=rainbow(4)
 
 
 sum_commits=function(df)
@@ -85,7 +85,7 @@ fault_pred=b_sum$coefficients[1, 1]+
 lines(day, fault_pred, col=pal_col[1])
 
 
-plot(week_basic$hour, week_basic$freq, col=pal_col[2],
+plot(week_basic$hour, week_basic$freq, col=pal_col[4],
 	xaxs="i",
 	xlab="Hour", ylab="non-fault commits\n")
 

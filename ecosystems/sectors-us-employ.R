@@ -1,5 +1,5 @@
 #
-# sectors-us-employ.R, 28 Jun 17
+# sectors-us-employ.R, 24 Apr 20
 # Data from:
 #
 # John Kossik
@@ -15,8 +15,11 @@
 # http://www2.census.gov/prod2/statcomp/documents/CT1970p1-05.pdf
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG
+
 
 source("ESEUR_config.r")
 
@@ -27,6 +30,7 @@ employ=read.csv(paste0(ESEUR_dir, "ecosystems/sectors-us-employ.csv.xz"), as.is=
 
 plot(employ$Year, 100*(employ$Total.Mining...Logging...fishing+employ$Total.Agricutural.employees)/employ$Total.employees,
 	type="l", col=pal_col[1],
+	xaxs="i",
 	xlab="Year", ylab="Percent of workforce\n")
 
 lines(employ$Year, 100*employ$Total.Manufacturing...Construction/employ$Total.employees,

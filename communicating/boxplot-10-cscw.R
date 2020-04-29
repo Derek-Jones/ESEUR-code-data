@@ -1,5 +1,5 @@
 #
-# boxplot-10-cscw.R, 22 Aug 18
+# boxplot-10-cscw.R, 12 Apr 20
 #
 # Data from:
 # Information Needs in Bug Reports: Improving Cooperation Between Developers and Users
@@ -14,6 +14,9 @@
 
 source("ESEUR_config.r")
 
+
+plot_layout(1, 1, default_height=6)
+par(mar=MAR_default-c(0.7, 0.0, 0.7, 0))
 
 par(bty="n")
 
