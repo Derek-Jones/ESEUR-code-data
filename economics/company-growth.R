@@ -1,5 +1,5 @@
 #
-# company-growth.R, 24 Apr 20
+# company-growth.R, 21 May 20
 # Data from:
 # From Airline Reservations to {Sonic} the {Hedgehog}: {A} History of the Software Industry
 # Martin Campbell-Kelly
@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG company employees evolution
+# TAG company_employees employee_evolution
 
 source("ESEUR_config.r")
 
@@ -40,5 +40,6 @@ plot(1, type="n", log="y",
 
 d_ply(cg, .(Company), plot_revenue)
 
-legend(x="topleft", legend=companies, bty="n", fill=pal_col, cex=1.2)
+legend(x="topleft", legend=companies, bty="n", fill=pal_col, cex=1.2,
+						inset=-c(0.03, 0.04))
 

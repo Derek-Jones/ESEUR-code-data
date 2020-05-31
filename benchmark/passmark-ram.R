@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG benchmark computer memory end_user
+# TAG benchmark_memory computer_memory end_user
 
 
 source("ESEUR_config.r")

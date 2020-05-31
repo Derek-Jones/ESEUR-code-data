@@ -1,5 +1,5 @@
 #
-# ICPC15.R, 20 May 19
+# ICPC15.R, 29 May 19
 # Data from:
 # License Usage and Changes: {A} Large-Scale Study on {GitHub}
 # Christopher Vendome and Mario Linares-V\'{a}squez and Gabriele Bavota and Massimiliano {Di Penta} and Daniel German and Denys Poshyvanyk
@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG Java licensing evolution
+# TAG Java_licensing licensing_evolution
 
 source("ESEUR_config.r")
 
@@ -74,7 +74,7 @@ lic_1kfiles$col_str=mapvalues(lic_1kfiles$license, lic_str, pal_col)
 
 plot(1950, type="n", log="y",
 	xlim=c(2000, 2012), ylim=c(1e-0, 75),
- 	xlab="Year", ylab="Files (cumulative percentage)")
+ 	xlab="Year", ylab="Files (cumulative percentage)\n")
 
 d_ply(lic_1kfiles, .(license), plot_lic_perc)
 

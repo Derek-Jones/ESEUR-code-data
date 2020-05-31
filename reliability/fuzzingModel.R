@@ -1,5 +1,5 @@
 #
-# fuzzingModel, 22 Feb 18
+# fuzzingModel, 26 May 20
 # Data from:
 # Empirical Analysis and Modeling of Black-Box Mutational Fuzzing
 # Mingyi Zhao and Peng Liu
@@ -29,7 +29,9 @@ prog=subset(data.frame(count=vec, ind=1:length(vec)), !is.na(count))
 
 
 plot(prog$count, log="y", col=point_col,
-        xlab="Fault", ylab="Occurrences\n")
+	xaxs="i",
+	xlim=c(0, nrow(prog)),
+        xlab="Fault", ylab="Experiences\n")
 
 text(nrow(prog)/2, max(prog$count)/1.5, prog_str, cex=1.2)
 
@@ -59,8 +61,6 @@ convert=bi_exp_fit(fuz$convert, 3000, -0.1, 500, -0.1, "convert")
 # ffmpeg=bi_exp_fit(fuz$ffmpeg, 2000, -0.5, 100, -0.08, "ffmpeg")
 autotrace=bi_exp_fit(fuz$autotrace, 1000, -0.4, 25, -0.09, "autotrace")
 # jpegtran=bi_exp_fit(fuz$jpegtran, 40, -0.2, 2, -0.07, "jpegtran")
-
-legend(x="bottomright", legend=c("Amdahl", "Quadratic", "Queueing"), bty="n", fill=pal_col, cex=1.2)
 
 # prog=subset(data.frame(count=fuz$mupdf, ind=1:length(fuz$mupdf)), !is.na(count))
 # 

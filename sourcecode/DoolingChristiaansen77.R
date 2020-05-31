@@ -1,14 +1,14 @@
 #
-# DoolingChristiaansen77.R, 12 Jul 18
+# DoolingChristiaansen77.R, 28 May 20
 # Data from:
 # Episodic and Semantic Aspects of Memory for Prose
 # D. James Dooling and Robert E. Christiaansen
 #
 # Example from:
-# Evidence-based Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment recall prose
+# TAG experiment_human recall_human prose-text
 
 
 source("ESEUR_config.r")
@@ -32,8 +32,8 @@ plot_period=function(period_str)
 DCweek=subset(DC, Period == period_str)
 
 plot(0, type="n",
-        xlim=c(1, 4), ylim=range(DC$False_Pos),
-        xaxt="n",
+        xaxt="n", yaxs="i",
+        xlim=c(1, 4), ylim=c(0, max(DC$False_Pos)),
         xlab="", ylab="False positive (percent)\n")
 axis(1, at=1:4, label=c("Neutral", "Low", "Medium", "High"))
 

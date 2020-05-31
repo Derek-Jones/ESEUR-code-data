@@ -5,7 +5,7 @@
 #  Dennis M. Miller
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
 # TAG compiler source-code tokens halstead ADA

@@ -1,11 +1,11 @@
 #
-# malloy-esem.R, 29 Jun 18
+# malloy-esem.R, 19 May 20
 # Data from:
 # Quantifying the Transition from {Python} 2 to 3: {An} Empirical Study of {Python} Applications
 # Brian A. Malloy and James F. Power
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
 # TAG python evolution compatibility applications
@@ -27,7 +27,8 @@ lines(date_conf$Date, date_conf$V1, col=df$col_str)
 py=read.csv(paste0(ESEUR_dir, "sourcecode/malloy-esem.csv.xz"), as.is=TRUE)
 py$Date=as.Date(py$Date, format="%Y-%m-%d")
 
-ver_str=unique(py$Version)
+ver_str=sort(unique(py$Version))
+
 
 pal_col=rainbow(length(ver_str))
 py$col_str=mapvalues(py$Version, ver_str, pal_col)
@@ -43,6 +44,6 @@ plot(py$Date[1], 1, type="n",
 
 d_ply(py, .(Version), plot_conform)
 
-legend(x="bottom", legend=ver_str, bty="n", fill=pal_col, cex=1.2)
+legend(x="bottomleft", legend=ver_str, bty="n", inset=-c(0.04, 0.02), fill=pal_col, cex=1.2)
 
 

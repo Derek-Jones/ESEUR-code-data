@@ -1,14 +1,18 @@
 #
-# twitter-prog-lang.R,  6 Jun 17
+# twitter-prog-lang.R, 23 May 20
 # Data from:
 # Which programming language should a company use? {A} {Twitter}-based analysis
 # Giuseppe Destefanis
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG programming-language_tweets
+
 
 source("ESEUR_config.r")
+
 
 library("lubridate")
 
@@ -19,6 +23,7 @@ twit=read.csv(paste0(ESEUR_dir, "ecosystems/twitter-prog-lang.csv.xz"), as.is=TR
 start_date=ymd(20110101)+months(0:(nrow(twit)-1))
 
 plot(start_date, twit$Java, type="l", log="y", col=pal_col[1],
+	xaxs="i",
 	ylim=c(75, 13000),
 	xlab="Date", ylab="Tweets\n")
 

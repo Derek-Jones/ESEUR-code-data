@@ -1,5 +1,5 @@
 #
-# 195971a.R, 21 Aug 19
+# 195971a.R, 22 May 20
 # Data from:
 # Multiyear Leasing And Government-Wide Purchasing Of Automatic Data Processing Equipment Should Result In Significant Savings
 # Comptroller General of the United States
@@ -20,6 +20,8 @@ pal_col=rainbow(2)
 rent_pur=read.csv(paste0(ESEUR_dir, "ecosystems/195971a.csv.xz"), as.is=TRUE)
 
 plot(rent_pur$Year, rent_pur$Purchased, type="b", col=pal_col[1],
+	yaxs="i",
+	ylim=c(0, max(rent_pur$Purchased)),
 	xlab="Year", ylab="Systems\n")
 lines(rent_pur$Year, rent_pur$Rented, type="b", col=pal_col[2])
 

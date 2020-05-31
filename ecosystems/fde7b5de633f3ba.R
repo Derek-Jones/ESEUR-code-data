@@ -1,22 +1,27 @@
 #
-# fde7b5de633f3ba.R, 16 Oct 17
+# fde7b5de633f3ba.R, 22 May 20
 # Data from:
 # The Dependence of Operating System Size Upon Allocatable Resources
 # Atilla Elci
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG operating-system_memory operating-system_devices devices_memory
+
 
 source("ESEUR_config.r")
 
+
+par(mar=MAR_default+c(0.0, 0.7, 0, 0))
 
 pal_col=rainbow(2)
 
 OS=read.csv(paste0(ESEUR_dir, "ecosystems/fde7b5de633f3ba.csv.xz"), as.is=TRUE)
 
-plot(OS$Resources, OS$Size, log="y", col=point_col,
-	xlab="Unique devices", ylab="Memory (kbyte)\n")
+plot(OS$Resources, OS$Size, log="y", col=pal_col[2],
+	xlab="Unique devices", ylab="Memory (kbyte)\n\n")
 
 # dev_mod=glm(Size ~ Resources, data=OS)
 dev_mod=glm(log(Size) ~ Resources+I(Resources^2), data=OS)

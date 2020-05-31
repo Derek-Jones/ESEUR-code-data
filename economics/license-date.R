@@ -1,5 +1,5 @@
 #
-# license-date.R, 18 Apr 19
+# license-date.R, 29 May 20
 # Data from:
 # opensource.org, via The Wayback Machine web.archive.org
 # One such page:
@@ -9,13 +9,16 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG licensing OSI survival
+# TAG licensing_survival licensing_OSI survival
 
 source("ESEUR_config.r")
 
 
 library("plyr")
 library("survival")
+
+
+pal_col=rainbow(2)
 
 
 map_vendor=function(to_name, from_name)
@@ -228,10 +231,10 @@ lic_range=ddply(lic, .(license), start_end)
 lic_surv=Surv(lic_range$end-lic_range$start, event=lic_range$end != last_date)
 lic_mod=survfit(lic_surv ~ 1)
 
-plot(lic_mod, col=point_col, lwd=2, cex.lab=1.4,
+plot(lic_mod, col=pal_col[c(1, 2, 2)],
 	xaxs="i", yaxs="i",
-	xlab="Days",
-	ylab="Survival\n")
+	ylim=c(0.5, 1),
+	xlab="Days", ylab="License survival\n")
 
 
 # Data obtained by scraping the web.archive.org,

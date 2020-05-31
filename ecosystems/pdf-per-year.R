@@ -1,12 +1,14 @@
 #
-# pdf-per-year.R, 26 Dec 15
+# pdf-per-year.R, 23 May 20
 #
 # Data from:
 # Formats over Time: Exploring UK Web History
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG files_pdf pdf_evolution
 
 
 source("ESEUR_config.r")
@@ -29,7 +31,7 @@ pal_col=rainbow(length(unique(pdf_occur$version)))
 
 plot(1, type="n", log="y",
 	xlim=c(1996, 2010), ylim=c(1e1, 2e6),
-	xlab="Year", ylab="Occurrences\n")
+	xlab="Year", ylab="Pdf files\n")
 d_ply(pdf_occur, .(version), plot_pdf)
 
 legend(x="bottomright", legend=unique(pdf_occur$version),

@@ -1,5 +1,5 @@
 #
-# sectors-us-employ.R, 24 Apr 20
+# sectors-us-employ.R, 21 May 20
 # Data from:
 #
 # John Kossik
@@ -18,7 +18,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG
+# TAG workforce_evolution
 
 
 source("ESEUR_config.r")
@@ -30,8 +30,9 @@ employ=read.csv(paste0(ESEUR_dir, "ecosystems/sectors-us-employ.csv.xz"), as.is=
 
 plot(employ$Year, 100*(employ$Total.Mining...Logging...fishing+employ$Total.Agricutural.employees)/employ$Total.employees,
 	type="l", col=pal_col[1],
-	xaxs="i",
-	xlab="Year", ylab="Percent of workforce\n")
+	xaxs="i", yaxs="i",
+	ylim=c(0, 70),
+	xlab="Year", ylab="Workforce (percent)\n")
 
 lines(employ$Year, 100*employ$Total.Manufacturing...Construction/employ$Total.employees,
 			col=pal_col[2])

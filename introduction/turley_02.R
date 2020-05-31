@@ -1,24 +1,27 @@
 #
-# turley_02.R, 25 Feb 17
-#
+# turley_02.R, 22 May 20
 # Data from:
 # Jim Turley
 # Embedded Processors
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG processor_sales
+
 
 source("ESEUR_config.r")
 
+
+pal_col=rainbow(4)
 
 proc_sales=read.csv(paste0(ESEUR_dir, "introduction/turley_02.csv.xz"), as.is=TRUE)
 
 proc_sales$date=as.Date(proc_sales$date, format="%d/%m/%Y")
 
-pal_col=rainbow(4)
-
 plot(proc_sales$date, proc_sales$bit.8/1000, col=pal_col[1],
+	xaxs="i", yaxs="i",
 	ylim=c(0, max(proc_sales$bit.8/1000)),
 	xlab="Date", ylab="Sales (millions)\n")
 

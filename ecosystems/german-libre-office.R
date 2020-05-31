@@ -1,26 +1,31 @@
 #
-# german-libre-office.R,  6 Nov 17
+# german-libre-office.R,  3 May 20
 #
 # Data from:
-#
 # https://people.gnome.org/~michael/data/2015-08-01-5.5-data.ods
 # Michael Meeks
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG comments_German source-code_German
+
 
 source("ESEUR_config.r")
 
-pal_col=rainbow(1)
+
+par(mar=MAR_default+c(0.0, 0.7, 0, 0))
+
+pal_col=rainbow(2)
 
 
 lb=read.csv(paste0(ESEUR_dir, "ecosystems/german-libre-office.csv.xz"), as.is=TRUE)
 lb$date=as.Date(lb$date, format="%d %b %Y")
 
-plot(lb$date, lb$lines, log="y", col=point_col,
+plot(lb$date, lb$lines, log="y", col=pal_col[2],
 	ylim=c(3000, max(lb$lines)),
-	xlab="Release date", ylab="German comments\n")
+	xlab="Release date", ylab="German comments\n\n")
 axis(3, at=lb$date, labels=lb$version)
 mtext("Version", padj=-1.8, cex=0.7)
 

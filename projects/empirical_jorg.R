@@ -1,12 +1,15 @@
 #
-# empirical_jorg.R, 18 Oct 17
+# empirical_jorg.R, 23 May 20
 # Data from:
 # An Empirical Study of Software Project Bidding
 # Magne Jorgensen and Gunnar J. Carelius
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG experiment_human project_bidding
+
 
 source("ESEUR_config.r")
 
@@ -26,10 +29,11 @@ plot(Ag$Early_Estimate, log="y", col=pal_col[1],
 	xaxt="n",
 	xlim=c(1, nrow(est)), ylim=range(c(est$Early_Estimate, est$Final_Estimate), na.rm=TRUE),
 	xlab="Estimator", ylab="Estimate (hours)\n")
-axis(1, at=c(5, 10.5, 15), label=c("A group", "", "B group"))
+axis(1, at=c(5, 15), label=c("A group", "B group"))
+lines(c(10.5, 10.5), c(10, 6000), col="grey")
+
 points(Ag$Final_Estimate, col=pal_col[2])
 points((nrow(Ag)+1):(nrow(Ag)+nrow(Bg)), Bg$Final_Estimate, col=pal_col[3])
 
-
-legend(x="bottomright", legend=c("A early estimate", "A final estimate", "B final estimate"), bty="n", fill=pal_col, cex=1.2)
+legend(x="bottom", legend=c("A early estimate", "A final estimate", "B final estimate"), bty="n", fill=pal_col, cex=1.2)
 

@@ -1,13 +1,14 @@
 #
 # pldi13.R, 26 Mar 18
 # Data from:
-#
 # Taming Compiler Fuzzers
 # Yang Chen and Alex Groce and Xiaoli Fern and Chaoqiang Zhang and Weng-Keen Wong and Eric Eide and John Regehr
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG
 
 source("ESEUR_config.r")
 

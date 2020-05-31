@@ -1,5 +1,5 @@
 #
-# Dyn_Model.R, 23 Nov 19
+# Dyn_Model.R, 27 May 20
 # Data from:
 # Dynamic model for the system testing process
 # Gábor Stikkel
@@ -14,6 +14,8 @@ source("ESEUR_config.r")
 
 
 # plot_layout(3, 2)
+
+par(mar=MAR_default+c(0.0, 0.7, 0, 0))
 
 pal_col=rainbow(3)
 
@@ -39,7 +41,7 @@ P3$Normalized_count[10]=P3$Normalized_count[10]+0.001 # Stops a zero appearing
 plot(diff(P1$Normalized_count)/P1$STE_Manhour[-1], type="l", log="y", col=pal_col[1],
 	xlim=c(1, 35), ylim=c(0.003, 0.4),
 	xaxs="i",
-	xlab="Week", ylab="Normalised faults per man-hour\n")
+	xlab="Week", ylab="Normalised faults per man-hour\n\n")
 lines(diff(P2$Normalized_count)/P2$STE_Manhour[-1], col=pal_col[2])
 lines(diff(P3$Normalized_count)/P3$STE_Manhour[-1], col=pal_col[3])
 

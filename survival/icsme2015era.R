@@ -1,5 +1,5 @@
 #
-# icsme2015era.R, 21 Oct 18
+# icsme2015era.R, 19 May 20
 # Data from:
 # Towards a Survival Analysis of Database Framework Usage in {Java} Projects
 # Mathieu Goeminne and Tom Mens
@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG database-framework Java evolution
+# TAG framework_database database-use_evolution Java_database evolution_use
 
 source("ESEUR_config.r")
 
@@ -98,7 +98,10 @@ Q=matrix(nrow=4, ncol=4,
 db_msm = msm(dbs ~ date, subject=X, data=uses,
 			 qmatrix=Q, gen.inits=TRUE, exacttimes=TRUE)
 
+# Extract the estimated transition probability matrix from the fitted
+# multi-state model at time 365 (a year)
 print(pmatrix.msm(db_msm, t=365), digits=2)
 
+# Estimate mean time spent in each transient state of the model
 sojourn.msm(db_msm)
 

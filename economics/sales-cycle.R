@@ -1,5 +1,5 @@
 #
-# sales-cycle.R, 24 Apr 20
+# sales-cycle.R, 22 May 20
 # Data from:
 # The Cost of High-Powered Incentives: {Employee} Gaming in Enterprise Software Sales
 # Ian Larkin
@@ -19,7 +19,8 @@ sales=read.csv(paste0(ESEUR_dir, "economics/sales-cycle.csv.xz"), as.is=TRUE)
 
 plot(sales$week, 100*sales$volume/sum(sales$volume), type="b", col=pal_col[1],
 	yaxs="i",
-	xlab="Week", ylab="Percentage\n")
+	ylim=c(0, 80),
+	xlab="Week", ylab="Sales (percentage)\n")
 
 lines(sales$week, sales$discount, type="b", col=pal_col[2])
 

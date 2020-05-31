@@ -1,5 +1,5 @@
 #
-# DRAMTFSC-dram.R, 28 Aug 19
+# DRAMTFSC-dram.R, 22 May 20
 # Data from:
 # DRAMs as Model Organisms for Study of Technological Evolution
 # Nadejda M. Victor and Jesse H. Ausubel
@@ -15,6 +15,8 @@ source("ESEUR_config.r")
 
 library("plyr")
 
+
+par(mar=MAR_default+c(0.0, 0.7, 0, 0))
 
 pal_col=rainbow(8)
 
@@ -42,7 +44,7 @@ dram$WWbits=daply(dram, .(Year), yearly_bits)
 
 
 plot(dram$Year, dram$WWbits/(8*2^30), log="y", col=point_col,
-	xlab="Year", ylab="World-wide DRAM shipped (GB)\n")
+	xlab="Year", ylab="World-wide DRAM shipped (GB)\n\n")
 
 
 plot_ship(dram$ship4K*4*2^10, pal_col[1])

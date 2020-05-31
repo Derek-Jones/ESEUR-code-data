@@ -1,5 +1,5 @@
 #
-# proj-cost-ben.R, 21 Mar 19
+# proj-cost-ben.R, 21 May 20
 # Data from:
 # Example
 #
@@ -7,7 +7,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG example investment payback
+# TAG example investment_payback
 
 source("ESEUR_config.r")
 
@@ -38,6 +38,7 @@ return(1+d_m*S_exp(S_val, t_range, r_val))
 t_range=seq(1, 10, by=0.5)
 
 plot(0, type="n",
+	xaxs="i",
 	xlim=range(t_range), ylim=c(2.5, 20.0),
 	xlab="Payback length (years)", ylab="Benefit/investment ratio\n")
 

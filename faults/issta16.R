@@ -1,5 +1,5 @@
 #
-# issta16.R, 28 Dec 19
+# issta16.R, 27 May 2-
 # Data from:
 # Toward Understanding Compiler Bugs in GCC and LLVM
 # Chengnian Sun and Vu Le and Qirun Zhang and Zhendong Su
@@ -27,6 +27,7 @@ llvm=subset(dupbug, compiler == "llvm")
 llvm=llvm[-7, ]
 
 plot(gcc$duplicates, gcc$reported, log="y", col=point_col,
+	xaxs="i",
 	xlab="Duplicate reports", ylab="Occurrences\n")
 
 gcc_mod=gnm(reported ~ instances(Mult(1, Exp(duplicates)), 2)-1,

@@ -1,5 +1,5 @@
 #
-# FreeAssoc.R, 20 Jan 20
+# FreeAssoc.R, 28 May 20
 # Data from:
 # The University of {South Florida} Word Association, Rhyme and Word Fragment Norms
 # Douglas L. Nelson and Cathy L. McEvoy and Thomas A. Schreiber
@@ -15,6 +15,8 @@ source("ESEUR_config.r")
 
 library("plyr")
 
+
+par(mar=MAR_default+c(0.0, 0.7, 0, 0))
 
 # Words only given by one subject don't appear in the data.
 # But the total number of subjects is given.
@@ -61,7 +63,7 @@ mean_use=colMeans(t)
 plot(mean_use, log="y", col=point_col,
 	xaxs="i",
 	xlim=c(1, 12),
-	xlab="Subjects (percentage)", ylab="Same word (probability)\n")
+	xlab="Subjects (percentage)", ylab="Same word (probability)\n\n")
 
 # one_use=ddply(FA, .(CUE), percent_one_use)
 # mean(one_use$V1)

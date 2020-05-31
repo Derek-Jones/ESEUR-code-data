@@ -1,12 +1,15 @@
 #
 # NASA_19900002144_A4.R, 23 Mar 18
 # Data from:
-# Experiments in Fault Tolerant Software Reliability",a
+# Experiments in Fault Tolerant Software Reliability
 # David F. McAllister and Mladen A. Vouk
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG
+
 
 source("ESEUR_config.r")
 

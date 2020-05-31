@@ -1,13 +1,15 @@
 #
-# clone_surv.R, 26 Dec 15
-#
+# clone_surv.R, 24 May 20
 # Data from:
 # Toward improved understanding and management of software clones
 # Wei Wang
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG clone_survival
+
 
 source("ESEUR_config.r")
 
@@ -45,8 +47,9 @@ clone_surv=Surv(t$end_day-t$start_day, event=t$end_ver != "2.6.32.7")
 clone_mod=survfit(clone_surv ~ 1, subset=t$clone_type==1)
 
 plot(clone_mod, col=pal_col[1],
-	xlim=c(1, 5500),
-	xlab="Days")
+	xaxs="i", yaxs="i",
+	xlim=c(1, 5500), ylim=c(0, 1),
+	xlab="Days", ylab="Clone survival\n")
 
 clone_mod=survfit(clone_surv ~ 1, subset=t$clone_type==2)
 

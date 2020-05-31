@@ -1,15 +1,14 @@
 #
-# renzo_at_words.R, 20 Dec 19
+# renzo_at_words.R, 24 May 20
 # Data from:
 # The {Renzo} {Pomodoro} dataset: a conversation
 # Derek M. Jones and Renzo Borgatti
-#
 #
 # Example from:
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG estimate Pomodoro personal
+# TAG estimate_Pomodoro Pomodoro task_personal
 
 source("ESEUR_config.r")
 
@@ -160,7 +159,8 @@ plot(items$date, items$uat_1_num, col=pal_col[items$uat_1_num],
 t=count(items$uat_1_num)
 top5=subset(t, freq > 500)
 
-legend(x="topleft", legend=rev(substring(u_at[top5$x], 2)), bty="n", fill=rev(pal_col[top5$x]), cex=1.3)
+legend(x="topleft", legend=rev(substring(u_at[top5$x], 2)),
+			inset=-c(0.03, 0.03), bty="n", fill=rev(pal_col[top5$x]), cex=1.2)
 
 first_use=ddply(items, .(uat_1_num), function(df) min(df$date))
 start_date=min(first_use$V1)

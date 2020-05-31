@@ -54,7 +54,7 @@ suite_surv=Surv(as.numeric(p_dates$e_date)-as.numeric(p_dates$s_date),
 suite_mod=survfit(suite_surv ~ 1)
 
 plot(suite_mod, col=pal_col[1],
-	yaxs="i",
+	xaxs="i", yaxs="i",
 	xlab="Days", ylab="Survival rate\n")
 
 

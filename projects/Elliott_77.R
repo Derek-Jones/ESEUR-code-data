@@ -1,5 +1,5 @@
 #
-# Elliott_77.R, 17 Oct 19
+# Elliott_77.R, 17 May 20
 # Data from:
 # Life Cycle Planning for a Large Mix of Commercial Systems
 # I. R. Elliott
@@ -26,7 +26,7 @@ unloadNamespace("igraph")
 library("gnm")
 
 
-pal_col=rainbow(3)
+pal_col=rainbow(2)
 
 staff=read.csv(paste0(ESEUR_dir, "projects/Elliott_77.csv.xz"), as.is=TRUE)
 
@@ -45,10 +45,10 @@ summary(aver_mod)
 exp_coef=as.numeric(coef(aver_mod))
 
 t=predict(aver_mod)
-lines(average$Years, t, col=pal_col[2])
+lines(average$Years, t, col=pal_col[1])
 
-lines(average$Years, exp_coef[1]*exp(exp_coef[2]*average$Years), col=pal_col[1])
-lines(average$Years, exp_coef[3]*exp(exp_coef[4]*average$Years), col=pal_col[3])
+# lines(average$Years, exp_coef[1]*exp(exp_coef[2]*average$Years), col=pal_col[1])
+# lines(average$Years, exp_coef[3]*exp(exp_coef[4]*average$Years), col=pal_col[3])
 
 
 # # The models constant offset has a big impact

@@ -1,12 +1,15 @@
 #
-# e9f6828098808322e53.R,  9 Sep 17
+# e9f6828098808322e53.R, 24 May 20
 # Data from:
 # Sasa M. Dekleva
 # The Influence of the Information Systems Development Approach on Maintenance
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG system_age
+
 
 source("ESEUR_config.r")
 
@@ -28,7 +31,8 @@ trad=subset(mtime, Method == "Trad")
 # trad[order(trad$Age), ]
 
 plot(mod$Age, mod$Value, log="y", col=pal_col[1],
-	xlim=range(maint$Age), ylim=range(mtime$Value),
+	xaxs="i",
+	xlim=c(0, max(maint$Age)), ylim=range(mtime$Value),
 	xlab="Age (years)", ylab="Maintenance (hours)\n")
 points(trad$Age, trad$Value, col=pal_col[2])
 

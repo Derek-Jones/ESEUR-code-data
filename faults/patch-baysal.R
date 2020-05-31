@@ -1,5 +1,5 @@
 #
-# patch-baysal.R,  1 Mar 18
+# patch-baysal.R, 27 May 20
 #
 # Data from:
 # The Influence of Non-Technical Factors on Code Review
@@ -7,8 +7,11 @@
 # SQL cut-pasted from personal email from Olga Baysal
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG code-review_process
+
 
 source("ESEUR_config.r")
 
@@ -21,6 +24,8 @@ library("RSQLite")
 # The default size produces a plot that is smaller than the available space
 plot_layout(1, 1, default_width=ESEUR_default_width+2,
 			default_height=ESEUR_default_height+2)
+
+pal_col=rainbow(3)
 
 
 con=dbConnect(RSQLite::SQLite(), dbname=paste0(ESEUR_dir, "faults/patch-baysal.sqlite"))
@@ -112,9 +117,12 @@ M["Submitted", "Rejected"]=main_trans[6, 2]
 sub_total=sum(M["Submitted", ])
 M=signif(100*M/sub_total, 2)
 
+par(col=pal_col[3])
+
 plotmat(t(M), pos=c(1, 2, 4), lwd=1, arr.pos=0.62, cex=1.3,
-	 arr.length=0.15, lcol="grey",
-	 txt.col="red", cex.txt=1.0,
-	 box.type="rect", box.prop=0.5, box.cex=0.95, box.lcol="grey",
+	 arr.length=0.15, arr.lcol=pal_col[2], arr.col=pal_col[3],
+	 txt.col=pal_col[1], cex.txt=1.0,
+	 box.type="rect", box.prop=0.3, box.cex=1.25, box.lcol="white",
 	 shadow.size=0)
+
 

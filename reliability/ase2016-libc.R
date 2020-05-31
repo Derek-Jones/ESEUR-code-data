@@ -1,5 +1,5 @@
 #
-# ase2016-libc.R, 28 Dec 19
+# ase2016-libc.R, 27 May 20
 # Data from:
 # {APEx}: {Automated} Inference of Error Specifications for {C} {APIs}
 # Yuan Kang and Baishakhi Ray and Suman Jana
@@ -18,6 +18,7 @@ library("plyr")
 
 # plot_layout(2, 1, default_width=ESEUR_max_width)
 plot_layout(2, 1)
+
 
 pal_col=rainbow(2)
 
@@ -42,10 +43,12 @@ lines(c(1, 1e3), c(1, 1e3), col="grey")
 T_len=subset(err_len, !is.na(T_len))$T_len
 F_len=subset(err_len, !is.na(F_len))$F_len
 
+par(mar=MAR_default+c(0.0, 0.7, 0, 0))
+
 plot(density(F_len, from=1), main="", col=pal_col[1],
 	xaxs="i", yaxs="i",
-	xlim=c(1, 200),
-	xlab="Statements", ylab="Density\n")
+	xlim=c(0, 200),
+	xlab="Statements", ylab="Density\n\n")
 lines(density(T_len, from=1), col=pal_col[2])
 
 legend(x="topright", legend=c("Error", "Non-error"), bty="n", fill=pal_col, cex=1.2)

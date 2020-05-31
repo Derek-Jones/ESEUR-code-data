@@ -1,5 +1,5 @@
 #
-# Debian-Sources.R,  4 Aug 19
+# Debian-Sources.R, 23 May 20
 # Data from:
 # Statistics | Debian Sources
 # The Debsources developers
@@ -20,7 +20,7 @@ library("reshape2")
 
 plot_lang=function(df)
 {
-lines(df$sloc, col=df$col_str)
+lines(df$sloc/1e6, col=df$col_str)
 }
 
 
@@ -40,8 +40,8 @@ lr$col_str=mapvalues(lr$Language, u_lang, pal_col)
 
 plot(1, type="n", log="y",
 	xaxs="i",
-	xlim=c(1, ncol(ds)-1), ylim=c(1e5, max(lr$sloc)),
-	xlab="Release", ylab="SLOC\n")
+	xlim=c(1, ncol(ds)-1), ylim=c(1e5, max(lr$sloc))/1e6,
+	xlab="Debian release", ylab="SLOC (million)\n")
 
 d_ply(lr, .(Language), plot_lang)
 

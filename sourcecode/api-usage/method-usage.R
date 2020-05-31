@@ -47,7 +47,7 @@ M[names[7], names[8]]=""
 M[names[8], names[9]]=""
 M[names[8], names[10]]=""
 
-plotmat(t(M), pos=c(3, 4, 1, 2), lwd=1, curve=0, cex=1.4,
+plotmat(t(M), pos=c(3, 4, 1, 2), lwd=1, curve=0, cex=1.2,
 	arr.type="triangle", arr.pos=0.63, endhead=TRUE, arr.width=0.15,
 	arr.length=0.15, arr.lcol=pal_col[2], cex.txt=1.1,
         box.type="ellipse", box.prop=0.5, box.lcol="white", box.cex=2.1,

@@ -1,13 +1,16 @@
 #
-# started-bug-nonbug-7dig.R, 17 Oct 17
+# started-bug-nonbug-7dig.R, 24 May 20
 #
 # Data from:
 # http://www.7digital.com feature data
 # Rob Bowley
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG work-items_started
+
 
 source("ESEUR_config.r")
 
@@ -21,6 +24,7 @@ source(paste0(ESEUR_dir, "projects/agile-work/feat-common-7dig.R"))
 plot_two_ratio=function(red_vals, blue_vals)
 {
 plot(blue_vals, type="l", col=pal_col[1],
+	xaxs="i", yaxs="i",
 	xlim=c(0, 820), ylim=c(0, 7),
 	xlab="Work days since Apr 2009", ylab="")
 lines(red_vals, col=pal_col[2])

@@ -1,5 +1,5 @@
 #
-# func-mod-interval.R,  7 Feb 20
+# func-mod-interval.R, 28 May 20
 #
 # Data from:
 # Modification and developer metrics at the function level: Metrics for the study of the evolution of a software project
@@ -16,6 +16,9 @@ source("ESEUR_config.r")
 
 
 pal_col=rainbow(2)
+
+
+par(mar=MAR_default+c(0.0, 0.7, 0, 0))
 
 
 func_mod_density=function(func_file, rev_file)

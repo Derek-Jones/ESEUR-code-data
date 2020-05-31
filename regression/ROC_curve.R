@@ -1,5 +1,5 @@
 #
-# ROC_curve.R, 15 Mar 20
+# ROC_curve.R, 22 May 20
 #
 # Data from:
 # Example
@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG Example ROC_curve
+# TAG Example_ROC-curve
 
 
 source("ESEUR_config.r")
@@ -25,7 +25,7 @@ perf=performance(pred, measure="tpr", x.measure="fpr")
 plot(perf, colorize=TRUE, colorkey=FALSE,
 	print.cutoffs.at=p_n$score, text.cex=1.1, text.adj=c(0, -0.5),
 	yaxs="i",
-	ylim=c(0, 1.05),
+	xlim=c(0, 1.06), ylim=c(0, 1.05),
 	xlab="False positive", ylab="True positive\n")
 
 

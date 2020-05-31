@@ -1,5 +1,5 @@
 #
-# Application.R, 16 Oct 19
+# Application.R, 23 May 20
 # Data from:
 # Application Flows
 # Steven J. Davis and Brenda Samaniego {de la Parra}
@@ -22,8 +22,8 @@ app=read.csv(paste0(ESEUR_dir, "ecosystems/Application.csv.xz"), as.is=TRUE)
 app$Date=as.Date(paste0("15-", app$Date), format="%d-%b-%y")
 
 plot(app$Date, app$C, type="n",
-	yaxs="i",
-	ylim=c(0, 2.2),
+	xaxs="i", yaxs="i",
+	xlim=c(as.Date("2012-01-01"), max(app$Date)), ylim=c(0, 2.2),
 	xlab="Date", ylab="Slackness\n")
 
 lines(app$Date, app$PYTHON, col=pal_col[5])

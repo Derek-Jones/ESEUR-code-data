@@ -1,12 +1,15 @@
 #
-# Peukert-Switch.R, 20 Oct 17
+# Peukert-Switch.R, 24 May 20
 # Data from:
 # Christian Peukert
 # Switching Costs and Information Technology: {The} Case of {IT} Outsourcing
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG switching-costs outsourcing_survival
+
 
 source("ESEUR_config.r")
 
@@ -14,6 +17,8 @@ source("ESEUR_config.r")
 library("plyr")
 library("survival")
 
+
+pal_col=rainbow(2)
 
 rle_it_sup=function(df)
 {
@@ -75,7 +80,8 @@ transactional=ncua
 
 s_trans=ddply(transactional, .(cu_name), rle_it_sup)
 
-plot(survfit(Surv(s_trans$lifetime, s_trans$alive == 1) ~ 1), col=point_col,
+plot(survfit(Surv(s_trans$lifetime, s_trans$alive == 1) ~ 1), col=pal_col[c(1, 2, 2)],
+	xaxs="i", yaxs="i",
 	xlim=c(0, 7),
 	xlab="Years", ylab="Supplier survival\n")
 

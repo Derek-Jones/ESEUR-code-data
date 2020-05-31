@@ -1,5 +1,5 @@
 #
-# Futrell.R,  1 May 18
+# Futrell.R, 28 May 20
 # Data from:
 # Large-scale evidence of dependency length minimization in 37 languages
 # Richard Futrell and Kyle Mahowald and Edward Gibson
@@ -18,6 +18,9 @@ source("ESEUR_config.r")
 library("diagram")
 
 
+pal_col=rainbow(2)
+
+par(col=pal_col[1])
 
 numwords = 5
 DiffMat = matrix(data = 0, nrow = numwords, ncol = numwords)
@@ -31,7 +34,7 @@ name = c("John", "threw", "out", "the", "trash")
 
 plotmat(AA, pos = numwords, curve = 0.3, name = name, main="", cex=1.2,
 	my=0.2,
-	arr.len = 0.15, arr.width = 0.1, arr.lcol="green",
+	arr.len = 0.15, arr.width = 0.1, arr.lcol=pal_col[2],
 	box.lcol="white", box.prop=0.5, box.size=0.05, box.cex=1.2, shadow.size=0)
 
 AA = as.data.frame(DiffMat)
@@ -44,6 +47,6 @@ name = c("John", "threw", "the", "trash", "out")
 
 plotmat(AA, pos = numwords, curve = 0.3, name = name, main="", cex=1.2,
 	my=-0.2, add=TRUE,
-	arr.len = 0.15, arr.width = 0.1, arr.lcol="green",
+	arr.len = 0.15, arr.width = 0.1, arr.lcol=pal_col[2],
 	box.lcol="white", box.prop=0.5, box.size=0.05, box.cex=1.2, shadow.size=0)
 

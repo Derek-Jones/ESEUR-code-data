@@ -1,5 +1,5 @@
 #
-# 3np1.R,  5 Mar 20
+# 3np1.R, 22 May 20
 #
 # Data from:
 # The Effectiveness of Software Diversity
@@ -64,13 +64,17 @@ theo_vals=gofstat(list(tn, tp, tln, tnb),
 
 plot_distrib=function(dist_num)
 {
-lines(theo_vals$chisqbreaks, head(theo_vals$chisqtable[, 1+dist_num], -1), col=pal_col[dist_num])
+# The first entry in theo_vals$chisqtable, the the distribution, is the
+# cumulative value of everything to the left, i.e., not the actual value
+# at that point.
+lines(tail(theo_vals$chisqbreaks, -1), tail(head(theo_vals$chisqtable[, 1+dist_num], -1), -1), col=pal_col[dist_num])
 }
 
 plot(theo_vals$chisqbreaks, head(theo_vals$chisqtable[, 1], -1), type="h",
+	col="darkgrey",
 	xaxs="i", yaxs="i",
 	xlim=c(0, 120), ylim=c(0, 300),
-	xlab="Program length", ylab="Programs\n")
+	xlab="Lines of code", ylab="Programs\n")
 plot_distrib(1)
 plot_distrib(2)
 plot_distrib(3)

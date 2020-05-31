@@ -5,8 +5,11 @@
 # Ioannis Skoulis
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG schema_evolution database_schema
+
 
 source("ESEUR_config.r")
 
@@ -54,12 +57,13 @@ ensembl$X0=NULL  # No idea why the data contains a zero'th entry
 schema=read.csv(paste0(ESEUR_dir, "ecosystems/Skoulis.csv.xz"), as.is=TRUE)
 
 plot(0, type="n",
+	xaxs="i", yaxs="i",
 	xlim=c(0, 5000), ylim=c(0, 1),
-	xlab="Days", ylab="Survival\n")
+	xlab="Days", ylab="Table survival\n")
 
 survival_curve(ensembl, subset(schema, system == "ensembl")$time, pal_col[1])
 survival_curve(mediawiki, subset(schema, system == "mediawiki")$time, pal_col[2])
 
 # Legend/color ordering is reversed to match earlier plot, Skoulis.R
-legend(x="bottom", legend=c("Mediawiki", "Ensembl"), bty="n", fill=rev(pal_col), cex=1.2)
+legend(x="topright", legend=c("Mediawiki", "Ensembl"), bty="n", fill=rev(pal_col), cex=1.2)
 

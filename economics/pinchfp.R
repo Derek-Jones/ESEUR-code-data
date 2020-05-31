@@ -1,12 +1,15 @@
 #
-# pinchfp.R, 27 Apr 17
+# pinchfp.R, 22 May 20
 # Data from:
 # 'AppStore Secrets' ({What} We've Learned from 30,000,0000 Downloads)
 # Azeem Ansar
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG App_usage
+
 
 source("ESEUR_config.r")
 
@@ -20,7 +23,8 @@ free=subset(app, engagement=="free")
 paid=subset(app, engagement=="paid")
 
 plot(paid$days, paid$time_spent, col=pal_col[1],
-	ylim=c(3.5, 9),
+	xaxs="i",
+	xlim=c(0, max(app$days)), ylim=c(3.5, 9),
 	xlab="Days since first usage", ylab="Time spent (minutes)")
 points(free$days, free$time_spent, col=pal_col[2])
 

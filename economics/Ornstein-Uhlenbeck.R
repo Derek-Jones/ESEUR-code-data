@@ -1,5 +1,5 @@
 #
-# Ornstein-Uhlenbeck.R, 26 Mar 19
+# Ornstein-Uhlenbeck.R, 21 May 20
 # Data from:
 # Example
 #
@@ -7,7 +7,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG example  Ornstein-Uhlenbeck stochastic
+# TAG example Ornstein-Uhlenbeck stochastic
 
 source("ESEUR_config.r")
 
@@ -26,7 +26,7 @@ e_theta=1
 maint=HWV(N=1000, M=10, x0=0, t0=0, T=5, theta=e_theta, mu=e_mu, sigma=e_sigma)
 
 plot(maint, plot.type="single", col=pal_col[2],
-	yaxs="i",
+	xaxs="i", yaxs="i",
 	xlab="Time", ylab="Maintenance\n")
 
 xbounds=seq(0, 5, by=0.1)

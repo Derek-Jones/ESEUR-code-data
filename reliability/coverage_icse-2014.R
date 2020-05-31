@@ -1,12 +1,15 @@
 #
-# coverage_icse-2014.R, 14 Jan 18
+# coverage_icse-2014.R, 29 Apr 20
 # Data from:
 # Coverage Is Not Strongly Correlated with Test Suite Effectiveness
 # Laura Inozemtseva and Reid Holmes
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG test-suite_coverage
+
 
 source("ESEUR_config.r")
 

@@ -1,9 +1,13 @@
 #
 # pref-attach-access.R,  6 Jan 16
+# Data from:
+# Example
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG example simulate_preferential-attachment
 
 # Simulate preferential attachment process
 #

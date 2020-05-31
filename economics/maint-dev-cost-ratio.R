@@ -1,5 +1,5 @@
 #
-# maint-dev-cost-ratio.R, 17 Mar 19
+# maint-dev-cost-ratio.R, 23 May 20
 #
 # Data from:
 # An Investigation of the Factors Affecting the Lifecycle Costs of COTS-Based Systems
@@ -47,9 +47,14 @@ y=sort(dme$dev.effort/(dme$maint.effort/5), decreasing=TRUE)
 # Harmonic mean of single year maintenance, i.e., d/m
 # 1/mean(1/(y*5))
 
+# x=1:length(y)
+# y_mod=nls(y ~ a+b*x^c, start=list(a=1, b=80, c=-1), trace=TRUE)
+# summary(y_mod)
+
 plot(y, log="y", col=point_col,
-	ylim=c(0.05, 60),
-	xlab="Systems", ylab="Development/Maintenance\n")
+	xaxs="i", yaxs="i",
+	xlim=c(0, length(y)), ylim=c(0.05, 65),
+	xlab="System index", ylab="Development/Maintenance\n")
 
 # plot(~ log(dme$dev.effort)+log(dme$size.fp)+dme$COTS.perc+log(dme$maint.effort))
 # 

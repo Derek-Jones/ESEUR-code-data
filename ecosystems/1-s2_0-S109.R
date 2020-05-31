@@ -1,5 +1,5 @@
 #
-# 1-s2_0-S109.R, 18 Jan 20
+# 1-s2_0-S109.R, 26 May 20
 # Data from:
 # Optimising human community sizes
 # Robin I. M. Dunbar and Richard Sosis
@@ -33,7 +33,12 @@ plot(secular$size, secular$duration, log="xy", col=pal_col[1],
 
 points(religious$size, religious$duration, col=pal_col[2])
 
-legend(x="right", legend=c("Secular", "Religious"), bty="n", fill=pal_col, cex=1.2)
+legend(x="right", legend=c("Religious", "Secular"), bty="n", fill=rev(pal_col), cex=1.2)
+
+s_mod=loess.smooth(log(secular$size), log(secular$duration), span=0.3)
+lines(exp(s_mod$x), exp(s_mod$y), col=pal_col[1], lty=2)
+r_mod=loess.smooth(log(religious$size), log(religious$duration), span=0.3)
+lines(exp(r_mod$x), exp(r_mod$y), col=pal_col[2], lty=2)
 
 
 # Paper plots a quantile regression line, without giving tau.

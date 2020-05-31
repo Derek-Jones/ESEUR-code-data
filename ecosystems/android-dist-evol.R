@@ -1,17 +1,18 @@
 #
-# android-dist-evol.R, 18 Aug 16
-#
+# android-dist-evol.R, 22 May 20
 # Data from:
 # Android version distribution history
 # Victorien Villard
 # http://www.bidouille.org/misc/androidcharts
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG Android_market-share version_market-share market-share_evolution
+
 
 source("ESEUR_config.r")
-
 
 
 avd=read.csv(paste0(ESEUR_dir, "communicating/Android-version-distribution_data.csv.xz"), as.is=TRUE)
@@ -34,8 +35,9 @@ lines(num_days[non_zero]-num_days[non_zero[1]], avd[non_zero, ver_num], col=pal_
 }
 
 plot(1, type="n",
+	xaxs="i", yaxs="i",
 	xlim=c(0, 1000), ylim=c(0, max_perc),
-	xlab="Days since launch", ylab="Percentage of market")
+	xlab="Days since launch", ylab="Market share (percentage)\n")
 dummy=sapply(1:num_col, disp_time)
 
 

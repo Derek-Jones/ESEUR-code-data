@@ -1,13 +1,15 @@
 #
-# commit-weekhour.R, 22 Feb 16
+# commit-weekhour.R, 23 May 20
 #
 # Data from:
 # Do time of day and developer experience affect commit bugginess?
 # Jon Eyolfson and Lin Tan and Patrick Lam
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAB Linux_commits BSD_commits commit_hour
 
 
 source("ESEUR_config.r")
@@ -41,6 +43,7 @@ lines(week_hr_secs, table((as.numeric(local_time)+shift_weekend) %% week_secs), 
 
 plot(week_hr_secs, type="n",
 	xaxt="n",
+	xaxs="i", yaxs="i",
 	ylim=c(0, 4500),
 	xlab="", ylab="Commits within hour\n")
 # Linux

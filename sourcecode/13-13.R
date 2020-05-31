@@ -6,7 +6,7 @@
 # Data kindly provided by Auler
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
 # TAG LLVM compile SPEC optimization function basic-block instructions parameters

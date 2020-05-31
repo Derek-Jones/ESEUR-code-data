@@ -2,7 +2,7 @@
 # vwReg.R,  7 Nov 12
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 
 # Copyright 2012 Felix Schönbrodt

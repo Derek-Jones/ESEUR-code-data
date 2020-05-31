@@ -1,13 +1,14 @@
 #
-# gldt.R, 22 May 16
-#
+# gldt.R, 22 May 20
 # Data from:
 # Andreas Lundqvist, Donjan Rodic
 # http://futurist.se/gldt/
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG Linux_distribution distribution_survival
 
 source("ESEUR_config.r")
 
@@ -50,7 +51,8 @@ top_10_surv=Surv(as.numeric(end_date)-as.numeric(gldt_top_10$Start),
 top_10_mod=survfit(top_10_surv ~ gldt_top_10$Parent)
 
 plot(top_10_mod, col=pal_col,
-        xlab="Days", ylab="Survival rate\n")
+	xaxs="i", yaxs="i",
+        xlab="Days", ylab="Distribution survival\n")
 
 legend(x="bottomleft", legend=names(top_10), bty="n", fill=pal_col, cex=1.3)
 

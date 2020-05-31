@@ -1,5 +1,5 @@
 #
-# SO-lang-tags.R, 26 Aug 19
+# SO-lang-tags.R, 23 May 20
 # Data from:
 # Stack Overflow Trends...
 #
@@ -40,9 +40,9 @@ m2$col_str=mapvalues(m2$lang, u_m2, pal_col)
 plot(0, type="n",
 	xaxs="i", yaxs="i",
 	xlim=range(SO$year), ylim=c(min_perc*1.6, 30),
-	xlab="Year", ylab="Tags (normalised percentage)")
+	xlab="Year", ylab="Tags (normalised percentage)\n")
 
 d_ply(m2, .(lang), lang_line)
 
-legend(x="top", legend=u_m2, bty="n", fill=pal_col, cex=1.2)
+legend(x="top", legend=u_m2, inset=-c(0, 0.04), bty="n", fill=pal_col, cex=1.2)
 

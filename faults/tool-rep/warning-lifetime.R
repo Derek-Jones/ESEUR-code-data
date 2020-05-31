@@ -1,5 +1,5 @@
 #
-# warning-lifetime.R,  5 Nov 19
+# warning-lifetime.R, 26 May 20
 #
 # Data from:
 # The Life and Death of Statically Detected Vulnerabilities: an Empirical Study
@@ -35,7 +35,7 @@ return(prog_hist)
 }
 
 
-plot_surv=function(df, tool_hist, prog_str, col_str)
+plot_surv=function(df, tool_hist, col_str)
 {
 max_end=max(tool_hist$TIMESTAMP)
 df_event=!is.na(df$END)
@@ -46,11 +46,7 @@ df_surv=Surv(df$END-df$START, df_event)
 
 df_mod=survfit(df_surv ~1)
 
-plot(df_mod, col=col_str,
-	yaxs="i",
-	xlim=c(0, 1000),
-	xlab="Days since created")
-text(250, 0.92, prog_str, cex=1.3)
+lines(df_mod, col=col_str)
 }
 
 plot_categ=function(df, tool_hist, prog_str)
@@ -58,12 +54,17 @@ plot_categ=function(df, tool_hist, prog_str)
 splint_mem=subset(df, CATEG == "Memory Problem")
 splint_type=subset(df, CATEG == "Type Mismatch")
 
-plot_surv(splint_mem, tool_hist, prog_str, pal_col[1])
-par(new=TRUE)
-plot_surv(splint_type, tool_hist, prog_str, pal_col[2])
+plot(0, type="n",
+	xaxs="i", yaxs="i",
+	xlim=c(0, 1000), ylim=c(0, 1),
+	xlab="Days since created", ylab="Coding mistake survival\n")
+text(250, 0.92, prog_str, cex=1.3)
+
+plot_surv(splint_mem, tool_hist, pal_col[1])
+plot_surv(splint_type, tool_hist, pal_col[2])
 
 legend(x="topright", legend=c("Memory problem", "Type mismatch"),
-			bty="n", fill=pal_col, cex=1.3)
+			bty="n", fill=pal_col, cex=1.2)
 }
 
 

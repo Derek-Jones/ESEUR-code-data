@@ -1,9 +1,9 @@
 
 The code and data used to create the examples in "Evidence-based Software Engineering: based on the publicly available data" by Derek M. Jones.
 
-[Plots of the data](http://www.knosof.co.uk/ESEUR/figures/index.html).
-
 [Books' webpage](http://www.knosof.co.uk/ESEUR/index.html).
+
+[Plots of the data](http://www.knosof.co.uk/ESEUR/figures/index.html).
 
 If you know of any software engineering data that you think should be included, please let me know.
 

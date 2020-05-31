@@ -1,5 +1,5 @@
 #
-# 24b1e.R, 14 Jan 19
+# 24b1e.R, 27 May 20
 # Data from:
 # Evaluation of Procedures for Adjusting Problem-Discovery Rates Estimated From Small Samples
 # James R. Lewis
@@ -15,6 +15,8 @@ source("ESEUR_config.r")
 
 library("plyr")
 
+
+par(mar=MAR_default+c(0.0, 0.7, 0, 0))
 
 pal_col=rainbow(4)
 
@@ -69,14 +71,15 @@ num_subj=ncol(usis)
 
 
 plot(1, type="n", log="y",
-	yaxs="i",
+	xaxs="i", yaxs="i",
 	xlim=c(15, 100), ylim=c(3e-4, 1e-1),
-	xlab="Issues found", ylab="Probability\n")
+	xlab="Issues found", ylab="Probability\n\n")
 
 plot_group(5)
 plot_group(4)
 plot_group(3)
 plot_group(2)
 
-legend(x="bottomright", legend=paste0("Reviewers=", 2:5), bty="n", fill=pal_col, cex=1.2)
+legend(x="bottomright", legend=paste0("Reviewers=", 2:5),
+			inset=c(0.03, 0), bty="n", fill=pal_col, cex=1.2)
 

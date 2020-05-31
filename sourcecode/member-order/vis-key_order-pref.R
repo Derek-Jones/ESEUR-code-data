@@ -1,5 +1,5 @@
 #
-# vis-key_order-pref.R,  2 Apr 20
+# vis-key_order-pref.R, 24 May 20
 #
 # Data from:
 # The Order of Things: {How} Developers Sort Fields and Methods
@@ -16,6 +16,9 @@ source("ESEUR_config.r")
 
 library("plyr")
 library("PlackettLuce")
+
+
+pal_col=rainbow(2)
 
 
 # fully_qualified_name;file;line_number;entity_category;method_subcategory;visibility;lexico_index;lexico_field_index;lexico_method_index;semantic_cluster_index
@@ -228,8 +231,26 @@ ent=bld_PL_array(t, ent_str)
 colnames(ent)=attribute_list
 pt=PlackettLuce(ent)
 
-plot(qvcalc(pt), main="", col=point_col,
-	ylab=expression(beta))
+# Drawn our own plot until qvcalc plot is improved per submitted issue
+t=qvcalc(pt)
+bt=data.frame(ability=t$qvframe$estimate, se=t$qvframe$SE)
+rownames(bt)=rownames(t$covmat)
+bt=bt[order(bt$ability), ]
+
+plot(-5, type="n",
+	xlim=c(-0.75, 0.75), ylim=c(1, nrow(bt)),
+	yaxt="n",
+	xlab=expression(beta), ylab="")
+axis(2, at=1:nrow(bt), label=rownames(bt))
+
+dum=sapply(1:nrow(bt), function(X)
+			{
+			lines(c(-bt$se[X], bt$se[X])+bt$ability[X], c(X, X), col=pal_col[2])
+			lines(c(bt$ability[X], bt$ability[X]), c(-0.1, 0.1)+X, col=pal_col[1])
+			})
+
+# plot(qvcalc(pt), main="", col=point_col,
+# 	ylab=expression(beta))
 
 return(pt)
 }
@@ -245,6 +266,9 @@ attribute_list=visibility_key
 # vis_plot_2=get_vis_plot(pref_ent_order[2], visible_order)
 # vis_plot_3=get_vis_plot(pref_ent_order[3], visible_order)
 vis_plot_4=get_vis_plot(pref_ent_order[4], visible_order) # methods
+
+# Print the fitted beta values
+# coef(vis_plot_4)
 
 # print(c(seq_count, multiseq_count, vis_less_90))
 

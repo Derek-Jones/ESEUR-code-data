@@ -1,13 +1,16 @@
 #
-# prioritization.R, 16 Oct 17
+# prioritization.R, 24 May 20
 #
 # Data from:
 # An industrial case study on distributed prioritisation in market-driven requirements engineering for packaged software
 # Björn Regnell, Martin Höst, Johan Natt och Dag, Per Beremark, Thomas Hjelm
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG experiment_human requirements_prioritisation
+
 
 source("ESEUR_config.r")
 
@@ -50,6 +53,8 @@ spend_minus_one=(num_reqs/(num_reqs-1))*spend_minus_one / (num_reqs-1)
 req_spend_sd=apply(spend_minus_one, 1, sd)
 
 plot(spend_per_req[req_rank], type="l", col=pal_col[1],
+	yaxs="i",
+	ylim=c(0, 7000),
 	xlab="Requirement", ylab="Allocated funds\n")
 lines(spend_per_req[req_rank]+req_spend_sd[req_rank], col=pal_col[2])
 lines(spend_per_req[req_rank]-req_spend_sd[req_rank], col=pal_col[2])

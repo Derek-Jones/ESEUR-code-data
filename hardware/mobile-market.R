@@ -1,5 +1,5 @@
 #
-# mobile-market.R,  6 Jul 17
+# mobile-market.R, 22 May 20
 #
 # Data from:
 # http://jeremyreimer.com/m-item.lsp?i=137
@@ -9,9 +9,10 @@
 # Gartner, via https://en.wikipedia.org/wiki/Mobile_operating_system
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
-
+#
+# TAG computer_shipments
 
 source("ESEUR_config.r")
 
@@ -68,8 +69,9 @@ all_sales$total_units=daply(all_sales, .(Year), sum_units)
 
 
 plot(1, type="n",
-	xlim=c(2000, 2017), ylim=c(1, 90),
-	xlab="Year", ylab="Percentage total units shipped\n")
+	xaxs="i", yaxs="i",
+	xlim=c(2000, 2017), ylim=c(0, 90),
+	xlab="Year", ylab="Total units shipped (percentage)\n")
 
 plot_ms(all_sales$Android, 1)
 plot_ms(all_sales$Blackberry, 2)

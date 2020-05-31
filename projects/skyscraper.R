@@ -1,5 +1,5 @@
 #
-# skyscraper.R, 21 Mar 19
+# skyscraper.R, 23 May 20
 # Data from:
 # nintil.com/2018/10/07/building-skyscrapers-and-spending-on-major-projects
 # Jose Luis Recon
@@ -15,6 +15,8 @@ source("ESEUR_config.r")
 
 library("plyr")
 
+
+pal_col=rainbow(2)
 
 mean_sd_year=function(df)
 {
@@ -54,15 +56,15 @@ sk=subset(sk, Construction.Years >= 1)
 
 m_year_mean=ddply(sk, .(Started), mean_sd_m_per_year)
 
-plot(m_year_mean$Started, m_year_mean$mean, col=point_col,
+plot(m_year_mean$Started, m_year_mean$mean, col=pal_col[1],
 	xlim=c(1960, 2016),
 	xlab="Year started", ylab="Rate of construction (meter/year)\n")
 
 arrows(m_year_mean$Started, m_year_mean$mean,
-                m_year_mean$Started, m_year_mean$mean-m_year_mean$sd, col=point_col,
+                m_year_mean$Started, m_year_mean$mean-m_year_mean$sd, col=pal_col[2],
                 length=0.1, angle=90, lwd=1.3)
 arrows(m_year_mean$Started, m_year_mean$mean,
-                m_year_mean$Started, m_year_mean$mean+m_year_mean$sd, col=point_col,
+                m_year_mean$Started, m_year_mean$mean+m_year_mean$sd, col=pal_col[2],
                 length=0.1, angle=90, lwd=1.3)
 
 

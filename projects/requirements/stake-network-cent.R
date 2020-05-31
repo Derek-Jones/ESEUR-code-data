@@ -1,13 +1,16 @@
 #
-# stake-network-cent.R, 16 Oct 17
+# stake-network-cent.R, 24 May 20
 #
 # Data from:
 # Social Networks and Collaborative Filtering for Large-Scale Requirements Elicitation
 # Soo Ling Lim
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG requirements_elicitation
+
 
 source("ESEUR_config.r")
 
@@ -32,7 +35,9 @@ closed_p_r=page.rank(closed_graph, weights=closed_rec$Priority)
 open_p_r=page.rank(open_graph, weights=open_rec$Priority)
 
 plot(sort(open_p_r$vector, decreasing=TRUE), log="y", col=pal_col[1],
-		 xlab="Stakeholder", ylab="Salience\n")
+		xaxs="i",
+		xlim=c(0, 130),
+		xlab="Stakeholder", ylab="Salience\n")
 points(sort(closed_p_r$vector, decreasing=TRUE), col=pal_col[2])
 
 x=1:length(open_p_r$vector)

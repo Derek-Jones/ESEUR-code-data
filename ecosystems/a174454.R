@@ -1,5 +1,5 @@
 #
-# a174454.R, 10 Aug 19
+# a174454.R, 23 May 20
 #
 # Data from:
 # A Study of Software Maintenance Costs of {Air Force} Large Scale Computer Systems
@@ -61,7 +61,8 @@ lines(Fortran$year, Fortran$LOC/1e6, col=pal_col[2])
 lines(Other$year, Other$LOC/1e6, col=pal_col[3])
 lines(Assembler$year, Assembler$LOC/1e6, col=pal_col[4])
 
-legend(x="topleft", legend=c("Cobol", "Fortran", "Other", "Assembler"), bty="n", fill=pal_col, cex=1.2)
+legend(x="topleft", legend=c("Cobol", "Fortran", "Other", "Assembler"),
+			inset=-c(0.02, 0), bty="n", fill=pal_col, cex=1.2)
 
 plot(Cobol$year, Cobol$dev.cost/1e6, col=pal_col[1], log="y", type="l",
 	xlab="Year", ylab="Development cost ($million)\n")
@@ -69,7 +70,8 @@ plot(Cobol$year, Cobol$dev.cost/1e6, col=pal_col[1], log="y", type="l",
 lines(Fortran$year, Fortran$dev.cost/1e6, col=pal_col[2])
 lines(Other$year, Other$dev.cost/1e6, col=pal_col[3])
 
-legend(x="topleft", legend=c("Cobol", "Fortran", "Other"), bty="n", fill=pal_col, cex=1.2)
+legend(x="topleft", legend=c("Cobol", "Fortran", "Other"),
+			inset=-c(0.02, 0), bty="n", fill=pal_col, cex=1.2)
 
 # plot(Fortran$LOC, Fortran$dev.cost, col=pal_col[1], log="xy",
 # 	xlab="LOC", ylab="Development cost\n")

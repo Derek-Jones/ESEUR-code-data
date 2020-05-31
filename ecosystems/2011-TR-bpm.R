@@ -1,13 +1,15 @@
 #
-# 2011-TR-bpm.R,  3 Jul 17
+# 2011-TR-bpm.R, 20 May 20
 #
 # Data from:
 # An Empirical Study on Consistency Management of Business and {IT} Process Models
 # Mois{\'e}s Castelo Branco and Yingfei Xiong and Krzysztof Czarnecki and Jochen K{\"u}ster and Hagen V{\"o}lzer
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG business_change-requests
 
 source("ESEUR_config.r")
 
@@ -26,8 +28,9 @@ lines(P1$MONTH, kind, type="l", col=pal_col[col_num])
 }
 
 plot(P1$MONTH, P1$NONE, type="n",
+	xaxs="i", yaxs="i",
 	ylim=ybounds,
-	xlab="Date", ylab="Number of changes\n")
+	xlab="Date", ylab="Changes\n")
 plot_change(P1$NONE, 1)
 plot_change(P1$BPEL, 2)
 plot_change(P1$BOTH, 3)

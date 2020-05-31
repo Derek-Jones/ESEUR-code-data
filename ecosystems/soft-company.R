@@ -1,12 +1,14 @@
 #
-# soft-company.R, 20 Nov 17
-#
+# soft-company.R, 22 May 20
 # Data from:
 # OpenCorporates.org
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG company_software company_hardware company_UK
+
 
 source("ESEUR_config.r")
 
@@ -35,7 +37,7 @@ t$Date=as.Date(t$Var1, format="%Y-%m-%d")
 
 plot(t$Date, t$Freq, log="y", col=pal_col[1],
 	xlim=range(ch$IncorporationDate),
-	xlab="Date", ylab="New company registrations")
+	xlab="Date", ylab="New company registrations\n")
 
 t=as.data.frame(table(comp$Incorporation_M_Y))
 t$Date=as.Date(t$Var1, format="%Y-%m-%d")

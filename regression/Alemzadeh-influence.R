@@ -14,6 +14,9 @@
 source("ESEUR_config.r")
 
 
+library("car")
+
+
 brew_col=rainbow(3)
 
 # Recall_Number,Date,Year,Trade_Name,Recalling_Firm,Recall_Class,Reason_Recall,Action

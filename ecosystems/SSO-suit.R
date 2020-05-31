@@ -5,8 +5,10 @@
 # Timothy Simcoe
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG standard-committee
 
 source("ESEUR_config.r")
 
@@ -89,13 +91,28 @@ obs_sub$st_aut3=(1-obs_sub$nsrfc)*obs_sub$aut3
 
 non_std=subset(obs_sub, exiType == 3 & ttlDur<2007 & stbafl1yr>=50)
 std=subset(obs_sub, exiType == 4 & ttlDur<2007 & stbafl1yr>=50)
+
 plot(non_std$stbafl1yr, non_std$ttlDur, col=hcl_col[2],
 	yaxs="i",
 	ylim=c(0, 1500),
 	xlab="Suit-share", ylab="Production time (days)\n")
 points(std$stbafl1yr, std$ttlDur, col=hcl_col[1])
 lines(loess.smooth(non_std$stbafl1yr, non_std$ttlDur, span=0.3), col=pal_col[2])
-lines(loess.smooth(std$stbafl1yr, std$ttlDur, span=0.3), col=pal_col[1])
+# lines(loess.smooth(std$stbafl1yr, std$ttlDur, span=0.3), col=pal_col[1])
 
 legend(x="topleft", legend=c("Standard", "non-Standard"), bty="n", fill=pal_col, cex=1.2)
+
+# nstd_mod=glm(ttlDur ~ stbafl1yr+I(stbafl1yr^2), data=non_std)
+#  nstd_mod=nls(ttlDur ~ a+b*stbafl1yr^c, data=non_std, trace=TRUE,
+#				 start=list(a=1062, b=-2.2, c=1.2))
+# summary(nstd_mod)
+
+std_mod=glm(ttlDur ~ stbafl1yr, data=std)
+# summary(std_mod)
+
+pred=predict(std_mod, se.fit=TRUE, newdata=data.frame(stbafl1yr=50:100))
+
+lines(50:100, pred$fit, col=pal_col[1])
+lines(50:100, pred$fit+1.96*pred$se.fit, col=pal_col[1], lty=2)
+lines(50:100, pred$fit-1.96*pred$se.fit, col=pal_col[1], lty=2)
 

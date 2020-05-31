@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG management project duration team_size effort
+# TAG management_effort project_effort duration team_size
 
 
 source("ESEUR_config.r")

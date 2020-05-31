@@ -1,5 +1,5 @@
 #
-# Landman_m_ccsloc.R, 24 Feb 20
+# Landman_m_ccsloc.R, 30 May 20
 #
 # Data from:
 # Empirical analysis of the relationship between {CC} and {SLOC} in a large corpus of {Java} methods and {C} functions
@@ -16,6 +16,9 @@ source("ESEUR_config.r")
 
 
 library("plyr")
+
+
+par(mar=MAR_default+c(0.0, 0.7, 0, 0))
 
 pal_col=rainbow(2)
 
@@ -58,7 +61,7 @@ t_C=count(C_loc$sloc)
 plot(t_C, log="xy", col=pal_col[1],
 	xaxs="i",
 	xlim=c(0.9, 1e4), ylim=c(1, 1e7),
-	xlab="SLOC", ylab="Methods/Functions\n")
+	xlab="SLOC", ylab="Methods/Functions\n\n")
 
 t_J=count(Java_loc$sloc)
 points(t_J, col=pal_col[2])

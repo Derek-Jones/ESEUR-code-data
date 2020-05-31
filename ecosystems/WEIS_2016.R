@@ -1,18 +1,22 @@
 #
-# WEIS_2016.R, 16 Mar 18
+# WEIS_2016.R, 27 May 20
 # Data from:
 # Given Enough Eyeballs, All Bugs Are Shallow? {Revisiting} {Eric Raymond} with Bug Bounty Programs
 # Thomas Maillart and Mingyi Zhao and Jens Grossklags and John Chuang
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG bug-bounties developer_economics
 
 source("ESEUR_config.r")
 
 
 library("plyr")
 
+
+par(mar=MAR_default+c(0.0, 0.7, 0, 0))
 
 pal_col=rainbow(2)
 
@@ -27,7 +31,7 @@ V_bounty$Date=as.Date(V_bounty$TimeStamp, format="%Y/%m/%d")
 r_total=ddply(bounty, .(Researcher), function(df) sum(df$Bounty))
 
 plot(sort(r_total$V1, decreasing=TRUE), log="xy", col=pal_col[1],
-	xlab="Researcher", ylab="Dollars awarded\n")
+	xlab="Researcher", ylab="Dollars awarded\n\n")
 
 
 # plot(sort(table(bounty$Researcher)), log="y")

@@ -1,5 +1,5 @@
 #
-# Little-change.R, 29 Sep 19
+# Little-change.R, 24 May 20
 #
 # Data from:
 # Schedule Estimation and Uncertainty Surrounding the Cone of Uncertainty
@@ -122,6 +122,7 @@ u_est=ddply(est, .(Project.Code), mk_target_unique)
 # 
 # 
 plot(0, type="n",
+	xaxs="i",
 	xlim=c(0, 100), ylim=c(-75, 75),
 	xlab="Estimated percentage complete", ylab="Change percentage")
 

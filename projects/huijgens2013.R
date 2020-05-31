@@ -1,12 +1,14 @@
 #
-# huijgens2013.R, 15 Sep 17
+# huijgens2013.R, 24 May 20
 # Data from:
 # Measuring Best-in-Class Software Releases
 # Hennie Huijgens and Rini van Solingen
 
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG requirement_cost function-point_cost story-point_cost
 
 source("ESEUR_config.r")
 
@@ -18,6 +20,7 @@ pal_col=rainbow(3)
 cost_ratio=function(project)
 {
 plot(project$Date, project$Cost/project$FP, type="b", col=pal_col[2],
+	yaxs="i",
 	ylim=c(0, max(project$Cost/project$Req)),
 	xlab="Date", ylab="Cost per\n")
 

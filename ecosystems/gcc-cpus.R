@@ -1,5 +1,5 @@
 #
-# gcc-cpus.R,  9 Aug 19
+# gcc-cpus.R, 22 May 20
 # Data from:
 # Extracted from release pages at: https://gcc.gnu.org/onlinedocs
 #
@@ -92,8 +92,8 @@ life_cpus=ddply(all_cpus, .(cpus), cpu_lifetime)
 cpu_surv=survfit(Surv(life_cpus$days, life_cpus$censored) ~ 1)
 
 plot(cpu_surv, col=pal_col[2],
-	yaxs="i",
-	ylim=c(0.4, 1),
+	xaxs="i", yaxs="i",
+	ylim=c(0.5, 1),
 	xlab="Days", ylab="Survival\n")
 
 

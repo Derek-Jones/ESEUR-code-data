@@ -1,5 +1,5 @@
 #
-# p55-cpudb.R, 21 Feb 16
+# p55-cpudb.R, 22 May 20
 #
 # Data from:
 # CPU DB: Recording Microprocessor History
@@ -7,13 +7,17 @@
 # Modified version of source downloaded  4 July 2014 from:
 #  http://cpudb.stanford.edu/download
 #
-#
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG cpu_transistors frequency_evolution
+
 
 source("ESEUR_config.r")
 
+
+par(mar=MAR_default+c(0.0, 0.7, 0, 0))
 
 pal_col=rainbow(3)
 
@@ -92,7 +96,7 @@ scaleperfnorm =min(all[["perfnorm"]], na.rm=TRUE)
 
 # make the plot
 plot(dates, all[["transistors"]]/scaletrans, log="y", col=pal_col[1], bg=1, pch=22,
-	xlab="Date of introduction", ylab="Relative frequency increase\n")
+	xlab="Date of introduction", ylab="Relative frequency increase\n\n")
 points_and_smooth(dates, all[["transistors"]]/scaletrans, 1, 22)
 points_and_smooth(dates, all[["max_clock"]]/scaleclk, 2, 20)
 points_and_smooth(dates, all[["tdp"]]/scaletdp, 3, 24)
