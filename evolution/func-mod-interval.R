@@ -1,5 +1,5 @@
 #
-# func-mod-interval.R, 28 May 20
+# func-mod-interval.R, 28 Jun 20
 #
 # Data from:
 # Modification and developer metrics at the function level: Metrics for the study of the evolution of a software project
@@ -45,16 +45,16 @@ return(q)
 ev_den=func_mod_density("ev_funcmod.tsv.xz", "ev_rev_date.csv.xz")
 ap_den=func_mod_density("ap_funcmod.tsv.xz", "ap_rev_date.csv.xz")
 
-plot(ev_den, log="y", col=pal_col[1],
+plot(ev_den$x, ev_den$y*1e6, log="y", type="l", col=pal_col[1],
 	main="",
 	xaxt="n",
 	xaxs="i", yaxs="i",
-	xlim=c(0, 11.5), ylim=c(1e-8,4e-1),
-	xlab="Hours", ylab="Function modifications (density)\n\n")
+	xlim=c(0, 11.5), ylim=c(1e-0,4e+5),
+	xlab="Hours", ylab="Function modifications (density * 10^6)\n\n")
 
 axis(1, at=0:11, label=round(exp(0:11)))
 
-lines(ap_den, col=pal_col[2])
+lines(ap_den$x, ap_den$y*1e6, col=pal_col[2])
 
-legend(x="topright", legend=c("Evolution", "Apache"), bty="n", fill=pal_col, cex=1.2)
+legend(x="bottomleft", legend=c("Evolution", "Apache"), bty="n", fill=pal_col, cex=1.2)
 

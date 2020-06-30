@@ -1,13 +1,15 @@
 #
-# icse14-mutant.R, 21 Feb 18
-#
+# icse14-mutant.R,  4 Jun 20
 # Data from:
 # Code Coverage for Suite Evaluation by Developers
 # Rahul Gopinath and Carlos Jensen and Alex Groce
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG testing_mutants coverage_mutants
+
 
 source("ESEUR_config.r")
 
@@ -63,7 +65,8 @@ legend(legend_pos,
 	c(expression(LOC %~~% 10^2), expression(LOC %~~% 10^3), expression(LOC %~~% 10^4)),
 	pch=21, bty='n',
 	pt.cex=c(0.5, 1.0, 1.7),
-	col=c(pal_col[1+4], pal_col[1+6], pal_col[1+8]))
+	col=c(pal_col[1+4], pal_col[1+6], pal_col[1+8]),
+	cex=1.2)
 
 return(mc_mod)
 }
@@ -71,7 +74,7 @@ return(mc_mod)
 x_bounds=seq(0.01, 0.99, by=0.01)
 
 lm_mod=mut_coverage(cov_info$line_cov, cov_info$mut_cov,
-	"Statement coverage", "Percentage mutants killed", "bottomright")
+	"Statement coverage", "Percentage mutants killed", "top")
 # mut_coverage(cov_info$block_cov, cov_info$mut_cov,
 # 	"Block coverage", "Percentage mutants killed", "bottomright")
 # mut_coverage(cov_info$branch_cov, cov_info$mut_cov,

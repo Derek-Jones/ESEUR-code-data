@@ -1,0 +1,5 @@
+    : ???	linker references
+    : 007 08-11  Phase 8 - linking
+    : 022 10-11 3.1.2.2 linking items in a set of translation units
+    : 026 04-08 3.1.2.6 struct, union, enum compatibility
+    : 082 23-25 3.7 somewhere in the entire program there shall be a defn

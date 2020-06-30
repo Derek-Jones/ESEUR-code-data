@@ -1,5 +1,5 @@
 #
-# fuzzingModel, 26 May 20
+# fuzzingModel.R, 26 Jun 20
 # Data from:
 # Empirical Analysis and Modeling of Black-Box Mutational Fuzzing
 # Mingyi Zhao and Peng Liu
@@ -14,11 +14,17 @@
 source("ESEUR_config.r")
 
 
+# The igraph package (which might be loaded when building the book)
+# contains functions found in gnm.  The treemap package might also have
+# been loaded, and its 'load' of igraph cannot be undone without first
+# unloading treemap!
+unloadNamespace("treemap")
+unloadNamespace("igraph")
+
 library("gnm")
 
 
 # plot_layout(3, 2)
-plot_layout(2, 1)
 
 pal_col=rainbow(3)
 
@@ -59,7 +65,7 @@ fuz=read.csv(paste0(ESEUR_dir, "reliability/fuzzingModel.csv.xz"), as.is=TRUE)
 # mupdf=bi_exp_fit(fuz$mupdf, 85, -0.5, 5, -0.02, "mupdf")
 convert=bi_exp_fit(fuz$convert, 3000, -0.1, 500, -0.1, "convert")
 # ffmpeg=bi_exp_fit(fuz$ffmpeg, 2000, -0.5, 100, -0.08, "ffmpeg")
-autotrace=bi_exp_fit(fuz$autotrace, 1000, -0.4, 25, -0.09, "autotrace")
+# autotrace=bi_exp_fit(fuz$autotrace, 1000, -0.4, 25, -0.09, "autotrace")
 # jpegtran=bi_exp_fit(fuz$jpegtran, 40, -0.2, 2, -0.07, "jpegtran")
 
 # prog=subset(data.frame(count=fuz$mupdf, ind=1:length(fuz$mupdf)), !is.na(count))

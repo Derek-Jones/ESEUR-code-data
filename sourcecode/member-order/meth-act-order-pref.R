@@ -6,8 +6,11 @@
 # Benjamin Biegel and Fabian Beck and Willi Hornig and Stephan Diehl
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG
+
 
 source("ESEUR_config.r")
 
@@ -15,6 +18,10 @@ source("ESEUR_config.r")
 library("plyr")
 library("prefmod") # Needed for pattR.fit and patt.worth
 
+
+# Shrink to accommodate other plots in same margin of the book
+plot_layout(1, 1, default_height=5)
+par(mar=MAR_default-c(0.8, 0, 0, 0))
 
 par(bty="n")
 

@@ -1,0 +1,1129 @@
+    : ??? SUPPLEMENT		LastMod 10 Mar 91  DJ 
+    : ???			Created 19 Sep 89  SAC
+    : ???
+    : ??? Supplement to references to the ANSI C standard
+    : ???
+    : ??? This file contains all the references to the standard that are not
+    : ??? logically covered by the compiler source - they include forward
+    : ??? references, examples and headings
+    : ???
+    : 001 01-01  Introduction
+    : 001 02-02  Purpose
+    : 001 05-05  Scope
+    : 002 01-01  References
+    : 002 12-12  Organization
+    : 002 23-23  Base Documents
+    : 002 29-29  Definition of terms
+    : 004 06-13  Examples
+    : 004 14-15  Forward reference
+    : 004 16-16  Compliance
+    : 004 30-31* Forward reference
+    : 005 01-01  Future Directions
+    : 005 09-09* Forward reference
+    : 006 01-01  Environment
+    : 006 07-08  Forward reference
+    : 006 09-09  Conceptual Models
+    : 006 10-10  Translation environment
+    : 006 11-11  Program structure
+    : 006 21-22  Forward reference
+    : 006 23-23  Translation phases
+    : 007 12-13  Forward reference
+    : 007 14-14  Diagnostics
+    : 007 18-18  Execution environments
+    : 007 24-24  Forward reference
+    : 007 25-25  Freestanding environment
+    : 007 31-31  Hosted environment
+    : 007 34-34  Program startup
+    : 008 19-19  Program execution
+    : 008 22-22  Program termination
+    : 008 27-27  Forward reference
+    : 008 28-28  Program execution
+    : 009 13-46* Examples concerning abstract and virtual machines...
+    : 010 01-33  Examples continued
+    : 010 34-35* Forward reference
+    : 011 01-01  Environmental Considerations
+    : 011 02-02  Character sets
+    : 011 32-33  Forward reference
+    : 011 34-34  Trigraph sequences
+    : 012 12-16  Example of trigraphs
+    : 012 17-17  Multibyte characters
+    : 013 01-01  Character display semantics
+    : 013 26-26  Forward reference
+    : 013 27-27  Signals and interrupts
+    : 013 35-35  Environmental limits
+    : 013 39-39  Translation limits
+    : 014 26-26  Numerical limits
+    : 014 29-29  Sizes of integral types <limits.h>
+    : 015 31-31  Characteristics of floating types <float.h>
+    : 017 28-45* Examples of conforming floating point values...
+    : 018 01-22  Examples continued
+    : 018 23-23* Forward reference
+    : 019 01-01  Language
+    : 019 09-09  Lexical elements
+    : 019 10-10  Syntax
+    : 019 27-27  Constraints
+    : 019 30-30  Semantics
+    : 020 01-08  Examples of tokens
+    : 020 09-12  Forward reference
+    : 020 13-13  Keywords
+    : 020 14-14  Syntax
+    : 020 24-24  Semantics
+    : 020 27-27  Identifiers
+    : 020 28-28  Syntax
+    : 020 40-40  Description
+    : 020 43-43  Constraints
+    : 021 01-01  Semantics
+    : 021 10-10  Implementation limits
+    : 021 19-19  Forward reference
+    : 021 20-20  Scopes of identifiers
+    : 022 01-05  Forward reference
+    : 022 06-06  Linkages of identifiers
+    : 022 29-30  Forward reference
+    : 022 31-31  Name spaces of identifiers
+    : 023 01-03  Forward reference
+    : 023 04-04  Storage duration of objects
+    : 023 22-23  Forward reference
+    : 023 24-24  Types
+    : 025 28-35  Examples of types
+    : 025 36-37* Forward reference
+    : 026 01-01  Compatible and composite types
+    : 026 21-26  Examples of composite types
+    : 026 27-28  Forward reference
+    : 026 29-29  Constants
+    : 026 30-30  Syntax
+    : 026 36-36  Constraints
+    : 027 01-01  Semantics
+    : 027 03-03  Floating constants
+    : 027 04-04  Syntax
+    : 027 21-21  Description
+    : 027 29-29  Semantics
+    : 027 38-38  Integer constants
+    : 027 39-39  Syntax
+    : 028 26-26  Description
+    : 028 34-34  Semantics
+    : 029 01-01  Enumeration constants
+    : 029 02-02  Syntax
+    : 029 05-05  Semantics
+    : 029 07-07  Forward reference
+    : 029 08-08  Character constants
+    : 029 09-09  Syntax
+    : 029 34-34  Description
+    : 030 23-23  Constraints
+    : 030 27-27  Semantics
+    : 031 01-17  Examples of character constants
+    : 031 18-19  Forward reference
+    : 031 20-20  String literals
+    : 031 21-21  Syntax
+    : 031 32-32  Description
+    : 031 39-39  Semantics
+    : 032 08-13  Examples of string literals
+    : 032 14-14  Forward reference
+    : 032 15-15  Operators
+    : 032 16-16  Syntax
+    : 032 24-24  Constraints
+    : 032 27-27  Semantics
+    : 032 31-31  Forward reference
+    : 032 32-32  Punctuators
+    : 032 33-33  Syntax
+    : 032 36-36  Constraints
+    : 033 01-01  Semantics
+    : 033 05-06  Forward reference
+    : 033 07-07  Header names
+    : 033 08-08  Syntax
+    : 033 24-24  Constraints
+    : 033 27-27  Semantics
+    : 033 33-39* Examples of preprocessing tokens...
+    : 034 01-03  Examples
+    : 034 04-04  Forward reference
+    : 034 05-05  Preprocessing numbers
+    : 034 06-06  Syntax
+    : 034 15-15  Description
+    : 034 19-19  Semantics
+    : 034 23-23  Comments
+    : 035 01-01  Conversions
+    : 035 09-09  Forward reference
+    : 035 10-10  Arithmetic operands
+    : 035 11-11  Characters and integers
+    : 035 19-19  Forward reference
+    : 035 20-20  Signed and unsigned integers
+    : 036 01-01  Floating and integral
+    : 036 08-08  Floating types
+    : 036 16-16  Usual arithmetic conversions
+    : 037 01-01  Other operands
+    : 037 02-02  Lvalues and function designators
+    : 037 23-26  Forward reference
+    : 037 27-27  void
+    : 037 33-33  Pointers
+    : 038 07-08* Forward reference
+    : 039 01-01  Expressions
+    : 040 01-01  Primary expressions
+    : 040 02-02  Syntax
+    : 040 08-08  Semantics
+    : 040 18-18  Forward reference
+    : 040 19-19  Postfix operators
+    : 040 20-20  Syntax
+    : 040 32-32  Array subscripting
+    : 040 33-33  Constraints
+    : 040 36-36  Semantics
+    : 041 04-13  Example of array indexing
+    : 041 14-15  Forward reference
+    : 041 16-16  Function calls
+    : 041 17-17  Constraints
+    : 041 24-24  Semantics
+    : 042 24-28  Example
+    : 042 29-30  Forward reference
+    : 042 31-31  Structure and union members
+    : 042 32-32  Constraints
+    : 042 38-38  Semantics
+    : 043 09-31  Example of unions
+    : 043 32-33  Forward reference
+    : 043 34-34  Postfix increment and decrement operators
+    : 043 35-35  Constraints
+    : 044 01-01  Semantics
+    : 044 10-10  Forward reference
+    : 044 11-11  Unary operators
+    : 044 12-12  Syntax
+    : 044 22-22  Prefix increment and decrement operators
+    : 044 23-23  Constraints
+    : 044 26-26  Semantics
+    : 044 33-33  Forward reference
+    : 044 34-34  Address and indirection operators
+    : 044 35-35  Constraints
+    : 044 40-40  Semantics
+    : 045 03-03  Forward reference
+    : 045 04-04  Unary arithmetic operators
+    : 045 05-05  Constraints
+    : 045 08-08  Semantics
+    : 045 22-22  Forward reference
+    : 045 23-23  The sizeof operator
+    : 045 24-24  Constraints
+    : 045 28-28  Semantics
+    : 046 04-13  Examples of sizeof
+    : 046 14-15  Forward reference
+    : 046 16-16  Cast operators
+    : 046 17-17  Syntax
+    : 046 21-21  Constraints
+    : 046 24-24  Semantics
+    : 046 41-42* footnote: runtime mapping of pointer <-> int
+    : 047 08-09  Forward reference
+    : 047 10-10  Multiplicative operators
+    : 047 11-11  Syntax
+    : 047 17-17  Constraints
+    : 047 20-20  Semantics
+    : 047 32-32  Additive operators
+    : 047 33-33  Syntax
+    : 047 38-38  Constraints
+    : 048 03-03  Semantics
+    : 049 01-01  Forward reference
+    : 049 02-02  Bitwise shift operators
+    : 049 03-03  Syntax
+    : 049 08-08  Constraints
+    : 049 10-10  Semantics
+    : 049 23-23  Relational operators
+    : 049 24-24  Syntax
+    : 049 31-31  Constraints
+    : 049 36-36  Semantics
+    : 050 14-14  Equality operators
+    : 050 15-15  Syntax
+    : 050 20-20  Constraints
+    : 050 27-27  Semantics
+    : 051 01-01  Bitwise AND operator
+    : 051 02-02  Syntax
+    : 051 06-06  Constraints
+    : 051 08-08  Semantics
+    : 051 12-12  Bitwise exclusive OR operator
+    : 051 13-13  Syntax
+    : 051 17-17  Constraints
+    : 051 19-19  Semantics
+    : 051 24-24  Bitwise inclusive OR operator
+    : 051 25-25  Syntax
+    : 051 29-29  Constraints
+    : 051 31-31  Semantics
+    : 052 01-01  Logical AND operator
+    : 052 02-02  Syntax
+    : 052 06-06  Constraints
+    : 052 08-08  Semantics
+    : 052 14-14  Logical OR operator
+    : 052 15-15  Syntax
+    : 052 19-19  Constraints
+    : 052 21-21  Semantics
+    : 052 27-27  Conditional operator
+    : 052 28-28  Syntax
+    : 052 32-32  Constraints
+    : 053 01-01  Semantics
+    : 053 17-17  Assignment operators
+    : 053 18-18  Syntax
+    : 053 24-24  Constraints
+    : 053 26-26  Semantics
+    : 053 34-34  Simple assignment
+    : 053 35-35  Constraints
+    : 054 07-07  Semantics
+    : 054 13-23  Example of simple assignment
+    : 054 24-24  Compound assignment
+    : 054 25-25  Constraints
+    : 054 31-31  Semantics
+    : 054 34-34  Comma operator
+    : 054 35-35  Syntax
+    : 054 39-39  Semantics
+    : 055 01-07  Example of comma expression
+    : 055 08-08* Forward reference
+    : 056 01-01  Constant Expressions
+    : 056 02-02  Syntax
+    : 056 05-05  Decsription
+    : 056 08-08  Constraints
+    : 056 13-13  Semantics
+    : 057 04-04* Forward reference
+    : 058 01-01  Declarations
+    : 058 02-02  Syntax
+    : 058 15-15  Constraints
+    : 058 22-22  Semantics
+    : 058 32-33* Forward reference
+    : 059 01-01  Storage-class specifiers
+    : 059 02-02  Syntax
+    : 059 09-09  Constraints
+    : 059 12-12  Semantics
+    : 059 21-22  Forward reference
+    : 059 22-22  Type specifiers
+    : 059 23-23  Syntax
+    : 060 01-01  Constraints
+    : 060 21-21  Semantics
+    : 060 27-28  Forward reference
+    : 060 29-29  Structure and union specifiers
+    : 060 30-30  Syntax
+    : 061 12-12  Constraints
+    : 061 18-18  Semantics
+    : 062 15-15  Forward reference
+    : 062 16-16  Enumeration specifiers
+    : 062 17-17  Syntax
+    : 062 27-27  Constraints
+    : 062 30-30  Semantics
+    : 063 01-12  Example of enumeration type
+    : 063 13-13  Forward reference
+    : 063 14-14  Tags
+    : 063 15-15  Semantics
+    : 064 06-35  Examples of struct declarations
+    : 064 36-36* Forward reference
+    : 065 01-01  Type qualifiers
+    : 065 02-02  Syntax
+    : 065 06-06  Constraints
+    : 065 09-09  Semantics
+    : 065 29-34* Examples of const and volatile...
+    : 066 01-13  Examples continued
+    : 066 13-13  Declarators
+    : 066 14-14  Syntax
+    : 066 41-41  Semantics
+    : 067 12-12  Implementation limits
+    : 067 16-16  Forward reference
+    : 067 17-17  Pointer declarators
+    : 067 18-18  Semantics
+    : 067 26-39* Examples of pointer declarators
+    : 068 01-01  Array declarators
+    : 068 02-02  Constraints
+    : 068 05-05  Semantics
+    : 068 13-20  Examples of array declarators
+    : 068 21-21  Forward reference
+    : 068 22-22  Function declarators (including prototypes)
+    : 068 23-23  Constraints
+    : 068 28-28  Semantics
+    : 069 26-43* Examples of function declarators...
+    : 070 01-09  Examples continued
+    : 070 10-10  Forward reference
+    : 070 11-11  Type names
+    : 070 12-12  Syntax
+    : 070 22-22  Semantics
+    : 070 26-39* Examples of type names
+    : 071 01-01  Type definitions
+    : 071 02-02  Syntax
+    : 071 05-05  Semantics
+    : 071 18-46* Examples of type definitions...
+    : 072 01-19  Examples continued
+    : 072 20-20  Forward reference
+    : 072 21-21  Initialization
+    : 072 22-22  Syntax
+    : 072 30-30  Constraints
+    : 072 37-37  Semantics
+    : 073 35-39* Examples of initializers...
+    : 074 01-42* Examples ...continued...
+    : 075 01-26  Examples ...continued
+    : 075 27-27* Forward reference
+    : 076 01-01  Statements
+    : 076 02-02  Syntax
+    : 076 10-10  Semantics
+    : 076 18-19  Forward reference
+    : 076 20-20  Labeled statements
+    : 076 21-21  Syntax
+    : 076 26-26  Constraints
+    : 076 29-29  Semantics
+    : 076 32-32  Forward reference
+    : 076 33-33  Compound statement, or block
+    : 076 34-34  Syntax
+    : 077 01-01  Semantics
+    : 077 06-06  Expression and null statements
+    : 077 07-07  Syntax
+    : 077 10-10  Semantics
+    : 077 14-39  Examples of expression and null stmts
+    : 077 40-40* Forward reference
+    : 078 01-01  Selection statements
+    : 078 02-02  Syntax
+    : 078 07-07  Semantics
+    : 078 10-10  The if statement
+    : 078 11-11  Constraints
+    : 078 13-13  Semantics
+    : 078 19-19  The switch statement
+    : 078 20-20  Constraints
+    : 078 27-27  Semantics
+    : 078 38-38  Implementation limits
+    : 078 41-42* Example of switch statement...
+    : 079 01-14  Examples ...continued
+    : 079 14-14  Iteration statements
+    : 079 15-15  Syntax
+    : 079 20-20  Constraints
+    : 079 22-22  Semantics
+    : 079 25-25  The while statement
+    : 079 28-28  The do statement
+    : 079 30-30  The for statement
+    : 080 03-03  Forward reference
+    : 080 04-04  Jump statements
+    : 080 05-05  Syntax
+    : 080 11-11  Semantics
+    : 080 13-13  The goto statement
+    : 080 14-14  Constraints
+    : 080 17-17  Semantics
+    : 080 20-42* Example of goto statements
+    : 081 01-01  The continue statement
+    : 081 02-02  Constraints
+    : 081 04-04  Semantics
+    : 081 16-16  The break statement
+    : 081 17-17  Constraints
+    : 081 19-19  Semantics
+    : 081 22-22  The return statement
+    : 081 23-23  Constraints
+    : 081 26-26  Semantics
+    : 082 01-01  External Definitions
+    : 082 02-02  Syntax
+    : 082 09-09  Constraints
+    : 082 16-16  Semantics
+    : 082 26-26  Function definitions
+    : 082 27-27  Syntax
+    : 082 30-30  Constraints
+    : 082 35-45* Examples of func defs and typedefs
+    : 083 12-12  Semantics 
+    : 083 29-38* Example of function definitions...
+    : 084 01-24  Examples ...continued
+    : 084 25-25  External object definitions
+    : 084 26-26  Semantics
+    : 084 37-42* Example of external object definitions...
+    : 085 01-10* Examples ...continued
+    : 086 01-01  Preprocessing Directives
+    : 086 02-02  Syntax
+    : 087 01-01  Description
+    : 087 06-06  Constraints
+    : 087 11-11  Semantics
+    : 087 17-17  Conditional inclusion
+    : 087 18-18  Constraints
+    : 087 30-30  Semantics
+    : 088 25-25  Forward reference
+    : 088 26-26  Source file inclusion
+    : 088 27-27  Constraints
+    : 088 30-30  Semantics
+    : 089 26-40* Examples of #include usage
+    : 090 01-01  Forward reference
+    : 090 02-02  Macro replacement
+    : 090 03-03  Constraints
+    : 090 18-18  Semantics
+    : 091 09-09  Argument substitution
+    : 091 16-16  The # operator
+    : 091 17-17  Constraints
+    : 091 20-20  Semantics
+    : 091 32-32  The ## operator
+    : 091 33-33  Constraints
+    : 091 36-36  Semantics
+    : 092 01-01  Rescanning and further replacement
+    : 092 13-13  Scope of macro definitions
+    : 092 20-45* Examples of macro definitions and...
+    : 093 01-44* Examples ...redefinitions and reexamination
+    : 094 01-01  Line control
+    : 094 02-02  Constraints
+    : 094 04-04  Semantics
+    : 094 24-24  Error directive
+    : 094 25-25  Semantics
+    : 094 30-30  Pragma directive
+    : 094 31-31  Semantics
+    : 095 01-01  Null directive
+    : 095 02-02  Semantics
+    : 095 06-06  Predefined maccro names
+    : 095 24-24* Forward reference
+    : 096 01-01  Future Language Directions
+    : 096 02-02  External names
+    : 096 05-05  Character escape sequences
+    : 096 08-08  Storage-class specifiers
+    : 096 11-11  Function declarators
+    : 096 14-14  Function definitions
+    : 096 17-17  Array parameters
+    : 097 01-01  Library
+    : 097 02-02  Introduction
+    : 097 03-03  Definition of terms
+    : 097 15-15  Forward reference
+    : 097 16-16  Standard headers
+    : 097 38-38* Forward reference
+    : 098 01-01  Reserved identifiers
+    : 098 19-19  Errors <errno.h>
+    : 099 03-03  Limits <float.h> and <limits.h>
+    : 099 08-08  Common definitions <stddef.h>
+    : 099 31-31* Forward reference
+    : 100 01-01  Use of library functions
+    : 100 26-33* Example
+    : 101 01-19* Example
+    : 102 01-01  Diagnostics <assert.h>
+    : 102 09-09  Program diagnostics
+    : 102 10-10  The assert macro
+    : 102 23-23* Forward reference
+    : 103 01-01  Character handling <ctype.h>
+    : 103 12-12  Forward reference
+    : 103 13-13  Character testing functions
+    : 103 16-16  The isalnum function
+    : 103 17-17  Synopsis
+    : 103 20-20  Description
+    : 103 22-22  The isalpha function
+    : 103 23-23  Synopsis
+    : 103 26-26  Description
+    : 103 31-31  The iscntrl function
+    : 103 32-32  Synopsis
+    : 104 01-01  Description
+    : 104 03-03  The isdigit function
+    : 104 04-04  Synopsis
+    : 104 07-07  Description
+    : 104 09-09  The isgraph function
+    : 104 10-10  Synopsis
+    : 104 13-13  Description
+    : 104 15-15  The islower function
+    : 104 16-16  Synopsis
+    : 104 19-19  Description
+    : 104 24-24  The isprint function
+    : 104 25-25  Synopsis
+    : 104 28-28  Description
+    : 104 30-30  The ispunct function
+    : 104 31-31  Synopsis
+    : 104 34-34  Description
+    : 105 01-01  The isspace function
+    : 105 02-02  Synopsis
+    : 105 05-05  Description
+    : 105 11-11  The isupper function
+    : 105 12-12  Synopsis
+    : 105 15-15  Description
+    : 105 20-20  The isxdigit function
+    : 105 21-21  Synopsis
+    : 105 24-24  Description
+    : 105 26-26  Character case mapping function
+    : 105 27-27  The tolower function
+    : 105 28-28  Synopsis
+    : 105 31-31  Description
+    : 105 33-33  Returns
+    : 105 37-37  The toupper function
+    : 105 38-38  Synopsis
+    : 106 01-01  Description
+    : 106 03-03  Returns
+    : 107 01-01  Localization <locale.h>
+    : 108 01-01  Locale control
+    : 108 02-02  The setlocale function
+    : 108 03-03  Synopsis
+    : 108 06-06  Description
+    : 108 25-25  Returns
+    : 108 37-40* Forward references
+    : 109 01-01  Numeric formatting convention inquiry
+    : 109 02-02  The localeconv function
+    : 109 03-03  Synopsis
+    : 109 06-06  Description
+    : 110 35-35  Returns
+    : 110 41-43* Example
+    : 111 01-23* Example
+    : 112 01-01  Mathematics
+    : 112 08-09  Forward references
+    : 112 10-10  Treatment of error conditions
+    : 112 28-28  Trignometric functions
+    : 112 29-29  The acos function
+    : 112 30-30  Synopsis
+    : 112 33-33  Description
+    : 113 01-01  Return
+    : 113 03-03  The asin function
+    : 113 04-04  Synopsis
+    : 113 06-06  Description
+    : 113 10-10  Returns
+    : 113 12-12  The atan function
+    : 113 13-13  Synopsis
+    : 113 16-16  Description
+    : 113 18-18  Returns
+    : 113 20-20  The atan2 function
+    : 113 21-21  Synopsis
+    : 113 24-24  Description
+    : 113 28-28  Returns
+    : 113 30-30  The cos function
+    : 113 31-31  Synopsis
+    : 113 34-34  Description
+    : 113 36-36  Returns
+    : 114 01-01  The sin function
+    : 114 02-02  Synopsis
+    : 114 05-05  Description
+    : 114 07-07  Returns
+    : 114 09-09  The tan function
+    : 114 10-10  Synopsis
+    : 114 13-13  Description
+    : 114 15-15  Returns
+    : 114 17-17  Hyperbolic functions
+    : 114 18-18  The cosh function
+    : 114 19-19  Synopsis
+    : 114 22-22  Description
+    : 114 25-25  Returns
+    : 114 27-27  The sinh function
+    : 114 28-28  Synopsis
+    : 114 31-31  Description
+    : 114 34-34  Returns
+    : 115 01-01  The tanh function
+    : 115 02-02  Synopsis
+    : 115 05-05  Description
+    : 115 07-07  Returns
+    : 115 09-09  Exponential and logarithmic functions
+    : 115 10-10  The exp function
+    : 115 11-11  Synopsis
+    : 115 14-14  Description
+    : 115 17-17  Returns
+    : 115 19-19  The frexp function
+    : 115 20-20  Synopsis
+    : 115 23-23  Description
+    : 115 26-26  Returns
+    : 115 30-30  The ldexp function
+    : 115 31-31  Synopsis
+    : 115 34-34  Description
+    : 115 37-37  Returns
+    : 116 01-01  The log function
+    : 116 02-02  Synopsis
+    : 116 05-05  Description
+    : 116 07-07  Returns
+    : 116 10-10  The log10 function
+    : 116 11-11  Synopsis
+    : 116 14-14  Description
+    : 116 17-17  Returns
+    : 116 19-19  The modf function
+    : 116 20-20  Synopsis
+    : 116 23-23  Description
+    : 116 26-26  Returns
+    : 116 29-29  Power functions
+    : 116 30-30  The pow function
+    : 116 31-31  Synopsis
+    : 116 34-34  Description
+    : 116 38-38  Returns
+    : 117 01-01  The sqrt function
+    : 117 02-02  Synopsis
+    : 117 05-05  Description
+    : 117 08-08  Returns
+    : 117 10-10  Nearest integer, absolute value, and remainder functions
+    : 117 11-11  The ceil function
+    : 117 12-12  Synopsis
+    : 117 15-15  Description
+    : 117 19-19  The fabs function
+    : 117 20-20  Synopsis
+    : 117 23-23  Description
+    : 117 25-25  Returns
+    : 117 27-27  The floor function
+    : 117 28-28  Synopsis
+    : 117 31-31  Description
+    : 117 33-33  Returns
+    : 118 01-01  The fmod function
+    : 118 02-02  Synopsis
+    : 118 05-05  Description
+    : 118 07-07  Returns
+    : 119 01-01  Non-local jumps <setjmp.h>
+    : 119 11-11  Save calling environment
+    : 119 12-12  The setjmp macro
+    : 119 13-13  Synopsis
+    : 119 16-16  Description
+    : 119 19-19  Returns
+    : 120 01-01  Restore calling environment
+    : 120 02-02  The longjmp function
+    : 120 03-03  Synopsis
+    : 120 06-06  Description
+    : 120 20-20  Returns
+    : 121 01-01  Signal handling <signal.h>
+    : 121 30-30  Specify signal handling
+    : 121 31-31  The signal function
+    : 121 32-32  Synopsis
+    : 121 35-35  Description
+    : 122 25-25  Returns
+    : 122 29-29  Forward references
+    : 122 30-30  Send signal
+    : 122 31-31  The raise function
+    : 122 32-32  Synopsis
+    : 122 35-35  Description
+    : 122 37-37  Returns
+    : 123 01-01  Variable arguments <stdarg.h>
+    : 123 16-16  Variable argument list access macros
+    : 123 23-23  The va_start macro
+    : 123 24-24  Synopsis
+    : 123 27-27  Description
+    : 123 35-35  Returns
+    : 123 37-37  The va_arg macro
+    : 123 38-38  Synopsis
+    : 123 41-41  Description
+    : 124 05-05  Returns
+    : 124 09-09  The va_end macro
+    : 124 10-10  Synopsis
+    : 124 13-13  Description
+    : 124 19-19  Returns
+    : 124 21-41* Example
+    : 125 01-01  Input/Output <stdio.h>
+    : 125 02-02  Introduction
+    : 126 14-15  Forward references
+    : 126 16-16  Streams
+    : 126 36-36  Environment limits
+    : 127 01-01  Files
+    : 128 01-01  Environment limits
+    : 128 04-06  Forward references
+    : 128 07-07  Operations on files
+    : 128 08-08  The remove function
+    : 128 09-09  Synopsis
+    : 128 12-12  Description
+    : 128 17-17  Returns
+    : 128 19-19  The rename function
+    : 128 20-20  Synopsis
+    : 128 23-23  Description
+    : 128 28-28  Returns
+    : 128 31-31  The tmpfile function
+    : 128 32-32  Synopsis
+    : 128 35-35  Description
+    : 129 02-02  Returns
+    : 129 05-05  Forward references
+    : 129 06-06  The tmpnam function
+    : 129 07-07  Synopsis
+    : 129 10-10  Description
+    : 129 16-16  Returns
+    : 129 22-22  Environment limits
+    : 129 24-24  File access functions
+    : 129 25-25  The fclose function
+    : 129 26-26  Synopsis
+    : 129 29-29  Description
+    : 130 30-30  Returns
+    : 130 04-04  The fflush function
+    : 130 05-05  Synopsis
+    : 139 08-08  Description
+    : 130 14-14  Returns
+    : 130 16-16  Forward references
+    : 130 17-17  The fopen function
+    : 130 18-18  Synopsis
+    : 130 21-21  Description
+    : 130 14-14  Returns
+    : 130 17-17  Forward references
+    : 130 18-18  The freopen function
+    : 130 19-19  Synopsis
+    : 130 23-23  Description
+    : 130 30-30  Returns
+    : 130 33-33  The setbuf function
+    : 130 34-34  Synopsis
+    : 131 01-01  Description
+    : 131 05-05  Returns
+    : 131 07-07  Forward references
+    : 131 08-08  The setvbuf function
+    : 131 09-09  Synopsis
+    : 131 12-12  Description
+    : 131 20-20  Returns
+    : 131 23-23  Formatted input.output functions
+    : 131 24-24  The fprintf function
+    : 131 25-25  Synopsis
+    : 131 28-28  Description
+    : 135 13-13  Returns
+    : 135 16-16  Environment limits
+    : 135 19-30  Example
+    : 135 31-31  The fscanf function
+    : 135 32-32  Synopsis
+    : 135 35-35  Description
+    : 138 15-15  Returns
+    : 138 19-37* Example
+    : 139 01-25  Example
+    : 139 26-27  Forward references
+    : 139 28-28  The printf function
+    : 139 29-29  Synopsis
+    : 139 32-32  Description
+    : 139 35-35  Returns
+    : 139 37-37  The scanf function
+    : 139 39-39  Synopsis
+    : 139 42-42  Description
+    : 140 01-01  Returns
+    : 140 05-05  The sprintf function
+    : 140 06-06  Synopsis
+    : 140 09-09  Description
+    : 140 14-14  Returns
+    : 140 17-17  The sscanf function
+    : 140 18-18  Synopsis
+    : 140 21-21  Description
+    : 140 26-26  Returns
+    : 140 30-30  The cfprintf function
+    : 140 31-31  Synopsis
+    : 140 35-35  Description
+    : 141 01-01  Returns
+    : 141 04-17  Example
+    : 141 18-18  The vprintf function
+    : 141 19-19  Synopsis
+    : 141 23-23  Description
+    : 141 27-27  Returns
+    : 141 30-30  The vsprintf function
+    : 141 31-31  Synopsis
+    : 141 35-35  Description
+    : 141 40-40  Returns
+    : 142 01-01  Character input/output functions
+    : 142 02-02  The fgetc function
+    : 142 03-03  Synopsis
+    : 142 06-06  Description
+    : 142 10-10  Returns
+    : 142 14-14  The fgets function
+    : 142 15-15  Synopsis
+    : 142 18-18  Description
+    : 142 22-22  Returns
+    : 142 28-28  The fputc function
+    : 142 29-29  Synopsis
+    : 142 32-32  Description
+    : 143 01-01  Returns
+    : 143 04-04  The fouts function
+    : 143 05-05  Synopsis
+    : 143 08-08  Description
+    : 143 11-11  Returns
+    : 143 14-14  The getc function
+    : 143 15-15  Synopsis
+    : 143 18-18  Description
+    : 143 22-22  Returns
+    : 143 26-26  The getchar function
+    : 143 27-27  Synopsis
+    : 143 30-30  Description
+    : 143 32-32  Returns
+    : 143 37-37  The gets function
+    : 143 38-38  Synopsis
+    : 144 01-01  Description
+    : 144 06-06  Returns
+    : 144 11-11  The putc function
+    : 144 12-12  Synopsis
+    : 144 15-15  description
+    : 144 19-19  Returns
+    : 144 22-22  The putchar function
+    : 144 23-23  Synopsis
+    : 144 26-26  Description
+    : 144 28-28  Returns
+    : 144 31-31  The puts function
+    : 144 32-32  Synopsis
+    : 144 35-35  decsription
+    : 144 38-38  Returns
+    : 145 01-01  The ungetc function
+    : 145 02-02  Synopsis
+    : 145 05-05  Description
+    : 145 24-24  Returns
+    : 145 27-27  Forward references
+    : 145 28-28  Direct input/output functions
+    : 145 29-29  The fread function
+    : 145 30-30  SYnopsis 
+    : 145 40-40  Returns
+    : 146 01-01  The fwrite function
+    : 146 02-02  Synopsis
+    : 146 06-06  Description
+    : 146 11-11  Returns
+    : 146 14-14  File positioning functions
+    : 146 15-15  The fgetpos function
+    : 146 16-16  Synopsis
+    : 146 19-19  Description
+    : 146 24-24  Returns
+    : 146 27-27  Forward references
+    : 146 28-28  The fseek function
+    : 146 29-29  Synopsis
+    : 146 32-32  Description
+    : 147 01-01  Returns
+    : 147 03-03  Forward references
+    : 147 04-04  The fsetpos function
+    : 147 05-05  Synopsis
+    : 147 08-08  Description
+    : 147 15-15  Returns
+    : 147 18-18  The ftell function
+    : 147 19-19  Synopsis
+    : 147 22-22  Description
+    : 147 29-29  Returns
+    : 147 33-33  The rewind function
+    : 147 34-34  Synopsis
+    : 147 37-37  Description
+    : 148 01-01  Returns
+    : 148 03-03  Error-handling functions
+    : 148 04-04  The clearerr function
+    : 148 05-05  Synopsis
+    : 148 08-08  Description
+    : 148 11-11  Returns
+    : 148 13-13  The feof function
+    : 148 14-14  Synopsis
+    : 148 17-17  Description
+    : 148 19-19  Returns
+    : 148 21-21  The ferror function
+    : 148 22-22  Synopsis
+    : 148 25-25  Descriptions
+    : 148 27-27  Returns
+    : 148 29-29  The perror function
+    : 148 30-30  Synopsis
+    : 149 01-01  Returns
+    : 149 03-03* Forward references
+    : 150 01-01  General utilities <stdlib.h>
+    : 150 22-22  String conversion functions
+    : 150 25-25  The atof function
+    : 150 26-26  Synopsis
+    : 150 29-29  Description
+    : 150 32-32  Returns
+    : 150 35-35* Forward references
+    : 151 01-01  The atoi function
+    : 151 02-02  Synopsis
+    : 151 05-05  Description
+    : 151 09-09  Returns
+    : 151 11-11  Forward refeerences
+    : 151 12-12  The atol function
+    : 151 13-13  Synopsis
+    : 151 16-16  Description
+    : 151 20-20  Returns
+    : 151 22-22  Forward references
+    : 151 23-23  The strtod function
+    : 151 24-24  Synopsis
+    : 151 27-27  Description
+    : 152 10-10  Returns
+    : 152 16-16  The strtol function
+    : 152 17-17  Synopsis
+    : 152 20-20  Description
+    : 153 06-06  Returns
+    : 153 11-11  The strtoul function
+    : 153 12-12  Synopsis
+    : 153 16-16  Description
+    : 154 01-01  Returns
+    : 154 05-05  Pseudo-random sequence generation functions
+    : 154 06-06  The rand function
+    : 154 07-07  Synopsis
+    : 154 10-10  Description
+    : 154 14-14  Returns
+    : 154 16-16  Environment limits
+    : 154 18-18  The srand function
+    : 154 19-19  Synopsis
+    : 154 22-22  Description
+    : 154 29-29  Returns
+    : 154 31-32* Example
+    : 155 01-10  Example
+    : 155 11-11  Memory management functions
+    : 155 21-21  The calloc function
+    : 155 22-22  Synopsis
+    : 155 25-25  Description
+    : 155 28-28  Returns
+    : 155 30-30  The free function
+    : 155 31-31  Synopsis
+    : 155 34-34  Description
+    : 156 01-01  Returns
+    : 156 03-03  The malloc function
+    : 156 07-07  Description
+    : 156 10-10  Returns
+    : 156 12-12  The realloc function
+    : 156 13-13  Synopsis
+    : 156 16-16  Description
+    : 156 26-26  Returns
+    : 156 29-29  Communicating with the environment
+    : 156 30-30  The abort function
+    : 156 31-31  Synopsis
+    : 156 34-34  Description
+    : 156 40-40  Returns
+    : 157 01-01  The atexit function
+    : 157 02-02  Synopsis
+    : 157 05-05  Description
+    : 157 10-10  Returns
+    : 157 12-12  Forward references
+    : 157 13-13  The exit function
+    : 157 14-14  Synopsis
+    : 157 17-17  Decsription
+    : 157 29-29  Returns
+    : 157 31-31  The getenv function
+    : 157 32-32  Synopsis
+    : 157 35-35  Decsription
+    : 158 07-07  The system function
+    : 158 08-08  Synopsis
+    : 158 11-11  Description
+    : 158 15-15  Returns
+    : 158 19-19  Searching and sorting utilities
+    : 158 20-20  The bsearch function
+    : 158 21-21  Synopsis
+    : 158 26-26  Description
+    : 158 36-36  Returns
+    : 159 01-01  The qsort function
+    : 159 02-02  Synopsis
+    : 159 06-06  Description
+    : 159 14-14  Returns
+    : 159 16-16  Integer arithmetic functions
+    : 159 17-17  The abs function
+    : 159 18-18  Synopsis
+    : 159 21-21  Description
+    : 159 24-24  Returns
+    : 159 26-26  The div function
+    : 159 27-27  Synopsis
+    : 159 30-30  Description
+    : 159 25-25  Returns
+    : 160 03-03  The labs function
+    : 160 04-04  Synopsis
+    : 160 07-07  Description
+    : 160 10-10  The ldiv function
+    : 160 11-11  Synopsis
+    : 160 14-14  Description
+    : 160 17-17  Multibyte character functions
+    : 160 25-25  The mblen function
+    : 160 26-26  Synopsis
+    : 160 29-29  Description
+    : 160 35-35  Returns
+    : 161 03-03  Forward references
+    : 161 04-04  The mbtowc function
+    : 161 05-05  Synopsis
+    : 161 08-08  Description
+    : 161 16-16  Returns
+    : 161 23-23  The wctomb function
+    : 161 24-24  Synopsis
+    : 161 27-27  Description
+    : 161 34-34  Returns
+    : 162 01-01  Multibyte string functions
+    : 162 04-04  The mbstowcs function
+    : 162 05-05  Synopsis
+    : 162 08-08  Description
+    : 162 17-17  Returns
+    : 162 21-21  The wcstombs function
+    : 162 22-22  Synopsis
+    : 162 25-25  Description
+    : 162 34-34  Returns
+    : 163 01-01  String handling <string.h>
+    : 163 02-02  String handling conventions
+    : 163 09-09  Copying functions
+    : 163 10-10  The memcpy function
+    : 163 11-11  Synopsis
+    : 163 14-14  Description
+    : 163 17-17  Returns
+    : 163 19-19  The memmove function
+    : 163 20-20  Synopsis
+    : 163 23-23  Description
+    : 163 29-29  Returns
+    : 163 31-31  The strcpy function
+    : 163 32-32  Synopsis
+    : 163 35-35  Description
+    : 164 01-01  Returns
+    : 164 03-03  The strncpy function
+    : 164 04-04  Synopsis
+    : 164 07-07  Description
+    : 164 13-13  Returns
+    : 164 15-15  Concatenation functions
+    : 164 16-16  The strcat function
+    : 164 17-17  SYnopsis
+    : 164 20-20  Description
+    : 164 25-25  Returns
+    : 164 27-27  The strncat function
+    : 164 28-28  Synopsis
+    : 164 31-31  Description
+    : 165 01-01  Returns
+    : 165 03-03  Forward references
+    : 165 04-04  Comparison functions
+    : 165 08-08  The memcmp function
+    : 165 09-09  Synopsis
+    : 165 12-12  Description
+    : 165 18-18  The strcmp function
+    : 165 19-19  Synopsis
+    : 165 22-22  Description
+    : 165 24-24  Returns
+    : 165 27-27  The strcoll function
+    : 165 28-28  Synopsis
+    : 165 31-31  Description
+    : 166 01-01  Returns
+    : 166 05-05  The strncmp function
+    : 166 06-06  Synopsis
+    : 166 09-09  Description
+    : 166 12-12  Returns
+    : 166 16-16  The strxfrm function
+    : 166 17-17  Synopsis
+    : 166 20-20  Description
+    : 166 28-28  Returns
+    : 166 32-35  Example
+    : 166 36-36  Search function
+    : 166 37-37  The memchr function
+    : 166 38-38  Synopsis
+    : 167 01-01  Description
+    : 167 04-04  Returns
+    : 167 07-07  The strstr function
+    : 167 08-08  Synopsis
+    : 167 11-11  Description
+    : 167 14-14  Returns
+    : 167 17-17  The strcspn function
+    : 167 18-18  Synopsis
+    : 167 21-21  Description
+    : 167 24-24  Returns
+    : 167 26-26  The strpbrk function
+    : 167 27-27  Synopsis
+    : 167 30-30  description
+    : 167 33-33  Returns
+    : 167 36-36  The strrchr function
+    : 167 37-37  Synopsis
+    : 168 01-01  Description
+    : 167 04-04  Returns
+    : 167 07-07  The strspn function
+    : 167 08-08  Synopsis
+    : 167 11-11  Description
+    : 167 14-14  Returns
+    : 167 16-16  The strstr function
+    : 167 17-17  Synopsis
+    : 167 20-20  Description
+    : 167 23-23  Returns
+    : 167 26-26  The strtok function
+    : 167 27-27  Synopsis
+    : 167 30-30  Description
+    : 168 06-06  Returns
+    : 168 09-16  Example
+    : 168 17-17  Miscellaneous function
+    : 168 18-18  The memset function
+    : 168 19-19  Synopsis
+    : 168 22-22  Description
+    : 168 25-25  Returns
+    : 168 27-27  The strerror function
+    : 168 28-28  Synopsis
+    : 168 31-31  Description
+    : 168 34-34  Returns
+    : 170 01-01  The strlen function
+    : 170 02-02  Synopsis
+    : 170 05-05  Description
+    : 170 07-07  Returns
+    : 171 01-01  Date and time <time.h>
+    : 171 02-02  Components of time
+    : 171 32-32  Time manipulation functions
+    : 171 33-33  The clock function
+    : 171 34-34  Synopsis
+    : 171 37-37  Description
+    : 172 01-01  Returns
+    : 172 08-08  The difftime function
+    : 172 09-09  Synopsis
+    : 172 12-12  Description
+    : 172 15-15  Returns
+    : 172 17-17  The mktime function
+    : 172 18-18  Synopsis
+    : 172 21-21  Description
+    : 172 31-31  Returns
+    : 172 35-36* Example
+    : 173 01-18  Example
+    : 173 19-19  The time function
+    : 173 20-20  Synopsis
+    : 173 23-23  Description
+    : 173 26-26  Returns
+    : 173 30-30  Time conversion functions
+    : 173 35-35  The asctime function
+    : 173 36-36  Synopsis
+    : 173 39-39  Description
+    : 174 19-19  Returns
+    : 174 21-21  The ctime function
+    : 174 22-22  Synopsis
+    : 174 25-25  Description
+    : 174 29-29  Returns
+    : 174 32-32  Forward references
+    : 174 33-33  The gmtime function
+    : 174 34-34  Synopsis
+    : 174 37-37  Description
+    : 174 40-40  Returns
+    : 175 01-01  The localtime function
+    : 175 02-02  Synopsis
+    : 175 05-05  Description
+    : 175 08-08  Returns
+    : 175 10-10  The strftime function
+    : 175 11-11  Synopsis
+    : 175 15-15  Description
+    : 176 05-05  Returns

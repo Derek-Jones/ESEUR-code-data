@@ -1,5 +1,5 @@
 #
-# 500K_inputs.R, 18 Nov 19
+# 500K_inputs.R, 17 Jun 20
 #
 # Data from:
 # An Experiment in Software Reliability
@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment fault-experience
+# TAG experiment_testing fault-experience_input
 
 source("ESEUR_config.r")
 
@@ -48,4 +48,5 @@ AT3=subset(all_fails, id > 4)
 AT1_mod=fit_mod(AT1)
 AT3_mod=fit_mod(AT3)
 
+legend(x="bottomright", legend=paste0("replication ", 1:4), bty="n", fill=pal_col, cex=1.2)
 

@@ -1,0 +1,36 @@
+
+Each line in a ref file contains requirement wording from the C90 Standard
+
+The line for mat is
+
+STD  Page  Lines
+25:  098   09-10
+
+
+std-imp-doc.csv is the output from running:
+ grep -ne "DOC\|IMP\|STD" *.[hc]
+
+in the Model Implementation C Checker source directory.
+
+Every condition (i.e., if/while/case-label) in the source of the C compiler
+was commented with:
+
+   STD a reference to the C Standard
+   IMP was intended to be a reference to an implementation document
+   DOC is a documentation issue
+
+All the wording in the C Standard should be referenced from the
+source of the implementation.
+
+Unreferenced lines include section headers, forward references, etc.
+
+lib.ref     Library references
+maybe.ref   Maybe referenced, but apparently did not
+mcc.ref     Language references
+mcl.ref     Linker references
+supple.ref  Header lines
+locale.ref  Locale references
+mcc.mis
+mci.ref     Runtime refereneces 
+not.ref     Coul dnot figure out where/how to reference these
+

@@ -1,5 +1,5 @@
 #
-# where-sloc.R, 29 Jan 20
+# where-sloc.R,  5 Jun 20
 # Data from:
 # Empirical analysis of the relationship between {CC} and {SLOC} in a large corpus of {Java} methods and {C} functions
 # Davy Landman and Alexander Serebrenik and Eric Bouwers and Jurgen J. Vinju
@@ -17,6 +17,8 @@ library("plyr")
 
 
 plot_layout(2, 1)
+
+par(mar=MAR_default+c(0.0, 0.7, 0, 0))
 
 pal_col=rainbow(2)
 
@@ -39,7 +41,7 @@ Jsloc=sum(Java_loc$sloc)
 # legend(x="topright", legend=c("C", "Java"), bty="n", fill=pal_col, cex=1.2)
 
 plot(wJ_sloc$sloc, 100*wJ_sloc$V1*wJ_sloc$sloc/Jsloc, log="xy", col=pal_col[2],
-	xlab="Function length (lines)", ylab="Total SLOC (percentage)\n")
+	xlab="Function length (lines)", ylab="Total SLOC (percentage)\n\n")
 
 points(wC_sloc$sloc, 100*wC_sloc$V1*wC_sloc$sloc/Csloc, col=pal_col[1])
 

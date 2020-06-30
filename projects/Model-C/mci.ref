@@ -1,0 +1,84 @@
+    : ???	interpreter references
+    : ???	mci.ref
+    : ???	27 May 91  DJ
+    : 007 35-35 2.1.2.2 program called at startup
+    : 008 02-18 2.1.2.2 arguments to main
+    : 009 02-09 2.1.2.3 program execution requirements
+  42a:013 10-10 2.2.2 alert
+  42b:013 11-12 2.2.2 backspace
+  42f:013 13-14 2.2.2 form feed
+  42n:013 15-15 2.2.2 new line
+  42r:013 16-16 2.2.2 carriage return
+  42t:013 17-19 2.2.2 horizontal tab
+  42v:013 20-22 2.2.2 vertical tab
+    : 023 10-10 3.1.2.4 static object exists and retains it value...
+    : 023 12-14 3.1.2.4 local storage guaranteed within block
+    : 024 03-05 3.1.2.5 range of signed and unsigned integral types
+    : 024 09-11 3.1.2.5 range of floating types
+    : 025 03-03 3.1.2.5 representation of floating point
+    : 027 32-35 3.1.3.1 floating point values
+    : 032 06-07 3.1.4 modifying string literals
+    : 035 17-17 3.2.1.1 integral promotions preserve value including sign
+    : 035 21-24 3.2.1.2 signed / unsigned conversions: positive signed
+    : 035 24-27 3.2.1.2 signed / unsigned conversions: negative signed
+    : 035 28-34* 3.2.1.2 signed / unsigned conversions: demoted
+    : 036 02-04 3.2.1.3 floating -> integral conversions
+    : 036 05-07 3.2.1.3 integral -> float conversions
+    : 036 09-10 3.2.1.4 floating conversions: promotion
+    : 036 11-13 3.2.1.4 floating conversions: demotion, undefined
+    : 036 13-15 3.2.1.4 floating conversions: not exactly representable, impl defined
+    : 037 35-36 3.2.2.3 pointer conversions: to and from void *
+    : 037 37-39* 3.2.2.3 pointer conversions: qualified ptr
+    : 038 04-04 3.2.2.3 pointer conversions: null pointer
+    : 038 05-06 3.2.2.3 pointer conversions: null ptr == null ptr
+    : 039 15-17 3.3 exceptions
+    : 044 02-02 3.3.2.4 result of ++ is value of the operand
+    : 044 02-03 3.3.2.4 after the result is obtained the value is incremented
+    : 044 27-27 3.3.3.1 value of operand of ++ is incremented
+    : 044 27-28 3.3.3.1 result is new value of operand
+    : 045 01-02 3.3.3.2 invalid pointer deref
+    : 045 11-11 3.3.3.3 result of -
+    : 045 13-13 3.3.3.3 result of ~
+    : 045 16-17 3.3.3.3 equivalence of ~E
+    : 045 21-21 3.3.3.3 equivalence of !E
+    : 046 37-38 3.3.4 alignment of pointer after cast
+    : 047 05-07 3.3.4 pointer casts
+    : 047 22-22 3.3.5 multiply
+    : 047 23-24 3.3.5 divide
+    : 047 24-25 3.3.5 remainder
+    : 047 26-27 3.3.5 inexact division, both operands positive
+    : 047 28-31 3.3.5 sign of a/b a%b with either negative
+    : 047 31-31 3.3.5 (a/b)*b + a%b shall equal a
+    : 048 09-11 3.3.6 pointer to obj == ptr to array[1]
+    : 048 19-22 3.3.6 pointer arithmetic: ptr beyond array
+    : 048 22-24 3.3.6 pointer arithmetic: result within array
+    : 048 24-27 3.3.6 pointer arithmetic: undef if result indirected
+    : 048 31-34 3.3.6 pointer subtraction: undef if overflow
+    : 048 34-39 3.3.6 pointer subtraction: boundary cases
+    : 048 39-40 3.3.6 pointer subtraction: undef if not same object
+    : 049 14-18 3.3.7 left shift
+    : 049 19-21 3.3.7 right shift: positive operand
+    : 049 21-22 3.3.7 right shift: negative operand
+    : 049 38-40 3.3.8 pointer comparison: ptr to obj like ptr to array[1]
+    : 049 41-44* 3.3.8 pointer comparison: ptrs in structs
+    : 049 44-44* 3.3.8 pointer comparison: ptrs in arrays
+    : 050 01-01 3.3.8 ...ptrs in arrays continued
+    : 050 01-02 3.3.8 ptrs to union members compare equal
+    : 050 02-06 3.3.8 undef if not ptrs to same object
+    : 050 07-08 3.3.8 ptrs to same object compare equal
+    : 050 08-10 3.3.8 equal ptrs point to same object
+    : 050 31-31 3.3.9 pointer equality: null ptrs compare equal
+    : 050 31-33 3.3.9 pointer equality: equal ptrs are null or same obj
+    : 050 33-35 3.3.9 pointer equality: null fnptrs/same fn compare equal
+    : 050 35-36 3.3.9 pointer equality: equal fnptrs are null or same fn
+    : 051 10-11 3.3.10 bitwise AND
+    : 051 21-23 3.3.11 bitwise XOR
+    : 051 33-35* 3.3.12 bitwise OR
+    : 072 42-43* 3.5.7 auto storage contents indeterminate
+    : 073 01-02 3.5.7 initial value of object is that of the expression
+    : 073 08-08 3.5.7 initial value of object is that of the expression
+    : 078 28-29 3.6.4.2 semantics of switch
+    : 078 33-35 3.6.4.2 switch statement: jump to matching case label
+    : 078 35-36 3.6.4.2 switch statement: else jump to default if present
+    : 078 36-37 3.6.4.2 switch statement: else no part of switch executed
+    : 083 27-28 3.7.1 layout of param storage unspecified

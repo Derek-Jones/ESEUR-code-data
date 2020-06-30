@@ -1,9 +1,9 @@
 #
-# Icse15_real-bug-fixes.R, 22 Nov 19
+# Icse15_real-bug-fixes.R,  6 Jun 20
 # Data from:
 # An Empirical Study on Real Bug Fixes
 # Hao Zhong and Zhendong Su
-# via:
+# via M. Monperrus
 #
 # Example from:
 # Evidence-based Software Engineering: based on the publicly available data
@@ -58,6 +58,9 @@ legend(x="topright", legend=c("Aries", "Cassandra", "Derby", "Lucene", "Mahout")
 
 # freq_mod=nls(freq_norm ~ a*x^b, data=derby[2:10, ], trace=TRUE,
 # 		start=list(a=100, b=-2.0))
+# 
+# freq_mod=glm(log(freq_norm) ~ log(x), data=derby[2:10, ])
+# summary(freq_mod)
 # 
 # freq_pred=predict(freq_mod, newdata=data.frame(x=1:10), type="response")
 

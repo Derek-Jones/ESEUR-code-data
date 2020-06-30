@@ -1,5 +1,5 @@
 #
-# ESEUR-config.r, 23 Mar 20
+# ESEUR-config.r,  8 Jun 20
 
 # Assume the current directory unless told otherwise
 ESEUR_dir=Sys.getenv("ESEUR_dir")
@@ -24,6 +24,7 @@ par(pch=point_pch)
 par(tcl=-0.2)
 par(xaxs="r")
 par(yaxs="r")
+# par(xpd=NA) # plotting is clipped at the device region, i.e., + not cropped
 ESEUR_global_cex=0.55
 par(cex=ESEUR_global_cex)
 par(cex.axis=0.67/ESEUR_global_cex)

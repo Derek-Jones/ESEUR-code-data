@@ -1,0 +1,1870 @@
+    : ??? lib.ref   		LastMod 18 Oct 91  DJ 
+    : ???			Created  1 Mar 91  DJ
+    : ???
+    : ??? Supplement to references to the ANSI C standard
+    : ???
+    : ??? This file contains all the references to the standard that
+    : ??? occur in the library section
+    : ???
+   1: 015 03-06  2.2.4.2 CHAR_MIN, CHAR_MAX
+   2: 015 07-08  2.2.4.2 MB_LEN_MAX
+   3: 015 27-30  2.2.4.2 char signed / unsigned
+   4: 016 21-26  2.2.4.2 mantissa digits
+   5: 016 33-37  2.2.4.2 minimum exponent
+   6: 017 01-05  2.2.4.2 maximum exponent
+   7: 017 17-23  2.2.4.2 epsilon values
+   8: 097 05-06  4.1.1 definition of string
+   9: 097 06-06  4.1.1 string goes from lower to higher address
+  10: 097 06-07  4.1.1 length of string
+  11: 097 07-08  4.1.1 value of a string
+  12: 097 09-10  4.1.1 definition of letter
+  13: 097 11-13  4.1.1 definition of decimal point character
+  14: 097 13-14  4.1.1 representation of decimal point character
+  15: 097 20-25  4.1.2 standard headers are ...
+  16: 097 26-28  4.1.2 undefined if included file same name as standard header
+  17: 097 29-30  4.1.2 header may be included more than once
+  18: 097 30-31  4.1.2 assert depends on NDEBUG
+  19: 097 31-32  4.1.2 headers must occur at file scope
+  20: 097 32-33  4.1.2 headers must be included before there contents are referenced
+  21: 097 33-35  4.1.2 may be referenced before any subsequent includes
+  22: 097 35-37  4.1.2 may not have macros defined as keywords prior to inclusion
+  23: 098 05-06  4.1.2.1 reserve identifiers with underscore & underscore or upper case
+  24: 098 07-08  4.1.2.1 reserve identifiers with underscore in file scope or as tag names
+  25: 098 09-10  4.1.2.1 reserve macro names in headers
+  26: 098 11-12  4.1.2.1 reserve external linkage identifiers
+  27: 098 13-15  4.1.2.1 reserve identifier with file scope in same name space
+  28: 098 16-18  4.1.2.1 using a reserved identifier is undefined behaviour
+  29: 098 23-23  4.1.3 EDOM declared as macro in errno.h
+  30: 098 24-24  4.1.3 ERANGE declared as macro in errno.h
+  31: 098 25-26  4.1.3 expand to integral constant expressions
+  32: 098 27-28  4.1.3 errno is a modifiable lvalue of type int
+  33: 098 30-31  4.1.3 supressing any errno macro causes undefined behaviour
+  33a: 098 30-31  4.1.3 defining such an identifier causes undefined behaviour
+  34: 098 32-32  4.1.3 errno set to zero on program startup
+  35: 098 32-33  4.1.3 errno never set to zero by a library function
+  36: 098 33-34  4.1.3 errno may be set to non-zero
+  37: 098 34-35* 4.1.3 NOT? documented
+  38: 099 01-02  4.1.3 Additional macro definitions starting with E etc
+  39: 099 06-07  4.1.4 Reference to where macros defined
+  40: 099 11-13  4.1.5 ptrdiff_t type
+  41: 099 14-15  4.1.5 size_t type
+  42: 099 15-18  4.1.5 wchar_t type
+  43: 099 18-19  4.1.5 null character has value zero
+  44: 099 19-20  4.1.5 value of single wide character same as integer character
+  45: 099 21-23  4.1.5 NULL macro
+  46: 099 24-25  4.1.5 offsetof macro
+  47: 099 25-27  4.1.5 value of offsetof macro
+  47a: 099 26-27  4.1.5 type must be a struct
+  48: 099 27-29  4.1.5 conditions of operand of offsetof
+  49: 099 29-30  4.1.5 giving bitfield to offsetof is undefined behaviour
+  50: 100 03-05  4.1.6 invalid argument gived undefined behaviour
+  51: 100 05-08  4.1.6 functions declared with array arguments must be passed valid pointers
+  52: 100 08-09  4.1.6 header functions may be implemented as macros
+  53: 100 09-10  4.1.6 header functions should not be declared explicitly 
+  54: 100 10-11  4.1.6 macro may be suppressed by using ()
+  55: 100 12-13  4.1.6 all header functions can have their address taken
+  56: 100 14-16  4.1.6 header function macros may only evaluate their arguments once
+  57: 100 17-19  4.1.6 function-like macros may be invoked any where compatible function call
+  58: 100 19-21  4.1.6 object like macros as constant expressions shall be usable in #if
+  59: 100 22-23  4.1.6 function declared without reference to header
+  60: 100 23-24  4.1.6 may declare it & use it without including header
+  61: 100 24-25  4.1.6 not declaring function with variable number of arguments is undefined behaviour
+  62: 102 02-04  4.2 NDEBUG not defined by assert.h
+  63: 102 04-06  4.2 if NDEBUG defined value of assert macro is ...
+  63a: 102 05-06  4.2 #define assert(ignore) ((void)0)
+  64: 102 07-08  4.2 if assert macro is supressed to access a function behaviour is undefined
+  65: 102 15-17  4.2.1.1 is expression is false information is written
+  66: 102 17-19  4.2.1.1 information includes text or argument and value of __FILE__, & __LINE macros
+  67: 102 19-19  4.2.1.1 information written to stderr
+  68: 102 19-19  4.2.1.1 format of information is implementation defined
+  69: 102 19-20  4.2.1.1 abort is then called
+  70: 102 22-22  4.2.1.1 assert returns no value
+  71: 103 03-04  4.3 int representable as unsigned char
+  72: 103 04-04  4.3 or equal value of EOF macro
+  73: 103 04-05  4.3 any other value is undefined behaviour
+  74: 103 08-09  4.3 definition of printing character
+  75: 103 09-09  4.3 printing character occupies one position on display device
+  76: 103 09-11  4.3 definition of control character
+  77: 103 14-15  4.3 return non-zero if argument conforms to description
+  78: 103 21-21  4.3.1.1 definition of isalnum
+  79: 103 27-27  4.3.1.2 tests for isupper or islower being true 
+  80: 103 27-29  4.3.1.2 or not (iscntrl, isdigit, ispunct or isspace)
+  81: 103 29-30  4.3.1.2 in "C" locale isupper or islower -> isalpha
+  82: 103 36-38* 4.3.1.2 ASCII control characters are ...
+  83: 104 02-02  4.3.1.3 definition of iscntrl
+  84: 104 08-08  4.3.1.4 definition of isdigit
+  85: 104 14-14  4.3.1.5 definition of isgraph
+  86: 104 20-20  4.3.1.6 islower is any lower case letter
+  87: 104 20-22  4.3.1.6 not (isnctrl, isdigit, ispunct, isspace)
+  88: 104 20-20  4.3.1.6 in "C" locale only true for characters in 2.2.1
+  89: 104 29-29  4.3.1.7 definition of isprint
+  90: 104 35-35  4.3.1.8 ispunct is any printing character
+  91: 104 35-35  4.3.1.8 that is neither space
+  92: 104 35-36* 4.3.1.8 nor a character for which isalnum is true
+  93: 105 06-06  4.3.1.9 isspace is any white-space character
+  94: 105 06-07  4.3.1.9 or an implementation defined set with isalnum being false
+  95: 105 07-09  4.3.1.9 definition of standard white-space
+  96: 105 09-10  4.3.1.9 in "C" locale on standard white-space applies
+  97: 105 16-16  4.3.1.10 isupper is any upper case letter
+  98: 105 16-18  4.3.1.10 not (iscntrl, isdigit, ispunct, isspace)
+  99: 105 18-19  4.3.1.10 in "C" locale only characters in 2.2.1 apply
+ 100: 105 25-25  4.3.1.11 definition of isxdigit
+ 101: 105 32-32  4.3.2.1 description of tolower
+ 102: 105 34-35  4.3.2.1 conditions needed to perform mapping
+ 103: 105 35-35  4.3.2.1 what happens if conditions are met
+ 104: 105 36-36  4.3.2.1 what happens if conditions are not met
+ 105: 106 02-02  4.3.2.2 description of toupper
+ 106: 106 04-05  4.3.2.2 conditions needed to perform mapping
+ 107: 106 05-05  4.3.2.2 what happens when conditions are met
+ 108: 106 06-06* 4.3.2.2 what happens when conditions are not met
+ 109: 107 03-05  4.4 the lconv type
+ 110: 107 05-06  4.4 minimum contents of struct lconv
+ 111: 107 09-09  4.4 decimal_point
+ 112: 107 10-10  4.4 thousands_sep
+ 113: 107 11-11  4.4 grouping
+ 114: 107 12-12  4.4 int_curr_symbol
+ 115: 107 13-13  4.4 currency_symbol
+ 116: 107 14-14  4.4 mon_decimal_point
+ 117: 107 15-15  4.4 mon_thousands_sep
+ 118: 107 16-16  4.4 mon_groupings
+ 119: 107 17-17  4.4 positive_sign
+ 120: 107 18-18  4.4 negative_sign
+ 121: 107 19-19  4.4 int_frac_digits
+ 122: 107 20-20  4.4 frac_digits
+ 123: 107 21-21  4.4 p_cs_precedes
+ 124: 107 22-22  4.4 p_sep_by_space
+ 125: 107 23-23  4.4 n_cs_precedes
+ 126: 107 24-24  4.4 n_sep_by_space
+ 127: 107 25-25  4.4 p_sign_posn
+ 128: 107 26-26  4.4 n_sign_posn
+ 129: 107 27-27  4.4 NULL macro and ...
+ 130: 107 28-28  4.4 LC_ALL macro
+ 131: 107 29-29  4.4 LC_COLLATE macro
+ 132: 107 30-30  4.4 LC_CTYPE macro
+ 133: 107 31-31  4.4 LC_MONETARY
+ 134: 107 32-32  4.4 LC_NUMERIC
+ 135: 107 33-33  4.4 LC_TIME
+ 136: 107 34-34  4.4 expand to integral constant expressions
+ 137: 107 34-35  4.4 suitable for use as 1st argument of setlocale
+ 138: 107 35-36* 4.4 reserve names for use by implementation
+ 139: 108 05-05  4.4.1.1 char *setlocale( ... )
+ 140: 108 07-08  4.4.1.1 setlocale selects locale by category & locale
+ 141: 108 08-09  4.4.1.1 what setlocale can be used for
+ 142: 108 09-10  4.4.1.1 LC_ALL names the program's entire locale
+ 143: 108 10-11  4.4.1.1 the other values name only a portion
+ 144: 108 11-12  4.4.1.1 LC_COLLATE affects strcoll & strxfrm
+ 145: 108 12-13  4.4.1.1 LC_CTYPE affects character handling functions
+ 146: 108 13-14  4.4.1.1 LC_MONETARY affects monetary formatting
+ 147: 108 14-16  4.4.1.1 LC_NUMERIC affects the decimal point
+ 148: 108 16-17  4.4.1.1 LC_TIME affects strftime
+ 149: 108 18-18  4.4.1.1 "C" specifies the minimal C environment
+ 150: 108 18-19  4.4.1.1 " " specifies the implementation defined native environment
+ 151: 108 19-20  4.4.1.1 other implementation defined strings may be given
+ 152: 108 21-23  4.4.1.1 what happens at program startup
+ 153: 108 24-24  4.4.1.1 no library function calls setlocale
+ 154: 108 26-26  4.4.1.1 conditions on strings passed to setlocale
+ 155: 108 26-28  4.4.1.1 behaviour if condition can be honored
+ 156: 108 28-29  4.4.1.1 behaviour if condition cannot be honored
+ 157: 108 30-31  4.4.1.1 result of passing a null pointer to setlocale
+ 158: 108 31-32  4.4.1.1 null pointer does not change the locale
+ 159: 108 33-34  4.4.1.1 properties of string returned by setlocale
+ 160: 108 34-35  4.4.1.1 returned string may not be modified by program
+ 161: 108 35-36  4.4.1.1 but may be overwritten by a subsequent setlocale call
+ 162: 109 05-05  4.4.2.1 struct lconv *localconv( ... )
+ 163: 109 07-09  4.4.2.1 description of localconv
+ 164: 109 10-10  4.4.2.1 char * members of struct are strings
+ 165: 109 10-11  4.4.2.1 can point at ""
+ 166: 109 11-12  4.4.2.1 " " indicates that the value is not available in the current locale
+ 167: 109 12-12  4.4.2.1 char members are non-negative numbers
+ 168: 109 12-13  4.4.2.1 CHAR_MAX indicates that value not available in current locale
+ 169: 109 15-16  4.4.2.1 definition of decimal_point
+ 170: 109 17-19  4.4.2.1 defintion of thousands_sep
+ 171: 109 20-22  4.4.2.1 definition of grouping
+ 172: 109 23-24  4.4.2.1 definition of int_curr_symbol
+ 173: 109 24-26  4.4.2.1 conditions on first three characters
+ 174: 109 27-28  4.4.2.1 what the fourth character does
+ 175: 109 29-30  4.4.2.1 definition of currency_symbol
+ 176: 109 31-32  4.4.2.1 definition of mon_decimal_point
+ 177: 109 33-35  4.4.2.1 definition of mon_thousands_sep
+ 178: 109 36-38  4.4.2.1 definition of mon_grouping
+ 179: 109 39-40  4.4.2.1 definition of postive_sign
+ 180: 109 41-42  4.4.2.1 definition of negative_sign
+ 181: 109 43-45* 4.4.2.1 definition of int_frac_digits
+ 182: 110 01-03  4.4.2.1 definition of frac_digits
+ 183: 110 04-06  4.4.2.1 definition of p_cs_precedes
+ 184: 110 07-09  4.4.2.1 definition of p_sep_by_space
+ 185: 110 10-12  4.4.2.1 definition of n_cs_precedes
+ 186: 110 13-15  4.4.2.1 definition of n_sep_by_space
+ 187: 110 16-18  4.4.2.1 definition of p_sign_posn
+ 188: 110 19-21  4.4.2.1 definition of n_sign_posn
+ 189: 110 34-34  4.4.2.1 behave as if no library function calls localeconv
+ 190: 110 36-36  4.4.2.1 returns pointer to filled in object
+ 191: 110 36-37  4.4.2.1 returned structure may not be modified by program
+ 192: 110 37-38  4.4.2.1 returned structure may be modified by subsequent call
+ 193: 110 38-40  4.4.2.1 some calls to setlocale may overwrite contents of structure
+ 194: 112 02-03  4.5 functions take double arguments
+ 195: 112 03-03  4.5 return double arguments
+ 196: 112 05-06  4.5 HUGE_VAL defined as macro
+ 197: 112 07-07  4.5 expands to positive double expression
+ 198: 112 07-07  4.5 not necessarily representable as float
+ 199: 112 11-12  4.5.1 behaviour of functions defined for all representable arguments
+ 200: 112 12-12  4.5.1 each function shall execute as single operation
+ 201: 112 12-13  4.5.1 no externally visible exceptions generated
+ 202: 112 14-15  4.5.1 domain error occurs if input argument outside domain of function
+ 203: 112 16-16  4.5.1 implementation may defined addtional domain errors
+ 204: 112 16-17  4.5.1 provided they are consistent with mathematical definition
+ 205: 112 17-18  4.5.1 on domain error implementation defined value returned
+ 206: 112 18-19  4.5.1 EDOM stored in errno
+ 207: 112 20-21  4.5.1 range error occurs if result not representable
+ 208: 112 21-22  4.5.1 if result overflows (magnitude cannot be represented)
+ 209: 112 22-24  4.5.1 returns macro HUGE_VAL with same sign as correct value
+ 210: 112 23-23  4.5.1 except tan
+ 211: 112 24-24  4.5.1 macro ERANGE stored in errno
+ 212: 112 24-26  4.5.1 if result underflows (magnitude so small not representable)
+ 213: 112 26-26  4.5.1 returns zero
+ 214: 112 26-27  4.5.1 whether errno aquires value of ERANGE is implementation defined
+ 215: 112 34-34  4.5.2.1 acos computes principle value of arc cosine x
+ 216: 112 34-35* 4.5.2.1 domain error if argument outside range [-1, +1]
+ 217: 113 02-02  4.5.2.1 what acos returns
+ 218: 113 08-08  4.5.2.2 description of asin
+ 219: 113 08-09  4.5.2.2 arguments outside [-1,1] cause a domain error
+ 220: 113 11-11  4.5.2.2 what asin returns
+ 221: 113 17-17  4.5.2.3 description of atan
+ 222: 113 19-19  4.5.2.3 what atan returns
+ 223: 113 25-25  4.5.2.4 description of atan2
+ 224: 113 25-26  4.5.2.4 signs of arguments determine the quadrant
+ 225: 113 26-27  4.5.2.4 domain error if both arguments are zero
+ 226: 113 29-29  4.5.2.4 what atan2 returns
+ 227: 113 35-35  4.5.2.5 description of cos
+ 228: 113 37-37* 4.5.2.5 what cos returns
+ 229: 114 06-06  4.5.2.6 description of sin
+ 230: 114 08-08  4.5.2.6 what sin returns
+ 231: 114 14-14  4.5.2.6 description of tan
+ 232: 114 16-16  4.5.2.6 what tan returns
+ 233: 114 23-23  4.5.3.1 description of cosh
+ 234: 114 23-24  4.5.3.1 range error if magnitude of argument too large
+ 235: 114 26-26  4.5.3.1 what cosh returns
+ 236: 114 32-32  4.5.3.2 description of sinh
+ 237: 114 32-33  4.5.3.2 range error if magnitude of argument too large
+ 238: 114 35-35* 4.5.3.2 what sinh returns
+ 239: 115 06-06  4.5.3.3 description of tanh
+ 240: 115 08-08  4.5.3.3 what tanh returns
+ 241: 115 15-15  4.5.4.1 description of exp
+ 242: 115 15-16  4.5.4.1 domain error if magnitude of argument too large
+ 243: 115 18-18  4.5.4.1 what exp returns
+ 244: 115 24-25  4.5.4.2 description of frexp
+ 245: 115 25-25  4.5.4.2 stores int object in object pointed to by exp
+ 246: 115 27-28  4.5.4.2 what frexp returns
+ 247: 115 28-29  4.5.4.2 what happens if value is zero
+ 248: 115 35-35  4.5.4.3 description of ldexp
+ 249: 115 35-36  4.5.4.3 a range error may occur
+ 250: 115 38-38* 4.5.4.3 what ldexp returns
+ 251: 116 06-06  4.5.4.4 description of log
+ 252: 116 06-07  4.5.4.4 domain error if argument is negative
+ 253: 116 07-07  4.5.4.4 a range error may occur if argument is zero
+ 254: 116 09-09  4.5.4.4 what log returns
+ 255: 116 15-15  4.5.4.5 description of log10
+ 256: 116 15-16  4.5.4.5 domain error occurs if argument is negative
+ 257: 116 16-16  4.5.4.5 a range error may occur if the argument is zero
+ 258: 116 18-18  4.5.4.5 what log10 returns
+ 259: 116 24-25  4.5.4.6 description of modf
+ 260: 116 25-26  4.5.4.6 stores integral part as a double
+ 261: 116 28-28  4.5.4.6 what modf returns
+ 262: 116 35-35  4.5.5.1 description of pow
+ 263: 116 35-36  4.5.5.1 domain error if x is nagative and y is not integral
+ 264: 116 36-37  4.5.5.1 domain error if result cannot be represented when x&y are 0
+ 265: 116 37-37  4.5.5.1 a range error may occur
+ 266: 116 39-39* 4.5.5.1 what pow returns
+ 267: 117 06-06  4.5.5.2 description of sqrt
+ 268: 117 06-07  4.5.5.2 domain error if argument is negative
+ 269: 117 09-09  4.5.5.2 what sqrt returns
+ 270: 117 16-16  4.5.6.1 description of ceil
+ 271: 117 18-18  4.5.6.1 what ceil returns
+ 272: 117 24-24  4.5.6.2 description of fabs
+ 273: 117 26-26  4.5.6.2 what fabs returns
+ 274: 117 32-32  4.5.6.3 description of floor
+ 275: 117 34-34  4.5.6.3 what floor returns
+ 276: 117 34-35* 4.5.6.3 return type of floor
+ 277: 118 06-06  4.5.6.4 description of fmod
+ 278: 118 08-08  4.5.6.4 what fmod returns
+ 279: 118 08-09  4.5.6.4 what happens if y is nonzero
+ 280: 118 09-10* 4.5.6.4 if y is zero a domain error may occur (implementation defined)
+ 281: 119 02-03  4.6 defines the setjmp macro
+ 282: 119 04-07  4.6 the jmp_buf array type
+ 283: 119 08-08  4.6 unspecified whether setjmp is a macro or function
+ 284: 119 09-10  4.6 supressing the macro & defining name with setjmp is undefined behaviour
+ 285: 119 17-18  4.6.1.1 description of setjmp
+ 286: 119 20-20  4.6.1.1 from a direct invokation the result is zero
+ 287: 119 20-21  4.6.1.1 return from call by longjmp
+ 288: 119 23-23  4.6.1.1 setjmp may not appear in the contexts
+ 289: 119 24-24  4.6.1.1 may not be entire controlling expression of selction of iteration statement
+ 290: 119 25-26  4.6.1.1 may not be one operand or a relational or equality operator
+ 291: 119 26-27  4.6.1.1 with resulting expression being controlling expression of selection or iteration
+ 292: 119 28-28  4.6.1.1 operand of unary !
+ 293: 119 28-29  4.6.1.1 with resulting expression being controlling expression of selection or iteration
+ 294: 119 30-30* 4.6.1.1 the entire expression of an expression statement
+ 295: 120 05-05  4.6.2.1 void longjump( ... )
+ 296: 120 07-08  4.6.2.1 longjump restores a previously saved environment
+ 297: 120 08-09  4.6.2.1 jmp_buf holds the information
+ 298: 120 09-10  4.6.2.1 if no invokation of setjmp or function terminated behaviour is undefined
+ 299: 120 11-11  4.6.2.1 accessible objects have the value as of when longjmp was called
+ 300: 120 11-13  4.6.2.1 except auto objects local to function that called setjmp
+ 301: 120 13-13  4.6.2.1 and do not have volatile qualified type
+ 302: 120 13-14  4.6.2.1 and have changed their value between setjmp/longjmp are indeterminate
+ 303: 120 15-16  4.6.2.1 longjmp executes correctly in contexts of interrupts & signals
+ 304: 120 17-19  4.6.2.1 longjmp invoked from nested signal handler is undefined behaviour
+ 305: 120 21-22  4.6.2.1 after longjmp is completed execution setjmp returns the value val
+ 306: 120 22-23  4.6.2.1 longjmp never causes setjmp to return 0
+ 307: 120 23-24* 4.6.2.1 a val of 0 causes 1 to be returned
+ 308: 121 04-06  4.7 sig_atomic_t integral type accessable as atomic entity
+ 309: 121 06-07  4.7 even in presence of asynchronous interrupts
+ 310: 121 09-09  4.7 SIG_DFL is a macro
+ 311: 121 10-10  4.7 SIG_ERR is a macro
+ 312: 121 11-11  4.7 SIG_IGN is a macro
+ 313: 121 12-12  4.7 expand to integral constant expressions
+ 314: 121 12-13  4.7 have types compatible with 2nd argument to signal function
+ 315: 121 13-14  4.7 values compare unequal to address of any declarable function
+ 316: 121 14-15  4.7 following expand to integral constant expressions
+ 317: 121 15-16  4.7 expression is the signal number of the specified condition
+ 318: 121 17-17  4.7 definition of SIGABRT
+ 319: 121 18-19  4.7 definition of SIGFPE
+ 320: 121 20-20  4.7 definition of SIGILL
+ 321: 121 21-21  4.7 definition of SIGINT
+ 322: 121 22-22  4.7 definition of SIGSEGV
+ 323: 121 23-23  4.7 deifnition of SIGTERM
+ 324: 121 24-25  4.7 implementation need not generate these signals except via calls to raise
+ 325: 121 25-27  4.7 reserving names for additonal signals & pointers to functions
+ 326: 121 27-28  4.7 set of signal, their semantics & default handling is implementation defined
+ 327: 121 28-29  4.7 all signal numbers shall be positive
+ 328: 121 36-37  4.7.1 signal function chooses one of 3 ways of handling signal
+ 329: 121 37-38  4.7.1 SIG_DFL causes default handling
+ 330: 121 38-38  4.7.1 SIG_IGN causes the signal to be ignored
+ 331: 121 38-38* 4.7.1 otherwise
+ 332: 122 01-01  4.7.1 func shall point to a function to be called
+ 333: 122 01-02  4.7.1 definition of signal handler
+ 334: 122 03-03  4.7.1 when a signal occurs
+ 335: 122 03-03  4.7.1 if func points to a function
+ 336: 122 03-04  4.7.1 first signal(sig, SIG_DFL) is executed
+ 337: 122 04-04  4.7.1 or an implementation defined blocking is performed
+ 338: 122 04-05  4.7.1 if sig is SIGILL, reset to SIG_DFL is implementation defined
+ 339: 122 06-06  4.7.1 next the equivalent of (*func)(sig) is executed
+ 340: 122 06-07  4.7.1 func may terminate by return, abort, exit or longjmp
+ 341: 122 07-09  4.7.1 if return & sig was SIGFPE behaviour is undefined
+ 342: 122 09-10  4.7.1 or any other implementation defined value for computational exception
+ 343: 122 09-10  4.7.1 otherwise execution continues as normal
+ 344: 122 11-11  4.7.1 if signal occurs other than result of abort or raise then
+ 345: 122 11-12  4.7.1 undefined behaviour if function in standard library
+ 346: 122 12-14  4.7.1 other than signal with first argument corresponding ...
+ 347: 122 14-15  4.7.1 refers to any object of static storage duration
+ 348: 122 15-16  4.7.1 unless of type volatile sig_atomic_t
+ 349: 122 16-17  4.7.1 if call to signal results in SIG_ERR return value of errno is indeterminate
+ 349: 122 18-20  4.7.1 a program startup signal(sig, SIG_IGN) may be executed
+ 350: 122 20-23  4.7.1 otherwise signal(sig_DFL) is executed
+ 351: 122 24-24  4.7.1 implementation shall behave as if no library function calls signal
+ 352: 122 26-26  4.7.1 if request can be honored
+ 353: 122 26-27  4.7.1 returns value of func for the most recent call to signal for given sig
+ 354: 122 27-28  4.7.1 otherwise SIG_ERR is returned &
+ 355: 122 27-28  4.7.1 positive vale stored in errno
+ 356: 122 36-36  4.7.1 description of raise
+ 357: 122 38-38  4.7.2 returns 0 is successful
+ 358: 122 38-38* 4.7.2 returns nonzero if unsuccessful
+ 359: 123 05-05  4.8 a function may be called with a variable number of arguments
+ 359: 123 06-07  4.8 definition of parmN
+ 360: 123 08-11  4.8 definition of va_list
+ 361: 123 11-12  4.8 accessing to the varying arguments requires local va_list
+ 362: 123 12-13  4.8 ap may be passed as an argument
+ 363: 123 13-14  4.8 using va_arg on parameter ap makes ap indeterminated in the calling function
+ 364: 123 14-15  4.8 ap shall be passed to va_end prior to any reference
+ 365: 123 17-18  4.8.1 va_start and va_arg are macros not functions
+ 366: 123 18-19  4.8.1 va_end can be a macro or external identifier
+ 367: 123 19-20  4.8.1 if a va_end macro is suppressed
+ 368: 123 20-21  4.8.1 defining an identifier with name va_end is undefined behaviour
+ 369: 123 21-22  4.8.1 va_start and va_end shall be invoked for access to varying arguments
+ 370: 123 28-28  4.8.1.1 description of va_start
+ 371: 123 29-29  4.8.1.1 description of va_start
+ 372: 123 30-31  4.8.1.1 another defintion of paramN
+ 373: 123 31-32  4.8.1.1 if paramN has register storage class
+ 374: 123 32-32  4.8.1.1 with function or array type
+ 375: 123 32-33  4.8.1.1 or a type that is not compatible with the default promoted type
+ 376: 123 33-34  4.8.1.1 the behaviour is undefined
+ 377: 123 36-36  4.8.1.1 va_start returns no value
+ 378: 123 42-43  4.8.1.2 va_arg expands to expression with type o fth enext argument
+ 379: 123 43-44  4.8.1.2 ap shall be the same as that passed to va_start
+ 380: 123 44-44* 4.8.1.2 each invocation of va_arg modifies ap
+ 381: 124 01-01  4.8.1.2 each argument is returned in turn
+ 382: 124 01-02  4.8.1.2 parameter type name gives pointer to object byprefixing with *
+ 383: 124 02-03  4.8.1.2 if there is no actual argument
+ 384: 124 03-04  4.8.1.2 or if type is not compatible (after default promotions)
+ 385: 124 04-04  4.8.1.2 behaviour is undefined
+ 386: 124 06-07  4.8.1.2 what va_arg returns on the first call
+ 387: 124 07-08  4.8.1.2 what va_arg returns on subsequent calls
+ 388: 124 14-15  4.8.1.3 description of purpose of va_end
+ 389: 124 15-17  4.8.1.3 va_end may modify ap to make it unusable
+ 390: 124 17-18  4.8.1.3 if no va_start or va_end the behaviour is undefined
+ 391: 124 20-20  4.8.1.3 va_end returns no value
+ 392: 125 05-05  4.9.1 size_t is declared
+ 393: 125 06-07  4.9.1 FILE is an object type capable of recording all stream information
+ 394: 125 08-08  4.9.1 including a file position indicator
+ 395: 125 08-08  4.9.1 a pointer to its associated buffer
+ 396: 125 08-09  4.9.1 an error indicator
+ 397: 125 09-10  4.9.1 an end-of-file indicator
+ 398: 125 10-13  4.9.1 defintion of fpos_t
+ 399: 125 14-14  4.9.1 the NULL macro is defined
+ 400: 125 15-15  4.9.1 the _IOFBF macro is defined
+ 401: 125 16-16  4.9.1 the _IOLBF macro is defined
+ 402: 125 17-17  4.9.1 the _IONBF macro is defined
+ 403: 125 18-18  4.9.1 exapand to distinct integral constant expressions
+ 404: 125 18-19  4.9.1 suitable for use as 3rd argument of setvbuf function
+ 405: 125 20-21  4.9.1 definition of BUFSIZ
+ 406: 125 21-22  4.9.1 setbuf uses BUFSIZ as the size of buffer
+ 407: 125 23-24  4.9.1 definition of EOF
+ 408: 125 24-25  4.9.1 EOF returned by several functions to indicate end-of-file
+ 409: 125 26-27  4.9.1 FOPEN_MAX an integral constant expression
+ 410: 125 27-28  4.9.1 FOPEN_MAX is minimum number of files open simultaneously
+ 411: 125 29-30  4.9.1 FILENAME_MAX an integral constant expression
+ 412: 125 30-32  4.9.1 FILENAME_MAX is longest filename that can be opened
+ 413: 125 33-34  4.9.1 L_tmpnam is an integral constant expression
+ 414: 125 34-35* 4.9.1 L_tmpnam is size of array of char that can hold name generated by tmpnam
+ 415: 126 01-01  4.9.1 SEEK_CUR macro
+ 416: 126 02-02  4.9.1 SEEK_END macro
+ 417: 126 03-03  4.9.1 SEEK_SET macro
+ 418: 126 04-04  4.9.1 distinct integral constant expressions
+ 419: 126 04-05  4.9.1 for use as 3rd argument of fseek
+ 420: 126 06-07  4.9.1 TMP_MAX expands to an integral constant expression
+ 421: 126 07-08  4.9.1 TMP_MAX is minimum number of unique files that can be generated by tmpnam
+ 422: 126 09-09  4.9.1 stderr
+ 423: 126 10-10  4.9.1 stdin
+ 424: 126 11-11  4.9.1 stdout
+ 425: 126 12-12  4.9.1 expressions of type pointer to FILE
+ 426: 126 12-13  4.9.1 associates with standard error, input and output streams
+ 427: 126 17-19  4.9.2 input & output are mapped into logical data streams
+ 428: 126 19-19  4.9.2 properties of streams are more uniform
+ 429: 126 19-20  4.9.2 text and binary streams are supported
+ 430: 126 21-21  4.9.2 text stream ordered sequence of characters composed into lines
+ 431: 126 21-22  4.9.2 line is zero or more characters terminated by new-line
+ 432: 126 22-23  4.9.2 implementation defined whether last line is new-line terminated
+ 433: 126 23-25  4.9.2 characters may have to be added, altered or deleted
+ 434: 126 25-26  4.9.2 need not be one to one mapping from internal to external environment
+ 435: 126 26-27  4.9.2 data read in from text stream will compare equal to data written out if
+ 436: 126 27-28  4.9.2 only printable characters and horizontal tab and new-line
+ 437: 126 28-29  4.9.2 no new-line character is preceeded by space characters
+ 438: 126 29-30  4.9.2 last character is a new-line characters
+ 439: 126 30-31  4.9.2 implementation defined if space characters before new-line appear
+ 440: 126 32-32  4.9.2 binary stream is an ordered sequence of characters
+ 441: 126 32-33  4.9.2 can transparently record internal data
+ 442: 126 33-34  4.9.2 on same implementation data read in equals data written out
+ 443: 126 34-35  4.9.2 implementation number of null characters may be appended
+ 444: 126 37-37  4.9.2 implementation shall support lines of at least 254 characters
+ 445: 126 38-38  4.9.2 including new-line character
+ 446: 126 38-39* 4.9.2 BUFSIZ shall be at least 256
+ 447: 127 02-03  4.9.3 stream is associated with a file by opening it
+ 448: 127 03-03  4.9.3 opening a file may involve creating it
+ 449: 127 03-04  4.9.3 creating an existing file causes its contents to be lost
+ 450: 127 04-05  4.9.3 if a file can support positioning requests
+ 451: 127 05-06  4.9.3 then file position indicator for stream is set to character # zero
+ 452: 127 06-08  4.9.3 when opened in append mode implemntation defined whether beginning/end
+ 453: 127 08-08  4.9.3 file position indicator maintained by read operation
+ 454: 127 09-09  4.9.3 file position indicator maintained by write operation
+ 455: 127 09-09  4.9.3 file position indicator maintained by positioning requests
+ 456: 127 09-10  4.9.3 all input takes place as-if through fgetc
+ 457: 127 10-11  4.9.3 all output takes place as if through fgutc
+ 458: 127 12-12  4.9.3 binary files are not truncated
+ 459: 127 12-13  4.9.3 truncation after write on text is implementation defined
+ 460: 127 14-15  4.9.3 characters must appear as soon as possible on unbuffered streams
+ 461: 127 15-16  4.9.3 otherwise characters may be acumulated and tansmitted as a block
+ 462: 127 16-17  4.9.3 a fully buffered stream has its characters transmitted when a buffer is filled
+ 463: 127 17-19  4.9.3 a line buffered stream has its characters transmitted when new-line is encountered
+ 464: 127 19-20  4.9.3 characters are intended to be transmitted when a buffer is full
+ 465: 127 20-21  4.9.3 when input is requested on a an input stream
+ 466: 127 21-22  4.9.3 or when input fir a line bufferd stream that requires transmission to the host
+ 467: 127 22-23  4.9.3 support for these characteristics is implementation-defined
+ 468: 127 23-23  4.9.3 may be affected via setbuf & setvbuf
+ 469: 127 24-24  4.9.3 file is disassociated from a stream via closing the file
+ 470: 127 24-26  4.9.3 output streams are flushed before disassociation
+ 471: 127 26-27  4.9.3 value of *FILE is indeterminate after a close
+ 472: 127 27-29  4.9.3 whether a zero length file exists is implementation defined
+ 473: 127 30-31  4.9.3 a file may be reopened
+ 474: 127 31-32  4.9.3 if main returnes to its caller
+ 475: 127 32-32  4.9.3 or if exit is called
+ 476: 127 32-33  4.9.3 then all opened files are closed before termination
+ 477: 127 33-34  4.9.3 other path to program termination need not close file properly
+ 478: 127 35-35  4.9.3 the address of FILE objects may be significant
+ 479: 127 35-36  4.9.3 a copy of a FILE object may not necessarily serve in place of the orginal
+ 480: 127 37-37  4.9.3 at program startup three text file are opened
+ 481: 127 38-38  4.9.3 standard input is opened
+ 482: 127 38-39  4.9.3 standard output is opened
+ 483: 127 39-39  4.9.3 standard error is opened
+ 484: 127 39-40  4.9.3 when opened stderr is not fully buffered
+ 485: 127 40-41  4.9.3 stdout & stdin are fully buffered iff stream is not an interactive device
+ 486: 127 42-42  4.9.3 functions that open nontemporary files require a filename
+ 487: 127 43-43  4.9.3 rules for composing filename is implementation defined
+ 488: 127 43-44* 4.9.3 implementation defined if same file can be simultaneously open multiple times
+ 489: 127 02-03  4.9.3 value of FOPEN_MAX shall be at least 8
+ 490: 128 13-14  4.9.4.1 definition of remove
+ 491: 128 14-15  4.9.4.1 opening a removed file will fail
+ 492: 128 15-16  4.9.4.1 removing an open file is implementation defined
+ 493: 128 18-18  4.9.4.1 returns 0 if succeeds, else nonzero
+ 494: 128 24-25  4.9.4.2 definition of rename
+ 495: 128 25-26  4.9.4.2 old filename is no longer accessable
+ 496: 128 26-27  4.9.4.2 renaming to an existing name is implementation defined
+ 497: 128 29-29  4.9.4.2 returns zero if succeeds, nonzero otherwise
+ 498: 128 29-30  4.9.4.2 failing leaves the file with its original name
+ 499: 128 36-37  4.9.4.3 binary file removed when closed or on program termination
+ 500: 128 37-38  4.9.4.3 implementation defined whether file is removed on abnormal termination
+ 501: 128 38-38  4.9.4.3 file is opened for update
+ 502: 128 39-39  footnote rename might fail if file is open
+ 503: 128 39-40* footnote rename might fail if file has to be copied
+ 504: 129 01-01  4.9.4.3 "wb+" mode
+ 505: 129 03-03  4.9.4.3 returns a pointer to the stream of the file created
+ 506: 129 03-04  4.9.4.3 if file cannot tbe created a null pointer is returned
+ 507: 129 11-11  4.9.4.4 tmpnam creats a string that is a valid filename
+ 508: 129 11-12  4.9.4.4 and is not the same as the name of an existing file
+ 509: 129 13-13  4.9.4.4 tmpnam generates a different string on each call
+ 510: 129 13-14  4.9.4.4 tmpnam generates a different string TMP_MAX times
+ 511: 129 14-14  4.9.4.4 calling tmpnam more than TMP_MAX times is implementation defined
+ 512: 129 15-15  4.9.4.4 shall behave as-if not library function calls tmpnam
+ 513: 129 17-17  4.9.4.4 if argument is null pointer ...
+ 514: 129 17-18  4.9.4.4 return pointer to static object
+ 515: 129 18-19  4.9.4.4 subsequent call may modify that object
+ 516: 129 19-19  4.9.4.4 result is written to that array
+ 517: 129 19-21  4.9.4.4 returns argument as its value
+ 518: 129 23-23  4.9.4.4 TMP_MAX shall be at least 25
+ 519: 129 30-30  4.9.5.1 fclose causes stream to be flushed
+ 520: 129 30-31  4.9.5.1 and the associated file closed
+ 521: 129 31-32  4.9.5.1 any unwritten buffered data is delivered for writing
+ 522: 129 32-32  4.9.5.1 any buffered unread data is discarded
+ 523: 129 32-33  4.9.5.1 stream is disassociated from the file
+ 524: 129 33-33* 4.9.5.1 any automatically allocated buffer is deallocated
+ 525: 130 02-02  4.9.5.1 returns zero on success
+ 526: 130 02-03  4.9.5.1 returns EOF if any errors were detected
+ 527: 130 09-09  4.9.5.2 if output stream
+ 528: 130 09-10  4.9.5.2 if update stream & last operation was not input
+ 529: 130 10-11  4.9.5.2 fflush causes unwritten data to be written
+ 530: 130 11-11  4.9.5.2 otherwise behaviour is undefined
+ 531: 130 12-12  4.9.5.2 if stream is a null pointer
+ 532: 130 12-13  4.9.5.2 fflush performed on all streams for which behaviour is defined
+ 533: 130 15-15  4.9.5.2 returns EOF if write error, otherwise zero
+ 534: 130 22-22  4.9.5.3 description of fopen
+ 535: 130 22-23  4.9.5.3 and associates a stream with it
+ 536: 130 24-24  4.9.5.3 mode is a string which begins with one of the sequences
+ 537: 130 25-25  4.9.5.3 r
+ 538: 130 26-26  4.9.5.3 w
+ 539: 130 27-27  4.9.5.3 a
+ 540: 130 28-28  4.9.5.3 rb
+ 541: 130 29-29  4.9.5.3 wb
+ 542: 130 30-30  4.9.5.3 ab
+ 543: 130 31-31  4.9.5.3 r+
+ 544: 130 32-32  4.9.5.3 w+
+ 545: 130 33-33  4.9.5.3 a+
+ 546: 130 34-34  4.9.5.3 r+b or rb+
+ 547: 130 35-35  4.9.5.3 w+b or wb+
+ 548: 130 36-36  4.9.5.3 a+b or ab+
+ 549: 130 37-38  4.9.5.3 opening a file in read mode fails if the file does not exist
+ 550: 130 39-40  4.9.5.3 opening with append mode causes all writes to end-of-file
+ 551: 130 40-40* 4.9.5.3 regardless of intervening
+ 552: 131 01-01  4.9.5.3 calls to fseek
+ 553: 131 01-03  4.9.5.3 initial position of file opened in ab mode may be beyond last written data
+ 554: 131 03-04  4.9.5.3 because of null padding
+ 555: 131 05-06  4.9.5.3 file opened in update mode may have input/output performed
+ 556: 131 07-08  4.9.5.3 output not followed by input without intervening file positioning
+ 557: 131 08-09  4.9.5.3 input not followed by output without intervening file positioning
+ 558: 131 10-10  4.9.5.3 unless input encounters end-of file
+ 559: 131 10-11  4.9.5.3 opening text file with update may create a binary stream
+ 560: 131 12-13  4.9.5.3 when opened stream is fully buffered iff not interactive device
+ 561: 131 13-13  4.9.5.3 error ... indicators are cleared
+ 562: 131 13-13  4.9.5.3 end-of-file indicators are cleared
+ 563: 131 15-15  4.9.5.3 returns pointer to object controlling stream
+ 564: 131 15-16  4.9.5.3 if open fails null pointer returned
+ 565: 131 24-25  4.9.5.4 description of freopen
+ 566: 131 25-26  4.9.5.4 mode has same meaning as in fopen
+ 567: 131 27-28  4.9.5.4 freopen first attempts to close any open file
+ 568: 131 28-28  4.9.5.4 failure to close is ignored
+ 569: 131 28-29  4.9.5.4 error & end-of-file indicators are cleared
+ 570: 131 31-31  4.9.5.4 returns null pointer if operation fails
+ 570: 131 31-32  4.9.5.4 otherwise freopen returns value of stream
+ 570: 132 02-03  4.9.5.5 setbuf is equivalent to setvbuf with non-null buf
+ 570: 132 03-04  4.9.5.5 if buf is null _IONBF is used
+ 570: 132 06-06  4.9.5.5 no value is returned
+ 570: 132 13-14  4.9.5.6 decsription of setvbuf
+ 570: 132 14-15  4.9.5.6 mode determines how the stream will be buffered
+ 570: 132 15-16  4.9.5.6 _IOFBF gives full buffering
+ 570: 132 16-16  4.9.5.6 _IOLBF gives line buffering
+ 570: 132 16-17  4.9.5.6 _IONBF gives unbuffered
+ 500: 132 17-18  4.9.5.6 a non-null buf may be used for storage
+ 500: 132 18-19  4.9.5.6 size specifies the size of an array
+ 500: 132 19-19  4.9.5.6 contents of array are indeterminate
+ 500: 132 21-21  4.9.5.6 returns zero on success
+ 500: 132 21-22  4.9.5.6 nonzero for invalid mode if request cannot be honored
+ 500: 132 29-29  4.9.6.1 output written to stream
+ 500: 132 29-31  4.9.6.1 under control of format string
+ 500: 132 31-31  4.9.6.1 insufficient arguments causes undefined behaviour
+ 500: 132 32-32  4.9.6.1 excess arguments are evaluated
+ 500: 132 32-33  4.9.6.1 but are ignored
+ 500: 132 33-34  4.9.6.1 returns when end of format string is encountered
+ 500: 132 35-35  4.9.6.1 format string is a multibyte character sequence
+ 500: 132 35-36  4.9.6.1 beginning/ending in the initial shift state
+ 500: 132 36-36  4.9.6.1 format composedof zero or more directives
+ 500: 132 36-36  4.9.6.1 ordinary multibyte characters
+ 500: 132 36-36  4.9.6.1 not %
+ 500: 132 37-37  4.9.6.1 copied unchanged to the output stream
+ 500: 132 37-37  4.9.6.1 and conversion specifiers
+ 500: 132 37-38  4.9.6.1 each results in fetching zero or more arguments
+ 500: 132 38-39  4.9.6.1 conversion specification introduced by %
+ 500: 132 39-39* 4.9.6.1 after % the following appear in sequence
+ 500: 133 01-01  4.9.6.1 zero or more flags
+ 500: 133 01-01  4.9.6.1 in any order
+ 500: 133 01-01  4.9.6.1 modify the meaning of conversion specifier
+ 500: 133 02-02  4.9.6.1 field width is optional
+ 500: 133 02-03  4.9.6.1 if converted value has fewer characters than field width
+    : 133 03-03  4.9.6.1 it is padded
+    : 133 03-03  4.9.6.1 spaces are the default padding
+    : 133 03-03  4.9.6.1 padding occur on the left
+    : 133 03-04  4.9.6.1 padding occur on right if adjustment flag given
+    : 133 04-05  4.9.6.1 field width is an asterisk
+    : 133 05-05  4.9.6.1 or a decimal integer
+    : 133 06-06  4.9.6.1 an optional precision
+    : 133 06-07  4.9.6.1 precision applies to d, i, o, u, x and X conversions
+    : 133 07-08  4.9.6.1 number of digits after dp for e, E and f conversions
+    : 133 08-08  4.9.6.1 maximum number of significant digits for g and G conversions
+    : 133 09-09  4.9.6.1 maximum # characters for s conversion
+    : 133 09-10  4.9.6.1 precision takes form of a period followed by
+    : 133 10-10  4.9.6.1 an asterisk
+    : 133 10-11  4.9.6.1 an optional decimal integer
+    : 133 11-11  4.9.6.1 only a period means a precision of zero
+    : 133 12-12  4.9.6.1 precision with any other specifier is undefined behaviour
+    : 133 13-13  4.9.6.1 an optional h specifies ...
+    : 133 13-14  4.9.6.1 following d, i, o, u, x, or X conversion applies to short or unsigned short
+    : 133 14-15  4.9.6.1 ???
+    : 133 15-16  4.9.6.1 value converted before printing
+    : 133 16-17  4.9.6.1 optional h prior to n conversion
+    : 133 17-17  4.9.6.1 applies to short int
+    : 133 17-17  4.9.6.1 an optional l
+    : 133 18-18  4.9.6.1 prior to d, i, o, u, x, or X conversion
+    : 133 18-19  4.9.6.1 applies to long int or unsigned long int
+    : 133 19-19  4.9.6.1 an optional l prior to n specifier
+    : 133 20-20  4.9.6.1 applies to long int
+    : 133 20-20  4.9.6.1 an optional L
+    : 133 20-21  4.9.6.1 following e, E, f, g, or G conversion
+    : 133 21-21  4.9.6.1 applies to a long double
+    : 133 21-22  4.9.6.1 h, l, or L with another specifier is undefined behaviour
+    : 133 23-23  4.9.6.1 a character that specifies the type of conversion to be applied
+    : 133 24-24  4.9.6.1 field width or precision may be an asterisk
+    : 133 24-25  4.9.6.1 in this case an int argument supplies the value
+    : 133 25-26  4.9.6.1 arguments appear in order field width, precision
+    : 133 26-27  4.9.6.1 before argument to be converted
+    : 133 27-27  4.9.6.1 negative field width is taken as - flag
+    : 133 27-28  4.9.6.1 followed by postive field width
+    : 133 28-28  4.9.6.1 negative precision treated as if precision ommitted
+    : 133 29-29  4.9.6.1 flag characters and meanings are
+    : 133 30-30  4.9.6.1 result will be left justified in field
+    : 133 30-31  4.9.6.1 default is right justified
+    : 133 32-32  4.9.6.1 result will always be begin with plus or minus sign
+    : 133 32-33  4.9.6.1 default is only to give sign when negative
+    : 133 34-34  4.9.6.1 if first character of signed converison is not a sign
+    : 133 34-35  4.9.6.1 or if signed conversion results in no characters
+    : 133 35-35  4.9.6.1 space is refixed to result
+    : 133 35-36  4.9.6.1 + flag takes precedence over space flag
+    : 133 37-37  4.9.6.1 # is an alternate form
+    : 133 37-38  4.9.6.1 o conversion increases precision to force first digit to be zero
+    : 133 38-39  4.9.6.1 x or X conversion will have 0x, 0X prefixed
+    : 133 39-40  4.9.6.1 e, E, f, g, and G result will always have a dp
+    : 133 40-40  4.9.6.1 even if no digits follow
+    : 133 41-42  4.9.6.1 default is a dp only if digits follow
+    : 133 42-43  4.9.6.1 for g anf G trailing zeros will not be removed
+    : 133 43-43* 4.9.6.1 for other conversion behaviour is undefined
+    : 134 01-02  4.9.6.1 d, i, o, u,x,X,e,E,f,g,G padding is leading zeros
+    : 134 02-03  4.9.6.1 no space padding is performed
+    : 134 03-03  4.9.6.1 if 0 and - then 0 is ignored
+    : 134 03-04  4.9.6.1 d,i,o,u,x,X if precision specified 0 flag is ignored
+    : 134 04-05  4.9.6.1 for other conversions behaviour is undefined
+    : 134 06-06  4.9.6.1 meaning of conversion specifiers
+    : 134 07-07  4.9.6.1 int converted to signed decimal
+    : 134 07-08  4.9.6.1 precision specifies minimum digits to appear
+    : 134 08-09  4.9.6.1 value with fewer digits is padded with leading zeros
+    : 134 10-10  4.9.6.1 default precision is 1
+    : 134 10-11  4.9.6.1 result of value 0 with 0 precision is zero characters
+    : 134 12-12  4.9.6.1 unsigned int converted to unsigned octal
+    : 134 12-13  4.9.6.1 unsigned decimal (u)
+    : 134 13-13  4.9.6.1 or unsigned hexadecimal (x or X)
+    : 134 13-14  4.9.6.1 letters abcdef or ABCDEF used
+    : 134 14-15  4.9.6.1 precision specifies minimum digits to appear
+    : 134 15-16  4.9.6.1 if value represented in fewer digits filled with zeros
+    : 134 16-17  4.9.6.1 default precsion is 1
+    : 134 17-18  4.9.6.1 result of 0 value is 0 precision is no characters
+    : 134 19-19  4.9.6.1 double argument converted to style [-]ddd.ddd
+    : 134 20-21  4.9.6.1 where digits after dp equal to precision
+    : 134 21-21  4.9.6.1 missing precision taken as 6
+    : 134 21-22  4.9.6.1 zero precision and no # flag then no dp appears
+    : 134 22-23  4.9.6.1 if dp appears at least one digits appears before it
+    : 134 23-24  4.9.6.1 value is rounded to approriate number of digits
+    : 134 25-25  4.9.6.1 double is converted in style [-]d.ddde+-dd
+    : 134 25-26  4.9.6.1 one digit before dp characters
+    : 134 26-26  4.9.6.1 which is nonzero if argument is nonzero
+    : 134 27-27  4.9.6.1 number of digits after equal to precision
+    : 134 27-28  4.9.6.1 missing precision is taken as 6
+    : 134 28-29  4.9.6.1 zero precision and no # flag then no dp appears
+    : 134 29-29  4.9.6.1 value rounded to appropriate digits
+    : 134 30-31  4.9.6.1 E will produce E exponent rather than e
+    : 134 31-31  4.9.6.1 exponent always contains at least two digits
+    : 134 31-32  4.9.6.1 if value is zero exponent is zero
+    : 134 33-33  4.9.6.1 value converted in f or e style
+    : 134 33-34  4.9.6.1 or E style for G specifier
+    : 134 34-34  4.9.6.1 precision specifies number of significant digits
+    : 134 35-35  4.9.6.1 a zero precision is taken as 1
+    : 134 35-36  4.9.6.1 style used depends on value
+    : 134 36-37  4.9.6.1 e style used if exponent less than -4
+    : 134 37-37  4.9.6.1 or exponent greater or equal to precision
+    : 134 37-38  4.9.6.1 trailing zeros removed from fraction
+    : 134 38-39  4.9.6.1 dp only appears if followed bya digit
+    : 134 40-40  4.9.6.1 int argument converted to unsigned char
+    : 134 40-41  4.9.6.1 resulting character is written
+    : 134 42-42  4.9.6.1 argument shall be a pointer to array
+    : 134 42-43  4.9.6.1 characters written upto null characters
+    : 134 43-44  4.9.6.1 if precision specified no more than those characters written
+    : 134 44-45  4.9.6.1 if no precision, or greater than array size
+    : 134 45-46* 4.9.6.1 array shall contain a null character
+    : 135 01-01  4.9.6.1 argument shall be pointer to void
+    : 135 01-02  4.9.6.1 value converted to sequence of characters
+    : 135 02-02  4.9.6.1 sequence is implementation defined
+    : 135 03-03  4.9.6.1 argument is a pointer to integer
+    : 135 03-04  4.9.6.1 into which is written number of characters output by fprint
+    : 135 04-05  4.9.6.1 no argument is converted
+    : 135 06-06  4.9.6.1 a % is written
+    : 135 06-06  4.9.6.1 no argument is converted
+    : 135 06-07  4.9.6.1 complete conversion specification shall be %%
+    : 135 08-08  4.9.6.1 invalid conversion specification is undefined behaviour
+    : 135 09-09  4.9.6.1 if any argument is or points to union or aggregate
+    : 135 09-10  4.9.6.1 except for array of char using %s
+    : 135 10-10  4.9.6.1 or pointer with %p
+    : 135 10-10  4.9.6.1 behaviour is undefined
+    : 135 11-11  4.9.6.1 a nonexistant or small field width does not cause truncation of field
+    : 135 11-12  4.9.6.1 if result wider than field width, it is expanded
+    : 135 14-14  4.9.6.1 the number of characters transmitted is returned
+    : 135 14-15  4.9.6.1 a negative value is returned on error
+    : 135 17-18  4.9.6.1 the min max number of converted characters shall be 509
+    : 135 36-36  4.9.6.2 fscanf reads from stream
+    : 135 36-37  4.9.6.2 under control of format
+    : 135 37-37  4.9.6.2 format specifies admissible input sequences
+    : 135 37-38  4.9.6.2 and how they are converted for assignment
+    : 135 38-39  4.9.6.2 using subsequent pointer to objects to receive input
+    : 135 39-39  4.9.6.2 insufficient arguments is undefined behaviour
+    : 135 40-40  4.9.6.2 if format is exhausted while arguments remain
+    : 135 40-40* 4.9.6.2 excess arguments are evaluated
+    : 136 01-01  4.9.6.2 but areignored
+    : 136 02-02  4.9.6.2 format shall be a multibyte character sequence
+    : 136 02-03  4.9.6.2 beginning/ending in initial shift state
+    : 136 03-03  4.9.6.2 format composed of zero or more directives
+    : 136 03-03  4.9.6.2 one or more whitespace characters
+    : 136 03-04  4.9.6.2 an ordinary multibyte character
+    : 136 04-04  4.9.6.2 neither % or white-space character
+    : 136 04-04  4.9.6.2 or a conversion specification
+    : 136 05-05  4.9.6.2 each conversion preceeded by %
+    : 136 05-06  4.9.6.2 after the % the following appear ...
+    : 136 07-07  4.9.6.2 an optional assignment suppressing character, *
+    : 136 08-08  4.9.6.2 optional decimal integer, field width
+    : 136 09-09  4.9.6.2 optional h,l, or L indicating the size of receiving object
+    : 136 09-11  4.9.6.2 d,i and n preceeded by h if argument is pointer to short int
+    : 136 11-11  4.9.6.2 rather than pointer to int
+    : 136 11-11  4.9.6.2 or by l if pointer to long int
+    : 136 11-13  4.9.6.2 o,u and x preceeded by h if pointer to unsigned short int
+    : 136 13-13  4.9.6.2 rather than pointer to unsigned int
+    : 136 13-14  4.9.6.2 or by l if pointer to unsigned long int
+    : 136 14-15  4.9.6.2 e,f and g preceeded by l if pointer to double
+    : 136 15-16  4.9.6.2 rather than pointer to float
+    : 136 16-16  4.9.6.2 or by L if pointer to long double
+    : 136 16-17  4.9.6.2 if h,l, or L appears with other specifier behaviour is undefined
+    : 136 18-18  4.9.6.2 a character specifying the type of conversion
+    : 136 18-19  4.9.6.2 valid conversions specified below
+    : 136 20-20  4.9.6.2 fscanf executes each directive in turn
+    : 136 20-21  4.9.6.2 if directive fails fscanf returns
+    : 136 21-21  4.9.6.2 failures can be input failures
+    : 136 21-22  4.9.6.2 input failure -> unavailability of characters
+    : 136 22-22  4.9.6.2 matching failures
+    : 136 22-22  4.9.6.2 inappropriate input
+    : 136 23-24  4.9.6.2 a white-space directive excuted by reading upto non-white-space
+    : 136 24-24  4.9.6.2 which remains unread
+    : 136 24-24  4.9.6.2 or until no more characters can be read
+    : 136 25-26  4.9.6.2 ordinary multibyte character directives cause reading of next characters
+    : 136 26-26  4.9.6.2 if a character differs from one composing a directive
+    : 136 26-27  4.9.6.2 the directive fails
+    : 136 27-27  4.9.6.2 and differing and subsequebt characters remain unread
+    : 136 28-28  4.9.6.2 conversion specification directive defines set of matching input sequences
+    : 136 28-29  4.9.6.2 as decsribed for the specifier
+    : 136 29-29  4.9.6.2 conversion specification executed in the steps
+    : 136 30-30  4.9.6.2 input white-space is skipped
+    : 136 30-31  4.9.6.2 unless specification includes [, c, or n
+    : 136 32-32  4.9.6.2 an input items is read from the stream
+    : 136 32-32  4.9.6.2 unless specification includes n specifier
+    : 136 32-33  4.9.6.2 input item is longest sequence of input characters
+    : 136 33-34  4.9.6.2 unless that exceeds a specified field width
+    : 136 34-34  4.9.6.2 then it is the initial sequence of that length
+    : 136 35-35  4.9.6.2 the first character after input remains unread
+    : 136 35-36  4.9.6.2 if length of input item is zero
+    : 136 36-36  4.9.6.2 execution of the directive fails
+    : 136 36-36  4.9.6.2 this condition is a matching failure
+    : 136 36-37  4.9.6.2 unless an error prevented input, then it's an input failure
+    : 136 38-38  4.9.6.2 except for the % specifier
+    : 136 38-39  4.9.6.2 or for %n the count of input characters
+    : 136 39-39  4.9.6.2 input item converted to type appropriate to specifier
+    : 136 39-40  4.9.6.2 if input item is not a matching sequence
+    : 136 40-40  4.9.6.2 execution of the directive fails
+    : 136 40-41  4.9.6.2 this condition is a matching failure
+    : 136 41-41  4.9.6.2 unless assignment suppression was indicated
+    : 136 41-43  4.9.6.2 result placed in first argument that does not have result
+    : 136 43-43  4.9.6.2 if that object does not have appropriate type
+    : 136 43-44  4.9.6.2 or if result cannot be represented
+    : 136 44-44  4.9.6.2 the behaviour is undefined
+    : 136 45-45  4.9.6.2 following conversion specifiers are valid
+    : 136 46-46  4.9.6.2 d - matches an optionally signed decimal integer
+    : 136 46-47  4.9.6.2 format same as expected for strtol
+    : 136 47-47  4.9.6.2 with 10 for base argument
+    : 136 48-48* 4.9.6.2 corresponding agument shall be pointer to integer
+    : 137 01-01  4.9.6.2 i - matches an optionally signed integer
+    : 137 01-02  4.9.6.2 whose format is same as expected by strtol
+    : 137 02-02  4.9.6.2 with 0 as base argument
+    : 137 02-03  4.9.6.2 corresponding argument shall be pointer to integer
+    : 137 04-04  4.9.6.2 o - matches optionally signed octal number
+    : 137 04-05  4.9.6.2 whose format is same as expected by strtol
+    : 137 05-05  4.9.6.2 with 8 as base argument
+    : 137 06-06  4.9.6.2 corresponding argument shall be *unsigned int
+    : 137 07-07  4.9.6.2 u - matches optionally signed decimal integer
+    : 137 07-08  4.9.6.2 whose format is same as expected by strtoul
+    : 137 08-09  4.9.6.2 with base 10 argument
+    : 137 09-09  4.9.6.2 corresponding argument shall be *unsigned int
+    : 137 10-10  4.9.6.2 x - matches optionally signed hexadecimal integer
+    : 137 10-11  4.9.6.2 whose format is same as expected by strtoul
+    : 137 11-12  4.9.6.2 with base 16 argument
+    : 137 11-12  4.9.6.2 corresponding argument shall be *unsigned int
+    : 137 13-13  4.9.6.2 e,f,g - an optionally signed floating point number
+    : 137 13-14  4.9.6.2 whose format is same as expected by strtod
+    : 137 14-15  4.9.6.2 corresponding argument shall be *float
+    : 137 16-16  4.9.6.2 s - matches sequence of non-white-space
+    : 137 16-17  4.9.6.2 corresponding argument shall be pointer to array
+    : 137 17-18  4.9.6.2 larger enough to hold sequence and terminating null character
+    : 137 18-18  4.9.6.2 terminating null added automatically
+    : 137 19-19  4.9.6.2 [ - matches nonempty sequence of characters
+    : 137 19-20  4.9.6.2 definition of svanset
+    : 137 20-21  4.9.6.2 corresponding argument shall be pointer to array
+    : 137 21-22  4.9.6.2 null character added automatically
+    : 137 22-23  4.9.6.2 conversion specifier includes all characters between [..]
+    : 137 23-24  4.9.6.2 characters between [] comprise the scanset
+    : 137 24-25  4.9.6.2 unless character after [ is ^
+    : 137 25-26  4.9.6.2 in which case scanset is negated
+    : 137 26-27  4.9.6.2 in [], [^] the ] is in the scanset
+    : 137 27-28  4.9.6.2 next right bracket ends specification
+    : 137 29-29  4.9.6.2 otherwise first right bracket ends specification
+    : 137 29-30  4.9.6.2 a - that is not first character
+    : 137 30-31  4.9.6.2 nor second where first is ^
+    : 137 31-31  4.9.6.2 nor last character
+    : 137 31-31  4.9.6.2 behaviour is implementation defined
+    : 137 32-32  4.9.6.2 c - matches sequence of characters
+    : 137 32-32  4.9.6.2 number specified by field width
+    : 137 32-33  4.9.6.2 1 id no field width present
+    : 137 33-34  4.9.6.2 corresponding argument shall be pointer to array
+    : 137 34-35  4.9.6.2 no null character is added
+    : 137 36-36  4.9.6.2 p - matches an implementation defined set of sequences
+    : 137 36-37  4.9.6.2 should be same as generated by %p from fprintf
+    : 137 38-38  4.9.6.2 corresponding argument shallbe void**
+    : 137 38-39  4.9.6.2 interpretation is implementation defined
+    : 137 39-40  4.9.6.2 if item is a value converted earlier in program execution
+    : 137 40-41  4.9.6.2 pointer shall compare equal to that value
+    : 137 41-41  4.9.6.2 otherwise behaviour in undefined
+    : 137 42-42  4.9.6.2 n - no input is consumed
+    : 137 42-42  4.9.6.2 corresponding argument shallbe int*
+    : 137 42-44  4.9.6.2 into which is written number of characters consumed by fscanf
+    : 137 44-45* 4.9.6.2 %n does not increment the assignment counter
+    : 138 01-01  4.9.6.2 % matches a single %
+    : 138 01-01  4.9.6.2 no conversion or assignment takes place
+    : 138 01-02  4.9.6.2 complete conversion specification shall be %%
+    : 138 03-03  4.9.6.2 invalid conversion specifier is undefined behaviour
+    : 138 04-04  4.9.6.2 E, G and X are also valid
+    : 138 04-05  4.9.6.2 behave as e, g and x respectively
+    : 138 06-06  4.9.6.2 if end-of-file is encounterd conversion is terminated
+    : 138 06-07  4.9.6.2 if end-of-file is encountered before any characters are read
+    : 138 07-08  4.9.6.2 other than reading white-space
+    : 138 08-08  4.9.6.2 execution terminates with input failure
+    : 138 09-09  4.9.6.2 otherwise, unless terminated with matching failure
+    : 138 10-10  4.9.6.2 execution of following directive terminated with input failure
+    : 138 11-11  4.9.6.2 if conversion terminates on conflicting input character
+    : 138 11-12  4.9.6.2 offending character is left unread
+    : 138 12-12  4.9.6.2 trailing white-space (and new-line) is left unread
+    : 138 13-13  4.9.6.2 unless matched by a directive
+    : 138 13-14  4.9.6.2 success of literal macthes and suppressed assignments only determinable via %n
+    : 138 16-17  4.9.6.2 returns EOF if input failure before any conversion
+    : 138 17-17  4.9.6.2 otherwise returns number of input items assigned
+    : 138 18-18  4.9.6.2 can be fewer than provided
+    : 138 18-18  4.9.6.2 or even zero
+    : 138 18-18  4.9.6.2 in event of earlier matching failure
+    : 139 33-34  4.9.6.3 printf is equivalent to fprintf(stdout, ...
+    : 139 36-36  4.9.6.3 returns number of characters transmitted
+    : 139 36-37  4.9.6.3 returns negative value if output error occurred
+    : 139 43-44* 4.9.6.4 scanf is equivalent to fscanf(stdin, ...
+    : 140 02-03  4.9.6.4 returns EOF if input failure occurs before any conversion
+    : 140 03-03  4.9.6.4 otherwise returns number of input items assigned
+    : 140 03-04  4.9.6.4 may be fewer than provided for
+    : 140 04-04  4.9.6.4 or even zero
+    : 140 04-04  4.9.6.4 in the event of an early matching failure
+    : 140 10-11  4.9.6.5 sprintf is equivalent to fprintf except items written to array
+    : 140 11-12  4.9.6.5 a null character is written at the end of the characters
+    : 140 12-12  4.9.6.5 null character is not included in return count
+    : 140 12-13  4.9.6.5 copying between overlapping objects is undefined behaviour
+    : 140 15-15  4.9.6.5 returns number of characters written in the array
+    : 140 15-16  4.9.6.5 terminating null character not counted
+    : 140 22-23  4.9.6.6 sscanf equivalent to fscanf except input obtained from string
+    : 140 23-24  4.9.6.6 reaching end of string is equivalent to end-of-file
+    : 140 24-25  4.9.6.6 copying between overlapping objects is undefined behaviour
+    : 140 27-28  4.9.6.6 returns EOF if input failure occurs before any conversion
+    : 140 28-28  4.9.6.6 otherwise returns number of input items assigned
+    : 140 29-29  4.9.6.6 can never be fewer than provided for
+    : 140 29-29  4.9.6.6 or even zero
+    : 140 29-29  4.9.6.6 in the event of a matching failure
+    : 140 36-37  4.9.6.7 vprintf equivalent to fprintf with variable argument replaced by arg
+    : 140 37-37  4.9.6.7 arg shall be initialised by va_start macro
+    : 140 37-38  4.9.6.7 and possibly subsequent va_arg calls
+    : 140 38-38* 4.9.6.7 vprintf does not invole va_end
+    : 141 02-02  4.9.6.7 returns the number of characters transmitted
+    : 141 02-03  4.9.6.7 or a negative value if an output error occurred
+    : 141 24-25  4.9.6.8 vprintf is equivalent to fprintf with variable argument list replaced by arg
+    : 141 25-25  4.9.6.8 which shall be initialised by va_start
+    : 141 25-26  4.9.6.8 and possibly subsequent va_arg calls
+    : 141 26-27  4.9.6.8 vprintf does not invoke va_end
+    : 141 28-28  4.9.6.8 returns number of characters transmitted
+    : 141 28-29  4.9.6.8 or nagative value if an output error occurs
+    : 141 36-37  4.9.6.9 vsprintf equivalent to sprintf with variable argument replaced by arg
+    : 141 37-37  4.9.6.9 shall have been initialised with va_start
+    : 141 37-38  4.9.6.9 and possibly subsequent va_arg calls
+    : 141 38-38  4.9.6.9 does not invoke va_end
+    : 141 38-39  4.9.6.9 copying betwen overlapping operands is undefined behaviour
+    : 141 41-41  4.9.6.9 returns number of characters written in array
+    : 141 41-42* 4.9.6.9 not counting terminating null character
+    : 142 07-07  4.9.7.1 fgetc obtains next character
+    : 142 07-08  4.9.7.1 as unsigned char converted to int
+    : 142 08-08  4.9.7.1 obtained from stream
+    : 142 08-09  4.9.7.1 and advances file position indicator
+    : 142 11-11  4.9.7.1 returns next character from stream
+    : 142 12-12  4.9.7.1 if stream at end-of-file then end-of-file indicator set
+    : 142 12-13  4.9.7.1 and returns EOF
+    : 142 13-13  4.9.7.1 if read error occurs
+    : 142 13-13  4.9.7.1 error indicator for stream is set
+    : 142 13-13  4.9.7.1 and EOF returned
+    : 142 19-19  4.9.7.2 fgets reads at most n-1 characters
+    : 142 19-20  4.9.7.2 from stream
+    : 142 20-20  4.9.7.2 into array a
+    : 142 20-21  4.9.7.2 no characters read after new-line
+    : 142 21-21  4.9.7.2 new-line is retained
+    : 142 21-21  4.9.7.2 or after end-of-file
+    : 142 21-22  4.9.7.2 a null character is written after last character in array
+    : 142 24-24  4.9.7.2 returns s on success
+    : 142 24-24  4.9.7.2 if end-of-file encountered
+    : 142 24-25  4.9.7.2 and no characters read into array
+    : 142 25-25  4.9.7.2 then contents of array unchanged
+    : 142 25-26  4.9.7.2 and null pointer returned
+    : 142 26-26  4.9.7.2 if a read error occurs
+    : 142 26-26  4.9.7.2 array contents are indeterminate
+    : 142 26-27  4.9.7.2 a null pointer is returned
+    : 142 33-33  4.9.7.3 fputc writes character c
+    : 142 33-33  4.9.7.3 converted to unsigned char
+    : 142 34-34  4.9.7.3 to output stream
+    : 142 34-35  4.9.7.3 at position indicated by file position indicator
+    : 142 35-35  4.9.7.3 if defined
+    : 142 35-35  4.9.7.3 and advances file position indicator
+    : 142 35-36  4.9.7.3 if file cannot support positioning requests
+    : 142 36-36  4.9.7.3 or stream was opened with append mode
+    : 142 36-37* 4.9.7.3 character is appended to output stream
+    : 143 02-02  4.9.7.3 returns character written
+    : 143 02-02  4.9.7.3 if a write error occurs
+    : 143 02-03  4.9.7.3 the error indicator for stream is set
+    : 143 03-03  4.9.7.3 and EOF is returned
+    : 143 09-09  4.9.7.4 fputs writes string pointed to by s
+    : 143 09-09  4.9.7.4 written to stream
+    : 143 10-10  4.9.7.4 terminating null character not written
+    : 143 12-12  4.9.7.4 EOF returned on write error
+    : 143 12-13  4.9.7.4 otherwise a nonnegative value
+    : 143 19-19  4.9.7.5 getc is equivalent to fgetc except if it is a macro
+    : 143 19-20  4.9.7.5 it may evaluate stream more than once
+    : 143 20-21  4.9.7.5 argument should never be expression with side effects
+    : 143 23-23  4.9.7.5 returns next character from stream
+    : 143 24-24  4.9.7.5 if stream is at end-of-file
+    : 143 24-24  4.9.7.5 end-of-file indicator for stream is set
+    : 143 24-25  4.9.7.5 and EOF is returned
+    : 143 25-25  4.9.7.5 if a read error occurs
+    : 143 25-25  4.9.7.5 error indicator for stream is set
+    : 143 25-25  4.9.7.5 and returnes EOF
+    : 143 31-31  4.9.7.6 getchar equivalent to getc with argument stdin
+    : 143 33-34  4.9.7.6 returns next character from stdin
+    : 143 34-34  4.9.7.6 if stream is at end-of-file
+    : 143 34-34  4.9.7.6 end-of-file indicator for stream set
+    : 143 34-35  4.9.7.6 EOF is returned
+    : 143 35-35  4.9.7.6 if a read error occurs
+    : 143 35-35  4.9.7.6 error indicator for stream is set
+    : 143 35-36  4.9.7.6 and EOF returned
+    : 144 02-02  4.9.7.7 gets reads characters from stdin
+    : 144 02-03  4.9.7.7 into array s
+    : 144 03-03  4.9.7.7 until end-of-file
+    : 144 03-03  4.9.7.7 or a new-line is read
+    : 144 03-04  4.9.7.7 any new-line character is discarded
+    : 144 04-05  4.9.7.7 null character written after last character read
+    : 144 07-07  4.9.7.7 returns s if successful
+    : 144 07-07  4.9.7.7 if end-of-file encountered
+    : 144 07-08  4.9.7.7 and no characters have been read into array
+    : 144 08-08  4.9.7.7 contents of array remains unchanged
+    : 144 08-09  4.9.7.7 and null pointer is returned
+    : 144 09-09  4.9.7.7 if read error occurs during operation
+    : 144 09-09  4.9.7.7 array contents are indeterminate
+    : 144 09-10  4.9.7.7 and a null pointer is returned
+    : 144 16-16  4.9.7.8 putc equivalent to fputc, except if implemented as macro
+    : 144 16-17  4.9.7.8 may evaluate stream more than once
+    : 144 17-18  4.9.7.8 argument should not be expression with side effects
+    : 144 20-20  4.9.7.8 returns character written
+    : 144 20-20  4.9.7.8 if a write error occurs
+    : 144 20-21  4.9.7.8 error indicator for stream is set
+    : 144 21-21  4.9.7.8 and EOF is returned
+    : 144 27-27  4.9.7.9 putchar is equivalent to putc with argument stdout
+    : 144 29-29  4.9.7.9 returns character written
+    : 144 29-29  4.9.7.9 if a write error occurs
+    : 144 29-30  4.9.7.9 the error indicator for stream is set
+    : 144 30-30  4.9.7.9 and EOF is returned
+    : 144 36-36  4.9.7.10 puts writes s to stdout
+    : 144 37-37  4.9.7.10 and appends new-line character
+    : 144 37-37  4.9.7.10 terminating null character not written
+    : 144 39-39  4.9.7.10 returns EOF if a write error occurs
+    : 144 39-40* 4.9.7.10 otherwise a nonnegative value
+    : 145 06-06  4.9.7.11 ungetc pushes character
+    : 145 06-07  4.9.7.11 character converted to unsigned char
+    : 145 07-07  4.9.7.11 character pushed back onto stream
+    : 145 07-08  4.9.7.11 pushed-back characters returned by subsequent reads
+    : 145 08-08  4.9.7.11 returned in reverse order of pushing
+    : 145 08-09  4.9.7.11 a successful intervening call
+    : 145 09-09  4.9.7.11 on that stream
+    : 145 09-10  4.9.7.11 to a file positioning function
+    : 145 10-10  4.9.7.11 discards any pushed back characters
+    : 145 10-11  4.9.7.11 external storage for that stream is unchanged
+    : 145 12-12  4.9.7.11 one character of pushback is guaranteed
+    : 145 12-13  4.9.7.11 calling ungetc too many times
+    : 145 13-13  4.9.7.11 with intervening read
+    : 145 13-13  4.9.7.11 or file positioning operation on that stream
+    : 145 13-14  4.9.7.11 the operation may fail
+    : 145 15-15  4.9.7.11 if character equals EOF
+    : 145 15-15  4.9.7.11 operation fails
+    : 145 15-16  4.9.7.11 and input stream is unchanged
+    : 145 17-17  4.9.7.11 successful call clears end-of-file indicator
+    : 145 17-19  4.9.7.11 file position indicator after read/file positioning shall be same as before
+    : 145 19-21  4.9.7.11 ungetc on text stream makes file position indicator unspecified
+    : 145 21-21  4.9.7.11 until all pushed-back characters read/discarded
+    : 145 21-22  4.9.7.11 file position of binary stream decremented by each ungetc
+    : 145 22-23  4.9.7.11 if value was zero before call, it is indeterminate after
+    : 145 25-25  4.9.7.11 returns character pushed back after conversion
+    : 145 25-25  4.9.7.11 returns EOF if operation fails
+    : 145 35-35  4.9.8.1 fread reads into array ptr
+    : 145 35-35  4.9.8.1 upto nmemb elements
+    : 145 35-36  4.9.8.1 whose size is given by size
+    : 145 36-36  4.9.8.1 from stream
+    : 145 36-37  4.9.8.1 file position indicator davanved by number of characters read
+    : 145 37-38  4.9.8.1 if an error occurs
+    : 145 38-38  4.9.8.1 value of file position indicator is indeterminate
+    : 145 38-39  4.9.8.1 value of partially read elment is indeterminate
+    : 145 41-41  4.9.8.1 returns number of elements read
+    : 145 41-42  4.9.8.1 which may be less than nmemb
+    : 145 42-42  4.9.8.1 if read error
+    : 145 42-42  4.9.8.1 or end-of-file encountered
+    : 145 42-42  4.9.8.1 if size is zero
+    : 145 42-42  4.9.8.1 or nmemb is zero
+    : 145 42-43  4.9.8.1 fread returns zero
+    : 145 43-43  4.9.8.1 contents of array unchanged
+    : 145 43-43* 4.9.8.1 state of stream unchanged
+    : 146 07-07  4.9.8.2 fwrites from array pointer
+    : 146 07-07  4.9.8.2 up to nmemb elements
+    : 146 08-08  4.9.8.2 whose size is specified by size
+    : 146 08-08  4.9.8.2 to the stream
+    : 146 08-09  4.9.8.2 file position indicator advanved by number of characters written
+    : 146 08-09  4.9.8.2 if defined
+    : 146 10-10  4.9.8.2 if error occurs
+    : 146 10-10  4.9.8.2 file position indicator is indeterminate
+    : 146 12-12  4.9.8.2 fwrite returns number of elements written
+    : 146 12-13  4.9.8.2 will be less than nmemb only if write error occured
+    : 146 20-20  4.9.9.1 fgetpos stores current value of file position indicator
+    : 146 20-21  4.9.9.1 for the stream
+    : 146 21-21  4.9.9.1 in objected pointed to by pos
+    : 146 21-22  4.9.9.1 stored value contains unspecified information
+    : 146 22-23  4.9.9.1 usable by fsetpos for repositioning
+    : 146 25-25  4.9.9.1 returns zero on success
+    : 146 25-26  4.9.9.1 returns nonzero on failure
+    : 146 26-26  4.9.9.1 stores implementation defined value in errno
+    : 146 33-33  4.9.9.2 fseek sets file position indicator for stream
+    : 146 34-34  4.9.9.2 for binary stream new position measured from start of file
+    : 146 35-35  4.9.9.2 obtained by adding offset to position specified by whence
+    : 146 35-36  4.9.9.2 SEEK_SET beginning of file
+    : 146 36-37  4.9.9.2 SEEK_CUR current file position
+    : 146 37-37  4.9.9.2 SEEK_END end-of-file
+    : 146 37-38  4.9.9.2 binary file need not support SEEK_END
+    : 146 39-39  4.9.9.2 for text files offset shall be zero
+    : 146 39-40  4.9.9.2 or value returned by earlier call to ftell
+    : 146 40-40  4.9.9.2 on same stream
+    : 146 40-40  4.9.9.2 with SEEK_SET
+    : 146 41-41  4.9.9.2 successful call clears end-of-file indicator
+    : 146 41-42  4.9.9.2 undoes effects of ungetc on same stream
+    : 146 42-43* 4.9.9.2 after fseek next operation on update may be input/output
+    : 147 02-02  4.9.9.2 returns nonzero only if request cannot be satisfied
+    : 147 09-09  4.9.9.3 sets file position indicator of stream
+    : 147 10-10  4.9.9.3 value taken from pos
+    : 147 10-11  4.9.9.3 value obtained from previous call to fgetpos, same stream
+    : 147 12-12  4.9.9.3 successful call clears end-of-file indicator
+    : 147 12-13  4.9.9.3 undoes effects of ungetc on same stream
+    : 147 13-14  4.9.9.3 after fsetpos next operation on update may be input/output
+    : 147 16-16  4.9.9.3 returns zero on success
+    : 147 16-17  4.9.9.3 returns nonzero on failure
+    : 147 17-17  4.9.9.3 stores implementation defined positive value in errno
+    : 147 23-23  4.9.9.4 ftell obtains current value of file position indicator
+    : 147 23-24  4.9.9.4 for the stream
+    : 147 24-25  4.9.9.4 for binary stream value is # characters from start of file
+    : 147 25-26  4.9.9.4 for text file contains unspecifed information
+    : 147 26-27  4.9.9.4 usable by fseek to return to same file position
+    : 147 27-28  4.9.9.4 difference between two values not meaningful
+    : 147 30-30  4.9.9.4 returns current value of file position indicator
+    : 147 30-31  4.9.9.4 for the stream
+    : 147 31-31  4.9.9.4 returns -1 on failure
+    : 147 31-32  4.9.9.4 stores implementation defined value in errno
+    : 147 38-38  4.9.9.5 resets file position indicator of stream
+    : 147 38-39  4.9.9.5 to beginning of file
+    : 147 39-40  4.9.9.5 equivalent to (void)fseek(stream, 0L, SEEK_SET)
+    : 147 41-41* 4.9.9.5 except error indicator for stream is cleared
+    : 148 02-02  4.9.9.5 returns no value
+    : 148 09-09  4.9.10.1 clearerr clears end-of-file indicator
+    : 148 09-10  4.9.10.1 for the stream
+    : 148 12-12  4.9.10.1 returns no value
+    : 148 18-18  4.9.10.2 feof tests end-of-file indicator
+    : 148 20-20  4.9.10.2 returns nonzero iff end-of-file indicator is set
+    : 148 26-26  4.9.10.3 ferror tests error indicator for stream
+    : 148 28-28  4.9.10.3 returns nonzero iff error indicator is set for stream
+    : 148 34-34  4.9.10.4 perror maps error numbers in errno
+    : 148 34-35  4.9.10.4 to an error message
+    : 148 35-35  4.9.10.4 it writes series of characters to stderr
+    : 148 35-36  4.9.10.4 if s is not a null pointer
+    : 148 36-36  4.9.10.4 character pointed to by s is not null character
+    : 148 36-36  4.9.10.4 string pointed to by s
+    : 148 37-37  4.9.10.4 followed by colon
+    : 148 37-37  4.9.10.4 followed by space
+    : 148 37-37  4.9.10.4 followed bya pprociate message
+    : 148 37-38  4.9.10.4 followed by new-line
+    : 148 38-39  4.9.10.4 contents of strings are same as returned by strerror
+    : 148 39-39  4.9.10.4 with argument errno
+    : 148 39-39* 4.9.10.4 which are implementation defined
+    : 149 02-02  4.9.10.4 does not return a value
+    : 150 04-04  4.10 type size_t is declared
+    : 150 04-04  4.10 type wchar_t is declared
+    : 150 05-06  4.10 type div_t is a stucture type
+    : 150 06-06  4.10 div_t is type returned by div function
+    : 150 06-08  4.10 type ldiv_t is a structure type
+    : 150 08-08  4.10 ldiv_t is type returned by ldiv function
+    : 150 09-09  4.10 NULL macro is defined
+    : 150 10-10  4.10 EXIT_FAILURE macro
+    : 150 12-12  4.10 EXIT_SUCCESS macro
+    : 150 13-13  4.10 expand to integral constant expressions
+    : 150 13-13  4.10 that mau be used as arguments to exit
+    : 150 13-14  4.10 to return unsuccessful/successful termination status
+    : 150 14-14  4.10 to host environment
+    : 150 15-15  4.10 RAND_MAX macro
+    : 150 16-16  4.10 integral constant expression
+    : 150 16-17  4.10 maximum value returned by rand function
+    : 150 17-18  4.10 MB_CUR_MAX macro
+    : 150 19-19  4.10 positive integer expression
+    : 150 19-20  4.10 maximum bytes in a multibyte character
+    : 150 20-20  4.10 for extended character set in current locale
+    : 150 20-21  4.10 category LC_TYPE
+    : 150 21-21  4.10 value never greater than MB_LEN_MAX
+    : 150 23-24  4.10.1 atof,atoi, and atol need not affect errno
+    : 150 24-24  4.10.1 if result cannot be represented behaviour is undefined
+    : 150 30-30  4.10.1.1 atof converts initial portion of string pointed to by nptr
+    : 150 30-31  4.10.1.1 to double
+    : 150 31-31  4.10.1.1 except for behaviour on error
+    : 150 31-32  4.10.1.1 equivalent to strtod(nptr, (char **)NULL)
+    : 150 34-34  4.10.1.1 returns converted value
+    : 151 06-06  4.10.1.2 atoi converts initial portion of string pointed to by nptr
+    : 151 06-07  4.10.1.2 to int
+    : 151 07-07  4.10.1.2 except for behaviour on error
+    : 151 07-08  4.10.1.2 behaviour is equivalent to (int)strtol(nptr, (char **)NULL, 10)
+    : 151 10-10  4.10.1.2 returns the converted value
+    : 151 17-17  4.10.1.2 atol converts initial portion of string pointed to by nptr
+    : 151 17-18  4.10.1.2 to long int
+    : 151 18-18  4.10.1.3 except for behaviour on error
+    : 151 18-19  4.10.1.3 equivalent to strtol(nptr, (char **)NULL, 10)
+    : 151 21-21  4.10.1.3 returns converted value
+    : 151 28-28  4.10.1.4 strtod converts initial portion of string pointed to by nptr
+    : 151 28-29  4.10.1.4 to double
+    : 151 29-29  4.10.1.4 first decomposes string into three parts
+    : 151 29-30  4.10.1.4 an initial, posisbly empty
+    : 151 30-30  4.10.1.4 sequence of white-space characters (isspace true)
+    : 151 30-31  4.10.1.4 subejct sequence resembling a floating pt constant
+    : 151 31-32  4.10.1.4 final string of one or more unrecognised characters
+    : 151 32-32  4.10.1.4 including terminating null character
+    : 151 32-33  4.10.1.4 then attempts to convert the subject sequence
+    : 151 33-33  4.10.1.4 and return the result
+    : 151 34-34  4.10.1.4 expected form of subject sequence
+    : 151 34-34  4.10.1.4 optional plus/minus sign
+    : 151 34-35  4.10.1.4 followed by nonempty sequence of digits
+    : 151 35-35  4.10.1.4 optionally containing a dp character
+    : 151 35-35  4.10.1.4 then optional exponent part
+    : 151 36-36  4.10.1.4 but no floating suffix
+    : 151 36-36  4.10.1.4 subject sequence is defined as
+    : 151 36-37  4.10.1.4 longest initial sequence of input string
+    : 151 37-37  4.10.1.4 starting with first non-white-space character
+    : 151 37-38  4.10.1.4 that is of expected form
+    : 151 38-38  4.10.1.4 subject sequence contains no characters if input string is empty
+    : 151 38-39  4.10.1.4 or consists entirely of white-space
+    : 151 39-39  4.10.1.4 or first nonwhite-space is not sign or
+    : 151 39-40  4.10.1.4 digit
+    : 151 40-40  4.10.1.4 or decimal point character
+    : 151 41-41  4.10.1.4 if subject sequence has expected form
+    : 151 41-42  4.10.1.4 sequence starting with first digit
+    : 151 42-42  4.10.1.4 or decimal point character
+    : 151 42-42  4.10.1.4 whichever occurs first
+    : 151 42-43  4.10.1.4 is interpreted as floating point constant according to 3.1.3.1
+    : 151 43-43* 4.10.1.4 except that decimal point character is used
+    : 152 01-01  4.10.1.4 in place of period
+    : 152 01-01  4.10.1.4 if neither an exponent or dp appears
+    : 152 01-02  4.10.1.4 a dp is assumed to follow the last digit
+    : 152 02-03  4.10.1.4 if subject begins with minus sign
+    : 152 03-03  4.10.1.4 the value of conversion is negated
+    : 152 03-04  4.10.1.4 pointer to final string stored via endptr
+    : 152 04-04  4.10.1.4 provided endptr is not null pointer
+    : 152 07-07  4.10.1.4 if subject sequence is empty
+    : 152 07-07  4.10.1.4 or does not have expected form
+    : 152 07-08  4.10.1.4 no conversion is performed
+    : 152 08-08  4.10.1.4 value of nptr stored via endptr
+    : 152 08-09  4.10.1.4 provided endptr is not null pointer
+    : 152 11-11  4.10.1.4 converted value is returned
+    : 152 11-12  4.10.1.4 if no conversion performed zero is returned
+    : 152 12-12  4.10.1.4 if value is outside representable range
+    : 152 12-13  4.10.1.4 plus/minus HUGE_VAl is returned
+    : 152 13-13  4.10.1.4 according to signed of value
+    : 152 13-14  4.10.1.4 and ERANGE is stored in errno
+    : 152 14-14  4.10.1.4 if correct value would underflow
+    : 152 14-14  4.10.1.4 zero is returned
+    : 152 14-15  4.10.1.4 and ERANGE is stored in errno
+    : 152 21-21  4.10.1.5 strtol converts intial portion of string pointed to by nptr
+    : 152 21-22  4.10.1.5 to long int
+    : 152 22-22  4.10.1.5 first decomposes string into three parts
+    : 152 22-23  4.10.1.5 an initial possible empty sequence of white-space (isspace true)
+    : 152 23-24  4.10.1.5 subject sequnce representing integer in some base
+    : 152 24-24  4.10.1.5 radix determined by base
+    : 152 24-25  4.10.1.5 and string of unrecognised characters
+    : 152 25-26  4.10.1.5 including terminating null character of input string
+    : 152 26-26  4.10.1.5 then attempts to convert subject sequence
+    : 152 26-27  4.10.1.5 returns result
+    : 152 28-28  4.10.1.5 if base is zero
+    : 152 28-29  4.10.1.5 expected form of subject is integer constant in 3.1.3.2
+    : 152 29-29  4.10.1.5 optionally preceded by plus/minus
+    : 152 29-30  4.10.1.5 but not including integer suffix
+    : 152 30-30  4.10.1.5 if base is between 2 and 36
+    : 152 30-31  4.10.1.5 expected subject string sequence of letters and digits
+    : 152 31-32  4.10.1.5 representing integer with radix given by base
+    : 152 32-32  4.10.1.5 optionally preceded by plus/minus
+    : 152 32-32  4.10.1.5 but not including integer suffix
+    : 152 32-33  4.10.1.5 letters a..z and A..Z represent 10..35
+    : 152 33-34  4.10.1.5 only letters with value less than base are permitted
+    : 152 34-34  4.10.1.5 if base is 16
+    : 152 34-35  4.10.1.5 characters 0x or 0X may precede sequence of letters/digits
+    : 152 35-36  4.10.1.5 following optional sign
+    : 152 37-37  4.10.1.5 subject sequence is longest initial sequence
+    : 152 37-38  4.10.1.5 starting with first non-white-space character
+    : 152 38-38  4.10.1.5 that is of expected form
+    : 152 38-39  4.10.1.5 subject sequence contains no characters
+    : 152 39-39  4.10.1.5 if input string is empty
+    : 152 39-39  4.10.1.5 or consists entirely of white-space
+    : 152 39-40  4.10.1.5 or if first non-white-space is not sign
+    : 152 40-40  4.10.1.5 or a permissible letter or digit
+    : 152 41-41  4.10.1.5 if subject sequence in expected form and base is zero
+    : 152 41-42  4.10.1.5 sequence of characters starting with first digit
+    : 152 42-43  4.10.1.5 interpreted as integer constant, 3.1.3.2
+    : 152 43-44  4.10.1.5 if sibject sequence has expected form and base 2..36
+    : 152 44-44  4.10.1.5 it is used as base for conversion
+    : 152 44-44  4.10.1.5 ascribing each letter value given above
+    : 152 44-45  4.10.1.5 if subject sequence begins with minus sign
+    : 152 45-45  4.10.1.5 value resulting from conversion is negated
+    : 152 45-46  4.10.1.5 pointet to final string stored via endptr
+    : 152 46-47* 4.10.1.5 provided endptr is not null pointer
+    : 153 03-03  4.10.1.5 if subject sequence is empty
+    : 153 03-03  4.10.1.5 or does not have expected form
+    : 153 03-04  4.10.1.5 no conversion is performed
+    : 153 04-04  4.10.1.5 value of nptr stored via endptr
+    : 153 04-05  4.10.1.5 provided endptr not null pointer
+    : 153 07-07  4.10.1.5 returns converted value
+    : 153 07-08  4.10.1.5 returns zero if no conversion performed
+    : 153 08-08  4.10.1.5 if correct value outside representable range
+    : 153 09-09  4.10.1.5 LONG_MAX or LONG_MIN is returned
+    : 153 09-09  4.10.1.5 according to sign of value
+    : 153 09-10  4.10.1.5 and ERANGE stored in errno
+    : 153 17-17  4.10.1.6 strtoul converts initial portion of string pointed to by nptr
+    : 153 17-18  4.10.1.6 to unsigned long int
+    : 153 18-18  4.10.1.6 first decomposes string into three parts
+    : 153 18-19  4.10.1.6 initial possibly empty sequence
+    : 153 19-20  4.10.1.6 sequence of white-space (isspace)
+    : 153 20-20  4.10.1.6 subject sequence resembling an unsigned integer
+    : 153 20-21  4.10.1.6 in some radix determined by base
+    : 153 21-21  4.10.1.6 final string of one or more characters
+    : 153 22-22  4.10.1.6 including terminating null character
+    : 153 22-23  4.10.1.6 then attempts to convert subject sequence
+    : 153 23-23  4.10.1.6 returns the result
+    : 153 24-24  4.10.1.6 if base is zero
+    : 153 24-25  4.10.1.6 expected form of subject is integer constant, 3.1.3.2
+    : 153 25-25  4.10.1.6 optionally preceded by plus/minus
+    : 153 25-26  4.10.1.6 but not inclusing integer suffix
+    : 153 26-26  4.10.1.6 if base in range 2..36
+    : 153 26-27  4.10.1.6 expected form is sequence of letters and digits
+    : 153 27-28  4.10.1.6 representing integer radix represented by base
+    : 153 28-28  4.10.1.6 optionally preceded by plus/minus sign
+    : 153 28-28  4.10.1.6 not including integer suffix
+    : 153 28-29  4.10.1.6 letters a..z and A..Z represent 10..35
+    : 153 29-30  4.10.1.6 only letters with value less than base permitted
+    : 153 30-30  4.10.1.6 if base is 16
+    : 153 30-31  4.10.1.6 characters 0x or 0X may precede sequence of letters/digits
+    : 153 31-32  4.10.1.6 following sign if present
+    : 153 33-33  4.10.1.6 subject is longest initial sequence of input string
+    : 153 33-34  4.10.1.6 starting with first non-white-space character
+    : 153 34-34  4.10.1.6 that is of expected form
+    : 153 34-35  4.10.1.6 subject contains no characters if input string is empty
+    : 153 35-35  4.10.1.6 or consists entirely of white-space
+    : 153 35-36  4.10.1.6 or first non-white-space not sign
+    : 153 36-36  4.10.1.6 or permissible letter/digit
+    : 153 37-37  4.10.1.6 if subject has expected form
+    : 153 37-37  4.10.1.6 and base is zero
+    : 153 37-39  4.10.1.6 sequence of characters from first digit interpreted as constant, 3.1.3.2
+    : 153 39-39  4.10.1.6 if subject has expected form
+    : 153 39-40  4.10.1.6 value of base between 2 and 36
+    : 153 40-40  4.10.1.6 used as base for conversion
+    : 153 40-40  4.10.1.6 ascribing each letter a value as given above
+    : 153 40-41  4.10.1.6 if subject begins with minus sign
+    : 153 41-41  4.10.1.6 value after conversion is negated
+    : 153 41-42  4.10.1.6 pointer to final string stored via endptr
+    : 153 42-43  4.10.1.6 provided enptr not null pointer
+    : 153 46-46  4.10.1.6 if subject is empty
+    : 153 46-46  4.10.1.6 or does not have expected form
+    : 153 46-47  4.10.1.6 no conversion is performed
+    : 153 47-47  4.10.1.6 value of nptr stored via endptr
+    : 153 47-48* 4.10.1.6 provided endptr is not null pointer
+    : 154 02-02  4.10.1.6 returns converted value
+    : 154 02-03  4.10.1.6 returns zero if no conversion performed
+    : 154 03-03  4.10.1.6 if value outside range of representable values
+    : 154 04-04  4.10.1.6 ULONG_MAX is returned
+    : 154 04-04  4.10.1.6 and ERANGE stored in errno
+    : 154 11-11  4.10.2.1 rand computes pseudo random integer
+    : 154 11-12  4.10.2.1 in range 0..RAND_MAX
+    : 154 13-13  4.10.2.1 implementation shall behave as if no library functions calls rand
+    : 154 15-15  4.10.2.1 returns pseudo random integer
+    : 154 17-17  4.10.2.1 value of RAND_MAX shall be at least 32767
+    : 154 23-24  4.10.2.2 srand uses argument as seed for sequence of numbers
+    : 154 24-24  4.10.2.2 to be returned by subsequent calls to rand
+    : 154 24-25  4.10.2.2 if srand is again called with same seed
+    : 154 25-25  4.10.2.2 sequence of random numbers shall be repeated
+    : 154 25-26  4.10.2.2 if rand is called before any calls to srand
+    : 154 26-27  4.10.2.2 sequence generated same as after srand(1)
+    : 154 28-28  4.10.2.2 implementation behaves as if no library function calls srand
+    : 154 30-30  4.10.2.2 returns no value
+    : 155 12-13  4.10.3 order and contiguity of calloc, malloc and realloc memory is unspecified
+    : 155 13-14  4.10.3 pointer returned is aligned and may be assigned to any pointer
+    : 155 14-15  4.10.3 and then used to access such an object
+    : 155 15-15  4.10.3 or array of such objects
+    : 155 15-16  4.10.3 until space is freed or reallocated
+    : 155 16-17  4.10.3 pointed to object shall be disjoint from other objects
+    : 155 17-17  4.10.3 pointer points at lowest address
+    : 155 17-18  4.10.3 if space cannot be allocated null pointer returned
+    : 155 18-19  4.10.3 if size request is zero
+    : 155 19-19  4.10.3 behaviour is implementation defined
+    : 155 19-19  4.10.3 value returned shall be null pointer
+    : 155 19-20  4.10.3 or unique pointer
+    : 155 20-20  4.10.3 value of pointer refering to freed space is indeterminate
+    : 155 26-26  4.10.3.1 calloc allocates space for array of nmemb objects
+    : 155 26-27  4.10.3.1 each of size, size
+    : 155 27-27  4.10.3.1 space initialised to all bits zero
+    : 155 29-29  4.10.3.1 returns null pointer
+    : 155 29-29  4.10.3.1 or pointer to allocated space
+    : 155 35-35  4.10.3.2 free causes space to be deallocated
+    : 155 35-36  4.10.3.2 that is made available for further allocation
+    : 155 36-36  4.10.3.2 if ptr is null no action occurs
+    : 155 36-38  4.10.3.2 if pointer does not match earlier calloc, malloc, realloc return
+    : 155 38-38  4.10.3.2 or if space deallocated by free or realloc
+    : 155 38-39* 4.10.3.2 behaviour is undefined
+    : 156 02-02  4.10.3.2 no value is returned
+    : 156 08-08  4.10.3.3 malloc allocates space for object of size
+    : 156 08-09  4.10.3.3 value is indeterminate
+    : 156 11-11  4.10.3.3 returns null pointer
+    : 156 11-11  4.10.3.3 or pointer to allocated space
+    : 156 17-17  4.10.3.4 realloc changes size of object
+    : 156 17-18  4.10.3.4 to size specified by size
+    : 156 18-18  4.10.3.4 contents object shall be unchanged up to
+    : 156 18-19  4.10.3.4 lesser of old and new sizes
+    : 156 19-19  4.10.3.4 if size is larger
+    : 156 19-20  4.10.3.4 value of newly allocated portion is indeterminate
+    : 156 20-20  4.10.3.4 if ptr is null pointer
+    : 156 20-21  4.10.3.4 realloc behaves like malloc with specified size
+    : 156 21-22  4.10.3.4 if pointer does not match calloc,malloc, or realloc return value
+    : 156 22-23  4.10.3.4 or space deallocated by free or realloc
+    : 156 23-23  4.10.3.4 behaviour is undefined
+    : 156 23-23  4.10.3.4 if space cannot be allocated
+    : 156 23-24  4.10.3.4 object pointed to by ptr is unchanged
+    : 156 24-24  4.10.3.4 if size is zero
+    : 156 24-24  4.10.3.4 and ptr is not null pointer
+    : 156 24-25  4.10.3.4 object it points to is freed
+    : 156 27-27  4.10.3.4 returns either null pointer
+    : 156 27-28  4.10.3.4 or pointer to allocated space
+    : 156 35-35  4.10.4.1 abort causes abnormal termination
+    : 156 35-36  4.10.4.1 unless SIGABRT is being caught
+    : 156 36-36  4.10.4.1 and signal handler does not return
+    : 156 36-37  4.10.4.1 whether open output streams are flushed
+    : 156 37-37  4.10.4.1 or open streams closed
+    : 156 37-37  4.10.4.1 or temporary file removed
+    : 156 37-37  4.10.4.1 is implementation defined
+    : 156 37-38  4.10.4.1 implementation defined status unsuccessful termination
+    : 156 38-39  4.10.4.1 returned to host environment
+    : 156 39-39  4.10.4.1 by means of raise(SIGABRT)
+    : 156 41-41* 4.10.4.1 abort cannot return to its caller
+    : 157 06-06  4.10.4.2 atexit registers the func function pointer
+    : 157 06-07  4.10.4.2 to be called without arguments
+    : 157 07-07  4.10.4.2 at normal program termination
+    : 157 09-09  4.10.4.2 implementation shall support at least 32 registrations
+    : 157 11-11  4.10.4.2 returns zero on success
+    : 157 11-11  4.10.4.2 returns nonzero on failure
+    : 157 18-18  4.10.4.3 exit causes normal program termination to occur
+    : 157 18-19  4.10.4.3 undefined if more than one call executed
+    : 157 20-20  4.10.4.3 first all registered functions are called
+    : 157 20-21  4.10.4.3 in reverse order of registration
+    : 157 22-22  4.10.4.3 next all output streams are flushed
+    : 157 22-22  4.10.4.3 and all open streams closed
+    : 157 22-23  4.10.4.3 and all file opned by tmpfile removed
+    : 157 24-24  4.10.4.3 finally control is returned to host environment
+    : 157 24-24  4.10.4.3 if status is zero
+    : 157 24-25  4.10.4.3 or EXIT_SUCCESS
+    : 157 25-26  4.10.4.3 implementation defined status successful termination returned
+    : 157 26-26  4.10.4.3 if status is EXIT_FAILURE
+    : 157 26-27  4.10.4.3 implementation defined status unsuccessful termination returned
+    : 157 27-28  4.10.4.3 otherwise status is implementation defined
+    : 157 30-30  4.10.4.3 exit cannot return to its caller
+    : 157 36-36  4.10.4.4 getenv searches an environment list
+    : 157 36-36  4.10.4.4 provided by host environment
+    : 157 36-37  4.10.4.4 for string that matches that pointed to by name
+    : 157 37-37  4.10.4.4 set of environment names
+    : 157 37-38* 4.10.4.4 and method for altering environment list are implementation defined
+    : 158 01-01  4.10.4.4 implementation behaves as if library does not call getenv
+    : 158 03-03  4.10.4.4 returns pointer to string associated with matched member
+    : 158 04-04  4.10.4.4 pointed to string shall not be modified by program
+    : 158 04-05  4.10.4.4 may be overwritten by subsequent getenv call
+    : 158 05-05  4.10.4.4 if specified name cannot be found
+    : 158 05-06  4.10.4.4 null pointer is returned
+    : 158 12-12  4.10.4.5 system passes string to host environment
+    : 158 12-13  4.10.4.5 to be executed by a command processor
+    : 158 13-13  4.10.4.5 in implementation defined manner
+    : 158 13-14  4.10.4.5 null pointer may be passed to inquire if command processor exists
+    : 158 16-16  4.10.4.5 if argument is a null pointer
+    : 158 16-17  4.10.4.5 returns nonzero only if command processor available
+    : 158 17-17  4.10.4.5 non-null pointer passed
+    : 158 17-18  4.10.4.5 returns implementation defined value
+    : 158 27-27  4.10.5.1 bsearch searches array of nmemb objects
+    : 158 27-28  4.10.5.1 base points to initial element
+    : 158 28-28  4.10.5.1 for element that matches object pointed to by key
+    : 158 28-29  4.10.5.1 size of each element of array given by size
+    : 158 30-30  4.10.5.1 comparison function compar called with two arguments
+    : 158 30-31  4.10.5.1 that point to key object
+    : 158 31-31  4.10.5.1 an an array element, in that order
+    : 158 31-32  4.10.5.1 compare shall return <0, ==0, >0
+    : 158 32-33  4.10.5.1 if key object is <, ==, > array element
+    : 158 33-33  4.10.5.1 array shall consist of
+    : 158 33-34  4.10.5.1 all element that compar less than
+    : 158 34-34  4.10.5.1 all elements that compar equal
+    : 158 34-35  4.10.5.1 all elements that compar greater than
+    : 158 35-35  4.10.5.1 key object
+    : 158 37-37  4.10.5.1 returns pointer to matching array element
+    : 158 37-37  4.10.5.1 or null pointer
+    : 158 38-38  4.10.5.1 if no match is found
+    : 158 38-38  4.10.5.1 if two elements compar equal
+    : 158 38-39* 4.10.5.1 which element is matched is unspecified
+    : 159 07-07  4.10.5.2 qsort sorts an array of nmemb objects
+    : 159 07-08  4.10.5.2 initial element pointed to by base
+    : 159 08-08  4.10.5.2 size specified by size
+    : 159 09-09  4.10.5.2 contents osrted into ascending order
+    : 159 09-10  4.10.5.2 according to comparison function compar
+    : 159 10-10  4.10.5.2 compar called with two arguments
+    : 159 10-11  4.10.5.2 that point too objects being compared
+    : 159 11-11  4.10.5.2 shall return an integer
+    : 159 11-11  4.10.5.2 <0, ==0, or >0
+    : 159 11-12  4.10.5.2 if first argument <, ==, > than second
+    : 159 13-13  4.10.5.2 if two element compar equal
+    : 159 13-13  4.10.5.2 there order in sorted array is unspecified
+    : 159 15-15  4.10.5.2 no value is returned
+    : 159 22-22  4.10.6.1 abs computes absolute value of j
+    : 159 22-23  4.10.6.1 undefined behaviour if result cannot be represented
+    : 159 25-25  4.10.6.1 returns absolute value
+    : 159 31-31  4.10.6.2 div computes quotient and remainder
+    : 159 31-32  4.10.6.2 of division of numerator by demoninator
+    : 159 32-32  4.10.6.2 if division is inexact
+    : 159 32-33  4.10.6.2 result quotient is lesser than nearest algebraic quotient
+    : 159 33-34  4.10.6.2 undefined behaviour if result cannot be represented
+    : 159 34-34  4.10.6.2 quot*denom+rem shall equal number
+    : 159 36-36  4.10.6.2 div returns structure div_t
+    : 159 36-37  4.10.6.2 comprises quotient and remainder
+    : 159 37-37* 4.10.6.2 struct contains following member in either order
+    : 160 08-08  4.10.6.3 labs is similar to abs
+    : 160 08-09  4.10.6.3 except argument and return have type long int
+    : 160 15-15  4.10.6.4 ldiv is similar to div
+    : 160 15-16  4.10.6.4 except argument has type long int
+    : 160 15-16  4.10.6.4 and return type is ldiv_t
+    : 160 18-18  4.10.7 behaviour of multibyte functions is affected by LC_CTYPE
+    : 160 19-19  4.10.7 for a state-dependent encoding
+    : 160 19-20  4.10.7 place in initial state by
+    : 160 20-20  4.10.7 call with initial argument a null pointer
+    : 160 20-21  4.10.7 subsequent calls with non-null argument
+    : 160 21-21  4.10.7 cause internal state of function to be altered
+    : 160 21-22  4.10.7 call with a null pointer returns nonzero if
+    : 160 22-23  4.10.7 if encodings have a state dependency
+    : 160 23-23  4.10.7 zero otherwise
+    : 160 23-23  4.10.7 chaning LC_CTYPE
+    : 160 23-24  4.10.7 causes shift state to be indeterminate
+    : 160 30-30  4.10.7.1 if s is not null pointer
+    : 160 30-31  4.10.7.1 mblen determines number of bytes comprising multibyte character
+    : 160 31-32  4.10.7.1 except that shift state of mbtowc is not affected ...
+    : 160 32-33  4.10.7.1 equivalent to mbtowc((wchar_t *)0, s, n)
+    : 160 34-34  4.10.7.1 implementation shall behave as if library doe snot call mblen
+    : 160 36-36  4.10.7.1 if s is a null pointer
+    : 160 36-36  4.10.7.1 returns nonzero or zero value
+    : 160 36-37  4.10.7.1 if multibyte character encodings do/do not have state-dependent encodings
+    : 160 37-38  4.10.7.1 if s is not null pointer
+    : 160 38-38  4.10.7.1 returns either 0 (is s points to null character)
+    : 160 38-38* 4.10.7.1 or returns the
+    : 161 01-01  4.10.7.1 number of bytes comprising multibyte character
+    : 161 01-02  4.10.7.1 if next n or fewer bytes form a valid multibyte character
+    : 161 02-02  4.10.7.1 or return -1 if they do not form a valid multibyte character
+    : 161 09-09  4.10.7.2 if s is not null pointer
+    : 161 09-10  4.10.7.2 mbtowc determines number of bytes comprising multibyte character
+    : 161 10-11  4.10.7.2 then determines corresonding code of wchar_t to that mutlibyte character
+    : 161 11-12  4.10.7.2 value of null character is zero
+    : 161 12-12  4.10.7.2 if multibyte character is valid
+    : 161 12-12  4.10.7.2 and pwc is not null pointer
+    : 161 12-13  4.10.7.2 mbtowc stores code via pwc
+    : 161 13-14  4.10.7.2 at most n bytes of array s examined
+    : 161 15-15  4.10.7.2 implementation behaves as if library doe snot call mbtowc
+    : 161 17-17  4.10.7.2 if s is null pointer
+    : 161 17-17  4.10.7.2 mbtowc returns nonzero or zero
+    : 161 17-18  4.10.7.2 if multibyte encodings do/do not have state dependent encodings
+    : 161 18-19  4.10.7.2 if s is not null pointer
+    : 161 19-19  4.10.7.2 returns either 0, if s points to null character
+    : 161 19-20  4.10.7.2 or number of bytes comprising multibyte character
+    : 161 20-21  4.10.7.2 if next n or fewer bytes form valid multibyte character
+    : 161 21-21  4.10.7.2 returns -1 if not valid multibyte character
+    : 161 22-22  4.10.7.2 never returns value greater than MB_CUR_MAX
+    : 161 28-29  4.10.7.3 wctomb determines number of bytes needed to represent multibyte character
+    : 161 29-29  4.10.7.3 including any change in shift state
+    : 161 30-30  4.10.7.3 stores multibyte character representation in array s
+    : 161 30-31  4.10.7.3 if s is not null pointer
+    : 161 31-31  4.10.7.3 at most MB_CUR_MAX character are stored
+    : 161 31-31  4.10.7.3 if wchar is zero
+    : 161 31-32  4.10.7.3 wctomb is left in initial state
+    : 161 35-35  4.10.7.3 if s is null pointer
+    : 161 35-35  4.10.7.3 returns nonzero or zero value
+    : 161 35-36  4.10.7.3 if multibyte encodings do/do not have state dependent encodings
+    : 161 36-37  4.10.7.3 if s is not null pointer
+    : 161 37-38  4.10.7.3 returns -1 if wchar is not valid multibyte character
+    : 161 38-39  4.10.7.3 or returns number of characters comprising multibyte character
+    : 161 40-40* 4.10.7.3 in no case is a value greater than MB_CUR_MAX returned
+    : 162 02-03  4.10.8 behaviour of multibyte string functions affected by LC_TYPE
+    : 162 09-10  4.10.8.1 mbsttowcs converts multibyte characters from initial shift state
+    : 162 10-10  4.10.8.1 from array pointed to by s
+    : 162 10-10  4.10.8.1 into sequence of corresponding codes
+    : 162 10-11  4.10.8.1 stores not more than n codes
+    : 162 11-11  4.10.8.1 into array pointed to by pwcs
+    : 162 11-12  4.10.8.1 no multibyte characters following a null character
+    : 162 12-12  4.10.8.1 null character converted to value zero
+    : 162 12-12  4.10.8.1 is examined or converted
+    : 162 12-13  4.10.8.1 each character converted as if call to mbtowc
+    : 162 13-14  4.10.8.1 except shift state of mbtowc not affected
+    : 162 15-15  4.10.8.1 no more than n elements of pwcs array affected
+    : 162 15-16  4.10.8.1 copying between objects that overlap is undefined behaviour
+    : 162 18-18  4.10.8.1 if invalid multibyte character encountered
+    : 162 18-19  4.10.8.1 (size_t)-1 is returned
+    : 162 19-20  4.10.8.1 otherwise returns number of array elements modified
+    : 162 20-20  4.10.8.1 not including terminating zero code
+    : 162 26-27  4.10.8.2 wcstombs convertes multibyte characters from pwcs array
+    : 162 27-28  4.10.8.2 into sequence of multibyte characters in initial shift state
+    : 162 28-28  4.10.8.2 stores these multibyte characters via s into array
+    : 162 28-29  4.10.8.2 copying stops if would exceed n total bytes
+    : 162 29-29  4.10.8.2 or if null character stored
+    : 162 29-30  4.10.8.2 each code converted as if wctomb called
+    : 162 30-31  4.10.8.2 except shift state of wctomb not affected
+    : 162 32-32  4.10.8.2 no more than n bytes modified via s to array
+    : 162 32-33  4.10.8.2 copying between overlapping objects is undefined behaviour
+    : 162 35-35  4.10.8.2 if a code is not a valid multibyte character
+    : 162 35-36  4.10.8.2 (size_t)-1 is returned
+    : 162 36-37  4.10.8.2 otherwise returns number of bytes modified
+    : 162 37-37* 4.10.8.2 not including terminating null character
+    : 163 05-05  4.11 defines type size_t
+    : 163 05-05  4.11 defines macro NULL
+    : 163 06-07  4.11 char *, void * point to lowest address of character array
+    : 163 07-08  4.11 undefined if array accessed beyond its end
+    : 163 15-15  4.11.2.1 memcpy copies n characters
+    : 163 15-16  4.11.2.1 from s2 into object via s1
+    : 163 16-16  4.11.2.1 copying between overlapping objects is undefined behaviour
+    : 163 18-18  4.11.2.1 returns value of s1
+    : 163 24-24  4.11.2.2 memmove copies n characters
+    : 163 24-25  4.11.2.2 via s2 to object via s1
+    : 163 25-25  4.11.2.2 copying takes place as if n characters of s2
+    : 163 26-26  4.11.2.2 are first copied to temporary array
+    : 163 26-27  4.11.2.2 temporary does not overlap s1 or s2
+    : 163 27-28  4.11.2.2 n characters from temporary copied via s1
+    : 163 30-30  4.11.2.2 returns value of s1
+    : 163 36-36  4.11.2.3 strcpy copies string via s2
+    : 163 36-37  4.11.2.3 including terminating null character
+    : 163 37-37  4.11.2.3 into array pointed to by s1
+    : 163 37-38* 4.11.2.3 copying between overlapping objects is undefined behaviour
+    : 164 02-02  4.11.2.3 returns value of s1
+    : 164 08-08  4.11.2.4 strncpy copies not more than n characters
+    : 164 08-09  4.11.2.4 characters following null character are not copied
+    : 164 09-09  4.11.2.4 from array pointed to by s2 via s1
+    : 164 09-10  4.11.2.4 copying between overlapping objects is undefined behaviour
+    : 164 11-11  4.11.2.4 if s2 string shorter than n characters
+    : 164 11-12  4.11.2.4 null characters are appended to copy
+    : 164 12-12  4.11.2.4 until n characters have been written
+    : 164 14-14  4.11.2.4 returns value of s1
+    : 164 21-21  4.11.3.1 strcat appends copy of string pointed to by s2
+    : 164 21-22  4.11.3.1 including null terminator
+    : 164 22-22  4.11.3.1 to end of string pointed to by s1
+    : 164 22-23  4.11.3.1 initial character of s2 overwrites null character at end of s1
+    : 164 23-23  4.11.3.1 copying between overlapping objects is undefined behaviour
+    : 164 26-26  4.11.3.1 returns value of s1
+    : 164 32-32  4.11.3.2 strncat appends not more than n characters
+    : 164 32-33  4.11.3.2 a null character and characters that follow are not appended
+    : 164 33-33  4.11.3.2 from array pointed to by s2
+    : 164 33-34  4.11.3.2 to string pointed to by s1
+    : 164 34-34  4.11.3.2 initial character of s2 overwrites null character of s1
+    : 164 34-35  4.11.3.2 terminating null character is always appended to result
+    : 164 35-36* 4.11.3.2 copying between ovelapping objects is undefined behaviour
+    : 165 02-02  4.11.3.2 returns value of s1
+    : 165 05-06  4.11.4 sign of nonzero value returned by memcmp, strcmp, and strncmp
+    : 165 06-07  4.11.4 determined by sign of difference between first pair of characters
+    : 165 07-07  4.11.4 both interpreted as unsigned char
+    : 165 07-07  4.11.4 that differ in objects being compared
+    : 165 13-13  4.11.4.1 memcmp compares first n characters of object pointed to by s1
+    : 165 13-14  4.11.4.1 to first n characters of object pointed to by s2
+    : 165 16-16  4.11.4.1 returns integer >0, ==0 or <0
+    : 165 16-17  4.11.4.1 as object pointed at by s1 is >, ==, < object pointed at by s2
+    : 165 23-23  4.11.4.2 strcmp compares string s pointed to by s1 and s2
+    : 165 25-25  4.11.4.2 returns integer >0, ==0, <0
+    : 165 25-26  4.11.4.2 as string s1 >, ==, < than string s2
+    : 165 32-32  4.11.4.3 strcoll compares strings s1 and s2
+    : 165 33-33* 4.11.4.3 both interpreted as appropriate to LC_COLLATE of current locale
+    : 166 02-02  4.11.4.3 returns integer >0, ==0, <0
+    : 166 02-03  4.11.4.3 according as s1 is >, ==, < than s2
+    : 166 04-04  4.11.4.3 both interpreted approriate to current locale
+    : 166 10-10  4.11.4.4 strncmp compares not more than n characters
+    : 166 10-11  4.11.4.4 characters after null are not compared
+    : 166 11-11  4.11.4.4 from array pointed to by s1 to array pointed to by s2
+    : 166 13-13  4.11.4.4 returns integer >0, ==0, <0
+    : 166 13-14  4.11.4.4 according as the possibly null terminated s1
+    : 166 14-14  4.11.4.4 is >, ==, < than
+    : 166 14-15  4.11.4.4 the possibly null terminated s2
+    : 166 21-21  4.11.4.5 strxfrm transforms string pointed to by s2
+    : 166 21-22  4.11.4.5 places resulting string via s1
+    : 166 22-23  4.11.4.5 such that when strcmp applied to two transformed strings
+    : 166 24-24  4.11.4.5 corresonding result as applying strcoll to roginal strings
+    : 166 25-25  4.11.4.5 no more than n characters placed into array via s1
+    : 166 25-26  4.11.4.5 including null terminating character
+    : 166 26-26  4.11.4.5 is n is zero s1 may be null pointer
+    : 166 26-27  4.11.4.5 copying between overlapping objects is undefined behaviour
+    : 166 29-29  4.11.4.5 returns length of transformed string
+    : 166 29-30  4.11.4.5 not including null terminating character
+    : 166 30-30  4.11.4.5 if value stored is n or more
+    : 166 30-31  4.11.4.5 contents of array via s1 are indeterminate
+    : 167 02-02  4.11.5.1 memchr locates first occurrence of c
+    : 167 02-02  4.11.5.1 converted to unsigned char
+    : 167 02-03  4.11.5.1 in initial n characters
+    : 167 03-03  4.11.5.1 each interpreted as unsigned char
+    : 167 03-03  4.11.5.1 of object pointed to by s
+    : 167 05-05  4.11.5.1 returns pointer to located character
+    : 167 05-06  4.11.5.1 returns null pointer if character does not occur
+    : 167 12-12  4.11.5.2 strchr locates first occurrence of c
+    : 167 12-12  4.11.5.2 converted to char
+    : 167 12-13  4.11.5.2 in string pointed to by s
+    : 167 13-13  4.11.5.2 terminating null character is considered part of string
+    : 167 15-15  4.11.5.2 returns pointer to located character
+    : 167 15-16  4.11.5.2 returns null pointer if character doe snot occur in string
+    : 167 22-22  4.11.5.3 strcspn computes length of maximum initial segment
+    : 167 22-23  4.11.5.3 of the string pointed to by s1
+    : 167 23-23  4.11.5.3 which consists entirely of characters not from the string via s2
+    : 167 25-25  4.11.5.3 returns length of segment
+    : 167 31-31  4.11.5.4 strpbrk locates first occurrence in string via s1
+    : 167 31-32  4.11.5.4 any character from string pointed to by s2
+    : 167 34-34  4.11.5.4 returns pointer to character
+    : 167 34-35  4.11.5.4 returns null pointer is no character found
+    : 168 02-02  4.11.5.5 strrchr locates last occurrence of c
+    : 168 02-02  4.11.5.5 converted to char
+    : 168 02-03  4.11.5.5 in string pointed to by s
+    : 168 03-03  4.11.5.5 terminating null character is part of string
+    : 168 05-05  4.11.5.5 returns pointer to character
+    : 168 05-06  4.11.5.5 returns null pointer if c does not occur in string
+    : 168 12-12  4.11.5.6 strspn computes length of maximum initial segment
+    : 168 12-13  4.11.5.6 of string pointed to by s1
+    : 168 13-13  4.11.5.6 which consists entirely of characters from string s2
+    : 168 15-15  4.11.5.6 returns length of segment
+    : 168 21-21  4.11.5.7 strstr locates first occurrence in string s1
+    : 168 21-22  4.11.5.7 of sequence of character in string s2
+    : 168 22-22  4.11.5.7 excluding terminating null character
+    : 168 24-24  4.11.5.7 returns pointer to located string
+    : 168 24-25  4.11.5.7 returns null pointer if string is not found
+    : 168 25-25  4.11.5.7 if s2 points to zero length string
+    : 168 25-25  4.11.5.7 returns s1
+    : 168 31-31  4.11.5.8 sequence of strtok calls breaks up string s1
+    : 168 31-32  4.11.5.8 into sequence of tokens
+    : 168 32-32  4.11.5.8 each delimited by character from string pointed to by s2
+    : 168 33-33  4.11.5.8 first call has s1 as its first argument
+    : 168 33-34  4.11.5.8 and is followed by calls with null first argument
+    : 168 34-35  4.11.5.8 separator string s2 may be different from call to call
+    : 168 36-36  4.11.5.8 first call in sequence searches string s1
+    : 168 36-37  4.11.5.8 for first character not contained in current separator string s2
+    : 168 37-37  4.11.5.8 if no such character is found
+    : 168 37-38  4.11.5.8 then there are no tokens in string pointed to by s1
+    : 168 38-39  4.11.5.8 and a null pointer is returned
+    : 168 39-39  4.11.5.8 if such a character is found it is start of first token
+    : 168 40-41  4.11.5.8 then searches for character that is contained in current separator string
+    : 168 41-41  4.11.5.8 if no such character is found
+    : 168 41-42  4.11.5.8 current token extends to end of string s1
+    : 168 42-42  4.11.5.8 subsequent searches return null pointer
+    : 168 42-43  4.11.5.8 if such a character is found
+    : 168 43-43  4.11.5.8 overwritten by null character
+    : 168 43-43  4.11.5.8 which terminates the current token
+    : 168 43-43* 4.11.5.8 the
+    : 169 01-01  4.11.5.8 strtok function saves a ptr to following character
+    : 169 01-02  4.11.5.8 from which next search for a token will start
+    : 169 03-03  4.11.5.8 each subsequent call with null pointer as first argument
+    : 169 03-04  4.11.5.8 starts searching from the saved pointer
+    : 169 04-04  4.11.5.8 and behaves as described above
+    : 169 05-05  4.11.5.8 implementation shall behave as if library does not call strtok
+    : 169 07-07  4.11.5.8 returns pointer to first character of token
+    : 169 07-08  4.11.5.8 or null pointer if there is no token
+    : 169 23-23  4.11.6.1 memset copies value of c
+    : 169 23-23  4.11.6.1 converted to unsigned char
+    : 169 23-24  4.11.6.1 into each of n characters pointed to by s
+    : 169 26-26  4.11.6.1 returns value of s
+    : 169 32-32  4.11.6.2 strerror maps error number to error message
+    : 169 33-33  4.11.6.2 implementation shall behave as if library does not call strerror
+    : 169 35-35  4.11.6.2 returns pointer to string
+    : 169 35-36  4.11.6.2 contents are implementation defined
+    : 169 36-36  4.11.6.2 pointed to array shall not be modified by program
+    : 169 36-37* 4.11.6.2 may be overwritten by subsequent calls
+    : 170 06-06  4.11.6.3 strlen computes length of string s
+    : 170 08-09* 4.11.6.3 returns number of characters that precede terminating null character
+    : 171 04-05  4.12 calendat time represents date according to gregorian calendar
+    : 171 05-06  4.12 local time is calendar time for specific time zone
+    : 171 06-07  4.12 daylight saving time is temporary change in algorithm for local time
+    : 171 07-08  4.12 local time zone is implementation defined
+    : 171 08-08  4.12 daylight saving is implementation defined
+    : 171 09-09  4.12 NULL macro is defined
+    : 171 09-10  4.12 CLOCK_PER_SEC is a macro
+    : 171 11-11  4.12 and is number per second returned by clock
+    : 171 12-12  4.12 type size_t is defined
+    : 171 13-13  4.12 clock_t type defined
+    : 171 15-15  4.12 time_t type defined
+    : 171 16-16  4.12 are arithmetic type capable of representing times
+    : 171 16-17  4.12 struct tm
+    : 171 18-18  4.12 holds components of time called broken down time
+    : 171 18-19  4.12 structure shall contain at least following members
+    : 171 19-19  4.12 in any order
+    : 171 19-20  4.12 semantics and normal ranges in comments
+    : 171 21-21  4.12 tm_secs
+    : 171 22-22  4.12 tm_min
+    : 171 23-23  4.12 tm_hour
+    : 171 24-24  4.12 tm_mday
+    : 171 25-25  4.12 tm_mon
+    : 171 26-26  4.12 tm_year
+    : 171 27-27  4.12 tm_wday
+    : 171 28-28  4.12 tm_yday
+    : 171 29-29  4.12 tm_isdst
+    : 171 30-30  4.12 tm_isdst is positive if daylight saving in effect
+    : 171 30-31  4.12 zero if daylight saving not in effect
+    : 171 31-31  4.12 negative if information not available
+    : 171 38-38* 4.12.2.1 clock determines processor time used
+    : 172 02-03  4.12.2.1 returns implementation approximation to processor time used
+    : 172 03-04  4.12.2.1 era related to program invocation
+    : 172 04-05  4.12.2.1 time in seconds obtained by dividing by CLOCKS_PER_SEC
+    : 172 05-06  4.12.2.1 if processor time used not available
+    : 172 06-06  4.12.2.1 or value cannot be represented
+    : 172 06-07  4.12.2.1 returns (clock_t)-1
+    : 172 13-14  4.12.2.2 computes difference between two calendar times
+    : 172 16-16  4.12.2.2 returns difference in seconds as double
+    : 172 22-22  4.12.2.3 mktime converts broken down time, expressed as local time
+    : 172 22-23  4.12.2.3 in structure via timeptr
+    : 172 23-23  4.12.2.3 into calendar timne
+    : 172 23-24  4.12.2.3 with same encodings as returned by time
+    : 172 24-25  4.12.2.3 original values of tm_wday and tm_yday are ignored
+    : 172 25-26  4.12.2.3 original values of other components not restricted
+    : 172 26-27  4.12.2.3 on successful completion values of tm_wday and tm_yday set appropriately
+    : 172 27-28  4.12.2.3 other components represent calendar time
+    : 172 28-29  4.12.2.3 with values forced to above ranges
+    : 172 29-30  4.12.2.3 tm_mday not set until tm_mon and tm_year determined
+    : 172 32-32  4.12.2.3 returns specified calendar time
+    : 172 32-33  4.12.2.3 encoded as value of type time_t
+    : 172 33-33  4.12.2.3 if calendar time cannot be represented
+    : 172 33-34  4.12.2.3 returns (time_t)-1
+    : 173 24-24  4.12.2.4 time determines current calendar time
+    : 173 24-25  4.12.2.4 encoding of this value is unspecified
+    : 173 27-28  4.12.2.4 returns implementations approximation to current calendar time
+    : 173 28-28  4.12.2.4 (time_t)-1 returned if calendar time not available
+    : 173 28-29  4.12.2.4 if timer is not a null pointer
+    : 173 29-29  4.12.2.4 return value assigned to object pointed to
+    : 173 31-31  4.12.3 except for strftime values returned in one of two static objects
+    : 173 32-32  4.12.3 a broken down time structure and array of char
+    : 173 32-33  4.12.3 execution of these functions may overwrite information returned
+    : 173 33-34  4.12.3 implementation behaves as if library does not call these functions
+    : 173 40-41  4.12.3.1 asctime converts broken down time into string
+    : 173 41-42  4.12.3.1 string has form Sun Sep 16 01:03:52 1973\n\0
+    : 173 43-43* 4.12.3.1 using equivalent following algorithm
+    : 174 01-18  4.12.3.1 algorithm
+    : 174 20-20  4.12.3.1 returns pointer to string
+    : 174 26-26  4.12.3.2 ctime converts calendar time pointed to by timer
+    : 174 26-27  4.12.3.2 into local time in form of string
+    : 174 27-28  4.12.3.2 equivalent to asctime(localtime(timer))
+    : 174 30-30  4.12.3.2 returns pointer returned by asctime
+    : 174 30-31  4.12.3.2 with that borken down time as arguments
+    : 174 38-38  4.12.3.3 gmtime converts calendar time pointed to by timer
+    : 174 38-39  4.12.3.3 into broken down time
+    : 174 39-39  4.12.3.3 expressed as Coordinated Universal Time
+    : 174 41-41  4.12.3.3 returns pointer to that object
+    : 174 41-42* 4.12.3.3 returns null pointer if UTC not available
+    : 175 06-06  4.12.3.4 localtime converts broken down time via timer
+    : 175 06-07  4.12.3.4 into broken down time expressed as local time
+    : 175 09-09  4.12.3.4 returns pointer to that object
+    : 175 16-16  4.12.3.5 strftime places characters into array via s
+    : 175 16-17  4.12.3.5 as controlled by format string
+    : 175 17-17  4.12.3.5 format shall be multibyte character sequence
+    : 175 17-18  4.12.3.5 beginning/ending in intial shift state
+    : 175 18-18  4.12.3.5 format shall consist of zero or more conversion specifiers
+    : 175 19-19  4.12.3.5 and ordinary multibyte characters
+    : 175 19-19  4.12.3.5 conversion specified consists of %, followed by ...
+    : 175 19-20  4.12.3.5 a character that determines behaviour
+    : 175 20-21  4.12.3.5 all ordinary multibyte characters are copied unchanged
+    : 175 21-21  4.12.3.5 including terminating null characters
+    : 175 21-22  4.12.3.5 copying between overlapping objects is undefined behaviour
+    : 175 22-23  4.12.3.5 no more than maxsize characters placed in array
+    : 175 23-24  4.12.3.5 each conversion specifier replaced by approproate characters
+    : 175 24-25  4.12.3.5 appropriate characters determined by LC_TIME of current locale
+    : 175 25-26  4.12.3.5 and by values pointed at by timeptr
+    : 175 32-32  4.12.3.5 %d - day of month as decimal number
+    : 175 33-33  4.12.3.5 %H - hour (24 hour clock) as decimal number
+    : 175 34-34  4.12.3.5 %I - hour (12 hour clock) as decimal number
+    : 175 35-35  4.12.3.5 %j - day of year as decimal number
+    : 175 36-36  4.12.3.5 %m - month as decimal number
+    : 175 37-37  4.12.3.5 %M - minute as decimal number
+    : 175 38-38  4.12.3.5 %p - locales equivalent of AM/PM
+    : 175 39-39  4.12.3.5 %S - seconds as decimal number
+    : 175 40-40  4.12.3.5 %U - week number of yeasr as decimal number (first Sunday as 1)
+    : 175 41-41  4.12.3.5 %w - weekday as decimal number
+    : 175 44-44  4.12.3.5 %y - year without century as decimal number
+    : 175 45-45* 4.12.3.5 %Y - year with century as decimal number
+    : 176 01-01  4.12.3.5 %Z - time zone
+    : 176 01-01  4.12.3.5 or abbreviation
+    : 176 01-02  4.12.3.5 or no characters if no time zone determinable
+    : 176 03-03  4.12.3.5 %% replaced by %
+    : 176 04-04  4.12.3.5 undefined behaviour if conversion specifier not one of above
+    : 176 06-06  4.12.3.5 if total number of resulting characters
+    : 176 06-06  4.12.3.5 including terminating null character
+    : 176 06-07  4.12.3.5 is not more than maxsize
+    : 176 07-08  4.12.3.5 returns number of characters placed into array
+    : 176 08-08  4.12.3.5 not including terminating null character
+    : 176 08-08  4.12.3.5 otherwise returns 0
+    : 176 08-09* 4.12.3.5 and contents of array are indeterminate

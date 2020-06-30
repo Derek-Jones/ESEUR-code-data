@@ -57,6 +57,7 @@ scan_dist=normalmixEM(fig1_Allreduce$time)
 # t=boot.se(scan_dist)
 
 # The most likely behavior is not the default!
+# The assignment to ylab2 has no effect: reported.
 plot(scan_dist, whichplots=2, main2="", col2=pal_col,
 	xlab2="Time (micro secs)", ylab2="Density\n")
 

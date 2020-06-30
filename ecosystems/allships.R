@@ -1,12 +1,15 @@
 #
-# allships.R,  7 Nov 16
+# allships.R, 28 Jun 20
 # Data from:
 # How Much Did The {Liberty} Shipbuilders Forget?
 # Peter Thompson
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG shipbuilding_learning forgetting
+
 
 source("ESEUR_config.r")
 
@@ -35,7 +38,7 @@ Delta_LA=subset(ships, NAME == "Delta - LA")
 Delta_LA$col=pal_col[as.factor(Delta_LA$DESCR)]
 
 plot(Delta_LA$deldate, Delta_LA$million_hours, type="n",
-	xlab="Delivery date", ylab="Effort (million man hours)\n")
+	xlab="Delivery date", ylab="Effort (million man-hours)\n")
 
 d_ply(Delta_LA, .(DESCR), ship_kind)
 

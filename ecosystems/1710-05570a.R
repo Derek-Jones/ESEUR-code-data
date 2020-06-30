@@ -1,5 +1,5 @@
 #
-# 1710-05570a.R, 25 Jul 19
+# 1710-05570a.R, 21 Jun 20
 # Data from:
 # How {PHP} Releases Are Adopted in the Wild?
 # Jukka Ruohonen and Ville Lepp{\"a}nen
@@ -47,7 +47,7 @@ axis(1, at=minor_start, labels=u_ver[minor_start])
 feb16=web_by_month(php$feb.2016)
 points(feb16$v_ord, feb16$freq, col=pal_col[2])
 
-legend(x="topleft", legend=c("Feb 2017", "Feb 2016"), bty="n", fill=pal_col, cex=1.2)
+legend(x="bottomright", legend=c("Feb 2017", "Feb 2016"), bty="n", fill=pal_col, cex=1.2)
 
 # t=table(ph14$dec.2016)
 # q=t[order(parse_version(dimnames(t)[[1]]))]

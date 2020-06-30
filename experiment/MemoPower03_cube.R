@@ -34,7 +34,7 @@ par(col=point_col)
 
 with(Memo_3,
    cubePlot(cint, size, associativity, mapping,
-		main="", cex.lab=0.9, cex.clab=1.25, size=0.35, round=1))
+		main="", cex.lab=0.9, cex.clab=1.25, size=0.40, round=1))
 
 par(col=cur_par$col)
 

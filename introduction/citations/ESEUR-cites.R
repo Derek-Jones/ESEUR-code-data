@@ -1,5 +1,5 @@
 #
-# ESEUR-cites.R, 17 Dec 19
+# ESEUR-cites.R, 26 Jun 20
 # Data from:
 # This books BibTex file
 #
@@ -17,6 +17,8 @@ library("plyr")
 pal_col=rainbow(2)
 
 
+# NA entries, there is no data
+# 'available' entries are cited works whose data is not used.
 Ed=read.csv(paste0(ESEUR_dir, "introduction/citations/ESEUR-cites.csv.xz"), as.is=TRUE, sep=";")
 
 # table(Ed$data)

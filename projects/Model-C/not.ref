@@ -1,0 +1,101 @@
+    : ???	unreferenced lines
+    : ???       not.ref
+    : ???       15 Mar 91  DJ
+    : 001 03-04  Text
+    : 001 06-21* Text
+    : 002 02-11  Text
+    : 002 13-22  Text
+    : 002 24-28  Text
+    : 002 30-43* Text
+    : 003 01-46* Text
+    : 004 01-05  Text
+    : 004 17-29  Definition of compliance
+    : 005 02-08  Text
+    : 006 02-06  Text
+    : 006 12-20  Text
+    : 006 24-24  Text
+    : 007 19-23  Text environments
+    : 007 26-30  Text
+    : 007 32-33  Text
+    : 008 20-21  Text
+    : 008 23-26  Text
+    : 008 29-46* Text
+    : 009 01-01  Text
+    : 009 10-12  Text
+    : 011 05-06  additional characters in set
+    : 013 02-09  Character display semantics
+    : 013 24-25  Outside this standard
+    : 013 28-34  Signals
+    : 013 36-38  Text
+    : 013 40-41* Text
+    : 014 27-28  Text
+    : 014 30-35  Text
+    : 015 32-35* Text
+    : 016 01-20  Text
+    : 016 38-39  Text
+    : 017 06-07  Text
+    : 017 11-13  Text
+    : 017 24-24  Text
+    : 019 02-08  Text
+    : 021 22-23  defn of 'function prototype'
+    : 023 17-21 3.1.2.4 stuff about persistence of block data
+    : 023 25-26 3.1.2.5 meaning of a value determined by type
+    : 023 31-32 3.1.2.5 char holds execution character
+    : 023 38-38 3.1.2.5 as described in...
+    : 023 40-41 3.1.2.5 natural size of int
+    : 024 20-22 3.1.2.5 derived type definitions
+    : 024 25-27 3.1.2.5 derivation of array type
+    : 024 34-36 3.1.2.5 derivation of function type
+    : 024 39-41 3.1.2.5 derivation of pointer type
+    : 024 42-42* 3.1.2.5 derivation is recursive
+    : 025 12-17 3.1.2.5 about qualified types
+    : 025 27-27 3.1.2.5 pointer representation and alignment
+    : 026 02-03 3.1.2.6 additional type compatiblity rules
+    : 032 28-30 3.1.5 description of operators and operands
+    : 032 37-37 3.1.6 punctuators occur in pairs
+    : 033 02-04 3.1.6 punctuators
+    : 033 25-26 3.1.6 superfluous constraint!
+    : 034 18-18 3.1.8
+    : 035 02-08 3.2 stuff about conversions
+    : 035 12-13 3.2.1.1 stuff about integral promotions
+    : 036 38-39* 3.2.1.5 floating point values
+    : 037 32-32 3.2.2.2 void expression
+    : 039 02-04 3.2.2.3 definition of expression
+    : 039 18-27* 3.3 accessing an object
+    : 040 39-42 3.3.2.1 equivalence of array subscript and pointer deref
+    : 040 43-47* 3.3.2.1 multi-dimensional arrays
+    : 041 01-03 3.3.2.1 ...continued
+    : 042 22-23 3.3.2.2 recursive function calls
+    : 045 18-18 3.3.3.3 location of ULONG_MAX and UINT_MAX
+    : 048 46-48* 3.3.6 impl need provide only one extra byte
+    : 050 28-28 3.3.9 equality ops analagous to rel ops
+    : 056 14-14 3.4 a constant expression is required in several contexts
+    : 057 01-01 3.4 ...other forms of constant expression...
+    : 059 13-18 3.5.1 typedef and register meaning
+    : 059 37-37 3.5.1 footnote
+    : 059 41-42* 3.5.1 register array usage
+    : 060 22-24 3.5.2 references to sections
+    : 061 14-14 3.5.2.1 struct cannot contain instance of itself!
+    : 061 19-19 3.5.2.1 as discussed elsewhere...
+    : 062 37-38 3.5.2.2 duplicate values in enums
+    : 065 10-11 3.5.3 qualifiers
+    : 065 16-21 3.5.3 abstract machine (volatile)
+    : 066 42-46* 3.5.4 meaning of declarator
+    : 067 01-08 3.5.4 declarator forms
+    : 067 10-11 3.5.4 binding of complex declarators may be altered by parentheses
+    : 067 13-15 3.5.4 combinations of declarators
+    : 067 19-23 3.5.4.1 pointer declarators
+    : 068 06-08 3.5.4.2 array declarators
+    : 068 29-34 3.5.4.3 function declarators
+    : 069 05-07 3.5.4.3 ignoring storage class on params in decl
+    : 070 23-25 3.5.5 use of typename
+    : 071 10-13 3.5.6 typedef usage
+    : 073 09-09 3.5.7 the rest of this section...
+    : 076 28-28 3.6.1 ...see discussion of switch
+    : 078 08-09 3.6.4 selection statements
+    : 078 24-26 3.6.4.2 enclosing switch statements
+    : 082 17-18 3.7 as discussed elsewhere
+    : 082 22-23 3.7 definition of external definition
+    : 083 13-14 3.7.1 what a function declarator specifies
+    : 086 03-07 3.8 (standalone preprocessor is aware of this construct)
+    : 087 12-14 3.8 what is preprocessing

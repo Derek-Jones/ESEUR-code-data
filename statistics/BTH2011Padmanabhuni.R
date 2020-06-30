@@ -1,5 +1,5 @@
 #
-# BTH2011Padmanabhuni.R,  6 Sep 18
+# BTH2011Padmanabhuni.R, 29 Jun 20
 #
 # Data from:
 # Javad Mohammadian Amiri Venkata Vinod Kumar Padmanabhuni
@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG function-points CFP estimation
+# TAG function-points CFP FPA COSMIC estimation
 
 
 source("ESEUR_config.r")
@@ -57,7 +57,8 @@ plot(1, type="n", log="xy",
 plot_who(ind, pal_col[1])
 plot_who(aca, pal_col[3])
 
-legend(x="topleft", legend=D_names, bty="n", fill=D_cols, cex=1.2)
+legend(x="topleft", legend=D_names, bty="n", fill=D_cols, cex=1.2,
+			inset=-c(0.03, 0.03))
 
 # Remove what data that has a different slope to everything else
 aca=subset(no_Cuadtado, who_CFP != "ind")

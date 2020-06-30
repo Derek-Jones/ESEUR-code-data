@@ -1,5 +1,5 @@
 #
-# md-soft.r,  6 Nov 19
+# md-soft.R,  1 Jun 20
 # Data from:
 # FDA...
 #
@@ -22,7 +22,7 @@ md$date=as.Date(md$DECISIONDATE, format="%m/%d/%Y")
 
 ud=ddply(md, .(PMANUMBER), function(df) min(df$date))
 
-plot(sort(ud$V1), 1:nrow(ud), col=point_col,
+plot(sort(ud$V1), 1:nrow(ud), type="l", col=point_col,
 	yaxs="i",
 	xlab="Date", ylab="Medical devices involving software\n")
 

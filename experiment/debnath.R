@@ -1,5 +1,5 @@
 #
-# debnath.R,  5 Apr 20
+# debnath.R, 25 Jun 20
 # Data from:
 # Exploiting the Impact of Database System Configuration Parameters: {A} Design of Experiments Approach
 # Biplob K. Debnath and Mohamed F. Mokbel and David J. Lilja
@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG
+# TAG experiment_design
 
 
 source("ESEUR_config.r")
@@ -29,6 +29,7 @@ deb_resp=add.response(deb_des, deb$Q1)
 
 deb_lm=lm(Q1 ~ P1+P2+P3+P4+P5+P6+P7, data=deb)
 
+# No way of modifying the y-axis label
 DanielPlot(deb_lm, half=TRUE, autolab=FALSE, col="red", pch=4,
 		main="")
 

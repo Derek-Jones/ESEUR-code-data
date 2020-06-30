@@ -1,5 +1,5 @@
 #
-# iwsc2011-kamiya.R, 21 Feb 20
+# iwsc2011-kamiya.R, 23 Jun 20
 # Data from:
 # How Code Skips Over Revisions
 # Toshihiro Kamiya
@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG C line_reuse
+# TAG C line_reuse revision_line-reuse
 
 
 source("ESEUR_config.r")
@@ -17,7 +17,11 @@ source("ESEUR_config.r")
 library("plyr")
 
 
-plot_layout(2, 1)
+# Fiddle with layout to fit figure on desired page
+plot_layout(2, 1, max_height=12.5)
+
+par(mar=MAR_default+c(-0.5, 0.9, -0.5, 0))
+
 pal_col=rainbow(2)
 
 
@@ -29,8 +33,9 @@ x_bounds=1:100
 
 delta_cnt=count(reuse$delta)
 plot(delta_cnt, log="xy", col=pal_col[1],
+	cex=1.4, cex.lab=1.4, cex.axis=1.4,
 	xlim=c(2, 100), ylim=c(10, 1e3),
-	xlab="Revision difference", ylab="Occurrences\n")
+	xlab="Revision difference", ylab="Reintroduced line sequences\n")
 
 dc_mod=glm(log(freq) ~ log(x)+I(log(x)^2), data=delta_cnt, subset=x_bounds)
 # summary(dc_mod)
@@ -40,8 +45,9 @@ lines(delta_cnt$x[x_bounds], exp(pred), col=pal_col[2])
 
 add_cnt=count(reuse$added)
 plot(add_cnt, log="xy", col=pal_col[1],
+	cex=1.4, cex.lab=1.4, cex.axis=1.4,
 	xlim=c(1, 100), ylim=c(10, 1e5),
-	xlab="Reused lines", ylab="Occurrences\n")
+	xlab="Reused lines", ylab="Reintroduced line sequences\n\n")
 
 ac_mod=glm(log(freq) ~ log(x), data=add_cnt, subset=x_bounds)
 summary(ac_mod)

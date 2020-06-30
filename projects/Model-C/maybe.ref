@@ -1,0 +1,11 @@
+    : ??? maybe.ref   		LastMod 15 Mar 91  DJ 
+    : ???			Created 15 Mar 91  DJ
+    : ???
+    : ??? Lines that may be referenced by an implementation
+    : ???
+    : ??? This file contains all the references to the standard that
+    : ??? are features that an implementation may optional implement
+    : ???
+    : 056 14-16  3.4 floating point expressions maybe evaluated in translation environment
+    : 065 21-22  3.5.3 what constitutes access to volatile object is implementation defined
+

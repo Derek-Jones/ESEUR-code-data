@@ -1,13 +1,14 @@
 #
-# icse14-sc_bc.R, 21 Feb 18
-#
+# icse14-sc_bc.R,  4 Jun 20
 # Data from:
 # Code Coverage for Suite Evaluation by Developers
 # Rahul Gopinath and Carlos Jensen and Alex Groce
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG code_coverage branch-coverage statement_coverage
 
 source("ESEUR_config.r")
 
@@ -65,7 +66,8 @@ legend(legend_pos,
 	c(expression(LOC %~~% 10^2), expression(LOC %~~% 10^3), expression(LOC %~~% 10^4)),
 	pch=21, bty='n',
 	pt.cex=c(0.5, 1.0, 1.7),
-	col=c(pal_col[1+4], pal_col[1+6], pal_col[1+8]))
+	col=c(pal_col[1+4], pal_col[1+6], pal_col[1+8]),	
+	cex=1.2)
 
 return(mc_mod)
 }

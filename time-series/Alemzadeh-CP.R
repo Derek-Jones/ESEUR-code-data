@@ -17,7 +17,7 @@ source("ESEUR_config.r")
 library("changepoint")
 
 
-plot_layout(2, 1, max_height=8.5, default_width=5)
+plot_layout(2, 1) #, max_height=8.5, default_width=5)
 par(mar=MAR_default-c(0.6, 0, 0.8, 0))
 
 

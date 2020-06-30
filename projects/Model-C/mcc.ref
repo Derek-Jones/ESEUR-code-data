@@ -1,0 +1,1340 @@
+    : ??? mcc.ref   		LastMod 13 Nov 93  DJ 
+    : ???			Created  1 Sep 90  SAC
+    : ???
+    : ??? Supplement to references to the ANSI C standard
+    : ???
+    : ??? This file contains all the references to the standard that
+    : ??? occur in the Environment and Languagesection
+    : ???
+   1: 003 11-12 1.6 definition of alignment
+   2: 006 25-26 2.1.1.2 introducing new-line characters for end-of-line...
+   4: 006 26-27 2.1.1.2 trigraph sequences are replaced...
+   6: 006 28-29 2.1.1.2 each instance of \ <nl> is deleted
+   8: 006 29-30 2.1.1.2 non-empty source file shall end in new-line
+   9: 006 30-31 2.1.1.2 last line shall end with backslash
+  12: 006 32-32 2.1.1.2 The source is decomposed into preprocessing tokens
+  13: 006 33-34 2.1.1.2 A source file shall not end in a partial...comment
+  15: 006 34-34 2.1.1.2 comments replaced by single space
+  16: 006 34-35 2.1.1.2 New-line characters are retained.
+  17: 006 35-36 2.1.1.2 whether each sequence of white-space is replaced...
+  17a:006 37-37 2.1.1.2 directives executed and macros expanded...
+  17b:006 37-39* 2.1.1.2 #include directives are processed
+  18: 007 01-02 2.1.1.2 phase 5 each...escape sequence is converted
+  19: 007 03-03 2.1.1.2 phase 6: adjacent string literals are concated
+  20: 007 03-04 2.1.1.2 phase 6: adjacent wide string literals are concated
+  21: 007 05-05 2.1.1.2 phase 7: whitespace no longer significant
+  21c:007 05-06 2.1.1.2 each preprocessing token is converted to a token
+  21b:007 06-07 2.1.1.2 ...syntactically and semantically analysed
+  21a:007 15-17 2.1.1.3 diagnostics
+  22: 007 36-37 2.1.2.2 definition of main() with no parameters...
+  24: 007 38-39* 2.1.2.2 definition of main...
+  25: 008 01-01 2.1.2.2 ...with two parameters...
+  26a:011 03-04 2.2.1 two sets of characters...
+  26c:011 04-05 2.2.1 values of members of exec char set are impl defined
+  26b:011 07-09 2.2.1 representation of string literals...
+  27: 011 09-10 2.2.1 definition of null character
+  28: 011 10-11 2.2.1 null character used to terminate a char string literal
+  28a:011 12-13 2.2.1 Both source & execution shall have ...
+  28b:011 13-15 2.2.1 26 upper-case letters
+  28c:011 16-18 2.2.1 26 lower-case letters
+  28d:011 19-20 2.2.1 10 decimal digits
+  28e:011 21-23 2.2.1 29 graphics characters
+  28f:011 24-24 2.2.1 whitespace
+  28g:011 25-26 2.2.1 values of decimal characters increase in steps of 1
+  28h:011 26-27 2.2.1 there shall be some way of indicating end of line
+  29: 011 28-29 2.2.1 there shall be alert, backspace, carr. return, newline
+  29a:011 29-31 2.2.1 other characters converted to token is undefined behaviour
+  30: 011 35-36* 2.2.1.1 trigraphs are replaced with the...single character
+  31: 012 01-01 2.2.1.1 ??= maps to #
+  32: 012 02-02 2.2.1.1 ??( maps to [
+  33: 012 03-03 2.2.1.1 ??/ maps to \
+  35: 012 04-04 2.2.1.1 ??) maps to ]
+  36: 012 05-05 2.2.1.1 ??' maps to ^
+  37: 012 06-06 2.2.1.1 ??< maps to open_curly
+  38: 012 07-07 2.2.1.1 ??! maps to |
+  39: 012 08-08 2.2.1.1 ??> maps to close_curly
+  40: 012 09-09 2.2.1.1 ??- maps to "
+  41: 012 10-11 2.2.1.1 each ?...
+  42z:013 23-24 2.2.2 unique value fits in char
+  43: 014 01-02 2.2.4.1 limit on nested control structures
+  45: 014 03-03 2.2.4.1 limit on nested conditional inclusion
+  47: 014 04-05 2.2.4.1 max-min declarator modifiers
+  48: 014 06-06 2.2.4.1 max-min decl paren nesting
+  49: 014 07-07 2.2.4.1 max-min expr paren nesting
+  50: 014 08-08 2.2.4.1 max-min significant chars in internal name
+  52: 014 09-09 2.2.4.1 6 significant initial chars in extern name
+  54: 014 10-10 2.2.4.1 max-min no. external idents in translation unit
+  55: 014 11-11 2.2.4.1 max-min no. block scope idents in one block
+  56: 014 12-12 2.2.4.1 max-min no. macros defined
+  57: 014 13-13 2.2.4.1 max-min no. params in fn def
+  58: 014 14-14 2.2.4.1 max-min no. args in fn call
+  59: 014 15-15 2.2.4.1 max-min no. params in macro def
+  60: 014 16-16 2.2.4.1 max-min no. arg in macro invocation
+  62: 014 17-17 2.2.4.1 max-min chars in logical source line
+  63: 014 18-18 2.2.4.1 max-min chars in string literal
+  65: 014 19-19 2.2.4.1 max 32767 bytes in hosted object
+  68: 014 20-20 2.2.4.1 max-min for nested #include
+  69: 014 21-22 2.2.4.1 max-min no. case labels
+  71: 014 23-23 2.2.4.1 max-min no. struct/union fields
+  76: 014 24-24 2.2.4.1 max-min no. enumeration constants
+  81: 014 25-25 2.2.4.1 max-min nesting struct union
+  81a:014 36-37 2.2.4.2 numerical limits
+  82: 014 36-37 2.2.4.2 check that sizes are consistent:
+  82a:014 38-39 2.2.4.2 SCHAR_MIN
+  82b:014 40-41* 2.2.4.2 SCHAR_MAX
+  83: 015 01-02 2.2.4.2 numerical limits
+  84a:015 03-04 2.2.4.2 min value for CHAR
+  84b:015 05-06 2.2.4.2 max value for CHAR
+  84c:015 07-08 2.2.4.2 bytes in a multibyte character
+  85: 015 09-14 2.2.4.2 requires 16 bits:
+  85a:015 09-10 2.2.4.2 SHRT_MIN
+  85b:015 11-12 2.2.4.2 SHRT_MAX
+  85c:015 13-14 2.2.4.2 USHRT_MAX
+  87: 015 15-20 2.2.4.2 requires 16 bits:
+  87a:015 15-16 2.2.4.2 INT_MIN
+  87b:015 17-18 2.2.4.2 INT_MAX
+  87c:015 19-20 2.2.4.2 UINT_MAX
+  89: 015 21-26 2.2.4.2 requires 32 bits:
+  89a:015 21-22 2.2.4.2 LONG_MIN
+  89b:015 23-24 2.2.4.2 LONG_MAX
+  89c:015 25-26 2.2.4.2 ULONG_MAX
+  89d:015 31-35 2.2.4.2 floating point ... model .... parameters ...
+  90: 016 27-29 2.2.4.2 definition of significant decimal digits
+  91: 016 30-30 2.2.4.2 number of significant FLT decimal digits
+  92: 016 31-31 2.2.4.2 number of significant DBL decimal digits
+  93: 016 32-32 2.2.4.2 number of significant LDBL decimal digits
+  95: 016 40-40 2.2.4.2 minimum exponent of float
+  96: 016 41-41 2.2.4.2 minimum exponent of double
+  97: 016 42-42* 2.2.4.2 minimum exponent of long double
+ 101: 017 08-08 2.2.4.2 maximum exponent of float
+ 102: 017 09-09 2.2.4.2 maximum exponent of double
+ 103: 017 10-10 2.2.4.2 maximum exponent of long double
+ 104a:017 14-14 2.2.4.2 maximum float value
+ 104b:017 15-15 2.2.4.2 maximum double value
+ 104c:017 16-16 2.2.4.2 maximum long double value
+ 104d:017 19-23 2.2.4.2 FLOAT, DBL and LDBL epsilon.
+ 105a:017 25-25 2.2.4.2 minimum float value
+ 105b:017 26-26 2.2.4.2 minimum double value
+ 105c:017 27-27 2.2.4.2 minimum long double value
+ 106a:019 11-13 3.1 token: keyword, identifier
+ 106b:019 14-14 3.1 token: constant
+ 106c:019 15-15 3.1 token: string-literal
+ 106d:019 16-17 3.1 token: operator, punctuator
+ 106e:019 18-19 3.1 preprocessing-token: header-name
+ 106f:019 20-20 3.1 preprocessing-token: identifier
+ 106g:019 21-21 3.1 preprocessing-token: pp-number
+ 106h:019 22-22 3.1 preprocessing-token: character-constant
+ 106i:019 23-23 3.1 preprocessing-token: string-literal
+ 106j:019 24-25 3.1 preprocessing-token: operator, punctuator
+ 106z:019 26-26 3.1 preprocessing-token: each non-white space...
+ 107: 019 28-29 3.1 ...shall have the form of...
+ 108: 019 31-33 3.1 token is minimal element in phases 7 and 8
+ 108a:019 33-36 3.1 preprocessing token is minimal element in phases 3 to 6
+ 109: 019 37-39 3.1 prepro tokens separated by white space (incl. new line)
+ 110: 019 39-41 3.1 white space significant in phase 4
+ 110a:019 41-43 3.1 white space within tokens
+ 110b:019 44-46* 3.1 forming the longest token
+ 111: 020 15-23 3.1.1 Keywords, syntax
+ 112: 020 25-26 3.1.1 Keywords
+ 113: 020 29-32 3.1.2 syntax of identifier
+ 114: 020 33-37 3.1.2 syntax of non-digit
+ 115: 020 38-39 3.1.2 syntax of digit
+ 116: 020 41-42 3.1.2 ...is a sequence of nondigit characters...and digits
+ 117: 020 42-42 3.1.2 Identifiers The first character shall be a non-digit..
+ 118: 020 44-45* 3.1.2 Identifiers shall not consist of the same sequence...
+ 118a:021 09-09 3.1.2 no specific limit on length of ident
+ 119: 021 11-12 3.1.2 at least 31 chars are significant for internal ident
+ 119a:021 12-13 3.1.2 case is significant
+ 120: 021 13-14 3.1.2 may further restrict the significance...to six chars
+ 121: 021 14-15 3.1.2 ...and may ignore distinctions of case
+ 121a:021 15-16 3.1.2 limitations are implementation defined
+ 122: 021 17-18 3.1.2 if idents differ in non-signif char... undefined
+ 124: 021 21-22 3.1.2.1 identifier can only be used within its scope
+ 138: 021 22-22 3.1.2.1 there are four kinds of scope...
+ 138a:021 24-24 3.1.2.1 label has function scope
+ 139: 021 25-25 3.1.2.1 label declared implicitly by syntactic appearance
+ 143: 021 26-26 3.1.2.1 Label names shall be unique within a function
+ 143a:021 27-27 3.1.2.1 scope determined by placement of declaration
+ 144: 021 28-29 3.1.2.1 decl outside any block has file scope
+ 146: 021 29-30 3.1.2.1 file scope terminates at end of translation unit
+ 150: 021 30-32 3.1.2.1 decl inside a block has block scope
+ 151: 021 31-32 3.1.2.1 parameter in a function definition has block scope
+ 162: 021 32-32 3.1.2.1 block scope terminates at the close curly
+ 170: 021 32-35 3.1.2.1 declarator within param decls, function proto scope
+ 183: 021 34-35 3.1.2.1 fn prototype scope terminates at end of declarator
+ 184: 021 35-37 3.1.2.1 outer decl hidden by inner decl...
+ 185: 021 38-38 3.1.2.1 definition of same scope
+ 239: 021 39-40 3.1.2.1 ...tag scope begins after appearance in type spec
+ 243: 021 40-41 3.1.2.1 scope of enum const begins after defining enumerator
+ 251: 021 41-42* 3.1.2.1 other ident scope begins after declarator
+ 263: 022 07-08 3.1.2.2 ident...more than once can...refer to same object..
+ 263a:022 08-09 3.1.2.2 there are three kinds of linkage
+ 263b:022 11-13 3.1.2.2 in translation unit each internal linkage denotes same
+ 264: 022 13-13 3.1.2.2 Identifiers with no linkage denote unique entites
+ 265: 022 14-14 3.1.2.2 if ident for object or function has file scope...
+ 266: 022 14-15 3.1.2.2 and...static, the ident has internal linkage
+ 267: 022 16-18 3.1.2.2 if ident has storage class extern...
+ 268: 022 17-18 3.1.2.2 any visible decl of the identifier...
+ 269: 022 17-18 3.1.2.2 ...with file scope
+ 270: 022 18-19 3.1.2.2 no visible declaration, ident has external linkage
+ 271: 022 20-20 3.1.2.2 declaration of identifier for a function that...
+ 272: 022 20-21 3.1.2.2 ...has no storage-class spec...as if...with extern
+ 275: 022 22-23 3.1.2.2 file scope object no storage-class...external linkage
+ 276: 022 24-25 3.1.2.2 ident other than obj/fn has no linkage
+ 278: 022 25-25 3.1.2.2 function parameters have no linkage
+ 279: 022 25-26 3.1.2.2 block scope ident that is not extern
+ 280: 022 27-28 3.1.2.2 same identifier...with both...linkage...undefined
+ 283: 022 32-34 3.1.2.3 ...(four) name spaces...
+ 283a:022 35-35 3.1.2.3 label names (name space)
+ 284: 022 36-36 3.1.2.3 tags of struct/union/enum (name space)
+ 285: 022 36-37 3.1.2.3 disambiguated by following struct, union or enum
+ 286: 022 38-40 3.1.2.3 each struct/union has a separate name space
+ 286b:022 41-42* 3.1.2.3 other identifiers (name space)
+ 286a:023 05-06 3.1.2.4 static and automatic storage duration
+ 287: 023 07-08 3.1.2.4 object with external..linkage has static storage dur
+ 290: 023 08-09 3.1.2.4 initialized only once prior to program startup
+ 290a:023 11-12 3.1.2.4 definition of automatic storage
+ 291: 023 14-16 3.1.2.4 Storage duration...init not performed on jump entry
+ 293: 023 27-30 3.1.2.5 incomplete types (that...lack information...)
+ 294: 023 33-35 3.1.2.5 char: the values are treated as signed or unsigned
+ 296: 023 36-37 3.1.2.5 short int, int, long int
+ 296a:023 39-40 3.1.2.5 signed char occupies same amount...as plain char
+ 297: 023 42-43* 3.1.2.5 the range of each is a subrange of next in list
+ 299: 024 01-02 3.1.2.5 for each signed integer type there is unsigned...
+ 299a:024 02-03 3.1.2.5 ...same size...
+ 299b:024 03-03 3.1.2.5 ...same alignment requirement
+ 300: 024 05-08 3.1.2.5 computation on unsigned types
+ 301: 024 09-09 3.1.2.5 three floating types: float, double, long double
+ 301b:024 12-13 3.1.2.5 basic types
+ 301c:024 13-14 3.1.2.5 different types with same representation
+ 302: 024 15-16 3.1.2.5 the three types char, signed char, unsigned char
+ 302a:024 17-17 3.1.2.5 enumeration is set of named constants
+ 303: 024 17-18 3.1.2.5 each enumeration constitutes a different type
+ 304: 024 19-20 3.1.2.5 void...is an incomplete type
+ 305: 024 23-24 3.1.2.5 array type has member OBJECT type
+ 309: 024 28-29 3.1.2.5 struct...sequentially allocated member objects
+ 310: 024 30-31 3.1.2.5 union...overlapping member objects
+ 310a:024 32-34 3.1.2.5 function type derivation
+ 310b:024 37-38 3.1.2.5 pointer type derivation
+ 311: 024 38-39 3.1.2.5 pointer type: object whose value provides reference
+ 312: 025 01-02 3.1.2.5 definition of integral types
+ 313: 025 04-04 3.1.2.5 definition of arithmetic types
+ 314: 025 04-05 3.1.2.5 definition of scalar types
+ 315: 025 05-06 3.1.2.5 definition of aggregate types
+ 316: 025 07-07 3.1.2.5 array of unknown size is incomplete type
+ 316a:025 07-08 3.1.2.5 completed by specifying size in later declaration
+ 317: 025 08-09 3.1.2.5 struct/union of unknown content is incomplete
+ 319: 025 09-11 3.1.2.5 struct/union completed by decl with defining content
+ 320: 025 20-21 3.1.2.5 qualified types are distinct
+ 321: 025 21-22 3.1.2.5 qualified types have same alignment
+ 322: 025 22-23 3.1.2.5 qualifier does not apply to derived type
+ 323: 025 24-25 3.1.2.5 void * has same alignment as char *
+ 324: 025 25-26 3.1.2.5 ptrs to compatible types have same repr and align
+ 325: 026 02-02 3.1.2.6 have compatible types if their types are the same
+ 326: 026 09-10 3.1.2.6 All decls that refer to same obj/fn shall have...
+ 331: 026 11-11 3.1.2.6 composite type constructed from compatible types
+ 333: 026 11-12 3.1.2.6 it is a type that is compatible with both types
+ 334: 026 13-13 3.1.2.6 if one is an array of known size...
+ 335: 026 14-15 3.1.2.6 if only one type is a function with a param list...
+ 339: 026 16-17 3.1.2.6 if both are prototypes, make composite param types
+ 341: 026 18-18 3.1.2.6 These rules apply recursively...
+ 343: 026 19-20 3.1.2.6 ...in same scope...type becomes composite type
+ 345: 026 31-32 3.1.3 syntax of constant
+ 345a:026 33-33 3.1.3 syntax of constant
+ 345b:026 34-34 3.1.3 syntax of constant
+ 345c:026 35-35 3.1.3 syntax of constant
+ 346: 026 37-37* 3.1.3 value of a constant shall be representable
+ 366: 027 02-02 3.1.3 type determined by form and value
+ 374: 027 05-07 3.1.3.1 syntax of floating-constant
+ 375: 027 06-06 3.1.3.1 syntax of floating-constant
+ 377: 027 07-07 3.1.3.1 syntax of floating-constant
+ 378: 027 08-10 3.1.3.1 syntax of fractional-constant
+ 380: 027 09-10 3.1.3.1 syntax of fractional-constant
+ 386: 027 10-10 3.1.3.1 syntax of fractional-constant
+ 387: 027 11-13 3.1.3.1 syntax of exponent-part
+ 393: 027 14-15 3.1.3.1 syntax of sign
+ 398: 027 16-18 3.1.3.1 syntax of digit sequence
+ 400: 027 19-20 3.1.3.1 syntax of floating-suffix
+ 401: 027 22-23 3.1.3.1 description of floating constant
+ 402: 027 23-25 3.1.3.1 description of significand
+ 403a:027 25-26 3.1.3.1 description of exponent
+ 403b:027 26-28 3.1.3.1 description of floating constant
+ 404: 027 30-31 3.1.3.1 the digit seq in exp part is interpreted as dec int
+ 405: 027 36-36 3.1.3.1 An unsuffixed floating constant has type double.
+ 406: 027 36-37 3.1.3.1 suffixed by f or F has type float
+ 407: 027 37-37 3.1.3.1 suffixed by l or L has type long double
+ 408: 027 40-42 3.1.3.2 optional integer-suffix
+ 410: 027 43-43* 3.1.3.2 hexadecimal-constant integer-suffix.opt
+ 410a:028 01-03 3.1.3.2 decimal constant
+ 373: 028 02-02 3.1.3.2 syntax of decimal-constant
+ 411: 028 04-05 3.1.3.2 syntax of octal-constant
+ 412: 028 06-06 3.1.3.2 syntax of octal-constant
+ 413: 028 07-09 3.1.3.2 syntax of hexadecimal-constant
+ 416: 028 10-10 3.1.3.2 syntax of hexadecimal-constant
+ 416a:028 11-12 3.1.3.2 non-zero digit
+ 416b:028 13-14 3.1.3.2 octal digit
+ 417: 028 15-18 3.1.3.2 syntax of hexadecimal digit
+ 418: 028 16-16 3.1.3.2 syntax of hex digits
+ 419: 028 17-17 3.1.3.2 syntax of hex digits
+ 420: 028 18-18 3.1.3.2 syntax of hex digits
+ 421: 028 19-21 3.1.3.2 syntax of integer-suffix
+ 423: 028 22-23 3.1.3.2 syntax of unsigned-suffix
+ 427: 028 24-25 3.1.3.2 syntax of long-suffix
+ 428: 028 27-27 3.1.3.2 description of integer constant
+ 429: 028 27-28 3.1.3.2 optional suffix
+ 430: 028 29-29 3.1.3.2 description of decimal constant
+ 430a:028 30-31 3.1.3.2 description of octal constant
+ 430b:028 31-33 3.1.3.2 description of hexadecimal constant
+ 431: 028 35-35 3.1.3.2 value of decimal constant computed base 10
+ 432: 028 35-35 3.1.3.2 value of octal constant computed base 8
+ 433: 028 35-36 3.1.3.2 value of hexadecimal constant computed base 16
+ 434: 028 37-38 3.1.3.2 type is first in which value can be represented:
+ 440: 028 38-39 3.1.3.2 constants can only be int or long
+ 441: 028 39-40 3.1.3.2 suffixed by u or U
+ 443: 028 40-41* 3.1.3.2 suffixed by l or L
+ 444: 028 41-41* 3.1.3.2 suffixed by both (LU in this case)
+ 445: 028 41-41* 3.1.3.2 suffixed by both (UL in this case)
+ 445a:029 03-04 3.1.3.3 syntax of enumeration constant
+ 446: 029 06-06 3.1.3.3 an enumeration constant has type int
+ 447: 029 10-11 3.1.3.4 syntax of character-constant
+ 449: 029 12-12 3.1.3.4 syntax of character-constant
+ 450: 029 13-15 3.1.3.4 syntax of c-char-sequence
+ 451: 029 16-18 3.1.3.4 syntax of c-char
+ 452: 029 19-19 3.1.3.4 syntax of c-char
+ 453: 029 20-23 3.1.3.4 syntax of escape sequence
+ 454: 029 24-25 3.1.3.4 syntax of simple-escape-sequence
+ 456: 029 26-26 3.1.3.4 possible escape sequences
+ 457: 029 27-30 3.1.3.4 syntax of octal escape specifies one to three chars
+ 459: 029 31-32 3.1.3.4 syntax of hex escape sequence
+ 460: 029 33-33 3.1.3.4 syntax of hexadecimal escape sequence
+ 462: 029 35-35 3.1.3.4 ...a sequence of one or more...
+ 463: 029 35-36 3.1.3.4 char constant is...enclosed in single-quotes
+ 464: 029 36-37 3.1.3.4 ...prefixed by the letter L
+ 465: 029 37-38 3.1.3.4 elements...are any members of source char set
+ 466: 029 38-39 3.1.3.4 they are mapped...to members of exec char set
+ 468: 029 40-41* 3.1.3.4 ...are representable according to...escape sequences
+ 469: 030 01-01 3.1.3.4 possible escape sequences
+ 470: 030 02-02 3.1.3.4 possible escape sequences
+ 471: 030 03-03 3.1.3.4 possible escape sequences
+ 472: 030 04-04 3.1.3.4 possible escape sequences
+ 473: 030 05-05 3.1.3.4 octal escape sequence
+ 474: 030 06-06 3.1.3.4 hex escape sequence
+ 475: 030 07-08 3.1.3.4 " and ? either themselves or \" and \?
+ 477: 030 08-09 3.1.3.4 ' and \ shall be \' and \\
+ 479: 030 10-12 3.1.3.4 digits are taken to part of single...constant
+ 481: 030 12-13 3.1.3.4 value so formed specifies value of desired char
+ 482: 030 14-16 3.1.3.4 hex digits taken to be part of single...constant
+ 483: 030 16-17 3.1.3.4 value so formed specifies value of desired char
+ 484: 030 18-19 3.1.3.4 octal or hex escape seq...longest that can constitute
+ 485: 030 20-21 3.1.3.4 nongraphic chars
+ 486: 030 21-22 3.1.3.4 any other escape sequence...is undefined
+ 488: 030 24-25 3.1.3.4 The value of an...hexadecimal escape sequence
+ 491: 030 24-25 3.1.3.4 value of octal escape shall be representable
+ 492: 030 26-26 3.1.3.4 wide char const has type wchar_t
+ 492a:030 28-28 3.1.3.4 char constant has type int
+ 493: 030 28-30 3.1.3.4 value of single char that maps into exec char set is...
+ 494: 030 30-33 3.1.3.4 The value of char constant with more than one char
+ 495: 030 31-33 3.1.3.4 containing esc seq...is impl defined
+ 497: 030 33-35 3.1.3.4 single char, value is converted from char to int
+ 499: 030 36-37 3.1.3 has type wchar_t defined in <stddef.h>
+ 500: 030 37-40 3.1.3 value of wide character constant
+ 500a:030 40-42* 3.1.3 value of multibyte wide character constant
+ 501: 031 22-23 3.1.4 syntax of string-literal
+ 502: 031 24-24 3.1.4 syntax of string-literal
+ 503: 031 25-27 3.1.4 syntax of s-char sequence
+ 504: 031 28-31 3.1.4 syntax of s-char
+ 506: 031 33-33 3.1.4 ...a sequence of zero or more...
+ 507: 031 33-34 3.1.4 char string literal is...enclosed in double-quotes
+ 508: 031 34-34 3.1.4 wide string literal...prefixed by the letter L
+ 509: 031 35-36 3.1.4 same considerations for string literals and char consts
+ 510: 031 37-38 3.1.4 ' and " chars in string literal
+ 511: 031 40-42 3.1.4 in phase 6...adjacent string literals are concatenated
+ 512: 031 42-43 3.1.4 if string adjacent to wide string, undefined
+ 513: 031 44-45* 3.1.4 byte of value 0 is appended to each...string literal
+ 515: 031 45-45* 3.1.4 the multibyte sequence is used to initialize...
+ 516: 032 01-02 3.1.4 ...an array of static storage duration
+ 517: 032 02-02 3.1.4 for character string literals, elements have type char
+ 518: 032 02-03 3.1.4 array of char initialized with individual bytes
+ 519: 032 03-04 3.1.4 for wide string literals, elements have type wchar_t
+ 520: 032 03-05 3.1.4 array of wchar_t initialized with individual wide chars
+ 521: 032 17-18 3.1.5 operators (
+ 522: 032 18-18 3.1.5 operators )
+ 523: 032 18-18 3.1.5 operators ->
+ 524: 032 18-18 3.1.5 operators .
+ 525: 032 18-18 3.1.5 operators [
+ 526: 032 18-18 3.1.5 operators ]
+ 528: 032 19-19 3.1.5 operators !
+ 529: 032 19-19 3.1.5 operators &
+ 530: 032 19-19 3.1.5 operators *
+ 531: 032 19-19 3.1.5 operators +
+ 532: 032 19-19 3.1.5 operators ++
+ 533: 032 19-19 3.1.5 operators -
+ 534: 032 19-19 3.1.5 operators --
+ 535: 032 19-19 3.1.5 operators ~
+ 536: 032 20-20 3.1.5 operators !=
+ 537: 032 20-20 3.1.5 operators %
+ 538: 032 20-20 3.1.5 operators &&
+ 539: 032 20-20 3.1.5 operators /
+ 540: 032 20-20 3.1.5 operators <
+ 541: 032 20-20 3.1.5 operators <<
+ 543: 032 20-20 3.1.5 operators <=
+ 544: 032 20-20 3.1.5 operators ==
+ 545: 032 20-20 3.1.5 operators >
+ 546: 032 20-20 3.1.5 operators >=
+ 547: 032 20-20 3.1.5 operators >>
+ 549: 032 20-20 3.1.5 operators ^
+ 550: 032 20-20 3.1.5 operators |
+ 551: 032 20-20 3.1.5 operators ||
+ 552: 032 21-21 3.1.5 operators :
+ 553: 032 21-21 3.1.5 operators ?
+ 554: 032 22-22 3.1.5 operators %=
+ 555: 032 22-22 3.1.5 operators &=
+ 556: 032 22-22 3.1.5 operators *=
+ 557: 032 22-22 3.1.5 operators +=
+ 558: 032 22-22 3.1.5 operators -=
+ 559: 032 22-22 3.1.5 operators /=
+ 560: 032 22-22 3.1.5 operators <<=
+ 562: 032 22-22 3.1.5 operators =
+ 563: 032 22-22 3.1.5 operators >>=
+ 565: 032 22-22 3.1.5 operators ^=
+ 566: 032 22-22 3.1.5 operators |=
+ 567: 032 23-23 3.1.5 operators #
+ 568: 032 23-23 3.1.5 operators ##
+ 569: 032 23-23 3.1.5 operators ,
+ 570: 032 25-25 3.1.5 the operators ? : shall occurs in pairs
+ 575: 032 26-26 3.1.5 Operators # and ## shall occur in macro-defining...
+ 576: 032 34-35 3.1.6 punctuators, syntax [ ] ( ) { }
+ 577: 032 35-35 3.1.6 punctuators #
+ 578: 032 35-35 3.1.6 punctuators (
+ 579: 032 35-35 3.1.6 punctuators )
+ 580: 032 35-35 3.1.6 punctuators *
+ 583: 032 35-35 3.1.6 punctuators ,
+ 584: 032 35-35 3.1.6 punctuators ...
+ 586: 032 35-35 3.1.6 punctuators :
+ 587: 032 35-35 3.1.6 punctuators ;
+ 588: 032 35-35 3.1.6 punctuators =
+ 590: 032 38-38* 3.1.6 # shall occur in ppdirect only
+ 592: 033 09-10 3.1.7 header-name syntax:
+ 594: 033 11-11 3.1.7 Header names, syntax q-chars
+ 595: 033 12-14 3.1.7 Header names, syntax h-chars
+ 596: 033 15-17 3.1.7 h-char any source char except new-line and >
+ 598: 033 18-20 3.1.7 Header names, syntax q-chars
+ 599: 033 21-23 3.1.7 q-char any source char except new-line and "
+ 600: 033 28-29 3.1.7 sequence is mapped to header
+ 602: 033 30-30 3.1.7 if the chars / * appear...
+ 603: 033 30-31 3.1.7 if chars ' " \ appear...undefined
+ 604: 033 31-32 3.1.7 ...the behaviour is undefined
+ 605: 034 07-09 3.1.8 syntax of pp-number (begins with digit or .)
+ 606: 034 08-08 3.1.8 syntax of pp-number (digit)
+ 607: 034 09-09 3.1.8 syntax of pp-number (. digit)
+ 608: 034 10-11 3.1.8 syntax of pp-number (followed by digit or nondigit)
+ 609: 034 12-13 3.1.8 syntax of pp-number (e or E followed by sign)
+ 610: 034 14-14 3.1.8 syntax of pp-number (followed by .)
+ 611: 034 16-17 3.1.8 description of pp-numbers
+ 612: 034 20-22 3.1.8 conversion of pp-number
+ 613: 034 24-25 3.1.9 the characters / * introduce a comment
+ 615: 034 25-26* 3.1.9 Comments do not nest
+ 616: 034 26-26* 3.1.9 the characters * / that terminate it
+ 618: 035 14-15 3.2.1.1 if an int can represent all values...
+ 622: 035 15-15 3.2.1.1 ...otherwise converted to unsigned int
+ 624: 035 16-16 3.2.1.1 other arithmetic types are unchanged...
+ 625: 035 17-18 3.2.1.1 whether plain char is treated as signed is impl-def
+ 626a:036 02-02 3.2.1.3 float to integral, fraction discarded
+ 626b:036 02-04 3.2.1.3 undefined if integral part not representable
+ 626c:036 05-07 3.2.1.3 integral type to floating type
+ 626d:036 09-10 3.2.1.4 float to double, long double value unchanged
+ 626e:036 11-13 3.2.1.4 double or long double demoted undefined if not representable
+ 626f:036 13-15 3.2.1.4 not represented exactly result is highest/lower value
+ 626: 036 17-19 3.2.1.5 Usual arithmetic conversions
+ 627: 036 20-21 3.1.2.5 ...if either operand has type long double...
+ 629: 036 22-22 3.1.2.5 ...if either operand has type double...
+ 631: 036 23-23 3.1.2.5 ...if either operand has type float...
+ 632: 036 24-24 3.1.2.5 ...the integral promotions are performed...
+ 633: 036 24-25 3.1.2.5 Then the following rules are applied:
+ 634: 036 26-27 3.1.2.5 ...if either operand has type unsigned long int...
+ 636: 036 28-28 3.1.2.5 ...if one operand has type long int...
+ 638: 036 28-29 3.1.2.5 ...and the other has type unsigned int...
+ 640: 036 29-30 3.1.2.5 ...if a long int can represent...convert to long int
+ 642: 036 30-32 3.1.2.5 ...else convert both to unsigned long int
+ 644: 036 33-34 3.1.2.5 ...if either operand has type long int...
+ 646: 036 35-36 3.1.2.5 ...if either operand has type unsigned int...
+ 648: 036 37-37 3.1.2.5 Otherwise, both operands have type int
+ 649: 037 03-03 3.2.2.1 defn of lvalue: constant does not designate object
+ 650: 037 03-04 3.2.2.1 definition of an lvalue
+ 651: 037 05-05 3.2.2.1 modifiable lvalue is an lvalue...
+ 652: 037 05-06 3.2.2.1 ...does not have array type...
+ 653: 037 05-08 3.2.2.1 definition of modifiable lvalue
+ 657: 037 06-06 3.2.2.1 ...does not have incomplete type...
+ 658: 037 06-08 3.2.2.1 if it is a struct or union, no const-qual member
+ 659: 037 07-08 3.2.2.1 ...does not have const qualified type (or element)
+ 662: 037 09-10 3.2.2.1 except when it is the operand of...
+ 663: 037 10-12 3.2.2.1 Lvalues: conversion to value
+ 665: 037 12-13 3.2.2.1 If the lvalue...
+ 666: 037 13-14 3.2.2.1 ...has incomplete type...
+ 667: 037 14-14 3.2.2.1 ...and does not have array type...
+ 668: 037 14-14 3.2.2.1 ...the behaviour is undefined
+ 669: 037 15-18 3.2.2.1 when array lvalue is converted
+ 702: 037 17-19 3.2.2.1 lvalue with type array of..is converted to pointer
+ 703: 037 19-19 3.2.2.1 and is not an lvalue
+ 706: 037 20-21 3.2.2.1 when function designator is converted
+ 727: 037 21-22 3.2.2.1 conversion of function designator
+ 731: 037 28-30 3.2.2.2 value of void expression shall not be used
+ 732: 037 30-31 3.2.2.2 where void expr is required, its value..is discarded
+ 734: 037 34-34 3.2.2.3 void * may be converted to/from other pointers
+ 735: 038 01-01 3.2.2.3 an integral constant expression...
+ 736: 038 01-01 3.2.2.3 or such an expression cast to void *
+ 738: 038 01-01 3.2.2.3 with the value 0
+ 739: 038 01-02 3.2.2.3 null pointer constant
+ 740: 038 02-03 3.2.2.3 assigned or compared...converted to...
+ 742: 039 05-07 3.3 modify between sequence points
+ 742a:039 08-10 3.3 except as specified, order of eval is unspecified
+ 743: 039 11-12 3.3 some operators shall have integral operands
+ 744: 039 15-17 3.3 not in range of representable values for type, undefined
+ 746: 040 03-04 3.3.1 syntax of primary expression
+ 747: 040 05-06 3.3.1 syntax of primary expression
+ 760: 040 07-07 3.3.1 syntax of expressions...
+ 762: 040 09-10 3.3.1 identifier is primary expression...
+ 766: 040 11-12 3.3.1 a constant is a primary expression
+ 774: 040 13-13 3.3.1 a string literal is a primary expression
+ 775: 040 13-13 3.3.1 a string literal is an lvalue
+ 782: 040 14-14 3.3.1 paren expression is primary expr
+ 782a:040 14-15 3.3.1 its value and type are identical to unparen expr
+ 782b:040 15-17 3.3.1 it is lvalue...if unparen expr is an lvalue...
+ 783: 040 21-23 3.3.2 syntax of postfix-expression
+ 787: 040 24-24 3.3.2 syntax of postfix-expression
+ 795: 040 25-25 3.3.2 syntax of postfix-expression
+ 799: 040 26-26 3.3.2 syntax of postfix-expression
+ 803: 040 27-28 3.3.2 syntax of postfix-expression
+ 804: 040 29-31 3.3.2 syntax of argument-expression-list
+ 807: 040 34-34 3.3.2.1 pointer to OBJECT type
+ 808: 040 34-35 3.3.2.1 not pointer and integral type operands
+ 810: 040 34-35 3.3.2.1 pointer-to-T and integral, result has type T
+ 811: 040 37-38 3.3.2.1 description of subscript
+ 812: 040 38-39 3.3.2.1 e1[e2] is equivalent to *(e1 + e2) which we build
+ 814: 041 18-19 3.3.2.2 returning void or object type other than array
+ 816: 041 18-19 3.3.2.2 shall have type pointer to function...
+ 818: 041 20-21 3.3.2.2 if prototype then number of args shall agree
+ 819: 041 21-23 3.3.2.2 Function call: argument shall have type such that...
+ 820: 041 25-26 3.3.2.2 postfix expr followed by ()...is a function call
+ 821: 041 26-27 3.3.2.2 postfix expression denotes the called function
+ 822: 041 27-27 3.3.2.2 list of expressions specifies arguments to the fn
+ 825: 041 28-28 3.3.2.2 ...in a function call...
+ 826: 041 28-29 3.3.2.2 ...consists solely of an identifier...
+ 827: 041 29-29 3.3.2.2 ...no declaration is visible...
+ 829: 041 29-32 3.3.2.2 declared as if extern int func() appeared
+ 830: 041 33-33 3.3.2.2 An argument may be an expr of any object type
+ 830a:041 33-35* 3.3.2.2 in preparing for a function call
+ 833: 042 01-02 3.3.2.2 function does not include a prototype
+ 834: 042 02-03 3.3.2.2 definition of default argument promotions
+ 834a:042 03-04 3.3.2.2 if number of arguments <> number of parameters behaviour undefined
+ 834b:042 04-05 3.3.2.2 if function is defined with a type that does not include a prototype
+ 834c:042 05-06 3.3.2.2 and the types of arguments after promotion not compatable with parameters
+ 834d:042 06-07 3.3.2.2 the behaviour is undefined
+ 834e:042 07-07 3.3.2.2 if function defined with prototype ...
+ 834f:042 07-08 3.3.2.2 types of promoted arguments not compatible with parameters
+ 834g:042 08-09 3.3.2.2 or prototype ends with ellipsis ...
+ 834h:042 09-09 3.3.2.2 the behaviour is undefined
+ 835: 042 10-10 3.3.2.2 if function has type that includes a prototype...
+ 836: 042 10-12 3.3.2.2 the arguments are...converted, as if by assignment
+ 837: 042 12-13 3.3.2.2 ...causes argument type conversion to stop...
+ 839: 042 13-14 3.3.2.2 trailing arguments get default promotions applied
+ 839c:042 14-15 3.3.2.2 function defined with type not compatible with pointed to expression
+ 839d:042 15-16 3.3.2.2 behaviour is undefined
+ 839b:042 17-19 3.3.2.2 (func defn with no prototype) no other conversions
+ 839a:042 20-21 3.3.2.2 a sequence point before the call
+ 840: 042 33-34 3.3.2.3 shall have qualified or unqualified struct/union type
+ 842: 042 34-34 3.3.2.3 shall name a member of that type
+ 843: 042 35-36 3.3.2.3 pointer to qualified or unqualified struct/union type
+ 848: 042 36-37 3.3.2.3 ...second operand shall name a member...
+ 849: 042 39-40 3.3.2.3 ...designates a member of a struct or union object
+ 850: 042 40-41 3.3.2.3 is an lvalue if first expr is lvalue
+ 851: 042 41-42 3.3.2.3 result has so-qualified version of the type
+ 852: 042 43-44 3.3.2.3 ...designates a member of a struct or union object
+ 853: 042 44-45* 3.3.2.3 ...and is an lvalue
+ 854: 042 45-45* 3.3.2.3 if first expr is ptr to qualified type...
+ 855: 043 01-01 3.3.2.3 ...result has so-qualified version of the type...
+ 855a:043 02-03 3.3.2.3 union member accessed after storing in another member is implementation defined
+ 855b:043 04-05 3.3.2.3 union contains structures with common initial sequence
+ 855c:043 05-06 3.3.2.3 and union object currently contains one of these structures
+ 855d:043 06-06 3.3.2.3 the common initial part may be inspected
+ 855e:043 06-07 3.3.2.3 common initial sequence if corresponding members compatible
+ 855f:043 07-08 3.3.2.3 and bit-fields the same widths
+ 855g:043 08-08 3.3.2.3 for a sequence of one or more members
+ 856: 043 36-37* 3.3.2.4 Postfix inc and dec operators, constraints
+ 859: 044 03-04 3.3.2.4 the value 1 of the appropriate type is added to it
+ 860: 044 04-05 3.3.2.4 semantics same as additive operators
+ 860a:044 05-07 3.3.2.4 side effect before sequence point
+ 861: 044 08-09 3.3.2.4 Postfix -- is analogous to the postfix ++ operator
+ 862: 044 13-16 3.3.3 syntax of unary-expression
+ 866: 044 17-17 3.3.3 syntax of unary-expression
+ 879: 044 18-18 3.3.3 syntax of unary-expression
+ 883: 044 19-19 3.3.3 syntax of unary-expression
+ 887: 044 20-21 3.3.3 syntax of unary-operator
+ 900: 044 24-25 3.3.3.1 operand shall have qual or unqual scalar type
+ 902: 044 25-25 3.3.3.1 and shall be modifiable lvalue
+ 904: 044 28-28 3.3.3.1 ++E is equivalent to E+=1
+ 905: 044 28-30 3.3.3.1 semantics same as additive operators
+ 906: 044 31-32 3.3.3.1 Prefix -- is analogous to the prefix ++ operator
+ 907: 044 36-36 3.3.3.2 shall be either a function designator...
+ 908: 044 36-36 3.3.3.2 ...or an lvalue...
+ 910: 044 37-37 3.3.3.2 ...that is not a bit-field...
+ 911: 044 37-38 3.3.3.2 ...and is not declared with the 'register' st-class
+ 912: 044 39-39 3.3.3.2 operand shall have pointer type
+ 913: 044 41-42 3.3.3.2 result is a pointer to...
+ 914: 044 43-44* 3.3.3.2 if operand points to fn, the result is fn designator
+ 917: 044 44-44* 3.3.3.2 if points at object, result, of *, is lvalue
+ 921: 045 01-01 3.3.3.2 if operand has type 'pointer to T' result has type T
+ 922: 045 06-06 3.3.3.3 operand of + or - shall be arithmetic
+ 924: 045 06-07 3.3.3.3 operand of ~ shall be integral
+ 925: 045 07-07 3.3.3.3 operand of ! shall be scalar
+ 926: 045 09-09 3.3.3.3 result of unary + is value of operand
+ 927: 045 09-10 3.3.3.3 integral promotions performed for +
+ 928: 045 11-12 3.3.3.3 integral promotions performed for -
+ 929: 045 14-15 3.3.3.3 integral promotions performed for ~
+ 930: 045 19-20 3.3.3.3 result of ! is 0 if opnd not equal zero else 1
+ 931: 045 20-20 3.3.3.3 result of ! operator has type int
+ 932: 045 25-25 3.3.3.4 shall not be applied to...function type...
+ 933: 045 26-26 3.3.3.4 ...or an incomplete type...
+ 934: 045 26-27 3.3.3.4 ...or...an lvalue designating bit-field object
+ 935: 045 29-29 3.3.3.4 the size (in bytes) of its operand
+ 936: 045 29-29 3.3.3.4 ...may be an expression
+ 941: 045 30-30 3.3.3.4 ...may be...the parenthesized name of a type
+ 945: 045 30-31 3.3.3.4 determined from type of operand, which is not evald
+ 953: 045 31-31 3.3.3.4 result (of sizeof) is an integer constant
+ 956: 045 32-33 3.3.3.4 when applied to (un/signed) char...the result is 1
+ 958: 045 33-34 3.3.3.4 sizeof array is total number of bytes in array
+ 959: 045 34-35* 3.3.3.4 sizeof struct or union...
+ 960: 046 01-01 3.3.3.4 ...including padding
+ 963: 046 02-03 3.3.3.4 type of sizeof is defined by size_t
+ 964: 046 18-20 3.3.4 syntax of cast-expression
+ 968: 046 22-22 3.3.4 Unless the type name specifies void type...
+ 969: 046 22-23 3.3.4 ...the type name shall specify...scalar type
+ 970: 046 23-23 3.3.4 ...and the operand shall have scalar type
+ 972: 046 25-26 3.3.4 converts the value...to the named type
+ 974: 046 26-27 3.3.4 a cast...no conversion has no effect on the type...
+ 978: 046 28-30 3.3.4 ...have impl-def and undefined aspects
+ 982: 046 31-31 3.3.4 a pointer may be converted to an integer
+ 983: 046 31-32 3.3.4 size and result are implementation defined
+ 984: 046 32-33 3.3.4 if space provided is not long enough...undefined
+ 989: 046 34-34 3.3.4 An arbitrary integer may be converted to a pointer...
+ 989a:046 34-35 3.3.4 result is implementation defined
+ 990: 046 36-37 3.3.4 a pointer...may be converted to a pointer...
+ 991: 046 38-38 3.3.4 pointer to object...
+ 992: 046 39-39 3.3.4 footnote: cast does not yield an lvalue
+ 994: 046 39-40 3.3.4 footnote: cast to qual type same as cast to unqual type
+ 996: 047 01-02 3.3.4 ...given alignment...to same or less strict alignment
+ 997: 047 03-03 3.3.4 character type has least strict alignment
+ 998: 047 04-05 3.3.4 ptr to fn of one type may be converted to...another
+ 999: 047 12-13 3.3.5 syntax of multiplicative-expression
+1003: 047 14-16 3.3.5 syntax of multiplicative-expression
+1004: 047 18-18 3.3.5 both operands have arithmetic type
+1007: 047 18-19 3.3.5 operands of % shall have integral type
+1009: 047 18-19 3.3.5 each operand shall have integral type
+1012: 047 21-21 3.3.5 usual arithmetic promotions performed
+1016: 047 24-25 3.3.5 if value of 2nd oprnd is zero, behaviour undefined
+1017: 047 27-28 3.3.5 the result of the % operator is positive
+1017a:047 29-31 3.3.5 sign of remainder(%) / quotient(/)
+1018: 047 34-37 3.3.6 syntax of additive-expression
+1023: 047 39-39 3.3.6 both operands shall have arithmetic type
+1026: 047 39-40 3.3.6 one opnd shall be a pointer...the other..integral type
+1035: 047 40-41 3.3.6 incrementing is equivalent to adding 1
+1037: 047 42-42 3.3.6 One of the following shall hold:
+1038: 047 43-43 3.3.6 both operands have arithmetic type
+1042: 047 44-44* 3.3.6 both operands are pointers to...
+1041: 047 44-44* 3.3.6 ...compatible object types
+1043: 048 01-01 3.3.6 left operand is pointer...and right has integral type
+1048: 048 02-02 3.3.6 decrementing is equivalent to subtracting 1
+1052: 048 04-05 3.3.6 if arithmetic then arith promotions performed
+1055: 048 06-06 3.3.6 Arithmetic operators semantics for +
+1056: 048 07-08 3.3.6 Arithmetic operators semantics for -
+1057: 048 12-13 3.3.6 ...result has the type of the pointer operand
+1059: 048 13-19 3.3.6 Arithmetic operator semantics for pointer + integer
+1063: 048 13-19 3.3.6 Arithmetic operator semantics for pointer - integer
+1064: 048 28-29 3.3.6 Arithmetic operators semantics for pointer subtraction
+1066: 048 29-30 3.3.6 size of result..and its type is ptrdiff_t
+1069: 048 41-43 3.3.6 footnote: scale up and add to character pointer
+1074: 048 43-45 3.3.6 footnote: subtract character pointers and divide...
+1075: 049 04-05 3.3.7 syntax of shift-expression
+1079: 049 06-07 3.3.7 syntax of shift-expression
+1080: 049 09-09 3.3.7 operands shall have integral type
+1084: 049 11-11 3.3.7 The integral promotions are performed...
+1085: 049 11-12 3.3.7 type of result is that of the promoted left operand
+1087: 049 12-13 3.3.7 right operand exceeds width of left...undefined
+1089: 049 12-13 3.3.7 right operand is negative...undefined
+1091: 049 21-22 3.3.7 >> of signed, negative value is impl defined
+1096: 049 25-30 3.3.8 syntax of relational-expression
+1101: 049 32-33 3.3.8 both operands have arithmetic type
+1104: 049 34-35 3.3.8 both operands are pointers to compatible...types
+1108: 049 37-37 3.3.8 if arithmetic then arith promotions performed
+1109: 050 11-13 3.3.8 result of relation op is 0 or 1
+1111: 050 13-13 3.3.8 result has type int
+1116: 050 16-19 3.3.9 syntax of equality-expression
+1121: 050 21-21 3.3.9 one of the following shall hold:
+1122: 050 22-22 3.3.9 both operands have arithmetic type
+1125: 050 23-23 3.3.9 both ptrs to compatible types
+1128: 050 24-25 3.3.9 one is ptr to object/incomplete, other is ptr to void
+1132: 050 26-26 3.3.9 one is ptr, other is null pointer constant
+1134: 050 29-30 3.3.9 semantics in 3.3.8 apply
+1136: 050 36-38* 3.3.9 conversion of pointer operand
+1140: 051 03-04 3.3.10 syntax of AND-expression
+1144: 051 05-05 3.3.10 syntax of AND-expression
+1145: 051 07-07 3.3.10 each operand shall have integral type
+1151: 051 09-09 3.3.10 usual arith promotions performed
+1152: 051 14-15 3.3.11 syntax of exclusive-OR-expression
+1156: 051 16-16 3.3.11 syntax of exclusive-OR-expression
+1157: 051 18-18 3.3.11 each operand shall have integral type
+1162: 051 20-20 3.3.11 usual arith promotions performed
+1164: 051 26-27 3.3.12 syntax of inclusive-OR-expression
+1168: 051 28-28 3.3.12 syntax of inclusive-OR-expression
+1169: 051 30-30 3.3.12 each operand shall have integral type
+1174: 051 32-32 3.3.12 usual arith promotions performed
+1176: 052 03-04 3.3.13 syntax of logical-AND-expression
+1180: 052 05-05 3.3.13 syntax of logical-AND-expression
+1181: 052 07-07 3.3.13 Each of the operands shall have scalar type
+1183: 052 09-10 3.3.13 result is 0 or 1
+1185: 052 10-10 3.3.13 The result has type int
+1185a:052 11-12 3.3.13 there is a sequence point after...first operand
+1186: 052 12-13 3.3.13 if first operand == 0, second is not evaluated
+1187: 052 16-17 3.3.14 syntax of logical-OR-expression
+1191: 052 18-18 3.3.14 syntax of logical-OR-expression
+1192: 052 20-20 3.3.14 Each of the operands shall have scalar type
+1194: 052 22-23 3.3.14 result is 0 or 1
+1196: 052 23-23 3.3.14 The result has type int
+1196a:052 24-25 3.3.14 there is a sequence point after...first operand
+1197: 052 25-26 3.3.14 if first operand != 0, second not evaluated
+1198: 052 29-30 3.3.15 syntax of conditional-expression
+1202: 052 31-31 3.3.15 syntax of conditional-expression
+1203: 052 33-33 3.3.15 The first operand shall have scalar type
+1204: 052 34-34 3.3.15 one of the following shall hold...
+1207: 052 35-35 3.3.15 both operands have arithmetic type
+1209: 052 36-36 3.3.15 both compatible struct/union...
+1210: 052 37-37 3.3.15 ...or both void...
+1211: 052 38-38 3.3.15 both...pointers to...compatible types
+1212: 052 39-39 3.3.15 one...is a pointer...other...null pointer constant
+1215: 052 40-41* 3.3.15 one is pointer...other is pointer to...void
+1216a:053 02-02 3.3.15 there is a sequence point after its evaluation
+1217: 053 02-03 3.3.15 the second operand is evaluated iff the first != 0
+1221: 053 03-04 3.3.15 the third operand is evaluated iff the first == 0
+1222: 053 04-05 3.3.15 value is the second operand
+1223: 053 04-05 3.3.15 value is the third operand
+1224: 053 06-07 3.3.15 usual arithmetic conversions
+1224a:053 07-07 3.3.15 result has that type
+1225: 053 07-08 3.3.15 struct/union...result has that type (Left_Type)
+1226: 053 08-09 3.3.15 both void...result has void type (Left_Type)
+1226a:053 10-12 3.3.15 result gets all the qualifiers
+1227: 053 12-13 3.3.15 ...result has the composite type
+1228: 053 14-14 3.3.15 ...result has type of other operand...
+1230: 053 14-16 3.3.15 ...converted to ptr-to-void...
+1231: 053 16-16 3.3.15 result has that type
+1232: 053 19-23 3.3.16 syntax of assignment-expression
+1236: 053 25-25 3.3.16 shall have modifiable lvalue as left operand
+1250: 053 27-27 3.3.16 Assignment operator stores a value...
+1251: 053 27-28 3.3.16 value is that of left operand
+1253: 053 28-28 3.3.16 assignment expression not lvalue
+1256: 053 29-30 3.3.16 the type...is the unqualified type of the left operand
+1261: 053 31-32 3.3.16 ...the side effect of updating the stored value...
+1262: 053 33-33 3.3.16 order of eval of operands is unspecified
+1263: 053 36-36 3.3.16.1 one of the following shall hold...
+1265: 053 37-37 3.3.16.1 both operands have arithmetic type
+1267: 053 38-39* 3.3.16.1 both compatible struct/union types
+1269: 054 01-01 3.3.16.1 both operands compatible pointers...
+1271: 054 02-02 3.3.16.1 ...and *left has all qualifiers of *right
+1273: 054 03-04 3.3.16.1 one is pointer and other is pointer to void
+1274: 054 04-05 3.3.16.1 ...and *left has all qualifiers of *right
+1276: 054 06-06 3.3.16.1 left is pointer and right is null pointer constant
+1277: 054 08-09 3.3.16.1 value of right operand is converted to type of left
+1279: 054 09-09 3.3.16.1 replaces the value stored in the object
+1280: 054 10-11 3.3.16.1 if stored value overlaps accessed object
+1281: 054 11-11 3.3.16.1 the overlap shall be exact
+1282: 054 11-12 3.3.16.1 and the two objects shall have qual/unqual compaible types
+1282a:054 12-12 3.3.16.1 otherwise the behaviour is undefined
+1283: 054 26-27 3.3.16.2 left shall be ptr, right shall be integral
+1285: 054 27-28 3.3.16.2 left shall have qualified or unqualified arith type
+1286: 054 28-28 3.3.16.2 right shall have arithmetic type
+1287: 054 29-30 3.3.16.2 each operand shall have arithmetic type...
+1290: 054 32-33 3.3.16.2 semantics as for E1 = E1 op E2
+1291: 054 33-33 3.3.16.2 lvalue only evaluated once
+1294: 054 36-37 3.3.17 syntax of expression
+1298: 054 38-38 3.3.17 syntax of expression
+1303: 054 40-40 3.3.17 Semantics of comma: the left operand is evaluated as
+1303a:054 40-41* 3.3.17 there is a sequence point after its evaluation
+1304: 054 41-41* 3.3.17 result has type and value of rhs
+1305: 055 09-09 footnote(49) does not yield an lvalue
+1305a:056 03-04 3.4 syntax of constant expression
+1305b:056 06-07 3.4 constant expression can be eval'd at compile time
+1306: 056 09-10 3.4 constant expression may not contain...
+1306a:056 11-12 3.4 expression shall fit its type
+1307: 056 17-17 3.4 integral const expr shall have integral type:
+1310: 056 17-18 3.4 An integral constant expression shall have...
+1312: 056 18-18 3.4 integer constants, enumeration constants, char constants
+1313: 056 18-19 3.4 floating point consts that are immediate oprnd of casts
+1314: 056 19-20 3.4 cast operators in an integral constant expression...
+1315: 056 20-21 3.4 casts in an integral constant expression...
+1316: 056 22-23 3.4 initializer constant expression one of...
+1317: 056 24-24 3.4 arithmetic constant expression
+1318: 056 25-25 3.4 null pointer constant
+1319: 056 26-26 3.4 address constants
+1321: 056 27-27 3.4 address constant plus or minus integral constant
+1321a:056 28-28 3.4 arithmetic const expr shall have arithmetic type:
+1324: 056 28-30 3.4 An arithmetic constant expression shall have...
+1326: 056 29-30 3.4 integer consts, float consts, enum, char, sizeof...
+1327: 056 30-31 3.4 casts in an arithmetic constant expression...
+1328: 056 32-32 3.4 lvalue designating an object of static storage duration
+1331: 056 33-33 3.4 it shall be created explicitly using the unary & op
+1332: 056 34-34 3.4 by use of an expression of array...type
+1333: 056 34-34 3.4 by use of an expression of...function type
+1334: 056 34-35 3.4 [] and... -> operators...may be used
+1335: 056 35-35 3.4 the [] . -> & and * operators may be used
+1336: 056 35-36 3.4 pointer casts may be used
+1337: 056 36-37* 3.4 value of an object shall not be accessed by use of *
+1337a:057 02-03 3.4 semantics for constant exprs match non-constant exprs
+1337b:058 03-04 3.5 syntax of declaration
+1337c:058 05-08 3.5 syntax of declaration specifiers
+1337d:058 09-11 3.5 syntax of init-declarator-list
+1338: 058 12-14 3.5 syntax of init-declarator
+1342: 058 16-16 3.5 shall declare at least ...
+1354: 058 17-19 3.5 ident with no linkage (except for tags) no more than 1 decl
+1357: 058 20-21 3.5 all decls in same scope that refer to same obj or fn...
+1359: 058 23-25 3.5 a decl that is also a defn causes storage to be alloc'd
+1361: 058 26-27 3.5 specifiers that indicate the linkage, storage duration
+1361a:058 27-29 3.5 init-declarator-list is...
+1362: 058 29-29 3.5 declarator contains identifier
+1363: 058 30-31 3.5 ident with no linkage, complete type by end of (init-)decl
+1365: 059 03-04 3.5.1 syntax of storage-class-specifier
+1369: 059 05-05 3.5.1 syntax of storage-class-specifier
+1373: 059 06-06 3.5.1 syntax of storage-class-specifier
+1377: 059 07-07 3.5.1 syntax of storage-class-specifier
+1381: 059 08-08 3.5.1 syntax of storage-class-specifier
+1385: 059 10-11 3.5.1 at most one storage-class specifier
+1386: 059 19-19 3.5.1 the decl of an ident for a fn that has block scope...
+1387: 059 19-20 3.5.1 ...shall have no explicit spec other than extern
+1388: 059 24-25 3.5.2 syntax of type-specifier
+1392: 059 26-26 3.5.2 syntax of type-specifier
+1396: 059 27-27 3.5.2 syntax of type-specifier
+1400: 059 28-28 3.5.2 syntax of type-specifier
+1404: 059 29-29 3.5.2 syntax of type-specifier
+1408: 059 30-30 3.5.2 syntax of type-specifier
+1412: 059 31-31 3.5.2 syntax of type-specifier
+1416: 059 32-32 3.5.2 syntax of type-specifier
+1420: 059 33-33 3.5.2 syntax of type-specifier
+1424: 059 34-34 3.5.2 syntax of type-specifier
+1428: 059 35-35 3.5.2 syntax of type-specifier
+1432: 059 36-36 3.5.2 syntax of type-specifier
+1436: 059 38-41 3.5.1 footnote for register storage-class specifier
+1438: 060 02-02 3.5.2 each list of type specs shall be one of...
+1438a:060 03-04 3.5.2 ...in any order, possibly intermixed with...
+1438b:060 05-05 3.5.2 void
+1439: 060 06-06 3.5.2 char
+1440: 060 07-07 3.5.2 signed char
+1441: 060 08-08 3.5.2 unsigned char
+1442: 060 09-09 3.5.2 short, signed short, short int, signed short int
+1443: 060 09-10 3.5.2 combinations of 'short (int)' with sign specifiers
+1444: 060 09-14 3.5.2 combinations of 'int' with other specifiers
+1445: 060 10-10 3.5.2 unsigned short, unsigned short int
+1446: 060 11-11 3.5.2 'int' is equivalent to no type specifiers
+1482: 060 12-12 3.5.2 unsigned int, unsigned
+1483: 060 13-13 3.5.2 long, signed long, long int, signed long int
+1484: 060 13-14 3.5.2 combinations of 'long (int)' with sign specifiers
+1485: 060 14-14 3.5.2 unsigned long int, unsigned long
+1486: 060 15-15 3.5.2 float
+1487: 060 16-16 3.5.2 double
+1488: 060 17-17 3.5.2 long double
+1488a:060 18-18 3.5.2 struct / union
+1488b:060 19-19 3.5.2 enum
+1488c:060 20-20 3.5.2 typedefname
+1489: 060 25-25 3.5.2 all above specify same type
+1490: 060 25-26 3.5.2 for bitfields, signed may differ from int
+1501: 060 31-32 3.5.2.1 syntax of struct-or-union-specifier
+1505: 060 33-33 3.5.2.1 syntax of struct-or-union-specifier
+1509: 060 34-35 3.5.2.1 syntax of struct-or-union
+1513: 060 36-36 3.5.2.1 syntax of struct-or-union
+1517: 060 37-39* 3.5.2.1 syntax of struct-declaration-list
+1521: 061 01-02 3.5.2.1 syntax of struct-declaration
+1525: 061 03-05 3.5.2.1 syntax of field specifier-qualifier
+1526: 061 06-08 3.5.2.1 syntax of struct-declarator-list
+1530: 061 09-10 3.5.2.1 syntax of struct-declarator
+1534: 061 11-11 3.5.2.1 syntax of struct-declarator
+1542: 061 13-13 3.5.2.1 struct/union shall not contain function type
+1543: 061 13-13 3.5.2.1 struct/union shall not contain incomplete type
+1547: 061 15-15 3.5.2.1 width of bitfield shall be integral const expr
+1555: 061 16-17 3.5.2.1 nonnegative value that shall not exceed...
+1556: 061 17-17 3.5.2.1 bit field with zero width shall have no declarator
+1560: 061 20-20 3.5.2.1 whose storage is allocated in an ordered sequence
+1561: 061 20-21 3.5.2.1 whose storage overlap
+1562: 061 22-22 3.5.2.1 Structure and union specifiers have the same form
+1564: 061 23-24 3.5.2.1 presence of struct-declaration-list => new type
+1568: 061 25-26 3.5.2.1 if the struct-decl-list contains no named members
+1568a:061 26-26 3.5.2.1 struct incomplete until terminating }
+1569: 061 27-27 3.5.2.1 struct / union member may be any object type
+1569a:061 27-29 3.5.2.1 may also be bit field...
+1570: 061 30-30 3.5.2.1 ...shall have type int, unsigned int, or signed int
+1573: 061 30-31 3.5.2.1 high-order bit...implementation defined
+1573c 061 31-32 3.5.2.1 bit field interpreted as integral type
+1573a:061 33-33 3.5.2.1 any addressable storage unit
+1573b:061 34-35 3.5.2.1 if enough space remains...
+1574: 061 35-36 3.5.2.1 if insufficient space remains...
+1575: 061 37-38 3.5.2.1 the order of allocation is impl defined
+1575a:061 38-38 3.5.2.1 alignment is unspecified
+1575b:061 39-40 3.5.2.1 unnamed bit field
+1576: 061 40-41* 3.5.2.1 bit-field with width of 0...
+1577: 062 01-01 3.5.2.1 placed.
+1578: 062 02-03 3.5.2.1 alignment of non-bit-field members
+1579: 062 04-05 3.5.2.1 addresses of members increase in order...
+1579a:062 05-07 3.5.2.1 ptr to struct same as ptr to first member
+1580: 062 07-08 3.5.2.1 there may be unnamed holes
+1580a:062 08-08 3.5.2.1 not at beginning
+1581: 062 09-09 3.5.2.1 The size of a union is...the largest of its members
+1581a:062 10-12 3.5.2.1 ptr to union same as ptr to any member
+1582: 062 13-14 3.5.2.1 there may also be unnamed padding at the end...
+1584: 062 18-19 3.5.2.2 syntax of enum-specifier
+1592: 062 20-20 3.5.2.2 syntax of enum-specifier
+1596: 062 21-23 3.5.2.2 syntax of enumerator_list
+1604: 062 24-25 3.5.2.2 syntax of enumerator
+1608: 062 26-26 3.5.2.2 syntax of enumerator
+1612: 062 28-29 3.5.2.2 ...shall be integral constant expression
+1616: 062 29-29 3.5.2.2 enum constant shall be representable as an 'int'
+1621: 062 31-32 3.5.2.2 identifier...constants that have type int
+1622: 062 32-33 3.5.2.2 enumerator with = defines...value
+1626: 062 33-34 3.5.2.2 if first has no =, value is zero
+1631: 062 34-36 3.5.2.2 subsequent enumerator with no =...add 1 to previous
+1635: 062 39-40* 3.5.2.2 enum compatible with an integer type
+1635a:063 16-17 3.5.2.1 type spec of the form struct...
+1635b:063 18-19 3.5.2.1 or enum...
+1636: 063 20-20 3.5.2.3 ...declares the identifier...
+1636a:063 21-21 3.5.2.3 The list defines the...content
+1637: 063 21-22 3.5.2.3 if this decl of the tag is visible...
+1638: 063 22-24 3.5.2.3 subsequent decls...shall omit the bracketed list
+1639: 063 25-27 3.5.2.3 if a type spec of the form...
+1640: 063 28-29 3.5.2.3 It declares a tag...
+1641: 063 29-31 3.5.2.3 another declaration shall define the content
+1642: 063 30-31 3.5.2.3 but not in an enclosed block...
+1646: 063 31-33 3.5.2.3 a declaration of the form...declares a tag
+1647: 063 33-34 3.5.2.3 ...visible only within the scope...
+1654: 063 34-35 3.5.2.3 specifies new type distinct from...
+1654a:063 36-36* 3.5.2.3 a type spec of the form...
+1654b:064 01-04 3.5.2.3 ...specified a new struct, union, enum
+1654c:064 05-05 3.5.2.3 ...can only be referred to by...
+1659: 065 03-04 3.5.3 syntax of type-qualifier
+1667: 065 05-05 3.5.3 syntax of type-qualifier
+1671: 065 07-08 3.5.3 the same qualifier shall not appear more than once
+1671a:065 12-13 3.5.3 attempting to modify const qualified object through non-const is undefined
+1671b:065 13-15 3.5.3 attempting to modify volatile qualified object through non-volatile is undefined
+1672a:065 16-17 3.5.3 volatile-qualified may be modified in ways unknown...
+1672b:065 23-24 3.5.3 qualified array applies to elements
+1673: 065 24-25 3.5.3 if spec of func type includes type quals...undefined
+1674: 065 26-26 3.5.3 for two qualified types...
+1678: 065 26-28 3.5.3 ...both shall have identically qualified...
+1679: 066 15-16 3.5.4 syntax of declarator
+1683: 066 17-19 3.5.4 syntax of direct-declarator
+1687: 066 20-20 3.5.4 syntax of direct-declarator
+1695: 066 21-21 3.5.4 syntax of direct-declarator
+1699: 066 22-22 3.5.4 syntax of direct-declarator
+1707: 066 23-25 3.5.4 syntax of pointer declarator
+1708: 066 26-28 3.5.4 syntax of type-qualifier-list
+1709: 066 29-31 3.5.4 syntax of parameter-type-list
+1709a:066 32-34 3.5.4 syntax of parameter-list
+1710: 066 35-37 3.5.4 syntax of parameter-declaration
+1711: 066 38-40 3.5.4 syntax of identifier-list
+1719: 067 09-10 3.5.4 decl in parentheses is identical to unparen decl
+1722: 067 24-24 3.5.4.1 pointer types shall be identically qualified
+1723: 067 24-25 3.5.4.1 and shall be pointers to compatible types
+1724: 068 03-04 3.5.4.2 ...shall be an integral constant expression
+1736: 068 04-04 3.5.4.2 that has a value greater than zero
+1748: 068 09-10 3.5.4.2 if size not present array is incomplete type
+1749: 068 11-11 3.5.4.2 compatible element type
+1750: 068 11-12 3.5.4.2 sizes same if both present
+1751: 068 24-24 3.5.4.3 return type not function or array
+1752: 068 25-25 3.5.4.3 only storage class...is register
+1753: 068 26-27 3.5.4.3 identifier list...not part of...defn shall be empty
+1754: 068 35-35 3.5.4.3 ...and may declare identifiers for...
+1755: 068 35-36 3.5.4.3 a parameter type list...of the func
+1756: 068 36-37 3.5.4.3 ends with ... no information about number of params
+1758: 068 37-37* 3.5.4.3 The special case of 'void' as the only...
+1762: 069 01-01 ...item in the list specifies the function has no parameters
+1766: 069 02-04 3.5.4.3 in param decl, typedef name in paren...
+1774: 069 08-08 3.5.4.3 identifier list declares only the identifiers
+1775: 069 08-10 3.5.4.3 empty list in definition specifies no parameters
+1776: 069 10-11 3.5.4.3 empty ident list...no info about number or types
+1777: 069 12-12 3.5.4.3 both shall specify compatible return types
+1778: 069 13-13 3.5.4.3 shall agree in the number of parameters
+1779: 069 13-13 3.5.4.3 if both param lists are present
+1780: 069 14-14 3.5.4.3 corresponding parameters shall have compatible types
+1781: 069 14-14 3.5.4.3 shall agree in use of ellipsis
+1783: 069 14-16 3.5.4.3 if one is param list and other is old declaration
+1785: 069 16-17 3.5.4.3 parameter list shall not have an ellipsis terminator
+1786: 069 17-18 3.5.4.3 shall be compatible...default argument promotions
+1787: 069 18-20 3.5.4.3 if one is param list and other is old definition
+1789: 069 20-20 3.5.4.3 both shall agree in number of parameters
+1791: 069 20-22 3.5.4.3 type of each param compatible after dft arg promote
+1792: 069 22-24 3.5.4.3 For each parameter declared with function type
+1793: 069 22-24 3.5.4.3 For each parameter declared with...array type
+1796: 069 24-25 3.5.4.3 ...its type...is the unqualified version of its type
+1797: 069 44-44* 3.5.4.3 footnote: parameter types not compared
+1798: 070 13-14 3.5.5 syntax of type-name
+1802: 070 15-16 3.5.5 syntax of abstract-declarator
+1806: 070 17-17 3.5.5 syntax of abstract-declarator
+1810: 070 18-19 3.5.5 syntax of direct-abstract-declarator
+1814: 070 20-20 3.5.5 syntax of direct-abstract-declarator
+1830: 070 21-21 3.5.5 syntax of direct-abstract-declarator
+1846: 071 03-04 3.5.6 syntax: typedef-name is an identifier
+1846a:071 06-08 3.5.6 semantics of typedef mechanism
+1846b:071 08-09 3.5.6 typedefname is synonym for type
+1847: 071 14-15 3.5.6 typedef name shares same space as ordinary identifiers
+1848: 071 15-16 3.5.6 (if identifier is redeclared) in an inner scope...
+1849: 071 15-16 3.5.6 if identifier redeclared...
+1850: 071 17-17 3.5.6 ...type specifiers shall not be omitted...
+1853: 072 23-26 3.5.7 syntax of initializer
+1861: 072 27-29 3.5.7 syntax of initializer-list
+1865: 072 31-31 3.5.7 no more initializers than objects
+1867: 072 32-32 3.5.7 ...shall be object type...or array of unknown size
+1871: 072 33-33 3.5.7 for an object that has static storage duration
+1872: 072 33-34 3.5.7 ...or in an initializer-list for...aggregate or union
+1874: 072 34-34 3.5.7 for an object that has aggregate or union type
+1875: 072 35-35 3.5.7 if decl has block scope and external linkage...
+1876: 072 35-35 3.5.7 if decl has block scope and internal linkage...
+1877: 072 36-36 3.5.7 ...the declaration shall have no initializer
+1877a:072 38-38 3.5.7 initializer specifies initial value in object
+1878: 072 39-39 3.5.7 unnamed members ignored during initialization
+1889: 072 40-42 3.5.7 initialized implicitly as if...
+1890: 073 01-01 3.5.7 for scalar shall be single expr
+1891: 073 02-03 3.5.7 same type constraints/conversions as for assignment
+1899: 073 04-05 3.5.7 initializer for a union object...first member
+1900: 073 06-08 3.5.7 auto struct/union initializer may be struct expr
+1901: 073 10-10 3.5.7 char[] may be initialized by a char string literal
+1903: 073 11-12 if there is room or the array is of unknown size
+1907: 073 13-14 3.5.7 wchar_t[] may be be init'd by a wide string literal
+1909: 073 14-16 if there is room or the array is of unknown size
+1913: 073 17-17 3.5.7 otherwise the initializer shall be brace-enclosed...
+1914: 073 17-18 3.5.7 the initializer shall be a brace-enclosed list...
+1915: 073 19-20 3.5.7 initializer for union shall be brace-enclosed...
+1916: 073 21-22 3.5.7 if first member of aggregate/union is aggregate/union...
+1916a:073 23-23 3.5.7 if...begins with a left brace...
+1916b:073 24-25 3.5.7 ...and its matching left brace...
+1916c:073 25-28 3.5.7 only enough inits are taken to account for...
+1917: 073 29-31 3.5.7 if there are fewer initializers...
+1920: 073 32-34 3.5.7 its size is determined by the number of inits
+1921a:076 03-04 3.6 syntax of statement: labeled-statement
+1921b:076 05-05 3.6 syntax of statement: compound-statement
+1921c:076 06-06 3.6 syntax of statement: expression-statement
+1921d:076 07-07 3.6 syntax of statement: selection-statement
+1921e:076 08-08 3.6 syntax of statement: iteration-statement
+1921f:076 09-09 3.6 syntax of statement: jump-statement
+1922a:076 11-12 3.6 sequence of statements
+1922b:076 13-14 3.6 a full expression is...initializer
+1922c:076 14-14 3.6 ...expression in expression statement
+1922d:076 14-15 3.6 ...controlling expression of selection statement
+1922e:076 15-16 3.6 ...controlling expression of while or do
+1922f:076 16-16 3.6 ...each of the three exprs in for statement
+1922g:076 16-17 3.6 ...expression in a return statement
+1922h:076 17-17 3.6 sequence point after full expression
+1923: 076 22-23 3.6.1 syntax of labeled-statement
+1927: 076 24-25 3.6.1 syntax of labeled-statement
+1931: 076 27-27 3.6.1 case / default shall appear only in a switch
+1931a:076 30-30 3.6.1 statement preceded by prefix that defines a label
+1931b:076 31-31 3.6.1 labels do not alter flow of control
+1932: 076 35-36 3.6.2 syntax of compound-statement
+1936: 076 37-39 3.6.2 syntax of declaration-list
+1940: 076 40-42* 3.6.2 syntax of statement-list
+1944: 077 02-03 3.6.2 allows a set of statements to be grouped
+1948: 077 04-05 3.6.2 inits..evald..in the order their declarators appear
+1952: 077 08-09 3.6.3 syntax of expression-statement
+1956: 077 11-12 3.6.3 evaluated for its side effects...
+1960: 077 13-13 3.6.3 A null statement performs no operations
+1964: 078 03-04 3.6.4 syntax of selection-statement
+1968: 078 05-05 3.6.4 syntax of selection-statement
+1972: 078 06-06 3.6.4 syntax of selection-statement
+1976: 078 12-12 3.6.4 control expression shall be scalar
+1977: 078 14-15 3.6.4.1 if statement semantics
+1978: 078 15-16 3.6.4.1 if 'if' part reached by label 'else' part not exec'd
+1978a:078 17-18 3.6.4.1 else associated with preceding else-less if...
+1979: 078 21-21 3.6.4.2 switch control expression shall be integral
+1980: 078 21-22 3.6.4.2 expr of each case shall be integral constant
+1984: 078 22-23 3.6.4.2 no two cases shall have same value after conversion
+1987: 078 23-24 3.6.4.2 at most one default
+1989: 078 30-31 3.6.4.2 case/default accessible in closest enclosing switch
+1990: 078 32-32 3.6.4.2 the integral promotions are performed...
+1991: 078 32-33 3.6.4.2 each case expression is converted to promoted type
+1992: 078 39-40 3.6.4.2 possible limit on number of cases
+1993: 079 16-17 3.6.5 syntax of iteration-statement
+1997: 079 18-18 3.6.5 syntax of iteration-statement
+2001: 079 19-19 3.6.5 syntax of iteration-statement
+2018: 079 21-21 3.6.5 controlling expression of iteration shall be scalar
+2019: 079 23-24 3.6.5 ...executed repeatedly until expr compares == 0
+2020: 079 26-27 3.6.5.1 evaluation of expression before loop body
+2021: 079 29-29 3.6.5.3 evaluation of expr after each exec of loop body
+2021a:079 31-39* 3.6.5.3 for statement is like while statement
+2022: 080 01-01 3.6.5.3 evaluated as a void expression
+2023: 080 01-01 3.6.5.3 expression-1 may be omitted
+2027: 080 01-01 3.6.5.3 expression-3 may be omitted
+2038: 080 02-02 3.6.5.3 an omitted expression-2 is replaced by nonzero const
+2039: 080 06-07 3.6.6 syntax of jump-statement
+2043: 080 08-08 3.6.6 syntax of jump-statement
+2047: 080 09-09 3.6.6 syntax of jump-statement
+2051: 080 10-10 3.6.6 syntax of jump-statement
+2059: 080 12-12 3.6.6 causes an unconditional jump to another place
+2071: 080 15-16 3.6.6.1 goto shall name label in function
+2072: 080 18-19 3.6.6.1 jump to statement prefixed by named label
+2076: 081 03-03 3.6.6.2 continue shall appear only in a loop body
+2077: 081 05-06 3.6.6.2 continue...smallest enclosing iteration stmt
+2077a:081 06-15 3.6.6.2 continue: where does it go to
+2078: 081 18-18 3.6.6.3 break shall appear only in loop or switch
+2079: 081 20-20 3.6.6.3 break terminates smallest enclosing switch
+2080: 081 20-21 3.6.6.3 break terminates smallest enclosing iteration stmt
+2081: 081 24-25 3.6.6.4 return with expr...
+2082: 081 27-28 3.6.6.4 control returns to caller
+2085: 081 28-28 3.6.6.4 mixed return and return exp are legal...
+2086: 081 29-30 3.6.6.4 value of expression is returned
+2089: 081 30-32 3.6.6.4 return: ...it is converted as if it were assigned...
+2095: 081 33-34 3.6.6.4 return without expr and value used..undefined
+2102: 081 34-35* 3.6.6.4 reaching the close curly equiv to return;
+2103: 082 03-05 3.7 syntax of translation unit
+2107: 082 06-08 3.7 syntax of external-declaration
+2111: 082 10-11 3.7 auto shall not appear in external declaration
+2112: 082 10-11 3.7 register shall not appear in external declaration
+2113: 082 12-13 3.7 no more than one ext def for ident with internal linkage
+2114: 082 13-14 3.7 if an ident declared with internal linkage...
+2115: 082 13-15 3.7 ...is used...shall be...exactly one ext defn
+2117: 082 19-21 3.7 decl that causes storage to be allocated is a definition
+2119: 082 23-23 3.7 if an ident declared with external linkage...
+2120: 082 23-25 3.7 ...is used, there shall be defn in program
+2124: 082 28-29 3.7.1 syntax of function-definition
+2129: 082 31-32 3.7.1 function definition must have function type
+2132: 082 33-34 3.7 footnote: there need be no external definition
+2133: 083 01-01 3.7.1 return type shall be void or non-array object type
+2135: 083 02-03 3.7.1 stor class shall be either extern or static
+2137: 083 04-05 3.7.1 defn with param type list shall include identifiers
+2137a:083 05-06 3.7.1 except for special case of void...
+2138: 083 06-06 3.7.1 No declaration list shall follow
+2138a:083 07-08 3.7.1 each decl shall have at least one declarator
+2139: 083 08-08 3.7.1 shall declare only identifiers from the ident-list
+2139a:083 09-09 3.7.1 typedef shall not be redeclared
+2140: 083 09-10 3.7.1 no stor-class other than register
+2140a:083 10-11 3.7.1 and no initializations
+2141: 083 14-15 3.7.1 parameter type list (defn) also specifies all types
+2142: 083 15-16 3.7.1 acts as prototype for later calls
+2146: 083 16-17 3.7.1 if decl...types may be declared in a following decl list
+2147: 083 17-18 3.7.1 any parameter that is not declared has type int
+2147a:083 19-20 3.7.1 function accepting variable number of arguments not defined with ... is undefined
+2148: 083 21-22 3.7.1 each arg converted as if by assignment
+2150: 083 22-25 3.7.1 conversion of array & function parameters
+2151: 083 26-26 3.7.1 the resulting parameter type shall be an object type
+2151a:083 27-27 3.7.1 parameter has automatic storage duration
+2152: 083 27-27 3.7.1 parameter is an lvalue...
+2152a:083 27-28 3.7.1 layout of param storage unspecified
+2153: 084 27-28 3.7.2 declaration has..an initializer..is a external definition
+2154: 084 29-29 3.7.2 ...that has file scope...
+2155: 084 29-29 3.7.2 ...without an initializer...
+2157: 084 29-29 3.7.2 a decl of an ident for an object...
+2158: 084 29-29 3.7.2 object that has file scope...
+2159: 084 30-30 3.7.2 ...and without spec or with static...
+2160: 084 30-30 3.7.2 ...with the storage-class specifier static
+2161: 084 30-30 3.7.2 ...without a storage-class specifier...
+2162: 084 30-31 3.7.2 tentative definition of identifier
+2163: 084 31-34 3.7.2 one or more tent defn...init as if it had the init zero
+2164: 084 35-35 3.7.2 if tentative definition has internal linkage
+2165: 084 36-36 3.7.2 the declared type shall not be an incomplete type
+2165b:086 08-11 3.8 syntax of group-part
+2169: 086 12-13 3.8 syntax of if-group requires matching if/endifs
+2173: 086 14-15 3.8 syntax of if-group
+2174: 086 15-17 3.8 preprocessor symbols
+2175: 086 15-35 3.8 preprocessor directives
+2177: 086 16-17 3.8 syntax of control-line (if(n)def, identifier, new-line)
+2178: 086 16-17 3.8 syntax of ifdef/ifndef: requires identifier
+2179: 086 18-20 3.8 optional elif-groups
+2180: 086 21-22 3.8 elif-group
+2181: 086 23-24 3.8 else-group
+2182: 086 25-26 3.8 syntax of #endif
+2185: 086 27-28 3.8 syntax of #include
+2186: 086 28-28 3.8 #include pp-tokens new-line syntax
+2186a:086 29-29 3.8 syntax of #define (object macro)
+2187: 086 29-30 3.8 #define is a preprocessor control
+2188: 086 29-30 3.8 #define is terminated by new-line
+2189: 086 29-30 3.8 #define is followed by identifier
+2189a:086 30-30 3.8 syntax of #define (function macro)
+2190: 086 31-31 3.8 syntax of #undef
+2192: 086 32-32 3.8 syntax of #line
+2192b:086 33-33 3.8 syntax of #error
+2192c:086 34-34 3.8 syntax of #pragma
+2193: 086 35-35 3.8 syntax of control-line (# new-line)
+2193a:086 36-37 3.8 syntax of lparen
+2194: 086 38-39 3.8 syntax of replacement-list (can be empty)
+2194a:086 40-42 3.8 syntax of pp-tokens
+2194b:086 43-44* 3.8 syntax of new-line
+2195: 087 02-03 3.8 # follows white space after newline
+2197: 087 02-05 3.8 directive begins with # ... after new-line
+2199: 087 07-10 3.8 white space that appears in preprocessing directives
+2200: 087 15-16 3.8 pp-tokens not subject to macro expansion
+2201: 087 19-20 3.8.1 shall be an integral constant expression
+2205: 087 20-21 3.8.1 identifiers are interpreted as described below...
+2207: 087 21-22 3.8.1 unary op exprs of the form: defined identifier
+2209: 087 23-24 3.8.1 or: defined ( identifier )
+2215: 087 25-26 3.8.1 evaluate to 1 if identifier defined
+2215a:087 27-27 3.8.1 ...0 if it is not
+2216: 087 28-29 3.8.1 each pptoken that remains...shall be in form of a token
+2217: 087 31-34 3.8.1 directives of the form...check whether...evals to zero
+2218: 087 35-37 3.8.1 ...macro invocations...are replaced...
+2218a:087 38-38* 3.8.1 if use of defined does not match one of the...
+2218b:088 01-01 3.8.1 ...specified forms, ...undefined
+2219: 088 01-03 3.8.1 remaining identifiers replaced with 0
+2220: 088 03-04 3.8.1 idents replaced then each pp-token is converted
+2221: 088 04-06 3.8.1 ...constant expr that is evaluated according to...
+2222: 088 06-07 3.8.1 arithmetic performed using representation of longs
+2222a:088 07-08 3.8.1 may involve converting escape sequences
+2222b:088 08-11 3.8.1 whether numeric value same as in an expression impl def
+2223: 088 11-12 3.8.1 single-char const negative is impl defined
+2224: 088 13-16 3.8.1 #ifdef
+2225: 088 13-16 3.8.1 #ifndef
+2225a:088 16-17 3.8.1 equivalent to...
+2226: 088 18-18 3.8.1 each directive's condition is checked in order
+2227: 088 18-19 3.8.1 #if 0 group skipped
+2229: 088 19-20 3.8.1 ...directives are processed only through the name...
+2231: 088 20-20 3.8.1 in order to keep track of conditional nesting
+2233: 088 20-21 3.8.1 processing skipped tokens
+2236: 088 20-21 3.8.1 the rest of the...tokens are ignored
+2239: 088 21-22 3.8.1 only the first group...is processed
+2240: 088 22-22 3.8.1 nonzero expression is 'true'
+2243: 088 22-24 3.8.1 if no condition evals to true, #else group is processed
+2244: 088 24-24 3.8.1 lacking a #else...
+2245: 088 28-29 3.8.2 shall identify...file that can be processed
+2247: 088 31-32 3.8.2 form of #include < ... >
+2248: 088 33-34 3.8.2 searches a sequence of implementation defined places
+2248b:088 35-36* 3.8.2 how places are specified or header identified, impl def
+2248c:089 01-02 3.8.2 a directive of the form
+2249: 089 04-05 3.8.2 search method for ".."
+2250: 089 05-08 3.8.2 if search fails, reprocessed as <..>
+2251: 089 09-11 3.8.2 #include pp-tokens new-line is permitted...
+2252: 089 11-13 3.8.2 pptokens after #include are processed as in normal text
+2255: 089 13-14 3.8.2 directive shall match ".." or <..>
+2258: 089 14-17 3.8.2 method of combining tokens between " " or < >
+2259: 089 18-19 3.8.2 impl defined mapping to external file name
+2261: 089 19-21 3.8.2 unique mapping for one or more letters . letter
+2262: 089 21-22 3.8.2 may ignore case and restrict to six letters before .
+2269: 089 23-25 3.8.2 #include...up to an impl-def nesting limit
+2270: 090 04-04 3.8.3 replacement lists are identical if and only if...
+2271: 090 05-05 3.8.3 ...same ordering...
+2272: 090 05-05 3.8.3 ...same spelling...
+2273: 090 05-05 3.8.3 ...same white space separation
+2274: 090 05-05 3.8.3 same number...
+2274a:090 05-06 3.8.3 all white space considered the same
+2275: 090 07-09 3.8.3 object macro may be redefined as identical object macro
+2278: 090 10-10 3.8.3 identifier defined as a function-like macro...
+2279: 090 10-12 3.8.3 ...may be redefined as identical function-like macro
+2282: 090 12-12 3.8.3 that has same number and spelling of parameters
+2285: 090 12-13 3.8.3 and two replacement lists are identical
+2286: 090 14-15 3.8.3 the number of arguments in an invocation
+2288: 090 15-16 3.8.3 there shall exist ) terminating invocation
+2293: 090 17-17 3.8.3 A parameter identifier shall be unique within its scope
+2294: 090 19-19 3.8.3 identifier following #define is the macro name
+2296: 090 19-20 3.8.3 there is one name space for macro names
+2297: 090 20-22 3.8.3 any white-space preceding is not considered part of...
+2298: 090 23-24 3.8.3 #ident where directive legal, ident not macro replaced
+2301: 090 25-27 3.8.3 a directive...defines an object-like macro
+2302: 090 26-26 3.8.3 macro name is identifier
+2305: 090 27-28 3.8.3 each instance of name is replaced by replacement list
+2306: 090 29-29 3.8.3 (after replacement) the list is rescanned...
+2310: 090 30-31 3.8.3 directive of the form: #define identifier lparen ) ...
+2312: 090 31-31 3.8.3 identifier-list(opt)
+2313: 090 31-31 3.8.3 macro name is identifier
+2314: 090 31-31 3.8.3 macro params are identifiers
+2315: 090 32-32 3.8.3 ...defines a function-like macro...
+2318: 090 33-33 3.8.3 parameters are specified by list of identifiers
+2319: 090 33-35 3.8.3 whose scope extends from declaration to end of #define
+2320: 090 35-35 3.8.3 each subsequent instance of ... the macro name...
+2322: 090 35-36 3.8.3 ...followed by a ( as the next pp-token...
+2323: 090 36-36 3.8.3 ...introduces a sequence of pp-tokens...
+2324: 090 36-37 3.8.3 is replaced by the replacement list in the definition
+2325: 090 37-38 3.8.3 terminated by a matching )
+2326: 090 38-39 3.8.3 skipping intervening matched pairs of...parenthesis
+2327: 090 39-40* 3.8.3 within pptokens making up invocation of fn macro...
+2329: 091 01-01 3.8.3 ...new-line is considered normal white-space char
+2331: 091 02-03 3.8.3 sequence bounded by outside-most matching parentheses
+2332: 091 03-04 3.8.3 separated by comma preprocessing tokens
+2332a:091 04-05 3.8.3 but comma...between matching inner paren do not sep...
+2333: 091 05-05 3.8.3 matching inner parentheses
+2338: 091 05-06 3.8.3 if argument consists of no tokens...
+2339: 091 06-06 3.8.3 ...the behaviour is undefined
+2340: 091 06-07 3.8.3 if there are sequences...within the list of args...
+2341: 091 07-08 3.8.3 ...that would...act as directives, undefined
+2344: 091 10-11 3.8.3 after args have been identified, arg subst takes place
+2344a:091 11-11 3.8.3 unless preceded by #
+2345: 091 11-12 3.8.3.1 unless preceded by ## or followed by a ##
+2351: 091 12-13 3.8.3.1 is replaced...after all macros have been expanded
+2352: 091 14-15 3.8.3.1 each argument's pp-tokens are replaced as if they
+2353: 091 18-19 3.8.3.2 Each # shall be followed by a parameter
+2357: 091 21-21 3.8.3.2 if a parameter is preceded by a #...
+2358: 091 22-23 3.8.3.2 ...both are replaced
+2359: 091 23-25 3.8.3.2 white space...single space in char string lit
+2360: 091 25-26 3.8.3.2 white space before / after macro arg is deleted
+2361: 091 26-27 3.8.3.2 the original spelling...is retained
+2362: 091 27-28 3.8.3.2 except for special...of string lits and char consts
+2363: 091 28-30 3.8.3.2 a \ character is inserted before each " and \
+2364: 091 30-31 3.8.3.2 if result not valid string lit, behaviour undefined
+2365: 091 34-34 3.8.3.3 A ## token shall not appear at the beginning
+2366: 091 34-35 3.8.3.3 A ## shall not appear...at the end of a replacement
+2366a:091 37-38 3.8.3.3 if preceded or followed by ## token...
+2367: 091 38-39 3.8.3.3 ...parameter is replaced by args pptoken sequence
+2370: 091 40-41 3.8.3.3 before repl list is reexam'd for macro names
+2371: 091 41-42 3.8.3.3 each instance of a ## preprocessing token...
+2372: 091 42-42 3.8.3.3 ## is deleted
+2373: 091 42-43 3.8.3.3 the preceding tok is concatenated with the following
+2375: 091 43-44 3.8.3.3 if result of ## is not valid pp-token...undefined
+2376: 091 44-44 3.8.3.3 the result of ## is available for macro replacement
+2376a:091 45-45*3.8.3.3 order of evaluation of ## is unspecified
+2377: 092 02-04 3.8.3.4 after all parameters have been subst'd...rescan
+2380: 092 05-06 3.8.3.4 if the name of the macro being replaced is found...
+2381: 092 06-07 3.8.3.4 if any nested replacements encounter the name...
+2382: 092 07-10 3.8.3.4 nonreplaced name pptokens no longer available...
+2383: 092 11-12 3.8.3.4 ...not processed as a directive even if it resembles one
+2387: 092 14-15 3.8.3.5 macro defn lasts independent of block structure
+2388: 092 14-15 3.8.3.5 until a #undef..causes ident no longer to be defined
+2389: 092 16-17 3.8.3.5 a directive of the form: #undef identifier new-line
+2390: 092 18-19 3.8.3.5 #undef is ignored if ident is not currently defined
+2391: 094 03-03 3.8.4 string literal shall be character string literal
+2392: 094 05-07 3.8.4 definition of line number of current source line
+2393: 094 08-10 3.8.4 #line digit-sequence
+2395: 094 10-11 3.8.4 following sequence begins with line with that no.
+2396: 094 11-12 3.8.4 ...interpreted as a decimal integer...
+2397: 094 12-12 3.8.4 shall not specify a number greater than 32767
+2400: 094 12-12 3.8.4 shall not specify zero
+2401: 094 13-14 3.8.4 directive of form: #line digit-sequence "s-char-sequence"
+2402: 094 14-14 3.8.4 ...(followed by) new-line
+2402a:094 15-15 3.8.4 sets the line number
+2402b:094 15-16 3.8.4 and changes the presumed name of the source file...
+2403: 094 17-19 3.8.4 #line pp-tokens
+2404: 094 19-20 3.8.4 pptokens are processed just as in normal text
+2406: 094 21-23 3.8.4 ...shall match one of the two...forms
+2409: 094 26-27 3.8.5 #error pp-tokens new-line
+2410: 094 28-29 3.8.5 a diagnostic message that includes the pp-tokens
+2411: 094 32-34 3.8.6 #pragma causes implementation defined behaviour
+2412: 094 34-35* 3.8.6 any pragma that is not recognized is ignored
+2413: 095 03-05 3.8.7 null directive
+2414: 095 07-07 3.8.8 the following shall be defined
+2415: 095 08-08 3.8.8 Predefined macro: __LINE__
+2416: 095 08-08 3.8.8 line number of current source line
+2417: 095 09-09 3.8.8 Predefined macro: __FILE__
+2418: 095 09-09 3.8.8 presumed name of the source file
+2418a:095 10-10 3.8.8 predefined macro: __DATE__
+2419: 095 10-10 3.8.8 date of translation (set in initialization)
+2420: 095 10-13 3.8.8 definition of __DATE__ format
+2422: 095 12-13 3.8.8 day is specified as leading blank for 1-9
+2423: 095 13-14 3.8.8 impl def valid date when date not available
+2424: 095 15-15 3.8.8 predefined macro: __TIME__
+2426: 095 15-15 3.8.8 time of translation (set in initialization)
+2427: 095 15-16 3.8.8 definition of __TIME__ format
+2429: 095 16-17 3.8.8 impl def valid time when time not available
+2430: 095 18-18 3.8.8 predefined macro: __STDC__
+2432: 095 18-18 3.8.8 decimal constant 1 (set in initialization)
+2434: 095 19-20 3.8.8 values remain constant throughout the translation unit
+2437: 095 21-22 3.8.8 none of these macros shall be subject of a...#define
+2438: 095 21-22 3.8.8 the identifier defined shall not be subject of #undef
+2439: 095 22-23 3.8.8 predefined macro names start with _ followed by _ or uppercase
+2440: 099 12-13 4.1.5 which is the signed integral type
+2442: 099 14-15 4.1.5 which is the unsigned integral type
+2444: 099 17-18 4.1.5 integral type that can hold largest extended char
+2445: 100 10-11 4.1.6 accessing a function defined as a macro
+2446: 121 13-14 4.7 whose value compares unequal to any any declarable fn
+2447: ??? ??-?? signed opnd (implicitly undefined)
+2448: ??? ??-??
+2449: ??? ??-??
+2450: ??? ??-??
+2453: ??? ??-??

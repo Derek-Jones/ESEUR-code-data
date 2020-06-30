@@ -1,5 +1,5 @@
 #
-# pwc-software-100.R,  8 Mar 17
+# pwc-software-100.R, 11 Jun 20
 # Data from:
 # PwC Global 100 Software Leaders 2011
 # PwC Global 100 Software Leaders 2012
@@ -7,12 +7,18 @@
 # www.pwc.com/globalsoftware100
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG Saas_revenue
+
 
 source("ESEUR_config.r")
 
 library("plyr")
+
+
+par(mar=MAR_default+c(0.0, 0.7, 0, 0))
 
 
 pal_col=rainbow(3)
@@ -30,7 +36,7 @@ pwc=read.csv(paste0(ESEUR_dir, "economics/pwc-software-100.csv.xz"), as.is=TRUE)
 pwc$col_str=mapvalues(pwc$Year, c(2014, 2012, 2011), pal_col)
 
 plot(pwc$Rank, pwc$Software.revenue, type="n", log="xy",
-	xlab="Rank", ylab="Revenue (million $)\n")
+	xlab="Rank", ylab="Revenue (million $)\n\n")
 
 d_ply(pwc, .(Year), plot_year)
 

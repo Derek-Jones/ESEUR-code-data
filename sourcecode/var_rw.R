@@ -1,11 +1,11 @@
 #
-# var_rw.R, 29 May 18
+# var_rw.R,  7 Jun 20
 # Data from:
 # Empirical Study of Opportunities for Bit-Level Specialization in Word-Based Programs
 # Eylon Caspi
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
 # TAGS variable runtime
@@ -16,6 +16,8 @@ source("ESEUR_config.r")
 
 library("MASS")
 
+
+par(mar=MAR_default+c(0.0, 0.7, 0, 0))
 
 pal_col=rainbow(4)
 
@@ -30,12 +32,12 @@ rw_33p=subset(rw, bits > 32)
 
 
 plot(rw_32$reads, rw_32$writes, log="xy", col=pal_col[3],
-	xlab="Reads", ylab="Writes\n")
+	xlab="Reads", ylab="Writes\n\n")
 points(rw_8$reads, rw_8$writes, col=pal_col[1])
 points(rw_16$reads, rw_16$writes, col=pal_col[2])
 points(rw_33p$reads, rw_33p$writes, col=pal_col[4])
 
-legend(x="topleft", legend=c("8-bit", "16-bit", "32-bit", "Larger"), bty="n", fill=pal_col, cex=1.2)
+legend(x="topleft", legend=c("8-bit", "16-bit", "32-bit", "Wider"), bty="n", fill=pal_col, cex=1.2)
 
 k=5
 den_col=rainbow(k)

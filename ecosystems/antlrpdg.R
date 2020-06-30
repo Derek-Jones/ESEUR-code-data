@@ -1,5 +1,5 @@
 #
-# antlrpdg.R, 17 Jan 20
+# antlrpdg.R,  8 Jun 20
 #
 # Data from:
 # Hussain Abdullah A. Al-Mutawa
@@ -17,6 +17,9 @@ source("ESEUR_config.r")
 library("igraph")
 library("plyr")
 library("jsonlite")
+
+
+pal_col=rainbow(2)
 
 
 # Increasing default_width does not seem to have any/much effect
@@ -49,7 +52,9 @@ f_t=data.frame(from=from_to$V1, to=from_to$V2)
 
 ant_g=graph.data.frame(unique(f_t), directed=TRUE)
 V(ant_g)$label=NA
+V(ant_g)$color=pal_col[1]
 E(ant_g)$arrow.size=0.3
+E(ant_g)$color=pal_col[2]
 
 plot(ant_g, # main=sub("\\.json.xz", "", file_str), # cex.main=2 has no effect!
 	vertex.frame.color="white")

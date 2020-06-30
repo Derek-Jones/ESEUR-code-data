@@ -24,7 +24,7 @@ plot(wh$Static, wh$Dynamic, type="n",
 
 text(wh$Static, wh$Dynamic, labels=wh$CPU, col=pal_col[1])
 
-x_bounds=seq(5, 11, by=0.1)
+x_bounds=seq(5, 12, by=0.1)
 
 sd_mod=glm(Dynamic ~ Static, data=wh)
 # summary(sd_mod)

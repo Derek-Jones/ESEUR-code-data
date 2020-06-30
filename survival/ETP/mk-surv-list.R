@@ -2,7 +2,7 @@
 # mk-surv-list.R, 22 Dec 15
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 
 source("ESEUR_config.r")
@@ -46,7 +46,7 @@ gen_surv_list=function(app_info, API_status)
 end_year=app_info[1, ]
 app_status=NULL
 
-for (y in 2:9)
+for (y in 2:nrow(app_info))
    app_status=rbind(app_status, gen_dead_list(app_info[y, ], API_status,
 					      app_info[1, y-1]-1, end_year))
 

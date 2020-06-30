@@ -8,12 +8,12 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG
+# TAG experiment_human quality-assessment
 
 source("ESEUR_config.r")
 
 
-library("plyr")
+# library("plyr")
 
 
 # S_AB,S_LH,S_1234M,H,Group,Task,Task_LH,F0,Correct actions,Correct perc,A1:Evaluation time,A2:Operations performed,A3:Critical failures,A4:Other failures,B1:Product quality,B2:Rich functionality,B3:Complies formal rules,B4:Efficiency,B5:Productivity,B6:Pleasentness,B7:Learnability,B8:Customizable,B9:Robustness,B10:Safety,B11:Security

@@ -1,5 +1,5 @@
 #
-# bitflips.R,  8 Nov 19
+# bitflips.R,  3 Jun 20
 # Data from:
 # Soft-Error Rate of Advanced {SRAM} Memories: {Modeling} and Monte Carlo Simulation
 # Jean-Luc Autran and Sergey Semikh and Daniela Munteanu and S{\'e}bastien Serre and Gilles Gasiot and Philippe Roche
@@ -21,12 +21,12 @@ nm40=subset(flips, nm == 40)
 nm65=subset(flips, nm == 65)
 nm130=subset(flips, nm == 130)
 
-plot(nm40$MbitHr/1e7, nm40$flip, col=pal_col[1], pch=18,
+plot(nm40$MbitHr/1e7, nm40$flip, col=pal_col[1], type="l",
 	xaxs="i", yaxs="i",
 	xlab=expression("Mbit hours x10" ^7), ylab="Cumulative bit-flips\n")
 
-points(nm65$MbitHr/1e7, nm65$flip, col=pal_col[2], pch=18)
-points(nm130$MbitHr/1e7, nm130$flip, col=pal_col[3], pch=18)
+lines(nm65$MbitHr/1e7, nm65$flip, col=pal_col[2])
+lines(nm130$MbitHr/1e7, nm130$flip, col=pal_col[3])
 
 legend(x="topleft", legend=c("40nm SRAM, top mountain", "65nm SRAM, under mountain", "130nm SRAM, under mountain"), bty="n", fill=pal_col, cex=1.2)
 

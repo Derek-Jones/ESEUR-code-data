@@ -1,12 +1,14 @@
 #
-# SANER-2017.R, 11 Jun 17
+# SANER-2017.R, 20 Jun 20
 # Data from:
 # An Empirical Comparison of Dependency Issues in {OSS} Packaging Ecosystems
 # Alexandre Decan and Tom Mens and Ma{\"a}lick Claes
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG npm_dependencies CRAN_dependencies RubyGEMS_dependencies
 
 source("ESEUR_config.r")
 
@@ -65,11 +67,14 @@ t_rank=t_rank+1-2*(t_rank == length(t))
 
 exist_ver=paste0(base_pack$dependency[1], t[t_rank])
 cran_dep$dep_sat[cran_dep$dep_sat == df] <<- exist_ver
+# return ignored
 }
 
 
 
 # package,version,dependency,constraint
+# npm_dep=read.csv(paste0(ESEUR_dir, "ecosystems/SANER-2017/npm_dep.csv.xz"), as.is=TRUE)
+# ruby_dep=read.csv(paste0(ESEUR_dir, "ecosystems/SANER-2017/ruby_dep.csv.xz"), as.is=TRUE)
 cran_dep=read.csv(paste0(ESEUR_dir, "ecosystems/SANER-2017/cran_dep.csv.xz"), as.is=TRUE)
 # cran_dep$version=gsub("-", ".", cran_dep$version)
 # cran_dep$constraint=gsub("-", ".", cran_dep$constraint)
@@ -84,8 +89,9 @@ cran_pack$date=as.Date(cran_pack$time, format="%Y-%m-%d")
 cran_pack$release=paste0(cran_pack$package, cran_pack$version)
 
 # t=table(substr(cran_dep$constraint, 1, 2))
-# t
+# 100*t/nrow(cran_dep)
 
+# Two thirds of constraints are >=, one third *, and peanuts for the rest
 # Pick the version number out of the constraint
 # Ignore the small number of cases where the relationship is < or >
 cran_dep$dep_sat=paste0(cran_dep$dependency, 
@@ -102,17 +108,22 @@ cran_dep$dep_sat[use_early]=earliest_rel$V1[match(cran_dep$dependency[use_early]
 circ_patch=ddply(cran_dep, .(release), break_circ)
 circ_patch=subset(circ_patch, !is.na(value))
 
+# When there is no release exactly matching a dependency,
+# find the nearest later match.
 all_dep_sat=unique(cran_dep$dep_sat)
 all_release=unique(cran_pack$release)
 missing_dep=setdiff(all_dep_sat, all_release)
 a_ply(missing_dep, 1, make_exist_dep)
 
+# How many dependencies does each release have?
+# Start with zero...
 cran_pack$num_dep=0
 cran_pack$num_dep[cran_pack$release %in% cran_dep$release]=NA
 cran_pack$num_dep[circ_patch$pack_num]=0
 
 # table(cran_pack$num_dep, useNA="always")
 
+# ... and iterate a few times; six seems to be enough to reach a fixed point
 for (i in 1:6)
    {
    t=ddply(cran_dep, .(release), sum_deps)
@@ -123,4 +134,10 @@ for (i in 1:6)
 
 # 39339  23464  12284  5657  1839  378  28  2
 # cran_pack[head(which(is.na(cran_pack$num_dep))), ]
+
+dep_freq=count(cran_pack$num_dep)
+plot(dep_freq, log="y",
+	xlim=c(0, 100),
+	xlab="Dependencies", ylab="Packages\n")
+
 

@@ -32,7 +32,7 @@ eclipse_rep=subset(eclipse_rep, min.response.time > 0)
 vioplot(log(eclipse_rep$min.response.time),
 	col="yellow", colMed="red",
 	# lineCol="green", rectCol="pink",
-	xaxp=c(0.5, 1.5, 15), xaxt="n", # reported xaxt not working
+	xaxp=c(0.5, 1.5, 15), xaxt="n",
 	ylim=range(log(eclipse_rep$min.response.time)),
 	xlab="", ylab="log(Seconds)\n")
 
