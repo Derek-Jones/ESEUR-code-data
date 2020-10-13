@@ -1,18 +1,19 @@
 #
-# federal_IT.R, 17 Dec 14
-#
+# federal_IT.R, 28 Aug 20
 # Data from:
 # Benchmarking the expected loss of a federal IT portfolio
 # P. Kampstra and C. Verhoef
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# benchmark_financial portfolio
 
 source("ESEUR_config.r")
 
-brew_col=rainbow(3)
 
+brew_col=rainbow(3)
 
 all_fed=read.csv(paste0(ESEUR_dir, "economics/fed.csv.xz"), as.is=TRUE)
 
@@ -29,8 +30,8 @@ summary(fed_n_mod)
 
 fed_n_pred=predict(fed_n_mod, newdata=list(log.IT=1:7, log.IT_sqr=(1:7)^2), type="response", se.fit=TRUE)
 
-plot(fed$log.IT, fed$duration.year,
-	xlab="IT budget", ylab="Duration (years)")
+plot(fed$log.IT, fed$duration.year, col=point_col,
+	xlab="IT budget", ylab="Duration (years)\n")
 
 lines(fed_n_pred$fit, col=brew_col[1])
 lines(fed_n_pred$fit+1.96*fed_n_pred$se.fit, col=brew_col[3])

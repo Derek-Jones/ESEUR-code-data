@@ -4,6 +4,9 @@
 # Given Enough Eyeballs, All Bugs Are Shallow? {Revisiting} {Eric Raymond} with Bug Bounty Programs
 # Thomas Maillart and Mingyi Zhao and Jens Grossklags and John Chuang
 #
+# An Empirical Study of Web Vulnerability Discovery Ecosystems
+# Mingyi Zhao and Jens Grossklags and Peng Liu
+#
 # Example from:
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones

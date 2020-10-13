@@ -14,6 +14,8 @@ disciplines:
 - software-reliability
 - software-project-management
 - source-code
+- statistical-analysis
+- regression
 standards:
 - iso-9899
 - iso-9000

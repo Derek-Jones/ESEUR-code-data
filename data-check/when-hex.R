@@ -2,7 +2,7 @@
 # when-hex.R, 18 Aug 16
 #
 # Data from:
-#
+# Quantitative Analysis of Culture Using Millions of Digitized Books
 # Google books project
 # +
 # The New C Standard: An Economic and Cultural Commentary
@@ -12,7 +12,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG
+# TAG hexadecimal_literal hexadecimal_first-digit
 
 source("ESEUR_config.r")
 

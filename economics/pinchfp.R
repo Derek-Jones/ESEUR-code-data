@@ -1,14 +1,14 @@
 #
 # pinchfp.R, 11 Jun 20
 # Data from:
-# 'AppStore Secrets' ({What} We've Learned from 30,000,0000 Downloads)
+# 'AppStore Secrets' ({What} We've Learned from 30,000,000 Downloads)
 # Azeem Ansar
 #
 # Example from:
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG App_usage
+# TAG App_usage AppStore_downloads
 
 
 source("ESEUR_config.r")

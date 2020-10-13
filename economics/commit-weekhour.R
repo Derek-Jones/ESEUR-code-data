@@ -1,5 +1,5 @@
 #
-# commit-weekhour.R, 23 May 20
+# commit-weekhour.R, 19 Sep 20
 #
 # Data from:
 # Do time of day and developer experience affect commit bugginess?
@@ -45,7 +45,7 @@ plot(week_hr_secs, type="n",
 	xaxt="n",
 	xaxs="i", yaxs="i",
 	ylim=c(0, 4500),
-	xlab="", ylab="Commits within hour\n")
+	xlab="", ylab="Commits per hour\n")
 # Linux
 plot_commits(subset(commits, repository_id == 1), pal_col[1])
 # FreeBSD

@@ -1,5 +1,5 @@
 #
-# EtAlData.R, 22 May 19
+# EtAlData.R,  3 Sep 20
 # Data from:
 # Status, Quality and Attention: {What's} in a (Missing) Name?
 # Timothy S. Simcoe and Dave M. Waguespack
@@ -8,10 +8,12 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG Standard_IETF discussion human social_status
+# TAG Standard_IETF discussion status_human social_status
 
 source("ESEUR_config.r")
 
+
+library("plyr")
 
 pal_col=rainbow(3)
 
@@ -61,7 +63,7 @@ iet$nmeet_date=as.Date(iet$date2, format="%d%b%Y")
 
 iet_mod=glm(rfcDum ~ wgId+ttlVer+anyChair+log(1e-5+rfcstock)+lndaysb4conf+lwgcpos+ulwgcpos,
 		data=iet, family=binomial)
-summary(iet_mod)
+# summary(iet_mod)
 
 # Select posts containing independent proposals (which have around
 # 7% probability of being approved).
@@ -70,11 +72,12 @@ ind_a_mod=glm(mentions ~
 			anyChair+treat_wgcd+
 			lndaysb4conf+threads+authemail,
 				data=iet, subset=(indId == 1), family=gaussian)
-summary(ind_a_mod)
+# summary(ind_a_mod)
 
 # Fit a multiplicative model, the hard way.
 # start values found by using family=poisson.
 # It does not explain nearly as much deviance.
+# This is the model used for the values used in the book.
 ind_m_mod=glm(mentions ~ 
 			anyChair+treat_wgcd+
 			             threads+authemail,
@@ -84,7 +87,7 @@ ind_m_mod=glm(mentions ~
 					   "threads"=0.06,
 					   "authemail"=0.04),
 				family=gaussian(link="log"))
-summary(ind_m_mod)
+# summary(ind_m_mod)
 
 # Something more complicated does not include treat_wgcs,
 # but reduces deviance by 16%, and AIC by 3%
@@ -100,7 +103,7 @@ men_mod=glm(mentions ~
 			lndaysb4conf:threads+
 			threads:authemail,
 				data=iet, subset=(indId == 1), family=gaussian)
-summary(men_mod)
+# summary(men_mod)
 
 indId=subset(iet, indId == 1)
 anon_wgc=subset(indId, treat_wgcd == 1)
@@ -123,5 +126,5 @@ anon_men=count(round(anon_wgc$mentions))
 points(anon_men$freq, anon_men$x, col=pal_col[3])
 fit_and_plot(anon_men[-1,], pal_col[3])
 
-legend(x="topright", legend=c("With WG chair", "No WG chair", "As-is, with WG chair"), bty="n", fill=pal_col, cex=1.2)
+legend(x="topright", legend=c("With WG chair", "No WG chair", "et al, with WG chair"), bty="n", fill=pal_col, cex=1.2)
 

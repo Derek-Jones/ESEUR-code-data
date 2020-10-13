@@ -2,13 +2,15 @@
 # environment-change.R, 18 Nov 15
 #
 # Data extracted from:
-#
 # We have it easy, but do we have it right?
 # Todd Mytkowicz and Amer Diwan and Matthias Hauswirth and Peter F. Sweeney
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG benchmark_performance performance_variation environment-variables
+
 
 source("ESEUR_config.r")
 

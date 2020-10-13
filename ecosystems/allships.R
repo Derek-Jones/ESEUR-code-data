@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG shipbuilding_learning forgetting
+# TAG learning_shipbuilding forgetting_shipbuilding
 
 
 source("ESEUR_config.r")

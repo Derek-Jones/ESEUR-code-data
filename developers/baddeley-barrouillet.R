@@ -1,5 +1,5 @@
 #
-# baddeley-barrouillet.R, 27 Jan 17
+# baddeley-barrouillet.R, 13 Oct 20
 # Data from:
 # Working Memory
 # Alan Baddeley
@@ -18,8 +18,12 @@ pal_col=rainbow(2)
 
 subj_time=read.csv(paste0(ESEUR_dir, "developers/baddeley-barrouillet.csv.xz"), as.is=TRUE)
 
+# No option to just draw the x-axis
 plot(subj_time$reasoning, type="b", col=pal_col[1],
+	yaxt="n",
 	xlab="Digit load", ylab="Reasoning time (sec)\n")
+
+axis(2, pretty(c(min(subj_time$reasoning), max(subj_time$reasoning))), col=pal_col[1])
 
 par(new=TRUE)
 
@@ -29,6 +33,5 @@ plot(subj_time$error, col=pal_col[2],
 	xlab="", ylab="")
 
 axis(4, pretty(c(min(subj_time$error), max(subj_time$error))), col=pal_col[2])
-
 mtext("Error %", side=4, las=0, at=5, padj=3, cex=0.8)
 

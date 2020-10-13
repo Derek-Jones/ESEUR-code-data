@@ -1,5 +1,5 @@
 #
-# mkpic.sh, 13 Nov 16
+# mkpic.sh,  4 Sep 20
 
 GROFF=groff
 
@@ -16,5 +16,7 @@ for f in *.pic
    done 
 
 
-$GROFF -ms -Tpdf < idexam1.rof > idexam1.pdf
+# The .MC command uses paper width to calculate multi-column widths,
+# not the current line length.
+$GROFF -ms -Tpdf -dpaper=a4l < idexam1.rof > idexam1.pdf
 

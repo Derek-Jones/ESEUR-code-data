@@ -1,12 +1,14 @@
 #
-# BF032.R, 16 Dec 16
+# BF032.R,  9 Oct 20
 # Data from:
 # Michiel P. {van Oeffelen} and Peter G. Vos
 # A probabilistic model for the discrimination of visual number
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG experiment_human visual_number
 
 source("ESEUR_config.r")
 
@@ -32,5 +34,6 @@ d_ply(human, .(s), function(df)
 			lines(df$d[!is_neg], df$p[!is_neg], type="b", col=df$col)
 			})
 
-legend(x="bottomleft", legend=paste(c(8, 12, 16, 20, 25, 30), "target"), bty="n", fill=pal_col, cex=1.2)
+legend(x="bottomleft", legend=paste(c(8, 12, 16, 20, 25, 30), "target"),
+		inset=-c(0.02, 0), bty="n", fill=pal_col, cex=1.2)
 

@@ -1,5 +1,5 @@
 #
-# berlin69.R,  1 Feb 20
+# berlin69.R, 28 Aug 20
 # Data from:
 # Basic Color Terms: {Their} Universality and Evolution
 # Brent Berlin and Paul Kay
@@ -12,6 +12,9 @@
 
 
 source("ESEUR_config.r")
+
+
+par(mar=MAR_default-c(0.7, 3.5, 0.7, 0.7))
 
 
 plot(0, type="n", bty="n", xaxt="n", yaxt="n", xaxs="i", yaxs="i",

@@ -1,5 +1,5 @@
 #
-# 1708-00817.R, 27 Feb 20
+# 1708-00817.R, 14 Jul 20
 # Data from:
 # Revisiting Exception Handling Practices with Exception Flow Analysis
 # Guilherme B. {de P\'{a}dua} and Weiyi Shang
@@ -41,7 +41,7 @@ plot(java_cnt, log="y", col=pal_col[1],
 	xlab="Possible exceptions", ylab="Try blocks\n")
 points(cs_cnt, col=pal_col[2])
 
-legend(x="topright", legend=c("Java", "C#"), bty="n", fill=pal_col, cex=1.2)
+legend(x="topright", legend=c("Java", "C\U266F"), bty="n", fill=pal_col, cex=1.2)
 
 # points(count(ex$Uncaught.PEID), col="red")
 

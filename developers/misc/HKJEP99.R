@@ -5,14 +5,17 @@
 # Marc W. Howard and Michael J. Kahana
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG experiment_human memory_recall
+
 
 source("ESEUR_config.r")
 
 
 # lag,prob,low_err,high_err
-rec_prob=read.csv(paste0(ESEUR_dir, "developers/HKJEP99.csv.xz"), as.is=TRUE)
+rec_prob=read.csv(paste0(ESEUR_dir, "developers/misc/HKJEP99.csv.xz"), as.is=TRUE)
 
 
 plot(rec_prob$lag[1:5], rec_prob$prob[1:5], type="b", col=point_col,

@@ -1,12 +1,15 @@
 #
-# JorgeAranda-MSc.R, 18 Oct 17
+# JorgeAranda-MSc.R, 18 Sep 20
 # Data from:
 # Anchoring and Adjustment in Software Estimation
 # Jorge Aranda
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG experiment_human estimate_bias
+
 
 source("ESEUR_config.r")
 
@@ -29,7 +32,7 @@ control=subset(est, is.na(Condition))
 plot(0, type="n",
 	xaxt="n",
 	xlim=c(1, nrow(low)), ylim=c(1, max(est$Estimate)),
-	xlab="Subjects", ylab="Estimate")
+	xlab="", ylab="Estimate")
 axis(1, at=1:9, label=rep("", 9))
 plot_est(high$Estimate, pal_col[1])
 plot_est(control$Estimate, pal_col[2])

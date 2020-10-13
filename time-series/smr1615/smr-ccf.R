@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG project_evolution
+# TAG C_library glibc_LOC LOC_evolution commits weekly yearly glic
 
 
 source("ESEUR_config.r")

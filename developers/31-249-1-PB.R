@@ -1,5 +1,5 @@
 #
-# 31-249-1-PB.R, 19 Apr 20
+# 31-249-1-PB.R, 13 Oct 20
 # Data from:
 # Simple and Complex Working Memory Tasks Allow Similar Benefits of Information Compression
 # Fabien Mathy and Mustapha Chekaf and Nelson Cowan
@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment_human memory_human
+# TAG experiment_human memory_human recall_pattern
 
 source("ESEUR_config.r")
 
@@ -100,8 +100,8 @@ simp=subset(PB, taskType == "simple")
 comp=subset(PB, taskType == "complex")
 
 plot(0, type="n",
-	xaxt="n", yaxp=c(1, 4, 3),
-	xlim=c(0.8, 2.2), ylim=c(1, 4.5),
+	xaxt="n", yaxp=c(1, 5, 4),
+	xlim=c(0.8, 2.2), ylim=c(1, 5.2),
 	xlab="", ylab="Recall span")
 
 axis(1, at=c(1, 2), labels=c("Non-chunkable", "Chunkable"))

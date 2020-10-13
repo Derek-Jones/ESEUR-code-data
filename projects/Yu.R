@@ -5,8 +5,10 @@
 # Angus Gonghua Yu
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG cost_evolution cost_break-down
 
 source("ESEUR_config.r")
 
@@ -17,7 +19,7 @@ Yu$Date=as.Date(Yu$Date, format="%d/%m/%Y")
 
 plot(Yu$Date, Yu$Total_est/1000, type="l", col=pal_col[1], log="y",
 	ylim=c(0.220, max(Yu$Total_est)/1000),
-	xlab="Date (2000-2001)", ylab="Estimated cost (£million)\n")
+	xlab="Date (2000-2001)", ylab="Estimated cost (£ million)\n")
 
 lines(Yu$Date, Yu$SLC_thou/1000, col=pal_col[2])
 lines(Yu$Date, Yu$MSS_IFG_thou/1000, col=pal_col[3])

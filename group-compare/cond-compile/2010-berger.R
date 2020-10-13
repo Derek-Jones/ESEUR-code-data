@@ -1,5 +1,5 @@
 #
-# 2010-berger.R, 30 Aug 18
+# 2010-berger.R, 29 Aug 20
 #
 # Data from:
 # Feature-to-Code Mapping in Two Large Product Lines
@@ -23,11 +23,11 @@ pal_col=rainbow(2)
 FreeBSD_count=rep(FreeBSD$features, times=FreeBSD$count)
 Linux_count=rep(Linux$features, times=Linux$count)
 
-plot(table(Linux_count), type="b", col=pal_col[1],
+plot(Linux$features, Linux$count, type="b", col=pal_col[1],
 	xaxs="i", yaxs="i",
 	xlim=c(0, 8),
 	xlab="Number of features", ylab="Conditionally compiled sequences\n")
-lines(table(FreeBSD_count), col=pal_col[2], type="b")
+lines(FreeBSD$features, FreeBSD$count, col=pal_col[2], type="b")
 
 
 # library("fitdistrplus")

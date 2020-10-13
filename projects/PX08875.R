@@ -33,7 +33,7 @@ pal_col=rainbow(nrow(px))
 plot(1, type="n",
 	xaxs="i",
 	xlim=range(px$Days_to_ship), ylim=range(px$FTE),
-	xlab="Days to ship", ylab="Full time engineer")
+	xlab="Planned days to ship", ylab="Full time engineers")
 
 text(px$Days_to_ship[1], px$FTE[1], "1")
 

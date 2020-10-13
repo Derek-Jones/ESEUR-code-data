@@ -6,14 +6,14 @@
 # Software Lifetime and its Evolution Process over Generations
 # Tetsuo Tamai and Yohsuke Torimitsu
 # Google data:
-# https://killedbygoogle.com
+# Killed by {Google}
 # Cody Ogden
 #
 # Example from:
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG lifetime software mainframe 1990 Google 2010 SaaS
+# TAG lifetime_software lifetime_mainframe 1990 Google 2010 SaaS
 
 
 source("ESEUR_config.r")

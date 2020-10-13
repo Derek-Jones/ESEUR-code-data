@@ -1,16 +1,15 @@
 #
 # stake-ground-cor.R,  4 Jan 16
-#
-# R code for book "Empirical Software Engineering using R"
-# Derek M. Jones, http://shape-of-code.coding-guidelines.com
-#
-# R code for processing data from:
+# Data from:
 # Social Networks and Collaborative Filtering for Large-Scale Requirements Elicitation
-# by Soo Ling Lim
+# Soo Ling Lim
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG experiment_human requirements_elicitation
+
  
 source("ESEUR_config.r")
 

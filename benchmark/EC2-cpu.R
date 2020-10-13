@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG benchmark_cloud
+# TAG benchmark_cloud measurement_variance
 
 
 source("ESEUR_config.r")

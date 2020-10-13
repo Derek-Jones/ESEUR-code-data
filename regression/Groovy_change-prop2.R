@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG
+# TAG compiler_evolution compiler_LOC Groovy_compiler
 
 source("ESEUR_config.r")
 

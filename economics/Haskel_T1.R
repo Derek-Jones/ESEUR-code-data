@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG UK investment intangible
+# TAG UK_investment investment_intangible intangible_assets
 
 source("ESEUR_config.r")
 

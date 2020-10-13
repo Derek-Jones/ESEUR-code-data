@@ -9,8 +9,10 @@
 # Liguo Yu and Srini Ramaswamy
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG Java_feature-usage SourceForge language_usage
 
 source("ESEUR_config.r")
 

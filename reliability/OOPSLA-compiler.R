@@ -14,7 +14,7 @@
 source("ESEUR_config.r")
 
 
-rt=read.csv(paste0(ESEUR_dir, "reliability/code-rt.csv"), as.is=TRUE)
+rt=read.csv(paste0(ESEUR_dir, "reliability/code-rt.csv.xz"), as.is=TRUE)
 
 # Sample 10 entries without replacement, and compare their
 # sum against the sum of the measured Human Triggers

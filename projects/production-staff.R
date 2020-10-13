@@ -1,5 +1,5 @@
 #
-# production-staff.R, 12 Aug 18
+# production-staff.R, 16 Sep 20
 # Model from:
 # Staffing Implications of Software Productivity Models
 # R. C. Tausworthe
@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the available public data
 # Derek M. Jones
 #
-# TAG project staffing productivity model
+# TAG Team_size staff_productivity productivity_model
 
 
 source("ESEUR_config.r")
@@ -37,6 +37,6 @@ lines(staff_bounds, prod_rate, col=pal_col[2])
 
 lines(staff_bounds, staff_bounds)
 
-legend(x="bottomleft", legend=c("Power=0.8", "Exponential", "Linear"), bty="n", fill=pal_col, cex=1.2)
+legend(x="bottomleft", legend=c(expression(paste(alpha, "=0.8")), "Exponential", expression(paste(alpha, "=1.0"))), bty="n", fill=pal_col, cex=1.2)
 
 

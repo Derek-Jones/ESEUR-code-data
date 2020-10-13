@@ -6,8 +6,11 @@
 # Paper uses v4.3
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG feature_changes Linux_changes feature_files
+
 
 source("ESEUR_config.r")
 

@@ -2,8 +2,8 @@
 # ETP-API-KM.R, 22 Mar 20
 #
 # Data from:
-# Survival of Eclipse Third-party Plug-ins
-# John Businge and Alexander Serebrenik and Mark van den Brand
+# Co-evolution of the {Eclipse} Framework and its Third-party Plug-ins
+# John Businge
 #
 # Example from:
 # Evidence-based Software Engineering: based on the publicly available data

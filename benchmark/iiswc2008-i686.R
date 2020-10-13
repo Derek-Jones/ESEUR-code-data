@@ -6,8 +6,11 @@
 # Vincent M. Weaver and Sally A. McKee
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG hardware_instruction-counter hardware_reliability
+
 
 source("ESEUR_config.r")
 

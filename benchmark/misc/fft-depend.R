@@ -1,14 +1,17 @@
 #
 # fft-depend.R, 10 Dec 13
-#
 # Data from:
-# benchmark precision and random initial state
+# Benchmark precision and random initial state
+# Tom{\'a}\u{s} Kalibera and Lubom{\'i}r Bulej and Petr T\r{u}ma
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG benchmark_precision benchmark_initial-stte
 
 source("ESEUR_config.r")
+
 
 library("reshape2")
 

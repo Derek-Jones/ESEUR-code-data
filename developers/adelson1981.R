@@ -1,5 +1,5 @@
 #
-# adelson1981.R, 20 Feb 19
+# adelson1981.R, 11 Oct 20
 # Data from:
 # Problem solving and the development of abstract categories in programming languages
 # Beth Adelson
@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment cognition source memory-recall
+# TAG experiment_human cognition source memory-recall
 
 
 source("ESEUR_config.r")
@@ -112,6 +112,6 @@ col_hcd=color_branches(hcd, k=5)
 
 labels_colors(col_hcd)=c(rep(2, 4), rep(3, 3), rep(4, 1), rep(5, 4), rep(6, 4))
 plot(col_hcd, main="Students", sub="",
-	xlab="Items", ylab="")
+	xlab="", ylab="")
 
 

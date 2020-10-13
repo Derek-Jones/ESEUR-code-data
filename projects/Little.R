@@ -51,7 +51,7 @@ u_est=ddply(est, .(Project.Code), mk_target_unique)
 t_sum=ddply(u_est, .(Project.Code), target_summary)
 
 plot(t_sum$est_duration,t_sum$num_reest, col=pal_col[2],
-	xlab="Initial estimated duration (days)", ylab="Number of estimates")
+	xlab="Initial estimated duration (days)", ylab="Number of estimates\n")
 
 lines(loess.smooth(t_sum$est_duration, t_sum$num_reest, span=0.5, family="gaussian"), col=pal_col[1])
 

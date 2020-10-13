@@ -1,5 +1,5 @@
 #
-# Net-Open_BSD.R, 26 Mar 17
+# Net-Open_BSD.R, 29 Aug 20
 #
 # Data from:
 # Baishakhi Ray
@@ -33,8 +33,6 @@ BSD_perc=BSD_perc[-nrow(BSD_perc), ]
 # Strip OpenBSD_
 t=substring(colnames(BSD_perc), 9)
 colnames(BSD_perc)=t
-
-#pdf(file="Net-Open_BSD.pdf")
 
 #t=barplot(BSD_perc, col=pal_col, border=FALSE,
 barplot(BSD_perc, col=pal_col, border=FALSE,

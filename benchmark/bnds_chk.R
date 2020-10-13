@@ -6,7 +6,7 @@
 # David Flater and William F. Guthrie
 #
 # Example from:
-# Evidence-based Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
 # TAG C++ performance array runtime check

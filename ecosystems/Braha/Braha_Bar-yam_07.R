@@ -6,8 +6,10 @@
 # Dan Braha and Yaneer Bar-Yam
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG product_complex
 
 
 source("ESEUR_config.r")

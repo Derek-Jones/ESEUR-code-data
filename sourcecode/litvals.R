@@ -1,7 +1,6 @@
 #
 # litvals.R,  5 Apr 20
 # Data from:
-#
 # The New C Standard: An Economic and Cultural Commentary
 # Derek M. Jones
 #
@@ -9,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG C_numeric-literal Integer_literal
+# TAG C_numeric-literal integer_literal
 
 source("ESEUR_config.r")
 

@@ -7,8 +7,11 @@
 # CPU DB: Recording Microprocessor History
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG cpu_transistors frequency_evolution CPU_characteristics device_fabrication
+
 
 source("ESEUR_config.r")
 

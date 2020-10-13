@@ -2,11 +2,13 @@
 # DeBiasExptData_170921.R 30 Sep 17
 # Data from:
 # An Experimental Evaluation of a De-biasing Intervention for Professional Software Developers
-# Shepperd, M., Mair, C. and Jørgensen, M.
+# Martin Shepperd and Carolyn Mair and Magne J{\o}rgensen
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG experiment_human cognitive_anchoring
 
 source("ESEUR_config.r")
 

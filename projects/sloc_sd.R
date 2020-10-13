@@ -1,5 +1,5 @@
 #
-# sloc_sd.R,  1 Oct 19
+# sloc_sd.R, 17 Sep 20
 # Data from:
 # The Effectiveness of Software Diversity
 # Meine Jochum Peter {van der Meulen}
@@ -20,18 +20,18 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG SLOC_mean SLOC_sd program_SLOC
+# TAG SLOC_mean SLOC_variance program_SLOC
 
 source("ESEUR_config.r")
 
 
-pal_col=rainbow(8)
+pal_col=rainbow(2)
 
 
 plot_dist=function(lines, col_num)
 {
 t=data.frame(m=mean(lines), s=sd(lines))
-points(t$m, t$s, col=pal_col[col_num], lwd=1.5)
+points(t$m, t$s, col=pal_col[2], lwd=1.5)
 
 return(t)
 }
@@ -76,7 +76,7 @@ ms_mod=glm(log(s) ~ log(m), data=ms)
 x_vals=seq(10, 10000, by=25)
 
 pred=predict(ms_mod, newdata=data.frame(m=x_vals))
-lines(x_vals, exp(pred), col="grey")
+lines(x_vals, exp(pred), col=pal_col[1])
 
 
 # plot_dist(NASA_87$Lines, 3)

@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG project effort
+# TAG project_effort effort_time
 
 
 source("ESEUR_config.r")

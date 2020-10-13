@@ -1,5 +1,5 @@
 #
-# 82507128-kitchenham.R, 28 Sep 19
+# 82507128-kitchenham.R, 18 Sep 20
 # Data from:
 # An empirical study of maintenance and development estimation accuracy
 # Barbara Kitchenham and Shari Lawrence Pfleeger and Beth McColl and Suzanne Eagan
@@ -17,6 +17,8 @@ source("ESEUR_config.r")
 
 library("foreign")
 
+par(mar=MAR_default+c(0.0, 0.7, 0, 0))
+
 pal_col=rainbow(3)
 
 
@@ -26,7 +28,7 @@ jorg=read.csv(paste0(ESEUR_dir, "projects/Regression-models.csv.xz"), as.is=TRUE
 plot(kitch$First.estimate, kitch$Actual.effort, log="xy", col=pal_col[1],
 	xlim=c(5, max(kitch$First.estimate)),
 	ylim=c(5, max(kitch$Actual.effort)),
-	xlab="Estimate (hours)", ylab="Actual (hours)\n")
+	xlab="Estimate (hours)", ylab="Actual (hours)\n\n")
 
 points(jorg$Estimated.effort, jorg$Actual.effort, col=pal_col[3])
 

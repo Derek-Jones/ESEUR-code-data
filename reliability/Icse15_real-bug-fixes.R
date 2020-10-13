@@ -1,5 +1,5 @@
 #
-# Icse15_real-bug-fixes.R,  6 Jun 20
+# Icse15_real-bug-fixes.R,  9 Sep 20
 # Data from:
 # An Empirical Study on Real Bug Fixes
 # Hao Zhong and Zhendong Su

@@ -6,8 +6,10 @@
 # Adam Porter and Harvey Siy and Audris Mockus and Lawrence Votta
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG experiment_human code-review_experiment
 
 source("ESEUR_config.r")
 

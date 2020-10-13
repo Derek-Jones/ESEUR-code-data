@@ -1,5 +1,5 @@
 #
-# purushothaman2005.R, 22 Nov 19
+# purushothaman2005.R,  8 Sep 20
 # Data from:
 # Toward Understanding the Rhetoric of Small Source Code Changes
 # Ranjith Purushothaman and Dewayne E. Perry
@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG source-code_changes fault_lines-changed
+# TAG source-code_inserted source-code_modified fault_lines-changed
 
 
 source("ESEUR_config.r")
@@ -31,14 +31,14 @@ points(line_err$Lines, line_err$Modified, col=pal_col[2])
 legend(x="bottomright", legend=c("Inserted lines", "Modified lines"), bty="n", fill=pal_col, cex=1.2)
 
 I_mod=betareg(Ins_frac ~ log(Lines), data=line_err)
-summary(I_mod)
+# summary(I_mod)
 
 pred=predict(I_mod)
 lines(line_err$Lines, pred*100, col=pal_col[1])
 
 
 M_mod=betareg(Mod_frac ~ log(Lines), data=line_err)
-summary(M_mod)
+# summary(M_mod)
 
 pred=predict(M_mod)
 lines(line_err$Lines, pred*100, col=pal_col[2])

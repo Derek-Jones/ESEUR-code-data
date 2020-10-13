@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG social convention experiment human
+# TAG social_convention experiment_human
 
 source("ESEUR_config.r")
 

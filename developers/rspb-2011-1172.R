@@ -1,5 +1,5 @@
 #
-# rspb-2011-1172.R, 17 Apr 20
+# rspb-2011-1172.R,  9 Oct 20
 # Data from:
 # The evolutionary basis of human social learning
 # T. J. H. Morgan and L. E. Rendell and M. Ehn and W. Hoppitt and K. N. Laland
@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG
+# TAG experiment_human learning_social decision_social-influence
 
 source("ESEUR_config.r")
 
@@ -80,11 +80,11 @@ sw_mod=glmer(switch ~ demo_dis+(demo_dis-1 | PlayerID)+
 			# guess_right+ # not positive definite
 			GuessConfidence,
 		data=e2, family=binomial)
-summary(sw_mod)
+# summary(sw_mod)
 
 plot(0, type="n",
 	xaxs="i", yaxs="i",
-	xlim=c(0, 1), ylim=c(0, 100),
+	xlim=c(0, 1), ylim=c(0, 85),
 	xlab="Demonstrators disagreeing", ylab="Switch answer (probability)\n")
 
 legend(x="topleft", legend=paste0("Confidence = ", 2*(0:3)), bty="n", fill=pal_col, cex=1.2)

@@ -1,16 +1,18 @@
 #
-# Stewart_analysis.R,  2 Nov 17
+# Stewart_analysis.R, 14 Aug 20
 # Data from:
 # Neil Stewart and Stian Reimers and Adam J. L. Harris
 # On the Origin of Utility, Weighting, and Discounting Functions: {How} They Get Their Shapes and How to Change Their Shapes
-# Following code is a modified version of Stewart, Reimers and Harris code
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG experiment_human utility-function time-discounting
 
 source("ESEUR_config.r")
 
+# Following code is a modified version of the Stewart, Reimers and Harris code
 
 ###############################################################################
 #
@@ -27,11 +29,11 @@ library(latticeExtra)
 pal_col=rainbow(2)
 
 
-map=read.csv(paste0(ESEUR_dir, "developers/amount_map.csv"), as.is=TRUE)
+map=read.csv(paste0(ESEUR_dir, "developers/misc/Stewart_amount_map.csv"), as.is=TRUE)
 map$name=paste("w", map$x, ".", map$cond, sep="")
 # map
 
-data=read.csv(paste0(ESEUR_dir, "developers/experiment_1A_data.csv"), as.is=TRUE)
+data=read.csv(paste0(ESEUR_dir, "developers/misc/Stewart_experiment_1A_data.csv"), as.is=TRUE)
 catch.violations=aggregate(choice ~ order, data=subset(data, id>150), FUN=sum)
 outliers=catch.violations$order[catch.violations$choice>=3] # participants who have violated dominance on 10% or more of catch trials
 data=subset(data, !order%in%outliers) # Remove outlier participants
@@ -72,8 +74,8 @@ coef.table=as.data.frame(summary(mm1)$coefficients)
 coef.table$name=rownames(coef.table)
 values=merge(map, coef.table, all.x=T)
 values$v=exp(values$Estimate)
-values$v[values$cond==0]=values$v[values$cond==0] ^ (1/gamma.0)
-values$v[values$cond==1]=values$v[values$cond==1] ^ (1/gamma.1)
+values$v[values$cond==0]= (values$v[values$cond==0]^(1/gamma.0))
+values$v[values$cond==1]= (values$v[values$cond==1]^(1/gamma.1))
 values$v[is.na(values$v)]=1
 values$cond=factor(values$cond, levels=c(0,1), labels=c("Positive", "Negative"))
 values=values[order(values$cond, values$x),]

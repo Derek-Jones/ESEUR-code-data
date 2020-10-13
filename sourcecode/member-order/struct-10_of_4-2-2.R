@@ -1,15 +1,17 @@
 #
 # struct-10_of_4-2-2.R, 11 Mar 13
-#
-# See:
+# Data from:
 # Developer characterization of data structure fields decisions
 # Derek M. Jones
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG experiment_human C_struct field_type
 
 source("ESEUR_config.r")
+
 
 plot_layout(1, 2)
 

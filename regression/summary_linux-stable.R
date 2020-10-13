@@ -5,8 +5,10 @@
 # Linux Kernel development: How fast it is going, who is doing it, what they are doing, and who is sponsoring it (Mar 2012)
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG Linux_updates LOC evolution developers Linux_2012
 
 source("ESEUR_config.r")
 

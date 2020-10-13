@@ -6,8 +6,11 @@
 # Eno Thereska and Bjoern Doebel and Alice X. Zheng and Peter Nobel
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG computer_memory-size computer_processor-speed
+
 
 source("ESEUR_config.r")
 

@@ -9,7 +9,7 @@
 # Derek M. Jones
 #
 # ALSO developers/estimation-biases.R
-# TAG experiment estimation country LOC anchoring
+# TAG experiment_human estimation country LOC anchoring
 
 
 source("ESEUR_config.r")

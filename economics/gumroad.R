@@ -5,8 +5,11 @@
 # Travis Nichols
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG pricing_psychology
+
 
 source("ESEUR_config.r")
 

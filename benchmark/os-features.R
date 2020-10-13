@@ -1,13 +1,15 @@
 #
 # os-features.R, 31 Aug 16
-#
 # Data from:
 # Performance Variance Evaluation on Mozilla Firefox
 # Jan Larres
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG benchmark_performance Mozilla_performance performation_variation
+
 
 source("ESEUR_config.r")
 

@@ -1,9 +1,9 @@
 #
 # sectors-us-employ.R, 21 May 20
 # Data from:
-#
+# Clark's Sector Model for {US} Economy 1850-2009
 # John Kossik
-# http://www.63alfred.com/whomakesit/clarksmodel.htm
+#
 # Collated from the sources:
 # Economic Report of the President: 2011 Report Spreadsheet Tables, B-46. Employees on nonagricultural payrolls, by major industry, 1965-2010, U.S. Government Printing Office
 # http://www.gpo.gov/fdsys/pkg/ERP-2011/xls/ERP-2011-table46.xls

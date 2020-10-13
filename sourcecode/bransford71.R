@@ -5,7 +5,7 @@
 # John D. Bransford and Jeffery J. Franks
 #
 # Example from:
-# Evidence-based Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
 # TAG sentence experiment reading recall

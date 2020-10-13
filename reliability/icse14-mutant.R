@@ -1,5 +1,5 @@
 #
-# icse14-mutant.R,  4 Jun 20
+# icse14-mutant.R, 26 Jun 20
 # Data from:
 # Code Coverage for Suite Evaluation by Developers
 # Rahul Gopinath and Carlos Jensen and Alex Groce
@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG testing_mutants coverage_mutants
+# TAG testing_mutants coverage_statement mutants_killed
 
 
 source("ESEUR_config.r")
@@ -35,6 +35,7 @@ cov_info$path_cov=(cov_info$path_cov+1e-6)*0.999999
 cov_info$branch_cov=(cov_info$branch_cov+1e-6)*0.999999
 
 max_loc=max(cov_info$log_loc)
+pal_col=rainbow(max_loc-2)
 
 
 mut_coverage=function(x_measure, y_measure, x_str, y_str, legend_pos)
@@ -46,26 +47,25 @@ log_loc=subset(cov_info, applic)$log_loc
 plot(x_measure, y_measure, type="n",
 	xlab=x_str, ylab=paste0(y_str, "\n"))
 
-pal_col=rainbow(1+max_loc)
 symbols(x_measure, y_measure, circles=log_loc,
-		inches=1/15, add=T, fg=pal_col[log_loc+1])
+		inches=1/15, add=T, fg=pal_col[log_loc-2])
 # lines(loess.smooth(x_measure, y_measure, span=0.3), col="black")
 
 mc_mod=betareg(y_measure ~ (x_measure+log_loc)^2)
 # summary(mc_mod)
 
 pred=predict(mc_mod, newdata=data.frame(x_measure=x_bounds, log_loc=log(10^2)))
-lines(x_bounds, pred, col=pal_col[1+4])
+lines(x_bounds, pred, col=pal_col[5-2])
 pred=predict(mc_mod, newdata=data.frame(x_measure=x_bounds, log_loc=log(10^3)))
-lines(x_bounds, pred, col=pal_col[1+6])
+lines(x_bounds, pred, col=pal_col[7-2])
 pred=predict(mc_mod, newdata=data.frame(x_measure=x_bounds, log_loc=log(10^4)))
-lines(x_bounds, pred, col=pal_col[1+8])
+lines(x_bounds, pred, col=pal_col[9-2])
 
 legend(legend_pos,
 	c(expression(LOC %~~% 10^2), expression(LOC %~~% 10^3), expression(LOC %~~% 10^4)),
 	pch=21, bty='n',
 	pt.cex=c(0.5, 1.0, 1.7),
-	col=c(pal_col[1+4], pal_col[1+6], pal_col[1+8]),
+	col=c(pal_col[5-2], pal_col[7-2], pal_col[9-2]),	
 	cex=1.2)
 
 return(mc_mod)

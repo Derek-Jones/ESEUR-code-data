@@ -1,11 +1,14 @@
 #
 # var-len.R, 29 May 17
+# Data from:
 # Meaningful Identifier Names: The Case of Single-Letter Variables
 # Gal Beniamini Sarah Gingichashvili Alon Klein Orbach Dror G. Feitelson
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG experiment_human identifier_meaningful
 
 source("ESEUR_config.r")
 

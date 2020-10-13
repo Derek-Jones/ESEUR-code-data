@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG Experiment_hardware x86_cache
+# TAG experiment_hardware x86_cache
 
 
 source("ESEUR_config.r")

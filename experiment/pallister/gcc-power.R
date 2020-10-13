@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment gcc options
+# TAG experiment_compiler gcc_options energy_minimise
 
 
 source("ESEUR_config.r")

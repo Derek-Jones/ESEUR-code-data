@@ -2,13 +2,15 @@
 # thecostofsorting.R,  3 Feb 16
 #
 # Data from:
-#
 # Energy-Efficient Data Processing at Sweet Spot Frequencies
 # Sebastian G{\"o}tz and Thomas Ilsche and Jorge Cardoso and Josef Spillner and Uwe A{\ss}mann and Wolfgang Nagel and Alexander Schill
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG benchmark_frequency benchmark_power frequency-power
+
 
 source("ESEUR_config.r")
 

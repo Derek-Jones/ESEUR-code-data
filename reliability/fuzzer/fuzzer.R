@@ -1,19 +1,20 @@
 #
-# fuzzer.R,  2 Apr 15
+# fuzzer.R, 20 Sep 20
 #
 # Data from:
 # Comparative Language Fuzz Testing: Programming Languages vs. Fat Fingers
 # Diomidis Spinellis and Vassilios Karakoidas and Panos Louridas
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
-
+#
+# TAG testing_compile testing_execute testing_output
 
 source("ESEUR_config.r")
 
-library("plyr")
 
+library("plyr")
 
 
 fuzz=read.csv(paste0(ESEUR_dir, "reliability/fuzzer/fuzzer.csv.xz"), as.is=TRUE)
@@ -33,7 +34,7 @@ return(data.frame(comp, run, out))
 f_status=ddply(fuzz, .(language), cnt_status)
 f_status=f_status[order(f_status$comp, decreasing=TRUE), ]
 
-pal_col=rainbow_hcl(nrow(f_status))
+pal_col=rainbow(nrow(f_status))
 
 barplot(as.matrix(f_status[, 2:4]), col=pal_col, beside=TRUE,
 		names=c("Compiled", "Executed", "Output correct"))

@@ -1,12 +1,14 @@
-.MC 24.5 1.5
-.ft H
-.na
+.fam H
+.vs 14p
+.po 0.2i
+.ll 8.3i
+.MC 2.05i 0.1i
+.ps +0.5
 .nf
-.vs 9p
 .ll +0.45i
 .pl 8i
-.SM
 .B1
+
 #        <      . >
 
 #                    13
@@ -37,8 +39,10 @@
       }
    }
 }
+
 .B2
 .B1
+
  include  string h 
 
  define MAX_CNUM_LEN
@@ -69,8 +73,10 @@ else
 
 
 
+
 .B2
 .B1
+
 #include <string.h>
 
 #define v1 13
@@ -101,5 +107,6 @@ else
       }
    }
 }
+
 .B2
 

@@ -1,5 +1,5 @@
 #
-# Lin2017.R, 11 Jan 20
+# Lin2017.R,  1 Sep 20
 # Data from:
 # On the Uniqueness of Code Redundancies
 # Bi Lin and Luca Ponzanelli and Andrea Mocci and Gabriele Bavota and Michele Lanza
@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG Java token-sequence_clone
+# TAG Java token-sequence clone_sequence-length
 
 source("ESEUR_config.r")
 
@@ -21,14 +21,12 @@ Lin=read.csv(paste0(ESEUR_dir, "sourcecode/Lin2017.csv.xz"), as.is=TRUE)
 Lin$noab_project_dup_rate=Lin$noab_project_dup_no/Lin$noab_project_total_no
 Lin$lex_project_dup_rate=Lin$lex_project_dup_no/Lin$lex_project_total_no
 
-# nop_mod=glm(noab_project_dup_rate ~ I(granularity^-0.0064), data=Lin)
-# nop_mod=glm(noab_project_dup_rate ~ I(granularity^-0.04), data=Lin)
-# summary(nop_mod)
 # 
-nop_mod=nls(noab_project_dup_rate ~ a+b*granularity^c, data=Lin, # trace=TRUE,
-		start=list(a=0.8, b=-0.4, c=-0.1))
+#nop_mod=nls(noab_project_dup_rate ~ a+b*granularity^c, data=Lin, # trace=TRUE,
+#		start=list(a=0.8, b=-0.4, c=-0.1))
 # #		start=list(a=0.0, b=0.8, c=-0.1))
 # summary(nop_mod)
+nop_mod=glm(noab_project_dup_rate ~ log(granularity), data=Lin)
 pred=predict(nop_mod, newdata=data.frame(granularity=seq(3, 60, by =3)))
 
 

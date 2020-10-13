@@ -1,5 +1,5 @@
 #
-# treisman85.R, 18 Feb 19
+# treisman85.R, 28 Aug 20
 #
 # Data from:
 # Search Asymmetry: {A} Diagnostic for Preattentive Processing of Separable Features
@@ -9,15 +9,14 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG example vision_preattentive
+# TAG example experiment_human vision_preattentive
 
 
 source("ESEUR_config.r")
 
 
-set_width_height(max_width=8, max_height=12)
-plot_layout(3, 2)
-par(mar=c(2, 1, 1, 1))
+plot_layout(1, 2, default_height=8)
+par(mar=c(1, 1, 0.5, 0))
 
 start_plot=function()
 {
@@ -68,27 +67,27 @@ draw_circle(8.9, 1.9)
 draw_circle(8.1, 8.1)
 draw_circle(7.5, 5.2)
 
-start_plot()
-draw_circle(2.5, 2.5)
-draw_circle(2.7, 6.9)
-draw_circle(3.6, 4.3)
-draw_circle(4.1, 8.1)
-draw_circle(6.3, 3.3)
-draw_circle(5.9, 7.0)
-draw_circle(8.9, 1.9)
-draw_circle(8.1, 8.1)
-draw_cusp(7.5, 5.2)
-
-start_plot()
-draw_circle(2.5, 2.5)
-draw_circle(2.7, 6.9)
-draw_circle(3.6, 4.3)
-draw_circle(4.1, 8.1)
-draw_circle(6.3, 3.3)
-draw_circle(5.9, 7.0)
-draw_circle(8.9, 1.9)
-half_circle(8.1, 8.1)
-draw_circle(7.5, 5.2)
+# start_plot()
+# draw_circle(2.5, 2.5)
+# draw_circle(2.7, 6.9)
+# draw_circle(3.6, 4.3)
+# draw_circle(4.1, 8.1)
+# draw_circle(6.3, 3.3)
+# draw_circle(5.9, 7.0)
+# draw_circle(8.9, 1.9)
+# draw_circle(8.1, 8.1)
+# draw_cusp(7.5, 5.2)
+# 
+# start_plot()
+# draw_circle(2.5, 2.5)
+# draw_circle(2.7, 6.9)
+# draw_circle(3.6, 4.3)
+# draw_circle(4.1, 8.1)
+# draw_circle(6.3, 3.3)
+# draw_circle(5.9, 7.0)
+# draw_circle(8.9, 1.9)
+# half_circle(8.1, 8.1)
+# draw_circle(7.5, 5.2)
 
 
 start_plot()
@@ -102,27 +101,27 @@ circle_line(8.9, 1.9)
 circle_line(8.1, 8.1)
 draw_circle(7.5, 5.2)
 
-start_plot()
-draw_cusp(2.5, 2.5)
-draw_cusp(2.7, 6.9)
-draw_circle(3.6, 4.3)
-draw_cusp(4.1, 8.1)
-draw_cusp(6.3, 3.3)
-draw_cusp(5.9, 7.0)
-draw_cusp(8.9, 1.9)
-draw_cusp(8.1, 8.1)
-draw_cusp(7.5, 5.2)
-
-
-start_plot()
-half_circle(2.5, 2.5)
-half_circle(2.7, 6.9)
-draw_circle(3.6, 4.3)
-half_circle(4.1, 8.1)
-half_circle(6.3, 3.3)
-half_circle(5.9, 7.0)
-half_circle(8.9, 1.9)
-half_circle(8.1, 8.1)
-half_circle(7.5, 5.2)
+# start_plot()
+# draw_cusp(2.5, 2.5)
+# draw_cusp(2.7, 6.9)
+# draw_circle(3.6, 4.3)
+# draw_cusp(4.1, 8.1)
+# draw_cusp(6.3, 3.3)
+# draw_cusp(5.9, 7.0)
+# draw_cusp(8.9, 1.9)
+# draw_cusp(8.1, 8.1)
+# draw_cusp(7.5, 5.2)
+# 
+# 
+# start_plot()
+# half_circle(2.5, 2.5)
+# half_circle(2.7, 6.9)
+# draw_circle(3.6, 4.3)
+# half_circle(4.1, 8.1)
+# half_circle(6.3, 3.3)
+# half_circle(5.9, 7.0)
+# half_circle(8.9, 1.9)
+# half_circle(8.1, 8.1)
+# half_circle(7.5, 5.2)
 
 

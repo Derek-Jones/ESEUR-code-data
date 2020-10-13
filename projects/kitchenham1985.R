@@ -7,8 +7,10 @@
 # C. A. Graver and W. M. Carriere and E. E. Balkovich and R. Thibodeau
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG estimating_cost project_cost project_estimate cost_tradeoff
 
 source("ESEUR_config.r")
 

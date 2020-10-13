@@ -1,5 +1,5 @@
 #
-# Hawkins1.R,  1 Mar 19
+# Hawkins1.R,  8 Oct 20
 # Data from:
 # Context effects in multi-alternative decision making: {Empirical} data and a Bayesian model
 # Guy Hawkins and Scott D. Brown and Mark Steyvers and Eric-Jan Wagenmakers
@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment human subject response-time error-rate
+# TAG experiment_human response-time error-rate decision-making_response-time
 
 source("ESEUR_config.r")
 
@@ -60,7 +60,7 @@ N2=subset(df, N == 2)
 df$col_str=mapvalues(df$Subject, u_subj[order(N2$V1)],
 					pal_col)
 
-plot(df$N, df$V1, log="x", col=df$col_str,
+plot(jitter(df$N), jitter(df$V1), log="x", col=df$col_str,
 	xlab="Number of alternatives", ylab=ylab_str)
 
 # rts_mod=glm(V1 ~ log(N)+Subject, data=df)

@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG C_metrics Halstead Complexity_McCabe
+# TAG C_metrics metric_Halstead metric_McCabe LOC_Halstead LOC_McCabe Complexity_McCabe 
 
 
 source("ESEUR_config.r")

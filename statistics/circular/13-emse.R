@@ -2,7 +2,7 @@
 # 13-emse.R, 23 Apr 20
 #
 # Data from:
-# Do time of day and developer experience affect commit bugginess?
+# Correlations between Bugginess and Time-Based Commit Characteristics
 # Jon Eyolfson and Lin Tan and Patrick Lam
 #
 # Example from:

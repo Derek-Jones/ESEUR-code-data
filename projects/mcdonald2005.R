@@ -44,7 +44,7 @@ plot_fit(sp, pal_col[1])
 plot_fit(nsp, pal_col[2])
 
 
-ec_mod=glm(Cost_est ~ (Experience+similar_exp)^2, data=mc)
-summary(ec_mod)
+# ec_mod=glm(Cost_est ~ (Experience+similar_exp)^2, data=mc)
+# summary(ec_mod)
 
 

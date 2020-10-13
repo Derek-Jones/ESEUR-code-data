@@ -3,8 +3,10 @@
 # Data from:
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG example round-number
 
 source("ESEUR_config.r")
 
@@ -12,8 +14,8 @@ pal_col=rainbow(4)
 
 
 # Formula from:
-# Harald A. Bastiaanse
 # Very, Many, Small, {Penguins}: {Vaguely} Related Topics
+# Harald A. Bastiaanse
 speaker_rounded=function(k)
 {
 return(k/(k+(1/x)-1))

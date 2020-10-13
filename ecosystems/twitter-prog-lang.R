@@ -1,5 +1,5 @@
 #
-# twitter-prog-lang.R, 23 May 20
+# twitter-prog-lang.R, 14 Jul 20
 # Data from:
 # Which programming language should a company use? {A} {Twitter}-based analysis
 # Giuseppe Destefanis
@@ -33,5 +33,5 @@ lines(start_date, twit$Javascript, col=pal_col[4])
 lines(start_date, twit$Python, col=pal_col[5])
 lines(start_date, twit$Flash, col=pal_col[6])
 
-legend(x="bottom", legend=c("Java", "PHP", "C/C++/C#", "Javascript", "Python", "Flash"), bty="n", fill=pal_col, cex=1.2)
+legend(x="bottom", legend=c("Java", "PHP", "C/C++/C\U266F", "Javascript", "Python", "Flash"), bty="n", fill=pal_col, cex=1.2)
 

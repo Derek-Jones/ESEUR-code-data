@@ -1,5 +1,5 @@
 #
-# iwsc2011-kamiya.R, 23 Jun 20
+# iwsc2011-kamiya.R,  1 Sep 20
 # Data from:
 # How Code Skips Over Revisions
 # Toshihiro Kamiya
@@ -47,7 +47,7 @@ add_cnt=count(reuse$added)
 plot(add_cnt, log="xy", col=pal_col[1],
 	cex=1.4, cex.lab=1.4, cex.axis=1.4,
 	xlim=c(1, 100), ylim=c(10, 1e5),
-	xlab="Reused lines", ylab="Reintroduced line sequences\n\n")
+	xlab="Number of lines", ylab="Reintroduced line sequences\n\n")
 
 ac_mod=glm(log(freq) ~ log(x), data=add_cnt, subset=x_bounds)
 summary(ac_mod)

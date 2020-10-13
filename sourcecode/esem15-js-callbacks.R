@@ -1,5 +1,5 @@
 #
-# esem15-js-callbacks.R, 29 Jun 18
+# esem15-js-callbacks.R, 31 Aug 20
 # Data from:
 # Don't Call Us, We'll Call You: {Characterizing} Callbacks in {JavaScript}
 # Keheliya Gallaba and Ali Mesbah and Ivan Beschastnikh
@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG javascript callbacks arguments anonymous
+# TAG javascript callbacks arguments anonymous_callbacks
 
 
 source("ESEUR_config.r")
@@ -49,5 +49,5 @@ pred=predict(as_mod)
 lines(anon_cb$total_func_callsite[as_ord], exp(pred[as_ord]), col=pal_col[2]) 
 
 
-legend(x="bottomright", legend=c("All callbacks", "Anonymous callbacks"), bty="n", fill=pal_col, cex=1.2)
+legend(x="topleft", legend=c("All callbacks", "Anonymous callbacks"), bty="n", fill=pal_col, cex=1.2)
 

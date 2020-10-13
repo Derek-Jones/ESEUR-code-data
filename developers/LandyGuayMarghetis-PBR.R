@@ -16,6 +16,7 @@ source("ESEUR_config.r")
 library("plyr")
 
 
+# zero and one cannot exactly occur
 logodds=function(vec)
 {
 vec[vec==0]=1e-10

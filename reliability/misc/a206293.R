@@ -5,8 +5,11 @@
 # Amrit L. Goel
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG
+
 
 source("ESEUR_config.r")
 
@@ -20,13 +23,15 @@ sapply(f_num, function(X)
 		f=strsplit(row[X], " ")[[1]]
 		cnts=strsplit(row[X+1], " ")[[1]]
 		total <<- total+length(f)
-		if (length(f) != cnts[1]) print(c(1, cnts[1], X))
-		if (total != cnts[2]) print(c(2, cnts[2], X))
+		if (length(f) != cnts[1])
+		   print(c(1, cnts[1], X))
+		if (total != cnts[2])
+		   print(c(2, cnts[2], X))
 		})
 }
 
 
-a206=read.csv(paste0(ESEUR_dir, "reliability/a206293.csv.xz"), as.is=TRUE)
+a206=read.csv(paste0(ESEUR_dir, "reliability/misc/a206293.csv.xz"), as.is=TRUE)
 
 f_num=seq(1, 107, by=2)
 

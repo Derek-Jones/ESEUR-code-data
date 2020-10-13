@@ -2,14 +2,14 @@
 # 13-ext-reg.R, 23 Apr 20
 #
 # Data from:
-# Do time of day and developer experience affect commit bugginess?
+# Correlations between Bugginess and Time-Based Commit Characteristics
 # Jon Eyolfson and Lin Tan and Patrick Lam
 #
 # Example from:
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG
+# TAG commit_time-of-day faults_time-of-day
 
 
 source("ESEUR_config.r")

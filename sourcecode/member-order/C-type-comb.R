@@ -1,6 +1,5 @@
 #
 # C-type-comb.R, 22 Apr 20
-#
 # Data from:
 # Developer characterization of data structure fields decisions
 # Derek M. Jones

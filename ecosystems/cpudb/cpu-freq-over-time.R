@@ -7,10 +7,11 @@
 # Modified version of source downloaded  4 July 2014 from:
 #  http://cpudb.stanford.edu/download
 #
-#
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG cpu_transistors frequency_evolution CPU_characteristics device_fabrication
 
 source("ESEUR_config.r")
 
@@ -62,8 +63,7 @@ plot(dates, ratio_change, log="y", col=point_col,
 	xlab="Date of cpu introduction", ylab="Relative frequency increase\n")
 line_smoother(dates, ratio_change)
 
-legend("topleft",
-       c("loess.smooth", "smooth.spline", "runmed"),
-       bty="n", fill=pal_col, cex=1.4)
+legend("topleft", c("loess.smooth", "smooth.spline", "runmed"),
+				bty="n", fill=pal_col, cex=1.4)
 
 

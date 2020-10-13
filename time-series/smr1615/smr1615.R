@@ -6,8 +6,10 @@
 # Jes{\'u}s M. Gonz{\'a}lez-Barahona and Gregorio Robles and Israel Herraiz and Felipe Ortega
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG C_library glibc_LOC LOC_evolution commits weekly yearly glic
 
 source("ESEUR_config.r")
 

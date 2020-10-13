@@ -7,8 +7,11 @@
 # Data kindly supplied by Filippo Lanubile
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG experiment_human reading_code perspective-based
+
 
 source("ESEUR_config.r")
 

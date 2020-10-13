@@ -1,13 +1,16 @@
 #
-# fse13-dyno-fit.R, 23 Sep 16
+# fse13-dyno-fit.R, 15 Jul 20
 #
 # Data from:
 # Dynodroid: {An} Input Generation System for {Android} Apps
 # Aravind Machiry and Rohan Tahiliani and Mayur Naik
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG testing_human testing_tool Android_Apps App_testing coverage_testing
+
 
 source("ESEUR_config.r")
 
@@ -32,7 +35,7 @@ covered=acomp(dh, parts=c("LOC.covered.exclusively.by.Dyno..D.",
 #			"LOC.covered.by.both.Dyno.and.Monkey..C."))
 
 # Cannot switch off labels, have to specify empty
-plot(covered, labels="", col=point_col, mp=NULL)
+plot(covered, labels="", col=pal_col[3], mp=NULL)
 
 # aspanel set so the entire plot is not redrawn
 ternaryAxis(side=0,
@@ -51,20 +54,20 @@ comp_mod=lm(ilr(covered) ~ I(l_total_lines^2), data=dh)
 
 # Strip intercept from coefficients and invert the response ilr
 d=ilrInv(coef(comp_mod)[-1, ], orig=covered)
-straight(mean(covered), d, col="green")
+straight(mean(covered), d, col=pal_col[2])
 
 
-total_pts=seq(1, 15, by=2.0)
+total_pts=seq(7, 15, by=2.0)
 pred=predict(comp_mod, newdata=data.frame(l_total_lines=total_pts))
 
 pred_pts=ilrInv(pred, orig=covered)
-plot(pred_pts, add=TRUE, col="red")
+plot(pred_pts, add=TRUE, col=pal_col[1])
 
 # Composite does not provide a way of adding text.
 # So we have to do the x/y calculation for text ourselves.
 text(0.5*cos(pi/6)+pred_pts[,2]*cos(pi/3), cos(pi/6)*pred_pts[,3],
 				as.character(round(exp(total_pts))),
-				cex=0.8)
+				cex=0.90)
 
 # From page 140 of Boogaart and Tolosana-Deldag
 # d=ilrInv(predict(comp_mod), orig=covered)

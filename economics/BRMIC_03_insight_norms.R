@@ -1,5 +1,5 @@
 #
-# BRMIC_03_insight_norms.R, 24 Apr 20
+# BRMIC_03_insight_norms.R,  3 Sep 20
 # Data from:
 # Normative data for 144 compound remote associate problems
 # Edward M. Bowden and Mark Jung-Beeman
@@ -15,7 +15,13 @@ source("ESEUR_config.r")
 
 pal_col=rainbow(4)
 
-
+# Remote_Associate_Items: as per the column name
+# Solution: of problem
+# n: number of subjects in time group
+# sec: maximum allowed time
+# p_solved: percent of participants who solved the problem
+# time: mean solution time (not available for secs == 2)
+# SD: standard deviation of solution time
 BR=read.csv(paste0(ESEUR_dir, "economics/BRMIC_03_insight_norms.csv.xz"), as.is=TRUE)
 
 # lg=data.frame(BR$Remote_Associate_Items,BR$Solutions,
@@ -57,7 +63,7 @@ pal_col=rainbow(3)
 plot(BR_7$p_solved, BR_7$time, col=pal_col[1],
 	xaxs="i",
 	xlim=c(0, 100), ylim=c(3, 19),
-	xlab="Solved (percent)", ylab="Time (secs)")
+	xlab="Problems solved (percent)", ylab="Mean response time (secs)")
 points(BR_15$p_solved, BR_15$time, col=pal_col[2])
 points(BR_30$p_solved, BR_30$time, col=pal_col[3])
 

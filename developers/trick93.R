@@ -17,7 +17,7 @@ source("ESEUR_config.r")
 library("plyr")
 
 plot_layout(2, 2, max_width=6.5, max_height=6.5)
-par(mar=MAR_default-c(2.2, -0.2, 0.8, 0.8))
+par(mar=MAR_default-c(2.2, -0.2, 0.8, 1.0))
 
 pal_col=rainbow(3)
 
@@ -43,14 +43,14 @@ text(3.1, 6.2,"O", cex=2.2)
 text(5, 2, "O", cex=2.2)
 text(8, 6, "O", cex=2.2)
 
-plot(trick$response, type="n", cex.axis=1.8,
+plot(trick$response, type="n", cex.axis=2.0,
 	xlim=c(1, 8),
 	xlab="Items", ylab="")
 
 OX=subset(trick, symbol == "OX")
 d_ply(OX, .(distractors), plot_resp)
 
-legend(x="topleft", legend=c("4 distractors", "2 distractors", "0 distractors"), bty="n", fill=pal_col, cex=1.9)
+legend(x="topleft", legend=c("4 distractors", "2 distractors", "0 distractors"), bty="n", fill=pal_col, cex=2.2)
 
 
 plot(0, type="n", bty="o", fg="grey",
@@ -67,12 +67,12 @@ text(4.1, 7.0, "O", cex=2.2)
 text(6.7, 7.1, "O", cex=2.2)
 
 
-plot(trick$response, type="n", cex.axis=1.5, cex.lab=1.7,
+plot(trick$response, type="n", cex.axis=1.8, cex.lab=1.9,
 	xlim=c(1, 8),
 	xlab="Items", ylab="Response time\n")
 
 OQ=subset(trick, symbol == "OQ")
 d_ply(OQ, .(distractors), plot_resp)
 
-legend(x="topleft", legend=c("4 distractors", "2 distractors", "0 distractors"), bty="n", fill=pal_col, cex=1.9)
+legend(x="topleft", legend=c("4 distractors", "2 distractors", "0 distractors"), bty="n", fill=pal_col, cex=2.2)
 

@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG Java API LOC
+# TAG Java_API API_usage LOC
 
 
 source("ESEUR_config.r")

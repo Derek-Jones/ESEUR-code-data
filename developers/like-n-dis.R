@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment human number like dislike
+# TAG experiment_human number_like number_dislike
 
 source("ESEUR_config.r")
 

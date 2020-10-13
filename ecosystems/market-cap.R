@@ -2,7 +2,7 @@
 # market-cap.R, 14 Apr 20
 #
 # Data from:
-# Daily chart for April 21 2015 on The Economist webpage
+# The changing {US} technology sector: {Daily} chart for April 21 2015 
 # Economist {Data team}
 #
 # Example from:

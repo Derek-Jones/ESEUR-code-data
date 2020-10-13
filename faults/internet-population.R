@@ -1,8 +1,8 @@
 #
 # internet-population.R, 21 Nov 19
-#
-# R code for book "Empirical Software Engineering using R"
-# Derek M. Jones, http://shape-of-code.coding-guidelines.com
+# Data from:
+# International Telecommunication Union
+# http://www.itu.int
 #
 # Example from:
 # Evidence-based Software Engineering: based on the publicly available data

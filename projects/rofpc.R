@@ -1,5 +1,5 @@
 #
-# rofpc.R, 29 Sep 19
+# rofpc.R, 17 Sep 20
 # Data from:
 # Reliability of function point counts
 # P. Kampstra and C. Verhoef
@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG function-points project_cost
+# TAG function-points_cost project_cost project_function-points
 
 
 source("ESEUR_config.r")
@@ -29,8 +29,10 @@ plot(rofpc$Function.points, rofpc$Cost.index, log="xy", col=pal_col[2],
 # Not tried outlier removal.
 # rof_mod=glm(Cost.index ~ log(Function.points)+I(log(Function.points)^2), data=rofpc, family=gaussian(link="log"))
 
-# Assume error is multiplicative, rather than additive, so log link
+# Assume error is multiplicative, rather than additive
 rof_mod=glm(log(Cost.index) ~ log(Function.points), data=rofpc)
+
+# summary(rof_mod)
 
 xbounds=20:2000
 

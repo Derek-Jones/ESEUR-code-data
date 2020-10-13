@@ -7,8 +7,10 @@
 # David Flater and William F. Guthrie
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG benchmark_C++ C++_array-access
 
 
 source("ESEUR_config.r")

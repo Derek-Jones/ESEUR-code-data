@@ -14,11 +14,11 @@
 source("ESEUR_config.r")
 
 
-patches=read.csv(paste0(ESEUR_dir, "regression/linux-patch-fix.csv.xz"), as.is=TRUE)
-
 pal_col=rainbow(3)
 
 # plot(patches$Total.Updates, patches$Fixes,
+patches=read.csv(paste0(ESEUR_dir, "regression/linux-patch-fix.csv.xz"), as.is=TRUE)
+
 # 	xlim=c(0, 60), ylim=c(0, 1000))
 # 
 # p_mod=glm(Fixes ~ Total.Updates, data=patches)

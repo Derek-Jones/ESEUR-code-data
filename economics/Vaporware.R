@@ -1,5 +1,5 @@
 #
-# Vaporware.R, 24 Apr 20
+# Vaporware.R,  3 Sep 20
 # Data from:
 # PC-Letter's Vapor list
 # via
@@ -10,7 +10,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG vaporware_promised vaporware_actual
+# TAG product_vaporware vaporware_promised vaporware_actual
 
 
 source("ESEUR_config.r")
@@ -32,6 +32,9 @@ vapor$INTRO_DA=as.Date(vapor$INTRO_DA, format="%d-%b-%Y")
 
 pos_vapor=subset(vapor, T2_T1 >= 0)
 
+# table(pos_vapor$T2_T1)
+# table(pos_vapor$T1_T0)
+
 # plot(vapor$ANNOUN, vapor$INTRO_DA)
 
 plot(pos_vapor$T1_T0, pos_vapor$T2_T1, log="x", col=pal_col[2],
@@ -44,6 +47,7 @@ plot(pos_vapor$T1_T0, pos_vapor$T2_T1, log="x", col=pal_col[2],
 lines(loess.smooth(pos_vapor$T1_T0, pos_vapor$T2_T1, span=0.3), col=loess_col)
 
 v_mod=glm(T2_T1 ~ T1_T0+I(T1_T0^0.5), data=pos_vapor, family=poisson)
+# summary(v_mod)
 
 x_vals=1:25
 pred=predict(v_mod, newdata=data.frame(T1_T0=x_vals), type="response")
