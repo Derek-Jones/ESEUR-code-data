@@ -1,5 +1,5 @@
 #
-# ff20-toolkit-dep.R, 20 Feb 20
+# ff20-toolkit-dep.R,  3 Nov 20
 # Data from:
 # How maintainable is the {Firefox} codebase?
 # Ali Almossawi
@@ -16,6 +16,9 @@ source("ESEUR_config.r")
 library("grid")  # needed for gpar
 library("plyr")
 library("seriation")
+
+
+par(mar=MAR_default-c(2.7, 3.7, 0.5, 0.5))
 
 
 pal_col=heat_hcl(10)

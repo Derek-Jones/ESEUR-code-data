@@ -1,5 +1,5 @@
 #
-# nsrec03.R, 25 Apr 20
+# nsrec03.R,  3 Nov 20
 # Data from:
 # In-Flight Observations of Long-Term Single-Event Effect ({SEE}) Performance on {Orbview-2} Solid State Recorders ({SSR})
 # Christian Poivey and Janet L. Barth and Kenneth A. LaBel and George Gee and Harvey Safren
@@ -24,6 +24,9 @@ library(sp)
 
 par(mar=c(0,0,0,0)+0.1, xpd=NA)
 
+pal_col=rainbow(2)
+
+
 nsrec=read.csv(paste0(ESEUR_dir, "communicating/nsrec03.csv.xz"), as.is=TRUE)
 event_coord=SpatialPoints(cbind(nsrec$Longitude, nsrec$Latitude))
 
@@ -42,9 +45,9 @@ world_grd = gridlines(world_sp, easts=c(-179,seq(-150,150,50),179.5),
 # at_sp = gridat(world_sp, easts=0, norths=seq(-75,75,15), offset=0.3)
 # at_proj = spTransform(at_sp, prj_new)
 
-plot(world_sp, col=point_col)
+plot(world_sp, col=pal_col[2])
 plot(world_grd, add=TRUE, lty=3, col="grey50")
-points(event_coord, cex = .5, pch = "+", col = "blue")
+points(event_coord, cex = .5, pch = "+", col = pal_col[1])
 
 
 # plot(world_proj, col="grey50")

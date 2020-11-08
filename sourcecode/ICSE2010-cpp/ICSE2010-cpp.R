@@ -1,5 +1,5 @@
 #
-# ICSE2010-cpp.R, 23 Feb 20
+# ICSE2010-cpp.R,  6 Nov 20
 #
 # Data from:
 # An Analysis of the Variability in Forty Preprocessor-Based Software Product Line
@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG C conditional-compilation  LOC Feature-constant
+# TAG C conditional-compilation  LOC_feature-constant
 
 
 source("ESEUR_config.r")
@@ -40,7 +40,7 @@ plot(c_loc_nofc$loc/1e3, c_loc_nofc$nofc, log="xy", col=pal_col[1],
 # lines(loess.smooth(c_loc_nofc$loc, c_loc_nofc$nofc, span=0.3), col="yellow")
 
 c_log_mod=glm(log(nofc) ~ log_loc, data=c_loc_nofc)
-summary(c_log_mod)
+# summary(c_log_mod)
 
 x_loc=log(min(c_loc_nofc$loc)):(1+log(max(c_loc_nofc$loc)))
 c_pred=predict(c_log_mod, newdata=data.frame(log_loc=x_loc), se.fit=TRUE)

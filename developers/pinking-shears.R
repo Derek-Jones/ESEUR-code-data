@@ -1,10 +1,14 @@
 #
 # pinking-shears.R, 28 Jan 17
 # Data from:
+# Example
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG example_cognition example_ecosystem
+
 
 source("ESEUR_config.r")
 

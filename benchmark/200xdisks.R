@@ -1,5 +1,5 @@
 #
-# 200xdisks.R,  5 Apr 20
+# 200xdisks.R, 22 Oct 20
 #
 # Data from:
 # Disks are like snowflakes: No two are alike
@@ -22,12 +22,11 @@ plot_layout(2, 1, max_height=12)
 par(mar=MAR_default-c(0.8, 0, 0, 0))
 
 
-brew_col=rainbow_hcl(12)
-
-
 plot_disk=function(df)
 {
-points(df$offset, df$bandwidth, col=brew_col[df$disk])
+# Reduce the size of the generated image
+samp=sample(1:nrow(df), 2000)
+points(df$offset[samp], df$bandwidth[samp], col=brew_col[df$disk])
 }
 
 
@@ -36,6 +35,9 @@ disk2002=read.csv(paste0(ESEUR_dir, "benchmark/2002disks.csv.xz"), as.is=TRUE)
 # Convert to Gigabtyes
 disk2002$offset=disk2002$offset / 1000
 disk2002$disk=as.factor(disk2002$disk)
+
+brew_col=rainbow(length(unique(disk2002$disk)))
+
 
 bw_range=range(disk2002$bandwidth)
 off_range=range(c(0, disk2002$offset))
@@ -54,6 +56,8 @@ disk2006$offset=disk2006$offset / 1000
 
 disk2006=subset(disk2006, sd_id == "sda")
 disk2006$disk=as.factor(disk2006$disk)
+
+brew_col=rainbow(length(unique(disk2006$disk)))
 
 bw_range=range(disk2006$bandwidth)
 off_range=range(c(0, disk2006$offset))

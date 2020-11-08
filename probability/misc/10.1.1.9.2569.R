@@ -1,13 +1,15 @@
 #
-# Example from:
-# Empirical Software Engineering using R
-# Derek M. Jones
-
-# 10.1.1.9.2569.R,  8 Dec 14
+# 10.1.1.9.2569.R, 18 Oct 20
 #
 # Data from:
 # A Study of Irregularities in File-Size Distributions
 # Kylie M. Evans and Geoffrey H. Kuenning
+#
+# Example from:
+# Evidence-based Software Engineering: based on the publicly available data
+# Derek M. Jones
+#
+# TAG file-size
 
 source("ESEUR_config.r")
 

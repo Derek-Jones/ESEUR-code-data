@@ -1,13 +1,16 @@
 #
-# BSD-network.R, 23 Jun 17
+# BSD-network.R,  4 Nov 20
 #
 # Data from:
 # Social Interactions around Cross-System Bug Fixings: the Case of FreeBSD and OpenBSD
 # Gerardo Canfora and Luigi Cerulo and Marta Cimitile and Massimiliano Di Penta
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG BSD_interaction BSD_bug-fixing bug-fixxing_interaction
+
 
 source("ESEUR_config.r")
 
@@ -21,6 +24,8 @@ library("igraph")
 
 plot_wide()
 
+brew_col=rainbow(4)
+
 
 # Return entries that occur more than X times
 top_subset=function(everything)
@@ -32,8 +37,6 @@ return (names(t[t > 3]))
 
 
 connections=read.csv(paste0(ESEUR_dir, "social/BSD-fixing/network/committers-network.edges.csv.xz"), as.is=TRUE)
-
-brew_col=rainbow_hcl(4)
 
 # Data contains a few different names that are probably the same person,
 # e.g., matthew dillon and matt dillon

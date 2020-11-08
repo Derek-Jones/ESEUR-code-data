@@ -1,5 +1,5 @@
 #
-# proj-lifespan.R, 16 Mar 19
+# proj-lifespan.R, 23 Oct 20
 #
 # Data from:
 # Mainframe data:
@@ -13,7 +13,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG lifetime_software lifetime_mainframe 1990 Google 2010 SaaS
+# TAG lifetime_software lifetime_mainframe 1990 Google 2020 SaaS
 
 
 source("ESEUR_config.r")
@@ -55,6 +55,9 @@ l_mod=glm(available ~ age, data=lifetime, family=poisson)
 pred=predict(l_mod)
 lines(lifetime$age, exp(pred), col=pal_col[2])
 
+# Yearly rate
+# 365.25*coef(l_mod)[2]
+
 # hist(round(goog$lifetime/365.25), breaks=20)
 # 
 # plot(density(goog$lifetime, cut=0, n=32))
@@ -76,6 +79,9 @@ mainf=head(mainf, n=-1)
 yr1_mod=glm(remaining ~ days, data=mainf, family=poisson)
 summary(yr1_mod)
 lines(mainf$days, predict(yr1_mod, type="response"), col=pal_col[1])
+
+# Yearly rate
+# 365.25*coef(yr1_mod)[2]
 
 # yr2_mod=glm(remaining ~ days+I(days^2), data=mainf, family=poisson)
 # summary(yr2_mod)

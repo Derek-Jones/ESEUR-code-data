@@ -1,5 +1,5 @@
 #
-# hal-mc-met.R, 25 Feb 20
+# hal-mc-met.R, 22 Oct 20
 #
 # Data from:
 # The linux kernel as a case study in software evolution
@@ -25,6 +25,10 @@ metrics=read.csv(paste0(ESEUR_dir, "sourcecode/linux-2.6.9-met.csv.xz"), as.is=T
 # It looks like noticeable noise at low values of LOC
 # metrics=subset(metrics, LOC > 0)
 metrics=subset(metrics, LOC > 10)
+
+# Sample data to reduce size of image
+samp=sample(1:nrow(metrics), 10000)
+metrics=metrics[samp, ]
 
 x_bounds=exp(seq(log(1), log(1e4), 0.1))
 

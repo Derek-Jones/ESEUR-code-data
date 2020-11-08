@@ -1,5 +1,5 @@
 #
-# thecostofsorting.R,  3 Feb 16
+# thecostofsorting.R, 19 Oct 20
 #
 # Data from:
 # Energy-Efficient Data Processing at Sweet Spot Frequencies
@@ -17,7 +17,7 @@ source("ESEUR_config.r")
 library("plyr")
 
 
-plot_layout(3, 1)
+# plot_layout(3, 1)
 
 
 plot_alg=function(df)
@@ -39,6 +39,16 @@ pal_col=rainbow(length(unique(sort_power$dsize)))
 
 # plot_alg(subset(sort_power, alg == "Count"))
 
-d_ply(sort_power, .(alg), plot_alg)
+# d_ply(sort_power, .(alg), plot_alg)
 
+radix=subset(sort_power, alg == "Radix")
+
+plot_alg(radix)
+
+# This is a really good fit
+# r_mod=glm(ac ~ I(frequency^2):dsize+dsize, data=radix)
+#
+# This is an even better fit
+# r_mod=glm(ac ~ I(frequency^2):dsize+frequency*dsize, data=radix)
+# summary(r_mod)
 

@@ -2,7 +2,7 @@
 # 23003405-est_agile.R, 12 Dec 19
 # Data from:
 # Combining Data Analytics with Team Feedback to Improve the Estimation Process in Agile Software Development
-# Antonio Vetro\`{o} and Rupert D{\"u}rre and Marco Conoscenti and Daniel M\'{e}ndez Fern\'{a}ndez and Magne J{\o}rgensen
+# Antonio Vetr\`{o} and Rupert D{\"u}rre and Marco Conoscenti and Daniel M\'{e}ndez Fern\'{a}ndez and Magne J{\o}rgensen
 #
 # Example from:
 # Evidence-based Software Engineering: based on the publicly available data

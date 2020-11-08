@@ -1,5 +1,5 @@
 #
-# linux-bug.R, 27 May 20
+# linux-bug.R,  2 Nov 20
 #
 # Data from:
 # Faults in Linux: Ten Years Later
@@ -53,14 +53,14 @@ others=subset(bug_life, top_dir != "drivers")
 # By days
 
 d_mod=survfit(Surv(drivers$end_day-drivers$start_day+1, drivers$end == 33) ~ 1)
-plot(d_mod, col=pal_col[1],
+plot(d_mod, col=pal_col[2],
 	xaxs="i", yaxs="i",
 	xlab="Number of days", ylab="Fault experiences survival\n")
 # 
 o_mod=survfit(Surv(others$end_day-others$start_day+1, others$end == 33) ~ 1)
-lines(o_mod, col=pal_col[2])
+lines(o_mod, col=pal_col[1])
 
-legend(x="topright", legend=c("drivers", "others"),
+legend(x="topright", legend=c("others", "drivers"),
 		text.col=pal_col, bty="n", cex=1.2)
 
 

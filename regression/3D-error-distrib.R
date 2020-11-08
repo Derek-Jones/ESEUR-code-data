@@ -1,10 +1,13 @@
 #
-# 3D-error-distrib.R, 30 Dec 15
-#
+# 3D-error-distrib.R,  4 Nov 20
+# Example
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG example_regression regression_error-distribution
+
 
 source("ESEUR_config.r")
 
@@ -65,10 +68,10 @@ s3m=scatterplot3d(x_points, y_pred, z_points, type="l", color="black",
 	cex.axis=0.7, cex.lab=0.7,
 	col.axis = "grey",
 	col.grid = "lightgrey")
-s3m$points3d(x_points, y_points, z_points, col="red", pch=8)
-
 
 a_ply(1:4, 1, plot_gauss_err)
+
+s3m$points3d(x_points, y_points, z_points, col="red", pch=8)
 
 
 y_points=c(1, 2, 2, 4, 3)

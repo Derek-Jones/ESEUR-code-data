@@ -1,5 +1,5 @@
 #
-# true-false-tree.R, 24 Mar 20
+# true-false-tree.R, 29 Oct 20
 # Data from:
 # Example
 #
@@ -17,9 +17,9 @@ library("diagram")
 
 
 # Tuned for page layout reasons
-plot_layout(3, 1, default_width=5.7, max_height=4.1)
-par(mar=MAR_default-c(3.0, 4.0, 1.0, 0.0))
-par(oma=OMA_default-c(1.5, 1.0, 1.0, 0.0))
+plot_layout(3, 1, default_width=6.1, max_height=4.1)
+par(mar=MAR_default-c(3.0, 4.0, 1.0, 0.5))
+par(oma=OMA_default-c(1.5, 1.0, 1.0, 0.5))
 
 # par(fin=c(default_width/2.54, default_height/2.54)) # cm -> inches
 

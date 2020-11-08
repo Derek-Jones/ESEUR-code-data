@@ -1,5 +1,5 @@
 #
-# marathe.R,  9 Apr 20
+# marathe.R,  5 Nov 20
 # Data from:
 # An empirical survey of performance and energy efficiency variation on {Intel} processors
 # Aniruddha Marathe and Yijia Zhang and Grayson Blanks and Nirmal Kumbhare and Ghaleb Abdulla and Barry Rountree
@@ -28,10 +28,10 @@ layout.show(vp)
 
 par(mar=c(4, 4, 0, 0))
 
-plot(ep$fa65, ep$secs65, col=pal_col[1],
+plot(ep$fa65, ep$secs65, col=pal_col[1], cex.axis=1.5, cex.lab=1.5,
         xlab="Frequency", ylab="Seconds\n")
 
-text(1.065, 305, "65 Watts", cex=1.2)
+text(1.065, 305, "65 Watts", cex=1.6)
 
 par(mar=c(0, 4, 0, 0))
 vioplot(ep$fa65, horizontal=TRUE, axes=FALSE, xaxt="n", yaxt="n", col=pal_col[2])

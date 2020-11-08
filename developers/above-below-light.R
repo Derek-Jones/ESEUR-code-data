@@ -1,19 +1,28 @@
 #
-# above-below-light.R, 26 Dec 16
+# above-below-light.R, 30 Oct 30
 # Data from:
+# Example
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG example_optical-illusion
+
 
 source("ESEUR_config.r")
 
 
 library("plyr")
 
-# step size of 0.005 and 60 shades of grey produce acceptable size of pdf
 
-shade_col=sequential_hcl(60, c=0, power=2.2)
+par(mar=MAR_default-c(1.0, 2.0, 0.7, 0.7))
+
+# # step size of 0.005 and 60 shades of grey produce acceptable size of pdf
+# To reduce the size of the image use (does not seem to impact the effect):
+# step size of 0.010 and 70 shades of grey produce acceptable size of pdf
+
+shade_col=sequential_hcl(70, c=0, l=c(30, 90), power=2.2)
 #shade_col=rev(shade_col)
 
 # Got the algorithm below from rosetta code.
@@ -48,7 +57,7 @@ return(col)
 
 mk_pt=function(X)
 {
-y_vals=seq(-sqrt(1-X^2), sqrt(1-X^2), by=0.005)
+y_vals=seq(-sqrt(1-X^2), sqrt(1-X^2), by=0.010)
 x_vals=rep(X, length(y_vals))
 
 return(data.frame(x=x_vals,
@@ -62,7 +71,7 @@ plot_light_above=function(x_offset, y_offset=3.2)
 points(x_offset+shade_pts$x, y_offset-shade_pts$y, col=shade_pts$col, pch=".")
 }
 
-plot_light_below=function(x_offset, y_offset=3.1)
+plot_light_below=function(x_offset, y_offset=2.2)
 {
 # Reverse x-points so light source comes from the same direction
 # as plot_light_above
@@ -70,25 +79,78 @@ points(x_offset+rev(shade_pts$x), y_offset+shade_pts$y, col=shade_pts$col, pch="
 }
 
 
-x_vals=seq(-1, 1, by=0.005)
+x_vals=seq(-1, 1, by=0.010)
 
 shade_pts=adply(x_vals, 1, mk_pt)
 shade_pts$col=as.character(shade_pts$col)
 
 plot(0, type="n", axes=FALSE,
-	xlim=c(0, 11.2), ylim=c(0, 11.2),
+	xlim=c(0, 9.2), ylim=c(0, 9.2),
 	xlab="", ylab="")
 
 polygon(c(0, 20, 20, 0, 0),
 	c(0,  0, 20, 20, 0), col=shade_col[25], border=NA)
 
-plot_light_above(1.2, 9.2)
-plot_light_above(4.2, 9.2)
-plot_light_above(7.2, 9.2)
-plot_light_above(10.2, 9.2)
+plot_light_above(1.7, 7.0)
+plot_light_above(4.7, 7.0)
+plot_light_above(7.7, 7.0)
+# plot_light_above(10.7, 7.0)
 
-plot_light_below(1.2)
-plot_light_below(4.2)
-plot_light_below(7.2)
-plot_light_below(10.2)
+plot_light_below(1.7)
+plot_light_below(4.7)
+plot_light_below(7.7)
+# plot_light_below(10.7)
 
+
+#
+# Light shining on a sphere.
+# Algorithm below from rosetta code.
+#
+# dot=function(x, y, z)
+# {
+# d=light[1]*x + light[2]*y + light[3]*z
+# return(ifelse(d < 0, -d, 0))
+# }
+#  
+# 
+# draw_line=function(line)
+# {
+# x_pos=line
+# y=x
+# y_2=y*y
+# 
+# z=sqrt(r_2 - line*line - y_2)
+# 
+# # Normalise the vector
+# len = sqrt(line*line+y_2+z*z)
+# line=line/len
+# y=y/len
+# z=z/len
+# b = dot(line, y, z)^k + ambient
+# intensity = round((1 - b)*length(shades))
+# intensity[intensity < 0]=NA
+# intensity[intensity == 0]=1 # black
+# intensity[intensity > length(shades)]=length(shades) # white
+# # print(length(shades[intensity]))
+# points(rep(x_pos, length(x)), x, col=shades[intensity], pch=".");
+# }
+#  
+# 
+# shades=sequential_hcl(50, c=0, l=c(30, 90), power=1.2)
+# radius=400
+# r_2=radius^2
+# ambient=0.00
+# k=2
+# x=floor(-radius):ceiling(radius)
+# 
+# light=c(00, -120, -20)
+# light=c(00,  120, -20)
+# light=light/sqrt(sum(light*light)) # normalise
+# 
+# plot(0, type="n", axes=FALSE,
+# 	xlim=c(-radius, radius), ylim=c(-radius, radius),
+# 	xlab="", ylab="")
+# 
+# im=a_ply(as.array(x), 1, draw_line)
+#  
+#  

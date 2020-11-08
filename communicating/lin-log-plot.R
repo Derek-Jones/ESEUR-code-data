@@ -18,7 +18,7 @@ source("ESEUR_config.r")
 library("reshape2")
 
 
-plot_layout(2, 1, max_height=10.5)
+plot_layout(2, 1, max_height=12.5)
 par(mar=MAR_default-c(0.7, 0.0, 0.7, 0.0))
 
 pal_col=rainbow(4)
@@ -30,7 +30,7 @@ tests$Rep=NULL
 
 all_fails=reshape(tests, varying=colnames(tests), timevar="failure", dir="long", sep="")
 
-plot(1, type="n", cex.axis=1.8, cex.lab=1.8,
+plot(1, type="n", cex=1.2, cex.lab=1.3,
 	xlim=range(all_fails$F, na.rm=TRUE), ylim=range(all_fails$failure, na.rm=TRUE),
 	xlab="Input cases", ylab="Failure")
 
@@ -41,7 +41,7 @@ dummy=sapply(1:4, function(X)
 		})
 
 
-plot(1, type="n", log="x", cex.axis=1.8, cex.lab=1.8,
+plot(1, type="n", log="x", cex=1.2, cex.lab=1.3,
 	xlim=range(all_fails$F, na.rm=TRUE), ylim=range(all_fails$failure, na.rm=TRUE),
 	xlab="Input cases", ylab="Failure")
 

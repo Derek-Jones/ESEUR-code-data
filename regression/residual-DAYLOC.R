@@ -1,5 +1,5 @@
 #
-# residual-DAYLOC.R, 24 Mar 20
+# residual-DAYLOC.R, 15 Oct 20
 # Data from:
 # The {Linux} Kernel as a Case Study in Software Evolution
 # Ayelet Israeli and Dror G. Feitelson
@@ -15,10 +15,10 @@ source("ESEUR_config.r")
 
 
 # Need to get this plot to fit in the margin, along with the plot before it
-# plot_layout(2, 1, max_height=12)
-# par(mar=MAR_default-c(0.8, 0, 0.0, 0))
+plot_layout(2, 1, max_height=14)
+par(mar=MAR_default-c(0.8, 0, 0.0, 0))
 
-pal_col=rainbow(2)
+pal_col=rainbow(3)
 
 # Lines of code in each release
 ll=read.csv(paste0(ESEUR_dir, "regression/Linux-LOC.csv.xz"), as.is=TRUE)
@@ -65,13 +65,13 @@ m1=glm(MLOC ~ Number_days, data=latest_version)
 
 plot(m1, which=1, caption="", sub.caption="", col=pal_col[2])
 
-# plot(latest_version$Number_days, latest_version$MLOC, col=pal_col[2],
-# 	cex.axis=1.4, cex.lab=1.4,
-# 	xaxs="i", yaxs="i",
-# 	xlab="Days", ylab="Total lines of code (MLOC)\n")
-# 
-# pred=predict(m1, type="response", se.fit=TRUE)
-# lines(latest_version$Number_days, pred$fit, col=pal_col[1])
-# lines(loess.smooth(latest_version$Number_days, latest_version$MLOC, span=0.3),
-# 		col=pal_col[3])
+plot(latest_version$Number_days, latest_version$MLOC, col=pal_col[2],
+	cex.axis=1.4, cex.lab=1.4,
+	xaxs="i", yaxs="i",
+	xlab="Days", ylab="Total lines of code (MLOC)\n")
+
+pred=predict(m1, type="response", se.fit=TRUE)
+lines(latest_version$Number_days, pred$fit, col=pal_col[1])
+lines(loess.smooth(latest_version$Number_days, latest_version$MLOC, span=0.3),
+		col=pal_col[3])
 # 

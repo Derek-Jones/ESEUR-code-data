@@ -1,5 +1,5 @@
 #
-# 13-13.R, 29 Jun 18
+# 13-13.R, 22 Oct 20
 # Data from:
 # A {LLVM} Just-in-Time Compilation Cost Analysis
 # Rafael Auler and Edson Borin
@@ -19,6 +19,10 @@ pal_col=rainbow(2)
 
 
 dad=read.csv(paste0(ESEUR_dir, "sourcecode/13-13.csv.xz"), as.is=TRUE)
+
+# Sample to reduce size of generated image
+samp=sample(1:nrow(dad), 20000)
+dad=dad[samp, ]
 
 # plot(dad$inscount, dad$O0, log="xy",
 # 	xlab="Instructions", ylab="Cycles\n")

@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG
+# TAG Java_fields Java_methods declaration_ordering
 
 
 source("ESEUR_config.r")

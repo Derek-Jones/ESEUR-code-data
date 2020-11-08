@@ -1,5 +1,5 @@
 #
-# gccopts.R,  7 Aug 19
+# gccopts.R, 27 Oct 20
 # Data from:
 # Extracted from release pages at: https://gcc.gnu.org/onlinedocs
 #
@@ -86,7 +86,8 @@ plot(gcc$Date[1], 1, log="y",
 
 dummy=sapply(1:length(plot_groups), group_opts)
 
-legend(x="left", legend=plot_groups, bty="n", fill=pal_col, cex=1.2)
+legend(x="topleft", legend=plot_groups, bty="n", fill=pal_col, cex=1.2,
+		inset=-c(0.03, 0.03))
 
 
 # # How many options have been removed from the non-processor groups?

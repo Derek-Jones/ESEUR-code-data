@@ -1,15 +1,20 @@
 #
-# supply-demand.R,  5 Mar 17
+# supply-demand.R,  2 Nov 20
 # Data from:
+# Example
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG example_economics
+
 
 source("ESEUR_config.r")
 
 
-plot_layout(2, 1, max_height=10, default_width=6)
+# plot_layout(2, 1, max_height=10, default_width=6)
+plot_layout(2, 1)
 
 pal_col=rainbow(2)
 

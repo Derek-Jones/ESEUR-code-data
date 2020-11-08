@@ -1,12 +1,15 @@
 #
-# VGChartz-sales.R, 22 Apr 17
+# VGChartz-sales.R,  2 Nov 20
 # Data from:
 # VGChartz
 # VGChartz Global Yearly Chart: 2005-2016
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG software_sales hardware_sales software_games
+
 
 source("ESEUR_config.r")
 
@@ -36,12 +39,12 @@ games$sales=games$sales/1e6
 col_num=1
 plot(0, type="n",
 	xlim=c(2005, 2016), ylim=c(1, 36),
-	xlab="Year", ylab="Hardware sales (millions)")
+	xlab="Year", ylab="Hardware sales (millions)\n")
 
 soft_scale=5
 soft_pts=c(0, 10, 20, 30, 40)
 axis(side=4, at=soft_pts, labels=soft_pts*soft_scale)
-mtext("Software sales (millions)", side=4, las=0, padj=3, cex=0.75)
+mtext("Software sales (millions)", side=4, las=0, padj=3, cex=0.65)
 
 plot_sales(subset(games, product == "Wii"))
 plot_sales(subset(games, product == "PS3"))

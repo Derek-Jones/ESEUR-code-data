@@ -1,5 +1,5 @@
 #
-# ternary-plot.R, 25 Apr 20
+# ternary-plot.R,  4 Nov 20
 #
 # Data from:
 # Example
@@ -30,24 +30,24 @@ xyz=c(10, 35, 55)
 plot(rcomp(xyz), labels="", col="red", mp=NULL)
 # aspanel set so the entire plot is not redrawn
 ternaryAxis(side=-1:-3, labels=paste(seq(20,80,by=20),"%"),
-                pos=c(0.5,0.5,0.5), col.axis=hcl_col, col.lab=pal_col,
+                pos=c(0.5,0.5,0.5), col.axis=pal_col, col.lab=pal_col,
                 small=TRUE, aspanel=TRUE,
                 Xlab="X", Ylab="Y", Zlab="Z")
 
 # Guessed values in two iterations!
 # Using acomp produces curves lines, in two cases???
-lines(rcomp(rbind(xyz, c(10, 45, 45))), col=hcl_col[4])
-lines(rcomp(rbind(xyz, c(32, 35, 33))), col=hcl_col[4])
-lines(rcomp(rbind(xyz, c(22, 23, 55))), col=hcl_col[4])
+lines(rcomp(rbind(xyz, c(10, 45, 45))), col=pal_col[4])
+lines(rcomp(rbind(xyz, c(32, 35, 33))), col=pal_col[4])
+lines(rcomp(rbind(xyz, c(22, 23, 55))), col=pal_col[4])
 
 
 plot(acomp(xyz), labels="", col="red", mp=NULL)
 
-isoPortionLines(col=hcl_col[4])
+isoPortionLines(col=pal_col[4])
 # isoProportionLines(col=hcl_col[4])
 
 ternaryAxis(side=0,
-                col.axis=hcl_col, col.lab=pal_col,
+                col.axis=pal_col, col.lab=pal_col,
                 small=TRUE, aspanel=TRUE,
                 Xlab="X", Ylab="Y", Zlab="Z")
 

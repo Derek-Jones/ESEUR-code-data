@@ -1,5 +1,5 @@
 #
-# sam3u_temp.R,  9 Apr 20
+# sam3u_temp.R,  5 Nov 20
 #
 # Data from:
 # A case for opportunistic embedded sensing in presence of hardware power variability
@@ -38,7 +38,7 @@ brew_col=rainbow(10)
 plot(1, type="n",
 	xaxs="i",
 	xlim=c(20, 60), ylim=c(30, 320),
-	xlab="Temperature (C)", ylab=expression("Power ("*mu*"W)"))
+	xlab="Temperature (C)", ylab="Power (milli-Watt)\n")
 dummy=sapply(2:11, plot_sleep)
 text(40, 30, "Sleeping", cex=1.2)
 
@@ -62,7 +62,7 @@ lines(av_df$temp, av_df$av_pow*1000, col=brew_col[board_num])
 plot(1, type="n",
 	yaxs="i",
 	xlim=c(-30, 100), ylim=c(8, 10),
-	xlab="Temperature (C)", ylab="Power (mW)\n")
+	xlab="Temperature (C)", ylab="Power (micro-Watt)\n")
 d_ply(sam_4Mhz, .(board), plot_power)
 text(40, 8.10, "4MHz", cex=1.2)
 

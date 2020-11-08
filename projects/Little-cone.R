@@ -1,5 +1,5 @@
 #
-# Little-cone.R, 17 Oct 19
+# Little-cone.R, 26 Oct 20
 #
 # Data from:
 # Schedule Estimation and Uncertainty Surrounding the Cone of Uncertainty
@@ -48,6 +48,9 @@ return(df[t, ])
 
 est=subset(est, Week.End.Date <= Actual.Release)
 u_est=ddply(est, .(Project.Code), mk_target_unique)
+
+# There are three cases where this relation is not true, and it should to be.
+u_est=subset(u_est, Week.End.Date <= Target.RelDate)
 
 plot(u_est$percent_comp,u_est$AE_ratio, log="y", col=pal_col[2],
 	xaxs="i",

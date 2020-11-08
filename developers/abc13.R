@@ -1,15 +1,21 @@
 #
-# abc13.R, 25 Mar 17
+# abc13.R, 30 Oct 20
 # Data from:
+# Example
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG example_visual-perception
+
 
 source("ESEUR_config.r")
 
 
-pal_col=rainbow(3)
+par(mar=MAR_default-c(0.0, 2.7, 0, 0.5))
+
+# pal_col=rainbow(3)
 
 abc=read.csv(paste0(ESEUR_dir, "developers/abc13.csv.xz"), as.is=TRUE)
 

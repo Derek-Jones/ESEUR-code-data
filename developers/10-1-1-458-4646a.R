@@ -1,5 +1,5 @@
 #
-# 10-1-1-458-4646a.R, 21 Feb 19
+# 10-1-1-458-4646a.R,  1 Nov 20
 # Data from:
 # Remembering the news: {Modeling} retention data from a study with 14,000 participants
 # M. Meeter and J. M. J. Murre and S. M. J. Janssen
@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment human memory
+# TAG experiment_human memory_human memory_time-delay
 
 source("ESEUR_config.r")
 
@@ -35,6 +35,7 @@ AFC_inf=ddply(q_4_AFC, .(Q_AGE), perc_correct)
 open_inf=ddply(q_open, .(Q_AGE), perc_correct)
 
 plot(AFC_inf$Q_AGE, AFC_inf$V1, log="x", col=pal_col[1],
+	xaxs="i",
 	ylim=c(0.20, 0.8),
 	xlab="Question age (days)", ylab="Correct\n")
 points(open_inf$Q_AGE, open_inf$V1, col=pal_col[2])
