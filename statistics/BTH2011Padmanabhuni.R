@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG function-points CFP FPA COSMIC estimation
+# TAG function-point_estimate CFP_estimate FPA_estimate COSMIC_estimate estimate
 
 
 source("ESEUR_config.r")

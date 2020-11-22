@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment developer operator belief source-code
+# TAG experiment_human developer_belief operator_precedence source-code
 
 
 source("ESEUR_config.r")

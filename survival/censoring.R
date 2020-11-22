@@ -7,7 +7,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG example data-censored survival_example
+# TAG example_survival data_censored
 
 
 source("ESEUR_config.r")

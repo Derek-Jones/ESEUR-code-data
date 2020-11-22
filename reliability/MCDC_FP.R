@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG example MC/DC testing
+# TAG example_testing MC/DC testing
 
 
 # When there are two functions per input value

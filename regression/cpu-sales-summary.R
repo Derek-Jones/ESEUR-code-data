@@ -7,8 +7,11 @@
 # Embedded Processors
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG cpu_embedded cpu_sales cpu_8-bit cpu_16-bit cpu_32-bit
+
 
 source("ESEUR_config.r")
 

@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG benchmark_precision benchmark_initial-stte
+# TAG benchmark_precision benchmark_initial-state
 
 source("ESEUR_config.r")
 

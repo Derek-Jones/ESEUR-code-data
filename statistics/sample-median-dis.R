@@ -7,7 +7,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG example median mean binomial-distribution
+# TAG example_median example_mean example_binomial-distribution
 
 
 source("ESEUR_config.r")

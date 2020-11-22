@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG power-consumption processor benchmark
+# TAG power-consumption benchmark_power power_variability cpu_power
 
 
 source("ESEUR_config.r")

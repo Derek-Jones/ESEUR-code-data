@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG Fortran Cobol assembler maintenance-cost
+# TAG Fortran_maintenance Cobol_maintenance assembler_maintenance maintenance_cost
 
 
 source("ESEUR_config.r")

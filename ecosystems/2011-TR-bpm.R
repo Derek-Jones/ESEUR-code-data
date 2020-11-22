@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG business_change-requests
+# TAG business_change-request
 
 source("ESEUR_config.r")
 

@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG Travis continuous-integration project_evolution project_commits
+# TAG Travis continuous-integration project_evolution project_commit
 
 source("ESEUR_config.r")
 

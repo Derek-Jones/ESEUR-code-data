@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG benchmark_frequency benchmark_power frequency-power
+# TAG benchmark_frequency benchmark_power frequency_power power_frequency
 
 
 source("ESEUR_config.r")

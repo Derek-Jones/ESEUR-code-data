@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG economics cost-retail upgrade compiler
+# TAG economics cost_retail cost_upgrade compiler_upgrade
 
 
 source("ESEUR_config.r")

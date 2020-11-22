@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAGS word_association experiment_human memory_association
+# TAG word_association experiment_human memory_association
 
 source("ESEUR_config.r")
 

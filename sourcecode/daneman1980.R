@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment_human reading prose comprehension
+# TAG experiment_human reading_text text_prose comprehension_text
 
 
 source("ESEUR_config.r")

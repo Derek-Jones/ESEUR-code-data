@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG javascript callbacks arguments anonymous_callbacks
+# TAG javascript callback argument_callback anonymous_callback
 
 
 source("ESEUR_config.r")

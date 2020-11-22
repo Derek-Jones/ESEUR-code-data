@@ -11,7 +11,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG methods SLOC files projects Java_methods Java_classes Java_SLOC
+# TAG method_SLOC C_SLOC file project Java_method Java_class Java_SLOC
 
 source("ESEUR_config.r")
 

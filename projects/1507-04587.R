@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG releases OpenStack developer_employment
+# TAG release_OpenStack developer_employment
 
 
 source("ESEUR_config.r")

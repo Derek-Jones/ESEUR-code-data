@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment_developers requirements performance_developers team
+# TAG experiment_developer requirements performance_developer team_performance
 
 source("ESEUR_config.r")
 

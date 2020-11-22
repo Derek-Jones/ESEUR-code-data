@@ -7,8 +7,11 @@
 # Ranganath Perugupalli
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG reliability_gcc component_reliability reliability_model
+
 
 source("ESEUR_config.r")
 

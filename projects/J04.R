@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG variable-global_evolution statement-use_evolution
+# TAG variable_global variable_evolution statement-use_evolution
 
 
 source("ESEUR_config.r")

@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG effort LOC
+# TAG effort_LOC fault_prediction
 
 source("ESEUR_config.r")
 

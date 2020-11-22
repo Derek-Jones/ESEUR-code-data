@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG C_statements C++_statements Java_statements if assignment declaration loops
+# TAG C_statement C++_statement Java_statement if_frequency assignment_frequency declaration_frequency loop_frequency
 
 source("ESEUR_config.r")
 

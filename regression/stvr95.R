@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG review experiment inspection
+# TAG review experiment_human inspection_performance
 
 source("ESEUR_config.r")
 

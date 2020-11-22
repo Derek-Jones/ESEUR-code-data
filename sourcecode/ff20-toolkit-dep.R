@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG Firefox_version-20 method_calls
+# TAG Firefox_version-20 method_call maintenance_Firefox
 
 source("ESEUR_config.r")
 

@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG embedded SPEC benchmark parameters function
+# TAG embedded-system_source-code SPEC benchmark_embedded-system function_parameter
 
 
 source("ESEUR_config.r")

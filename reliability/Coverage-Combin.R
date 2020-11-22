@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG coverage_branch coverage_statement tests_combinatorial
+# TAG coverage_branch coverage_statement testing_combinatorial
 
 source("ESEUR_config.r")
 

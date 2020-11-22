@@ -10,7 +10,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG Agile_tasks team_size Agile_team inspection_code inspection_design test_team
+# TAG Agile_tasks team_size Agile_team inspection_code inspection_design testing_team
 
 source("ESEUR_config.r")
 

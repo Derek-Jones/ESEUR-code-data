@@ -5,8 +5,11 @@
 # Vladimir N. Makarow http://vmakarov.fedorapeople.org/spec/index.html
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG benchmark_SPEC benchmark_gcc gcc_performance
+
 
 source("ESEUR_config.r")
 

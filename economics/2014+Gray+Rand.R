@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG simulation agent-based group_formation
+# TAG simulation_agent-based group_formation
 
 # Derived from MATLAB code accompanying paper.
 

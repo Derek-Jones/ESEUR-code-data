@@ -1,13 +1,13 @@
 #
 # SOlang.R, 13 Aug 19
 # Data from:
-# Stack Overflow Trends. .
+# Stack Overflow Trends.
 #
 # Example from:
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG language_question question_tag evolution stack-overflow
+# TAG language_question question_tag evolution Stackoverflow_trends
 
 
 source("ESEUR_config.r")

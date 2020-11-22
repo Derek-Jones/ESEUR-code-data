@@ -10,7 +10,7 @@
 #
 # 12 Jan 16 Fixed messed up problem reported by Alex Conlin-Oakley
 #
-# TAG supercomputer hardware benchmark
+# TAG hardware_supercomputer benchmark_supercomputer
 
 
 source("ESEUR_config.r")

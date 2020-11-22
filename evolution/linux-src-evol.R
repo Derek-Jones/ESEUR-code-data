@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG Linux_evolution clones
+# TAG Linux_evolution clone_coverage
 
 source("ESEUR_config.r")
 

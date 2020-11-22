@@ -1,12 +1,13 @@
 #
 # checker.R,  6 Jan 18
 # Data from:
+# Example
 #
 # Example from:
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG
+# TAG example_visual-illusion
 
 source("ESEUR_config.r")
 

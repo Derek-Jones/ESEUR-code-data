@@ -10,7 +10,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG benchmark performance hardware
+# TAG benchmark_performance performance_comparison hardware
 
 source("ESEUR_config.r")
 

@@ -6,9 +6,10 @@
 # Hadi Esmaeilzadeh and Ting Cao and Xi Yang and Stephen M. Blackburn and Kathryn S. McKinley
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
-
+#
+# TAG hardware_evolution hardware_scaling hardware_performance hardware_power
 
 source("ESEUR_config.r")
 

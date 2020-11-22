@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAGS experiment_people estimate tender_bid
+# TAG experiment_people estimate_variability tender_bid
 
 
 source("ESEUR_config.r")

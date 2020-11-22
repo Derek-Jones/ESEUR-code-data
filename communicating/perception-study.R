@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment_human estimation_visual
+# TAG experiment_human estimate_visual
 
 source("ESEUR_config.r")
 

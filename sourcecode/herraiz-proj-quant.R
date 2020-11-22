@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG SLOC projects_files projects_SLOC
+# TAG SLOC project_files project_SLOC project_evolution
 
 source("ESEUR_config.r")
 

@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG GCC language_extension builtin
+# TAG gcc_builtin language_extension
 
 source("ESEUR_config.r")
 

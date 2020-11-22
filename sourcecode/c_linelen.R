@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG line_tokens line_characters C_lines
+# TAG line_token line_characters C_LOC
 
 
 source("ESEUR_config.r")

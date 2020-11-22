@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG faults statistical-power
+# TAG fault_hardware-configuration fault_intermittent statistical-power
 
 
 source("ESEUR_config.r")

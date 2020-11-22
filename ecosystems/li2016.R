@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG Android API evolution_releases
+# TAG Android_API API_evolution API_inaccessible evolution_releases
 
 
 source("ESEUR_config.r")

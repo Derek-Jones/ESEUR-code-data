@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG bug_bounties faults country money
+# TAG bug-bounty fault country_money
 
 
 source("ESEUR_config.r")

@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG fault source-file developers project survival
+# TAG fault source-file_survival developer survival
 
 source("ESEUR_config.r")
 

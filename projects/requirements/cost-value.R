@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG requirements_prioritizing cost-value_prioritize
+# TAG requirements_priority cost-value_priority
 
 
 source("ESEUR_config.r")

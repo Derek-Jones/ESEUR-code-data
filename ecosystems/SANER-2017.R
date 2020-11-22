@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG npm_dependencies CRAN_dependencies RubyGEMS_dependencies
+# TAG NPM_dependency CRAN_dependency RubyGems_dependency
 
 source("ESEUR_config.r")
 

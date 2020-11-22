@@ -7,7 +7,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG Stack-Overflow_tag language_tag
+# TAG Stackoverflow_tag language_tag
 
 source("ESEUR_config.r")
 

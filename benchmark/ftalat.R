@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment_hardware CPU_frequency CPU_DVFS
+# TAG experiment_hardware cpu_frequency cpu_DVFS
 
 source("ESEUR_config.r")
 

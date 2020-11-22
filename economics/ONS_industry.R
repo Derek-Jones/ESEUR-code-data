@@ -10,7 +10,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG software-UK software-own software-cost industry-software
+# TAG software_UK software_own software_cost software_industry
 
 source("ESEUR_config.r")
 

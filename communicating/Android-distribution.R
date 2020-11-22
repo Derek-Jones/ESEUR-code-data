@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG Android market-share ecosystem
+# TAG Android_ecosystem Android_market-share
 
 
 source("ESEUR_config.r")

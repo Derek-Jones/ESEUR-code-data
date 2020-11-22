@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAGS variable runtime
+# TAG variable_read variable_write runtime
 
 
 source("ESEUR_config.r")

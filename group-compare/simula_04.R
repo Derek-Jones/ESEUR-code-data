@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG estimate_effort overconfidence project_estimation
+# TAG estimate_effort overconfidence project_estimate
 
 
 source("ESEUR_config.r")

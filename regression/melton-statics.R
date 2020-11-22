@@ -7,8 +7,11 @@
 # Hayden Melton and Ewan Tempero
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG Java member_static member_cycle
+
 
 source("ESEUR_config.r")
 

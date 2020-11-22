@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG Dependencies_make file_length
+# TAG dependency_make file_length
 
 source("ESEUR_config.r")
 

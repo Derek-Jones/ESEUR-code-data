@@ -7,7 +7,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG example correlation_serial
+# TAG example_serial-correlation correlation_serial
 
 
 source("ESEUR_config.r")

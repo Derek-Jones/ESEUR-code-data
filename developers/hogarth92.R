@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment_human belief learning
+# TAG experiment_human learning_belief learning_incentive
 
 
 source("ESEUR_config.r")

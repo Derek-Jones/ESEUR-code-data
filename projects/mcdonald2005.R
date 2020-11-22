@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG estimation_cost experiment_developer
+# TAG estimate_cost experiment_developer project_planning
 
 
 source("ESEUR_config.r")

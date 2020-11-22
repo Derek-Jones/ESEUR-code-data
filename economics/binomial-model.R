@@ -7,7 +7,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG Example binomial-model
+# TAG example_model binomial-model
 
 
 source("ESEUR_config.r")

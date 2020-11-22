@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment_human experiment_software testing coverage
+# TAG experiment_human experiment_software testing_coverage
 
 source("ESEUR_config.r")
 

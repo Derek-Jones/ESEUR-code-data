@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG DRAM_shipped evolution_memory product_shipments
+# TAG dram_shipped evolution_memory product_shipments
 
 
 source("ESEUR_config.r")

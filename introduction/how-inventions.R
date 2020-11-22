@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG transport_air transport_land speed year
+# TAG transport_air transport_land transport_speed invention_year
 
 
 source("ESEUR_config.r")

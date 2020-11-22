@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG system_lifetime staffing system_rewrite
+# TAG system_lifetime project_staffing system_rewrite
 
 
 source("ESEUR_config.r")

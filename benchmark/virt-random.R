@@ -6,7 +6,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG benchmark C++ compiler
+# TAG benchmark_compiler C++_compiler
 
 
 source("ESEUR_config.r")

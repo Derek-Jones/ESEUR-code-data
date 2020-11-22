@@ -5,8 +5,11 @@
 # Bharathan Balaji and John McCullough and Rajesh K. Gupta and Yuvraj Agarwal
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG power_variability cpu_power
+
 
 source("ESEUR_config.r")
 

@@ -5,8 +5,11 @@
 # Christopher M. Lott
 # 
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG experiment_human fault_found
+
 
 source("ESEUR_config.r")
 

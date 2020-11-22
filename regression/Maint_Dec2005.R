@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG maintenance_estimating
+# TAG maintenance_estimate estimate_accuracy task_estimate
 
 
 source("ESEUR_config.r")

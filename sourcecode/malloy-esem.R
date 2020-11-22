@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG python evolution compatibility applications
+# TAG Python_evolution Python_compatibility Python_application
 
 source("ESEUR_config.r")
 

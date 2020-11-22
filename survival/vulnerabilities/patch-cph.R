@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG release fault-survival vendor 
+# TAG release_patch fault_survival vendor_patch-release
 
 source("ESEUR_config.r")
 

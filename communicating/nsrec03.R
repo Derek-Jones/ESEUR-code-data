@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG cosmic-ray hardware fault memory
+# TAG fault_cosmic-ray hardware_fault memory_fault
 
 
 source("ESEUR_config.r")

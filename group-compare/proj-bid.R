@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG project economics bidding
+# TAG project_bidding project_economics
 
 
 source("ESEUR_config.r")

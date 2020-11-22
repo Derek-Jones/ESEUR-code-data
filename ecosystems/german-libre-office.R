@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG comments_German source-code_German
+# TAG comment_German source-code_German
 
 
 source("ESEUR_config.r")

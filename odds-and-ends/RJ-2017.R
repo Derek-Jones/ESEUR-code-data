@@ -10,7 +10,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG differential-equation Bass-model sales
+# TAG differential-equation sales_Bass-model
 
 source("ESEUR_config.r")
 

@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG commits_evolution files_number
+# TAG commit_evolution file_number
 
 source("ESEUR_config.r")
 

@@ -6,8 +6,11 @@
 # Santiago Gala-P{\'e}rez and Gregorio Robles and Jes{\'u}s M. Gonz{\'a}lez-Barahona and Israel Herraiz
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG project_evolution software_metric Apache_project
+
 
 source("ESEUR_config.r")
 

@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG benchmark MPI
+# TAG benchmark_MPI benchmark_reproducible
 
 
 source("ESEUR_config.r")

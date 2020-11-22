@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG formal-specification function-point C Haskell size
+# TAG formal-specification function-point C_size Haskell_size
 
 
 source("ESEUR_config.r")

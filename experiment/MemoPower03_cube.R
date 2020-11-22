@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment performance SPEC hardware-characteristics
+# TAG experiment_hardware hardware_performance SPEC hardware_characteristics
 
 
 source("ESEUR_config.r")

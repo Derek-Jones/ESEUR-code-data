@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment_human requirements_prioritisation
+# TAG experiment_human requirements_priority
 
 
 source("ESEUR_config.r")

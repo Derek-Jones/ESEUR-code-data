@@ -10,7 +10,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment estimation country gender LOC anchoring
+# TAG experiment_human estimate_bias estimate_country estimate_gender LOC estimate_anchoring
 
 
 source("ESEUR_config.r")

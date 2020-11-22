@@ -7,7 +7,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG example simulate_preferential-attachment
+# TAG example simulation_preferential-attachment
 
 # Simulate preferential attachment process
 #

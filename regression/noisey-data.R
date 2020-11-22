@@ -7,7 +7,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG Example ratio-test
+# TAG example_model ratio-test
 
 source("ESEUR_config.r")
 

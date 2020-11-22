@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment_human Eureka-problem word-association
+# TAG experiment_human Eureka-problem word_association
 
 source("ESEUR_config.r")
 

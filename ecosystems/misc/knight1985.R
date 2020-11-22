@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG benchmark hardware performance 1960 1970
+# TAG benchmark_hardware hardware_performance benchmark_1960 benchmark_1970
 
 source("ESEUR_config.r")
 

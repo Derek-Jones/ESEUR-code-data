@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG source-code_evolution file-similarity FreeBSD NetBSD OpenBSD LOC_added LOC_deleted
+# TAG source-code_evolution file_similarity FreeBSD NetBSD OpenBSD LOC_added LOC_deleted
 
 source("ESEUR_config.r")
 

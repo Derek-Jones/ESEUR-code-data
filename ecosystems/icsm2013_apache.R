@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG Java evolution dependencies methods classes projects
+# TAG Java_project evolution dependency_evolution method_dependency class_dependency project_evolution
 
 
 source("ESEUR_config.r")

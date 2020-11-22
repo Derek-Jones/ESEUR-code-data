@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG Debian_packages packages_installations packages_age
+# TAG Debian_package package_installation package_age
 
 
 source("ESEUR_config.r")

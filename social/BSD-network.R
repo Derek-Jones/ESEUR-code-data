@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG BSD_interaction BSD_bug-fixing bug-fixxing_interaction
+# TAG BSD_interaction BSD_bug-fixing bug-fixing_interaction
 
 
 source("ESEUR_config.r")

@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG Ada Fortran design coding testing
+# TAG Ada Fortran effort_design effort_coding effort_testing
 
 
 source("ESEUR_config.r")

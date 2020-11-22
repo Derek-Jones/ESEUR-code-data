@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG Smalltalk class data-extension extension hierarchy source-code
+# TAG Smalltalk class_extension data_extension class_hierarchy source-code_Smalltalk
 
 
 source("ESEUR_config.r")

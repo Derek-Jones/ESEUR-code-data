@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment human social-conformity decision
+# TAG experiment_human social_conformity decision-making
 
 
 source("ESEUR_config.r")

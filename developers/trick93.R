@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment_human attention respones-time
+# TAG experiment_human visual_attention human_response-time
 
 
 source("ESEUR_config.r")

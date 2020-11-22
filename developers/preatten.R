@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG example vision attention
+# TAG example_vision visual_attention
 
 source("ESEUR_config.r")
 

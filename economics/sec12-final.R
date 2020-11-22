@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG advertising app_store Google Amazon
+# TAG advertising AppStore_advertising Google_AppStore Amazon
 
 
 source("ESEUR_config.r")

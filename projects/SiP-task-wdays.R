@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG Agile tasks duration_days company
+# TAG Agile_estimate task_estimate task_actual task_duration data_company
 
 source("ESEUR_config.r")
 

@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available dat
 # Derek M. Jones
 #
-# TAG experiment human error time interruption
+# TAG experiment_human error_human interruption_length
 
 
 source("ESEUR_config.r")

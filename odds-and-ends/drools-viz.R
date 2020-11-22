@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG API method-calls
+# TAG API_mining method_call call_sequence-mining
 
 
 source("ESEUR_config.r")

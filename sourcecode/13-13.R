@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG LLVM compile SPEC optimization function basic-block instructions parameters
+# TAG LLVM compile_cost-analysis SPEC compiler_optimization JIT_function JIT_basic-block JIT_instructions JIT_parameter
 
 
 source("ESEUR_config.r")

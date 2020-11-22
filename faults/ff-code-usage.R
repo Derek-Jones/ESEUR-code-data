@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG firefox_code-usage end-user_usage code_usage
+# TAG Firefox_code-usage end-user_usage source-code_usage
 
 
 source("ESEUR_config.r")

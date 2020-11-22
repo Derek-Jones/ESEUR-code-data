@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment_software reliability input
+# TAG experiment_software reliability user_input
 
 source("ESEUR_config.r")
 

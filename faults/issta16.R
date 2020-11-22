@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG compiler_fault GCC_fault LLVM_fault fault_duplicate
+# TAG compiler_fault gcc_fault LLVM_fault fault_duplicate
 
 source("ESEUR_config.r")
 

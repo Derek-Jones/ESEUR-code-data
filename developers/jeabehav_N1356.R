@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment_rat number-line_rat
+# TAG experiment_human experiment_rat number-line_rat
 
 source("ESEUR_config.r")
 

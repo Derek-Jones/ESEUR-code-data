@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG number_word English_word Russian_word Italian_word
+# TAG number_word word_number word_English word_Russian word_Italian
 
 
 source("ESEUR_config.r")

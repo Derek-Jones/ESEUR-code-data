@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG computer_memory-size computer_processor-speed
+# TAG computer_memory-size computer_processor-speed application_performance
 
 
 source("ESEUR_config.r")

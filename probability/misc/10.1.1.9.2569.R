@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG file-size
+# TAG file_size size_distribution
 
 source("ESEUR_config.r")
 

@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG python_tool python_call-graph tool_accuracy
+# TAG Python_tool Python_call-graph tool_accuracy
 
 
 source("ESEUR_config.r")

@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG source_code conditions Java
+# TAG source_code_predicates conditions_clauses mobile_application Swift_application Objective-C_application
 
 source("ESEUR_config.r")
 

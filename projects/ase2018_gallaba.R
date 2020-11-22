@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG Travis build_CI build_jobs build_failure
+# TAG Travis-CI build_CI build_jobs build_failure
 
 
 source("ESEUR_config.r")

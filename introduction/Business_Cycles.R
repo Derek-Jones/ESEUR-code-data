@@ -8,8 +8,11 @@
 # which contains much less data
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG business_cycle
+
 
 source("ESEUR_config.r")
 

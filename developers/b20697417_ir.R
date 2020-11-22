@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment developers project learning performance reimplementation-time
+# TAG experiment_human developer_productivity pair-programming_learning human_performance reimplementation-time
 
 
 source("ESEUR_config.r")

@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG mysql_options configuration_options
+# TAG mysql_option configuration_option
 
 
 source("ESEUR_config.r")

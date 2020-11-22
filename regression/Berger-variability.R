@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG feature build
+# TAG feature_model build_variability
 
 source("ESEUR_config.r")
 

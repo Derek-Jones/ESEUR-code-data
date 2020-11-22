@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG SPEC benchmark
+# TAG SPEC benchmark_SPEC
 
 
 source("ESEUR_config.r")

@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG compiler source-code tokens halstead ADA
+# TAG compile-time_prediction source-code_token Halstead_use Ada_compiler
 
 
 source("ESEUR_config.r")

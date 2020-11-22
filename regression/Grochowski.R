@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG hard-disk_density
+# TAG hard-disc_density memory_NAND
 
 source("ESEUR_config.r")
 

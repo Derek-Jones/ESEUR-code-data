@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG work-items_started
+# TAG work-item_started
 
 
 source("ESEUR_config.r")

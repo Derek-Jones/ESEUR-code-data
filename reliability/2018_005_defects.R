@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG project_phases project_mistakes mistake_costs mistake_time
+# TAG project_phases project_mistake mistake_cost mistake_time
 
 source("ESEUR_config.r")
 

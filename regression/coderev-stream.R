@@ -9,8 +9,10 @@
 # Derek M. Jones, http://shape-of-code.coding-guidelines.com
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG experiment_human code-review_security
 
 source("ESEUR_config.r")
 

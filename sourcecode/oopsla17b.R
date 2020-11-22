@@ -7,10 +7,10 @@
 # To reduce file size,
 # the 9,157,622 points were sampled to produce 1,000,000 points.
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG github python source-code clone project file
+# TAG Github Python source-code_clone project file
 
 
 source("ESEUR_config.r")

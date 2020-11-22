@@ -11,7 +11,7 @@
 #
 # Evidence-based Software Engineering: based on the publicly available data
 #
-# TAG change-control pull-requests
+# TAG change-control pull-request
 
 
 source("ESEUR_config.r")

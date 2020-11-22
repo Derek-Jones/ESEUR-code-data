@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG source methods sloc C Java
+# TAG source-code_SLOC method SLOC C Java
 
 
 source("ESEUR_config.r")

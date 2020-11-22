@@ -5,8 +5,11 @@
 # R. F. Tsao and L. W. Comeau and B. H. Margolin
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG experiment_software algorithm_performance algorithm_paging
+
 
 source("ESEUR_config.r")
 

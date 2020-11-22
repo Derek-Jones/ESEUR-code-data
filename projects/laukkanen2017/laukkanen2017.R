@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG commercial_project project_freeze project_deploy commits release
+# TAG commercial_project project_freeze project_deploy commit_frequency release_continuous
 
 source("ESEUR_config.r")
 

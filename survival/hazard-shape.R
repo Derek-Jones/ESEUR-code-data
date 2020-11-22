@@ -1,12 +1,13 @@
 #
 # hazard-shape.R,  3 Oct 18
 # Data from:
+# Example
 #
 # Example from:
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG example
+# TAG example_probability-distribution
 
 source("ESEUR_config.r")
 

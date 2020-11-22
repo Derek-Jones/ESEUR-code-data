@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG example circular bootstrap
+# TAG example_circular-statistics bootstrap_circular-statistics
 
 
 UGsq = function (mtots)

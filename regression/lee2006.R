@@ -6,8 +6,11 @@
 # Benjamin C. Lee and David M. Brooks
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG performance_model power_model model_regression cpu_model
+
 
 source("ESEUR_config.r")
 

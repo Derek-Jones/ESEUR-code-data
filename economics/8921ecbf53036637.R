@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment_human group-size
+# TAG experiment_human group_size
 
 
 source("ESEUR_config.r")

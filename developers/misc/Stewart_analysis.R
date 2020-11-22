@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment_human utility-function time-discounting
+# TAG experiment_human utility-function time_discounting
 
 source("ESEUR_config.r")
 

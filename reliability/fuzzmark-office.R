@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG Microsoft_Word fuzzing_Word Crash_frequency
+# TAG Microsoft_Word fuzzing_Word crash_frequency
 
 
 source("ESEUR_config.r")

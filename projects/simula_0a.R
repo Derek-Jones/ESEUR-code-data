@@ -7,8 +7,10 @@
 # Kjetil Mol{\o}kken-{\O}stvold and Kristian Marius Furulund
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG project_overrun customer_collaboration
 
 source("ESEUR_config.r")
 

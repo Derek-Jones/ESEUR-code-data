@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG processor_embedded processor_sales evolution_sales
+# TAG cpu_embedded cpu_sales evolution_sales
 
 
 source("ESEUR_config.r")

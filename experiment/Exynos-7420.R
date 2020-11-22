@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment cpu-power cpu-frequency cpu-voltage
+# TAG experiment_hardware cpu_power cpu_frequency cpu_voltage
 
 source("ESEUR_config.r")
 

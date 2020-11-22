@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG requirement_cost function-point_cost story-point_cost
+# TAG requirements_cost function-point_cost story-point_cost
 
 source("ESEUR_config.r")
 

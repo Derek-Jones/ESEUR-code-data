@@ -10,7 +10,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG benchmark cpu-cache
+# TAG benchmark_cpu-cache performance_model benchmark_improve cpu_multicore
 
 source("ESEUR_config.r")
 

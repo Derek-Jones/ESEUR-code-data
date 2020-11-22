@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG maintenance_time development_time function-points lifecycle_costs COTS_lifecycle
+# TAG maintenance_time development_time function-point lifecycle_cost COTS_lifecycle
 
 
 source("ESEUR_config.r")

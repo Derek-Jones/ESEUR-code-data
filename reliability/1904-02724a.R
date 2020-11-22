@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG bounty_money-offered fault-report_bountry
+# TAG bug-bounty_money-offered fault-report_bug-bountry
 
 source("ESEUR_config.r")
 

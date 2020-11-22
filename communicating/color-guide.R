@@ -7,7 +7,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG example_colors
+# TAG example_color
 
 
 source("ESEUR_config.r")

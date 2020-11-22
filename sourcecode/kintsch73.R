@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG Example reading_Example comprehension_Example recall_Example
+# TAG example_experiment reading_example comprehension_example recall_example
 
 
 source("ESEUR_config.r")

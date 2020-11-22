@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG Java dependency-cycles
+# TAG Java dependency_cycles
 
 
 source("ESEUR_config.r")

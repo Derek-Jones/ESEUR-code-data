@@ -1,12 +1,13 @@
 #
 # power-trade-off.R, 15 Aug 16
 # Data from:
+# Example
 #
 # Example from:
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG example statistical_power
+# TAG example_statistics statistical-power
 
 
 source("ESEUR_config.r")

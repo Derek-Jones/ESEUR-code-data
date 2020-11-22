@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG files_pdf pdf_evolution
+# TAG file_pdf pdf_evolution
 
 
 source("ESEUR_config.r")

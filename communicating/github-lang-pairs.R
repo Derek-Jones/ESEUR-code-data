@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG programming-language popularity github language-pairs
+# TAG programming-language language_popularity Github language_pair
 
 
 source("ESEUR_config.r")

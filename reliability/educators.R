@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG student_mistakes educator_beliefs
+# TAG student_mistake educator_belief
 
 source("ESEUR_config.r")
 

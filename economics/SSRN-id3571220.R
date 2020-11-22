@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment_human social-norm_punishing free-riding_punishing
+# TAG experiment_human social_norm social_punishing free-riding_punishing
 
 source("ESEUR_config.r")
 

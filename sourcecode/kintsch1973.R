@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment reading performance
+# TAG experiment_human reading performance
 
 
 source("ESEUR_config.r")

@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment_human keyboard menue
+# TAG experiment_human keyboard_shortcut menu_selection
 
 
 source("ESEUR_config.r")

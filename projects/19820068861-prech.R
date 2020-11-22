@@ -14,7 +14,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment developers fault-finding
+# TAG experiment_human debugging fault_finding
 
 source("ESEUR_config.r")
 

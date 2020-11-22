@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG benchmark price cpu product_introduction
+# TAG benchmark_price cpu_laptop product_introduction
 
 
 source("ESEUR_config.r")

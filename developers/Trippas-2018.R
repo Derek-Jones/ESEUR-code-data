@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment_human reasoning_syllogism bias_human reasoning _bias
+# TAG experiment_human reasoning_syllogism bias_human reasoning_bias
 
 source("ESEUR_config.r")
 

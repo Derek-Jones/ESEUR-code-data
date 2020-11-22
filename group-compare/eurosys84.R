@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG hardware failure cpu dram
+# TAG hardware_failure cpu_failure dram_failure
 
 
 source("ESEUR_config.r")

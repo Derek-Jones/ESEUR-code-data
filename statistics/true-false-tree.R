@@ -7,7 +7,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG example sample_example statistical-power_example
+# TAG example_sample example_statistical-power
 
 
 source("ESEUR_config.r")

@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG POSIX_functions Android_Apps Ubuntu_packages
+# TAG POSIX_function Android_App Ubuntu_package
 
 
 source("ESEUR_config.r")

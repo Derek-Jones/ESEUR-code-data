@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG C function_parameters global_accesses
+# TAG C function_parameter global_access feature_dependencies
 
 
 source("ESEUR_config.r")

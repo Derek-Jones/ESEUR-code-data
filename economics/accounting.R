@@ -5,8 +5,11 @@
 # Gio Wiederhold
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG software_economics company_economics
+
 
 source("ESEUR_config.r")
 

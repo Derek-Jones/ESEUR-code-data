@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment_human experiment_software fuzzing fault-experiences LLVM
+# TAG experiment_human experiment_software fuzzing_compiler fault-experience LLVM
 
 source("ESEUR_config.r")
 

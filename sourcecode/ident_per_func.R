@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering using R
 # Derek M. Jones
 #
-# TAG C identifiers functions
+# TAG C identifier_C function
 
 
 source("ESEUR_config.r")

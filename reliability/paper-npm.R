@@ -11,10 +11,12 @@
 # which I did not track down.  So column output was multiplied by 30; also
 # the first (unused) column was deleted.
 # 
-#
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG NPM_package package_dependency NPM_vulnerability
+
 
 source("ESEUR_config.r")
 

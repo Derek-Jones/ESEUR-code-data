@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG commit_week-day Linux_commits OpenBSD_commits faults
+# TAG commit_week-day Linux_commit OpenBSD_commit fault_time-of-day
 
 
 source("ESEUR_config.r")

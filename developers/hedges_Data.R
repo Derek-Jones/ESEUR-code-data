@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG number language word-hedge experiment human
+# TAG number_word word_number language word_hedge experiment_human
 
 
 source("ESEUR_config.r")

@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG hardware-error compiler optimization
+# TAG hardware_error compiler_optimization error_detection
 
 
 source("ESEUR_config.r")

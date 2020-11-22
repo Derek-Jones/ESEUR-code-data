@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG feature_changes Linux_changes feature_files
+# TAG feature_change Linux_change feature_file
 
 
 source("ESEUR_config.r")

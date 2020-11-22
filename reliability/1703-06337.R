@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG fault_duplicate KDE_fault-report
+# TAG fault-report_duplicate KDE_fault-report
 
 
 source("ESEUR_config.r")

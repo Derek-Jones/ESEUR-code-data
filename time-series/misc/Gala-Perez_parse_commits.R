@@ -1,6 +1,6 @@
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #!/usr/bin/Rscript --save
 # R process for a project

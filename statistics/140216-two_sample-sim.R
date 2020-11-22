@@ -8,6 +8,9 @@
 # Example from:
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG third-party_code
+
 
 #Two_mean_simulation
 require(MASS)

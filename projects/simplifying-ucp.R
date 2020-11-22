@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG estimating use-case-points
+# TAG estimate_effort use-case-points
 
 source("ESEUR_config.r")
 

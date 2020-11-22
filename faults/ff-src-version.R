@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG firefox_version-source source-code_version firefox_LOC
+# TAG Firefox_version-source source-code_version Firefox_LOC
 
 
 source("ESEUR_config.r")

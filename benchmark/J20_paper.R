@@ -6,8 +6,11 @@
 # Mark Gottscho and Abde Ali Kagalwalla and Puneet Gupta
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG dram_variability dram_power
+
 
 source("ESEUR_config.r")
 

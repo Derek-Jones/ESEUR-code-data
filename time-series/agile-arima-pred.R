@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG agile_feature feature_duration
+# TAG Agile_feature feature_duration
 
 
 source("ESEUR_config.r")

@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG mainframe_age ecosystems_mainframe
+# TAG mainframe_age ecosystem_mainframe
 
 
 source("ESEUR_config.r")

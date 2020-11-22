@@ -8,7 +8,7 @@
 # Empirical Software Engineering using R
 # Derek M. Jones
 #
-# TAG agile, user-stories projects development
+# TAG Agile_user-stories project_user-stories development
 
 
 source("ESEUR_config.r")

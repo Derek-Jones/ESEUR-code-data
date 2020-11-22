@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG Java token-sequence clone_sequence-length
+# TAG Java token_sequence clone_sequence-length
 
 source("ESEUR_config.r")
 

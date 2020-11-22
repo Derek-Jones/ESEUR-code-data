@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG Java_thread-safety test_thread-safety
+# TAG Java_thread-safety testing_thread-safety
 
 
 source("ESEUR_config.r")

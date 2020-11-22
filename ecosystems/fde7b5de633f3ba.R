@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG operating-system_memory operating-system_devices devices_memory
+# TAG operating-system_memory operating-system_device device_memory
 
 
 source("ESEUR_config.r")

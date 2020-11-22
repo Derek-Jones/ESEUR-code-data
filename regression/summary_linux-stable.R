@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG Linux_updates LOC evolution developers Linux_2012
+# TAG Linux_updates LOC_evolution developer Linux_2012
 
 source("ESEUR_config.r")
 

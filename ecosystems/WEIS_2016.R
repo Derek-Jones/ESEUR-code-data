@@ -11,7 +11,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG bug-bounties developer_economics
+# TAG bug-bounty developer_economics
 
 source("ESEUR_config.r")
 

@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment_human estimation_cost planning-poker delphi
+# TAG experiment_human estimate_cost estimate_planning-poker estimate_delphi
 
 
 source("ESEUR_config.r")

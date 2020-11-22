@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG hardware_soft-error memory_bitflip cosmic-rays
+# TAG hardware_soft-error memory_bitflip cosmic-ray
 
 source("ESEUR_config.r")
 

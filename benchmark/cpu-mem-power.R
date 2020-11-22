@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG benchmark cpu memory power
+# TAG benchmark_power cpu_power memory_power power_management
 
 
 source("ESEUR_config.r")

@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG C tool sales documentation product
+# TAG C tool_sales documentation_product
 
 
 source("ESEUR_config.r")

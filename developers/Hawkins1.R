@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment_human response-time error-rate decision-making_response-time
+# TAG experiment_human response-time error_rate decision-making_response-time
 
 source("ESEUR_config.r")
 

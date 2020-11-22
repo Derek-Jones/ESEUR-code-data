@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG benchmark hard_disc performance
+# TAG benchmark_hard-disc hard-disc_performance
 
 
 source("ESEUR_config.r")

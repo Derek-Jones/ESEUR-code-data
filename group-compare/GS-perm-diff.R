@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment developer performance
+# TAG experiment_human developer_performance developer_variability
 
 
 source("ESEUR_config.r")

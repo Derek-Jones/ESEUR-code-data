@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG Java method call-sequence source-usage
+# TAG Java method_diversity call-sequence source-code_usage source-code_diversity
 
 
 source("ESEUR_config.r")

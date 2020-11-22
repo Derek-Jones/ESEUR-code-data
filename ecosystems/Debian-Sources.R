@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG Debian_releases languages_sloc SLOC
+# TAG Debian_release language_sloc SLOC
 
 
 source("ESEUR_config.r")

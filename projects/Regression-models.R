@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG estimate_effort estimate_actual
+# TAG estimate_effort estimate_actual estimate_bias
 
 
 source("ESEUR_config.r")

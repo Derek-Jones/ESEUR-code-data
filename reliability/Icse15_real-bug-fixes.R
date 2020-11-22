@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG fault_files file_changes
+# TAG fault_file file_change
 
 source("ESEUR_config.r")
 

@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG user-options Chrome_Google File_user-options
+# TAG user-option Chrome_Google file_user-option
 
 source("ESEUR_config.r")
 

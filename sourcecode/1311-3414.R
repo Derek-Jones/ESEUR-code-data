@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG Java source_evolution code_added code_deleted code_modified
+# TAG Java source-code_evolution code_added code_deleted code_modified
 
 source("ESEUR_config.r")
 

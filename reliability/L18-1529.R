@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment_human adjective_gradable
+# TAG experiment_human adjective_gradable word_gradable
 
 source("ESEUR_config.r")
 

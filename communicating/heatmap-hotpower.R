@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG Intel cache performance clock-frequency cpu-core x86
+# TAG memory_cache memory_performance cpu_frequency cpu_core x86_analysis
 
 
 source("ESEUR_config.r")

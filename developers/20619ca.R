@@ -11,7 +11,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment human subjects memory
+# TAG experiment_human human_memory recall_memory
 
 source("ESEUR_config.r")
 

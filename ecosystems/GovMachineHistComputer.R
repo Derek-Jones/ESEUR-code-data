@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG government hardware card office-equipement
+# TAG government_hardware office-equipement_card
 
 source("ESEUR_config.r")
 

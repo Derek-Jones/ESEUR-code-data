@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG benchmark_performance Mozilla_performance performation_variation
+# TAG benchmark_performance Firefox_performance performance_variation
 
 
 source("ESEUR_config.r")

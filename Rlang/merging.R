@@ -5,8 +5,11 @@
 # Data from the top500.org web site, November of every year
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG supercomputer
+
 
 source("ESEUR_config.r")
 

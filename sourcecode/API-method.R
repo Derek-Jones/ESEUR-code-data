@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG Java API method_calls project calls_number calls_distinct
+# TAG Java_API API_usage method_call project call_number call_distinct Java_AST
 
 
 source("ESEUR_config.r")

@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG variables_C types_C functions_C LOC_global-variable variable_globals
+# TAG variable_C type_C function_C LOC_global-variable variable_global
 
 source("ESEUR_config.r")
 

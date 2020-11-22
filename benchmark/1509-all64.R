@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG benchmark array algorithm-searching
+# TAG benchmark_array-layout array-layout algorithm_searching
 
 
 source("ESEUR_config.r")

@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG development-costs_capitalization accounting-practices software_accounting
+# TAG development_costs development_capitalization accounting_practices software_accounting
 
 
 source("ESEUR_config.r")

@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG sentence experiment reading recall
+# TAG sentence experiment_human reading recall
 
 
 source("ESEUR_config.r")

@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG commit_time-of-day faults_time-of-day
+# TAG commit_time-of-day fault_time-of-day
 
 
 source("ESEUR_config.r")

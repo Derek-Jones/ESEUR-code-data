@@ -6,8 +6,10 @@
 # Tegawend\'{e} F. Bissyand\'{e} and Ferdian Thung and David Lo and Lingxiao Jiang and Laurent R\'{e}veill\`{e}re
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG language_popularity
 
 source("ESEUR_config.r")
 

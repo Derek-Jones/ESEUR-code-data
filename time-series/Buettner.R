@@ -6,8 +6,10 @@
 # Douglas John Buettner
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG acquisition_software-system game-theory
 
 
 source("ESEUR_config.r")

@@ -6,8 +6,10 @@
 # Jon Eyolfson and Lin Tan and Patrick Lam
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG commit_week-day Linux_commit OpenBSD_commit fault_time-of-day
 
 
 source("ESEUR_config.r")

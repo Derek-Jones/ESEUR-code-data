@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG statement_mistake error_path statements_number-executed
+# TAG statement_mistake error_path statement_number-executed
 
 source("ESEUR_config.r")
 

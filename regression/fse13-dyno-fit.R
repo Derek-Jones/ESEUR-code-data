@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG testing_human testing_tool Android_Apps App_testing coverage_testing
+# TAG testing_human testing_tool Android_App App_testing coverage_testing
 
 
 source("ESEUR_config.r")

@@ -6,8 +6,11 @@
 # AD0766061, July 1970
 #
 # Example from:
-# Empirical Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
+#
+# TAG benchmark_sorting cost_sorting computer_job
+
 
 source("ESEUR_config.r")
 

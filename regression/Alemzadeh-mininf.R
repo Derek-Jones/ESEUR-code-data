@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG fault hardware-recall safety-critical medical
+# TAG fault hardware_recall safety-critical medical
 
 source("ESEUR_config.r")
 

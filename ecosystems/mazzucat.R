@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG company_startup company_fail car PC
+# TAG company_startup company_fail automobile_industry PC_industry
 
 
 source("ESEUR_config.r")

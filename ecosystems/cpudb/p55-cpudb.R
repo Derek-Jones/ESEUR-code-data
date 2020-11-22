@@ -11,7 +11,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG cpu_transistors frequency_evolution CPU_characteristics device_fabrication
+# TAG cpu_transistors frequency_evolution cpu_characteristics device_fabrication
 
 
 source("ESEUR_config.r")

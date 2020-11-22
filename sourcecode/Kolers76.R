@@ -5,10 +5,10 @@
 # Paul A. Kolers
 #
 # Example from:
-# Evidence-based Software Engineering using R
+# Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG experiment human reading learning
+# TAG experiment_human reading learning_reading
 
 
 source("ESEUR_config.r")

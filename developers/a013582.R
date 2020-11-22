@@ -8,7 +8,7 @@
 # Empirical Software Engineering using R
 # Derek M. Jones
 #
-# TAG cognition debugging experiment LOC
+# TAG cognition debugging experiment_human LOC
 
 
 source("ESEUR_config.r")

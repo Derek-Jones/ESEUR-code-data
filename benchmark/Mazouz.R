@@ -9,7 +9,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG benchmark OpenMP multicore
+# TAG benchmark_OpenMP benchmark_multicore
 
 
 source("ESEUR_config.r")

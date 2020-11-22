@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG NPM CRAN RubyGems licensing packages
+# TAG NPM_package CRAN_package RubyGems_package licensing package_licensing
 
 
 source("ESEUR_config.r")

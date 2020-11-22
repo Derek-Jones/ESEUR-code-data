@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG pair-programming student professional
+# TAG experiment_human pair-programming experiment_student experiment_professional
 
 
 source("ESEUR_config.r")

@@ -9,7 +9,7 @@
 # Empirical Software Engineering using R
 # Derek M. Jones
 #
-# TAG experiment students source-code identifier control-flow
+# TAG experiment_human student_subjects source-code identifier control-flow
 
 source("ESEUR_config.r")
 

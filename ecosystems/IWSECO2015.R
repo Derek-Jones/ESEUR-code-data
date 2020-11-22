@@ -8,7 +8,7 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
-# TAG CRAN Bioconductor Github_R packages_R
+# TAG CRAN Bioconductor Github_R package_R
 
 
 source("ESEUR_config.r")
