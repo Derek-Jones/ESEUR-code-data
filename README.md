@@ -9,6 +9,8 @@ If you know of any software engineering data that you think should be included, 
 
 [Plots of the data](http://www.knosof.co.uk/ESEUR/figures/index.html).
 
+[Analysis of data](https://shape-of-code.com/2022/11/06/evidence-based-software-engineering-book-two-years-later/) found since November 2020, i.e., data that would probably have been included in version 1.
+
 To install all of the R library packages used by the code type:
 
   source("install.R")
