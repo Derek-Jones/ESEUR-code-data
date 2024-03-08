@@ -7,6 +7,10 @@ The code and data used to create the examples in "Evidence-based Software Engine
 
 If you know of any software engineering data that you think should be included, please let me know.
 
+[2023 data discovered since book published](https://shape-of-code.com/2023/11/05/evidence-based-software-engineering-book-the-last-year/)
+
+[2022 data discovered since book published](https://shape-of-code.com/2022/11/06/evidence-based-software-engineering-book-two-years-later/)
+
 [Plots of the data](http://www.knosof.co.uk/ESEUR/figures/index.html).
 
 [Analysis of data](https://shape-of-code.com/2022/11/06/evidence-based-software-engineering-book-two-years-later/) found since November 2020, i.e., data that would probably have been included in version 1.
