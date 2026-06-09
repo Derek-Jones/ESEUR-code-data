@@ -30,7 +30,7 @@ plot(ia$years, ia$books, log="xy", col=point_col,
 	xlab="Elapsed time (years)", ylab="Books published\n")
 
 iap_mod=glm(log(books) ~ log(years), data=ia)
-summary(ia_mod)
+summary(iap_mod)
 
 pred=predict(iap_mod)
 lines(ia$years, exp(pred), col=pal_col[1])
