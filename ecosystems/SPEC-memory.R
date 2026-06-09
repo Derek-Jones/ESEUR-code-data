@@ -8,6 +8,12 @@
 # Evidence-based Software Engineering: based on the publicly available data
 # Derek M. Jones
 #
+#
+#  4 Oct 20 Initial release
+#
+#  9 Jun 26 Updated
+# Added legend to plot
+#
 # TAG SPEC memory_capacity
 
 source("ESEUR_config.r")
@@ -146,4 +152,8 @@ points(mac$date, mac$RAM/1024, col="blue", pch="o")
 # summary(mac95_mod)
 # 
 # log(2)/log(1+coef(mac95_mod)[2])
+
+legend("bottomright", legend=c("SPEC benchmark", "MacIntosh systems"),
+                        fill=c(pal_col[2], "blue"), border="white", bty="n")
+
 
