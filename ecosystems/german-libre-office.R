@@ -1,8 +1,8 @@
 #
-# german-libre-office.R,  3 May 20
+# german-libre-office.R, 17 Jun 26
 #
 # Data from:
-# https://people.gnome.org/~michael/data/2015-08-01-5.5-data.ods
+# https://people.gnome.org/~michael/data/2017-12-20-data.ods
 # Michael Meeks
 #
 # Example from:
